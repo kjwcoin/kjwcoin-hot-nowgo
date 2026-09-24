@@ -57,7 +57,7 @@ export async function POST(req:Request,{params}:Ctx){
    if(!ownerStore)return reject(req,'NOWGO에서 매장 관리 권한을 확인한 뒤 공식 점주로 제보해 주세요.',403);
    shop=ownerStore.name;address=ownerStore.address;
   }
-  if(!/^[a-f0-9-]{36}$/.test(id)||!['customer','owner'].includes(role)||shop.length<2||shop.length>100||menu.length<2||menu.length>100||MENUS.some(x=>x.shop===shop)||!/^서울(?:특별시)?\s/.test(address)||address.length>200||!Number.isInteger(price)||price<100||price>1000000||!Number.isInteger(heat)||heat<1||heat>5||!FLAVORS.slice(1).includes(flavor)||note.length>1000||!/^\d{4}-\d{2}-\d{2}$/.test(observed)||!Number.isFinite(Date.parse(observed))||new Date(observed)>new Date()||new Date(observed).toISOString().slice(0,10)!==observed||get('rights')!=='yes'||get('accuracy')!=='yes'||!MENU_CATEGORIES.includes(category))return reject(req,'실제 가게 이름과 서울 주소, 가격, 확인 날짜, 사진 공개 동의를 확인해 주세요.',400);
+  if(!/^[a-f0-9-]{36}$/.test(id)||!['customer','owner'].includes(role)||shop.length<2||shop.length>100||menu.length<2||menu.length>100||MENUS.some(x=>x.shop===shop)||!/^인천(?:광역시)?\s+서해구\s/.test(address)||address.length>200||!Number.isInteger(price)||price<100||price>1000000||!Number.isInteger(heat)||heat<1||heat>5||!FLAVORS.slice(1).includes(flavor)||note.length>1000||!/^\d{4}-\d{2}-\d{2}$/.test(observed)||!Number.isFinite(Date.parse(observed))||new Date(observed)>new Date()||new Date(observed).toISOString().slice(0,10)!==observed||get('rights')!=='yes'||get('accuracy')!=='yes'||!MENU_CATEGORIES.includes(category))return reject(req,'실제 가게 이름과 인천 서해구 주소, 가격, 확인 날짜, 사진 공개 동의를 확인해 주세요.',400);
   const photo=form.get('photo');
   if(!(photo instanceof File)||photo.size===0||photo.size>2_000_000)return reject(req,'JPG·PNG·WebP 사진을 2MB 이하로 첨부해 주세요.',400);
   const bytes=new Uint8Array(await photo.arrayBuffer());
@@ -68,10 +68,10 @@ export async function POST(req:Request,{params}:Ctx){
   if(priorError)throw priorError;if(prior)return reply(req,prior);
   let lat:number|null=null,lng:number|null=null;
   const pointLat=Number(get('lat')),pointLng=Number(get('lng'));
-  if(get('lat')&&get('lng')&&Number.isFinite(pointLat)&&Number.isFinite(pointLng)&&pointLat>=37.3&&pointLat<=37.8&&pointLng>=126.7&&pointLng<=127.3){lat=pointLat;lng=pointLng}
-  if(ownerStore){lat=ownerStore.lat!==null&&ownerStore.lat>=37.3&&ownerStore.lat<=37.8?ownerStore.lat:null;lng=ownerStore.lng!==null&&ownerStore.lng>=126.7&&ownerStore.lng<=127.3?ownerStore.lng:null}
+  if(get('lat')&&get('lng')&&Number.isFinite(pointLat)&&Number.isFinite(pointLng)&&pointLat>=37.45&&pointLat<=37.65&&pointLng>=126.55&&pointLng<=126.75){lat=pointLat;lng=pointLng}
+  if(ownerStore){lat=ownerStore.lat!==null&&ownerStore.lat>=37.45&&ownerStore.lat<=37.65?ownerStore.lat:null;lng=ownerStore.lng!==null&&ownerStore.lng>=126.55&&ownerStore.lng<=126.75?ownerStore.lng:null}
   const restKey=process.env.KAKAO_MAP_REST_KEY;
-  if(restKey&&!ownerStore){try{const geo=await fetch('https://dapi.kakao.com/v2/local/search/address.json?query='+encodeURIComponent(address),{headers:{Authorization:'KakaoAK '+restKey},signal:AbortSignal.timeout(5000)});if(geo.ok){const g=await geo.json() as {documents:{x:string,y:string,address:{region_1depth_name:string}}[]};if(g.documents?.length===1&&g.documents[0].address?.region_1depth_name==='서울'){lat=Number(g.documents[0].y);lng=Number(g.documents[0].x)}}}catch{}}
+  if(restKey&&!ownerStore){try{const geo=await fetch('https://dapi.kakao.com/v2/local/search/address.json?query='+encodeURIComponent(address),{headers:{Authorization:'KakaoAK '+restKey},signal:AbortSignal.timeout(5000)});if(geo.ok){const g=await geo.json() as {documents:{x:string,y:string,address:{region_1depth_name:string}}[]};if(g.documents?.length===1&&g.documents[0].address?.region_1depth_name.includes('인천')&&g.documents[0].address?.region_2depth_name.includes('서해구')){lat=Number(g.documents[0].y);lng=Number(g.documents[0].x)}}}catch{}}
   const placeId=role==='owner'?'nowgo-'+storeId:'reported-'+(await sha(address+'|'+shop.replace(/\s/g,''))).slice(0,24);
   const path=id;
   const {error:insertError}=await client.from('hot_taste_observations').insert({id,user_id:user.id,role,nowgo_store_id:role==='owner'?storeId:null,phone,business_number:role==='owner'?businessNumber:null,place_id:placeId,menu_id:id,shop,menu,address,price,heat,flavor,category,observed_at:observed,note,lat,lng,photo_path:path,photo_mime:mime,status:'draft'});
