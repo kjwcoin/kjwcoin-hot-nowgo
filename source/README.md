@@ -23,6 +23,8 @@
 
 OAuth 허용 리디렉션 URL에는 `https://hot.nowgo.space/account/callback`을 정확히 추가해야 합니다. 미리보기 주소를 사용하면 해당 주소의 `/account/callback`도 허용해야 합니다. DNS는 HOT Vercel 프로젝트에 이미 연결되어 있습니다.
 
+Vercel 프로젝트 `hot-nowgo`는 이 저장소에 연결하며 Root Directory는 `source`, Framework Preset은 Next.js로 설정합니다. `main` 병합 전에는 PR 브랜치의 Preview 배포에서 화면과 API를 확인합니다.
+
 ## 로컬 확인
 
 `pnpm install --frozen-lockfile` 후 `pnpm build`; Node.js 22 이상. 인증 없는 화면과 API는 `pnpm dev`로 확인할 수 있습니다. DB는 `supabase/migrations`의 순서로 개발 프로젝트에서 검증하고 운영 프로젝트에 적용합니다. `node --experimental-strip-types --test tests/integration-policy.test.mjs`로 NOWGO 링크 신뢰 경계를 확인합니다.
