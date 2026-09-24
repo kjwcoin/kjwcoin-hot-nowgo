@@ -9,7 +9,7 @@ import {returnPath} from '@/lib/integration-policy';
 import {browserDb} from '@/lib/supabase-browser';
 type State={customer:{id:string;nickname:string;phoneMasked:string;phoneVerified:boolean}|null;points:number|null;level:typeof LEVELS[number];auth:{ready:boolean;accountUrl:string|null};consentRequired:boolean};
 export default function CustomerPanel(){
- const [open,setOpen]=useState(false),[data,setData]=useState<State|null>(null),[error,setError]=useState(''),[busy,setBusy]=useState(false),[returnTo,setReturnTo]=useState('/map');
+ const [open,setOpen]=useState(false),[data,setData]=useState<State|null>(null),[error,setError]=useState(''),[busy,setBusy]=useState(false),[returnTo,setReturnTo]=useState('/');
  async function refresh(){try{setData(await api<State>('/api/customer/me'));setError('')}catch{setError('회원 정보를 불러오지 못했어요. 잠시 후 다시 열어주세요.')}}
  useEffect(()=>{void refresh();const changed=()=>void refresh();window.addEventListener('hot-customer-change',changed);return()=>window.removeEventListener('hot-customer-change',changed)},[]);
  const next=LEVELS.find(l=>l.min>(data?.points||0));
