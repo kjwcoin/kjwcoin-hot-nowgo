@@ -6,7 +6,7 @@
 <title>HOT by NOWGO — 매운맛 지도</title>
 <meta name="description" content="서울·인천·경기 매운맛 맛집을 지도에서 찾아보세요. (준비 중 · 예시 데이터)" />
 <meta name="robots" content="noindex" />
-<link rel="stylesheet" href="assets/hot.css?v=1" />
+<link rel="stylesheet" href="assets/hot.css?v=2" />
 </head>
 <body>
   <header class="hot-topbar">
@@ -81,9 +81,13 @@
       <a class="hot-sidebar__foot" href="#">참고 사진 출처 및 시안 안내</a>
     </aside>
 
-    <main class="hot-map" role="img" aria-label="서울 연남동 일대 매운맛 맛집 위치를 표시한 정적 지도 이미지 (준비 중 · 예시 데이터)">
-      <p class="hot-map__badge">지도는 준비 중 · 실제 지도 연동 전 미리보기</p>
+    <main class="hot-map-wrap">
+      <div id="hot-map" class="hot-map" aria-label="서울 연남동 일대 매운맛 맛집 지도"></div>
+      <p class="hot-map__badge">예시 데이터 · 실제 영업 정보 아님</p>
     </main>
   </div>
+
+  <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c3fda55d319fbe2026f4174689d3ec6a&autoload=false"></script>
+  <script src="assets/hot.js?v=1"></script>
 </body>
 </html>
