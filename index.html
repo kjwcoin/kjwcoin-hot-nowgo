@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HOT by NOWGO — 매운맛 지도</title>
+<meta name="description" content="서울·인천·경기 매운맛 맛집을 지도에서 찾아보세요. (준비 중 · 예시 데이터)" />
+<meta name="robots" content="noindex" />
+<link rel="stylesheet" href="assets/hot.css?v=1" />
+</head>
+<body>
+  <header class="hot-topbar">
+    <div class="hot-topbar__brand">
+      <span class="hot-logo">HOT</span>
+      <span class="hot-by">by <span class="hot-by__n">N</span> NOWGO</span>
+    </div>
+    <div class="hot-search">
+      <svg class="hot-search__icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="text" placeholder="닭발, 떡볶이, 얼큰 칼국수" aria-label="매운맛 메뉴 검색" disabled />
+    </div>
+    <div class="hot-topbar__right">
+      <button type="button" class="hot-pill" aria-haspopup="true">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-4.2 7-10a7 7 0 1 0-14 0c0 5.8 7 10 7 10Z"/><circle cx="12" cy="11" r="2.3"/></svg>
+        서울
+      </button>
+      <span class="hot-badge">TEST</span>
+      <button type="button" class="hot-login">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.5-4 5-6 8-6s6.5 2 8 6"/></svg>
+        고객 로그인
+      </button>
+    </div>
+  </header>
+
+  <div class="hot-filterbar" role="group" aria-label="매운맛 필터">
+    <button type="button" class="hot-filter">매운맛 단계 <span>모든 맵기</span> <i>▾</i></button>
+    <button type="button" class="hot-filter">매운맛 카테고리 <span>모든 맛의 결</span> <i>▾</i></button>
+    <button type="button" class="hot-filter">매운맛 메뉴 <span>모든 메뉴</span> <i>▾</i></button>
+    <button type="button" class="hot-filter">한 끼 예산 <span>예산 전체</span> <i>▾</i></button>
+    <button type="button" class="hot-reset" aria-label="필터 초기화">↺ 초기화</button>
+  </div>
+
+  <div class="hot-body">
+    <aside class="hot-sidebar">
+      <p class="hot-sidebar__region">서울</p>
+      <button type="button" class="hot-sidebar__heading" aria-expanded="true">
+        지금 땅기는 한 접시 <b>3</b>
+        <i>⌄</i>
+      </button>
+      <p class="hot-notice">가매장 3곳은 개발용 · 실제 영업하지 않아요</p>
+
+      <ul class="hot-cards">
+        <li class="hot-card">
+          <span class="hot-card__thumb hot-card__thumb--a" aria-hidden="true"></span>
+          <div class="hot-card__body">
+            <p class="hot-card__tag">달콤매콤한 · 보통 매운맛</p>
+            <p class="hot-card__name">[가매장] 달콤매콤 떡볶이</p>
+            <p class="hot-card__price">6,500원 <span>예시</span></p>
+          </div>
+          <span class="hot-card__link" aria-hidden="true">↗</span>
+        </li>
+        <li class="hot-card">
+          <span class="hot-card__thumb hot-card__thumb--b" aria-hidden="true"></span>
+          <div class="hot-card__body">
+            <p class="hot-card__tag">얼큰한 · 약간 매운맛</p>
+            <p class="hot-card__name">[가매장] 얼큰 장칼국수</p>
+            <p class="hot-card__price">9,500원 <span>예시</span></p>
+          </div>
+          <span class="hot-card__link" aria-hidden="true">↗</span>
+        </li>
+        <li class="hot-card">
+          <span class="hot-card__thumb hot-card__thumb--c" aria-hidden="true"></span>
+          <div class="hot-card__body">
+            <p class="hot-card__tag">칼칼한 · 매운맛</p>
+            <p class="hot-card__name">[가매장] 매콤 철판 닭갈비</p>
+            <p class="hot-card__price">14,000원 <span>예시</span></p>
+          </div>
+          <span class="hot-card__link" aria-hidden="true">↗</span>
+        </li>
+      </ul>
+
+      <a class="hot-sidebar__foot" href="#">참고 사진 출처 및 시안 안내</a>
+    </aside>
+
+    <main class="hot-map" role="img" aria-label="서울 연남동 일대 매운맛 맛집 위치를 표시한 정적 지도 이미지 (준비 중 · 예시 데이터)">
+      <p class="hot-map__badge">지도는 준비 중 · 실제 지도 연동 전 미리보기</p>
+    </main>
+  </div>
+</body>
+</html>
