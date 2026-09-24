@@ -4,13 +4,16 @@ export function nowgoUrl(raw:unknown):URL|null {
  try{const u=new URL(raw);return u.protocol==='https:'&&['nowgo.space','www.nowgo.space'].includes(u.hostname)&&!u.username&&!u.password&&!u.port?u:null}catch{return null}
 }
 export function returnPath(raw:unknown){
- if(raw==='#report')return '/#report';
- if(typeof raw!=='string'||raw.length>1500||!raw.startsWith('/')||raw.startsWith('//')||/[\\\u0000-\u0020]/.test(raw))return '/map';
- try{const u=new URL(raw,'https://hot.local');if(u.origin!=='https://hot.local'||!(/^(?:\/|\/map|\/place\/[-a-zA-Z0-9_]{1,100})$/.test(u.pathname)))return '/map';
+ if(raw==='#report')return '/suggestion#report';
+ if(typeof raw!=='string'||raw.length>1500||!raw.startsWith('/')||raw.startsWith('//')||/[\\\u0000-\u0020]/.test(raw))return '/';
+ try{const u=new URL(raw,'https://hot.local');if(u.origin!=='https://hot.local'||!(/^(?:\/|\/map|\/suggestion|\/place\/[-a-zA-Z0-9_]{1,100})$/.test(u.pathname)))return '/';
  // Keep only display/filter state; never carry another redirect or auth material.
  for(const k of [...u.searchParams.keys()])if(!['q','taste','spice','budget','menu'].includes(k))u.searchParams.delete(k);
  if(u.hash&&!/^#[a-zA-Z0-9_-]{1,80}$/.test(u.hash))u.hash='';
- return u.pathname+u.search+u.hash;}catch{return '/map'}
+ const path=u.pathname==='/map'?'/':u.pathname;
+ if(path==='/'&&['#report','#owner','#photo-credits','#discover'].includes(u.hash))return '/suggestion'+u.search+u.hash;
+ if(path==='/'&&u.searchParams.has('menu'))return '/suggestion'+u.search+u.hash;
+ return path+u.search+u.hash;}catch{return '/'}
 }
 export type OfficialStatus={linked:boolean;open:string;menu:string;checkedAt:string|null;source:string;fresh:boolean;url:string|null;validUntil:string|null};
 export function resolveOfficialStatus(raw:unknown,placeId:string,menuId:string,now=Date.now()):OfficialStatus {
