@@ -1,0 +1,2 @@
+export const LEVELS=[{level:1,name:'첫 한 접시',min:0,benefit:'제보·메뉴 저장 · 미니홈피 리뷰 연결'},{level:2,name:'동네 발견자',min:30,benefit:'기여자 표시'},{level:3,name:'한 끼 길잡이',min:100,benefit:'새 메뉴 체험 모집 우선 신청 · 준비 중'},{level:4,name:'동네 맛길지기',min:300,benefit:'정정 검토 우선 접수 · 준비 중'}];
+export type CustomerState={customer:{id:string,nickname:string,phoneMasked:string,phoneVerified:boolean}|null,points?:number,level?:typeof LEVELS[number],consents?:{sms:boolean,kakao:boolean}};

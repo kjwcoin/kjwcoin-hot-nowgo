@@ -1,0 +1,12 @@
+packages:
+  - .
+
+allowBuilds:
+  esbuild: true
+  fsevents: true
+  sharp: true
+  unrs-resolver: true
+
+# Keep the lockfile override consistent across local and Vercel installs.
+overrides:
+  miniflare>sharp: 0.35.4

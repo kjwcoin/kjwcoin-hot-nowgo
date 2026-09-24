@@ -1,0 +1,8 @@
+import {browserDb} from './supabase-browser';
+export async function api<T=Record<string,unknown>>(path:string,options?:RequestInit){
+ const headers=new Headers(options?.headers);
+ try{const {data}=await browserDb().auth.getSession();if(data.session?.access_token)headers.set('Authorization','Bearer '+data.session.access_token)}catch{}
+ const r=await fetch(path,{...options,headers});const d=await r.json() as {error?:string};if(!r.ok)throw new Error(d.error||'잠시 후 다시 시도해 주세요.');return d as T
+}
+export function track(event:string,target:string){const source=new URLSearchParams(location.search).get('utm_source')||'direct';void fetch('/api/events',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({event,target,source}),keepalive:true}).catch(()=>{})}
+export function uuid(){if(crypto.randomUUID)return crypto.randomUUID();return '10000000-1000-4000-8000-100000000000'.replace(/[018]/g,c=>(Number(c)^(crypto.getRandomValues(new Uint8Array(1))[0]&(15>>(Number(c)/4)))).toString(16))}
