@@ -1,0 +1,18 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {nowgoUrl,returnPath,resolveOfficialStatus,publicationDecision} from '../lib/integration-policy.ts';
+const now=Date.parse('2026-09-24T06:00:00Z');
+const current={hot_place_id:'reported-1',place_id:'real-place',minihome_url:'https://nowgo.space/p/real-place',owner_verified:true,source:'owner',status:'OPEN',observed_at:'2026-09-24T05:30:00Z',expires_at:'2026-09-24T07:00:00Z',menu:{hot_menu_id:'menu-1',status:'SOLD_OUT',observed_at:'2026-09-24T05:45:00Z',expires_at:'2026-09-24T07:00:00Z'}};
+const resolve=d=>resolveOfficialStatus(d,'reported-1','menu-1',now);
+test('trust only exact HTTPS NOWGO origins without credentials',()=>{for(const value of ['http://nowgo.space/p/a','https://nowgo.space.evil.test/p/a','https://user@nowgo.space/p/a','https://nowgo.space:444/p/a','javascript:alert(1)'])assert.equal(nowgoUrl(value),null);assert.ok(nowgoUrl(current.minihome_url))});
+test('return destination is restricted to known local pages',()=>{for(const v of ['//evil.test','https://evil.test','/\\evil.test','/api/auth/callback','/map?next=https://evil.test'])assert.equal(returnPath(v),'/map');assert.equal(returnPath('/#report'),'/#report');assert.equal(returnPath('/map?q=떡볶이&budget=10000#menu'),'/map?q=%EB%96%A1%EB%B3%B6%EC%9D%B4&budget=10000#menu');assert.equal(returnPath('/place/demo-place-01?menu=demo-menu-01'),'/place/demo-place-01?menu=demo-menu-01')});
+test('restaurant OPEN can coexist with selected dish SOLD_OUT',()=>{const s=resolve(current);assert.equal(s.open,'영업 중');assert.equal(s.menu,'품절');assert.equal(s.fresh,true)});
+test('missing menu evidence is never inferred from OPEN',()=>assert.equal(resolve({...current,menu:undefined}).menu,'확인 필요'));
+test('other menu evidence does not apply',()=>assert.equal(resolve({...current,menu:{...current.menu,hot_menu_id:'other'}}).menu,'확인 필요'));
+test('expired owner information falls back to unknown',()=>assert.equal(resolve({...current,expires_at:'2026-09-24T05:59:59Z'}).open,'확인 필요'));
+test('unverified owner cannot set official status',()=>assert.equal(resolve({...current,owner_verified:false}).open,'확인 필요'));
+test('customer reports cannot impersonate official owner',()=>assert.equal(resolve({...current,source:'customer'}).open,'확인 필요'));
+test('future timestamps and excessive validity fail closed',()=>{assert.equal(resolve({...current,observed_at:'2026-09-25T00:00:00Z'}).fresh,false);assert.equal(resolve({...current,expires_at:'2026-10-25T00:00:00Z'}).fresh,false)});
+test('wrong place is never linked',()=>assert.equal(resolve({...current,hot_place_id:'other'}).linked,false));
+test('fresh report may publish without claiming ownership',()=>assert.equal(publicationDecision('2026-09-24','직접 확인했어요',now),'published_unverified'));
+test('stale report and accidental contact details are held',()=>{for(const [date,note]of [['2026-01-01',''],['2026-09-24','010-1234-5678'],['2026-09-24','person@example.com']])assert.equal(publicationDecision(date,note,now),'held_for_review')});

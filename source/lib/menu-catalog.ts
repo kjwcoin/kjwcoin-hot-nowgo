@@ -1,0 +1,4 @@
+import {db} from './server';
+import {MENUS,type Menu} from './menus';
+export async function communityMenus():Promise<Menu[]>{const r=await db().prepare("SELECT id,place_id,menu,shop,price,heat,flavor,category,lat,lng,address,observed_at FROM taste_observation WHERE status='published_unverified' ORDER BY created_at DESC LIMIT 500").all();return r.results.map(x=>({id:String(x.id),placeId:String(x.place_id),name:String(x.menu),shop:String(x.shop),price:Number(x.price),heat:Number(x.heat),flavor:String(x.flavor),category:String(x.category),image:`/api/menu-photos/${x.id}`,lat:Number(x.lat),lng:Number(x.lng),area:String(x.address),description:'로그인한 회원이 알려준 메뉴입니다. 점주가 확인한 영업·품절 정보는 아직 없어요.',isDemo:false,reportedAt:String(x.observed_at)}))}
+export async function allMenus(){return [...MENUS,...await communityMenus()]}

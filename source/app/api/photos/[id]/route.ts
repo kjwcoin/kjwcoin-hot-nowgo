@@ -1,0 +1,3 @@
+import {db,bucket,session} from '@/lib/server';
+import {identity} from '@/lib/customer';
+export async function GET(req:Request,{params}:{params:Promise<{id:string}>}){try{const {id}=await params;const s=await identity(req),row=await db().prepare('SELECT object_key,mime FROM menu_media WHERE id = ? AND session = ?').bind(id,s.id).first<{object_key:string,mime:string}>();if(!row)return new Response('Not found',{status:404});const o=await bucket().get(row.object_key);return o?new Response(o.body,{headers:{'Content-Type':row.mime,'Cache-Control':'private, no-store','X-Content-Type-Options':'nosniff'}}):new Response('Not found',{status:404})}catch{return new Response('Unavailable',{status:503})}}
