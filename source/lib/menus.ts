@@ -1,6 +1,6 @@
 export const HEAT=['순한맛','약간 매운맛','보통 매운맛','매운맛','아주 매운맛'];
 export const FLAVORS=['전체','얼큰한','칼칼한','달콤매콤한','알싸한'];
-export type Menu={id:string,placeId:string,name:string,shop:string,price:number,heat:number,flavor:string,category:string,image:string,lat:number,lng:number,area:string,description:string,isDemo:boolean,reportedAt?:string};
+export type Menu={id:string,placeId:string,name:string,shop:string,price:number,heat:number,flavor:string,category:string,image:string,lat:number|null,lng:number|null,area:string,description:string,isDemo:boolean,reportedAt?:string,verifiedOwner?:boolean,nowgoSlug?:string|null};
 export const MENU_CATEGORIES=['분식','국물·면','고기·볶음','닭발','족발','해산물','기타'];
 export const MENUS:Menu[]=[
 {isDemo:true,id:'demo-menu-01',placeId:'demo-place-01',name:'달콤매콤 떡볶이',shop:'연남 분식집 · 가매장',price:6500,heat:3,flavor:'달콤매콤한',category:'분식',image:'/images/tteokbokki.webp',lat:37.5624,lng:126.924,area:'마포구 · 연남동',description:'쫀득한 떡에 달큰하게 밴 매운맛. 오늘은 익숙한 한 접시가 당길 때.'},

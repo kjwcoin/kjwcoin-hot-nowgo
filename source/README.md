@@ -1,46 +1,30 @@
-# NOWGO · 맛잘알이 제보하는 핫한 맛부심
+# HOT by NOWGO
 
-현재 설계·구현 범위는 [설계 기준](docs/NOWGO_HOT_DESIGN_BASELINE_20260924.md)을 확인하세요.
+서울의 매운 메뉴를 발견하고 통합회원이 제보하는 사이트입니다. 프로모션 `/`, 메뉴 지도 `/map`, HOT 통합회원 가입 `/account/join`, 제보 `/#report`를 제공합니다. 상단에는 빨간 NOWGO 이미지 로고만 표시하고 컨셉 문구는 프로모션 본문에 둡니다.
 
-- 빨간 NOWGO 이미지 로고 하나로 통일. HOT/by/로고 슬로건 제거.
-- HOT 독립 가입·로그인·비밀번호 수집 종료(410). NOWGO 통합회원 전용.
-- 중앙 SSO 제공 API 미연결 상태에서는 준비 중 안내 및 제보 쓰기 차단. 지도·저장은 이용 가능.
-- state/PKCE 일회용 code 교환, 암호화 access token, 중앙 userinfo 재검증. 새 0003 마이그레이션. 기존 고객 데이터는 보존.
-- 정확한 매장/메뉴 및 만료를 검증하는 상태 어댑터. 중앙 연결 전 확인 필요.
-- 검증: `node --experimental-strip-types --test tests/*.test.mjs`, `node node_modules/typescript/bin/tsc --noEmit`.
+## HOT ↔ NOWGO
 
-## 이전 시안 기록(현재 기능으로 해석하지 말 것)
+- HOT의 구글 가입은 NOWGO 운영 Supabase Auth의 `auth.users`를 그대로 사용합니다. 가입 완료 후 제보 작성 위치로 돌아옵니다. 사이트마다 브라우저 세션은 별도로 유지되지만 계정 ID는 동일합니다.
+- 고객은 로그인, 필수 동의, 연락처·실제 메뉴·가격·직접 촬영/사용 권한 있는 사진을 제출합니다. 자료는 선승인 없이 고객 제보로 공개되며 현재 영업 상태의 보증은 아닙니다.
+- 공식 점주는 같은 회원 ID로 NOWGO의 사업자 검증·매장 관리 권한 승인을 마친 뒤 HOT에서 해당 매장을 선택하고 사업자번호·연락처·가격·사진을 제출합니다. 공개 카드에는 점주 확인 여부를 표시하고 NOWGO 미니홈피로 이동합니다.
+- 미확인 고객 제보와 가매장에는 NOWGO의 공식 영업·품절 상태를 추측해서 표시하지 않습니다. 리뷰는 NOWGO 미니홈피에만 작성합니다.
 
-# HOT by NOWGO · 서울 메뉴 지도
+자세한 권한·저장·확장 구조는 [데이터 아키텍처](docs/HOT_NOWGO_DATA_ARCHITECTURE.md)를 참고하세요.
 
-8단 프로모션 `/`, 전체 지도 `/map`, 필수 로그인 제보, 닉네임·전화번호·비밀번호 계정, 동의 이력과 기여 레벨, 가매장 구분, 이미지 로고 배지를 구현했다. 카카오는 지도·주소 좌표 변환만 담당한다. 매장 운영·소유권·품절의 원천은 NOWGO다. 리뷰는 NOWGO 매장 미니홈피에만 쌓이며 HOT에는 작성·본문 조회 API가 없다.
+## 환경 변수
 
-## 설정
-- KAKAO_MAP_JAVASCRIPT_KEY: 공개 Web SDK 키. 등록된 사이트 origin에서만 사용. 실제 지도 타일을 미리보기에서 확인했다.
-- KAKAO_MAP_REST_KEY: 서버 전용 주소 좌표 변환 키. 클라이언트 응답에 노출하지 않는다.
-- NOWGO_PLACE_URLS: 확인된 실제 매장별 미니홈피 URL JSON. 가매장 연결 금지.
-- NOWGO_REVIEW_URLS: 확인된 실제 매장별 리뷰 URL JSON. HTTPS nowgo.space/www.nowgo.space만 허용. 미설정은 매장 연결 준비 중.
-- KAKAO_CHAT_URL: 공식 카카오 채널 URL. 현재 연결 전.
-- D1 DB / R2 BUCKET: Sites에서 관리. 0000~0002 마이그레이션.
+| 이름 | 용도 |
+| --- | --- |
+| `NEXT_PUBLIC_SUPABASE_URL` | NOWGO **운영** Supabase 프로젝트 URL (`tdkjdukblopypgoecuhh`) |
+| `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | 같은 프로젝트의 공개 publishable 키. `service_role` 금지 |
+| `KAKAO_MAP_JAVASCRIPT_KEY` | HOT 도메인이 허용된 카카오 지도 공개 웹 키 (선택: 미설정 시 카드 목록 사용) |
+| `KAKAO_MAP_REST_KEY` | 서버에서 고객 주소를 좌표로 변환하는 키 (선택: 미설정 시 카드 목록에 등재) |
+| `NOWGO_STATUS_API_URL`, `NOWGO_STATUS_API_TOKEN` | NOWGO의 점주 확인 영업 상태 API (선택: 없으면 `확인 필요` 표시) |
 
-## 데이터 흐름
-GET /api/menus는 공개된 미확인 고객 제보를 반환한다. 로그인한 제보는 동의, 주소, 필수값, 이미지 형식/2MB, 중복, 시간당 10건 제한을 통과하면 자동 공개한다. 주소 서비스 오류 시 공개하지 않고 재시도를 안내한다. 가매장 연습 제보는 비공개다. 본인 제보와 사진 삭제 가능. 점주 역할 선택만으로 공식 점주가 되지 않는다.
+OAuth 허용 리디렉션 URL에는 `https://hot.nowgo.space/account/callback`을 정확히 추가해야 합니다. 미리보기 주소를 사용하면 해당 주소의 `/account/callback`도 허용해야 합니다. DNS는 HOT Vercel 프로젝트에 이미 연결되어 있습니다.
 
-GET /api/customer/me는 마스킹된 내 계정·동의·레벨을 반환한다. signup/login/logout/consents는 동작한다. 비밀번호는 salted scrypt, 세션은 HttpOnly 쿠키와 서버 해시로 관리한다. reviews는 사용 중단한 초기 테이블이며 API 쓰기/삭제 410, 본문 조회 없음.
+## 로컬 확인
 
-미니홈피 리뷰 링크는 GET /api/review-link/{placeId}에서 확인한 URL만 반환한다. 가매장과 미매핑 매장은 null. 리뷰 등록과 적립 완료를 HOT이 임의로 표시하지 않는다. 개발 명세는 docs/CUSTOMER_DB_AND_REPORT_POLICY.md 참고.
+`pnpm install --frozen-lockfile` 후 `pnpm build`; Node.js 22 이상. 인증 없는 화면과 API는 `pnpm dev`로 확인할 수 있습니다. DB는 `supabase/migrations`의 순서로 개발 프로젝트에서 검증하고 운영 프로젝트에 적용합니다. `node --experimental-strip-types --test tests/integration-policy.test.mjs`로 NOWGO 링크 신뢰 경계를 확인합니다.
 
-## 현재 연결 범위
-지도 SDK는 연결됨. 로컬 환경의 서버 주소 API 외부 연결이 실패하여 자동 신규 등재의 외부 주소 단계는 통합 검증 미완료. 오류 시 저장하지 않는 처리를 검증했다. NOWGO 통합 인증·Free 가입 딥링크·공식 상태·리뷰 URL·리뷰 이벤트 API는 아직 제공되지 않아 운영 연동 전이다. 루트 전환 링크를 공식 매장 검색 완료로 오인하지 않는다.
-
-전화번호 인증·비밀번호 복구·탈퇴·사진 재인코딩/EXIF 제거·콘텐츠 신고 운영·기여 검증·실제 마케팅 발송은 출시 전 작업이다. 번호 미인증 고객에게 광고하지 않는다. 현재 소유자 비공개 검수용이며 hot.nowgo.space DNS 및 NOWGO 운영 DB는 변경하지 않았다.
-
-## 검증·빌드
-node node_modules/typescript/bin/tsc --noEmit. Sites workflow로 빌드·게시. 자세한 결과는 VALIDATION.md.
-
-## 사진 권리
-- 떡볶이: Popo le Chien, CC0. https://commons.wikimedia.org/wiki/File:Tteokbokki.JPG
-- 닭갈비: Hye-youngJung, CC0. https://commons.wikimedia.org/wiki/File:Dak-galbi.jpg
-- 장칼국수: Tmannya, CC BY-SA 3.0. https://commons.wikimedia.org/wiki/File:Jangkalguksu.jpg
-WebP는 크기·포맷만 변경. 장칼국수 변환본에도 CC BY-SA3.0 적용. https://creativecommons.org/licenses/by-sa/3.0/
-
+업로드 사진은 비공개 Storage 버킷에 두고 공개 메뉴 사진 요청만 API로 전달합니다. 브라우저에는 service key나 사업자번호·연락처를 내려주지 않습니다. 현재 앱은 구글 OAuth를 사용합니다.

@@ -1,3 +1,7 @@
-import {beginLogin,finishLogin} from '@/lib/unified-auth';
-import {failure} from '@/lib/server';
-export async function GET(req:Request,{params}:{params:Promise<{action:string}>}){try{const {action}=await params;if(action==='start')return await beginLogin(req);if(action==='callback')return await finishLogin(req);return new Response(null,{status:404})}catch(e){return failure(req,e)}}
+import {returnPath} from '@/lib/integration-policy';
+export async function GET(req:Request,{params}:{params:Promise<{action:string}>}){
+ const {action}=await params;if(action!=='start')return new Response(null,{status:404});
+ const dest=new URL('/account/join',req.url);
+ dest.searchParams.set('returnTo',returnPath(new URL(req.url).searchParams.get('returnTo')));
+ return Response.redirect(dest,303);
+}

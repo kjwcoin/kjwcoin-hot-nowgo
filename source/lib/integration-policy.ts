@@ -28,8 +28,3 @@ export function resolveOfficialStatus(raw:unknown,placeId:string,menuId:string,n
  if(m&&m.hot_menu_id===menuId){const mc=Date.parse(String(m.observed_at)),me=Date.parse(String(m.expires_at));if(Number.isFinite(mc)&&Number.isFinite(me)&&mc<=now&&me>now&&me>mc&&me-mc<=86400000&&now-mc<=86400000){out.menu=m.status==='SOLD_OUT'?'품절':m.status==='AVAILABLE'?'주문 가능':'확인 필요';out.validUntil=new Date(Math.min(expires,me)).toISOString()}}
  return out;
 }
-export function publicationDecision(observed:string,note:string,now=Date.now()) {
- const time=Date.parse(observed);
- // Outdated price evidence and accidentally disclosed phone numbers stay private.
- return !Number.isFinite(time)||now-time>90*86400000||/(?:01[016789][ -]?\d{3,4}[ -]?\d{4}|[\w.+-]+@[\w.-]+\.[a-z]{2,})/i.test(note)?'held_for_review':'published_unverified';
-}

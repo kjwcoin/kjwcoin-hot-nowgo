@@ -1,3 +1,12 @@
-import {db,bucket,session} from '@/lib/server';
-import {identity} from '@/lib/customer';
-export async function GET(req:Request,{params}:{params:Promise<{id:string}>}){try{const {id}=await params;const s=await identity(req),row=await db().prepare('SELECT object_key,mime FROM menu_media WHERE id = ? AND session = ?').bind(id,s.id).first<{object_key:string,mime:string}>();if(!row)return new Response('Not found',{status:404});const o=await bucket().get(row.object_key);return o?new Response(o.body,{headers:{'Content-Type':row.mime,'Cache-Control':'private, no-store','X-Content-Type-Options':'nosniff'}}):new Response('Not found',{status:404})}catch{return new Response('Unavailable',{status:503})}}
+import {verifiedUser} from '@/lib/supabase';
+export async function GET(req:Request,{params}:{params:Promise<{id:string}>}){
+ try{
+  const {id}=await params;if(!/^[a-f0-9-]{36}$/.test(id))return new Response('Not found',{status:404});
+  const auth=await verifiedUser(req);if(!auth)return new Response('Unauthorized',{status:401});
+  const {data,error}=await auth.client.from('hot_taste_observations').select('photo_path').eq('id',id).eq('user_id',auth.user.id).maybeSingle();
+  if(error||!data)return new Response('Not found',{status:404});
+  const {data:file,error:storageError}=await auth.client.storage.from('hot-report-photos').download(data.photo_path);
+  if(storageError||!file)return new Response('Not found',{status:404});
+  return new Response(file,{headers:{'Content-Type':file.type,'Cache-Control':'private,no-store','X-Content-Type-Options':'nosniff'}});
+ }catch{return new Response('Unavailable',{status:503})}
+}

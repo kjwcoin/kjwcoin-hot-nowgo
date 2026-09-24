@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {nowgoUrl,returnPath,resolveOfficialStatus,publicationDecision} from '../lib/integration-policy.ts';
+import {nowgoUrl,returnPath,resolveOfficialStatus} from '../lib/integration-policy.ts';
 const now=Date.parse('2026-09-24T06:00:00Z');
 const current={hot_place_id:'reported-1',place_id:'real-place',minihome_url:'https://nowgo.space/p/real-place',owner_verified:true,source:'owner',status:'OPEN',observed_at:'2026-09-24T05:30:00Z',expires_at:'2026-09-24T07:00:00Z',menu:{hot_menu_id:'menu-1',status:'SOLD_OUT',observed_at:'2026-09-24T05:45:00Z',expires_at:'2026-09-24T07:00:00Z'}};
 const resolve=d=>resolveOfficialStatus(d,'reported-1','menu-1',now);
@@ -14,5 +14,3 @@ test('unverified owner cannot set official status',()=>assert.equal(resolve({...
 test('customer reports cannot impersonate official owner',()=>assert.equal(resolve({...current,source:'customer'}).open,'확인 필요'));
 test('future timestamps and excessive validity fail closed',()=>{assert.equal(resolve({...current,observed_at:'2026-09-25T00:00:00Z'}).fresh,false);assert.equal(resolve({...current,expires_at:'2026-10-25T00:00:00Z'}).fresh,false)});
 test('wrong place is never linked',()=>assert.equal(resolve({...current,hot_place_id:'other'}).linked,false));
-test('fresh report may publish without claiming ownership',()=>assert.equal(publicationDecision('2026-09-24','직접 확인했어요',now),'published_unverified'));
-test('stale report and accidental contact details are held',()=>{for(const [date,note]of [['2026-01-01',''],['2026-09-24','010-1234-5678'],['2026-09-24','person@example.com']])assert.equal(publicationDecision(date,note,now),'held_for_review')});
