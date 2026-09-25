@@ -1,10 +1,11 @@
 import {menuById} from '@/lib/menu-catalog';
 import {reply} from '@/lib/server';
 import {nowgoUrl,resolveOfficialStatus} from '@/lib/integration-policy';
+import {experienceFromRequest} from '@/lib/experience';
 export async function GET(req:Request,{params}:{params:Promise<{id:string}>}){
  const unknown=resolveOfficialStatus(null,'','');
  try{
-  const {id}=await params,menu=await menuById(id);
+  const {id}=await params,menu=await menuById(id,experienceFromRequest(req));
   if(!menu)return reply(req,unknown,404);
   if(menu.isDemo)return reply(req,{...unknown,source:'가매장 · 실제 영업하지 않음'});
   const u=nowgoUrl(process.env.NOWGO_STATUS_API_URL);if(!u)return reply(req,unknown);
