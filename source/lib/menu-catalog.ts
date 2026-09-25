@@ -20,22 +20,24 @@ export async function communityMenus(filters:MenuSearch={}){
  if(filters.flavor&&filters.flavor!=='전체')request=request.eq('flavor',filters.flavor);
  if(filters.category&&filters.category!=='전체')request=request.eq('category',filters.category);
  if(Number.isInteger(budget)&&budget>=100&&budget<=1000000)request=request.lte('price',budget);
- const lat=filters.lat,lng=filters.lng,radius=Math.min(Math.max(filters.radiusKm??30,1),100);
- const hasPoint=Number.isFinite(lat)&&Number.isFinite(lng)&&lat!>=33&&lat!<=39.6&&lng!>=124&&lng!<=132;
- if(hasPoint){
+ const radius=Math.min(Math.max(filters.radiusKm??30,1),100);
+ const lat=typeof filters.lat==='number'&&Number.isFinite(filters.lat)?filters.lat:null;
+ const lng=typeof filters.lng==='number'&&Number.isFinite(filters.lng)?filters.lng:null;
+ const point=lat!==null&&lng!==null&&lat>=33&&lat<=39.6&&lng>=124&&lng<=132?{lat,lng}:null;
+ if(point){
   const latDelta=radius/111;
-  const lngDelta=radius/(111*Math.max(Math.cos((lat!*Math.PI)/180),0.2));
-  request=request.gte('lat',lat!-latDelta).lte('lat',lat!+latDelta).gte('lng',lng!-lngDelta).lte('lng',lng!+lngDelta);
+  const lngDelta=radius/(111*Math.max(Math.cos((point.lat*Math.PI)/180),0.2));
+  request=request.gte('lat',point.lat-latDelta).lte('lat',point.lat+latDelta).gte('lng',point.lng-lngDelta).lte('lng',point.lng+lngDelta);
  }
  const {data,error}=await request.order('created_at',{ascending:false}).range(page*size,page*size+size);
  if(error)throw error;
  let rows=(data||[]) as MenuRow[];
- if(hasPoint){
+ if(point){
   const toRad=(v:number)=>v*Math.PI/180;
   const d=(x:MenuRow)=>{
    if(x.lat==null||x.lng==null)return Infinity;
-   const dLat=toRad(Number(x.lat)-lat!),dLng=toRad(Number(x.lng)-lng!);
-   const a=Math.sin(dLat/2)**2+Math.cos(toRad(lat!))*Math.cos(toRad(Number(x.lat)))*Math.sin(dLng/2)**2;
+   const dLat=toRad(Number(x.lat)-point.lat),dLng=toRad(Number(x.lng)-point.lng);
+   const a=Math.sin(dLat/2)**2+Math.cos(toRad(point.lat))*Math.cos(toRad(Number(x.lat)))*Math.sin(dLng/2)**2;
    return 6371*2*Math.asin(Math.sqrt(a));
   };
   rows=rows.filter(x=>d(x)<=radius).sort((a,b)=>d(a)-d(b));
