@@ -13,16 +13,16 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ko_KR",
     siteName: "나우고 RICH",
-    title: "나우고 RICH | 전국 카페·디저트 지도",
-    description: "오늘 당기는 달콤함을 찾다. 전국의 느끼한 음식·크림·버터·치즈를 발견하고 제보하는 NOWGO SWEET.",
+    title: "나우고 RICH | 전국 크림·버터·치즈 지도",
+    description: "오늘 끌리는 고소한 한 접시. 전국의 크림·버터·치즈 메뉴를 발견하고 제보하는 NOWGO RICH.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "나우고 RICH | 전국 카페·디저트 지도",
-    description: "오늘 당기는 달콤함을 찾다. 전국 느끼한 음식·크림·버터·치즈 지도.",
+    title: "나우고 RICH | 전국 크림·버터·치즈 지도",
+    description: "오늘 끌리는 고소한 한 접시. 전국 크림·버터·치즈 지도.",
   },
   robots: { index: true, follow: true },
-  icons: { icon: "/icon.png", shortcut: "/icon.png", apple: "/icon.png" },
+  icons: { icon: {url: "/favicon-beige.png", type: "image/png"}, shortcut: "/favicon-beige.png", apple: "/favicon-beige.png" },
 };
 
 export default function RootLayout({children}:{children:React.ReactNode}) {
