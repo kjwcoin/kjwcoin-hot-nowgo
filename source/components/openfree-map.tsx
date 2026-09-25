@@ -1,5 +1,6 @@
 'use client';
 import {useMemo,useState} from 'react';
+import {LocateFixed} from 'lucide-react';
 import {type Menu} from '@/lib/menus';
 
 type Point={lat:number;lng:number};
@@ -70,7 +71,7 @@ export default function OpenFreeMap({menus,onSelect,selectedId}:{menus:Menu[],on
    <button
     type="button"
     onClick={locate}
-    style={{border:'1px solid rgba(24,61,53,.18)',background:'#fff',borderRadius:999,padding:'8px 12px',fontSize:12,fontWeight:800,color:'#267c6b',cursor:'pointer'}}
+    style={{border:'1px solid rgba(38,124,107,.28)',background:'#fff',borderRadius:999,padding:'9px 13px',fontSize:12,fontWeight:800,color:'#267c6b',cursor:'pointer',display:'inline-flex',alignItems:'center',gap:6,boxShadow:'0 2px 10px rgba(24,61,53,.12)'}}
    >
     내 위치로 보기
    </button>
