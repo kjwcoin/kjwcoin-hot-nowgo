@@ -1,8 +1,8 @@
 import {createClient} from '@supabase/supabase-js';
 
 export function publicConfig(){
- const url=process.env.NEXT_PUBLIC_SUPABASE_URL||'';
- const key=process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY||'';
+ const url=process.env.NEXT_PUBLIC_SUPABASE_URL||'https://tdkjdukblopypgoecuhh.supabase.co';
+ const key=process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY||'sb_publishable_sAjrbQrfQ7PKMNSMImAHDQ_hu4bgqMP';
  return {url,key,ready:!!url&&!!key};
 }
 
