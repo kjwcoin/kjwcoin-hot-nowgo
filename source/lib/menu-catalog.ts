@@ -1,5 +1,6 @@
 import {publicDb,publicConfig} from './supabase';
-import {MENUS,type Menu} from './menus';
+import {type Menu} from './menus';
+import {siteConfig,type SiteVariant} from './site-config';
 
 const fields='id,place_id,menu,shop,price,heat,flavor,category,lat,lng,address,observed_at,verified_owner,nowgo_slug';
 type MenuRow={id:string;place_id:string;menu:string;shop:string;price:number;heat:number;flavor:string;category:string;lat:number|null;lng:number|null;address:string;observed_at:string;verified_owner:boolean;nowgo_slug:string|null};
@@ -7,11 +8,11 @@ const convert=(x:MenuRow):Menu=>({id:String(x.id),placeId:String(x.place_id),nam
 
 export type MenuSearch={page?:number;query?:string;heat?:number;maxHeat?:number;flavor?:string;category?:string;budget?:number};
 
-export async function communityMenus(filters:MenuSearch={}){
+export async function communityMenus(filters:MenuSearch={},variant:SiteVariant='hot'){
  if(!publicConfig().ready)return {menus:[] as Menu[],hasMore:false};
  const requestedPage=filters.page??0;
  const page=Number.isSafeInteger(requestedPage)&&requestedPage>=0?Math.min(requestedPage,10000):0,size=100;
- let request=publicDb().from('hot_public_menus').select(fields);
+ let request=publicDb().from(siteConfig(variant).tables.menus).select(fields);
  const keyword=(filters.query||'').replace(/[^\p{L}\p{N}\s]/gu,'').trim().slice(0,60);
  if(keyword)request=request.or(`menu.ilike.%${keyword}%,shop.ilike.%${keyword}%,address.ilike.%${keyword}%`);
  const heat=filters.heat??0,maxHeat=filters.maxHeat??0,budget=filters.budget??0;
@@ -26,18 +27,18 @@ export async function communityMenus(filters:MenuSearch={}){
  return {menus:rows.slice(0,size).map(convert),hasMore:rows.length>size};
 }
 
-export async function menuById(id:string):Promise<Menu|null>{
- const demo=MENUS.find(m=>m.id===id);if(demo)return demo;
+export async function menuById(id:string,variant:SiteVariant='hot'):Promise<Menu|null>{
+ const demo=siteConfig(variant).menus.find(m=>m.id===id);if(demo)return demo;
  if(!publicConfig().ready||!/^[a-f0-9-]{36}$/.test(id))return null;
- const {data,error}=await publicDb().from('hot_public_menus').select(fields).eq('id',id).maybeSingle();
+ const {data,error}=await publicDb().from(siteConfig(variant).tables.menus).select(fields).eq('id',id).maybeSingle();
  if(error)throw error;
  return data?convert(data as MenuRow):null;
 }
 
-export async function menuByPlaceId(id:string):Promise<Menu|null>{
- const demo=MENUS.find(m=>m.placeId===id);if(demo)return demo;
+export async function menuByPlaceId(id:string,variant:SiteVariant='hot'):Promise<Menu|null>{
+ const demo=siteConfig(variant).menus.find(m=>m.placeId===id);if(demo)return demo;
  if(!publicConfig().ready||!/^[a-zA-Z0-9_-]{1,100}$/.test(id))return null;
- const {data,error}=await publicDb().from('hot_public_menus').select(fields).eq('place_id',id).order('created_at',{ascending:false}).limit(1);
+ const {data,error}=await publicDb().from(siteConfig(variant).tables.menus).select(fields).eq('place_id',id).order('created_at',{ascending:false}).limit(1);
  if(error)throw error;
  return data?.[0]?convert(data[0] as MenuRow):null;
 }

@@ -1,4 +1,5 @@
-export const metadata={title:'HOT 이용 안내·제보 원칙 | NOWGO'};
+import {headers} from 'next/headers';
+import {siteConfig,variantForHost} from '@/lib/site-config';
 const terms=[
  ['통합회원과 서비스','HOT에서 구글 계정으로 가입·로그인하면 NOWGO와 같은 회원 ID를 사용합니다. HOT과 NOWGO의 브라우저 로그인 상태는 각각 유지될 수 있습니다. 메뉴 탐색은 가입 없이 가능하며 저장·제보는 통합회원에게만 열립니다.'],
  ['제보와 자동 공개','통합회원은 직접 확인한 대한민국 메뉴의 가게 이름·주소·가격·확인 날짜와 직접 촬영하거나 사용 권한이 있는 사진을 제출합니다. 필수 항목, 사진 형식과 크기, 제출 횟수를 기계적으로 검사한 뒤 별도 사전 승인 없이 공개합니다. 고객 제보는 사실 보증이나 현재 영업·품절 상태의 확인이 아닙니다. 허위 정보, 타인 권리 침해, 개인정보 노출이 확인되면 공개를 중단하거나 삭제할 수 있습니다.'],
@@ -8,4 +9,4 @@ const terms=[
  ['선택적 소식 동의','가입 화면의 이메일 소식 수신은 선택 사항입니다. 현재 HOT은 홍보 메일 발송 기능을 운영하지 않습니다. 선택 동의를 하지 않아도 가입·저장·제보 기능을 사용할 수 있습니다.'],
  ['매장 연결과 예시 메뉴','공식 점주 제보의 매장 페이지는 NOWGO 미니홈피로 연결합니다. 고객 제보는 공개 화면에서 고객 제보로 구분합니다. 가매장 세 곳과 그 사진·가격은 탐색 화면 시연용이며 실제 영업하는 매장이 아닙니다.'],
 ];
-export default function Terms(){return <main className="terms-page"><a href="/">← 메뉴 지도로</a><h1>한 끼의 정보를<br/>함께 지키는 약속.</h1><p>HOT 이용·개인정보 안내 · 버전 2026-09-24-hot-v1</p>{terms.map(([title,body],i)=><section key={title}><h2>{i+1}. {title}</h2><p>{body}</p></section>)}</main>}
+export default async function Terms(){const theme=siteConfig(variantForHost((await headers()).get('host')));return <main className="terms-page"><a href="/">← 메뉴 지도로</a><h1>한 끼의 정보를<br/>함께 지키는 약속.</h1><p>{theme.name} 이용·개인정보 안내 · 버전 {theme.consent}</p>{terms.map(([title,body],i)=><section key={title}><h2>{i+1}. {title}</h2><p>{body.replaceAll('HOT',theme.name)}</p></section>)}</main>}

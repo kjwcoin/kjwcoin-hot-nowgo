@@ -4,6 +4,7 @@ import Brand from '@/components/brand';
 import {browserDb} from '@/lib/supabase-browser';
 import {api} from '@/lib/client';
 import {returnPath} from '@/lib/integration-policy';
+import {siteConfig,variantForHost} from '@/lib/site-config';
 export default function Callback(){
  const [error,setError]=useState('');
  useEffect(()=>{let active=true;async function complete(){
@@ -11,11 +12,11 @@ export default function Callback(){
    const db=browserDb();
    const {data,error:sessionError}=await db.auth.getSession();
    if(sessionError||!data.session)throw sessionError||new Error('로그인을 완료하지 못했어요. 다시 시도해 주세요.');
-   const raw=sessionStorage.getItem('hot-pending-consent');
+   const raw=sessionStorage.getItem(`${variantForHost(location.host)}-pending-consent`);
    const pending=raw?JSON.parse(raw) as {essential?:boolean;marketingEmail?:boolean;returnTo?:string}:null;
    if(!pending?.essential){location.replace('/account/join?finish=1');return}
-   await api('/api/customer/consents',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({essential:true,marketingEmail:!!pending.marketingEmail,version:'2026-09-24-hot-v1'})});
-   sessionStorage.removeItem('hot-pending-consent');
+   await api('/api/customer/consents',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({essential:true,marketingEmail:!!pending.marketingEmail,version:siteConfig(variantForHost(location.host)).consent})});
+   sessionStorage.removeItem(`${variantForHost(location.host)}-pending-consent`);
    window.dispatchEvent(new Event('hot-customer-change'));
    location.replace(returnPath(pending.returnTo));
   }catch(e){if(active)setError((e as Error).message)}

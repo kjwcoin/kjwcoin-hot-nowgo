@@ -1,24 +1,22 @@
 import type { Metadata } from "next";
+import {headers} from 'next/headers';
+import {siteConfig,variantForHost} from '@/lib/site-config';
 import "./globals.css";
 
-export const metadata: Metadata = {
-  title: "NOWGO | 맛잘알이 제보하는 핫한 맛부심",
-  description: "맛잘알이 제보하는 핫한 맛부심. 메뉴·맵기·한 끼 예산으로 찾고 NOWGO에서 상태를 확인해요.",
-  icons: {
-    icon: { url: "/favicon-red.png", type: "image/png", sizes: "128x128" },
-    shortcut: "/favicon-red.png",
-    apple: "/favicon-red.png",
-  },
-};
+export async function generateMetadata():Promise<Metadata>{
+ const theme=siteConfig(variantForHost((await headers()).get('host')));
+ return {title:`${theme.name} by NOWGO | ${theme.headline}`,description:theme.intro,
+  icons:{icon:{url:theme.favicon,type:'image/png'},shortcut:theme.favicon,apple:theme.favicon}};
+}
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
     <html lang="ko">
-      <body className="antialiased">{children}</body>
+      <body className="antialiased" data-theme={variantForHost((await headers()).get('host'))}>{children}</body>
     </html>
   );
 }
