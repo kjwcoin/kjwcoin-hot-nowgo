@@ -23,3 +23,5 @@ Custom domain:
 Deployment rule:
 - RICH project deploys branch `rich` only.
 - HOT and SWEET projects must ignore branch `rich`.
+
+Redeploy marker: Production branch switched to `rich` on 2026-09-25.
