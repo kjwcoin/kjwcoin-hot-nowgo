@@ -1,10 +1,10 @@
-import HotApp from '@/components/hot-app';
+import SweetApp from '@/components/hot-app';
 
 export const metadata = {
-  title: 'HOT by NOWGO | 맛잘알이 제보하는 핫한 맛부심',
-  description: '대한민국 전국의 HOT 프로모션과 한 접시 제보. 직접 확인한 메뉴, 가격, 사진을 통합회원으로 알려주세요.',
+  title: 'SWEET by NOWGO | 전국 카페·디저트 프로모션',
+  description: '대한민국 전국의 카페·베이커리·디저트를 발견하고 직접 확인한 메뉴, 가격, 사진을 NOWGO 통합회원으로 제보하세요.',
 };
 
 export default function SuggestionPage() {
-  return <HotApp/>;
+  return <SweetApp/>;
 }
