@@ -5,7 +5,7 @@ import {verifiedUser} from '@/lib/supabase';
 import {isKoreanAddress,isKoreanCoordinate,isKoreanRegion} from '@/lib/korean-region';
 
 type Ctx={params:Promise<{action:string}>};
-const bucket='hot-report-photos';
+const bucket='sweet-report-photos';
 const reject=(req:Request,error:string,status:number)=>reply(req,{error},status);
 const sha=async(s:string)=>Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s)))).map(x=>x.toString(16).padStart(2,'0')).join('');
 
@@ -18,8 +18,8 @@ export async function GET(req:Request,{params}:Ctx){
   const auth=await verifiedUser(req);
   if(!auth)return reply(req,{saved:[],reports:[]});
   const [saves,reports]=await Promise.all([
-   auth.client.from('hot_menu_saves').select('menu_id').eq('user_id',auth.user.id),
-   auth.client.from('hot_taste_observations').select('id,menu,status,created_at').eq('user_id',auth.user.id).order('created_at',{ascending:false}).limit(20)
+   auth.client.from('sweet_menu_saves').select('menu_id').eq('user_id',auth.user.id),
+   auth.client.from('sweet_taste_observations').select('id,menu,status,created_at').eq('user_id',auth.user.id).order('created_at',{ascending:false}).limit(20)
   ]);
   if(saves.error||reports.error)throw saves.error||reports.error;
   return reply(req,{saved:saves.data?.map(x=>x.menu_id)||[],reports:reports.data||[]});
@@ -38,7 +38,7 @@ export async function POST(req:Request,{params}:Ctx){
   if(action==='state'){
    const p=await req.json() as {menuId:string;saved:boolean};
    if(typeof p.saved!=='boolean'||!await menuById(p.menuId))return reject(req,'메뉴를 다시 선택해 주세요.',400);
-   const q=p.saved?client.from('hot_menu_saves').upsert({user_id:user.id,menu_id:p.menuId},{onConflict:'user_id,menu_id'}):client.from('hot_menu_saves').delete().eq('user_id',user.id).eq('menu_id',p.menuId);
+   const q=p.saved?client.from('sweet_menu_saves').upsert({user_id:user.id,menu_id:p.menuId},{onConflict:'user_id,menu_id'}):client.from('sweet_menu_saves').delete().eq('user_id',user.id).eq('menu_id',p.menuId);
    const {error}=await q;if(error)throw error;
    return reply(req,{saved:p.saved});
   }
@@ -53,7 +53,7 @@ export async function POST(req:Request,{params}:Ctx){
   const storeId=get('storeId');
   let ownerStore:{store_id:string;name:string;address:string;lat:number|null;lng:number|null}|undefined;
   if(role==='owner'){
-   const {data:owned,error:storeError}=await client.rpc('hot_owned_stores');if(storeError)throw storeError;
+   const {data:owned,error:storeError}=await client.rpc('sweet_owned_stores');if(storeError)throw storeError;
    ownerStore=(owned||[]).find((s:{store_id:string})=>s.store_id===storeId);
    if(!ownerStore)return reject(req,'NOWGO에서 매장 관리 권한을 확인한 뒤 공식 점주로 제보해 주세요.',403);
    shop=ownerStore.name;address=ownerStore.address;
@@ -65,7 +65,7 @@ export async function POST(req:Request,{params}:Ctx){
   const jpg=bytes[0]===255&&bytes[1]===216&&bytes[2]===255,png=bytes[0]===137&&bytes[1]===80&&bytes[2]===78&&bytes[3]===71,webp=new TextDecoder().decode(bytes.slice(0,4))==='RIFF'&&new TextDecoder().decode(bytes.slice(8,12))==='WEBP';
   if(!jpg&&!png&&!webp)return reject(req,'지원되는 이미지 파일을 올려주세요.',400);
   const mime=jpg?'image/jpeg':png?'image/png':'image/webp';
-  const {data:prior,error:priorError}=await client.from('hot_taste_observations').select('id,status').eq('id',id).eq('user_id',user.id).maybeSingle();
+  const {data:prior,error:priorError}=await client.from('sweet_taste_observations').select('id,status').eq('id',id).eq('user_id',user.id).maybeSingle();
   if(priorError)throw priorError;if(prior)return reply(req,prior);
   let lat:number|null=null,lng:number|null=null;
   const pointLat=Number(get('lat')),pointLng=Number(get('lng'));
@@ -75,12 +75,12 @@ export async function POST(req:Request,{params}:Ctx){
   if(restKey&&!ownerStore){try{const geo=await fetch('https://dapi.kakao.com/v2/local/search/address.json?query='+encodeURIComponent(address),{headers:{Authorization:'KakaoAK '+restKey},signal:AbortSignal.timeout(5000)});if(geo.ok){const g=await geo.json() as {documents:{x:string;y:string;address?:{region_1depth_name:string}|null;road_address?:{region_1depth_name:string}|null}[]};if(g.documents?.length===1){const place=g.documents[0],region=place.address?.region_1depth_name||place.road_address?.region_1depth_name||'';const y=Number(place.y),x=Number(place.x);if(isKoreanRegion(region)&&isKoreanCoordinate(y,x)){lat=y;lng=x}}}}catch{}}
   const placeId=role==='owner'?'nowgo-'+storeId:'reported-'+(await sha(address+'|'+shop.replace(/\s/g,''))).slice(0,24);
   const path=id;
-  const {error:insertError}=await client.from('hot_taste_observations').insert({id,user_id:user.id,role,nowgo_store_id:role==='owner'?storeId:null,phone,business_number:role==='owner'?businessNumber:null,place_id:placeId,menu_id:id,shop,menu,address,price,heat,flavor,category,observed_at:observed,note,lat,lng,photo_path:path,photo_mime:mime,status:'draft'});
+  const {error:insertError}=await client.from('sweet_taste_observations').insert({id,user_id:user.id,role,nowgo_store_id:role==='owner'?storeId:null,phone,business_number:role==='owner'?businessNumber:null,place_id:placeId,menu_id:id,shop,menu,address,price,heat,flavor,category,observed_at:observed,note,lat,lng,photo_path:path,photo_mime:mime,status:'draft'});
   if(insertError){if(insertError.code==='23505')return reject(req,'같은 제보가 이미 접수되었어요.',409);if(insertError.code==='P0001')return reject(req,'한 시간에 10건까지 제보할 수 있어요.',429);throw insertError}
   const {error:uploadError}=await client.storage.from(bucket).upload(path,bytes,{contentType:mime,upsert:false});
-  if(uploadError){await client.from('hot_taste_observations').delete().eq('id',id).eq('user_id',user.id);throw uploadError}
-  const {data:status,error:publishError}=await client.rpc('hot_publish_report',{report_id:id});
-  if(publishError){await client.storage.from(bucket).remove([path]);await client.from('hot_taste_observations').delete().eq('id',id).eq('user_id',user.id);throw publishError}
+  if(uploadError){await client.from('sweet_taste_observations').delete().eq('id',id).eq('user_id',user.id);throw uploadError}
+  const {data:status,error:publishError}=await client.rpc('sweet_publish_report',{report_id:id});
+  if(publishError){await client.storage.from(bucket).remove([path]);await client.from('sweet_taste_observations').delete().eq('id',id).eq('user_id',user.id);throw publishError}
   return reply(req,{id,status},201);
  }catch(e){return failure(req,e)}
 }
@@ -91,9 +91,9 @@ export async function DELETE(req:Request,{params}:Ctx){
  try{
   const auth=await verifiedUser(req);if(!auth)return reject(req,'NOWGO 통합 로그인 후 이용해 주세요.',401);
   const {id}=await req.json() as {id:string};if(!/^[a-f0-9-]{36}$/.test(id))return reject(req,'제보 번호 오류',400);
-  const {data,error}=await auth.client.from('hot_taste_observations').select('photo_path').eq('id',id).eq('user_id',auth.user.id).maybeSingle();
+  const {data,error}=await auth.client.from('sweet_taste_observations').select('photo_path').eq('id',id).eq('user_id',auth.user.id).maybeSingle();
   if(error)throw error;if(!data)return reply(req,{deleted:true});
-  const {error:deleteError}=await auth.client.from('hot_taste_observations').delete().eq('id',id).eq('user_id',auth.user.id);
+  const {error:deleteError}=await auth.client.from('sweet_taste_observations').delete().eq('id',id).eq('user_id',auth.user.id);
   if(deleteError)throw deleteError;
   await auth.client.storage.from(bucket).remove([data.photo_path]);
   return reply(req,{deleted:true});
