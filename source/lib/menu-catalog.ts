@@ -11,7 +11,7 @@ export async function communityMenus(filters:MenuSearch={}){
  if(!publicConfig().ready)return {menus:[] as Menu[],hasMore:false};
  const requestedPage=filters.page??0;
  const page=Number.isSafeInteger(requestedPage)&&requestedPage>=0?Math.min(requestedPage,10000):0,size=100;
- let request=publicDb().from('sweet_public_menus').select(fields);
+ let request=publicDb().from('rich_public_menus').select(fields);
  const keyword=(filters.query||'').replace(/[^\p{L}\p{N}\s]/gu,'').trim().slice(0,60);
  if(keyword)request=request.or(`menu.ilike.%${keyword}%,shop.ilike.%${keyword}%,address.ilike.%${keyword}%`);
  const heat=filters.heat??0,maxHeat=filters.maxHeat??0,budget=filters.budget??0;
@@ -48,7 +48,7 @@ export async function communityMenus(filters:MenuSearch={}){
 export async function menuById(id:string):Promise<Menu|null>{
  const demo=MENUS.find(m=>m.id===id);if(demo)return demo;
  if(!publicConfig().ready||!/^[a-f0-9-]{36}$/.test(id))return null;
- const {data,error}=await publicDb().from('sweet_public_menus').select(fields).eq('id',id).maybeSingle();
+ const {data,error}=await publicDb().from('rich_public_menus').select(fields).eq('id',id).maybeSingle();
  if(error)throw error;
  return data?convert(data as MenuRow):null;
 }
@@ -56,7 +56,7 @@ export async function menuById(id:string):Promise<Menu|null>{
 export async function menuByPlaceId(id:string):Promise<Menu|null>{
  const demo=MENUS.find(m=>m.placeId===id);if(demo)return demo;
  if(!publicConfig().ready||!/^[a-zA-Z0-9_-]{1,100}$/.test(id))return null;
- const {data,error}=await publicDb().from('sweet_public_menus').select(fields).eq('place_id',id).order('created_at',{ascending:false}).limit(1);
+ const {data,error}=await publicDb().from('rich_public_menus').select(fields).eq('place_id',id).order('created_at',{ascending:false}).limit(1);
  if(error)throw error;
  return data?.[0]?convert(data[0] as MenuRow):null;
 }
