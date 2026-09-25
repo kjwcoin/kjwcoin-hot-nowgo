@@ -199,3 +199,21 @@ body[data-theme="rich"] .menu-heat{background:#8b6945}
 .store-picker__selected{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
 .store-picker__selected a{display:inline-block;margin-top:7px;color:var(--brand-ink);font-size:14px}
 .store-picker__manual,.store-picker__selected button,.store-picker p button{margin-top:10px;color:var(--brand-ink);font-weight:700;font-size:14px}
+
+/* Keep the mobile map visible while the results open upward from its bottom edge. */
+.explorer-results-header{display:flex;align-items:center}
+.explorer-results-heading{min-width:0;flex:1}
+.explorer-report--inline{display:none}
+@media(max-width:700px){
+ .explorer-results{bottom:calc(12px + env(safe-area-inset-bottom,0px));max-height:min(72%,520px);border-radius:12px 12px 10px 10px}
+ .explorer-results-header{flex-shrink:0;min-height:68px}
+ .explorer-results-heading{padding:10px 0 10px 14px;gap:3px}
+ .explorer-results-heading small{font-size:11px}
+ .explorer-results-heading strong{font-size:14px;white-space:nowrap}
+ .explorer-results-heading svg{width:17px;flex-shrink:0}
+ .explorer-results-body{min-height:0}
+ .explorer-report--floating{display:none}
+ .explorer-report--inline{display:inline-flex;position:static;min-height:42px;padding:10px 11px;margin:0 12px 0 4px;gap:5px;box-shadow:none;font-size:12px;white-space:nowrap;flex-shrink:0}
+ .map-fullscreen .map-caption{bottom:calc(90px + env(safe-area-inset-bottom,0px))}
+}
+@media(max-width:350px){.explorer-report--inline svg{display:none}.explorer-results-heading strong{font-size:13px}}

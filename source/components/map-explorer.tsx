@@ -16,6 +16,7 @@ import {api,track} from '@/lib/client';
 export default function MapExplorer({variant='hot'}:{variant?:SiteVariant}){
  const theme=siteConfig(variant),MENUS=theme.menus,HEAT=theme.heat,FLAVORS=theme.flavors,CATEGORIES=['전체',...theme.categories];
  useEffect(()=>{if(['#report','#owner','#photo-credits','#discover'].includes(location.hash))location.replace('/suggestion'+location.hash)},[]);
+ useEffect(()=>{if(window.matchMedia('(max-width:700px)').matches)setExpanded(false)},[]);
  const [catalog,setCatalog]=useState<Menu[]>(MENUS),[page,setPage]=useState(0),[hasMore,setHasMore]=useState(false);
  const [query,setQuery]=useState(''),[heat,setHeat]=useState(0),[flavor,setFlavor]=useState('전체'),[category,setCategory]=useState('전체'),[budget,setBudget]=useState(0),[selected,setSelected]=useState<Menu|null>(null),[expanded,setExpanded]=useState(true),[userLocation,setUserLocation]=useState<GeoPoint|null>(null);
  const parameters=(nextPage:number)=>{const p=new URLSearchParams({page:String(nextPage)});if(query)p.set('q',query);if(heat)p.set('heat',String(heat));if(flavor!=='전체')p.set('flavor',flavor);if(category!=='전체')p.set('category',category);if(budget)p.set('budget',String(budget));return p};
@@ -41,13 +42,16 @@ export default function MapExplorer({variant='hot'}:{variant?:SiteVariant}){
   <div className="explorer-surface">
    <KakaoMap fullScreen menus={filtered} selectedId={current?.id} onSelect={select} onLocation={setUserLocation} variant={variant}/>
    <aside className={`explorer-results ${expanded?'expanded':'collapsed'}`} aria-label="검색된 메뉴">
+    <div className="explorer-results-header">
     <button className="explorer-results-heading" aria-expanded={expanded} aria-controls="map-results" onClick={()=>setExpanded(!expanded)}><span><small>{userLocation?'내 위치 기준 30km':'GPS 위치 확인 중'}</small><strong>지금 당기는 한 접시 <b>{filtered.length}</b></strong></span>{expanded?<ChevronDown size={20}/>:<ChevronUp size={20}/>}</button>
+     <a className="explorer-report explorer-report--inline" href="/suggestion#report"><Plus size={16}/><span>제보 및 등록</span></a>
+    </div>
     {expanded&&<div id="map-results" className="explorer-results-body"><p className="explorer-example">{userLocation?'30km 안의 가매장 3곳은 가상 위치 · 실제 영업하지 않아요':'위치를 허용하면 30km 안의 가매장 3곳을 보여드려요'}</p>
     {current?<article className="explorer-selected"><Button variant="ghost" className="explorer-back" onClick={()=>setSelected(null)}>← 메뉴 목록</Button><img className="explorer-detail-photo" src={current.image} alt={`${current.name} ${current.isDemo?'참고 사진':'제보 사진'}`}/><div className="explorer-detail-content"><span className="explorer-tags">{current.flavor} · {HEAT[current.heat-1]}</span><h1>{current.name}</h1><strong className="explorer-price">{money(current.price)} <small>{current.isDemo?'예시':current.verifiedOwner?'공식 점주 제보 가격':'고객 제보 가격'}</small></strong><p>{current.description}</p><StoreStatus menuId={current.id} isDemo={current.isDemo}/><a className="explorer-go" href={`/go/${current.placeId}`} onClick={()=>track('place_status_open',current.placeId)}>출발 전 가게 확인 <ArrowUpRight size={19}/></a><ReviewLink placeId={current.placeId} isDemo={current.isDemo}/><small>{current.isDemo?'실제로 영업하지 않는 개발용 가매장입니다. 현실에 없는 매장입니다.':`${current.verifiedOwner?'공식 점주 제보':'고객 제보 · 점주 미확인'} · 확인일 ${current.reportedAt||'미상'}`}</small><div className="explorer-owner-join"><strong>이 메뉴를 만드는 사장님이라면</strong><p>통합회원은 {theme.name}에서 사진·가격·연락처와 함께 제보할 수 있어요. 공식 점주는 NOWGO에서 매장 권한을 확인한 같은 계정으로 제보합니다.</p><a href="https://www.nowgo.space/owner/login" target="_blank" rel="noreferrer">나우고 점주 가입하기 <ArrowUpRight size={18}/></a><small>{current.isDemo?'나우고 스페이스로 이동 · 가매장은 소유권 신청 대상이 아닙니다.':'나우고 스페이스에서 Free 가입 및 매장 관리 권한 확인'}</small></div></div></article>:
     <div className="explorer-menu-list">{filtered.map(m=><button className="explorer-menu-item" key={m.id} onClick={()=>select(m)}><img src={m.image} alt={`${m.name} ${m.isDemo?'가매장 참고 사진':'제보 사진'}`} width={84} height={84}/><span className="explorer-item-copy"><small>{m.flavor} · {HEAT[m.heat-1]}</small><strong>{m.isDemo?'[가매장] ':m.verifiedOwner?'[공식 점주] ':''}{m.name}</strong><span>{money(m.price)} <small>{m.isDemo?'예시':m.verifiedOwner?'공식 점주':'제보'}</small></span></span><ArrowUpRight size={17}/></button>)}{!filtered.length&&<div className="explorer-empty"><MapPin size={27}/><h2>{userLocation?'30km 안에 표시할 메뉴가 없어요':'내 위치를 확인하고 있어요'}</h2><p>{userLocation?'조건을 바꾸거나 알고 있는 메뉴를 알려주세요.':'브라우저 위치 권한을 허용해 주세요.'}</p>{userLocation&&<Button variant="outline" onClick={reset}>조건 초기화</Button>}</div>}</div>}{hasMore&&<Button variant="outline" onClick={()=>void load(page+1)}>메뉴 더 보기</Button>}
     <a className="explorer-photo-credit" href="/suggestion#photo-credits">참고 사진 출처 및 시안 안내</a></div>}
    </aside>
-   <a className="explorer-report" href="/suggestion#report"><Plus size={22}/><span>제보 및 등록</span><ArrowUpRight size={19}/></a>
+   <a className="explorer-report explorer-report--floating" href="/suggestion#report"><Plus size={22}/><span>제보 및 등록</span><ArrowUpRight size={19}/></a>
   </div>
  </main>
 }
