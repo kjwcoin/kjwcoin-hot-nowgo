@@ -1,8 +1,8 @@
-import {allMenus} from '@/lib/menu-catalog';
+import {menuByPlaceId} from '@/lib/menu-catalog';
 import {reply,failure} from '@/lib/server';
 export async function GET(req:Request,{params}:{params:Promise<{id:string}>}){
  try{
-  const {id}=await params,menu=(await allMenus()).find(m=>m.placeId===id);
+  const {id}=await params,menu=await menuByPlaceId(id);
   if(!menu)return reply(req,{url:null},404);
   if(menu.isDemo)return reply(req,{url:null});
   if(menu.verifiedOwner&&menu.nowgoSlug&&/^[a-zA-Z0-9_-]{1,100}$/.test(menu.nowgoSlug))return reply(req,{url:`https://www.nowgo.space/p/${menu.nowgoSlug}?source=hot`});

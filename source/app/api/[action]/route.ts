@@ -1,7 +1,8 @@
 import {reply,validOrigin,failure,config} from '@/lib/server';
 import {MENUS,FLAVORS,MENU_CATEGORIES} from '@/lib/menus';
-import {communityMenus,allMenus} from '@/lib/menu-catalog';
+import {communityMenus,menuById} from '@/lib/menu-catalog';
 import {verifiedUser} from '@/lib/supabase';
+import {isKoreanAddress,isKoreanCoordinate,isKoreanRegion} from '@/lib/korean-region';
 
 type Ctx={params:Promise<{action:string}>};
 const bucket='hot-report-photos';
@@ -12,7 +13,7 @@ export async function GET(req:Request,{params}:Ctx){
  const {action}=await params;
  try{
   if(action==='config'){const {kakaoKey,chatUrl}=config();return reply(req,{kakaoKey,chatUrl})}
-  if(action==='menus')return reply(req,{menus:await communityMenus()});
+  if(action==='menus'){const url=new URL(req.url),num=(name:string)=>Number(url.searchParams.get(name)||0);return reply(req,await communityMenus({page:num('page'),query:url.searchParams.get('q')||'',heat:num('heat'),maxHeat:num('maxHeat'),flavor:url.searchParams.get('flavor')||'',category:url.searchParams.get('category')||'',budget:num('budget')}))}
   if(action!=='state')return reply(req,{},404);
   const auth=await verifiedUser(req);
   if(!auth)return reply(req,{saved:[],reports:[]});
@@ -36,7 +37,7 @@ export async function POST(req:Request,{params}:Ctx){
   const {user,client}=auth;
   if(action==='state'){
    const p=await req.json() as {menuId:string;saved:boolean};
-   if(typeof p.saved!=='boolean'||!await allMenus().then(a=>a.some(m=>m.id===p.menuId)))return reject(req,'메뉴를 다시 선택해 주세요.',400);
+   if(typeof p.saved!=='boolean'||!await menuById(p.menuId))return reject(req,'메뉴를 다시 선택해 주세요.',400);
    const q=p.saved?client.from('hot_menu_saves').upsert({user_id:user.id,menu_id:p.menuId},{onConflict:'user_id,menu_id'}):client.from('hot_menu_saves').delete().eq('user_id',user.id).eq('menu_id',p.menuId);
    const {error}=await q;if(error)throw error;
    return reply(req,{saved:p.saved});
@@ -57,7 +58,7 @@ export async function POST(req:Request,{params}:Ctx){
    if(!ownerStore)return reject(req,'NOWGO에서 매장 관리 권한을 확인한 뒤 공식 점주로 제보해 주세요.',403);
    shop=ownerStore.name;address=ownerStore.address;
   }
-  if(!/^[a-f0-9-]{36}$/.test(id)||!['customer','owner'].includes(role)||shop.length<2||shop.length>100||menu.length<2||menu.length>100||MENUS.some(x=>x.shop===shop)||!/^인천(?:광역시)?\s+서해구\s/.test(address)||address.length>200||!Number.isInteger(price)||price<100||price>1000000||!Number.isInteger(heat)||heat<1||heat>5||!FLAVORS.slice(1).includes(flavor)||note.length>1000||!/^\d{4}-\d{2}-\d{2}$/.test(observed)||!Number.isFinite(Date.parse(observed))||new Date(observed)>new Date()||new Date(observed).toISOString().slice(0,10)!==observed||get('rights')!=='yes'||get('accuracy')!=='yes'||!MENU_CATEGORIES.includes(category))return reject(req,'실제 가게 이름과 인천 서해구 주소, 가격, 확인 날짜, 사진 공개 동의를 확인해 주세요.',400);
+  if(!/^[a-f0-9-]{36}$/.test(id)||!['customer','owner'].includes(role)||shop.length<2||shop.length>100||menu.length<2||menu.length>100||MENUS.some(x=>x.shop===shop)||!isKoreanAddress(address)||!Number.isInteger(price)||price<100||price>1000000||!Number.isInteger(heat)||heat<1||heat>5||!FLAVORS.slice(1).includes(flavor)||note.length>1000||!/^\d{4}-\d{2}-\d{2}$/.test(observed)||!Number.isFinite(Date.parse(observed))||new Date(observed)>new Date()||new Date(observed).toISOString().slice(0,10)!==observed||get('rights')!=='yes'||get('accuracy')!=='yes'||!MENU_CATEGORIES.includes(category))return reject(req,'대한민국 내 실제 가게 주소와 메뉴·가격·확인 날짜·사진 공개 동의를 확인해 주세요.',400);
   const photo=form.get('photo');
   if(!(photo instanceof File)||photo.size===0||photo.size>2_000_000)return reject(req,'JPG·PNG·WebP 사진을 2MB 이하로 첨부해 주세요.',400);
   const bytes=new Uint8Array(await photo.arrayBuffer());
@@ -68,10 +69,10 @@ export async function POST(req:Request,{params}:Ctx){
   if(priorError)throw priorError;if(prior)return reply(req,prior);
   let lat:number|null=null,lng:number|null=null;
   const pointLat=Number(get('lat')),pointLng=Number(get('lng'));
-  if(get('lat')&&get('lng')&&Number.isFinite(pointLat)&&Number.isFinite(pointLng)&&pointLat>=37.45&&pointLat<=37.65&&pointLng>=126.55&&pointLng<=126.75){lat=pointLat;lng=pointLng}
-  if(ownerStore){lat=ownerStore.lat!==null&&ownerStore.lat>=37.45&&ownerStore.lat<=37.65?ownerStore.lat:null;lng=ownerStore.lng!==null&&ownerStore.lng>=126.55&&ownerStore.lng<=126.75?ownerStore.lng:null}
+  if(get('lat')&&get('lng')&&isKoreanCoordinate(pointLat,pointLng)){lat=pointLat;lng=pointLng}
+  if(ownerStore){lat=isKoreanCoordinate(ownerStore.lat,ownerStore.lng)?ownerStore.lat:null;lng=lat===null?null:ownerStore.lng}
   const restKey=process.env.KAKAO_MAP_REST_KEY;
-  if(restKey&&!ownerStore){try{const geo=await fetch('https://dapi.kakao.com/v2/local/search/address.json?query='+encodeURIComponent(address),{headers:{Authorization:'KakaoAK '+restKey},signal:AbortSignal.timeout(5000)});if(geo.ok){const g=await geo.json() as {documents:{x:string,y:string,address:{region_1depth_name:string;region_2depth_name:string}}[]};if(g.documents?.length===1&&g.documents[0].address?.region_1depth_name.includes('인천')&&g.documents[0].address?.region_2depth_name.includes('서해구')){lat=Number(g.documents[0].y);lng=Number(g.documents[0].x)}}}catch{}}
+  if(restKey&&!ownerStore){try{const geo=await fetch('https://dapi.kakao.com/v2/local/search/address.json?query='+encodeURIComponent(address),{headers:{Authorization:'KakaoAK '+restKey},signal:AbortSignal.timeout(5000)});if(geo.ok){const g=await geo.json() as {documents:{x:string;y:string;address?:{region_1depth_name:string}|null;road_address?:{region_1depth_name:string}|null}[]};if(g.documents?.length===1){const place=g.documents[0],region=place.address?.region_1depth_name||place.road_address?.region_1depth_name||'';const y=Number(place.y),x=Number(place.x);if(isKoreanRegion(region)&&isKoreanCoordinate(y,x)){lat=y;lng=x}}}}catch{}}
   const placeId=role==='owner'?'nowgo-'+storeId:'reported-'+(await sha(address+'|'+shop.replace(/\s/g,''))).slice(0,24);
   const path=id;
   const {error:insertError}=await client.from('hot_taste_observations').insert({id,user_id:user.id,role,nowgo_store_id:role==='owner'?storeId:null,phone,business_number:role==='owner'?businessNumber:null,place_id:placeId,menu_id:id,shop,menu,address,price,heat,flavor,category,observed_at:observed,note,lat,lng,photo_path:path,photo_mime:mime,status:'draft'});
