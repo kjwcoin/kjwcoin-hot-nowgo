@@ -197,3 +197,23 @@ html{scroll-behavior:smooth;scroll-padding-top:90px}body{font-family:Pretendard,
 .rich-brand-mark{display:block;width:156px;height:52px;flex:none;background:#9b7851;-webkit-mask:url('/images/nowgo-red.png') center / contain no-repeat;mask:url('/images/nowgo-red.png') center / contain no-repeat}
 .rich-brand-name{font-size:14px;font-weight:800;letter-spacing:.14em;color:#715232;border-left:1px solid #bba78b;padding-left:9px;line-height:1}
 @media(max-width:700px){.brand.brand-logo.rich-brand{gap:5px;height:38px}.rich-brand-mark{width:106px;height:38px}.rich-brand-name{font-size:11px;padding-left:6px}.explorer-topline .brand.brand-logo.rich-brand{min-width:0}}
+
+/* Match the HOT and SWEET interface shape while keeping the RICH beige palette. */
+.explorer-toolbar{background:#f7f2e8;border-color:#d7c8b4}
+.explorer-search,.explorer-filters select{background:#fffdf9;border-color:#d7c8b4;border-radius:10px}
+.explorer-filters select{padding-left:12px}
+.explorer-results{background:#fffdf9;border-color:#d7c8b4;border-radius:14px;box-shadow:0 12px 34px #4b352018}
+.explorer-menu-item:hover{background:#f4eadc}
+.explorer-report{background:#9b7851;border-radius:12px;box-shadow:0 8px 24px #4b352026}
+.explorer-report:hover{background:#715232}
+.explorer-reset,.map-location-button,.explorer-owner-join>a,.submit-button{border-radius:10px}
+.map-fullscreen,.map-unavailable{background:#eee5d8}
+.map-anchor{background:#9b7851;border-radius:8px}
+@media(max-width:700px){
+ .explorer-toolbar{box-shadow:0 1px 12px #4b352012}
+ .explorer-search{border-radius:12px}
+ .explorer-results{left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));border-radius:20px 20px 14px 14px;box-shadow:0 -8px 28px #4b352020}
+ .explorer-results-header{border-radius:20px 20px 0 0;background:#fffdf9}
+ .explorer-report--inline{border-radius:10px}
+ .explorer-menu-item{padding:14px 16px}
+}
