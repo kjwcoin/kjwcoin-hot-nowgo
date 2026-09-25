@@ -22,6 +22,7 @@ export const metadata: Metadata = {
     description: "오늘 당기는 달콤함을 찾다. 전국 카페·베이커리·디저트 지도.",
   },
   robots: { index: true, follow: true },
+  icons: { icon: "/icon.png", shortcut: "/icon.png", apple: "/icon.png" },
 };
 
 export default function RootLayout({children}:{children:React.ReactNode}) {
