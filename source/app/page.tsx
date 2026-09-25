@@ -1,7 +1,7 @@
 import MapExplorer from '@/components/map-explorer';
 import {redirect} from 'next/navigation';
 
-export const metadata={title:'NOWGO | 맛잘알의 매운 메뉴 지도',description:'맵기, 메뉴, 한 끼 예산으로 인천 서해구의 매운 한 접시를 찾아요.'};
+export const metadata={title:'NOWGO | 맛잘알의 매운 메뉴 지도',description:'맵기, 메뉴, 한 끼 예산으로 전국의 매운 한 접시를 찾아요.'};
 
 export default async function Page({searchParams}:{searchParams:Promise<{menu?:string}>}){
  const {menu}=await searchParams;
