@@ -169,3 +169,5 @@ html{scroll-behavior:smooth;scroll-padding-top:90px}body{font-family:Pretendard,
 @media(max-width:700px){.explorer-region{font-size:0}.explorer-region>svg,.explorer-region>small{display:none}.explorer-promo{font-size:11px;margin-left:0;padding:5px 7px}}
 
 .explorer-promo:hover{color:#1f6a5c;border-color:#35b79a;background:#e5f7f1}
+
+.map-location-button{position:absolute;right:16px;top:16px;z-index:7;display:inline-flex;align-items:center;gap:7px;padding:10px 14px;border:1px solid #35b79a55;border-radius:999px;background:#fff;color:#267c6b;font-size:12px;font-weight:800;box-shadow:0 3px 14px #183d351c}.map-location-button:hover{background:#effaf6;border-color:#35b79a}
