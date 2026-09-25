@@ -1,8 +1,9 @@
 import {publicDb} from '@/lib/supabase';
-export async function GET(_req:Request,{params}:{params:Promise<{id:string}>}){
+import {experienceFromRequest} from '@/lib/experience';
+export async function GET(req:Request,{params}:{params:Promise<{id:string}>}){
  try{
   const {id}=await params;if(!/^[a-f0-9-]{36}$/.test(id))return new Response('Not found',{status:404});
-  const db=publicDb();const {data,error}=await db.from('hot_public_menus').select('id').eq('id',id).maybeSingle();
+  const db=publicDb();const {data,error}=await db.from('ng_experience_public_menus').select('id').eq('id',id).eq('experience_key',experienceFromRequest(req)).maybeSingle();
   if(error||!data)return new Response('Not found',{status:404});
   const {data:file,error:storageError}=await db.storage.from('hot-report-photos').download(id);
   if(storageError||!file)return new Response('Not found',{status:404});

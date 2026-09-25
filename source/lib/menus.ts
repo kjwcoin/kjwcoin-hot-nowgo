@@ -1,5 +1,6 @@
-export const HEAT=['순한맛','약간 매운맛','보통 매운맛','매운맛','아주 매운맛'];
-export const FLAVORS=['전체','얼큰한','칼칼한','달콤매콤한','알싸한'];
+import {EXPERIENCES,type ExperienceKey} from './experience';
+export const HEAT=EXPERIENCES.hot.intensity;
+export const FLAVORS=EXPERIENCES.hot.flavors;
 export type Menu={id:string,placeId:string,name:string,shop:string,price:number,heat:number,flavor:string,category:string,image:string,lat:number|null,lng:number|null,area:string,description:string,isDemo:boolean,reportedAt?:string,verifiedOwner?:boolean,nowgoSlug?:string|null};
 export const MENU_CATEGORIES=['분식','국물·면','고기·볶음','닭발','족발','해산물','기타'];
 export const MENUS:Menu[]=[
@@ -7,5 +8,10 @@ export const MENUS:Menu[]=[
 {isDemo:true,id:'demo-menu-02',placeId:'demo-place-02',name:'얼큰 장칼국수',shop:'청라 국수집 · 가매장',price:9500,heat:2,flavor:'얼큰한',category:'국물·면',image:'/images/jangkalguksu.webp',lat:37.5362,lng:126.6508,area:'인천 서구 · 청라동',description:'뜨끈한 국물부터 한 모금. 면과 국물이 함께 생각나는 날의 선택.'},
 {isDemo:true,id:'demo-menu-03',placeId:'demo-place-03',name:'매콤 철판 닭갈비',shop:'청라 철판집 · 가매장',price:14000,heat:4,flavor:'칼칼한',category:'고기·볶음',image:'/images/dakgalbi.webp',lat:37.5298,lng:126.6487,area:'인천 서구 · 청라동',description:'철판에서 피어나는 온기와 매콤한 양념. 여럿이 나누고 싶은 한 끼.'}
 ];
+export function menusFor(key:ExperienceKey):Menu[]{
+ if(key==='hot')return MENUS;
+ const profile=EXPERIENCES[key];
+ return profile.sampleMenus.map((m,i)=>({isDemo:true,id:`demo-${key}-menu-0${i+1}`,placeId:`demo-${key}-place-0${i+1}`,name:m.name,shop:m.shop,price:m.price,heat:m.intensity,flavor:m.flavor,category:m.category,image:profile.sampleImage,lat:[37.5336,37.5362,37.5298][i],lng:[126.6552,126.6508,126.6487][i],area:'인천 서구 · 청라동',description:m.description}));
+}
 export const money=(n:number)=>n.toLocaleString('ko-KR')+'원';
 export type Report={id:string;menu:string;status:string;created_at:string};
