@@ -28,7 +28,7 @@ function embedUrl(p:Point){
  return `https://www.openstreetmap.org/export/embed.html?bbox=${left}%2C${bottom}%2C${right}%2C${top}&layer=mapnik&marker=${p.lat.toFixed(6)}%2C${p.lng.toFixed(6)}`;
 }
 
-export default function OpenFreeMap({menus,onSelect,selectedId}:{menus:Menu[],onSelect:(m:Menu)=>void,selectedId?:string}){
+export default function OpenFreeMap({menus,onSelect,selectedId,onLocation}:{menus:Menu[],onSelect:(m:Menu)=>void,selectedId?:string,onLocation?:(p:Point)=>void}){
  const candidates=useMemo(()=>menus.filter((m):m is Menu&{lat:number;lng:number}=>m.isDemo&&m.lat!==null&&m.lng!==null),[menus]);
  const selected=menus.find(m=>m.id===selectedId);
  const [focus,setFocus]=useState<Point>(INCHEON);
@@ -43,6 +43,7 @@ export default function OpenFreeMap({menus,onSelect,selectedId}:{menus:Menu[],on
     const here={lat:coords.latitude,lng:coords.longitude};
     if(!inKorea(here)){setLocationMode('denied');return;}
     setFocus(here);
+    onLocation?.(here);
     const n=[...candidates].sort((a,b)=>distance(here,{lat:a.lat,lng:a.lng})-distance(here,{lat:b.lat,lng:b.lng}))[0]||null;
     setNearest(n);
     setLocationMode('located');
