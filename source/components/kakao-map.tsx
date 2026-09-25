@@ -192,16 +192,16 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,fullScreen=f
  },[state]);
 
  return <div className={fullScreen?'map-panel map-fullscreen':'map-panel'} ref={rootRef}>
-  <div className="map-canvas" ref={canvasRef} aria-label="카카오 대한민국 카페 디저트 지도"/>
+  <div className="map-canvas" ref={canvasRef} aria-label="카카오 대한민국 느끼한 맛 지도"/>
   {state==='loading'&&<div className="map-unavailable">
    <MapPin size={30} strokeWidth={1.3}/>
-   <span className="eyebrow">KAKAO MAP · SWEET NOWGO</span>
+   <span className="eyebrow">KAKAO MAP · RICH NOWGO</span>
    <h3>카카오맵을 불러오는 중</h3>
-   <p>대한민국 전국의 카페·디저트 메뉴를 준비하고 있어요.</p>
+   <p>대한민국 전국의 느끼한 맛 메뉴를 준비하고 있어요.</p>
   </div>}
   {state==='error'&&<div className="map-unavailable">
    <MapPin size={30} strokeWidth={1.3}/>
-   <span className="eyebrow">KAKAO MAP · SWEET NOWGO</span>
+   <span className="eyebrow">KAKAO MAP · RICH NOWGO</span>
    <h3>카카오맵 연결 설정이 필요해요</h3>
    <p>카카오 Developers에서 지도 사용 설정과 JavaScript SDK 도메인을 확인해 주세요.</p>
    <a className="text-link" href="https://developers.kakao.com/" target="_blank" rel="noreferrer">카카오 Developers 열기 <ArrowUpRight size={18}/></a>
@@ -216,7 +216,7 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,fullScreen=f
    {locationState==='locating'?'위치 확인 중':locationState==='located'?'내 위치':'내 위치'}
   </button>}
   <div className="map-caption">
-   <span>{state==='ready'?'카카오맵':'SWEET 지도'}</span>
+   <span>{state==='ready'?'카카오맵':'RICH 지도'}</span>
    <span>{state==='ready'?(locationState==='located'?'내 위치 기준 · 주변 메뉴':'내 위치 버튼으로 주변 메뉴 찾기'):'카카오맵 연결을 확인하는 중'}</span>
   </div>
  </div>;
