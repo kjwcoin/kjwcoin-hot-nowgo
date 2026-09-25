@@ -1,9 +1,9 @@
 'use client';
-import {useEffect,useMemo,useState} from 'react';
+import {useMemo,useState} from 'react';
 import {type Menu} from '@/lib/menus';
 
 type Point={lat:number;lng:number};
-const FALLBACK:Point={lat:37.5446,lng:127.0557};
+const INCHEON:Point={lat:37.4563,lng:126.7052};
 
 function distance(a:Point,b:Point){
  const r=6371;
@@ -18,8 +18,8 @@ function inKorea(p:Point){
 }
 
 function embedUrl(p:Point){
- const latSpan=0.12;
- const lngSpan=0.18;
+ const latSpan=0.09;
+ const lngSpan=0.14;
  const left=(p.lng-lngSpan).toFixed(5);
  const bottom=(p.lat-latSpan).toFixed(5);
  const right=(p.lng+lngSpan).toFixed(5);
@@ -30,56 +30,58 @@ function embedUrl(p:Point){
 export default function OpenFreeMap({menus,onSelect,selectedId}:{menus:Menu[],onSelect:(m:Menu)=>void,selectedId?:string}){
  const candidates=useMemo(()=>menus.filter((m):m is Menu&{lat:number;lng:number}=>m.isDemo&&m.lat!==null&&m.lng!==null),[menus]);
  const selected=menus.find(m=>m.id===selectedId);
- const initial=candidates[0]?{lat:candidates[0].lat,lng:candidates[0].lng}:FALLBACK;
- const [focus,setFocus]=useState<Point>(initial);
- const [focusMenu,setFocusMenu]=useState<(Menu&{lat:number;lng:number})|null>(candidates[0]||null);
- const [locationMode,setLocationMode]=useState<'loading'|'nearby'|'fallback'>('loading');
+ const [focus,setFocus]=useState<Point>(INCHEON);
+ const [locationMode,setLocationMode]=useState<'default'|'locating'|'located'|'denied'>('default');
+ const [nearest,setNearest]=useState<(Menu&{lat:number;lng:number})|null>(candidates[0]||null);
 
- useEffect(()=>{
-  if(selected&&selected.lat!==null&&selected.lng!==null){
-   setFocus({lat:selected.lat,lng:selected.lng});
-   setFocusMenu(selected as Menu&{lat:number;lng:number});
-   setLocationMode('nearby');
-   return;
-  }
-  if(!navigator.geolocation||candidates.length===0){
-   setLocationMode('fallback');
-   return;
-  }
+ const locate=()=>{
+  if(!navigator.geolocation){setLocationMode('denied');return;}
+  setLocationMode('locating');
   navigator.geolocation.getCurrentPosition(
    ({coords})=>{
     const here={lat:coords.latitude,lng:coords.longitude};
-    if(!inKorea(here)){setLocationMode('fallback');return;}
-    const nearest=[...candidates].sort((a,b)=>distance(here,{lat:a.lat,lng:a.lng})-distance(here,{lat:b.lat,lng:b.lng}))[0];
-    if(nearest){
-     setFocus({lat:nearest.lat,lng:nearest.lng});
-     setFocusMenu(nearest);
-     setLocationMode('nearby');
-    }else setLocationMode('fallback');
+    if(!inKorea(here)){setLocationMode('denied');return;}
+    setFocus(here);
+    const n=[...candidates].sort((a,b)=>distance(here,{lat:a.lat,lng:a.lng})-distance(here,{lat:b.lat,lng:b.lng}))[0]||null;
+    setNearest(n);
+    setLocationMode('located');
    },
-   ()=>setLocationMode('fallback'),
-   {enableHighAccuracy:false,timeout:5000,maximumAge:300000}
+   ()=>setLocationMode('denied'),
+   {enableHighAccuracy:true,timeout:8000,maximumAge:60000}
   );
- },[candidates,selected]);
+ };
+
+ const focusMenu=selected&&selected.lat!==null&&selected.lng!==null
+  ? selected as Menu&{lat:number;lng:number}
+  : nearest;
 
  return <div className="map-canvas" style={{position:'absolute',inset:0,overflow:'hidden',background:'#e9f7f1'}}>
   <iframe
    title="대한민국 카페 디저트 지도"
-   src={embedUrl(focus)}
+   src={embedUrl(selected&&selected.lat!==null&&selected.lng!==null?{lat:selected.lat,lng:selected.lng}:focus)}
    style={{border:0,width:'100%',height:'100%',display:'block'}}
    loading="eager"
    referrerPolicy="no-referrer-when-downgrade"
   />
-  <div style={{position:'absolute',left:12,top:12,zIndex:3,pointerEvents:'none',background:'rgba(255,255,255,.92)',border:'1px solid rgba(24,61,53,.12)',borderRadius:999,padding:'8px 12px',fontSize:12,fontWeight:700,color:'#183d35'}}>
-   {locationMode==='loading'?'내 위치 주변 가매장 찾는 중':locationMode==='nearby'?'내 위치 기준 · 가까운 가매장':'가매장 기준 · 성수'}
+  <div style={{position:'absolute',left:12,top:12,zIndex:4,display:'flex',gap:8,alignItems:'center',flexWrap:'wrap'}}>
+   <div style={{background:'rgba(255,255,255,.94)',border:'1px solid rgba(24,61,53,.12)',borderRadius:999,padding:'8px 12px',fontSize:12,fontWeight:700,color:'#183d35'}}>
+    {locationMode==='located'?'내 실제 위치 기준':locationMode==='locating'?'현재 위치 확인 중':locationMode==='denied'?'위치 권한 필요 · 인천 기본':'인천 기본 지도'}
+   </div>
+   <button
+    type="button"
+    onClick={locate}
+    style={{border:'1px solid rgba(24,61,53,.18)',background:'#fff',borderRadius:999,padding:'8px 12px',fontSize:12,fontWeight:800,color:'#267c6b',cursor:'pointer'}}
+   >
+    내 위치로 보기
+   </button>
   </div>
   {focusMenu&&<button
     type="button"
     className="map-anchor selected"
     onClick={()=>onSelect(focusMenu)}
-    style={{position:'absolute',left:'50%',bottom:44,transform:'translateX(-50%)',zIndex:3,maxWidth:'80%'}}
+    style={{position:'absolute',left:'50%',bottom:44,transform:'translateX(-50%)',zIndex:3,maxWidth:'82%'}}
   >
-    {focusMenu.shop} · {focusMenu.name}
+    가까운 가매장 · {focusMenu.shop} · {focusMenu.name}
   </button>}
  </div>;
 }
