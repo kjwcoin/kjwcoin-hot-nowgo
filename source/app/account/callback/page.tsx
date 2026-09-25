@@ -11,12 +11,12 @@ export default function Callback(){
    const db=browserDb();
    const {data,error:sessionError}=await db.auth.getSession();
    if(sessionError||!data.session)throw sessionError||new Error('로그인을 완료하지 못했어요. 다시 시도해 주세요.');
-   const raw=sessionStorage.getItem('hot-pending-consent');
+   const raw=sessionStorage.getItem('sweet-pending-consent');
    const pending=raw?JSON.parse(raw) as {essential?:boolean;marketingEmail?:boolean;returnTo?:string}:null;
    if(!pending?.essential){location.replace('/account/join?finish=1');return}
-   await api('/api/customer/consents',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({essential:true,marketingEmail:!!pending.marketingEmail,version:'2026-09-24-hot-v1'})});
-   sessionStorage.removeItem('hot-pending-consent');
-   window.dispatchEvent(new Event('hot-customer-change'));
+   await api('/api/customer/consents',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({essential:true,marketingEmail:!!pending.marketingEmail,version:'2026-09-25-sweet-v1'})});
+   sessionStorage.removeItem('sweet-pending-consent');
+   window.dispatchEvent(new Event('sweet-customer-change'));
    location.replace(returnPath(pending.returnTo));
   }catch(e){if(active)setError((e as Error).message)}
  }void complete();return()=>{active=false}},[]);
