@@ -9,7 +9,7 @@ type OAuthProvider='google'|'kakao';
 const VERSION='2026-09-25-rich-v1';
 export default function Join(){
  const [returnTo,setReturnTo]=useState('/'),[signedIn,setSignedIn]=useState(false),[authChecked,setAuthChecked]=useState(false),[essential,setEssential]=useState(false),[marketing,setMarketing]=useState(false),[busy,setBusy]=useState(false),[error,setError]=useState('');
- useEffect(()=>{setReturnTo(returnPath(new URLSearchParams(location.search).get('returnTo')));try{void browserDb().auth.getUser().then(({data,error})=>{if(error)setError(error.message);setSignedIn(!!data.user);setAuthChecked(true)}).catch(e=>{setError((e as Error).message);setAuthChecked(true)})}catch(e){setError((e as Error).message);setAuthChecked(true)}},[]);
+ useEffect(()=>{setReturnTo(returnPath(new URLSearchParams(location.search).get('returnTo')));try{void browserDb().auth.getUser().then(({data})=>{setSignedIn(!!data?.user);setAuthChecked(true)}).catch(()=>setAuthChecked(true))}catch{setAuthChecked(true)}},[]);
  async function signIn(provider:OAuthProvider){
   setBusy(true);setError('');
   try{
