@@ -1,6 +1,17 @@
 import type {Menu} from './menus';
+import {isKoreanRegion} from './korean-region.ts';
 
 export type GeoPoint=Readonly<{lat:number;lng:number}>;
+export const MAP_RADIUS_KM=15;
+export const NEIGHBORHOOD_LEVEL=5;
+
+export function hasVerifiedLandParcel(input:unknown):boolean{
+ if(!input||typeof input!=='object')return false;
+ const address=input as {address_name?:unknown;main_address_no?:unknown;region_1depth_name?:unknown};
+ return typeof address.address_name==='string'&&address.address_name.length>0
+  &&typeof address.main_address_no==='string'&&/^\d+$/.test(address.main_address_no)
+  &&typeof address.region_1depth_name==='string'&&isKoreanRegion(address.region_1depth_name);
+}
 
 const EARTH_RADIUS_KM=6371.0088;
 const toRadians=(degrees:number)=>degrees*Math.PI/180;
@@ -9,7 +20,7 @@ const toDegrees=(radians:number)=>radians*180/Math.PI;
 // Candidate points are never shown until the map's address service verifies land.
 export function demoLandCandidates(origin:GeoPoint):GeoPoint[]{
  if(!isValidGeoPoint(origin))return [];
- return [1,3,6,9,12].flatMap(distance=>
+ return [0.3,0.7,1.5,3,6,9,12,14].flatMap(distance=>
   [0,45,90,135,180,225,270,315].map(bearing=>destination(origin,distance,bearing))
  );
 }

@@ -14,7 +14,7 @@ export async function GET(req:Request,{params}:Ctx){
  const variant=variantForHost(req.headers.get('host')),theme=siteConfig(variant);
  try{
   if(action==='config'){const {kakaoKey,chatUrl}=config();return reply(req,{kakaoKey,chatUrl})}
-  if(action==='menus'){const url=new URL(req.url),num=(name:string)=>Number(url.searchParams.get(name)||0);return reply(req,await communityMenus({page:num('page'),query:url.searchParams.get('q')||'',heat:num('heat'),maxHeat:num('maxHeat'),flavor:url.searchParams.get('flavor')||'',category:url.searchParams.get('category')||'',budget:num('budget')},variant))}
+  if(action==='menus'){const url=new URL(req.url),num=(name:string)=>Number(url.searchParams.get(name)||0);return reply(req,await communityMenus({page:num('page'),query:url.searchParams.get('q')||'',heat:num('heat'),maxHeat:num('maxHeat'),flavor:url.searchParams.get('flavor')||'',category:url.searchParams.get('category')||'',budget:num('budget'),lat:num('lat'),lng:num('lng'),radiusKm:num('radiusKm')},variant))}
   if(action!=='state')return reply(req,{},404);
   const auth=await verifiedUser(req);
   if(!auth)return reply(req,{saved:[],reports:[]});

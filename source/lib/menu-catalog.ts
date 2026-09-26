@@ -1,12 +1,13 @@
 import {publicDb,publicConfig} from './supabase';
 import {type Menu} from './menus';
 import {siteConfig,type SiteVariant} from './site-config';
+import {distanceKm,MAP_RADIUS_KM} from './nearby-demo';
 
 const fields='id,place_id,menu,shop,price,heat,flavor,category,lat,lng,address,observed_at,verified_owner,nowgo_slug';
 type MenuRow={id:string;place_id:string;menu:string;shop:string;price:number;heat:number;flavor:string;category:string;lat:number|null;lng:number|null;address:string;observed_at:string;verified_owner:boolean;nowgo_slug:string|null};
 const convert=(x:MenuRow):Menu=>({id:String(x.id),placeId:String(x.place_id),name:String(x.menu),shop:String(x.shop),price:Number(x.price),heat:Number(x.heat),flavor:String(x.flavor),category:String(x.category),image:`/api/menu-photos/${x.id}`,lat:x.lat==null?null:Number(x.lat),lng:x.lng==null?null:Number(x.lng),area:String(x.address),description:x.verified_owner?'NOWGO에서 매장 관리 권한을 확인한 점주가 직접 알려준 메뉴입니다. 현재 영업·품절 상태는 따로 확인해 주세요.':'통합회원이 알려준 메뉴입니다. 가격과 영업 상태를 방문 전에 다시 확인해 주세요.',isDemo:false,reportedAt:String(x.observed_at),verifiedOwner:!!x.verified_owner,nowgoSlug:x.nowgo_slug?String(x.nowgo_slug):null});
 
-export type MenuSearch={page?:number;query?:string;heat?:number;maxHeat?:number;flavor?:string;category?:string;budget?:number};
+export type MenuSearch={page?:number;query?:string;heat?:number;maxHeat?:number;flavor?:string;category?:string;budget?:number;lat?:number;lng?:number;radiusKm?:number};
 
 export async function communityMenus(filters:MenuSearch={},variant:SiteVariant='hot'){
  if(!publicConfig().ready)return {menus:[] as Menu[],hasMore:false};
@@ -21,9 +22,16 @@ export async function communityMenus(filters:MenuSearch={},variant:SiteVariant='
  if(filters.flavor&&filters.flavor!=='전체')request=request.eq('flavor',filters.flavor);
  if(filters.category&&filters.category!=='전체')request=request.eq('category',filters.category);
  if(Number.isInteger(budget)&&budget>=100&&budget<=1000000)request=request.lte('price',budget);
+ const radius=Math.min(Math.max(filters.radiusKm||MAP_RADIUS_KM,1),MAP_RADIUS_KM);
+ const lat=filters.lat,lng=filters.lng;
+ const point=typeof lat==='number'&&typeof lng==='number'&&Number.isFinite(lat)&&Number.isFinite(lng)&&lat>=33&&lat<=39.6&&lng>=124&&lng<=132?{lat,lng}:null;
+ if(point){
+  const latDelta=radius/111,lngDelta=radius/(111*Math.max(Math.cos(point.lat*Math.PI/180),0.2));
+  request=request.gte('lat',point.lat-latDelta).lte('lat',point.lat+latDelta).gte('lng',point.lng-lngDelta).lte('lng',point.lng+lngDelta);
+ }
  const {data,error}=await request.order('created_at',{ascending:false}).range(page*size,page*size+size);
  if(error)throw error;
- const rows=(data||[]) as MenuRow[];
+ const rows=((data||[]) as MenuRow[]).filter(row=>!point||row.lat!==null&&row.lng!==null&&distanceKm(point,{lat:row.lat,lng:row.lng})<=radius);
  return {menus:rows.slice(0,size).map(convert),hasMore:rows.length>size};
 }
 

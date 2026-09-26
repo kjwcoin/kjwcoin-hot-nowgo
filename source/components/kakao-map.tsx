@@ -3,7 +3,7 @@
 import {useCallback,useEffect,useRef,useState,type FormEvent} from 'react';
 import {ArrowUpRight,LocateFixed,MapPin} from 'lucide-react';
 import {isKoreanCoordinate,isKoreanRegion} from '@/lib/korean-region';
-import {demoLandCandidates,isValidGeoPoint,type GeoPoint} from '@/lib/nearby-demo';
+import {demoLandCandidates,hasVerifiedLandParcel,isValidGeoPoint,NEIGHBORHOOD_LEVEL,type GeoPoint} from '@/lib/nearby-demo';
 import {money,type Menu} from '@/lib/menus';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -67,7 +67,7 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,onDemoPositi
   const map=mapRef.current,k=kakaoRef.current;
   if(!map||!k)return;
   map.relayout();
-  map.setLevel(5);
+  map.setLevel(NEIGHBORHOOD_LEVEL);
   map.setCenter(new k.maps.LatLng(point.lat,point.lng));
  },[]);
 
@@ -95,7 +95,7 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,onDemoPositi
       const valid=await Promise.all(batch.map(candidate=>new Promise<boolean>(resolve=>{
        geocoder.coord2Address(candidate.lng,candidate.lat,(results:any,status:any)=>{
         const address=results?.[0]?.address;
-        resolve(status===k.maps.services.Status.OK&&!!address?.address_name&&isKoreanRegion(address.region_1depth_name||''));
+      resolve(status===k.maps.services.Status.OK&&hasVerifiedLandParcel(address));
        });
       })));
       if(request!==landRequestRef.current)return;
@@ -148,7 +148,8 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,onDemoPositi
     if(cancelled||!canvasRef.current)return;
     if(timeout)clearTimeout(timeout);
     kakaoRef.current=k;
-    const map=new k.maps.Map(canvasRef.current,{center:fullScreen?new k.maps.LatLng(37.544,126.65):new k.maps.LatLng(36.35,127.8),level:fullScreen?5:11});
+    // Neutral inland placeholder only while waiting for the visitor's own GPS fix.
+    const map=new k.maps.Map(canvasRef.current,{center:new k.maps.LatLng(37.5665,126.978),level:NEIGHBORHOOD_LEVEL});
     mapRef.current=map;
     map.addControl(new k.maps.ZoomControl(),k.maps.ControlPosition.RIGHT);
     if(callbacksRef.current.onPoint)k.maps.event.addListener(map,'click',(event:any)=>{
