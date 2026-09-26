@@ -3,10 +3,16 @@ import type {Menu} from './menus';
 export type GeoPoint=Readonly<{lat:number;lng:number}>;
 
 const EARTH_RADIUS_KM=6371.0088;
-const DISTANCES_KM=[3,6,9] as const;
-const BEARINGS_DEGREES=[40,165,285] as const;
 const toRadians=(degrees:number)=>degrees*Math.PI/180;
 const toDegrees=(radians:number)=>radians*180/Math.PI;
+
+// Candidate points are never shown until the map's address service verifies land.
+export function demoLandCandidates(origin:GeoPoint):GeoPoint[]{
+ if(!isValidGeoPoint(origin))return [];
+ return [1,3,6,9,12].flatMap(distance=>
+  [0,45,90,135,180,225,270,315].map(bearing=>destination(origin,distance,bearing))
+ );
+}
 
 export function isValidGeoPoint(input:unknown):input is GeoPoint{
  if(!input||typeof input!=='object')return false;
@@ -40,34 +46,22 @@ function destination(origin:GeoPoint,distance:number,bearing:number):GeoPoint{
  return {lat:toDegrees(lat2),lng};
 }
 
-function placementFor(placeId:string){
- let slot=0,jitter=0;
- for(let index=0;index<placeId.length;index++){
-  const code=placeId.charCodeAt(index);
-  slot=(slot+code)%DISTANCES_KM.length;
-  jitter=(jitter+(index+1)*code)%21;
- }
- return {distance:DISTANCES_KM[slot],bearing:BEARINGS_DEGREES[slot]+jitter-10};
-}
-
-export function nearbyDemoMenus(menus:readonly Menu[],origin:GeoPoint|null):Menu[]{
- if(!isValidGeoPoint(origin))return menus.slice();
+export function nearbyDemoMenus(menus:readonly Menu[],origin:GeoPoint|null,landPoints:readonly GeoPoint[]=[]):Menu[]{
+ if(!isValidGeoPoint(origin))return menus.filter(menu=>!menu.isDemo);
+ const points=landPoints.filter(isValidGeoPoint);
  const positions=new Map<string,GeoPoint>();
- return menus.map(menu=>{
-  if(!menu.isDemo)return menu;
+ let index=0;
+ return menus.flatMap(menu=>{
+  if(!menu.isDemo)return [menu];
   let point=positions.get(menu.placeId);
-  if(!point){
-   const placement=placementFor(menu.placeId);
-   point=destination(origin,placement.distance,placement.bearing);
-   positions.set(menu.placeId,point);
-  }
-  return {...menu,...point,area:'내 위치 기준 가상 위치'};
+  if(!point){point=points[index++];if(point)positions.set(menu.placeId,point)}
+  return point?[{...menu,...point,area:'내 위치 기준 가상 위치'}]:[];
  });
 }
 
-export function menusWithinRadius(menus:readonly Menu[],origin:GeoPoint|null,radiusKm=30):Menu[]{
+export function menusWithinRadius(menus:readonly Menu[],origin:GeoPoint|null,radiusKm=30,landPoints:readonly GeoPoint[]=[]):Menu[]{
  if(!isValidGeoPoint(origin)||!Number.isFinite(radiusKm)||radiusKm<=0)return [];
- return nearbyDemoMenus(menus,origin).filter(menu=>
+ return nearbyDemoMenus(menus,origin,landPoints).filter(menu=>
   menu.lat!==null&&menu.lng!==null
   &&isValidGeoPoint({lat:menu.lat,lng:menu.lng})
   &&distanceKm(origin,{lat:menu.lat,lng:menu.lng})<=radiusKm
