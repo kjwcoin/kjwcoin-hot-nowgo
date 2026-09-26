@@ -1,0 +1,13 @@
+{
+  "sweet": {
+    "origin": "https://sweet.nowgo.space",
+    "title": "SWEET | 맛잘알의 디저트 지도",
+    "description": "내가 좋아하는 달콤함을 골라요.",
+    "image": "/og/share-sweet-02-20260926-v2.jpg",
+    "siteName": "나우고 SWEET",
+    "sha256": "2476bc5730d79a3b0807b9e194e127fcc2bd5abfd1608527741b33e82570f668",
+    "legacyImages": [
+      "/og/og-sweet-02.jpg"
+    ]
+  }
+}
