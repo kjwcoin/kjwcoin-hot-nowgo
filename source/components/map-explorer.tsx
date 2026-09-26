@@ -9,21 +9,20 @@ import {NativeSelect} from '@/components/ui/native-select';
 import ReviewLink from '@/components/review-link';
 import CustomerPanel from './customer-panel';
 import KakaoMap from './kakao-map';
+import {MAP_RADIUS_KM,menusWithinRadius,type GeoPoint} from '@/lib/nearby-demo';
 import {MENUS,HEAT,FLAVORS,money,type Menu} from '@/lib/menus';
 import {api,track} from '@/lib/client';
 const CATEGORIES=['전체','카페','베이커리','케이크','도넛·쿠키','아이스크림·빙수','초콜릿·캔디','전통 디저트','기타'];
-type Point={lat:number;lng:number};
-const km=(a:Point,b:Point)=>{const r=6371,toRad=(v:number)=>v*Math.PI/180,dLat=toRad(b.lat-a.lat),dLng=toRad(b.lng-a.lng),x=Math.sin(dLat/2)**2+Math.cos(toRad(a.lat))*Math.cos(toRad(b.lat))*Math.sin(dLng/2)**2;return 2*r*Math.asin(Math.sqrt(x))};
 export default function MapExplorer(){
  useEffect(()=>{if(['#report','#owner','#photo-credits','#discover'].includes(window.location.hash))window.location.replace('/suggestion'+window.location.hash)},[]);
  useEffect(()=>{if(window.matchMedia('(max-width:700px)').matches)setExpanded(false)},[]);
  const [catalog,setCatalog]=useState<Menu[]>(MENUS),[page,setPage]=useState(0),[hasMore,setHasMore]=useState(false);
- const [query,setQuery]=useState(''),[heat,setHeat]=useState(0),[flavor,setFlavor]=useState('전체'),[category,setCategory]=useState('전체'),[budget,setBudget]=useState(0),[selected,setSelected]=useState<Menu|null>(null),[expanded,setExpanded]=useState(true),[userLocation,setUserLocation]=useState<Point|null>(null);
- const parameters=(nextPage:number)=>{const p=new URLSearchParams({page:String(nextPage)});if(query)p.set('q',query);if(heat)p.set('heat',String(heat));if(flavor!=='전체')p.set('flavor',flavor);if(category!=='전체')p.set('category',category);if(budget)p.set('budget',String(budget));if(userLocation){p.set('lat',String(userLocation.lat));p.set('lng',String(userLocation.lng));p.set('radiusKm','30')}return p};
- const demos=useMemo(()=>userLocation?MENUS.filter(m=>m.lat!==null&&m.lng!==null&&km(userLocation,{lat:m.lat,lng:m.lng})<=30):MENUS,[userLocation]);
- const load=(nextPage:number)=>api<{menus:Menu[];hasMore:boolean}>(`/api/menus?${parameters(nextPage)}`).then(d=>{setCatalog(old=>nextPage?[...old,...d.menus]:[...demos,...d.menus]);setPage(nextPage);setHasMore(d.hasMore)});
- useEffect(()=>{let cancelled=false;const p=parameters(0);const refresh=()=>api<{menus:Menu[];hasMore:boolean}>(`/api/menus?${p}`).then(d=>{if(!cancelled){setCatalog([...demos,...d.menus]);setPage(0);setHasMore(d.hasMore)}}).catch(()=>{});const timer=setTimeout(refresh,query?250:0);window.addEventListener('focus',refresh);return()=>{cancelled=true;clearTimeout(timer);window.removeEventListener('focus',refresh)}},[query,heat,flavor,category,budget,userLocation,demos]);
- const filtered=useMemo(()=>catalog.filter(m=>(!heat||m.heat===heat)&&(flavor==='전체'||m.flavor===flavor)&&(category==='전체'||m.category===category)&&(!budget||m.price<=budget)&&`${m.name} ${m.shop} ${m.category} ${m.area}`.replace(/\s/g,'').includes(query.trim().replace(/\s/g,''))),[catalog,query,heat,flavor,category,budget]);
+ const [query,setQuery]=useState(''),[heat,setHeat]=useState(0),[flavor,setFlavor]=useState('전체'),[category,setCategory]=useState('전체'),[budget,setBudget]=useState(0),[selected,setSelected]=useState<Menu|null>(null),[expanded,setExpanded]=useState(true),[userLocation,setUserLocation]=useState<GeoPoint|null>(null),[demoLocations,setDemoLocations]=useState<{origin:GeoPoint;points:GeoPoint[]}|null>(null);
+ const parameters=(nextPage:number)=>{const p=new URLSearchParams({page:String(nextPage)});if(query)p.set('q',query);if(heat)p.set('heat',String(heat));if(flavor!=='전체')p.set('flavor',flavor);if(category!=='전체')p.set('category',category);if(budget)p.set('budget',String(budget));if(userLocation){p.set('lat',String(userLocation.lat));p.set('lng',String(userLocation.lng));p.set('radiusKm',String(MAP_RADIUS_KM))}return p};
+ const load=(nextPage:number)=>api<{menus:Menu[];hasMore:boolean}>(`/api/menus?${parameters(nextPage)}`).then(d=>{setCatalog(old=>nextPage?[...old,...d.menus]:[...MENUS,...d.menus]);setPage(nextPage);setHasMore(d.hasMore)});
+ useEffect(()=>{let cancelled=false;const p=parameters(0);const refresh=()=>api<{menus:Menu[];hasMore:boolean}>(`/api/menus?${p}`).then(d=>{if(!cancelled){setCatalog([...MENUS,...d.menus]);setPage(0);setHasMore(d.hasMore)}}).catch(()=>{});const timer=setTimeout(refresh,query?250:0);window.addEventListener('focus',refresh);return()=>{cancelled=true;clearTimeout(timer);window.removeEventListener('focus',refresh)}},[query,heat,flavor,category,budget,userLocation]);
+ const located=useMemo(()=>menusWithinRadius(catalog,userLocation,demoLocations&&demoLocations.origin.lat===userLocation?.lat&&demoLocations.origin.lng===userLocation?.lng?demoLocations.points:[]),[catalog,userLocation,demoLocations]);
+ const filtered=useMemo(()=>located.filter(m=>(!heat||m.heat===heat)&&(flavor==='전체'||m.flavor===flavor)&&(category==='전체'||m.category===category)&&(!budget||m.price<=budget)&&`${m.name} ${m.shop} ${m.category} ${m.area}`.replace(/\s/g,'').includes(query.trim().replace(/\s/g,''))),[located,query,heat,flavor,category,budget]);
  const current=selected&&filtered.some(m=>m.id===selected.id)?selected:null;
  const count=Number(!!heat)+Number(flavor!=='전체')+Number(category!=='전체')+Number(!!budget);
  function reset(){setQuery('');setHeat(0);setFlavor('전체');setCategory('전체');setBudget(0);setSelected(null)}
@@ -40,10 +39,10 @@ export default function MapExplorer(){
    </div>
   </header>
   <div className="explorer-surface">
-   <KakaoMap fullScreen menus={filtered} selectedId={current?.id} onSelect={select} onLocation={setUserLocation}/>
+   <KakaoMap fullScreen menus={filtered} selectedId={current?.id} onSelect={select} onLocation={point=>{setSelected(null);setUserLocation(point)}} onDemoPositions={(origin,points)=>setDemoLocations({origin,points})}/>
    <aside className={`explorer-results ${expanded?'expanded':'collapsed'}`} aria-label="검색된 메뉴">
     <div className="explorer-results-header">
-    <button className="explorer-results-heading" aria-expanded={expanded} aria-controls="map-results" onClick={()=>setExpanded(!expanded)}><span><small>{userLocation?'내 위치 반경 30km':'전국의 카페·디저트'}</small><strong>지금 당기는 한 접시 <b>{filtered.length}</b></strong></span>{expanded?<ChevronDown size={20}/>:<ChevronUp size={20}/>}</button>
+    <button className="explorer-results-heading" aria-expanded={expanded} aria-controls="map-results" onClick={()=>setExpanded(!expanded)}><span><small>{userLocation?'내 위치 반경 15km':'위치 확인 후 주변 메뉴 표시'}</small><strong>지금 당기는 한 접시 <b>{filtered.length}</b></strong></span>{expanded?<ChevronDown size={20}/>:<ChevronUp size={20}/>}</button>
      <a className="explorer-report explorer-report--inline" href="/suggestion#report"><Plus size={16}/><span>제보 및 등록</span></a>
     </div>
     {expanded&&<div id="map-results" className="explorer-results-body"><p className="explorer-example">가매장 3곳은 개발용 · 실제 영업하지 않아요</p>

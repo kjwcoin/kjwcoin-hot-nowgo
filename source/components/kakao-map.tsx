@@ -1,9 +1,10 @@
 'use client';
 
-import {useCallback,useEffect,useRef,useState} from 'react';
+import {useCallback,useEffect,useRef,useState,type FormEvent} from 'react';
 import {ArrowUpRight,LocateFixed,MapPin} from 'lucide-react';
 import {type Menu,money} from '@/lib/menus';
 import {isKoreanCoordinate,isKoreanRegion} from '@/lib/korean-region';
+import {demoLandCandidates,hasVerifiedLandParcel,isValidGeoPoint,MAP_RADIUS_KM,NEIGHBORHOOD_LEVEL,type GeoPoint} from '@/lib/nearby-demo';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 declare global {
@@ -42,8 +43,6 @@ function loadKakaoSdk(key:string){
  return kakaoSdkPromise;
 }
 
-type Point={lat:number;lng:number};
-
 type Props={
  menus:Menu[];
  onSelect:(menu:Menu)=>void;
@@ -51,12 +50,13 @@ type Props={
  addressSearch?:{text:string;requestId:number}|null;
  onAddressFound?:(point:{address:string;lat:number;lng:number})=>void;
  onAddressError?:()=>void;
- onLocation?:(point:Point)=>void;
+ onLocation?:(point:GeoPoint)=>void;
+ onDemoPositions?:(origin:GeoPoint,points:GeoPoint[])=>void;
  fullScreen?:boolean;
  selectedId?:string;
 };
 
-export default function KakaoMap({menus,onSelect,onPoint,onLocation,addressSearch,onAddressFound,onAddressError,fullScreen=false,selectedId}:Props){
+export default function KakaoMap({menus,onSelect,onPoint,onLocation,onDemoPositions,addressSearch,onAddressFound,onAddressError,fullScreen=false,selectedId}:Props){
  const rootRef=useRef<HTMLDivElement>(null);
  const canvasRef=useRef<HTMLDivElement>(null);
  const mapRef=useRef<any>(null);
@@ -64,40 +64,84 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,addressSearc
  const overlaysRef=useRef<any[]>([]);
  const userMarkerRef=useRef<any>(null);
  const addressMarkerRef=useRef<any>(null);
- const callbacksRef=useRef({onSelect,onPoint,onLocation,onAddressFound,onAddressError});
- callbacksRef.current={onSelect,onPoint,onLocation,onAddressFound,onAddressError};
+ const callbacksRef=useRef({onSelect,onPoint,onLocation,onDemoPositions,onAddressFound,onAddressError});
+ callbacksRef.current={onSelect,onPoint,onLocation,onDemoPositions,onAddressFound,onAddressError};
+ const landRequestRef=useRef(0),locationRequestRef=useRef(0);
+ const userPointRef=useRef<GeoPoint|null>(null);
 
  const [state,setState]=useState<'loading'|'ready'|'error'>('loading');
  const [locationState,setLocationState]=useState<'idle'|'locating'|'located'|'denied'>('idle');
+ const [locationSource,setLocationSource]=useState<'gps'|'address'>('gps');
+ const [manualAddress,setManualAddress]=useState('');
+ const [manualError,setManualError]=useState('');
 
- const moveToCurrentLocation=useCallback((requestPermission=true)=>{
-  if(typeof navigator==='undefined'||!navigator.geolocation){
-   setLocationState('denied');
-   return;
+ const showNearby=useCallback((point:GeoPoint,source:'gps'|'address')=>{
+  const k=kakaoRef.current,map=mapRef.current;
+  if(!k||!map)return;
+  userPointRef.current=point;
+  const position=new k.maps.LatLng(point.lat,point.lng);
+  map.relayout();
+  map.setLevel(NEIGHBORHOOD_LEVEL);
+  map.setCenter(position);
+  userMarkerRef.current?.setMap(null);
+  userMarkerRef.current=new k.maps.Marker({map,position,title:source==='gps'?'내 위치':'선택한 주소'});
+  setLocationState('located');
+  setLocationSource(source);
+  setManualError('');
+  callbacksRef.current.onLocation?.(point);
+  const request=++landRequestRef.current,geocoder=new k.maps.services.Geocoder();
+  const candidates=demoLandCandidates(point),land:GeoPoint[]=[];
+  const check=async()=>{
+   for(let index=0;index<candidates.length&&land.length<3;index+=4){
+    if(request!==landRequestRef.current)return;
+    const batch=candidates.slice(index,index+4);
+    const verified=await Promise.all(batch.map(candidate=>new Promise<boolean>(resolve=>{
+     geocoder.coord2Address(candidate.lng,candidate.lat,(results:any,status:any)=>{
+      const address=results?.[0]?.address;
+      resolve(status===k.maps.services.Status.OK&&hasVerifiedLandParcel(address));
+     });
+    })));
+    if(request!==landRequestRef.current)return;
+    batch.forEach((candidate,index)=>{if(verified[index]&&land.length<3)land.push(candidate)});
+   }
+   if(request===landRequestRef.current)callbacksRef.current.onDemoPositions?.(point,land);
+  };
+  void check();
+ },[]);
+
+ const moveToCurrentLocation=useCallback(()=>{
+  const request=++locationRequestRef.current;
+  if(userPointRef.current){
+   const map=mapRef.current,k=kakaoRef.current;
+   map?.setLevel(NEIGHBORHOOD_LEVEL);
+   if(map&&k)map.setCenter(new k.maps.LatLng(userPointRef.current.lat,userPointRef.current.lng));
   }
-  if(requestPermission)setLocationState('locating');
+  if(!window.isSecureContext||!navigator.geolocation){setLocationState(userPointRef.current?'located':'denied');return}
+  setLocationState('locating');
   navigator.geolocation.getCurrentPosition(
    ({coords})=>{
+    if(request!==locationRequestRef.current)return;
     const point={lat:coords.latitude,lng:coords.longitude};
-    if(!isKoreanCoordinate(point.lat,point.lng)){
-     setLocationState('denied');
-     return;
-    }
-    const k=kakaoRef.current;
-    const map=mapRef.current;
-    if(!k||!map)return;
-    const pos=new k.maps.LatLng(point.lat,point.lng);
-    map.setLevel(6);
-    map.panTo(pos);
-    if(userMarkerRef.current)userMarkerRef.current.setMap(null);
-    userMarkerRef.current=new k.maps.Marker({map,position:pos,title:'내 위치'});
-    setLocationState('located');
-    callbacksRef.current.onLocation?.(point);
+    if(!isKoreanCoordinate(point.lat,point.lng)||!isValidGeoPoint(point)||!Number.isFinite(coords.accuracy)||coords.accuracy>5000){setLocationState(userPointRef.current?'located':'denied');return}
+    showNearby(point,'gps');
    },
-   ()=>setLocationState(requestPermission?'denied':'idle'),
+   ()=>{if(request===locationRequestRef.current)setLocationState(userPointRef.current?'located':'denied')},
    {enableHighAccuracy:true,timeout:8000,maximumAge:60000}
   );
- },[]);
+ },[showNearby]);
+
+ const searchManualLocation=(event:FormEvent<HTMLFormElement>)=>{
+  event.preventDefault();
+  const k=kakaoRef.current,text=manualAddress.trim();
+  if(!k||!text){setManualError('대한민국 주소를 입력해 주세요.');return}
+  const request=++locationRequestRef.current;
+  new k.maps.services.Geocoder().addressSearch(text,(results:any,status:any)=>{
+   if(request!==locationRequestRef.current)return;
+   const found=results?.find((item:any)=>isKoreanCoordinate(Number(item.y),Number(item.x)));
+   if(status!==k.maps.services.Status.OK||!found){setManualError('주소를 찾지 못했어요. 도로명이나 지번 주소를 입력해 주세요.');return}
+   showNearby({lat:Number(found.y),lng:Number(found.x)},'address');
+  });
+ };
 
  useEffect(()=>{
   let cancelled=false;
@@ -113,8 +157,8 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,addressSearc
     if(cancelled||!canvasRef.current)return;
     kakaoRef.current=k;
     const map=new k.maps.Map(canvasRef.current,{
-     center:new k.maps.LatLng(36.35,127.8),
-     level:fullScreen?13:11
+     center:new k.maps.LatLng(37.5665,126.978),
+     level:NEIGHBORHOOD_LEVEL
     });
     mapRef.current=map;
     map.addControl(new k.maps.ZoomControl(),k.maps.ControlPosition.RIGHT);
@@ -136,7 +180,7 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,addressSearc
      });
     }
     setState('ready');
-    window.setTimeout(()=>moveToCurrentLocation(false),250);
+    if(callbacksRef.current.onLocation)window.setTimeout(()=>{if(!cancelled)moveToCurrentLocation()},250);
    }catch{
     if(!cancelled)setState('error');
    }
@@ -236,14 +280,15 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,addressSearc
    type="button"
    className="map-location-button"
    aria-label="내 위치로 이동"
-   onClick={()=>moveToCurrentLocation(true)}
+   onClick={moveToCurrentLocation}
   >
    <LocateFixed size={16}/>
-   {locationState==='locating'?'위치 확인 중':locationState==='located'?'내 위치':'내 위치'}
+   {locationState==='locating'?'위치 확인 중':'내 위치'}
   </button>}
+  {state==='ready'&&onLocation&&(locationState==='denied'||locationSource==='address'&&locationState==='located')&&<form className="map-manual-location" onSubmit={searchManualLocation}><label htmlFor="map-manual-address">위치 권한이 안 되나요? 주소로 찾기</label><div><input id="map-manual-address" value={manualAddress} onChange={event=>setManualAddress(event.target.value)} placeholder="예: 서울 중구 세종대로 110"/><button type="submit">이 주소 주변 보기</button></div>{manualError&&<small role="alert">{manualError}</small>}</form>}
   <div className="map-caption">
    <span>{state==='ready'?'카카오맵':'SWEET 지도'}</span>
-   <span>{state==='ready'?(locationState==='located'?'내 위치 기준 · 주변 메뉴':'내 위치 버튼으로 주변 메뉴 찾기'):'카카오맵 연결을 확인하는 중'}</span>
+   <span>{state==='ready'?(locationState==='located'?(locationSource==='address'?'선택한 주소':'내 위치')+` 기준 ${MAP_RADIUS_KM}km`:locationState==='denied'?'위치 권한을 허용하거나 주소를 입력해 주세요':'내 위치를 확인합니다'):'카카오맵 연결을 확인하는 중'}</span>
   </div>
  </div>;
 }

@@ -1,5 +1,6 @@
 import {publicDb,publicConfig} from './supabase';
 import {MENUS,type Menu} from './menus';
+import {MAP_RADIUS_KM} from './nearby-demo';
 
 const fields='id,place_id,menu,shop,price,heat,flavor,category,lat,lng,address,observed_at,verified_owner,nowgo_slug';
 type MenuRow={id:string;place_id:string;menu:string;shop:string;price:number;heat:number;flavor:string;category:string;lat:number|null;lng:number|null;address:string;observed_at:string;verified_owner:boolean;nowgo_slug:string|null};
@@ -20,7 +21,7 @@ export async function communityMenus(filters:MenuSearch={}){
  if(filters.flavor&&filters.flavor!=='전체')request=request.eq('flavor',filters.flavor);
  if(filters.category&&filters.category!=='전체')request=request.eq('category',filters.category);
  if(Number.isInteger(budget)&&budget>=100&&budget<=1000000)request=request.lte('price',budget);
- const radius=Math.min(Math.max(filters.radiusKm??30,1),100);
+ const radius=Math.min(Math.max(filters.radiusKm??MAP_RADIUS_KM,1),MAP_RADIUS_KM);
  const lat=typeof filters.lat==='number'&&Number.isFinite(filters.lat)?filters.lat:null;
  const lng=typeof filters.lng==='number'&&Number.isFinite(filters.lng)?filters.lng:null;
  const point=lat!==null&&lng!==null&&lat>=33&&lat<=39.6&&lng>=124&&lng<=132?{lat,lng}:null;
