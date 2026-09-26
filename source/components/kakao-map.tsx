@@ -1,6 +1,6 @@
 'use client';
 
-import {useCallback,useEffect,useRef,useState,type FormEvent} from 'react';
+import {useCallback,useEffect,useRef,useState} from 'react';
 import {ArrowUpRight,LocateFixed,MapPin} from 'lucide-react';
 import {isKoreanCoordinate,isKoreanRegion} from '@/lib/korean-region';
 import {demoLandCandidates,hasVerifiedLandParcel,isValidGeoPoint,NEIGHBORHOOD_LEVEL,type GeoPoint} from '@/lib/nearby-demo';
@@ -47,7 +47,6 @@ type Props={
 export default function KakaoMap({menus,onSelect,onPoint,onLocation,onDemoPositions,addressSearch,onAddressFound,onAddressError,fullScreen=false,selectedId,variant='hot'}:Props){
  const rootRef=useRef<HTMLDivElement>(null);
  const canvasRef=useRef<HTMLDivElement>(null);
- const manualInputRef=useRef<HTMLInputElement>(null);
  const mapRef=useRef<any>(null);
  const kakaoRef=useRef<any>(null);
  const overlaysRef=useRef<any[]>([]);
@@ -60,9 +59,6 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,onDemoPositi
  const locationRequestRef=useRef(0);
  const [mapState,setMapState]=useState<'loading'|'ready'|'setup'|'error'>('loading');
  const [locationState,setLocationState]=useState<LocationState>('idle');
- const [locationSource,setLocationSource]=useState<'gps'|'address'>('gps');
- const [manualAddress,setManualAddress]=useState('');
- const [manualError,setManualError]=useState('');
 
  const focusNeighborhood=useCallback((point:GeoPoint)=>{
   const map=mapRef.current,k=kakaoRef.current;
@@ -72,17 +68,15 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,onDemoPositi
   map.setCenter(new k.maps.LatLng(point.lat,point.lng));
  },[]);
 
- const showNearby=useCallback((point:GeoPoint,source:'gps'|'address')=>{
+ const showNearby=useCallback((point:GeoPoint)=>{
    const map=mapRef.current,k=kakaoRef.current;
    if(!map||!k){setLocationState('idle');return}
    userPointRef.current=point;
    const position=new k.maps.LatLng(point.lat,point.lng);
    userMarkerRef.current?.setMap(null);
-   userMarkerRef.current=new k.maps.Marker({map,position,title:source==='address'?'선택한 위치':'내 위치'});
+   userMarkerRef.current=new k.maps.Marker({map,position,title:'내 위치'});
    focusNeighborhood(point);
-   setLocationSource(source);
    setLocationState('located');
-   setManualError('');
    callbacksRef.current.onLocation?.(point);
    if(callbacksRef.current.onDemoPositions){
     const request=++landRequestRef.current;
@@ -118,22 +112,9 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,onDemoPositi
    if(request!==locationRequestRef.current)return;
    const point={lat:coords.latitude,lng:coords.longitude};
    if(!isValidGeoPoint(point)||!Number.isFinite(coords.accuracy)||coords.accuracy>5000){setLocationState(userPointRef.current?'located':'inaccurate');return}
-   showNearby(point,'gps');
+   showNearby(point);
   },error=>{if(request===locationRequestRef.current)setLocationState(userPointRef.current?'located':error.code===1?'denied':'inaccurate')},{enableHighAccuracy:true,timeout:8000,maximumAge:60000});
  },[focusNeighborhood,showNearby]);
-
- const searchManualLocation=(event:FormEvent<HTMLFormElement>)=>{
-  event.preventDefault();
-  const k=kakaoRef.current,text=manualAddress.trim();
-  if(!k||!text){setManualError('대한민국 주소를 입력해 주세요.');return}
-  const request=++locationRequestRef.current;
-  new k.maps.services.Geocoder().addressSearch(text,(results:any,status:any)=>{
-   if(request!==locationRequestRef.current)return;
-   const found=results?.find((result:any)=>isKoreanCoordinate(Number(result.y),Number(result.x)));
-   if(status!==k.maps.services.Status.OK||!found){setManualError('주소를 찾지 못했어요. 도로명이나 지번 주소를 입력해 주세요.');return}
-   showNearby({lat:Number(found.y),lng:Number(found.x)},'address');
-  });
- };
 
  useEffect(()=>{
   let cancelled=false;
@@ -170,8 +151,6 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,onDemoPositi
   if(rootRef.current)observer.observe(rootRef.current);
   return()=>{cancelled=true;if(timeout)clearTimeout(timeout);observer.disconnect()};
  },[fullScreen]);
-
- useEffect(()=>{if(locationState==='denied')manualInputRef.current?.focus()},[locationState]);
 
  useEffect(()=>{
   if(mapState!=='ready'||!mapRef.current||!kakaoRef.current)return;
@@ -225,12 +204,11 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,onDemoPositi
  },[mapState]);
 
  const label=variant==='sweet'?'카페 디저트':variant==='rich'?'고소한':'매운';
- const statusText=locationState==='located'?(locationSource==='address'?'선택한 주소 기준 15km':'내 위치 기준 15km'):locationState==='locating'?'위치 확인 중':locationState==='denied'?'위치 권한이 꺼져 있어요. 주소로 찾을 수 있어요':locationState==='inaccurate'?'주소로 위치를 지정할 수 있어요':'내 위치를 눌러 주변 15km 보기';
+ const statusText=locationState==='located'?'내 위치 기준 15km':locationState==='locating'?'위치 확인 중':locationState==='denied'?'브라우저 위치 권한을 허용한 뒤 다시 눌러 주세요':locationState==='inaccurate'?'위치를 확인하지 못했어요. 다시 눌러 주세요':'내 위치를 눌러 주변 15km 보기';
  return <div className={fullScreen?'map-panel map-fullscreen':'map-panel'} ref={rootRef}>
   <div className="map-canvas" ref={canvasRef} aria-label={`카카오 대한민국 ${label} 메뉴 지도`}/>
   {mapState!=='ready'&&<div className="map-unavailable"><MapPin size={30} strokeWidth={1.3}/><span className="eyebrow">KAKAO MAP · {variant.toUpperCase()} NOWGO</span><h3>{mapState==='loading'?'지도를 불러오는 중':mapState==='setup'?'지도 연결을 준비하고 있어요':'잠시 지도를 불러올 수 없어요'}</h3><p>메뉴는 목록에서 계속 볼 수 있어요.<br/>실제 매장 상태는 나우고에서 확인하세요.</p><a className="text-link" href="https://www.nowgo.space/" target="_blank" rel="noreferrer">나우고에서 운영 매장 확인 <ArrowUpRight size={18}/></a></div>}
   {mapState==='ready'&&onLocation&&<button type="button" className="map-location-button" aria-label="내 위치로 이동" onClick={requestLocation}><LocateFixed size={16}/>{locationState==='locating'?'위치 다시 확인':'내 위치'}</button>}
-  {mapState==='ready'&&onLocation&&(locationState!=='located'||locationSource==='address')&&<form className="map-manual-location" onSubmit={searchManualLocation}><label htmlFor="map-manual-address">위치 권한이 안 되나요? 주소로 찾기</label><div><input ref={manualInputRef} id="map-manual-address" value={manualAddress} onChange={event=>setManualAddress(event.target.value)} placeholder="예: 서울 중구 세종대로 110"/><button type="submit">이 주소 주변 보기</button></div>{manualError&&<small role="alert">{manualError}</small>}</form>}
   <div className="map-caption"><span>카카오 지도</span><span>{mapState==='ready'?statusText:'지도 연결 확인 중'}</span></div>
  </div>;
 }
