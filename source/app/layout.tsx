@@ -8,7 +8,7 @@ export async function generateMetadata():Promise<Metadata>{
  const theme=siteConfig(variant);
  const isRich=variant==='rich';
  const domain=isRich?'rich.nowgo.space':'hot.nowgo.space';
- const image=isRich?'/og/og-rich-03.jpg':'/og/og-hot-01.jpg';
+ const image=isRich?'/og/share-rich-03-20260926-v2.jpg':'/og/share-hot-01-20260926-v2.jpg';
  const socialTitle=isRich?'RICH | 맛잘알의 리치한 맛 지도':'HOT | 맛잘알의 매운맛 지도';
  const socialDescription=isRich
   ?'크리미하고 버터리한 메뉴를 취향대로 찾아보세요.'
