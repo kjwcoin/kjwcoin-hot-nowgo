@@ -159,7 +159,7 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,fullScreen=f
   <div className="map-canvas" ref={canvasRef} aria-label={`카카오 대한민국 ${label} 메뉴 지도`}/>
   {mapState!=='ready'&&<div className="map-unavailable"><MapPin size={30} strokeWidth={1.3}/><span className="eyebrow">KAKAO MAP · {variant.toUpperCase()} NOWGO</span><h3>{mapState==='loading'?'지도를 불러오는 중':mapState==='setup'?'지도 연결을 준비하고 있어요':'잠시 지도를 불러올 수 없어요'}</h3><p>메뉴는 목록에서 계속 볼 수 있어요.<br/>실제 매장 상태는 나우고에서 확인하세요.</p><a className="text-link" href="https://www.nowgo.space/" target="_blank" rel="noreferrer">나우고에서 운영 매장 확인 <ArrowUpRight size={18}/></a></div>}
   {mapState==='ready'&&locationState!=='located'&&<div className="map-location-gate" role="status" aria-live="polite"><LocateFixed size={28}/><h3>{locationState==='locating'?'내 위치를 확인하고 있어요':locationState==='idle'?'내 위치에서 찾아볼까요?':'위치를 확인할 수 없어요'}</h3><p>{locationState==='inaccurate'?'기기의 위치 설정을 켜고 다시 시도해 주세요.':locationState==='denied'?'브라우저에서 위치 권한을 허용한 뒤 다시 눌러 주세요.':'내 위치 버튼을 누르면 15km 안의 매장을 보여드려요.'}</p></div>}
-  {mapState==='ready'&&<button type="button" className="map-location-button" aria-label="내 위치 기준 15km 지도 보기" onClick={requestLocation} disabled={locationState==='locating'}><LocateFixed size={16}/>{locationState==='locating'?'위치 확인 중':'내 위치 · 15km'}</button>}
+  {mapState==='ready'&&<button type="button" className="map-location-button" aria-label="내 위치로 이동" onClick={requestLocation} disabled={locationState==='locating'}><LocateFixed size={16}/>{locationState==='locating'?'위치 확인 중':'내 위치'}</button>}
   <div className="map-caption"><span>카카오 지도</span><span>{mapState==='ready'?statusText:'지도 연결 확인 중'}</span></div>
  </div>;
 }
