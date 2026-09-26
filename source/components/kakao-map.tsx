@@ -61,26 +61,33 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,fullScreen=f
   const longitudeDelta=15/(111.32*Math.max(.2,Math.cos(point.lat*Math.PI/180)));
   bounds.extend(new k.maps.LatLng(point.lat-latitudeDelta,point.lng-longitudeDelta));
   bounds.extend(new k.maps.LatLng(point.lat+latitudeDelta,point.lng+longitudeDelta));
+  map.relayout();
   const mobile=window.matchMedia('(max-width: 700px)').matches;
-  map.setBounds(bounds,70,70,mobile?300:90,mobile?70:390);
- },[]);
+  const width=canvasRef.current?.clientWidth||0,height=canvasRef.current?.clientHeight||0;
+  const bottom=mobile?Math.min(96,Math.max(16,height*.2)):24;
+  const left=fullScreen&&!mobile?Math.min(360,Math.max(24,width*.25)):24;
+  map.setBounds(bounds,24,24,bottom,left);
+ },[fullScreen]);
 
  const requestLocation=useCallback(()=>{
-  if(!navigator.geolocation){setLocationState('denied');return}
+  // A second tap must recenter even if the device cannot refresh its GPS fix.
+  if(userPointRef.current){fitNearby(userPointRef.current);callbacksRef.current.onLocation?.(userPointRef.current)}
+  if(!window.isSecureContext||!navigator.geolocation){setLocationState(userPointRef.current?'located':'denied');return}
   setLocationState('locating');
   navigator.geolocation.getCurrentPosition(({coords})=>{
    const point={lat:coords.latitude,lng:coords.longitude};
-   if(!isValidGeoPoint(point)||!Number.isFinite(coords.accuracy)||coords.accuracy>5000){setLocationState('inaccurate');return}
+   if(!isValidGeoPoint(point)||!Number.isFinite(coords.accuracy)||coords.accuracy>5000){setLocationState(userPointRef.current?'located':'inaccurate');return}
    const map=mapRef.current,k=kakaoRef.current;
    if(!map||!k){setLocationState('idle');return}
    userPointRef.current=point;
    const position=new k.maps.LatLng(point.lat,point.lng);
    userMarkerRef.current?.setMap(null);
    userMarkerRef.current=new k.maps.Marker({map,position,title:'내 위치'});
+   fitNearby(point);
    setLocationState('located');
    callbacksRef.current.onLocation?.(point);
-  },()=>setLocationState('denied'),{enableHighAccuracy:true,timeout:10000,maximumAge:60000});
- },[]);
+  },error=>setLocationState(userPointRef.current?'located':error.code===1?'denied':'inaccurate'),{enableHighAccuracy:true,timeout:15000,maximumAge:0});
+ },[fitNearby]);
 
  useEffect(()=>{
   let cancelled=false;
@@ -109,12 +116,11 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,fullScreen=f
      });
     });
     setMapState('ready');
-    requestLocation();
    }).catch(()=>!cancelled&&setMapState('error'));
   },{rootMargin:'200px'});
   if(rootRef.current)observer.observe(rootRef.current);
   return()=>{cancelled=true;if(timeout)clearTimeout(timeout);observer.disconnect()};
- },[fullScreen,requestLocation]);
+ },[fullScreen]);
 
  useEffect(()=>{
   if(mapState!=='ready'||!mapRef.current||!kakaoRef.current)return;
@@ -148,12 +154,12 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,fullScreen=f
  },[mapState]);
 
  const label=variant==='sweet'?'카페 디저트':variant==='rich'?'고소한':'매운';
- const statusText=locationState==='located'?'내 위치 기준 15km · 가상 매장 3곳':locationState==='locating'?'위치 확인 중':locationState==='denied'?'위치 권한 필요':locationState==='inaccurate'?'정확한 위치 확인 필요':'GPS 기준 15km만 표시';
+ const statusText=locationState==='located'?'내 위치 기준 15km':locationState==='locating'?'위치 확인 중':locationState==='denied'?'위치 권한 필요':locationState==='inaccurate'?'정확한 위치 확인 필요':'내 위치 버튼을 눌러 주세요';
  return <div className={fullScreen?'map-panel map-fullscreen':'map-panel'} ref={rootRef}>
   <div className="map-canvas" ref={canvasRef} aria-label={`카카오 대한민국 ${label} 메뉴 지도`}/>
   {mapState!=='ready'&&<div className="map-unavailable"><MapPin size={30} strokeWidth={1.3}/><span className="eyebrow">KAKAO MAP · {variant.toUpperCase()} NOWGO</span><h3>{mapState==='loading'?'지도를 불러오는 중':mapState==='setup'?'지도 연결을 준비하고 있어요':'잠시 지도를 불러올 수 없어요'}</h3><p>메뉴는 목록에서 계속 볼 수 있어요.<br/>실제 매장 상태는 나우고에서 확인하세요.</p><a className="text-link" href="https://www.nowgo.space/" target="_blank" rel="noreferrer">나우고에서 운영 매장 확인 <ArrowUpRight size={18}/></a></div>}
-  {mapState==='ready'&&locationState!=='located'&&<div className="map-location-gate" role="status" aria-live="polite"><LocateFixed size={28}/><h3>{locationState==='locating'?'내 위치를 확인하고 있어요':'위치 권한이 필요해요'}</h3><p>{locationState==='inaccurate'?'정확한 위치를 확인할 수 없어요. 기기의 위치 설정을 켜고 다시 시도해 주세요.':locationState==='denied'?'위치 권한을 허용해야 현재 위치에서 15km 안의 매장만 볼 수 있어요.':'GPS 확인 후 15km 안의 매장만 지도에 표시합니다.'}</p></div>}
-  {mapState==='ready'&&<button type="button" className="map-location-button" aria-label="내 위치 기준 가상 매장 보기" onClick={requestLocation} disabled={locationState==='locating'}><LocateFixed size={16}/>{locationState==='locating'?'위치 확인 중':'내 위치'}</button>}
+  {mapState==='ready'&&locationState!=='located'&&<div className="map-location-gate" role="status" aria-live="polite"><LocateFixed size={28}/><h3>{locationState==='locating'?'내 위치를 확인하고 있어요':locationState==='idle'?'내 위치에서 찾아볼까요?':'위치를 확인할 수 없어요'}</h3><p>{locationState==='inaccurate'?'기기의 위치 설정을 켜고 다시 시도해 주세요.':locationState==='denied'?'브라우저에서 위치 권한을 허용한 뒤 다시 눌러 주세요.':'내 위치 버튼을 누르면 15km 안의 매장을 보여드려요.'}</p></div>}
+  {mapState==='ready'&&<button type="button" className="map-location-button" aria-label="내 위치 기준 15km 지도 보기" onClick={requestLocation} disabled={locationState==='locating'}><LocateFixed size={16}/>{locationState==='locating'?'위치 확인 중':'내 위치 · 15km'}</button>}
   <div className="map-caption"><span>카카오 지도</span><span>{mapState==='ready'?statusText:'지도 연결 확인 중'}</span></div>
  </div>;
 }
