@@ -195,3 +195,24 @@ html{scroll-behavior:smooth;scroll-padding-top:90px}body{font-family:Pretendard,
 .report-address-map{grid-column:1/-1}.report-address-map .map-panel{height:280px;min-height:280px}.report-address-map>small{display:block;margin:8px 0 15px;color:#70695d;font-size:13px}
 .map-manual-location{position:absolute;top:64px;right:16px;z-index:7;display:grid;gap:8px;width:min(350px,calc(100% - 32px));padding:14px;background:#fffefa;border:1px solid #dedbd3;border-radius:10px;box-shadow:0 5px 20px #183d3526}
 .map-manual-location label{font-size:13px;font-weight:700}.map-manual-location div{display:flex;gap:6px}.map-manual-location input{min-width:0;flex:1;border:1px solid #d8d1c9;border-radius:7px;padding:9px}.map-manual-location button{background:#64503b;color:white;border-radius:7px;padding:8px;font-size:12px}.map-manual-location small{color:#a73523}
+
+/* First login, account-scoped guide for the three taste maps. */
+.nowgo-tour-choice{position:fixed;inset:0;z-index:100000;display:grid;place-items:center;padding:20px;background:rgba(20,25,27,.53);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px)}
+.nowgo-tour-choice-card{width:min(430px,100%);padding:32px;background:#fffefa;color:#242820;border-radius:16px;box-shadow:0 24px 90px #10151955;text-align:left}
+.nowgo-tour-choice-card h2{font-size:clamp(25px,5vw,32px);line-height:1.25;letter-spacing:-.035em;margin:12px 0 8px}
+.nowgo-tour-choice-card p{font-size:16px;line-height:1.6;color:#62665f;margin:0 0 24px}
+.nowgo-tour-eyebrow{font-size:13px;font-weight:700;color:var(--tour-accent)}
+.nowgo-tour-choice-card>button:not(.nowgo-tour-skip){display:flex;align-items:center;justify-content:space-between;width:100%;min-height:58px;padding:15px 18px;margin-top:10px;border:1px solid var(--tour-accent);border-radius:9px;background:var(--tour-accent);color:var(--tour-ink);font-size:17px;font-weight:700;text-align:left}
+.nowgo-tour-choice-card>button:nth-of-type(2){background:#fff;color:var(--tour-accent)}
+.nowgo-tour-choice-card>button span{font-size:14px;font-weight:500}
+.nowgo-tour-skip{display:block;margin:18px auto 0;padding:7px;color:#64675f;text-decoration:underline;font-size:14px}
+.nowgo-tour-hot{--tour-accent:#bd3828;--tour-ink:#fff}
+.nowgo-tour-rich{--tour-accent:#795a40;--tour-ink:#fff}
+.nowgo-tour-sweet{--tour-accent:#197f6c;--tour-ink:#fff}
+.driver-popover.nowgo-tour-popover{max-width:min(340px,calc(100vw - 32px));padding:22px;background:#fffefa;color:#222720;border-radius:11px;box-shadow:0 14px 50px #15181544}
+.nowgo-tour-popover .driver-popover-title{font-size:19px;line-height:1.35;color:var(--tour-accent)}
+.nowgo-tour-popover .driver-popover-description{font-size:15px;line-height:1.6;color:#464a45}
+.nowgo-tour-popover .driver-popover-next-btn{border:0;border-radius:6px;padding:9px 15px;background:var(--tour-accent);color:var(--tour-ink);font-size:14px;text-shadow:none}
+.nowgo-tour-popover .driver-popover-close-btn{width:auto;height:auto;min-width:72px;color:#5f655f;font-size:13px;text-align:right}
+.nowgo-tour-popover .driver-popover-progress-text{font-size:13px}
+@media(max-width:700px){.nowgo-tour-choice-card{padding:24px}.nowgo-tour-choice-card>button:not(.nowgo-tour-skip){min-height:54px}}
