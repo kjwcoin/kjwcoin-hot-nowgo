@@ -4,7 +4,9 @@ import cards from "@/config/social-previews.json";
 // Approved sharing copy and artwork. Change only at the owner's request.
 export function socialMetadata(variant: keyof typeof cards): Metadata {
   const card = cards[variant];
-  const image = { url: `${card.origin}${card.image}`, width: 1200, height: 630, alt: card.title };
+  // A new image URL asks share crawlers to fetch the approved HOT artwork again.
+  const revision = variant === "hot" ? "?v=20260926-2259" : "";
+  const image = { url: `${card.origin}${card.image}${revision}`, width: 1200, height: 630, alt: card.title };
   return {
     metadataBase: new URL(card.origin),
     openGraph: { type: "website", locale: "ko_KR", siteName: card.siteName,
