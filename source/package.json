@@ -7,10 +7,11 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node scripts/verify-social-previews.mjs && next build",
     "start": "next start",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
-    "db:generate": "drizzle-kit generate"
+    "db:generate": "drizzle-kit generate",
+    "verify:sharing": "node scripts/verify-social-previews.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",
