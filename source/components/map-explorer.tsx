@@ -9,6 +9,7 @@ import {NativeSelect} from '@/components/ui/native-select';
 import ReviewLink from '@/components/review-link';
 import CustomerPanel from './customer-panel';
 import KakaoMap from './kakao-map';
+import FirstLoginTour from './first-login-tour';
 import {MAP_RADIUS_KM,menusWithinRadius,type GeoPoint} from '@/lib/nearby-demo';
 import {money,type Menu} from '@/lib/menus';
 import {siteConfig,type SiteVariant} from '@/lib/site-config';
@@ -53,5 +54,6 @@ export default function MapExplorer({variant='hot'}:{variant?:SiteVariant}){
    </aside>
    <a className="explorer-report explorer-report--floating" href="/suggestion#report"><Plus size={22}/><span>제보 및 등록</span><ArrowUpRight size={19}/></a>
   </div>
+  <FirstLoginTour taste={variant} page="map"/>
  </main>
 }
