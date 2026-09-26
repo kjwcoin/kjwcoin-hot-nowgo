@@ -2,8 +2,14 @@ import MapExplorer from '@/components/map-explorer';
 import {redirect} from 'next/navigation';
 
 export const metadata={
- title:'나우고 SWEET | 전국 카페·디저트 지도',
- description:'스윗한 단계, 디저트 종류, 예산으로 대한민국 전국의 카페·베이커리·디저트를 찾아요.'
+ title:'SWEET | 맛잘알의 디저트 지도',
+ description:'내가 좋아하는 달콤함을 골라요.',
+ openGraph:{
+  title:'SWEET | 맛잘알의 디저트 지도',
+  description:'내가 좋아하는 달콤함을 골라요.',
+  images:[{url:'https://sweet.nowgo.space/og/share-sweet-02-20260926-v2.jpg',width:1200,height:630,alt:'SWEET 맛잘알 공유 이미지'}]
+ },
+ twitter:{card:'summary_large_image' as const,title:'SWEET | 맛잘알의 디저트 지도',images:['https://sweet.nowgo.space/og/share-sweet-02-20260926-v2.jpg']}
 };
 
 export default async function Page({searchParams}:{searchParams:Promise<{menu?:string}>}){
