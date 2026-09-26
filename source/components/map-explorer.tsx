@@ -30,7 +30,7 @@ export default function MapExplorer(){
  function select(m:Menu){setSelected(m);setExpanded(true);track('menu_detail_open',m.id)}
  return <main className="explorer">
   <header className="explorer-toolbar">
-   <div className="explorer-topline"><Brand/><div className="explorer-search"><Search size={21}/><Input aria-label="느끼한 맛 검색" value={query} onChange={e=>setQuery(e.target.value)} placeholder="케이크, 크루아상, 젤라또"/>{query&&<Button variant="ghost" size="icon" aria-label="검색어 지우기" onClick={()=>setQuery('')}><X size={18}/></Button>}</div><span className="explorer-region"><MapPin size={16}/>대한민국 전국 <small>RICH</small><a className="explorer-promo" href="/suggestion">RICH 소개 ↗</a></span><CustomerPanel/></div>
+   <div className="explorer-topline"><Brand/><div className="explorer-search"><Search size={21}/><Input aria-label="느끼한 맛 검색" value={query} onChange={e=>setQuery(e.target.value)} placeholder="크림 파스타, 치즈 그라탱, 버터 소금빵"/>{query&&<Button variant="ghost" size="icon" aria-label="검색어 지우기" onClick={()=>setQuery('')}><X size={18}/></Button>}</div><span className="explorer-region"><MapPin size={16}/>대한민국 전국 <small>RICH</small><a className="explorer-promo" href="/suggestion">RICH 소개 ↗</a></span><CustomerPanel/></div>
    <div className="explorer-filters" aria-label="메뉴 검색 조건">
     <label>느끼한 단계<NativeSelect aria-label="느끼한 단계" value={heat} onChange={e=>setHeat(Number(e.target.value))}><option value={0}>모든 느끼함</option>{HEAT.map((h,i)=><option key={h} value={i+1}>{i+1}단계 · {h}</option>)}</NativeSelect></label>
     <label>느끼한 맛<NativeSelect aria-label="느끼한 맛" value={flavor} onChange={e=>setFlavor(e.target.value)}>{FLAVORS.map(f=><option key={f} value={f}>{f==='전체'?'모든 맛의 결':f}</option>)}</NativeSelect></label>
