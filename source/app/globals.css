@@ -193,10 +193,10 @@ html{scroll-behavior:smooth;scroll-padding-top:90px}body{font-family:Pretendard,
 @media(max-width:350px){.explorer-report--inline svg{display:none}.explorer-results-heading strong{font-size:13px}}
 
 /* RICH identity: the same NOWGO mark used on HOT, rendered in warm beige. */
-.brand.brand-logo.rich-brand{display:inline-flex;align-items:center;gap:9px;width:auto;max-width:100%;height:52px;padding:0;letter-spacing:normal;flex-shrink:0}
-.rich-brand-mark{display:block;width:156px;height:52px;flex:none;object-fit:contain;filter:brightness(0) saturate(100%) invert(50%) sepia(19%) saturate(744%) hue-rotate(352deg) brightness(91%) contrast(85%)}
-.footer-nowgo-mark{display:block;width:110px;height:38px;flex:none;object-fit:contain;filter:brightness(0) saturate(100%) invert(50%) sepia(19%) saturate(744%) hue-rotate(352deg) brightness(91%) contrast(85%)}
-@media(max-width:700px){.brand.brand-logo.rich-brand{height:38px}.rich-brand-mark{width:106px;height:38px}.explorer-topline .brand.brand-logo.rich-brand{min-width:0}}
+.brand.brand-logo.rich-brand{display:inline-flex;align-items:center;width:156px;max-width:100%;height:52px;padding:0;letter-spacing:normal;flex-shrink:0}
+.rich-brand-mark{display:block;width:156px;height:52px;flex:none;object-fit:contain}
+.footer-nowgo-mark{display:block;width:110px;height:38px;flex:none;object-fit:contain}
+@media(max-width:700px){.brand.brand-logo.rich-brand{width:106px;height:38px}.rich-brand-mark{width:106px;height:38px}.explorer-topline .brand.brand-logo.rich-brand{min-width:0}}
 
 /* Match the HOT and SWEET interface shape while keeping the RICH beige palette. */
 .explorer-toolbar{background:#f7f2e8;border-color:#d7c8b4}
