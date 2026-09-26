@@ -242,3 +242,13 @@ html{scroll-behavior:smooth;scroll-padding-top:90px}body{font-family:Pretendard,
 .nowgo-tour-popover .driver-popover-close-btn{width:auto;height:auto;min-width:72px;color:#5f655f;font-size:13px;text-align:right}
 .nowgo-tour-popover .driver-popover-progress-text{font-size:13px}
 @media(max-width:700px){.nowgo-tour-choice-card{padding:24px}.nowgo-tour-choice-card>button:not(.nowgo-tour-skip){min-height:54px}}
+
+
+/* Unified Kakao and Google sign-in choices. */
+.oauth-stack{display:grid;gap:10px;margin-top:22px}
+.join-card .oauth-stack .submit-button{margin-top:0}
+.kakao-login-button{position:relative;justify-content:center;background:#FEE500;color:#191919}
+.kakao-login-button:hover{background:#f4dc00;color:#191919}
+.google-login-button{justify-content:center;background:#fffefa;color:#292621;border:1px solid #cfc8ba}
+.google-login-button:hover{background:#f7f4ec;color:#292621}
+.oauth-provider-mark{position:absolute;left:22px;display:inline-flex;align-items:center}
