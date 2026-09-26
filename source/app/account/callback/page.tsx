@@ -9,6 +9,8 @@ export default function Callback(){
  useEffect(()=>{let active=true;async function complete(){
   try{
    const db=browserDb();
+   const code=new URLSearchParams(location.search).get('code');
+   if(code){const {error:exchangeError}=await db.auth.exchangeCodeForSession(code);if(exchangeError)throw exchangeError}
    const {data,error:sessionError}=await db.auth.getSession();
    if(sessionError||!data.session)throw sessionError||new Error('로그인을 완료하지 못했어요. 다시 시도해 주세요.');
    const raw=sessionStorage.getItem('sweet-pending-consent');
