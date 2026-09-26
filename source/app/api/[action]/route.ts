@@ -3,6 +3,7 @@ import {MENUS,FLAVORS,MENU_CATEGORIES} from '@/lib/menus';
 import {communityMenus,menuById} from '@/lib/menu-catalog';
 import {publicDb,verifiedUser} from '@/lib/supabase';
 import {isKoreanAddress,isKoreanCoordinate,isKoreanRegion} from '@/lib/korean-region';
+import sharp from 'sharp';
 
 type Ctx={params:Promise<{action:string}>};
 const bucket='rich-report-photos';
@@ -72,7 +73,17 @@ export async function POST(req:Request,{params}:Ctx){
   const bytes=new Uint8Array(await photo.arrayBuffer());
   const jpg=bytes[0]===255&&bytes[1]===216&&bytes[2]===255,png=bytes[0]===137&&bytes[1]===80&&bytes[2]===78&&bytes[3]===71,webp=new TextDecoder().decode(bytes.slice(0,4))==='RIFF'&&new TextDecoder().decode(bytes.slice(8,12))==='WEBP';
   if(!jpg&&!png&&!webp)return reject(req,'지원되는 이미지 파일을 올려주세요.',400);
-  const mime=jpg?'image/jpeg':png?'image/png':'image/webp';
+  // Re-encode before publishing so location and camera metadata never leave the private upload.
+  let uploadBytes:Buffer;
+  try{
+   uploadBytes=await sharp(bytes,{limitInputPixels:64_000_000})
+    .autoOrient()
+    .resize({width:1600,height:1600,fit:'inside',withoutEnlargement:true})
+    .webp({quality:82})
+    .toBuffer();
+  }catch{return reject(req,'이미지 파일을 읽을 수 없어요. 다른 사진을 올려주세요.',400)}
+  if(uploadBytes.length>2_000_000)return reject(req,'사진은 2MB 이하로 올려주세요.',400);
+  const mime='image/webp';
   const {data:prior,error:priorError}=await client.from('rich_taste_observations').select('id,status').eq('id',id).eq('user_id',user.id).maybeSingle();
   if(priorError)throw priorError;if(prior)return reply(req,prior);
   let lat:number|null=null,lng:number|null=null;
@@ -86,7 +97,7 @@ export async function POST(req:Request,{params}:Ctx){
   const path=id;
   const {error:insertError}=await client.from('rich_taste_observations').insert({id,user_id:user.id,role,nowgo_store_id:ownerStore||customerStore?storeId:null,phone,business_number:role==='owner'?businessNumber:null,place_id:placeId,menu_id:id,shop,menu,address,price,heat,flavor,category,observed_at:observed,note,lat,lng,photo_path:path,photo_mime:mime,status:'draft'});
   if(insertError){if(insertError.code==='23505')return reject(req,'같은 제보가 이미 접수되었어요.',409);if(insertError.code==='P0001')return reject(req,'한 시간에 10건까지 제보할 수 있어요.',429);throw insertError}
-  const {error:uploadError}=await client.storage.from(bucket).upload(path,bytes,{contentType:mime,upsert:false});
+  const {error:uploadError}=await client.storage.from(bucket).upload(path,uploadBytes,{contentType:mime,upsert:false});
   if(uploadError){await client.from('rich_taste_observations').delete().eq('id',id).eq('user_id',user.id);throw uploadError}
   const {data:status,error:publishError}=await client.rpc('rich_publish_report',{report_id:id});
   if(publishError){await client.storage.from(bucket).remove([path]);await client.from('rich_taste_observations').delete().eq('id',id).eq('user_id',user.id);throw publishError}
