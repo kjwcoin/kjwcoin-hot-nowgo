@@ -47,6 +47,7 @@ type Props={
 export default function KakaoMap({menus,onSelect,onPoint,onLocation,onDemoPositions,addressSearch,onAddressFound,onAddressError,fullScreen=false,selectedId,variant='hot'}:Props){
  const rootRef=useRef<HTMLDivElement>(null);
  const canvasRef=useRef<HTMLDivElement>(null);
+ const manualInputRef=useRef<HTMLInputElement>(null);
  const mapRef=useRef<any>(null);
  const kakaoRef=useRef<any>(null);
  const overlaysRef=useRef<any[]>([]);
@@ -137,7 +138,6 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,onDemoPositi
  useEffect(()=>{
   let cancelled=false;
   let timeout:ReturnType<typeof setTimeout>|undefined;
-  let locationTimer:ReturnType<typeof setTimeout>|undefined;
   const observer=new IntersectionObserver(entries=>{
    if(!entries.some(entry=>entry.isIntersecting))return;
    observer.disconnect();
@@ -165,12 +165,13 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,onDemoPositi
      });
     });
     setMapState('ready');
-    if(callbacksRef.current.onLocation)locationTimer=setTimeout(()=>{if(!cancelled)requestLocation()},250);
    }).catch(()=>!cancelled&&setMapState('error'));
   },{rootMargin:'200px'});
   if(rootRef.current)observer.observe(rootRef.current);
-  return()=>{cancelled=true;if(timeout)clearTimeout(timeout);if(locationTimer)clearTimeout(locationTimer);observer.disconnect()};
- },[fullScreen,requestLocation]);
+  return()=>{cancelled=true;if(timeout)clearTimeout(timeout);observer.disconnect()};
+ },[fullScreen]);
+
+ useEffect(()=>{if(locationState==='denied')manualInputRef.current?.focus()},[locationState]);
 
  useEffect(()=>{
   if(mapState!=='ready'||!mapRef.current||!kakaoRef.current)return;
@@ -224,12 +225,12 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,onDemoPositi
  },[mapState]);
 
  const label=variant==='sweet'?'카페 디저트':variant==='rich'?'고소한':'매운';
- const statusText=locationState==='located'?(locationSource==='address'?'선택한 주소 기준 15km':'내 위치 기준 15km'):locationState==='locating'?'위치 확인 중':locationState==='denied'?'위치 권한을 허용하거나 주소를 입력해 주세요':locationState==='inaccurate'?'주소로 위치를 지정할 수 있어요':'내 위치를 확인합니다';
+ const statusText=locationState==='located'?(locationSource==='address'?'선택한 주소 기준 15km':'내 위치 기준 15km'):locationState==='locating'?'위치 확인 중':locationState==='denied'?'위치 권한이 꺼져 있어요. 주소로 찾을 수 있어요':locationState==='inaccurate'?'주소로 위치를 지정할 수 있어요':'내 위치를 눌러 주변 15km 보기';
  return <div className={fullScreen?'map-panel map-fullscreen':'map-panel'} ref={rootRef}>
   <div className="map-canvas" ref={canvasRef} aria-label={`카카오 대한민국 ${label} 메뉴 지도`}/>
   {mapState!=='ready'&&<div className="map-unavailable"><MapPin size={30} strokeWidth={1.3}/><span className="eyebrow">KAKAO MAP · {variant.toUpperCase()} NOWGO</span><h3>{mapState==='loading'?'지도를 불러오는 중':mapState==='setup'?'지도 연결을 준비하고 있어요':'잠시 지도를 불러올 수 없어요'}</h3><p>메뉴는 목록에서 계속 볼 수 있어요.<br/>실제 매장 상태는 나우고에서 확인하세요.</p><a className="text-link" href="https://www.nowgo.space/" target="_blank" rel="noreferrer">나우고에서 운영 매장 확인 <ArrowUpRight size={18}/></a></div>}
   {mapState==='ready'&&onLocation&&<button type="button" className="map-location-button" aria-label="내 위치로 이동" onClick={requestLocation}><LocateFixed size={16}/>{locationState==='locating'?'위치 다시 확인':'내 위치'}</button>}
-  {mapState==='ready'&&onLocation&&(locationState!=='located'||locationSource==='address')&&<form className="map-manual-location" onSubmit={searchManualLocation}><label htmlFor="map-manual-address">위치 권한이 안 되나요? 주소로 찾기</label><div><input id="map-manual-address" value={manualAddress} onChange={event=>setManualAddress(event.target.value)} placeholder="예: 서울 중구 세종대로 110"/><button type="submit">이 주소 주변 보기</button></div>{manualError&&<small role="alert">{manualError}</small>}</form>}
+  {mapState==='ready'&&onLocation&&(locationState!=='located'||locationSource==='address')&&<form className="map-manual-location" onSubmit={searchManualLocation}><label htmlFor="map-manual-address">위치 권한이 안 되나요? 주소로 찾기</label><div><input ref={manualInputRef} id="map-manual-address" value={manualAddress} onChange={event=>setManualAddress(event.target.value)} placeholder="예: 서울 중구 세종대로 110"/><button type="submit">이 주소 주변 보기</button></div>{manualError&&<small role="alert">{manualError}</small>}</form>}
   <div className="map-caption"><span>카카오 지도</span><span>{mapState==='ready'?statusText:'지도 연결 확인 중'}</span></div>
  </div>;
 }
