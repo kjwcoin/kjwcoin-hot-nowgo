@@ -14,7 +14,13 @@ export default function Callback(){
    if(sessionError||!data.session)throw sessionError||new Error('로그인을 완료하지 못했어요. 다시 시도해 주세요.');
    const raw=sessionStorage.getItem(`${variantForHost(location.host)}-pending-consent`);
    const pending=raw?JSON.parse(raw) as {essential?:boolean;marketingEmail?:boolean;returnTo?:string}:null;
-   if(!pending?.essential){location.replace('/account/join?finish=1');return}
+   if(!pending?.essential){
+    const returnTo=returnPath(pending?.returnTo);
+    sessionStorage.removeItem(`${variantForHost(location.host)}-pending-consent`);
+    const profile=await api<{customer:unknown|null;consentRequired:boolean}>('/api/customer/me');
+    location.replace(profile.customer&&!profile.consentRequired?returnTo:'/account/join?finish=1&returnTo='+encodeURIComponent(returnTo));
+    return;
+   }
    await api('/api/customer/consents',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({essential:true,marketingEmail:!!pending.marketingEmail,version:siteConfig(variantForHost(location.host)).consent})});
    sessionStorage.removeItem(`${variantForHost(location.host)}-pending-consent`);
    window.dispatchEvent(new Event('hot-customer-change'));
