@@ -1,0 +1,24 @@
+{
+  "hot": {
+    "origin": "https://hot.nowgo.space",
+    "title": "HOT | 맛잘알의 매운맛 지도",
+    "description": "취향에 맞는 매운 메뉴를 찾아보세요.",
+    "image": "/og/share-hot-01-20260926-v2.jpg",
+    "siteName": "NOWGO HOT",
+    "sha256": "742d851b1a4dceeabee78185a8b6861341b8e631133e02e4042343378342d1d3",
+    "legacyImages": [
+      "/og/og-hot-01.jpg"
+    ]
+  },
+  "rich": {
+    "origin": "https://rich.nowgo.space",
+    "title": "RICH | 맛잘알의 리치한 맛 지도",
+    "description": "크리미하고 버터리한 메뉴를 취향대로 찾아보세요.",
+    "image": "/og/share-rich-03-20260926-v2.jpg",
+    "siteName": "나우고 RICH",
+    "sha256": "aefea2b583b355c6a5128c55fd7da1b1022e622c4d0bbf394813e34c96e215cf",
+    "legacyImages": [
+      "/og/og-rich-03.jpg"
+    ]
+  }
+}
