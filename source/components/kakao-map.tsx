@@ -59,6 +59,7 @@ type Props={
 export default function KakaoMap({menus,onSelect,onPoint,onLocation,onDemoPositions,addressSearch,onAddressFound,onAddressError,fullScreen=false,selectedId}:Props){
  const rootRef=useRef<HTMLDivElement>(null);
  const canvasRef=useRef<HTMLDivElement>(null);
+ const manualInputRef=useRef<HTMLInputElement>(null);
  const mapRef=useRef<any>(null);
  const kakaoRef=useRef<any>(null);
  const overlaysRef=useRef<any[]>([]);
@@ -180,7 +181,6 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,onDemoPositi
      });
     }
     setState('ready');
-    if(callbacksRef.current.onLocation)window.setTimeout(()=>{if(!cancelled)moveToCurrentLocation()},250);
    }catch{
     if(!cancelled)setState('error');
    }
@@ -198,7 +198,9 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,onDemoPositi
    overlaysRef.current.forEach(overlay=>overlay.setMap(null));
    userMarkerRef.current?.setMap(null);
   };
- },[fullScreen,moveToCurrentLocation]);
+ },[fullScreen]);
+
+ useEffect(()=>{if(locationState==='denied')manualInputRef.current?.focus()},[locationState]);
 
  useEffect(()=>{
   if(state!=='ready'||!mapRef.current||!kakaoRef.current)return;
@@ -285,10 +287,10 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,onDemoPositi
    <LocateFixed size={16}/>
    {locationState==='locating'?'위치 확인 중':'내 위치'}
   </button>}
-  {state==='ready'&&onLocation&&(locationState==='denied'||locationSource==='address'&&locationState==='located')&&<form className="map-manual-location" onSubmit={searchManualLocation}><label htmlFor="map-manual-address">위치 권한이 안 되나요? 주소로 찾기</label><div><input id="map-manual-address" value={manualAddress} onChange={event=>setManualAddress(event.target.value)} placeholder="예: 서울 중구 세종대로 110"/><button type="submit">이 주소 주변 보기</button></div>{manualError&&<small role="alert">{manualError}</small>}</form>}
+  {state==='ready'&&onLocation&&(locationState==='denied'||locationSource==='address'&&locationState==='located')&&<form className="map-manual-location" onSubmit={searchManualLocation}><label htmlFor="map-manual-address">위치 권한이 안 되나요? 주소로 찾기</label><div><input ref={manualInputRef} id="map-manual-address" value={manualAddress} onChange={event=>setManualAddress(event.target.value)} placeholder="예: 서울 중구 세종대로 110"/><button type="submit">이 주소 주변 보기</button></div>{manualError&&<small role="alert">{manualError}</small>}</form>}
   <div className="map-caption">
    <span>{state==='ready'?'카카오맵':'RICH 지도'}</span>
-   <span>{state==='ready'?(locationState==='located'?(locationSource==='address'?'선택한 주소':'내 위치')+` 기준 ${MAP_RADIUS_KM}km`:locationState==='denied'?'위치 권한을 허용하거나 주소를 입력해 주세요':'내 위치를 확인합니다'):'카카오맵 연결을 확인하는 중'}</span>
+   <span>{state==='ready'?(locationState==='located'?(locationSource==='address'?'선택한 주소':'내 위치')+` 기준 ${MAP_RADIUS_KM}km`:locationState==='denied'?'위치 권한이 꺼져 있어요. 주소로 찾을 수 있어요':'내 위치를 눌러 주변 15km 보기'):'카카오맵 연결을 확인하는 중'}</span>
   </div>
  </div>;
 }
