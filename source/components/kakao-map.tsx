@@ -48,20 +48,24 @@ type Props={
  menus:Menu[];
  onSelect:(menu:Menu)=>void;
  onPoint?:(point:{address:string;lat:number;lng:number})=>void;
+ addressSearch?:{text:string;requestId:number}|null;
+ onAddressFound?:(point:{address:string;lat:number;lng:number})=>void;
+ onAddressError?:()=>void;
  onLocation?:(point:Point)=>void;
  fullScreen?:boolean;
  selectedId?:string;
 };
 
-export default function KakaoMap({menus,onSelect,onPoint,onLocation,fullScreen=false,selectedId}:Props){
+export default function KakaoMap({menus,onSelect,onPoint,onLocation,addressSearch,onAddressFound,onAddressError,fullScreen=false,selectedId}:Props){
  const rootRef=useRef<HTMLDivElement>(null);
  const canvasRef=useRef<HTMLDivElement>(null);
  const mapRef=useRef<any>(null);
  const kakaoRef=useRef<any>(null);
  const overlaysRef=useRef<any[]>([]);
  const userMarkerRef=useRef<any>(null);
- const callbacksRef=useRef({onSelect,onPoint,onLocation});
- callbacksRef.current={onSelect,onPoint,onLocation};
+ const addressMarkerRef=useRef<any>(null);
+ const callbacksRef=useRef({onSelect,onPoint,onLocation,onAddressFound,onAddressError});
+ callbacksRef.current={onSelect,onPoint,onLocation,onAddressFound,onAddressError};
 
  const [state,setState]=useState<'loading'|'ready'|'error'>('loading');
  const [locationState,setLocationState]=useState<'idle'|'locating'|'located'|'denied'>('idle');
@@ -125,6 +129,8 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,fullScreen=f
        const region=result[0].address?.region_1depth_name||result[0].road_address?.region_1depth_name||'';
        if(!isKoreanRegion(region))return;
        const address=result[0].road_address?.address_name||result[0].address?.address_name||'';
+       addressMarkerRef.current?.setMap(null);
+       addressMarkerRef.current=new k.maps.Marker({map,position:new k.maps.LatLng(lat,lng),title:'제보할 가게 주소'});
        callbacksRef.current.onPoint?.({address,lat,lng});
       });
      });
@@ -183,6 +189,26 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,fullScreen=f
   mapRef.current.setLevel(5);
   mapRef.current.panTo(new kakaoRef.current.maps.LatLng(menu.lat,menu.lng));
  },[menus,selectedId,state]);
+
+ useEffect(()=>{
+  if(state!=='ready'||!mapRef.current||!kakaoRef.current)return;
+  if(!addressSearch?.text){addressMarkerRef.current?.setMap(null);return}
+  let cancelled=false;
+  const k=kakaoRef.current;
+  new k.maps.services.Geocoder().addressSearch(addressSearch.text,(results:any,status:any)=>{
+   if(cancelled)return;
+   const found=results?.find((item:any)=>isKoreanCoordinate(Number(item.y),Number(item.x)));
+   if(status!==k.maps.services.Status.OK||!found){callbacksRef.current.onAddressError?.();return}
+   const lat=Number(found.y),lng=Number(found.x);
+   const position=new k.maps.LatLng(lat,lng);
+   addressMarkerRef.current?.setMap(null);
+   addressMarkerRef.current=new k.maps.Marker({map:mapRef.current,position,title:'제보할 가게 주소'});
+   mapRef.current.setLevel(4);
+   mapRef.current.panTo(position);
+   callbacksRef.current.onAddressFound?.({address:found.address_name,lat,lng});
+  });
+  return()=>{cancelled=true};
+ },[addressSearch,state]);
 
  useEffect(()=>{
   if(state!=='ready'||!rootRef.current)return;

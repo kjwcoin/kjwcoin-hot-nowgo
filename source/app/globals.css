@@ -191,3 +191,5 @@ html{scroll-behavior:smooth;scroll-padding-top:90px}body{font-family:Pretendard,
  .map-fullscreen .map-caption{bottom:calc(90px + env(safe-area-inset-bottom,0px))}
 }
 @media(max-width:350px){.explorer-report--inline svg{display:none}.explorer-results-heading strong{font-size:13px}}
+
+.report-address-map{grid-column:1/-1}.report-address-map .map-panel{height:280px;min-height:280px}.report-address-map>small{display:block;margin:8px 0 15px;color:#70695d;font-size:13px}
