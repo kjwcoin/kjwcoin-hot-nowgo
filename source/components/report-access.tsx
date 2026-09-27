@@ -4,7 +4,7 @@ import {useCallback, useEffect, useRef, useState} from 'react';
 import {api} from '@/lib/client';
 import OAuthButtons from './oauth-buttons';
 
-export type OwnedStore = {store_id: string; name: string; address: string; slug: string};
+export type OwnedStore = {store_id: string; name: string; address: string; slug: string; owner_code: string | null};
 type Membership = {
   customerReady: boolean;
   consentRequired: boolean;
@@ -63,6 +63,11 @@ export default function ReportAccess({role, flavor, membership, storeId, onStore
   onStoreChange: (id: string) => void;
 }) {
   const {customerReady, consentRequired, ownedStores, loading, error, refresh} = membership;
+  const [query, setQuery] = useState('');
+  const normalized = query.trim().toLocaleLowerCase();
+  const matches = normalized ? ownedStores.filter(store =>
+    [store.name, store.address, store.slug, store.owner_code ?? '', store.store_id]
+      .some(value => value.toLocaleLowerCase().includes(normalized))) : ownedStores;
   if (loading) return <p className="report-login-status" role="status">회원 및 매장 권한을 확인하고 있어요.</p>;
   if (error) return <div className="report-access"><p role="alert">{error}</p><button type="button" className="text-link" onClick={() => void refresh()}>다시 확인하기 ↗</button></div>;
   if (!customerReady) return <div className="report-access">
@@ -80,8 +85,17 @@ export default function ReportAccess({role, flavor, membership, storeId, onStore
     <button type="button" className="text-link" onClick={() => void refresh()}>승인된 매장 다시 확인 ↗</button>
   </div>;
   return <label className="owner-store">NOWGO에서 확인된 내 매장
-    <select name="storeId" value={storeId} onChange={event => onStoreChange(event.target.value)} required>
-      {ownedStores.map(store => <option key={store.store_id} value={store.store_id}>{store.name} · {store.address}</option>)}
+    <input type="search" value={query} placeholder="점주 ID 또는 상호명 검색" aria-label="점주 ID 또는 상호명 검색"
+      onChange={event => {
+        const value=event.target.value;setQuery(value);
+        const key=value.trim().toLocaleLowerCase();
+        const first=ownedStores.find(store=>[store.name,store.address,store.slug,store.owner_code??'',store.store_id]
+          .some(field=>field.toLocaleLowerCase().includes(key)));
+        onStoreChange(first?.store_id??'');
+      }}/>
+    <select name="storeId" value={matches.some(store=>store.store_id===storeId)?storeId:''} onChange={event => onStoreChange(event.target.value)} required>
+      {!matches.length?<option value="">일치하는 매장이 없어요</option>:null}
+      {matches.map(store => <option key={store.store_id} value={store.store_id}>{store.name} · {store.address} · {store.owner_code??'점주 ID 발급 전'}</option>)}
     </select>
     <small>선택한 매장의 공식 점주 제보로 등록됩니다.</small>
   </label>;

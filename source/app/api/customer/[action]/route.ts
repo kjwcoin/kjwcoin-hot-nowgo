@@ -9,8 +9,10 @@ export async function GET(req:Request,{params}:Ctx){
   const action=(await params).action;
   if(action==='owned-stores'){
    const auth=await verifiedUser(req);if(!auth)return reply(req,{stores:[]},401);
-   const {data,error}=await auth.client.rpc('hot_owned_stores');if(error)throw error;
-   return reply(req,{stores:data||[]});
+   const [{data,error},{data:ownerCode,error:codeError}]=await Promise.all([
+    auth.client.rpc('hot_owned_stores'),auth.client.rpc('ng_my_owner_code')
+   ]);if(error||codeError)throw error||codeError;
+   return reply(req,{stores:(data||[]).map((store:{store_id:string;name:string;address:string;slug:string})=>({...store,owner_code:ownerCode||null}))});
   }
   if(action!=='me')return reply(req,{},404);
   const authConfig={mode:'unified',ready:publicConfig().ready,accountUrl:null};
