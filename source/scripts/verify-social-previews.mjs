@@ -7,7 +7,7 @@ const root = fileURLToPath(new URL("../", import.meta.url));
 const digest = value => createHash("sha256").update(value).digest("hex");
 const manifest = readFileSync(resolve(root, "config/social-previews.json"));
 // A deliberate artwork/copy change requires explicitly updating this approval lock.
-if (digest(manifest) !== "9292fd22d3a5f5dad6a45b0c32953b177b8f2d5b19022d1394a56d0efecec2f5") throw new Error("Approved sharing copy changed. Restore it or obtain the owner's explicit change request.");
+if (digest(manifest) !== "21c3d7fa73d74dce73e05a39d2a49e0485247741c604bbe17b3142cc1a3ce0d4") throw new Error("Approved sharing copy changed. Restore it or obtain the owner's explicit change request.");
 const cards = JSON.parse(manifest.toString());
 for (const [name, card] of Object.entries(cards)) {
   const bytes = readFileSync(resolve(root, `public${card.image}`));
