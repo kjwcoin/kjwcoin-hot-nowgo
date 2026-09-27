@@ -14,7 +14,7 @@ import {money,type Menu} from '@/lib/menus';
 import {siteConfig,type SiteVariant} from '@/lib/site-config';
 import {api,track} from '@/lib/client';
 export default function MapExplorer({variant='hot'}:{variant?:SiteVariant}){
- const theme=siteConfig(variant),MENUS=theme.menus,HEAT=theme.heat,FLAVORS=theme.flavors,CATEGORIES=['전체',...theme.categories];
+ const theme=siteConfig(variant),MENUS=theme.menus,HEAT=theme.heat,FLAVORS=theme.flavors,CATEGORIES=['전체',...theme.categories],tasteLabel=variant==='hot'?'매운맛':variant==='rich'?'느끼함':'달콤함',categoryLabel=variant==='hot'?'매운맛 메뉴':variant==='rich'?'느끼한 메뉴':'달콤한 디저트';
  useEffect(()=>{if(['#report','#owner','#photo-credits','#discover'].includes(location.hash))location.replace('/suggestion'+location.hash)},[]);
  useEffect(()=>{if(window.matchMedia('(max-width:700px)').matches)setExpanded(false)},[]);
  const [catalog,setCatalog]=useState<Menu[]>(MENUS),[page,setPage]=useState(0),[hasMore,setHasMore]=useState(false);
@@ -35,9 +35,9 @@ export default function MapExplorer({variant='hot'}:{variant?:SiteVariant}){
   <header className="explorer-toolbar">
    <div className="explorer-topline"><Brand/><div className="explorer-search"><Search size={21}/><Input aria-label={`${theme.name} 메뉴 검색`} value={query} onChange={e=>setQuery(e.target.value)} placeholder={theme.search}/>{query&&<Button variant="ghost" size="icon" aria-label="검색어 지우기" onClick={()=>setQuery('')}><X size={18}/></Button>}</div><span className="explorer-region"><MapPin size={16}/>주변 15km <small>{theme.name}</small><a className="explorer-promo" href="/suggestion">{theme.name} 소개 ↗</a></span><CustomerPanel variant={variant}/></div>
    <div className="explorer-filters" aria-label="메뉴 검색 조건">
-    <label>{variant==='rich'?'느끼함 단계':'매운맛 단계'}<NativeSelect aria-label={variant==='rich'?'느끼함 단계':'매운맛 단계'} value={heat} onChange={e=>setHeat(Number(e.target.value))}><option value={0}>{variant==='rich'?'모든 느끼함':'모든 맵기'}</option>{HEAT.map((h,i)=><option key={h} value={i+1}>{i+1}단계 · {h}</option>)}</NativeSelect></label>
-    <label>{variant==='rich'?'느끼한 맛':'매운맛 카테고리'}<NativeSelect aria-label={variant==='rich'?'느끼한 맛':'매운맛 카테고리'} value={flavor} onChange={e=>setFlavor(e.target.value)}>{FLAVORS.map(f=><option key={f} value={f}>{f==='전체'?'모든 맛의 결':f}</option>)}</NativeSelect></label>
-    <label>{variant==='rich'?'느끼한 메뉴':'매운맛 메뉴'}<NativeSelect aria-label={variant==='rich'?'느끼한 메뉴':'매운맛 메뉴'} value={category} onChange={e=>setCategory(e.target.value)}>{CATEGORIES.map(c=><option key={c} value={c}>{c==='전체'?'모든 메뉴':c}</option>)}</NativeSelect></label>
+    <label>{tasteLabel+' 단계'}<NativeSelect aria-label={tasteLabel+' 단계'} value={heat} onChange={e=>setHeat(Number(e.target.value))}><option value={0}>{'모든 '+tasteLabel}</option>{HEAT.map((h,i)=><option key={h} value={i+1}>{i+1}단계 · {h}</option>)}</NativeSelect></label>
+    <label>{tasteLabel+' 카테고리'}<NativeSelect aria-label={tasteLabel+' 카테고리'} value={flavor} onChange={e=>setFlavor(e.target.value)}>{FLAVORS.map(f=><option key={f} value={f}>{f==='전체'?'모든 맛의 결':f}</option>)}</NativeSelect></label>
+    <label>{categoryLabel}<NativeSelect aria-label={categoryLabel} value={category} onChange={e=>setCategory(e.target.value)}>{CATEGORIES.map(c=><option key={c} value={c}>{c==='전체'?'모든 메뉴':c}</option>)}</NativeSelect></label>
     <label className={budget?'budget-active':''}>한 끼 예산<NativeSelect aria-label="한 끼 예산" value={budget} onChange={e=>setBudget(Number(e.target.value))}><option value={0}>예산 전체</option><option value={10000}>1만 원 이하</option><option value={15000}>1만 5천 원 이하</option><option value={20000}>2만 원 이하</option></NativeSelect></label>
     <Button className="explorer-reset" variant="ghost" onClick={reset} disabled={!count&&!query}><RotateCcw size={15}/>초기화{count>0&&<span>{count}</span>}</Button>
    </div>
