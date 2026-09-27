@@ -20,6 +20,7 @@ export default function CustomerPanel({variant='hot'}:{variant?:SiteVariant}){
   setBusy(true);setError('');
   try{
    sessionStorage.setItem(`${variant}-pending-consent`,JSON.stringify({essential:false,returnTo}));
+   document.cookie='nowgo-flavor-oauth-return='+encodeURIComponent(location.origin)+'; Path=/; Domain=.nowgo.space; Max-Age=600; Secure; SameSite=Lax';
    const {error}=await browserDb().auth.signInWithOAuth({provider,options:{redirectTo:location.origin+'/account/callback',queryParams:provider==='google'?{prompt:'select_account'}:undefined}});
    if(error)throw error;
   }catch(e){setBusy(false);setError((e as Error).message)}
