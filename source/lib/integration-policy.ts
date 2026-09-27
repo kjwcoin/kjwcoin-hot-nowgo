@@ -7,7 +7,6 @@ export function returnPath(raw:unknown){
  if(raw==='#report')return '/suggestion#report';
  if(typeof raw!=='string'||raw.length>1500||!raw.startsWith('/')||raw.startsWith('//')||/[\\\u0000-\u0020]/.test(raw))return '/';
  try{const u=new URL(raw,'https://hot.local');if(u.origin!=='https://hot.local'||!(/^(?:\/|\/map|\/suggestion|\/place\/[-a-zA-Z0-9_]{1,100})$/.test(u.pathname)))return '/';
- // Keep only display/filter state; never carry another redirect or auth material.
  for(const k of [...u.searchParams.keys()])if(!['q','taste','spice','budget','menu'].includes(k))u.searchParams.delete(k);
  if(u.hash&&!/^#[a-zA-Z0-9_-]{1,80}$/.test(u.hash))u.hash='';
  const path=u.pathname==='/map'?'/':u.pathname;
@@ -24,13 +23,11 @@ export function resolveOfficialStatus(raw:unknown,placeId:string,menuId:string,n
  const out={...unknown,linked:true,url:url.toString(),source:'NOWGO · 최신 점주 확인 필요'};
  const checked=Date.parse(String(d.observed_at)),expires=Date.parse(String(d.expires_at));
  if(d.owner_verified!==true||d.source!=='owner'||!Number.isFinite(checked)||!Number.isFinite(expires)||checked>now||expires<=now||expires<=checked||now-checked>86400000||expires-checked>86400000)return out;
- const statuses:Record<string,string>={OPEN:'영업 중',BUSY:'영업 중 · 혼잡',TEMPORARY_CLOSED:'임시 휴무',SOLD_OUT:'재료 소진 마감',CLOSED:'영업 종료',PERMANENTLY_CLOSED:'폐업'};
- out.open=statuses[String(d.status)]||'확인 필요';out.checkedAt=new Date(checked).toISOString();out.source='NOWGO · 소유권 확인 점주';out.fresh=out.open!=='확인 필요';out.validUntil=new Date(expires).toISOString();
- // These are owner-provided live signals. Do not derive crowding or seating from opening hours.
- const crowding:Record<string,string>={QUIET:'여유',NORMAL:'보통',BUSY:'혼잡',VERY_BUSY:'매우 혼잡'};
+ const statuses:Record<string,string>={OPEN:'영업 중',BUSY:'영업 중 · 혼잡',TEMPORARY_CLOSED:'임시 휴무',SOLD_OUT:'재료 소진 마감',CLOSED:'영업 종료',PERMANENTLY_CLOSED:'폐업',open:'영업 중',busy:'영업 중 · 혼잡',temporary_closed:'임시 휴무',sold_out:'재료 소진 마감',closed_for_day:'영업 종료',permanently_closed:'폐업'};
+ const crowding:Record<string,string>={QUIET:'여유',NORMAL:'보통',BUSY:'혼잡',VERY_BUSY:'매우 혼잡',relaxed:'여유',normal:'보통',busy:'혼잡',crowded:'매우 혼잡'};
  const seating:Record<string,string>={AVAILABLE:'여유 좌석',LIMITED:'좌석 거의 없음',FULL:'만석'};
+ out.open=statuses[String(d.status)]||'확인 필요';out.checkedAt=new Date(checked).toISOString();out.source='NOWGO · 소유권 확인 점주';out.fresh=out.open!=='확인 필요';out.validUntil=new Date(expires).toISOString();
  out.crowding=crowding[String(d.crowding)]||'확인 필요';out.seating=seating[String(d.seating)]||'확인 필요';
- // A restaurant being open never establishes that this particular dish is available.
  const m=d.menu as Record<string,unknown>|undefined;
  if(m&&m.hot_menu_id===menuId){const mc=Date.parse(String(m.observed_at)),me=Date.parse(String(m.expires_at));if(Number.isFinite(mc)&&Number.isFinite(me)&&mc<=now&&me>now&&me>mc&&me-mc<=86400000&&now-mc<=86400000){out.menu=m.status==='SOLD_OUT'?'품절':m.status==='AVAILABLE'?'주문 가능':'확인 필요';out.validUntil=new Date(Math.min(expires,me)).toISOString()}}
  return out;
