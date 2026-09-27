@@ -4,7 +4,7 @@ import {useCallback, useEffect, useRef, useState} from 'react';
 import {api} from '@/lib/client';
 import OAuthButtons from './oauth-buttons';
 
-export type OwnedStore = {store_id: string; name: string; address: string; slug: string};
+export type OwnedStore = {store_id: string; name: string; address: string; slug: string; owner_code: string | null};
 type Membership = {
   customerReady: boolean;
   consentRequired: boolean;
@@ -63,6 +63,11 @@ export default function ReportAccess({role, flavor, membership, storeId, onStore
   onStoreChange: (id: string) => void;
 }) {
   const {customerReady, consentRequired, ownedStores, loading, error, refresh} = membership;
+  const [query, setQuery] = useState('');
+  const normalized = query.trim().toLocaleLowerCase();
+  const matches = normalized ? ownedStores.filter(store =>
+    [store.name, store.address, store.slug, store.owner_code ?? '', store.store_id]
+      .some(value => value.toLocaleLowerCase().includes(normalized))) : ownedStores;
   if (loading) return <p className="report-login-status" role="status">회원 및 매장 권한을 확인하고 있어요.</p>;
   if (error) return <div className="report-access"><p role="alert">{error}</p><button type="button" className="text-link" onClick={() => void refresh()}>다시 확인하기 ↗</button></div>;
   if (!customerReady) return <div className="report-access">
@@ -70,7 +75,7 @@ export default function ReportAccess({role, flavor, membership, storeId, onStore
     <p>{role === 'owner' ? 'NOWGO에서 승인받은 내 매장을 선택해 공식 점주로 제보할 수 있어요.' : '로그인 후 작성한 제보를 제출할 수 있어요.'}</p>
     {consentRequired
       ? <a className="text-link" href="/account/join?returnTo=%2Fsuggestion%23report">이용 동의 완료하기 ↗</a>
-      : <OAuthButtons flavor={flavor} returnTo="/suggestion#report"/>}
+      : <><a className="text-link" href="https://www.nowgo.space/account">점주·일반 사용자 선택 후 가입하기 ↗</a><p>이미 가입했다면 로그인하세요.</p><OAuthButtons flavor={flavor} returnTo="/suggestion#report"/></>}
   </div>;
   if (role !== 'owner') return <p className="report-login-status">로그인됨 · 손님으로 제보합니다.</p>;
   if (!ownedStores.length) return <div className="report-access">
@@ -79,8 +84,17 @@ export default function ReportAccess({role, flavor, membership, storeId, onStore
     <a className="text-link" href="https://nowgo.space/owner/signup" target="_blank" rel="noreferrer">내 매장 등록·권한 확인 ↗</a>
   </div>;
   return <label className="owner-store">NOWGO에서 확인된 내 매장
-    <select name="storeId" value={storeId} onChange={event => onStoreChange(event.target.value)} required>
-      {ownedStores.map(store => <option key={store.store_id} value={store.store_id}>{store.name} · {store.address}</option>)}
+    <input type="search" value={query} placeholder="점주 ID 또는 상호명 검색" aria-label="점주 ID 또는 상호명 검색"
+      onChange={event => {
+        const value=event.target.value;setQuery(value);
+        const key=value.trim().toLocaleLowerCase();
+        const first=ownedStores.find(store=>[store.name,store.address,store.slug,store.owner_code??'',store.store_id]
+          .some(field=>field.toLocaleLowerCase().includes(key)));
+        onStoreChange(first?.store_id??'');
+      }}/>
+    <select name="storeId" value={matches.some(store=>store.store_id===storeId)?storeId:''} onChange={event => onStoreChange(event.target.value)} required>
+      {!matches.length?<option value="">일치하는 매장이 없어요</option>:null}
+      {matches.map(store => <option key={store.store_id} value={store.store_id}>{store.name} · {store.address} · {store.owner_code??'점주 ID 발급 전'}</option>)}
     </select>
     <small>선택한 매장의 공식 점주 제보로 등록됩니다.</small>
   </label>;

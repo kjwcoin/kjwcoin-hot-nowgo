@@ -36,10 +36,10 @@ export default function OAuthButtons({flavor, returnTo = '/'}: {flavor: string; 
   return <div className={styles.options}>
     <div className={styles.actions}>
       <button type="button" className={`${styles.button} ${styles.kakao}`} disabled={!!pending} onClick={() => void signIn('kakao')}>
-        {pending === 'kakao' ? '카카오 연결 중' : '카카오로 가입·로그인'}
+        {pending === 'kakao' ? '카카오 연결 중' : '카카오로 로그인'}
       </button>
       <button type="button" className={`${styles.button} ${styles.google}`} disabled={!!pending} onClick={() => void signIn('google')}>
-        {pending === 'google' ? '구글 연결 중' : '구글로 가입·로그인'}
+        {pending === 'google' ? '구글 연결 중' : '구글로 로그인'}
       </button>
     </div>
     {error && <p className="customer-error" role="alert">{error}</p>}
