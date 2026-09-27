@@ -76,8 +76,7 @@ export default function ReportAccess({role, flavor, membership, storeId, onStore
   if (!ownedStores.length) return <div className="report-access">
     <strong>공식 점주 제보는 매장 권한 확인이 필요해요.</strong>
     <p>로그인은 완료됐어요. NOWGO에서 사업자 확인과 매장 소유권 승인을 마치면 내 매장이 나타납니다.</p>
-    <a className="text-link" href="https://www.nowgo.space/owner/login" target="_blank" rel="noreferrer">내 매장 등록·권한 확인 ↗</a>
-    <button type="button" className="text-link" onClick={() => void refresh()}>승인된 매장 다시 확인 ↗</button>
+    <a className="text-link" href="https://nowgo.space/owner/signup" target="_blank" rel="noreferrer">내 매장 등록·권한 확인 ↗</a>
   </div>;
   return <label className="owner-store">NOWGO에서 확인된 내 매장
     <select name="storeId" value={storeId} onChange={event => onStoreChange(event.target.value)} required>
