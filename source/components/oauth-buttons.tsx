@@ -3,9 +3,8 @@
 import {useState} from 'react';
 import {browserDb} from '@/lib/supabase-browser';
 import {returnPath} from '@/lib/integration-policy';
-import styles from './oauth-buttons.module.css';
 
-export default function OAuthButtons({flavor, returnTo = '/'}: {flavor: string; returnTo?: string}) {
+export default function OAuthButtons({flavor, returnTo = '/', accountType = 'user'}: {flavor: string; returnTo?: string; accountType?: 'user' | 'owner'}) {
   const [pending, setPending] = useState<'kakao' | 'google' | null>(null);
   const [error, setError] = useState('');
 
@@ -15,7 +14,7 @@ export default function OAuthButtons({flavor, returnTo = '/'}: {flavor: string; 
     setError('');
     try {
       window.dispatchEvent(new Event('nowgo-report-save-draft'));
-      sessionStorage.setItem(`${flavor}-pending-consent`, JSON.stringify({essential: false, returnTo: returnPath(returnTo)}));
+      sessionStorage.setItem(`${flavor}-pending-consent`, JSON.stringify({essential: false, returnTo: returnPath(returnTo), accountType}));
       if (location.hostname === 'nowgo.space' || location.hostname.endsWith('.nowgo.space')) {
         document.cookie = 'nowgo-flavor-oauth-return=' + encodeURIComponent(location.origin) + '; Path=/; Domain=.nowgo.space; Max-Age=600; Secure; SameSite=Lax';
       }
@@ -33,12 +32,12 @@ export default function OAuthButtons({flavor, returnTo = '/'}: {flavor: string; 
     }
   }
 
-  return <div className={styles.options}>
-    <div className={styles.actions}>
-      <button type="button" className={`${styles.button} ${styles.kakao}`} disabled={!!pending} onClick={() => void signIn('kakao')}>
+  return <div className="oauth-options">
+    <div className="unified-auth-actions">
+      <button type="button" className="kakao-login-small" disabled={!!pending} onClick={() => void signIn('kakao')}>
         {pending === 'kakao' ? '카카오 연결 중' : '카카오로 가입·로그인'}
       </button>
-      <button type="button" className={`${styles.button} ${styles.google}`} disabled={!!pending} onClick={() => void signIn('google')}>
+      <button type="button" className="google-login-small" disabled={!!pending} onClick={() => void signIn('google')}>
         {pending === 'google' ? '구글 연결 중' : '구글로 가입·로그인'}
       </button>
     </div>
