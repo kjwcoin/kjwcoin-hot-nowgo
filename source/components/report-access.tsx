@@ -75,13 +75,13 @@ export default function ReportAccess({role, flavor, membership, storeId, onStore
     <p>{role === 'owner' ? 'NOWGO에서 승인받은 내 매장을 선택해 공식 점주로 제보할 수 있어요.' : '로그인 후 작성한 제보를 제출할 수 있어요.'}</p>
     {consentRequired
       ? <a className="text-link" href="/account/join?returnTo=%2Fsuggestion%23report">이용 동의 완료하기 ↗</a>
-      : <><a className="text-link" href="https://www.nowgo.space/account/join">점주·일반 사용자 선택 후 가입하기 ↗</a><p>이미 가입했다면 로그인하세요.</p><OAuthButtons flavor={flavor} returnTo="/suggestion#report"/></>}
+      : <><a className="text-link" href="https://www.nowgo.space/account">점주·일반 사용자 선택 후 가입하기 ↗</a><p>이미 가입했다면 로그인하세요.</p><OAuthButtons flavor={flavor} returnTo="/suggestion#report"/></>}
   </div>;
   if (role !== 'owner') return <p className="report-login-status">로그인됨 · 손님으로 제보합니다.</p>;
   if (!ownedStores.length) return <div className="report-access">
     <strong>공식 점주 제보는 매장 권한 확인이 필요해요.</strong>
     <p>로그인은 완료됐어요. NOWGO에서 사업자 확인과 매장 소유권 승인을 마치면 내 매장이 나타납니다.</p>
-    <a className="text-link" href="https://www.nowgo.space/account/join?role=owner" target="_blank" rel="noreferrer">내 매장 등록·권한 확인 ↗</a>
+    <a className="text-link" href="https://www.nowgo.space/account/join?type=owner" target="_blank" rel="noreferrer">내 매장 등록·권한 확인 ↗</a>
     <button type="button" className="text-link" onClick={() => void refresh()}>승인된 매장 다시 확인 ↗</button>
   </div>;
   return <label className="owner-store">NOWGO에서 확인된 내 매장
