@@ -263,3 +263,11 @@ body[data-theme="sweet"] .explorer{background:#dff3ec}
 body[data-theme="sweet"] .map-panel.map-fullscreen{background:#dff3ec}
 body[data-theme="sweet"] .heat-panel{background:#e8f7f1}
 body[data-theme="sweet"] .menu-heat{background:#197f6c}
+
+/* Keep account entry and verified-owner reporting identical across flavors. */
+.report-access{padding:18px;margin:16px 0;border:1px solid #d6d0c5;border-radius:8px;background:#fff;line-height:1.7;font-size:14px}
+.report-access strong{display:block;font-size:16px}.report-access p{margin:8px 0;font-size:14px}.report-access>.text-link{display:block;width:fit-content;margin-top:12px;font-size:14px}
+.report-fields{border:0;padding:0;margin:0;min-width:0}.report-fields:disabled{opacity:.5}.role-picker>button{flex:1}
+.oauth-options{width:100%}.oauth-options .unified-auth-actions{display:grid;grid-template-columns:1fr;gap:10px;margin:16px 0}.oauth-options .unified-auth-actions button{min-height:48px;width:100%;white-space:normal;line-height:1.5}
+.unified-auth-actions .google-login-small{background:#fff;color:#202124;border:1px solid #b8bbc0}.unified-auth-actions .google-login-small:hover{background:#f5f7fa}
+@media(max-width:700px){.explorer-topline>.customer-trigger{width:auto;padding:6px}.explorer-topline>.customer-trigger span,.site-header>.customer-trigger span{display:inline;font-size:12px}.customer-trigger svg{display:none}.role-picker button{font-size:14px}.report-access{padding:14px}}

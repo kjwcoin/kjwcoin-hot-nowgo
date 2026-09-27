@@ -1,10 +1,7 @@
 import {createClient} from '@supabase/supabase-js';
 
-export function publicConfig(){
- const url=process.env.NEXT_PUBLIC_SUPABASE_URL||'';
- const key=process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY||'';
- return {url,key,ready:!!url&&!!key};
-}
+export {publicConfig} from './auth-config';
+import {publicConfig} from './auth-config';
 
 export function publicDb(token?:string){
  const {url,key,ready}=publicConfig();
