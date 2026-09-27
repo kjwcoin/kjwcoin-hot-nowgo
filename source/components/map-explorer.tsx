@@ -29,6 +29,7 @@ export default function MapExplorer({variant='hot'}:{variant?:SiteVariant}){
  const count=Number(!!heat)+Number(flavor!=='전체')+Number(category!=='전체')+Number(!!budget);
  function reset(){setQuery('');setHeat(0);setFlavor('전체');setCategory('전체');setBudget(0);setSelected(null)}
  function select(m:Menu){setSelected(m);setExpanded(true);track('menu_detail_open',m.id)}
+ function collapseSelected(){setSelected(null);setExpanded(false)}
  const directionsUrl=(menu:Menu)=>menu.lat!==null&&menu.lng!==null?'https://map.kakao.com/link/to/'+encodeURIComponent(menu.shop.replace(/ · 가매장$/,''))+','+menu.lat+','+menu.lng:null;
  return <main className="explorer">
   <header className="explorer-toolbar">
@@ -45,7 +46,7 @@ export default function MapExplorer({variant='hot'}:{variant?:SiteVariant}){
    <KakaoMap fullScreen menus={filtered} selectedId={current?.id} onSelect={select} onLocation={point=>{setSelected(null);setUserLocation(point)}} onDemoPositions={(origin,points)=>setDemoLocations({origin,points})} variant={variant}/>
       <aside className={`explorer-results ${expanded?'expanded':'collapsed'} ${current?'has-selection':''}`} style={current?{top:0,bottom:0,maxHeight:'none'}:undefined} aria-label="검색된 메뉴">
     <div className="explorer-results-header">
-    <button className="explorer-results-heading" aria-expanded={expanded} aria-controls="map-results" onClick={()=>setExpanded(!expanded)}><span><small>{nearbyPending?'가매장 위치 확인 중':userLocation?'지정한 위치 기준 15km':'내 위치 버튼으로 주변 메뉴 찾기'}</small><strong>지금 당기는 한 접시 <b>{filtered.length}</b></strong></span>{expanded?<ChevronDown size={20}/>:<ChevronUp size={20}/>}</button>
+    <button className="explorer-results-heading" aria-expanded={expanded} aria-controls="map-results" onClick={()=>current?collapseSelected():setExpanded(!expanded)}><span><small>{nearbyPending?'가매장 위치 확인 중':userLocation?'지정한 위치 기준 15km':'내 위치 버튼으로 주변 메뉴 찾기'}</small><strong>지금 당기는 한 접시 <b>{filtered.length}</b></strong></span>{expanded?<ChevronDown size={20}/>:<ChevronUp size={20}/>}</button>
      <a className="explorer-report explorer-report--inline" href="/suggestion#report"><Plus size={16}/><span>제보 및 등록</span></a>
     </div>
     {expanded&&<div id="map-results" className="explorer-results-body"><p className="explorer-example">{userLocation?'예시 가매장은 주소가 확인된 위치에만 표시 · 실제 영업하지 않아요':'내 위치 버튼을 누르고 위치 권한을 허용하면 15km 안의 메뉴가 표시돼요'}</p>
@@ -58,3 +59,4 @@ export default function MapExplorer({variant='hot'}:{variant?:SiteVariant}){
   <FirstLoginTour taste={variant} page="map"/>
  </main>
 }
+
