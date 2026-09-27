@@ -254,3 +254,12 @@ body[data-theme="rich"] .menu-heat{background:#8b6945}
 
 .unified-auth-actions .kakao-login-small{background:#FEE500;color:#191919;border-color:#FEE500}
 .unified-auth-actions .kakao-login-small:hover{background:#f4dc00;color:#191919}
+
+body[data-theme="sweet"]{--brand-ink:#197f6c;--brand-deep:#125c4d;--primary:#197f6c;--background:#effbf6;--foreground:#183f37}
+body[data-theme="sweet"] .brand.brand-logo .hot-logo{visibility:hidden}
+body[data-theme="sweet"] .brand.brand-logo:after{content:"";position:absolute;inset:0;background:#197f6c;mask:url('/images/nowgo-red.png') center / contain no-repeat}
+body[data-theme="sweet"] .brand.brand-logo{position:relative;display:inline-block}
+body[data-theme="sweet"] .explorer{background:#dff3ec}
+body[data-theme="sweet"] .map-panel.map-fullscreen{background:#dff3ec}
+body[data-theme="sweet"] .heat-panel{background:#e8f7f1}
+body[data-theme="sweet"] .menu-heat{background:#197f6c}
