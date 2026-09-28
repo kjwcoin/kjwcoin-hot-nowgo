@@ -1,0 +1,8 @@
+import {publicDb} from '@/lib/supabase';
+import {notFound} from 'next/navigation';
+import {WORLDS,growth,type Planet} from '@/lib/activity/model';
+import '@/components/activity/activity.css';
+import CharacterArt from '@/components/activity/character-art';
+export const dynamic='force-dynamic';
+export const metadata={title:'나의 행성 카드 | NOWGO',robots:{index:false,follow:false},openGraph:{images:[]},twitter:{images:[]}};
+export default async function Page({params}:{params:Promise<{token:string}>}){const {token}=await params;if(!/^[a-f0-9-]{36}$/.test(token))notFound();const {data,error}=await publicDb().rpc('ng_planet_read_share',{p_token:token});if(error||!data)notFound();const d=data as {planet:Planet;nickname:string;character_id:number|null;character_name:string;xp:number;visits:number;awards:{title:string;image:string;limited:boolean}[]};if(!WORLDS[d.planet])notFound();const w=WORLDS[d.planet],g=growth(d.xp);return <main className="aw-fullpage activity-world"><div className="aw-share-wrap"><span className="aw-eyebrow">NOWGO · {w.name}</span><h1>{d.nickname}</h1><p>레벨 {g.level} · {g.rank.name} · {d.xp.toLocaleString()} EXP</p><CharacterArt planet={d.planet} index={d.character_id??g.character} label={d.character_name||g.rank.name}/><h2>{w.motto}</h2><p>인증한 발걸음 {d.visits}회 · 훈장 {d.awards.length}개</p><div className="aw-share-badges">{d.awards.map((a,i)=><figure key={i}><img src={`/activity/${a.image}.svg`} alt={a.title}/><figcaption>{a.title}{a.limited?' · 한정판':''}</figcaption></figure>)}</div><p>공유한 순간의 전적이에요.</p><a className="aw-button" href="/activity">나의 모험 보기</a></div></main>}

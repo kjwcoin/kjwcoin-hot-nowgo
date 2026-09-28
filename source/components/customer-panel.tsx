@@ -1,25 +1,13 @@
 'use client';
-import {useEffect,useState} from 'react';
-import {UserRound,ArrowUpRight} from 'lucide-react';
+import {useState} from 'react';
+import {UserRound} from 'lucide-react';
 import {Dialog,DialogContent,DialogTitle,DialogDescription} from '@/components/ui/dialog';
 import {Button} from '@/components/ui/button';
-import {LEVELS} from '@/lib/loyalty';
-import {api} from '@/lib/client';
-import {returnPath} from '@/lib/integration-policy';
-import {browserDb} from '@/lib/supabase-browser';
-import {siteConfig,type SiteVariant} from '@/lib/site-config';
-type State={customer:{id:string;nickname:string;phoneMasked:string;phoneVerified:boolean}|null;points:number|null;level:typeof LEVELS[number];auth:{ready:boolean;accountUrl:string|null};consentRequired:boolean};
-export default function CustomerPanel({variant='hot'}:{variant?:SiteVariant}){
- const theme=siteConfig(variant);
- const [open,setOpen]=useState(false),[data,setData]=useState<State|null>(null),[error,setError]=useState(''),[busy,setBusy]=useState(false),[returnTo,setReturnTo]=useState('/');
- async function refresh(){try{setData(await api<State>('/api/customer/me'));setError('')}catch{setError('회원 정보를 불러오지 못했어요. 잠시 후 다시 열어주세요.')}}
- useEffect(()=>{queueMicrotask(()=>void refresh());const changed=()=>void refresh();window.addEventListener('hot-customer-change',changed);return()=>window.removeEventListener('hot-customer-change',changed)},[]);
- const next=LEVELS.find(l=>l.min>(data?.points||0));
- async function logout(){setBusy(true);try{const {error}=await browserDb().auth.signOut();if(error)throw error;await refresh();window.dispatchEvent(new Event('hot-customer-change'))}catch(e){setError((e as Error).message)}finally{setBusy(false)}}
- return <><Button className="customer-trigger" variant="ghost" onClick={()=>{setReturnTo(returnPath(window.location.pathname+window.location.search+window.location.hash));setOpen(true);void refresh()}} aria-label={data?.customer?'내 활동':'통합 로그인·회원가입'}><UserRound size={18}/><span>{data?.customer?'내 활동':'통합 로그인·회원가입'}</span></Button><Dialog open={open} onOpenChange={setOpen}><DialogContent className="customer-dialog"><DialogTitle className="customer-title">{data?.customer?`${data.customer.nickname}님의 맛 기록`:'NOWGO 통합회원'}</DialogTitle><DialogDescription>한 번 가입하고 {theme.name}와 NOWGO를 같은 계정으로 이용해요.</DialogDescription>
- {!data&&!error&&<p>회원 정보를 확인하고 있어요.</p>}
- {!data?.customer&&<><div className="unified-auth-message"><strong>{data?.consentRequired?`${theme.name} 이용 동의가 필요해요.`:`${theme.name}에서도 바로 가입할 수 있어요.`}</strong><p>{data?.consentRequired?'로그인한 계정으로 이용 동의를 완료해 주세요.':'유저 또는 점주를 먼저 선택한 뒤 카카오·구글로 가입합니다.'}</p></div><div className="unified-auth-actions"><a href={"/account/join?returnTo="+encodeURIComponent(returnTo)}>{data?.consentRequired?`${theme.name} 이용 동의 완료하기`:'가입·로그인 시작하기'} <ArrowUpRight size={17}/></a></div><p className="customer-note">처음 이용할 때 선택한 유형을 계정에 저장합니다. 점주 권한은 NOWGO의 매장 소유권 확인 후 적용돼요.</p><a className="text-link" href="/terms">통합회원·제보 원칙 보기 ↗</a></>}
- {data?.customer&&<><div className="customer-level"><span className="customer-level-number">{data.level.level}</span><div><small>나의 기여 레벨</small><h3>{data.level.name}</h3><p>{data.points===null?'기여 기록 연결 준비 중':`확인된 기여 ${data.points}점${next?` · 다음 단계까지 ${next.min-data.points}점`:''}`}</p></div></div><p className="customer-note">이 계정으로 {theme.name}의 메뉴를 저장·제보할 수 있어요. 공식 점주 권한은 NOWGO에서 확인합니다.</p><a className="text-link" href="https://www.nowgo.space/owner/login" target="_blank" rel="noreferrer">NOWGO 매장 관리 ↗</a><Button variant="ghost" disabled={busy} onClick={logout}>{theme.name}에서 로그아웃</Button></>}
- {error&&<p className="customer-error" role="alert">{error}</p>}
- </DialogContent></Dialog></>
-}
+import type {SiteVariant} from '@/lib/site-config';
+import {planetForVariant,growth} from '@/lib/activity/model';
+import dynamic from 'next/dynamic';
+const ActivityWorld=dynamic(()=>import('@/components/activity/activity-world'));
+import {useActivity} from '@/components/activity/use-activity';
+import '@/components/activity/activity.css';
+import WorldEntry from './activity/world-entry';
+export default function CustomerPanel({variant='hot',worldEntryOpen=false,onWorldEntryClose=()=>{}}:{variant?:SiteVariant;worldEntryOpen?:boolean;onWorldEntryClose?:()=>void}){const [open,setOpen]=useState(false),[activityTab,setActivityTab]=useState('info');const planet=planetForVariant(variant),state=useActivity(planet);return <><Button className="customer-trigger activity-trigger" variant="ghost" onClick={()=>{setActivityTab('info');setOpen(true);void state.refresh()}} aria-label="내 활동"><UserRound size={18}/><span>내 활동</span>{state.data&&<b className="aw-mini-exp">레벨 {growth(state.data.xp).level}</b>}</Button><Dialog open={open} onOpenChange={setOpen}><DialogContent className="aw-activity-dialog"><DialogTitle>내 활동</DialogTitle><DialogDescription>나의 행성에서 쌓인 캐릭터·레벨·EXP·훈장과 모든 기록</DialogDescription><ActivityWorld planet={planet} state={state} initialTab={activityTab}/></DialogContent></Dialog><WorldEntry planet={planet} state={state} open={worldEntryOpen&&state.signedIn===true&&!open} onClose={onWorldEntryClose} onActivity={(tab='info')=>{setActivityTab(tab);onWorldEntryClose();setOpen(true);void state.refresh()}}/></>}
