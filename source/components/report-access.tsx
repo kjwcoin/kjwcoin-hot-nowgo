@@ -2,7 +2,6 @@
 
 import {useCallback, useEffect, useRef, useState} from 'react';
 import {api} from '@/lib/client';
-import OAuthButtons from './oauth-buttons';
 
 export type OwnedStore = {store_id: string; name: string; address: string; slug: string};
 type Membership = {
@@ -70,7 +69,7 @@ export default function ReportAccess({role, flavor, membership, storeId, onStore
     <p>{role === 'owner' ? 'NOWGO에서 승인받은 내 매장을 선택해 공식 점주로 제보할 수 있어요.' : '로그인 후 작성한 제보를 제출할 수 있어요.'}</p>
     {consentRequired
       ? <a className="text-link" href="/account/join?returnTo=%2Fsuggestion%23report">이용 동의 완료하기 ↗</a>
-      : <OAuthButtons flavor={flavor} returnTo="/suggestion#report"/>}
+      : <a className="text-link" href={'/account/join?type='+(role==='owner'?'owner':'user')+'&returnTo=%2Fsuggestion%23report'}>통합회원가입/로그인 ↗</a>}
   </div>;
   if (role !== 'owner') return <p className="report-login-status">로그인됨 · 손님으로 제보합니다.</p>;
   if (!ownedStores.length) return <div className="report-access">

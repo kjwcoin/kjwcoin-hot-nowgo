@@ -1,0 +1,4 @@
+'use client';
+import {api} from '../client';
+export async function activityAction<T=Record<string,unknown>>(action:string,body:unknown){const result=await api<T>('/api/activity/'+action,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});window.dispatchEvent(new Event('nowgo-activity-change'));return result;}
+export async function captureVisit(storeId:string){if(!navigator.geolocation)throw new Error('이 기기에서 위치를 확인할 수 없어요.');const position=await new Promise<GeolocationPosition>((resolve,reject)=>navigator.geolocation.getCurrentPosition(resolve,()=>reject(new Error('위치 권한을 허용하고 매장에서 다시 시도해 주세요.')),{enableHighAccuracy:true,timeout:15000,maximumAge:0}));return activityAction<{matched:boolean}>('gps',{storeId,lat:position.coords.latitude,lng:position.coords.longitude,accuracy:position.coords.accuracy,capturedAt:new Date(position.timestamp).toISOString()});}

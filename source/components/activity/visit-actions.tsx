@@ -1,0 +1,5 @@
+'use client';
+import {useState} from 'react';
+import {MapPin,Camera} from 'lucide-react';
+import {captureVisit} from '@/lib/activity/client';
+export default function VisitActions({placeId,isDemo}:{placeId:string;isDemo?:boolean}){const [busy,setBusy]=useState(false),[message,setMessage]=useState('');const storeId=/^nowgo-[a-f0-9-]{36}$/.test(placeId)?placeId.slice(6):null;if(isDemo||!storeId)return null;async function gps(){setBusy(true);try{const r=await captureVisit(storeId!);setMessage(r.matched?'방문 인증 완료! 내 활동에 전적을 더했어요.':'위치를 확인했어요. 30분 이내의 결제가 확인되면 내 활동에 반영돼요.')}catch(e){setMessage((e as Error).message)}finally{setBusy(false)}}return <div style={{margin:'14px 0'}}><div style={{display:'flex',gap:10,flexWrap:'wrap'}}><button onClick={()=>void gps()} disabled={busy} style={{display:'flex',alignItems:'center',gap:6,fontWeight:700,fontSize:14}}><MapPin size={17}/>{busy?'위치 확인 중…':'GPS 방문 인증'}</button><a href="/activity?tab=visits" style={{display:'flex',alignItems:'center',gap:6,fontSize:14}}><Camera size={17}/>다녀온 곳 기록</a></div>{message&&<p role="status" style={{fontSize:13,marginTop:9}}>{message}</p>}</div>}
