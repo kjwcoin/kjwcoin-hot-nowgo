@@ -273,3 +273,25 @@ body[data-theme="sweet"] .menu-heat{background:#197f6c}
 .oauth-options{width:100%}.oauth-options .unified-auth-actions{display:grid;grid-template-columns:1fr;gap:10px;margin:16px 0}.oauth-options .unified-auth-actions button{min-height:48px;width:100%;white-space:normal;line-height:1.5}
 .unified-auth-actions .google-login-small{background:#fff;color:#202124;border:1px solid #b8bbc0}.unified-auth-actions .google-login-small:hover{background:#f5f7fa}
 @media(max-width:700px){.explorer-topline>.customer-trigger{width:auto;padding:6px}.explorer-topline>.customer-trigger span,.site-header>.customer-trigger span{display:inline;font-size:12px}.customer-trigger svg{display:none}.role-picker button{font-size:14px}.report-access{padding:14px}}
+
+/* Keep unified signup/login at the right edge on every header size. */
+.explorer-topline > .customer-trigger,
+.site-header > .customer-trigger {
+  flex: 0 0 auto;
+  margin-left: auto;
+  min-height: 44px;
+}
+.explorer-search { min-width: 0; }
+@media (max-width: 700px) {
+  .explorer-topline > .customer-trigger {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+  }
+  .site-header .saved-nav { margin-left: 0; }
+}
+@media (max-width: 380px) {
+  .site-header { padding-inline: 12px; gap: 6px; }
+  .site-header .brand.brand-logo { width: 90px; flex-shrink: 0; }
+  .site-header .saved-nav { gap: 4px; }
+}
