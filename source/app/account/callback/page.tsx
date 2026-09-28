@@ -20,7 +20,7 @@ export default function Callback(){
    const accountType=pending?.accountType==='owner'?'owner':'user';
    sessionStorage.removeItem(`${variantForHost(location.host)}-pending-consent`);
    const profile=await api<{customer:unknown|null;consentRequired:boolean}>('/api/customer/me');
-   location.replace(profile.customer&&!profile.consentRequired?(accountType==='owner'?'https://nowgo.space/owner/signup':returnTo):'/account/join?finish=1&type='+accountType+'&returnTo='+encodeURIComponent(returnTo));
+   location.replace(profile.customer&&!profile.consentRequired?(accountType==='owner'?'https://nowgo.space/owner/signup':'https://www.nowgo.space/flavors'):'/account/join?finish=1&type='+accountType+'&returnTo='+encodeURIComponent(returnTo));
   }catch(e){if(active)setError((e as Error).message)}
  }void complete();return()=>{active=false}},[]);
  return <main className="terms-page join-page"><Brand/><h1>회원 연결 중</h1><p>{error||'NOWGO 통합회원 정보를 확인하고 있어요.'}</p>{error&&<a href="/account/join">가입·로그인 다시 하기 ↗</a>}</main>
