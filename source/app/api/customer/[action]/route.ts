@@ -12,6 +12,14 @@ export async function GET(req:Request,{params}:Ctx){
    const {data,error}=await auth.client.rpc('hot_owned_stores');if(error)throw error;
    return reply(req,{stores:data||[]});
   }
+  if(action==='favorite'){
+   const auth=await verifiedUser(req);if(!auth)return reply(req,{error:'통합 로그인 후 다시 시도해 주세요.'},401);
+   const storeId=new URL(req.url).searchParams.get('storeId');
+   if(!storeId||!/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(storeId))return reply(req,{error:'매장을 확인해 주세요.'},400);
+   const [favorite,hidden]=await Promise.all([auth.client.from('store_favorites').select('store_id').eq('user_id',auth.user.id).eq('store_id',storeId).maybeSingle(),auth.client.from('regular_home_hidden').select('store_id').eq('user_id',auth.user.id).eq('store_id',storeId).maybeSingle()]);
+   if(favorite.error||hidden.error)throw favorite.error||hidden.error;
+   return reply(req,{registered:!!favorite.data&&!hidden.data});
+  }
   if(action!=='me')return reply(req,{},404);
   const authConfig={mode:'unified',ready:publicConfig().ready,accountUrl:null};
   const auth=await verifiedUser(req);
@@ -29,6 +37,13 @@ export async function POST(req:Request,{params}:Ctx){
  const {action}=await params;
  try{
   const theme=siteConfig(variantForHost(req.headers.get('host')));
+  if(action==='favorite'){
+   const auth=await verifiedUser(req);if(!auth)return reply(req,{error:'통합 로그인 후 다시 시도해 주세요.'},401);
+   const body=await req.json() as {storeId?:string;active?:boolean};
+   if(typeof body.storeId!=='string'||!/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(body.storeId)||typeof body.active!=='boolean')return reply(req,{error:'매장을 확인해 주세요.'},400);
+   const {error}=await auth.client.rpc('ng_customer_set_favorite',{p_store:body.storeId,p_active:body.active});if(error)throw error;
+   return reply(req,{registered:body.active});
+  }
   if(action!=='consents')return reply(req,{error:'NOWGO 통합회원으로 가입합니다.'},410);
   const auth=await verifiedUser(req);if(!auth)return reply(req,{error:'통합 로그인 후 다시 시도해 주세요.'},401);
   const body=await req.json() as {essential?:boolean;marketingEmail?:boolean;version?:string};
@@ -41,3 +56,4 @@ export async function POST(req:Request,{params}:Ctx){
   if(error)throw error;return reply(req,{saved:true});
  }catch(e){return failure(req,e)}
 }
+
