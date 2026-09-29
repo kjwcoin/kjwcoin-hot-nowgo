@@ -4,6 +4,8 @@ import {publicDb,verifiedUser} from '@/lib/supabase';
 import {isKoreanAddress,isKoreanCoordinate,isKoreanRegion} from '@/lib/korean-region';
 import {siteConfig,variantForHost} from '@/lib/site-config';
 import sharp from 'sharp';
+import {after} from 'next/server';
+import {publishReport,koreanToday} from '@/lib/report-publication';
 
 type Ctx={params:Promise<{action:string}>};
 const reject=(req:Request,error:string,status:number)=>reply(req,{error},status);
@@ -69,7 +71,7 @@ export async function POST(req:Request,{params}:Ctx){
    customerStore=data;
    shop=data.name;address=data.address;
   }
-  if(!/^[a-f0-9-]{36}$/.test(id)||!['customer','owner'].includes(role)||shop.length<2||shop.length>100||menu.length<2||menu.length>100||theme.menus.some(x=>x.shop===shop)||!isKoreanAddress(address)||!Number.isInteger(price)||price<100||price>1000000||!Number.isInteger(heat)||heat<1||heat>5||!theme.flavors.slice(1).some(x=>x===flavor)||note.length>1000||!/^\d{4}-\d{2}-\d{2}$/.test(observed)||!Number.isFinite(Date.parse(observed))||new Date(observed)>new Date()||new Date(observed).toISOString().slice(0,10)!==observed||get('rights')!=='yes'||get('accuracy')!=='yes'||!theme.categories.some(x=>x===category))return reject(req,'대한민국 내 실제 가게 주소와 메뉴·가격·확인 날짜·사진 공개 동의를 확인해 주세요.',400);
+  if(!/^[a-f0-9-]{36}$/.test(id)||!['customer','owner'].includes(role)||shop.length<2||shop.length>100||menu.length<2||menu.length>100||theme.menus.some(x=>x.shop===shop)||!isKoreanAddress(address)||!Number.isInteger(price)||price<100||price>1000000||!Number.isInteger(heat)||heat<1||heat>5||!theme.flavors.slice(1).some(x=>x===flavor)||note.length>1000||!/^\d{4}-\d{2}-\d{2}$/.test(observed)||!Number.isFinite(Date.parse(observed))||observed>koreanToday()||new Date(observed).toISOString().slice(0,10)!==observed||get('rights')!=='yes'||get('accuracy')!=='yes'||!theme.categories.some(x=>x===category))return reject(req,'대한민국 내 실제 가게 주소와 메뉴·가격·확인 날짜·사진 공개 동의를 확인해 주세요.',400);
   const photo=form.get('photo');
   if(!(photo instanceof File)||photo.size===0||photo.size>2_000_000)return reject(req,'JPG·PNG·WebP 사진을 2MB 이하로 첨부해 주세요.',400);
   const bytes=new Uint8Array(await photo.arrayBuffer());
@@ -86,8 +88,6 @@ export async function POST(req:Request,{params}:Ctx){
   }catch{return reject(req,'이미지 파일을 읽을 수 없어요. 다른 사진을 올려주세요.',400)}
   if(uploadBytes.length>2_000_000)return reject(req,'사진은 2MB 이하로 올려주세요.',400);
   const mime='image/webp';
-  const {data:prior,error:priorError}=await client.from(theme.tables.reports).select('id,status').eq('id',id).eq('user_id',user.id).maybeSingle();
-  if(priorError)throw priorError;if(prior)return reply(req,prior);
   let lat:number|null=null,lng:number|null=null;
   const pointLat=Number(get('lat')),pointLng=Number(get('lng'));
   if(get('lat')&&get('lng')&&isKoreanCoordinate(pointLat,pointLng)){lat=pointLat;lng=pointLng}
@@ -97,13 +97,19 @@ export async function POST(req:Request,{params}:Ctx){
   if(restKey&&!ownerStore&&!customerStore){try{const geo=await fetch('https://dapi.kakao.com/v2/local/search/address.json?query='+encodeURIComponent(address),{headers:{Authorization:'KakaoAK '+restKey},signal:AbortSignal.timeout(5000)});if(geo.ok){const g=await geo.json() as {documents:{x:string;y:string;address?:{region_1depth_name:string}|null;road_address?:{region_1depth_name:string}|null}[]};if(g.documents?.length===1){const place=g.documents[0],region=place.address?.region_1depth_name||place.road_address?.region_1depth_name||'';const y=Number(place.y),x=Number(place.x);if(isKoreanRegion(region)&&isKoreanCoordinate(y,x)){lat=y;lng=x}}}}catch{}}
   const placeId=ownerStore||customerStore?'nowgo-'+storeId:'reported-'+(await sha(address+'|'+shop.replace(/\s/g,''))).slice(0,24);
   const path=id;
-  const {error:insertError}=await client.from(theme.tables.reports).insert({id,user_id:user.id,role,nowgo_store_id:ownerStore||customerStore?storeId:null,phone,business_number:role==='owner'?businessNumber:null,place_id:placeId,menu_id:id,shop,menu,address,price,heat,flavor,category,observed_at:observed,note,lat,lng,photo_path:path,photo_mime:mime,status:'draft'});
-  if(insertError){if(insertError.code==='23505')return reject(req,'같은 제보가 이미 접수되었어요.',409);if(insertError.code==='P0001')return reject(req,'한 시간에 10건까지 제보할 수 있어요.',429);throw insertError}
-  const {error:uploadError}=await client.storage.from(theme.bucket).upload(path,uploadBytes,{contentType:mime,upsert:false});
-  if(uploadError){await client.from(theme.tables.reports).delete().eq('id',id).eq('user_id',user.id);throw uploadError}
-  const {data:status,error:publishError}=await client.rpc(theme.publish,{report_id:id});
-  if(publishError){await client.storage.from(theme.bucket).remove([path]);await client.from(theme.tables.reports).delete().eq('id',id).eq('user_id',user.id);throw publishError}
-  return reply(req,{id,status},201);
+  const receipt=await publishReport({
+   find:async()=>{const {data,error}=await client.from(theme.tables.reports).select('id,status').eq('id',id).eq('user_id',user.id).maybeSingle();if(error)throw error;return data},
+   insert:async()=>{const {error}=await client.from(theme.tables.reports).insert({id,user_id:user.id,role,nowgo_store_id:ownerStore||customerStore?storeId:null,phone,business_number:role==='owner'?businessNumber:null,place_id:placeId,menu_id:id,shop,menu,address,price,heat,flavor,category,observed_at:observed,note,lat,lng,photo_path:path,photo_mime:mime,status:'draft'});return error},
+   upload:async()=>{const {error}=await client.storage.from(theme.bucket).upload(path,uploadBytes,{contentType:mime,upsert:false});return error},
+   publish:async()=>{const {data,error}=await client.rpc(theme.publish,{report_id:id});return {status:data,error}},
+  });
+  // The durable DB queue exists before this best-effort dispatch. AI failure cannot undo a report.
+  const authorization=req.headers.get('authorization')||'';
+  after(async()=>{try{await fetch('https://www.nowgo.space/api/taste-photo-review',{
+   method:'POST',headers:{'Content-Type':'application/json',authorization},
+   body:JSON.stringify({kind:variant,reportId:id}),signal:AbortSignal.timeout(25000),
+  })}catch{console.warn('Photo review remains queued')}});
+  return reply(req,{...receipt,photoReview:'queued'},201);
  }catch(e){return failure(req,e)}
 }
 

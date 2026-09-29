@@ -31,7 +31,7 @@ export default function StorePicker({selected,onSelect,manual,onManual}:{
   <strong>매장 찾기</strong>
   {selected?<div className="store-picker__selected"><span><b>{selected.name}</b><small>{selected.address}</small><a href={`https://www.nowgo.space/p/${encodeURIComponent(selected.slug)}`} target="_blank" rel="noreferrer">미니홈피 확인 ↗</a></span><button type="button" onClick={()=>onSelect(null)}>다른 매장 찾기</button></div>
    :manual?<p>검색 목록에 없다면 매장 이름과 주소를 직접 적어주세요. 확인 후 미니홈피와 연결합니다. <button type="button" onClick={()=>onManual(false)}>매장 다시 찾기</button></p>
-   :<><Input aria-label="제보할 매장 찾기" placeholder="상호명을 검색해 주세요" value={query} onChange={e=>setQuery(e.target.value)} maxLength={60} autoComplete="off"/>
+   :<><Input aria-label="제보할 매장 찾기" onKeyDown={e=>{if(e.key==='Enter')e.preventDefault()}} placeholder="상호명을 검색해 주세요" value={query} onChange={e=>setQuery(e.target.value)} maxLength={60} autoComplete="off"/>
      {loading&&<p role="status">매장을 찾고 있어요.</p>}
      {error&&<p role="alert">{error}</p>}
      {!loading&&!error&&query.trim().length>=2&&<div className="store-picker__results" role="list" aria-label="매장 검색 결과">
