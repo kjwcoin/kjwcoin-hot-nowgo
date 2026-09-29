@@ -1,10 +1,11 @@
 'use client';
 
-import {useCallback,useEffect,useRef,useState} from 'react';
+import {useCallback,useEffect,useImperativeHandle,useRef,useState,type Ref} from 'react';
 import {ArrowUpRight,LocateFixed,MapPin} from 'lucide-react';
 import {isKoreanCoordinate,isKoreanRegion} from '@/lib/korean-region';
-import {isValidGeoPoint,NEIGHBORHOOD_LEVEL,type GeoPoint} from '@/lib/nearby-demo';
+import {NEIGHBORHOOD_LEVEL,type GeoPoint} from '@/lib/nearby-demo';
 import {resolveDemoLand,type DemoLocationState} from '@/lib/resolve-demo-land';
+import {requestCurrentLocation,locationStatusText,type LocationState} from '@/lib/request-current-location';
 import {money,type Menu} from '@/lib/menus';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -33,12 +34,14 @@ function loadKakaoSdk(key:string){
 }
 
 type MapVariant='hot'|'rich'|'sweet';
-type LocationState='idle'|'locating'|'located'|'denied'|'inaccurate'|'outside';
+export type KakaoMapHandle={requestLocation:()=>void};
 type Props={
  menus:Menu[];
  onSelect:(menu:Menu)=>void;
  onPoint?:(point:{address:string;lat:number;lng:number})=>void;
  onLocation?:(point:GeoPoint)=>void;
+ onLocationState?:(state:LocationState)=>void;
+ locationControl?:Ref<KakaoMapHandle>;
  onDemoPositions?:(origin:GeoPoint,points:GeoPoint[],state:DemoLocationState)=>void;
  addressSearch?:{text:string;requestId:number}|null;
  onAddressFound?:(point:{address:string;lat:number;lng:number})=>void;
@@ -48,7 +51,7 @@ type Props={
  variant?:MapVariant;
 };
 
-export default function KakaoMap({menus,onSelect,onPoint,onLocation,onDemoPositions,addressSearch,onAddressFound,onAddressError,fullScreen=false,selectedId,variant='hot'}:Props){
+export default function KakaoMap({menus,onSelect,onPoint,onLocation,onLocationState,locationControl,onDemoPositions,addressSearch,onAddressFound,onAddressError,fullScreen=false,selectedId,variant='hot'}:Props){
  const rootRef=useRef<HTMLDivElement>(null);
  const canvasRef=useRef<HTMLDivElement>(null);
  const mapRef=useRef<any>(null);
@@ -57,14 +60,16 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,onDemoPositi
  const userMarkerRef=useRef<any>(null);
  const addressMarkerRef=useRef<any>(null);
  const userPointRef=useRef<GeoPoint|null>(null);
- const callbacksRef=useRef({onSelect,onPoint,onLocation,onDemoPositions,onAddressFound,onAddressError});
- callbacksRef.current={onSelect,onPoint,onLocation,onDemoPositions,onAddressFound,onAddressError};
+ const callbacksRef=useRef({onSelect,onPoint,onLocation,onLocationState,onDemoPositions,onAddressFound,onAddressError});
+ callbacksRef.current={onSelect,onPoint,onLocation,onLocationState,onDemoPositions,onAddressFound,onAddressError};
  const landRequestRef=useRef(0);
  const locationRequestRef=useRef(0);
+ const locationBusyRef=useRef(false);
  const [mapState,setMapState]=useState<'loading'|'ready'|'setup'|'error'>('loading');
  const [tileFailed,setTileFailed]=useState(false);
  const [mapAttempt,setMapAttempt]=useState(0);
  const [locationState,setLocationState]=useState<LocationState>('idle');
+ useEffect(()=>{callbacksRef.current.onLocationState?.(locationState)},[locationState]);
 
  const focusNeighborhood=useCallback((point:GeoPoint)=>{
   const map=mapRef.current,k=kakaoRef.current;
@@ -76,38 +81,43 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,onDemoPositi
 
  const showNearby=useCallback((point:GeoPoint)=>{
    const map=mapRef.current,k=kakaoRef.current;
-   if(!map||!k){setLocationState('idle');return}
    userPointRef.current=point;
+   setLocationState('located');
+   callbacksRef.current.onLocation?.(point);
+   if(!map||!k){callbacksRef.current.onDemoPositions?.(point,[],'error');return}
    const position=new k.maps.LatLng(point.lat,point.lng);
    userMarkerRef.current?.setMap(null);
    userMarkerRef.current=new k.maps.Marker({map,position,title:'내 위치'});
    focusNeighborhood(point);
-   setLocationState('located');
-   callbacksRef.current.onLocation?.(point);
    if(callbacksRef.current.onDemoPositions){
     const request=++landRequestRef.current;
-    const geocoder=new k.maps.services.Geocoder();
     callbacksRef.current.onDemoPositions?.(point,[],'loading');
-    void resolveDemoLand(point,geocoder,{isCurrent:()=>request===landRequestRef.current}).then(({points,state})=>{
-     if(request===landRequestRef.current)callbacksRef.current.onDemoPositions?.(point,points,state);
-    });
+    const fail=()=>{if(request===landRequestRef.current)callbacksRef.current.onDemoPositions?.(point,[],'error')};
+    try{
+     const geocoder=new k.maps.services.Geocoder();
+     void resolveDemoLand(point,geocoder,{isCurrent:()=>request===landRequestRef.current}).then(({points,state})=>{
+      if(request===landRequestRef.current)callbacksRef.current.onDemoPositions?.(point,points,state);
+     }).catch(fail);
+    }catch{fail()}
    }
  },[focusNeighborhood]);
 
  const requestLocation=useCallback(()=>{
+  if(locationBusyRef.current)return;
   const request=++locationRequestRef.current;
   // A second tap recenters immediately, even if the device cannot refresh its GPS fix.
   if(userPointRef.current)showNearby(userPointRef.current)
-  if(!window.isSecureContext||!navigator.geolocation){setLocationState(userPointRef.current?'located':'denied');return}
+  if(!window.isSecureContext||!navigator.geolocation){setLocationState('unsupported');return}
+  locationBusyRef.current=true;
   setLocationState('locating');
-  navigator.geolocation.getCurrentPosition(({coords})=>{
+  void requestCurrentLocation(navigator.geolocation,{isCurrent:()=>request===locationRequestRef.current,onRetry:()=>setLocationState('retrying')}).then(result=>{
    if(request!==locationRequestRef.current)return;
-   const point={lat:coords.latitude,lng:coords.longitude};
-   if(!isValidGeoPoint(point)||!Number.isFinite(coords.accuracy)||coords.accuracy>5000){setLocationState(userPointRef.current?'located':'inaccurate');return}
-   if(!isKoreanCoordinate(point.lat,point.lng)){setLocationState('outside');return}
-   showNearby(point);
-  },error=>{if(request===locationRequestRef.current)setLocationState(userPointRef.current?'located':error.code===1?'denied':'inaccurate')},{enableHighAccuracy:true,timeout:8000,maximumAge:60000});
- },[focusNeighborhood,showNearby]);
+   locationBusyRef.current=false;
+   if(result.state==='located')showNearby(result.point);
+   else if(result.state!=='cancelled')setLocationState(result.state);
+  });
+ },[showNearby]);
+ useImperativeHandle(locationControl,()=>({requestLocation}),[requestLocation]);
 
  useEffect(()=>{
   let cancelled=false;
@@ -153,7 +163,7 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,onDemoPositi
    }).catch(()=>!cancelled&&setMapState('error'));
   },{rootMargin:'200px'});
   if(rootRef.current)observer.observe(rootRef.current);
-  return()=>{cancelled=true;controller.abort();clearTimeout(configTimeout);if(timeout)clearTimeout(timeout);observer.disconnect();landRequestRef.current++;locationRequestRef.current++;overlaysRef.current.forEach(overlay=>overlay.setMap(null));userMarkerRef.current?.setMap(null);addressMarkerRef.current?.setMap(null);mapRef.current=null};
+  return()=>{cancelled=true;controller.abort();clearTimeout(configTimeout);if(timeout)clearTimeout(timeout);observer.disconnect();landRequestRef.current++;locationRequestRef.current++;locationBusyRef.current=false;overlaysRef.current.forEach(overlay=>overlay.setMap(null));userMarkerRef.current?.setMap(null);addressMarkerRef.current?.setMap(null);mapRef.current=null};
  },[fullScreen,mapAttempt,requestLocation,showNearby]);
 
  useEffect(()=>{
@@ -231,16 +241,17 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,onDemoPositi
   return()=>{canvas.removeEventListener('error',tile,true);canvas.removeEventListener('load',tile,true)};
  },[mapAttempt]);
 
- const retryMap=()=>{setTileFailed(false);setMapState('loading');setMapAttempt(attempt=>attempt+1)};
+ const retryMap=()=>{setTileFailed(false);setLocationState(userPointRef.current?'located':'idle');setMapState('loading');setMapAttempt(attempt=>attempt+1)};
  const label=variant==='sweet'?'카페 디저트':variant==='rich'?'고소한':'매운';
- const statusText=locationState==='located'?'내 위치 기준 15km':locationState==='locating'?'위치 확인 중':locationState==='denied'?'브라우저 위치 권한을 허용한 뒤 다시 눌러 주세요':locationState==='outside'?'국내 위치를 확인하지 못했어요. 기기의 위치 설정을 확인해 주세요':locationState==='inaccurate'?'위치를 확인하지 못했어요. 다시 눌러 주세요':'내 위치를 눌러 주변 15km 보기';
+ const locationBusy=locationState==='locating'||locationState==='retrying';
+ const locationFailed=!['idle','locating','retrying','located'].includes(locationState);
+ const statusText=locationStatusText[locationState];
  return <div className={fullScreen?'map-panel map-fullscreen':'map-panel'} ref={rootRef}>
   <div key={mapAttempt} className="map-canvas" ref={canvasRef} aria-label={`카카오 대한민국 ${label} 메뉴 지도`}/>
   {mapState!=='ready'&&<div className="map-unavailable"><MapPin size={30} strokeWidth={1.3}/><span className="eyebrow">KAKAO MAP · {variant.toUpperCase()} NOWGO</span><h3>{mapState==='loading'?'지도를 불러오는 중':mapState==='setup'?'지도 연결을 준비하고 있어요':'잠시 지도를 불러올 수 없어요'}</h3><p>지도 연결을 확인한 뒤 다시 시도해 주세요.</p>{mapState!=='loading'&&<button type="button" className="text-link" onClick={retryMap}>지도 다시 불러오기</button>}<a className="text-link" href="https://www.nowgo.space/" target="_blank" rel="noreferrer">나우고에서 운영 매장 확인 <ArrowUpRight size={18}/></a></div>}
-  {mapState==='ready'&&onLocation&&<button type="button" className="map-location-button" aria-label="내 위치로 이동" onClick={requestLocation}><LocateFixed size={16}/>{locationState==='locating'?'위치 다시 확인':'내 위치'}</button>}
+  {mapState==='ready'&&onLocation&&<button type="button" className="map-location-button" aria-label="내 위치로 이동" onClick={requestLocation} disabled={locationBusy}><LocateFixed size={16}/>{locationBusy?'위치 확인 중':'내 위치'}</button>}
   {mapState==='ready'&&tileFailed&&<div role="alert" style={{position:'absolute',bottom:60,right:16,zIndex:5,maxWidth:300,padding:14,borderRadius:10,background:'#fff',color:'#20211e',boxShadow:'0 3px 18px #0002',fontSize:14}}>지도 배경을 불러오지 못했어요.<button type="button" className="text-link" onClick={retryMap}>지도 다시 불러오기</button></div>}
-  {mapState==='ready'&&(locationState==='outside'||locationState==='denied'||locationState==='inaccurate')&&<div role="status" style={{position:'absolute',top:72,right:16,zIndex:5,maxWidth:300,padding:14,borderRadius:10,background:'#fff',color:'#20211e',boxShadow:'0 3px 18px #0002',fontSize:14}}>{statusText}<button type="button" className="text-link" onClick={requestLocation}>위치 다시 확인</button></div>}
+  {mapState==='ready'&&locationFailed&&<div role="status" style={{position:'absolute',top:72,right:16,zIndex:5,maxWidth:300,padding:14,borderRadius:10,background:'#fff',color:'#20211e',boxShadow:'0 3px 18px #0002',fontSize:14}}>{statusText}{userPointRef.current&&<p>이전에 확인한 위치를 표시하고 있어요.</p>}<button type="button" className="text-link" onClick={requestLocation}>위치 다시 확인</button></div>}
   <div className="map-caption"><span>카카오 지도</span><span>{mapState==='ready'?statusText:'지도 연결 확인 중'}</span></div>
  </div>;
 }
-
