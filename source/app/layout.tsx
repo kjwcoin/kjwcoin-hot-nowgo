@@ -11,6 +11,8 @@ export async function generateMetadata():Promise<Metadata>{
   ...socialMetadata(variant),
   title:`${theme.name} by NOWGO | ${theme.headline}`,
   description:theme.intro,
+  robots:{index:false,follow:true},
+  verification:{google:process.env.GOOGLE_SITE_VERIFICATION||undefined,other:process.env.NAVER_SITE_VERIFICATION?{"naver-site-verification":process.env.NAVER_SITE_VERIFICATION}:undefined},
   icons:{icon:{url:theme.favicon,type:'image/png'},shortcut:theme.favicon,apple:theme.favicon}
  };
 }
