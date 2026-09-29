@@ -10,7 +10,9 @@ async function profileImage(d:ActivitySnapshot){
  const c=canvas.getContext('2d');if(!c)throw new Error('이미지 카드를 만들 수 없어요.');
  const load=async(name:string)=>{const img=new Image();img.src='/activity/'+name;await img.decode();return img};
  const badge=d.awards.find(a=>a.badge_id===d.profile.equipped_badge)||d.awards[0];
- const [character,logo,planet,crest]=await Promise.all([load(`characters-${d.planet}.webp`),load('nowgo-white.png'),load(`planet-${d.planet}.webp`),badge?load(badge.image+'.svg'):Promise.resolve(null),document.fonts.ready]);
+ const artFlavor=document.body.dataset.theme==='rich'?'rich':d.planet;
+ const growthArt=artFlavor==='hot'||artFlavor==='sweet'||artFlavor==='rich';
+ const [character,logo,planet,crest]=await Promise.all([load(growthArt?'characters-growth.webp':`characters-${d.planet}.webp`),load('nowgo-white.png'),load(`planet-${d.planet}.webp`),badge?load(badge.image+'.svg'):Promise.resolve(null),document.fonts.ready]);
  const box=(x:number,y:number,width:number,height:number,radius:number,color:string)=>{c.fillStyle=color;c.beginPath();c.roundRect(x,y,width,height,radius);c.fill()};
  const text=(value:string,x:number,y:number,size:number,color='#fff0d4',width=920)=>{c.fillStyle=color;let s=size;do{c.font=`700 ${s}px Pretendard, sans-serif`;if(c.measureText(value).width<=width)break;s--}while(s>14);c.fillText(value,x,y)};
  c.fillStyle='#0c142f';c.fillRect(0,0,1080,1350);
@@ -19,8 +21,10 @@ async function profileImage(d:ActivitySnapshot){
  c.drawImage(logo,65,55,190,66);text('나의 취향, 나의 전적',702,99,22,w.accent,312);
  text('나는, '+w.name+'.',65,208,72);text(d.profile.nickname,68,267,35,w.accent,700);
  box(65,296,340,60,14,'#24304d');text(`레벨 ${g.level} · ${g.rank.name}`,86,335,29,'#fff0d4',302);
- const index=Math.max(0,Math.min(5,d.profile.character_id??g.character)),cw=character.naturalWidth/3,ch=character.naturalHeight/2;
- c.drawImage(character,(index%3)*cw,Math.floor(index/3)*ch,cw,ch,47,363,665,665);
+ const index=Math.max(0,Math.min(5,g.character));
+ const columns=growthArt?5:3,rows=growthArt?3:2,cw=character.naturalWidth/columns,ch=character.naturalHeight/rows;
+ const column=growthArt?[0,1,2,3,3,4][index]:index%3,row=growthArt?(artFlavor==='sweet'?1:artFlavor==='rich'?2:0):Math.floor(index/3);
+ c.drawImage(character,column*cw,row*ch,cw,ch,47,363,665,665);
  box(743,501,267,349,20,'#192640');text('나의 대표 휘장',776,546,24,w.accent,200);
  if(crest&&badge){c.drawImage(crest,788,565,177,207);text(badge.title,766,804,24,'#fff0d4',219);if(badge.limited)text('LIMITED EDITION',777,832,17,'#ff655d',204)}
  else {text('첫 훈장을 향해',777,673,26,'#fff0d4',200);text('나의 모험은 지금부터',766,716,18,'#bbc6dc',222)}

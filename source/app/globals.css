@@ -295,3 +295,11 @@ body[data-theme="sweet"] .menu-heat{background:#197f6c}
   .site-header .brand.brand-logo { width: 90px; flex-shrink: 0; }
   .site-header .saved-nav { gap: 4px; }
 }
+/* Food pins share one map overlay across HOT, SWEET and RICH. */
+.map-anchor.map-anchor--food{display:inline-flex;align-items:center;gap:0;min-height:62px;padding:0;background:transparent;color:#17213c;border:0;border-radius:0;box-shadow:none;white-space:nowrap;filter:drop-shadow(0 3px 5px #17213c33);transform-origin:25px 100%}
+.map-anchor--food .map-anchor-pin{display:block;flex:none;width:62px;height:62px;background-image:url('/activity/map-taste-pins.webp');background-size:500% 300%;background-repeat:no-repeat}
+.map-anchor--food .map-anchor-price{display:block;margin-left:-5px;padding:8px 12px 8px 10px;border:1px solid #e6e2d9;border-radius:0 20px 20px 0;background:#fffefa;color:#17213c;font-size:14px;line-height:1.2;font-weight:800;box-shadow:0 2px 5px #17213c20}
+.map-anchor.map-anchor--food.selected{background:transparent;color:#17213c;transform:translateY(-5px) scale(1.08);z-index:2}
+.map-anchor--food:hover .map-anchor-price,.map-anchor--food.selected .map-anchor-price{border-color:var(--brand-ink)}
+.map-anchor--food:focus-visible{outline:3px solid var(--brand-ink);outline-offset:3px;border-radius:12px}
+@media(max-width:640px){.map-anchor.map-anchor--food{min-height:54px}.map-anchor--food .map-anchor-pin{width:54px;height:54px}.map-anchor--food .map-anchor-price{font-size:13px;padding:7px 9px 7px 8px}}

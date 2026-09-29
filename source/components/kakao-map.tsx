@@ -161,8 +161,18 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,onDemoPositi
   overlaysRef.current=[...groups.values()].map(group=>{
    const menu=group[0],button=document.createElement('button');
    button.type='button';
-   button.className='map-anchor'+(menu.id===selectedId?' selected':'');
-   button.textContent=`${menu.isDemo?'[가매장] ':menu.verifiedOwner?'[공식 점주] ':''}${menu.name} · ${money(menu.price)}`;
+   button.className='map-anchor map-anchor--food'+(menu.id===selectedId?' selected':'');
+   button.setAttribute('aria-label',`${menu.isDemo?'가매장 ':menu.verifiedOwner?'공식 점주 ':''}${menu.shop}, ${menu.name}, ${money(menu.price)}. 메뉴 상세 보기`);
+   button.title=`${menu.shop} · ${menu.name}`;
+   const pin=document.createElement('span');
+   pin.className='map-anchor-pin';
+   pin.setAttribute('aria-hidden','true');
+   const level=Math.min(5,Math.max(1,Math.trunc(menu.heat)||1));
+   pin.style.backgroundPosition=`${(level-1)*25}% ${variant==='sweet'?50:variant==='rich'?100:0}%`;
+   const price=document.createElement('span');
+   price.className='map-anchor-price';
+   price.textContent=money(menu.price);
+   button.append(pin,price);
    button.onclick=()=>callbacksRef.current.onSelect(menu);
    return new k.maps.CustomOverlay({map:mapRef.current,position:new k.maps.LatLng(menu.lat,menu.lng),content:button,yAnchor:1.2});
   });
