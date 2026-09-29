@@ -303,3 +303,10 @@ body[data-theme="sweet"] .menu-heat{background:#197f6c}
 .map-anchor--food:hover .map-anchor-price,.map-anchor--food.selected .map-anchor-price{border-color:var(--brand-ink)}
 .map-anchor--food:focus-visible{outline:3px solid var(--brand-ink);outline-offset:3px;border-radius:12px}
 @media(max-width:640px){.map-anchor.map-anchor--food{min-height:54px}.map-anchor--food .map-anchor-pin{width:54px;height:54px}.map-anchor--food .map-anchor-price{font-size:13px;padding:7px 9px 7px 8px}}
+
+/* Menu details use the same food object and actual price as the map pins. */
+.explorer-taste-price{display:flex;align-items:center;gap:0;min-height:62px;margin:-3px 0 3px;color:#17213c}
+.explorer-taste-icon{display:block;flex:none;width:62px;height:62px;background-image:url('/activity/map-taste-pins.webp');background-size:500% 300%;background-repeat:no-repeat}
+.explorer-taste-price strong{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-left:-5px;padding:8px 12px 8px 10px;border:1px solid #e6e2d9;border-radius:0 20px 20px 0;background:#fffefa;font-size:18px;line-height:1.2;font-weight:800;box-shadow:0 2px 5px #17213c20}
+.explorer-taste-price small{font-size:11px;color:#867e72;font-weight:400}
+@media(max-width:640px){.explorer-taste-price{min-height:54px}.explorer-taste-icon{width:54px;height:54px}.explorer-taste-price strong{font-size:17px;padding:7px 9px 7px 8px}}
