@@ -105,8 +105,8 @@ export async function POST(req:Request,{params}:Ctx){
   });
   // The durable DB queue exists before this best-effort dispatch. AI failure cannot undo a report.
   const authorization=req.headers.get('authorization')||'';
-  after(async()=>{try{await fetch('https://www.nowgo.space/api/taste-photo-review',{
-   method:'POST',headers:{'Content-Type':'application/json',authorization},
+  after(async()=>{try{await fetch('https://nowgo.space/api/taste-photo-review',{
+   method:'POST',redirect:'error',headers:{'Content-Type':'application/json',authorization},
    body:JSON.stringify({kind:variant,reportId:id}),signal:AbortSignal.timeout(25000),
   })}catch{console.warn('Photo review remains queued')}});
   return reply(req,{...receipt,photoReview:'queued'},201);
