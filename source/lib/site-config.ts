@@ -10,8 +10,8 @@ export function siteConfig(variant:SiteVariant){
  if(variant==='rich')return {
   name:'RICH',menus:RICH_MENUS,heat:RICH_HEAT,flavors:RICH_FLAVORS,categories:RICH_MENU_CATEGORIES,
   accent:'#8b6945',logo:'/images/nowgo-red.png',favicon:'/favicon-beige.png?v=nowgo-n-transparent-1',
-  headline:'느끼함도 취향이다',intro:'버터 한 입부터 진한 치즈까지. 오늘 끌리는 고소한 한 접시를 찾아요.',
-  search:'크림 파스타, 치즈 그라탱, 버터 소금빵',
+  headline:'쫀득함도 취향이다',intro:'오늘 끌리는 쫀득한 한 접시를 찾아요.',
+  search:'찹쌀 도넛, 인절미, 쫀득 쿠키',
   consent:'2026-09-25-rich-v1',tables:{saves:'rich_menu_saves',reports:'rich_taste_observations',menus:'rich_public_menus',consents:'rich_member_consents'},
   bucket:'rich-report-photos',publish:'rich_publish_report',
  } as const;
