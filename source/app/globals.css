@@ -310,3 +310,6 @@ body[data-theme="sweet"] .menu-heat{background:#197f6c}
 .explorer-taste-price strong{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-left:-5px;padding:8px 12px 8px 10px;border:1px solid #e6e2d9;border-radius:0 20px 20px 0;background:#fffefa;font-size:18px;line-height:1.2;font-weight:800;box-shadow:0 2px 5px #17213c20}
 .explorer-taste-price small{font-size:11px;color:#867e72;font-weight:400}
 @media(max-width:640px){.explorer-taste-price{min-height:54px}.explorer-taste-icon{width:54px;height:54px}.explorer-taste-price strong{font-size:17px;padding:7px 9px 7px 8px}}
+
+.explorer-regular-link{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:8px 12px;border:1px solid var(--brand-ink);border-radius:8px;color:var(--brand-ink);background:#fff;font-size:14px;font-weight:700;white-space:nowrap}.explorer-topline .explorer-search{min-width:0}.explorer-regular-link:focus-visible{outline:2px solid var(--brand-ink);outline-offset:3px}
+@media(max-width:700px){.explorer-topline{flex-wrap:wrap}.explorer-topline .explorer-search{flex:1;min-width:100px}.explorer-regular-link{min-height:44px;margin-left:auto}.explorer-topline>.customer-trigger{min-height:44px}}
