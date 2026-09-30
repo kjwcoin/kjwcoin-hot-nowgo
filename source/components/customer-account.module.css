@@ -2,10 +2,43 @@
 .actions button { min-height: 44px; font-size: 14px; white-space: nowrap; }
 .logout { flex-shrink: 0; }
 .error { position: absolute; top: 100%; right: 0; width: 230px; padding: 10px; background: #fff; color: #a12626; border: 1px solid #a12626; border-radius: 8px; z-index: 50; white-space: normal; }
+.mobileRegular { display: none; }
 @media (max-width: 700px) {
   .actions { gap: 0; }
   .actions button { padding-inline: 6px; font-size: 12px; }
   .actions span { display: inline !important; }
   .actions svg { display: none; }
   .actions :global(.aw-mini-exp) { display: none; }
+
+  /* Group the mobile regular-list link with the account actions. */
+  .desktopRegular.desktopRegular { display: none; }
+  .actions.actions:has(.mobileRegular) {
+    gap: 8px;
+    height: auto;
+    min-height: 44px;
+    min-width: 0;
+    margin-left: auto;
+    padding: 0;
+  }
+  .actions.actions:has(.mobileRegular) > button,
+  .actions > .mobileRegular {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0 6px;
+    border: 0;
+    border-radius: 6px;
+    background: transparent;
+    color: inherit;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: normal;
+    white-space: nowrap;
+    text-decoration: none;
+  }
+  .mobileRegular:hover { background: var(--accent); color: var(--accent-foreground); }
 }
