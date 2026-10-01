@@ -338,7 +338,7 @@ body[data-theme="sweet"] .menu-heat{background:#197f6c}
 
 
 /* Reporter ranking floats over the map, not in the header. */
-.explorer-surface>.reporter-ranking{position:absolute;top:22px;right:22px;z-index:24}
+.explorer-surface>.reporter-ranking{position:absolute;top:72px;right:16px;z-index:24}
 .explorer-surface>.reporter-ranking .reporter-ranking__panel{top:46px;right:0}
 .customer-header-links{display:flex;align-items:center;gap:8px;white-space:nowrap}
 .customer-header-level{margin-left:6px;font-size:11px;color:var(--brand-ink);font-weight:700}
