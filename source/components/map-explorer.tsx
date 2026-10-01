@@ -9,6 +9,7 @@ import {Button} from '@/components/ui/button';
 import {NativeSelect} from '@/components/ui/native-select';
 import ReviewLink from '@/components/review-link';
 import CustomerPanel from './customer-panel';
+import ReporterLeaderboard from './reporter-leaderboard';
 import KakaoMap from './kakao-map';
 import FirstLoginTour from './first-login-tour';
 import {MAP_RADIUS_KM,menusWithinRadius,type GeoPoint} from '@/lib/nearby-demo';
@@ -34,7 +35,7 @@ export default function MapExplorer(){
  const directionsUrl=(menu:Menu)=>menu.lat!==null&&menu.lng!==null?'https://map.kakao.com/link/to/'+encodeURIComponent(menu.shop.replace(/ · 가매장$/,''))+','+menu.lat+','+menu.lng:null;
  return <main className="explorer">
   <header className="explorer-toolbar">
-   <div className="explorer-topline"><Brand/><div className="explorer-search"><Search size={21}/><Input aria-label="느끼한 맛 검색" value={query} onChange={e=>setQuery(e.target.value)} placeholder="크림 파스타, 치즈 그라탱, 버터 소금빵"/>{query&&<Button variant="ghost" size="icon" aria-label="검색어 지우기" onClick={()=>setQuery('')}><X size={18}/></Button>}</div><span className="explorer-region"><MapPin size={16}/>대한민국 전국 <small>RICH</small><a className="explorer-promo" href="/suggestion">RICH 소개 ↗</a></span><CustomerPanel/></div>
+   <div className="explorer-topline"><Brand/><div className="explorer-search"><Search size={21}/><Input aria-label="느끼한 맛 검색" value={query} onChange={e=>setQuery(e.target.value)} placeholder="크림 파스타, 치즈 그라탱, 버터 소금빵"/>{query&&<Button variant="ghost" size="icon" aria-label="검색어 지우기" onClick={()=>setQuery('')}><X size={18}/></Button>}</div><span className="explorer-region"><MapPin size={16}/>대한민국 전국 <small>RICH</small><a className="explorer-promo" href="/suggestion">RICH 소개 ↗</a></span><ReporterLeaderboard variant="rich"/><CustomerPanel/></div>
    <div className="explorer-filters" aria-label="메뉴 검색 조건">
 
 
