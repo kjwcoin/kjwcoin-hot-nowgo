@@ -13,7 +13,13 @@ export default function Join(){
  const variant=useSyncExternalStore(()=>()=>{},()=>variantForHost(location.host),()=> 'hot' as const),theme=siteConfig(variant);
  const search=useSyncExternalStore(()=>()=>{},()=>location.search,()=>''),params=new URLSearchParams(search),returnTo=returnPath(params.get('returnTo')),accountType=params.get('type')==='owner'?'owner':params.get('type')==='user'?'user':null;
  const [signedIn,setSignedIn]=useState(false),[authChecked,setAuthChecked]=useState(false),[essential,setEssential]=useState(false),[marketing,setMarketing]=useState(false),[busy,setBusy]=useState(false),[error,setError]=useState('');
- useEffect(()=>{queueMicrotask(()=>{try{void browserDb().auth.getUser().then(({data})=>{setSignedIn(!!data?.user);setAuthChecked(true)}).catch(()=>setAuthChecked(true))}catch{setAuthChecked(true)}})},[]);
+ useEffect(()=>{queueMicrotask(()=>{try{void browserDb().auth.getUser().then(async({data})=>{
+ if(data?.user&&!data.user.is_anonymous){
+  const membership=await api<{existingOwner:boolean}>('/api/customer/login-target');
+  if(membership.existingOwner){location.replace('/');return}
+ }
+ setSignedIn(!!data?.user&&!data.user.is_anonymous);setAuthChecked(true)
+}).catch(()=>setAuthChecked(true))}catch{setAuthChecked(true)}})},[]);
  async function finish(){
   if(!essential){setError('필수 가입 안내를 확인해 주세요.');return}
   setBusy(true);setError('');
