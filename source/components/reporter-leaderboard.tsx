@@ -1,11 +1,11 @@
 'use client';
 import {useEffect,useState} from 'react';
 import {browserDb} from '@/lib/supabase-browser';
-import type {SiteVariant} from '@/lib/site-config';
 
+type Variant='hot'|'sweet'|'rich';
 type Row={rank:number;public_id:string;nickname:string;report_count:number};
 
-export default function ReporterLeaderboard({variant}:{variant:SiteVariant}){
+export default function ReporterLeaderboard({variant}:{variant:Variant}){
  const [rows,setRows]=useState<Row[]>([]);
  const [open,setOpen]=useState(false);
  useEffect(()=>{
