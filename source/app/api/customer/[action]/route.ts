@@ -1,11 +1,18 @@
 import {reply,validOrigin,failure} from '@/lib/server';
 import {verifiedUser,publicConfig} from '@/lib/supabase';
+import {isExistingOwner} from '@/lib/existing-owner';
 import {LEVELS} from '@/lib/loyalty';
 type Ctx={params:Promise<{action:string}>};
 const VERSION='2026-09-25-sweet-v1';
 export async function GET(req:Request,{params}:Ctx){
  try{
   const action=(await params).action;
+  if(action==='login-target'){
+   const auth=await verifiedUser(req);
+   if(!auth)return reply(req,{existingOwner:false},401);
+   const existingOwner=await isExistingOwner(auth.client,auth.user.id);
+   return reply(req,{existingOwner});
+  }
   if(action==='owned-stores'){
    const auth=await verifiedUser(req);if(!auth)return reply(req,{stores:[]},401);
    const {data,error}=await auth.client.rpc('sweet_owned_stores');if(error)throw error;

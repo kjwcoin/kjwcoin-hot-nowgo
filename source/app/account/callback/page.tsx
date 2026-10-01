@@ -13,11 +13,15 @@ export default function Callback(){
    if(code){const {error:exchangeError}=await db.auth.exchangeCodeForSession(code);if(exchangeError)throw exchangeError}
    const {data,error:sessionError}=await db.auth.getSession();
    if(sessionError||!data.session)throw sessionError||new Error('로그인을 완료하지 못했어요. 다시 시도해 주세요.');
+   const membership=await api<{existingOwner:boolean}>('/api/customer/login-target');
+   if(!active)return;
+   if(membership.existingOwner){sessionStorage.removeItem('sweet-pending-consent');location.replace('/');return}
    const raw=sessionStorage.getItem('sweet-pending-consent');
    const pending=raw?JSON.parse(raw) as {returnTo?:string}:null;
    const returnTo=returnPath(pending?.returnTo);
    sessionStorage.removeItem('sweet-pending-consent');
    const profile=await api<{customer:unknown|null;consentRequired:boolean}>('/api/customer/me');
+   if(!active)return;
    location.replace(profile.customer&&!profile.consentRequired?returnTo:'/account/join?finish=1&returnTo='+encodeURIComponent(returnTo));
   }catch(e){if(active)setError((e as Error).message)}
  }void complete();return()=>{active=false}},[]);
