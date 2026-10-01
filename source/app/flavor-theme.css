@@ -95,7 +95,7 @@ body[data-theme] :is(.hero, .terms-page, .place-page, .sa-page, .aw-fullpage) {
   color: var(--foreground);
 }
 body[data-theme] :is(.explorer, .map-panel.map-fullscreen, .map-unavailable) { background: var(--flavor-map); color: var(--foreground); }
-body[data-theme] :is(.taste-section, .heat-panel, .regular-section, .customer-privacy, .customer-level, .report-login-status, .place-warning, .explorer-example, .explorer-unknown, .detail-status) {
+body[data-theme] :is(.taste-section, .heat-panel, .report-section, .regular-section, .customer-privacy, .customer-level, .report-login-status, .place-warning, .explorer-example, .explorer-unknown, .detail-status) {
   background: var(--flavor-soft);
   color: var(--foreground);
 }
@@ -107,13 +107,17 @@ body[data-theme] :is(.explorer-results, .explorer-search, .report-form, .store-p
 body[data-theme] .customer-dialog { background: var(--card) !important; color: var(--foreground); }
 body[data-theme] .terms-page .join-card { box-shadow: 10px 10px 0 var(--flavor-soft); }
 body[data-theme] .status-preview { box-shadow: 12px 12px 0 var(--flavor-soft); }
-body[data-theme] :is(.section, .preview-note, .terms-page section, .footer-bottom, .map-search, .map-panel, .status-line, .owner-rows > div, .founders > div, .place-alternatives a, .explorer-results-body, .explorer-menu-item, .explorer-owner-join, .reporter-ranking__head, .customer-auth-tabs, .customer-benefits, .customer-preferences, .customer-review-form, .customer-review-history article, .saved-list > div, .report-history) {
+body[data-theme] :is(.section, .preview-note, .terms-page section, .footer-bottom, .map-search, .map-panel, .status-line, .report-note, .role-picker, .owner-rows > div, .founders > div, .place-alternatives a, .explorer-results-body, .explorer-menu-item, .explorer-owner-join, .reporter-ranking__head, .customer-auth-tabs, .customer-benefits, .customer-preferences, .customer-review-form, .customer-review-history article, .saved-list > div, .report-history) {
   border-color: var(--flavor-line);
 }
 body[data-theme] :is(.hero p, .hero-bottomline, .section p, .small-note, .terms-page > p, .join-card > p, .place-columns p, .footer-top p, .footer-bottom, .customer-note, .customer-level p, .customer-benefits p, .customer-benefits span, .customer-review-history article > small, .explorer-item-copy > small, .explorer-item-copy > span small, .explorer-results-heading small, .explorer-detail-content p, .explorer-detail-content > small, .explorer-owner-join > p, .explorer-owner-join > small, .reporter-ranking__identity small, .reporter-ranking__count, .reporter-ranking__empty, .store-picker p, .store-picker small, .form-grid label > small, .status-line, .menu-meta, .menu-bottom > span, .result-top > span:last-child, .empty-small) {
   color: var(--flavor-muted) !important;
 }
 body[data-theme] :is(.heat-heading strong, .owner-rows > div > span, .founder-number, .explorer-tags, .explorer-taste-price, .explorer-taste-price strong, .customer-level small, .hero-copy h1 .hero-kicker) { color: var(--brand-deep); }
+body[data-theme] :is(.report-types, .report-note, .role-picker button, .inline-promise, .regular-benefit) { color: var(--flavor-muted); }
+body[data-theme] .role-picker button.active { color: var(--brand-deep); border-color: var(--brand-ink); }
+body[data-theme] .speech-bubble { background: var(--brand-deep); color: #fff; }
+body[data-theme] .speech-bubble::before { border-bottom-color: var(--brand-deep); }
 body[data-theme] :is(.explorer-filters select, .form-grid input, .form-grid select, .form-grid textarea, .owner-store select, .map-manual-location input) {
   background: var(--card);
   color: var(--foreground);
