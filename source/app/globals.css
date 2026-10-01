@@ -278,3 +278,13 @@ html{scroll-behavior:smooth;scroll-padding-top:90px}body{font-family:Pretendard,
 .reporter-ranking__count{font-size:12px;font-weight:700;color:#69655e}
 .reporter-ranking__empty{margin:0;padding:24px 16px;text-align:center;font-size:12px;color:#858076}
 @media(max-width:900px){.reporter-ranking{display:none}}
+
+
+/* Reporter ranking floats over the map, not in the header. */
+.explorer-surface>.reporter-ranking{position:absolute;top:22px;right:22px;z-index:24}
+.explorer-surface>.reporter-ranking .reporter-ranking__panel{top:46px;right:0}
+.customer-header-links{display:flex;align-items:center;gap:8px;white-space:nowrap}
+.customer-header-level{margin-left:6px;font-size:11px;color:var(--brand-ink);font-weight:700}
+.customer-regular-text{display:inline-flex;align-items:center;min-height:38px;padding:0 2px;color:inherit;font-size:13px;font-weight:500;text-decoration:none;white-space:nowrap}
+.customer-regular-text:hover{color:var(--brand-ink);text-decoration:underline;text-underline-offset:4px}
+@media(max-width:900px){.explorer-surface>.reporter-ranking{display:none}}
