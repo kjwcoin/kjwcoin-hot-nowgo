@@ -2,7 +2,7 @@
 .actions button { min-height: 44px; font-size: 14px; white-space: nowrap; }
 .logout { flex-shrink: 0; }
 .error { position: absolute; top: 100%; right: 0; width: 230px; padding: 10px; background: #fff; color: #a12626; border: 1px solid #a12626; border-radius: 8px; z-index: 50; white-space: normal; }
-.mobileRegular { display: none; }
+.mobileRegular { display: inline-flex; align-items: center; padding: 0 4px; color: inherit; font-size: 13px; font-weight: 500; white-space: nowrap; text-decoration: none; }
 @media (max-width: 700px) {
   .actions { gap: 0; }
   .actions button { padding-inline: 6px; font-size: 12px; }
