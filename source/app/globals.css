@@ -230,3 +230,25 @@ html{scroll-behavior:smooth;scroll-padding-top:90px}body{font-family:Pretendard,
 
 .unified-auth-actions .kakao-login-small{background:#FEE500;color:#191919;border-color:#FEE500}
 .unified-auth-actions .kakao-login-small:hover{background:#f4dc00;color:#191919}
+
+
+/* Reporter leaderboard — desktop only */
+.reporter-ranking{position:relative;flex:0 0 auto}
+.reporter-ranking__toggle{display:inline-flex;align-items:center;gap:7px;min-height:38px;padding:0 12px;border:1px solid #ddd9d0;border-radius:8px;background:#fff;color:#32332f;font-size:13px;font-weight:700;white-space:nowrap}
+.reporter-ranking__toggle:hover{border-color:var(--brand-ink);color:var(--brand-ink)}
+.reporter-ranking__toggle strong{font-size:11px;color:var(--brand-ink)}
+.reporter-ranking__panel{position:absolute;top:46px;right:0;width:310px;background:#fffefa;border:1px solid #ddd9d0;border-radius:12px;box-shadow:0 14px 38px #211c151f;overflow:hidden;z-index:80}
+.reporter-ranking__head{display:flex;align-items:center;justify-content:space-between;padding:15px 16px;border-bottom:1px solid #ece8df}
+.reporter-ranking__head b{font-size:15px;letter-spacing:-.3px}
+.reporter-ranking__head small{font-size:11px;color:var(--brand-ink);font-weight:700}
+.reporter-ranking__panel ol{list-style:none;margin:0;padding:6px 0;max-height:420px;overflow:auto}
+.reporter-ranking__panel li{display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:9px;align-items:center;padding:9px 14px}
+.reporter-ranking__panel li+li{border-top:1px solid #f0ede7}
+.reporter-ranking__rank{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#f1eee8;font-size:12px;font-weight:700}
+.reporter-ranking__panel li:nth-child(1) .reporter-ranking__rank,.reporter-ranking__panel li:nth-child(2) .reporter-ranking__rank,.reporter-ranking__panel li:nth-child(3) .reporter-ranking__rank{background:color-mix(in srgb,var(--brand-ink) 12%,#fff);color:var(--brand-ink)}
+.reporter-ranking__identity{display:flex;min-width:0;flex-direction:column;gap:2px}
+.reporter-ranking__identity b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:13px}
+.reporter-ranking__identity small{font-size:10px;color:#8a857b;letter-spacing:.2px}
+.reporter-ranking__count{font-size:12px;font-weight:700;color:#69655e}
+.reporter-ranking__empty{margin:0;padding:24px 16px;text-align:center;font-size:12px;color:#858076}
+@media(max-width:900px){.reporter-ranking{display:none}}
