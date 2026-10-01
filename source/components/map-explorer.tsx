@@ -35,7 +35,7 @@ export default function MapExplorer(){
  const directionsUrl=(menu:Menu)=>menu.lat!==null&&menu.lng!==null?'https://map.kakao.com/link/to/'+encodeURIComponent(menu.shop.replace(/ · 가매장$/,''))+','+menu.lat+','+menu.lng:null;
  return <main className="explorer">
   <header className="explorer-toolbar">
-   <div className="explorer-topline"><Brand/><div className="explorer-search"><Search size={21}/><Input aria-label="카페·디저트 검색" value={query} onChange={e=>setQuery(e.target.value)} placeholder="케이크, 크루아상, 젤라또"/>{query&&<Button variant="ghost" size="icon" aria-label="검색어 지우기" onClick={()=>setQuery('')}><X size={18}/></Button>}</div><span className="explorer-region"><MapPin size={16}/>대한민국 전국 <small>SWEET</small><a className="explorer-promo" href="/suggestion">SWEET 소개 ↗</a></span><ReporterLeaderboard variant="sweet"/><CustomerPanel/></div>
+   <div className="explorer-topline"><Brand/><div className="explorer-search"><Search size={21}/><Input aria-label="카페·디저트 검색" value={query} onChange={e=>setQuery(e.target.value)} placeholder="케이크, 크루아상, 젤라또"/>{query&&<Button variant="ghost" size="icon" aria-label="검색어 지우기" onClick={()=>setQuery('')}><X size={18}/></Button>}</div><span className="explorer-region"><MapPin size={16}/>대한민국 전국 <small>SWEET</small></span><CustomerPanel/></div>
    <div className="explorer-filters" aria-label="메뉴 검색 조건">
     <label>스윗한 단계<NativeSelect aria-label="스윗한 단계" value={heat} onChange={e=>setHeat(Number(e.target.value))}><option value={0}>모든 달콤함</option>{HEAT.map((h,i)=><option key={h} value={i+1}>{i+1}단계 · {h}</option>)}</NativeSelect></label>
     <label>스윗한 맛<NativeSelect aria-label="스윗한 맛" value={flavor} onChange={e=>setFlavor(e.target.value)}>{FLAVORS.map(f=><option key={f} value={f}>{f==='전체'?'모든 맛의 결':f}</option>)}</NativeSelect></label>
@@ -44,7 +44,7 @@ export default function MapExplorer(){
     <Button className="explorer-reset" variant="ghost" onClick={reset} disabled={!count&&!query}><RotateCcw size={15}/>초기화{count>0&&<span>{count}</span>}</Button>
    </div>
   </header>
-  <div className="explorer-surface">
+  <div className="explorer-surface"><ReporterLeaderboard variant="sweet"/>
    <KakaoMap fullScreen menus={filtered} selectedId={current?.id} onSelect={select} onLocation={point=>{setSelected(null);setUserLocation(point)}} onDemoPositions={(origin,points)=>setDemoLocations({origin,points})}/>
    <aside className={`explorer-results ${expanded?'expanded':'collapsed'} ${current?'has-selection':''}`} style={current?{top:0,bottom:0,maxHeight:'none'}:undefined} aria-label="검색된 메뉴">
     <div className="explorer-results-header">
