@@ -45,7 +45,7 @@ function panel(variant,owner){
  const React={createElement(type,props,...children){return {type,props:props??{},children}}};
  const regular=function RegularHomeLink(){};
  const module=load('../components/customer-panel.tsx',{
- react:{useState(value){return [value,()=>{}]}},'./regular-home-link':{default:regular},'lucide-react':{UserRound(){},LogOut(){}},
+ react:{useState(value){return [value,()=>{}]}},'./regular-home-link':{default:regular},'next/link':{default:function Link(){}},'lucide-react':{UserRound(){},LogOut(){}},
  '@/lib/supabase-browser':{browserDb(){}},'./customer-account.module.css':{default:{}},
  '@/components/ui/dialog':{Dialog(){},DialogContent(){},DialogTitle(){},DialogDescription(){}},'@/components/ui/button':{Button(){}},
  '@/lib/activity/model':{planetForVariant(value){return value},growth(){return {level:1}}},'next/dynamic':{default(){return function ActivityWorld(){}}},
@@ -58,8 +58,9 @@ function panel(variant,owner){
 for(const variant of ['hot','sweet','rich']){
  test(variant+' owner header replaces activity and favorites with store management',()=>{
   const {nodes,regular}=panel(variant,true);
-  const links=nodes.filter(n=>n.type===regular);
-  assert.equal(links.length,1);assert.equal(links[0].props.destination,'/owner/dashboard');assert.equal(links[0].children[0],'내 매장관리');
+  const links=nodes.filter(n=>n.props.href==='/owner');
+  assert.equal(links.length,1);assert.equal(links[0].children[0],'내 매장관리');
+  assert.equal(nodes.some(n=>n.type===regular),false);
   assert.equal(nodes.some(n=>n.props['aria-label']==='내 활동'),false);
  });
  test(variant+' customer header keeps activity and favorites',()=>{
