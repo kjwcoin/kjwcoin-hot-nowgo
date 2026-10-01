@@ -23,8 +23,8 @@ export function resolveOfficialStatus(raw:unknown,placeId:string,menuId:string,n
  const out={...unknown,linked:true,url:url.toString(),source:'NOWGO · 최신 점주 확인 필요'};
  const checked=Date.parse(String(d.observed_at)),expires=Date.parse(String(d.expires_at));
  if(d.owner_verified!==true||d.source!=='owner'||!Number.isFinite(checked)||!Number.isFinite(expires)||checked>now||expires<=now||expires<=checked||now-checked>86400000||expires-checked>86400000)return out;
- const statuses:Record<string,string>={OPEN:'영업 중',BUSY:'영업 중 · 혼잡',TEMPORARY_CLOSED:'임시 휴무',SOLD_OUT:'재료 소진 마감',CLOSED:'영업 종료',PERMANENTLY_CLOSED:'폐업',open:'영업 중',busy:'영업 중 · 혼잡',temporary_closed:'임시 휴무',sold_out:'재료 소진 마감',closed_for_day:'영업 종료',permanently_closed:'폐업'};
- const crowding:Record<string,string>={QUIET:'여유',NORMAL:'보통',BUSY:'혼잡',VERY_BUSY:'매우 혼잡',relaxed:'여유',normal:'보통',busy:'혼잡',crowded:'매우 혼잡'};
+ const statuses:Record<string,string>={OPEN:'영업 중',BUSY:'영업 중 · 혼잡',TEMPORARY_CLOSED:'임시 휴무',SOLD_OUT:'재료 소진 마감',BREAK_TIME:'브레이크 타임',CLOSED:'영업 종료',PERMANENTLY_CLOSED:'폐업',open:'영업 중',busy:'영업 중 · 혼잡',temporary_closed:'임시 휴무',sold_out:'재료 소진 마감',ingredients_soldout:'재료 소진 마감',break_time:'브레이크 타임',closed_for_day:'영업 종료',permanently_closed:'폐업'};
+ const crowding:Record<string,string>={QUIET:'여유',NORMAL:'보통',BUSY:'혼잡',VERY_BUSY:'매우 혼잡',available:'여유',full:'혼잡',relaxed:'여유',normal:'보통',busy:'혼잡',crowded:'매우 혼잡'};
  const seating:Record<string,string>={AVAILABLE:'여유 좌석',LIMITED:'좌석 거의 없음',FULL:'만석'};
  out.open=statuses[String(d.status)]||'확인 필요';out.checkedAt=new Date(checked).toISOString();out.source='NOWGO · 소유권 확인 점주';out.fresh=out.open!=='확인 필요';out.validUntil=new Date(expires).toISOString();
  out.crowding=crowding[String(d.crowding)]||'확인 필요';out.seating=seating[String(d.seating)]||'확인 필요';
