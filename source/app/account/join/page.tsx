@@ -28,7 +28,7 @@ export default function Join(){
    await api('/api/customer/consents',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({essential:true,marketingEmail:marketing,version:theme.consent})});
    const {error:profileError}=await browserDb().auth.updateUser({data:{nowgo_account_type:accountType}});if(profileError)throw profileError;
    window.dispatchEvent(new Event('hot-customer-change'));
-   location.assign(accountType==='owner'?'https://nowgo.space/owner/signup':'https://www.nowgo.space/flavors');
+   location.assign(accountType==='owner'?'/owner':'https://www.nowgo.space/flavors');
   }catch(e){setBusy(false);setError((e as Error).message)}
  }
  return <><FlavorHeader/><main className="terms-page join-page"><div className="eyebrow">{theme.name} · NOWGO ACCOUNT</div><h1>{accountType?`${accountType==='owner'?'점주':'유저'}로 시작하기`:'통합회원가입/로그인'}</h1><p>{accountType?`${theme.name}에서 사용할 ${accountType==='owner'?'점주':'유저'} 계정을 카카오 또는 구글로 연결해 주세요.`:'유저 또는 점주를 먼저 선택해 주세요.'}</p>

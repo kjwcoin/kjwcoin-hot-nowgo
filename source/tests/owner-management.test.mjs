@@ -15,3 +15,12 @@ test('today waiting list excludes old dates, reservations and seated guests',()=
  const items=[make('waiting','waiting','waiting','2026-10-01'),make('called','waiting','called','2026-10-01'),make('old','waiting','waiting','2026-09-30'),make('seated','waiting','seated','2026-10-01'),make('reservation','reservation','confirmed','2026-10-01')];
  assert.deepEqual(currentWaiting(items,'2026-10-01T10:00:00Z').map(x=>x.id),['waiting','called']);
 });
+
+// Owner entry points must remain inside each map site.
+test("owner entry points never send owners to the Space SaaS", async () => {
+ const {readFile}=await import("node:fs/promises");
+ for(const path of ["components/customer-panel.tsx","components/hot-app.tsx","components/report-access.tsx","app/account/join/page.tsx","app/account/callback/page.tsx","app/place/[id]/page.tsx"]){
+  const source=await readFile(new URL("../"+path,import.meta.url),"utf8");
+  assert.doesNotMatch(source,/https:\/\/(?:www\.)?nowgo\.space\/owner\//);
+ }
+});
