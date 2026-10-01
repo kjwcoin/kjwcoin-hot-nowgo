@@ -1,6 +1,7 @@
 import { socialMetadata } from "@/lib/social-preview";
 import type { Metadata } from "next";
 import "./globals.css";
+import TemporaryFreeNotice from '@/components/temporary-free-notice';
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://rich.nowgo.space"),
@@ -16,5 +17,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({children}:{children:React.ReactNode}) {
-  return <html lang="ko"><body className="antialiased">{children}</body></html>;
+  return <html lang="ko"><body className="antialiased"><TemporaryFreeNotice/>{children}</body></html>;
 }
