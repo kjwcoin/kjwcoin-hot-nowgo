@@ -1,5 +1,6 @@
 import {reply,validOrigin,failure} from '@/lib/server';
 import {verifiedUser,publicConfig} from '@/lib/supabase';
+import {isExistingOwner} from '@/lib/existing-owner';
 import {LEVELS} from '@/lib/loyalty';
 import {siteConfig,variantForHost} from '@/lib/site-config';
 type Ctx={params:Promise<{action:string}>};
@@ -7,6 +8,12 @@ export async function GET(req:Request,{params}:Ctx){
  try{
   const theme=siteConfig(variantForHost(req.headers.get('host')));
   const action=(await params).action;
+  if(action==='login-target'){
+   const auth=await verifiedUser(req);
+   if(!auth)return reply(req,{existingOwner:false},401);
+   const existingOwner=await isExistingOwner(auth.client,auth.user.id);
+   return reply(req,{existingOwner});
+  }
   if(action==='owned-stores'){
    const auth=await verifiedUser(req);if(!auth)return reply(req,{stores:[]},401);
    const {data,error}=await auth.client.rpc('hot_owned_stores');if(error)throw error;
