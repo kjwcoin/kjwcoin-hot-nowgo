@@ -35,7 +35,7 @@ export default function MapExplorer(){
  const directionsUrl=(menu:Menu)=>menu.lat!==null&&menu.lng!==null?'https://map.kakao.com/link/to/'+encodeURIComponent(menu.shop.replace(/ · 가매장$/,''))+','+menu.lat+','+menu.lng:null;
  return <main className="explorer">
   <header className="explorer-toolbar">
-   <div className="explorer-topline"><Brand/><div className="explorer-search"><Search size={21}/><Input aria-label="느끼한 맛 검색" value={query} onChange={e=>setQuery(e.target.value)} placeholder="크림 파스타, 치즈 그라탱, 버터 소금빵"/>{query&&<Button variant="ghost" size="icon" aria-label="검색어 지우기" onClick={()=>setQuery('')}><X size={18}/></Button>}</div><span className="explorer-region"><MapPin size={16}/>대한민국 전국 <small>RICH</small><a className="explorer-promo" href="/suggestion">RICH 소개 ↗</a></span><ReporterLeaderboard variant="rich"/><CustomerPanel/></div>
+   <div className="explorer-topline"><Brand/><div className="explorer-search"><Search size={21}/><Input aria-label="느끼한 맛 검색" value={query} onChange={e=>setQuery(e.target.value)} placeholder="크림 파스타, 치즈 그라탱, 버터 소금빵"/>{query&&<Button variant="ghost" size="icon" aria-label="검색어 지우기" onClick={()=>setQuery('')}><X size={18}/></Button>}</div><span className="explorer-region"><MapPin size={16}/>대한민국 전국 <small>RICH</small></span><CustomerPanel/></div>
    <div className="explorer-filters" aria-label="메뉴 검색 조건">
 
 
@@ -46,7 +46,7 @@ export default function MapExplorer(){
     <Button className="explorer-reset" variant="ghost" onClick={reset} disabled={!count&&!query}><RotateCcw size={15}/>초기화{count>0&&<span>{count}</span>}</Button>
    </div>
   </header>
-  <div className="explorer-surface">
+  <div className="explorer-surface"><ReporterLeaderboard variant="rich"/>
    <KakaoMap fullScreen menus={filtered} selectedId={current?.id} onSelect={select} onLocation={point=>{setSelected(null);setUserLocation(point)}} onDemoPositions={(origin,points)=>setDemoLocations({origin,points})}/>
       <aside className={`explorer-results ${expanded?'expanded':'collapsed'} ${current?'has-selection':''}`} style={current?{top:0,bottom:0,maxHeight:'none'}:undefined} aria-label="검색된 메뉴">
     <div className="explorer-results-header">
