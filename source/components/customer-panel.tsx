@@ -1,10 +1,9 @@
 'use client';
 import RegularHomeLink from './regular-home-link';
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
 import {useRouter} from 'next/navigation';
 import {UserRound, LogOut} from 'lucide-react';
 import {browserDb} from '@/lib/supabase-browser';
-import {api} from '@/lib/client';
 import styles from './customer-account.module.css';
 import {Dialog, DialogContent, DialogTitle, DialogDescription} from '@/components/ui/dialog';
 import {Button} from '@/components/ui/button';
@@ -21,22 +20,8 @@ export default function CustomerPanel({variant = 'hot', worldEntryOpen = false, 
   const router = useRouter();
   const [open, setOpen] = useState(false), [activityTab, setActivityTab] = useState('info');
   const [loggingOut, setLoggingOut] = useState(false), [logoutError, setLogoutError] = useState('');
-  const [owner, setOwner] = useState<boolean | null>(null), [roleError, setRoleError] = useState(false);
   const planet = planetForVariant(variant), state = useActivity(planet);
-  useEffect(() => {
-    let active = true;
-    async function resolveRole() {
-      if (!state.signedIn) {setOwner(null); setRoleError(false); return;}
-      try {
-        const result = await api<{existingOwner: boolean}>('/api/customer/login-target');
-        if (active) {setOwner(result.existingOwner); setRoleError(false);}
-      } catch {if (active) {setOwner(null); setRoleError(true);}}
-    }
-    void resolveRole();
-    const reload = () => void resolveRole();
-    window.addEventListener('focus', reload); window.addEventListener('hot-customer-change', reload);
-    return () => {active = false; window.removeEventListener('focus', reload); window.removeEventListener('hot-customer-change', reload);};
-  }, [state.signedIn, open]);
+  const owner = state.owner;
   async function logout() {
     if (loggingOut) return;
     setLoggingOut(true); setLogoutError('');
@@ -48,8 +33,8 @@ export default function CustomerPanel({variant = 'hot', worldEntryOpen = false, 
       <Button className="activity-trigger" variant="ghost" disabled={state.signedIn === null || loggingOut} onClick={() => {
         if (!state.signedIn) {router.push('/account/join?returnTo=%2F'); return;}
         setActivityTab('info'); setOpen(true); if (owner === false) void state.refresh();
-      }} aria-label={state.signedIn === null ? '계정 확인 중' : state.signedIn ? '내 활동' : '통합회원가입/로그인'}>
-        <UserRound size={18}/><span>{state.signedIn === null ? '계정 확인 중' : state.signedIn ? '내 활동' : '통합회원가입/로그인'}</span>
+      }} aria-label={state.signedIn === null ? '계정 확인 중' : state.signedIn ? (owner ? '내 매장관리' : '내 활동') : '통합회원가입/로그인'}>
+        <UserRound size={18}/><span>{state.signedIn === null ? '계정 확인 중' : state.signedIn ? (owner ? '내 매장관리' : '내 활동') : '통합회원가입/로그인'}</span>
         {owner === false && state.data && <b className="aw-mini-exp">레벨 {growth(state.data.xp).level}</b>}
       </Button>
       {regularHref && state.signedIn && owner === false && <RegularHomeLink variant={variant} className={styles.mobileRegular}>내 단골 목록</RegularHomeLink>}
@@ -57,9 +42,9 @@ export default function CustomerPanel({variant = 'hot', worldEntryOpen = false, 
       {logoutError && <span className={styles.error} role="alert">{logoutError}</span>}
     </div>
     <Dialog open={open} onOpenChange={setOpen}><DialogContent className={owner ? styles.ownerDialog : 'aw-activity-dialog'}>
-      <DialogTitle>{owner ? '내 활동 · 매장 운영' : '내 활동'}</DialogTitle>
+      <DialogTitle>{owner ? '내 매장관리' : '내 활동'}</DialogTitle>
       <DialogDescription>{owner ? '오늘 영업상태와 점주 레벨·패널티를 관리합니다.' : owner === null ? '계정의 매장 권한을 확인합니다.' : '나의 행성에서 쌓인 캐릭터·레벨·EXP·훈장과 모든 기록'}</DialogDescription>
-      {owner === null ? <p role="status">{roleError ? '매장 권한을 불러오지 못했습니다. 창을 닫고 다시 시도해 주세요.' : '점주 권한 확인 중입니다.'}</p> : owner ? <OwnerOperationsPanel/> : <ActivityWorld planet={planet} state={state} initialTab={activityTab}/>}
+      {owner === null ? <p role="status">{state.error ? '매장 권한을 불러오지 못했습니다. 창을 닫고 다시 시도해 주세요.' : '점주 권한 확인 중입니다.'}</p> : owner ? <OwnerOperationsPanel/> : <ActivityWorld planet={planet} state={state} initialTab={activityTab}/>}
     </DialogContent></Dialog>
     {owner === false && <WorldEntry planet={planet} state={state} open={worldEntryOpen && !open} onClose={onWorldEntryClose} onActivity={(tab = 'info') => {setActivityTab(tab); onWorldEntryClose(); setOpen(true); void state.refresh();}}/>}
   </>;

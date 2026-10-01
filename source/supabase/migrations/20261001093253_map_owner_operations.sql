@@ -20,30 +20,13 @@ create schema if not exists taste_private;
 revoke all on schema taste_private from public;
 create or replace function taste_private.map_status_access(p_store uuid, p_owner uuid)
 returns boolean language plpgsql stable security invoker set search_path = '' as $$
-declare allowed boolean := false;
 begin
- select exists (select 1 from public.owners o where o.id=p_owner and o.status='active'
-   and o.created_at<=now() and now()<((o.created_at at time zone 'Asia/Seoul')+interval '3 months') at time zone 'Asia/Seoul')
- or exists (select 1 from public.ng_map_subscription_access m where m.owner_id=p_owner
-   and m.status in ('ACTIVE','CANCELED') and m.paid_until>now()) into allowed;
- if allowed then return true; end if;
- -- Keep verified legacy SPACE entitlements during the StepPay migration.
- if to_regclass('public.owner_subscriptions') is not null then
-   execute $query$select exists(select 1 from public.owner_subscriptions b where b.owner_id=$1
-     and b.plan in ('basic','premium') and ((b.status='active' and b.current_period_end>now())
-       or (b.status='past_due' and not b.cancel_at_period_end and b.grace_until>now())))$query$ into allowed using p_owner;
-   if allowed then return true; end if;
- end if;
- if to_regclass('public.ng_basic_trials') is not null then
-   execute $query$select exists(select 1 from public.ng_basic_trials t where t.store_id=$1 and t.owner_id=$2
-     and t.started_at<=now() and t.ends_at>now())$query$ into allowed using p_store,p_owner;
-   if allowed then return true; end if;
- end if;
- if to_regclass('public.nowgo_subscription_accounts') is not null then
-   execute $query$select exists(select 1 from public.nowgo_subscription_accounts b where b.owner_id=$1
-     and b.status in ('ACTIVE','CANCELED') and b.period_end>now())$query$ into allowed using p_owner;
- end if;
- return coalesce(allowed,false);
+ -- The map product bills on subscription with no trial. SPACE entitlements
+ -- are separate and must never silently grant this paid map capability.
+ return exists (select 1 from public.owners o
+   join public.ng_map_subscription_access m on m.owner_id=o.id
+   where o.id=p_owner and o.status='active'
+     and m.status in ('ACTIVE','CANCELED') and m.paid_until>now());
 end; $$;
 revoke all on function taste_private.map_status_access(uuid,uuid) from public,anon,authenticated;
 

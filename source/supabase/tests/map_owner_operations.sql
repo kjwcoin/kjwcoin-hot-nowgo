@@ -9,6 +9,12 @@ begin
  values(shop,owner_a,'Operations regression fixture','food','인천 서구 테스트','operations-'||shop::text,'NOINDEX');
  perform set_config('request.jwt.claim.sub',owner_a::text,true);
  perform set_config('request.jwt.claims',jsonb_build_object('sub',owner_a,'role','authenticated')::text,true);
+ begin
+   perform public.ng_map_set_owner_status(shop,'open_status','open',true,'manual',gen_random_uuid());
+   raise exception 'new owner received an unauthorized map trial';
+ exception when insufficient_privilege then null; end;
+ insert into public.ng_map_subscription_access(owner_id,subscription_id,product_code,price_code,amount_krw,status,paid_until)
+ values(owner_a,(random()*1000000000000)::bigint,'product_imaqLBf8q','price_NZ6mkW2nM',1900,'ACTIVE',now()+interval '1 month');
  snapshot:=public.ng_map_owner_snapshot();
  if snapshot->>'isOwner' is distinct from 'true' or not (snapshot->'stores'@>jsonb_build_array(jsonb_build_object('id',shop,'canPublish',true))) then raise exception 'owner snapshot failed'; end if;
  foreach state in array array['open','closed_for_day','ingredients_soldout','temporary_closed','break_time','permanently_closed'] loop
@@ -43,10 +49,10 @@ begin
  if public.ng_map_owner_snapshot()->'stores'@>jsonb_build_array(jsonb_build_object('id',shop)) then raise exception 'private store disclosed'; end if;
  perform set_config('request.jwt.claim.sub',owner_a::text,true);
  perform set_config('request.jwt.claims',jsonb_build_object('sub',owner_a,'role','authenticated')::text,true);
- update public.owners set created_at=now()-interval '1 year' where id=owner_a;
+ delete from public.ng_map_subscription_access where owner_id=owner_a;
  begin
    perform public.ng_map_set_owner_status(shop,'open_status','open',true,'manual',gen_random_uuid());
-   raise exception 'expired unsubscribed owner accepted';
+   raise exception 'unsubscribed owner accepted';
  exception when insufficient_privilege then null; end;
  insert into public.ng_map_subscription_access(owner_id,subscription_id,product_code,price_code,amount_krw,status,paid_until)
  values(owner_a,(random()*1000000000000)::bigint,'product_imaqLBf8q','price_NZ6mkW2nM',1900,'ACTIVE',now()+interval '1 month');
