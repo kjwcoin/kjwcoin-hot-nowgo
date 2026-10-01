@@ -10,7 +10,6 @@ import {NativeSelect} from '@/components/ui/native-select';
 import ReviewLink from '@/components/review-link';
 import CustomerPanel from './customer-panel';
 import ReporterLeaderboard from './reporter-leaderboard';
-import accountStyles from './customer-account.module.css';
 import VisitActions from './activity/visit-actions';
 import KakaoMap,{type KakaoMapHandle} from './kakao-map';
 import {locationStatusText,type LocationState} from '@/lib/request-current-location';
