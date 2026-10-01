@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import {headers} from 'next/headers';
 import {siteConfig,variantForHost} from '@/lib/site-config';
 import "./globals.css";
+import TemporaryFreeNotice from '@/components/temporary-free-notice';
 import "./flavor-theme.css";
 import "./usage-metrics.css";
 import {UsageTracker} from '@/components/usage-tracker';
@@ -27,7 +28,7 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className="antialiased" data-theme={variantForHost((await headers()).get('host'))}>{children}<UsageTracker enabled={variantForHost((await headers()).get('host'))==='hot'}/></body>
+      <body className="antialiased" data-theme={variantForHost((await headers()).get('host'))}><TemporaryFreeNotice/>{children}<UsageTracker enabled={variantForHost((await headers()).get('host'))==='hot'}/></body>
     </html>
   );
 }
