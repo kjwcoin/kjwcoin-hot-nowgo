@@ -19,7 +19,7 @@ for(const host of ['hot.nowgo.space','sweet.nowgo.space','rich.nowgo.space']){
   const globals={location:{host,search:'?code=oauth-code',replace(path){redirects.push(path)}},sessionStorage:{getItem(){return JSON.stringify({accountType:'owner',returnTo:'/suggestion#report'})},removeItem(key){removed.push(key)}}};
   const module=load('../app/account/callback/page.tsx',{
    react:{useState(){return ['',()=>{}]},useEffect(fn){fn()}},
-   '@/components/brand':{default(){}},'@/lib/supabase-browser':{browserDb(){return db}},
+   '@/components/brand':{default(){}},'@/components/flavor-header':{default(){}},'@/lib/supabase-browser':{browserDb(){return db}},
    '@/lib/client':{async api(path){calls.push(path);return {existingOwner:true}}},
    '@/lib/integration-policy':{returnPath(path){return path||'/'}},
    '@/lib/site-config':{variantForHost(host){return host.split('.')[0]}},globals,
@@ -32,7 +32,7 @@ for(const host of ['hot.nowgo.space','sweet.nowgo.space','rich.nowgo.space']){
 test('a new owner retains the existing signup/consent flow',async()=>{
  const redirects=[];
  const module=load('../app/account/callback/page.tsx',{
-  react:{useState(){return ['',()=>{}]},useEffect(fn){fn()}},'@/components/brand':{default(){}},
+  react:{useState(){return ['',()=>{}]},useEffect(fn){fn()}},'@/components/brand':{default(){}},'@/components/flavor-header':{default(){}},
   '@/lib/supabase-browser':{browserDb(){return {auth:{async getSession(){return {data:{session:{}},error:null}}}}}},
   '@/lib/client':{async api(path){return path.endsWith('login-target')?{existingOwner:false}:{customer:null,consentRequired:true}}},
   '@/lib/integration-policy':{returnPath(){return '/suggestion#report'}},
