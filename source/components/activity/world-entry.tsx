@@ -1,4 +1,5 @@
 'use client';
+import Brand from '@/components/brand';
 import type {CSSProperties} from 'react';
 import {X,ArrowUpRight} from 'lucide-react';
 import {Dialog,DialogContent,DialogTitle,DialogDescription} from '@/components/ui/dialog';
@@ -11,7 +12,7 @@ import './world-entry.css';
 export default function WorldEntry({planet,state,open,onClose,onActivity}:{planet:Planet;state:ActivityState;open:boolean;onClose:()=>void;onActivity:(tab?:string)=>void}){
  const w=WORLDS[planet],d=state.data,g=growth(d?.xp||0);
  return <Dialog open={open} onOpenChange={value=>{if(!value)onClose()}}><DialogContent className="we-dialog activity-world" showCloseButton={false} style={{'--planet':w.accent} as CSSProperties} onCloseAutoFocus={event=>event.preventDefault()}>
-  <div className="we-top"><img src="/activity/nowgo-white.png" width="112" height="38" alt="나우고"/><span>{w.name}의 세계</span><button onClick={onClose} aria-label="세계관 팝업 닫고 지도 이용하기">닫고 지도 이용하기<X size={23}/></button></div>
+  <div className="we-top"><Brand/><span>{w.name}의 세계</span><button onClick={onClose} aria-label="세계관 팝업 닫고 지도 이용하기">닫고 지도 이용하기<X size={23}/></button></div>
   <div className="we-content">
    <section className="we-hero"><div><span className="aw-eyebrow">내 취향이 나의 전적이 되는 곳</span><DialogTitle className="we-title">{w.motto}</DialogTitle><DialogDescription className="we-description">{w.story}</DialogDescription><div className="aw-actions"><button className="aw-button" onClick={onClose}>탐험하기<ArrowUpRight size={17}/></button><a className="we-ghost" href="/suggestion#report">제안하기</a></div></div><img className="we-planet" src={`/activity/planet-${planet}.webp`} alt={`${w.name} 2D 행성`}/></section>
    <SponsorEvent planet={planet}/>

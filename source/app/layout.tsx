@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import {headers} from 'next/headers';
 import {siteConfig,variantForHost} from '@/lib/site-config';
 import "./globals.css";
+import "./flavor-theme.css";
 
 export async function generateMetadata():Promise<Metadata>{
  const variant=variantForHost((await headers()).get('host'));

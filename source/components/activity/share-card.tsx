@@ -5,6 +5,8 @@ import {Dialog,DialogContent,DialogTitle,DialogDescription} from '@/components/u
 import {WORLDS,growth,type ActivitySnapshot} from '@/lib/activity/model';
 
 async function profileImage(d:ActivitySnapshot){
+ const palette=getComputedStyle(document.body),color=(name:string)=>palette.getPropertyValue(name).trim();
+ const accent=color('--brand-ink'),ink=color('--foreground'),muted=color('--flavor-muted'),soft=color('--flavor-soft'),background=color('--background');
  const w=WORLDS[d.planet],g=growth(d.xp),canvas=document.createElement('canvas');
  canvas.width=1080;canvas.height=1350;
  const c=canvas.getContext('2d');if(!c)throw new Error('이미지 카드를 만들 수 없어요.');
@@ -14,25 +16,25 @@ async function profileImage(d:ActivitySnapshot){
  const growthArt=artFlavor==='hot'||artFlavor==='sweet'||artFlavor==='rich';
  const [character,logo,planet,crest]=await Promise.all([load(growthArt?'characters-growth.webp':`characters-${d.planet}.webp`),load('nowgo-white.png'),load(`planet-${d.planet}.webp`),badge?load(badge.image+'.svg'):Promise.resolve(null),document.fonts.ready]);
  const box=(x:number,y:number,width:number,height:number,radius:number,color:string)=>{c.fillStyle=color;c.beginPath();c.roundRect(x,y,width,height,radius);c.fill()};
- const text=(value:string,x:number,y:number,size:number,color='#fff0d4',width=920)=>{c.fillStyle=color;let s=size;do{c.font=`700 ${s}px Pretendard, sans-serif`;if(c.measureText(value).width<=width)break;s--}while(s>14);c.fillText(value,x,y)};
- c.fillStyle='#0c142f';c.fillRect(0,0,1080,1350);
- c.strokeStyle=w.accent;c.lineWidth=2;c.strokeRect(28,28,1024,1294);
+ const text=(value:string,x:number,y:number,size:number,color=ink,width=920)=>{c.fillStyle=color;let s=size;do{c.font=`700 ${s}px Pretendard, sans-serif`;if(c.measureText(value).width<=width)break;s--}while(s>14);c.fillText(value,x,y)};
+ c.fillStyle=background;c.fillRect(0,0,1080,1350);
+ c.strokeStyle=accent;c.lineWidth=2;c.strokeRect(28,28,1024,1294);
  c.globalAlpha=.27;c.drawImage(planet,580,115,440,440);c.globalAlpha=1;
- c.drawImage(logo,65,55,190,66);text('나의 취향, 나의 전적',702,99,22,w.accent,312);
- text('나는, '+w.name+'.',65,208,72);text(d.profile.nickname,68,267,35,w.accent,700);
- box(65,296,340,60,14,'#24304d');text(`레벨 ${g.level} · ${g.rank.name}`,86,335,29,'#fff0d4',302);
+ const mark=document.createElement('canvas');mark.width=190;mark.height=66;const mc=mark.getContext('2d')!;mc.drawImage(logo,0,0,190,66);mc.globalCompositeOperation='source-in';mc.fillStyle=accent;mc.fillRect(0,0,190,66);c.drawImage(mark,65,55);text('나의 취향, 나의 전적',702,99,22,accent,312);
+ text('나는, '+w.name+'.',65,208,72);text(d.profile.nickname,68,267,35,accent,700);
+ box(65,296,340,60,14,soft);text(`레벨 ${g.level} · ${g.rank.name}`,86,335,29,ink,302);
  const index=Math.max(0,Math.min(5,g.character));
  const columns=growthArt?5:3,rows=growthArt?3:2,cw=character.naturalWidth/columns,ch=character.naturalHeight/rows;
  const column=growthArt?[0,1,2,3,3,4][index]:index%3,row=growthArt?(artFlavor==='sweet'?1:artFlavor==='rich'?2:0):Math.floor(index/3);
  c.drawImage(character,column*cw,row*ch,cw,ch,47,363,665,665);
- box(743,501,267,349,20,'#192640');text('나의 대표 휘장',776,546,24,w.accent,200);
- if(crest&&badge){c.drawImage(crest,788,565,177,207);text(badge.title,766,804,24,'#fff0d4',219);if(badge.limited)text('LIMITED EDITION',777,832,17,'#ff655d',204)}
- else {text('첫 훈장을 향해',777,673,26,'#fff0d4',200);text('나의 모험은 지금부터',766,716,18,'#bbc6dc',222)}
- box(65,965,950,172,20,'#fff0d4');
- [[String(d.counts.places)+'곳','정복한 매장'],[String(d.counts.countries)+'개국','나의 영토'],[String(d.awards.length)+'개','보유 훈장']].forEach(([value,label],i)=>{const x=99+i*311;text(value,x,1037,43,'#14213f',270);text(label,x,1090,23,'#576078',270)});
- text(d.xp.toLocaleString()+' EXP',67,1202,41,w.accent,910);
- text(`탐험 ${d.stats.explore}  ·  기록 ${d.stats.record}  ·  발견 ${d.stats.discover}  ·  꾸준함 ${d.stats.steady}`,68,1252,24,'#bbc6dc',940);
- text(w.motto+'  #NOWGO',68,1293,22,'#fff0d4',940);
+ box(743,501,267,349,20,soft);text('나의 대표 휘장',776,546,24,accent,200);
+ if(crest&&badge){c.drawImage(crest,788,565,177,207);text(badge.title,766,804,24,ink,219);if(badge.limited)text('LIMITED EDITION',777,832,17,'#ff655d',204)}
+ else {text('첫 훈장을 향해',777,673,26,ink,200);text('나의 모험은 지금부터',766,716,18,muted,222)}
+ box(65,965,950,172,20,soft);
+ [[String(d.counts.places)+'곳','정복한 매장'],[String(d.counts.countries)+'개국','나의 영토'],[String(d.awards.length)+'개','보유 훈장']].forEach(([value,label],i)=>{const x=99+i*311;text(value,x,1037,43,ink,270);text(label,x,1090,23,muted,270)});
+ text(d.xp.toLocaleString()+' EXP',67,1202,41,accent,910);
+ text(`탐험 ${d.stats.explore}  ·  기록 ${d.stats.record}  ·  발견 ${d.stats.discover}  ·  꾸준함 ${d.stats.steady}`,68,1252,24,muted,940);
+ text(w.motto+'  #NOWGO',68,1293,22,ink,940);
  const blob=await new Promise<Blob>((resolve,reject)=>canvas.toBlob(value=>value?resolve(value):reject(new Error('카드 이미지 저장에 실패했어요.')),'image/png'));
  return new File([blob],`NOWGO_${w.name}_나의카드.png`,{type:'image/png'});
 }

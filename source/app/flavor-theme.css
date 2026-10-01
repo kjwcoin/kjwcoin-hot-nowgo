@@ -1,0 +1,206 @@
+/* One host-selected palette for the map and every connected page or portal. */
+body[data-theme="hot"] {
+  --brand-ink: #c93421;
+  --brand-deep: #b52c1e;
+  --brand-night: #471811;
+  --background: #fff8f4;
+  --foreground: #3d261f;
+  --flavor-soft: #fff0e9;
+  --flavor-line: #ecd6cc;
+  --flavor-muted: #745e56;
+  --flavor-map: #eeede9;
+}
+
+body[data-theme="rich"] {
+  --brand-ink: #8b6945;
+  --brand-deep: #715232;
+  --brand-night: #35271e;
+  --background: #f7f2e7;
+  --foreground: #2d241c;
+  --flavor-soft: #f0e6d6;
+  --flavor-line: #e0d2bd;
+  --flavor-muted: #726453;
+  --flavor-map: #eae2d5;
+}
+
+body[data-theme="sweet"] {
+  --brand-ink: #197f6c;
+  --brand-deep: #125c4d;
+  --brand-night: #09382e;
+  --background: #effbf6;
+  --foreground: #183f37;
+  --flavor-soft: #e4f5ef;
+  --flavor-line: #cce4db;
+  --flavor-muted: #57766b;
+  --flavor-map: #dff3ec;
+}
+
+body[data-theme] {
+  color-scheme: light;
+  --primary: var(--brand-ink);
+  --primary-foreground: #fff;
+  --card: #fff;
+  --card-foreground: var(--foreground);
+  --popover: #fff;
+  --popover-foreground: var(--foreground);
+  --secondary: var(--flavor-soft);
+  --secondary-foreground: var(--foreground);
+  --muted: var(--flavor-soft);
+  --muted-foreground: var(--flavor-muted);
+  --accent: var(--flavor-soft);
+  --accent-foreground: var(--brand-deep);
+  --border: var(--flavor-line);
+  --input: var(--flavor-line);
+  --ring: var(--brand-ink);
+  --sidebar: var(--flavor-soft);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--brand-ink);
+  --sidebar-primary-foreground: #fff;
+  --sidebar-accent: #fff;
+  --sidebar-accent-foreground: var(--brand-deep);
+  --sidebar-border: var(--flavor-line);
+  --sidebar-ring: var(--brand-ink);
+  background: var(--background);
+  color: var(--foreground);
+}
+
+body[data-theme] :is(.site-header, .explorer-toolbar, .aw-shell-header, .we-top) {
+  background: linear-gradient(120deg, #fff, var(--flavor-soft));
+  color: var(--foreground);
+  border-color: var(--flavor-line);
+  box-shadow: 0 3px 18px color-mix(in srgb, var(--brand-ink) 9%, transparent);
+}
+
+body[data-theme] .explorer-topline { border-color: var(--flavor-line); }
+body[data-theme] .flavor-page-header { position: relative; }
+body[data-theme] .flavor-header-back { margin-left: auto; font-size: 14px; font-weight: 700; color: var(--brand-deep); }
+body[data-theme] .brand.brand-logo { position: relative; display: inline-flex; }
+body[data-theme] .brand.brand-logo :is(img, .rich-logo) { visibility: hidden; }
+body[data-theme] .brand.brand-logo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--brand-ink);
+  mask: url('/images/nowgo-red.png') center / contain no-repeat;
+}
+body[data-theme] .inline-nowgo-logo-wrap { position: relative; display: inline-block; width: 110px; height: 38px; vertical-align: middle; }
+body[data-theme] .inline-nowgo-logo { visibility: hidden; }
+body[data-theme] .inline-nowgo-logo-wrap::after {
+  content: ""; position: absolute; inset: 0; background: var(--brand-ink);
+  mask: url('/images/nowgo-red.png') center / contain no-repeat;
+}
+
+body[data-theme] :is(.hero, .terms-page, .place-page, .sa-page, .aw-fullpage) {
+  background: var(--background);
+  color: var(--foreground);
+}
+body[data-theme] :is(.explorer, .map-panel.map-fullscreen, .map-unavailable) { background: var(--flavor-map); color: var(--foreground); }
+body[data-theme] :is(.taste-section, .heat-panel, .regular-section, .customer-privacy, .customer-level, .report-login-status, .place-warning, .explorer-example, .explorer-unknown, .detail-status) {
+  background: var(--flavor-soft);
+  color: var(--foreground);
+}
+body[data-theme] :is(.explorer-results, .explorer-search, .report-form, .store-picker, .report-access, .status-preview, .saved-dialog, .menu-dialog, .map-manual-location, .reporter-ranking__panel, .terms-page .join-card) {
+  background: var(--card);
+  color: var(--foreground);
+  border-color: var(--flavor-line);
+}
+body[data-theme] .customer-dialog { background: var(--card) !important; color: var(--foreground); }
+body[data-theme] .terms-page .join-card { box-shadow: 10px 10px 0 var(--flavor-soft); }
+body[data-theme] .status-preview { box-shadow: 12px 12px 0 var(--flavor-soft); }
+body[data-theme] :is(.section, .preview-note, .terms-page section, .footer-bottom, .map-search, .map-panel, .status-line, .owner-rows > div, .founders > div, .place-alternatives a, .explorer-results-body, .explorer-menu-item, .explorer-owner-join, .reporter-ranking__head, .customer-auth-tabs, .customer-benefits, .customer-preferences, .customer-review-form, .customer-review-history article, .saved-list > div, .report-history) {
+  border-color: var(--flavor-line);
+}
+body[data-theme] :is(.hero p, .hero-bottomline, .section p, .small-note, .terms-page > p, .join-card > p, .place-columns p, .footer-top p, .footer-bottom, .customer-note, .customer-level p, .customer-benefits p, .customer-benefits span, .customer-review-history article > small, .explorer-item-copy > small, .explorer-item-copy > span small, .explorer-results-heading small, .explorer-detail-content p, .explorer-detail-content > small, .explorer-owner-join > p, .explorer-owner-join > small, .reporter-ranking__identity small, .reporter-ranking__count, .reporter-ranking__empty, .store-picker p, .store-picker small, .form-grid label > small, .status-line, .menu-meta, .menu-bottom > span, .result-top > span:last-child, .empty-small) {
+  color: var(--flavor-muted) !important;
+}
+body[data-theme] :is(.heat-heading strong, .owner-rows > div > span, .founder-number, .explorer-tags, .explorer-taste-price, .explorer-taste-price strong, .customer-level small, .hero-copy h1 .hero-kicker) { color: var(--brand-deep); }
+body[data-theme] :is(.explorer-filters select, .form-grid input, .form-grid select, .form-grid textarea, .owner-store select, .map-manual-location input) {
+  background: var(--card);
+  color: var(--foreground);
+  border-color: var(--flavor-line);
+}
+body[data-theme] :is(.explorer-filters .budget-active select, .explorer-menu-item:hover, .store-picker__results > button:hover, .store-picker__results > button:focus-visible, .explorer-owner-minihome:hover) {
+  background: var(--flavor-soft);
+  color: var(--brand-deep);
+  border-color: var(--brand-ink);
+}
+body[data-theme] :is(.saved-nav b, .customer-progress, .reporter-ranking__rank) { background: var(--flavor-soft); color: var(--brand-deep); }
+body[data-theme] :is(.submit-button, .explorer-report, .explorer-owner-join > a, .status-link) { background: var(--brand-ink); color: #fff; }
+body[data-theme] :is(.submit-button:hover, .explorer-report:hover, .explorer-owner-join > a:hover) { background: var(--brand-deep); color: #fff; }
+body[data-theme] :is(.closing, .toast) { background: var(--brand-deep); color: #fff; border-color: var(--brand-ink); }
+body[data-theme] .closing :is(p, .eyebrow) { color: #fff !important; }
+body[data-theme] .heat-scale button { --heat-tint: 35%; }
+body[data-theme] .heat-scale button:nth-child(2) { --heat-tint: 50%; }
+body[data-theme] .heat-scale button:nth-child(3) { --heat-tint: 65%; }
+body[data-theme] .heat-scale button:nth-child(4) { --heat-tint: 80%; }
+body[data-theme] .heat-scale button:nth-child(5) { --heat-tint: 100%; }
+body[data-theme] .heat-scale button > span { background: color-mix(in srgb, var(--brand-ink) var(--heat-tint), #fff) !important; color: var(--foreground); }
+body[data-theme] .heat-scale button:nth-child(n+3) > span { color: #fff; }
+
+/* Activity, character editing and world-entry dialogs inherit the same palette. */
+body[data-theme] .activity-world {
+  --planet: var(--brand-ink) !important;
+  --aw-ink: var(--foreground);
+  --aw-muted: var(--flavor-muted);
+  --aw-bg: var(--background);
+  --aw-surface: var(--card);
+  color: var(--foreground);
+  background: var(--background);
+}
+body[data-theme] :is(.aw-activity-dialog, .aw-share-dialog, .we-dialog) {
+  background: var(--background) !important;
+  color: var(--foreground) !important;
+  border-color: var(--flavor-line) !important;
+}
+body[data-theme] :is(.aw-form-dialog, .aw-edit-dialog) {
+  background: var(--card) !important;
+  color: var(--foreground) !important;
+  border-color: var(--flavor-line) !important;
+}
+body[data-theme] :is(.aw-panel, .aw-quests article, .aw-ranks article, .aw-badges article, .aw-brand-examples article, .aw-gallery figure, .we-columns > article, .we-territory, .aw-territory-grid > button) {
+  background: var(--card);
+  color: var(--foreground);
+  border-color: var(--flavor-line);
+}
+body[data-theme] .aw-player { background: radial-gradient(ellipse at 20% 30%, var(--flavor-soft), var(--card) 65%); }
+body[data-theme] .aw-limited { background: linear-gradient(150deg, var(--flavor-soft), var(--card)); border-color: var(--brand-ink); }
+body[data-theme] :is(.aw-territory-map, .aw-scales, .aw-visit-icon, .aw-mini-exp, .aw-pill, .aw-example, .we-notice) {
+  background: var(--flavor-soft);
+  color: var(--brand-deep);
+  border-color: var(--flavor-line);
+}
+body[data-theme] .aw-tablist { background: var(--flavor-soft) !important; border-color: var(--flavor-line); }
+body[data-theme] .aw-tablist [data-slot=tabs-trigger] { color: var(--brand-deep) !important; }
+body[data-theme] .aw-tablist [data-state=active] { background: var(--brand-ink) !important; color: #fff !important; }
+body[data-theme] .aw-progress { background: var(--flavor-soft) !important; }
+body[data-theme] :is(.activity-world input, .activity-world select, .activity-world textarea, .aw-form-dialog .store-picker, .aw-form-dialog .store-picker__selected, .aw-form-dialog .store-picker__results button) {
+  background: var(--card);
+  color: var(--foreground);
+  border-color: var(--flavor-line);
+}
+body[data-theme] :is(.activity-world [data-slot=button], .aw-button, .aw-quests button, .aw-scales button[aria-pressed=true]) { background: var(--brand-ink); color: #fff; }
+body[data-theme] :is(.aw-scales button, .we-top > button, .we-ghost) { background: var(--card); color: var(--brand-deep); border-color: var(--flavor-line); }
+body[data-theme] :is(.aw-edit-dialog [data-slot=dialog-description], .aw-form-dialog [data-slot=dialog-description], .we-description) { color: var(--flavor-muted) !important; }
+body[data-theme] :is(.aw-territory-grid span, .aw-share-wrap p, .aw-form-dialog .store-picker small, .we-territory small, .we-notice p, .we-notice small) { color: var(--flavor-muted); }
+body[data-theme] :is(.aw-visit, .aw-timeline > article, .aw-notice, .aw-review) { border-color: var(--flavor-line); }
+body[data-theme] .aw-activity-dialog > [data-slot=dialog-close] { color: var(--foreground); }
+body[data-theme] .aw-error { background: #fff0ea; border-color: #af291e; color: #af291e; }
+body[data-theme] .aw-toast { background: var(--brand-deep); color: #fff; }
+body[data-theme] .aw-city-banner { background: var(--brand-night); border-color: var(--flavor-line); }
+body[data-theme] .aw-city-banner::after { background: linear-gradient(90deg, var(--brand-night), color-mix(in srgb, var(--brand-night) 60%, transparent) 55%, transparent); }
+body[data-theme] .aw-city-banner :is(h2, span) { color: #fff; }
+
+/* Operational event pages and event cards use the host's accent as well. */
+body[data-theme] .sa-page header { padding: 22px; border-radius: 12px; background: var(--flavor-soft); }
+body[data-theme] :is(.sa-page header a, .se-label) { color: var(--brand-deep); }
+body[data-theme] :is(.sa-panel, .se-card, .se-preview, .se-wallet) { background: var(--card); color: var(--foreground); border-color: var(--flavor-line); }
+body[data-theme] :is(.sa-page p, .sa-page small, .sa-page header span, .se-heading p, .se-card small) { color: var(--flavor-muted); }
+body[data-theme] :is(.sa-page input, .sa-page select, .sa-page textarea, .sa-metrics span) { background: var(--card); color: var(--foreground); border-color: var(--flavor-line); }
+body[data-theme] :is(.sa-event, .se-wallet) { border-color: var(--flavor-line); }
+body[data-theme] :is(.sa-page button, .se-card button) { background: var(--brand-ink); color: #fff; }
+body[data-theme] :is(.sa-notice, .se-notice) { background: var(--flavor-soft); color: var(--brand-deep); }
+
+@media (max-width: 700px) {
+  body[data-theme] .flavor-page-header { height: 70px; gap: 14px; }
+  body[data-theme] .flavor-header-back { font-size: 13px; }
+}

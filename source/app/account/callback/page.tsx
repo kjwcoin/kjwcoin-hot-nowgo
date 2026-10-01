@@ -1,6 +1,6 @@
 'use client';
 import {useEffect,useState} from 'react';
-import Brand from '@/components/brand';
+import FlavorHeader from '@/components/flavor-header';
 import {browserDb} from '@/lib/supabase-browser';
 import {api} from '@/lib/client';
 import {returnPath} from '@/lib/integration-policy';
@@ -27,5 +27,5 @@ export default function Callback(){
    location.replace(profile.customer&&!profile.consentRequired?(accountType==='owner'?'https://nowgo.space/owner/signup':'https://www.nowgo.space/flavors'):'/account/join?finish=1&type='+accountType+'&returnTo='+encodeURIComponent(returnTo));
   }catch(e){if(active)setError((e as Error).message)}
  }void complete();return()=>{active=false}},[]);
- return <main className="terms-page join-page"><Brand/><h1>회원 연결 중</h1><p>{error||'NOWGO 통합회원 정보를 확인하고 있어요.'}</p>{error&&<a href="/account/join">가입·로그인 다시 하기 ↗</a>}</main>
+ return <><FlavorHeader/><main className="terms-page join-page"><h1>회원 연결 중</h1><p>{error||'NOWGO 통합회원 정보를 확인하고 있어요.'}</p>{error&&<a href="/account/join">가입·로그인 다시 하기 ↗</a>}</main></>
 }
