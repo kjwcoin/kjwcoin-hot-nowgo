@@ -138,8 +138,8 @@ body[data-theme] .heat-scale button:nth-child(2) { --heat-tint: 50%; }
 body[data-theme] .heat-scale button:nth-child(3) { --heat-tint: 65%; }
 body[data-theme] .heat-scale button:nth-child(4) { --heat-tint: 80%; }
 body[data-theme] .heat-scale button:nth-child(5) { --heat-tint: 100%; }
-body[data-theme] .heat-scale button > span { background: color-mix(in srgb, var(--brand-ink) var(--heat-tint), #fff) !important; color: var(--foreground); }
-body[data-theme] .heat-scale button:nth-child(n+3) > span { color: #fff; }
+body[data-theme] .heat-scale button > span { background: color-mix(in srgb, var(--brand-ink) var(--heat-tint), #fff) !important; color: color-mix(in srgb, var(--foreground) 50%, #000); }
+body[data-theme] .heat-scale button:nth-child(5) > span { color: #fff; }
 
 /* Activity, character editing and world-entry dialogs inherit the same palette. */
 body[data-theme] .activity-world {
