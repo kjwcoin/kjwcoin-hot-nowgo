@@ -345,3 +345,5 @@ body[data-theme="sweet"] .menu-heat{background:#197f6c}
 .customer-regular-text{display:inline-flex;align-items:center;min-height:38px;padding:0 2px;color:inherit;font-size:13px;font-weight:500;text-decoration:none;white-space:nowrap}
 .customer-regular-text:hover{color:var(--brand-ink);text-decoration:underline;text-underline-offset:4px}
 @media(max-width:900px){.explorer-surface>.reporter-ranking{display:none}}
+
+.explorer-item-copy .reporter-store-status{display:block;font-size:13px;line-height:1.45;white-space:normal}

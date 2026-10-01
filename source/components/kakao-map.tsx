@@ -175,8 +175,8 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,onLocationSt
   overlaysRef.current=[...groups.values()].map(group=>{
    const menu=group[0],button=document.createElement('button');
    button.type='button';
-   button.className='map-anchor map-anchor--food'+(menu.id===selectedId?' selected':'');
-   button.setAttribute('aria-label',`${menu.isDemo?'가매장 ':menu.verifiedOwner?'공식 점주 ':''}${menu.shop}, ${menu.name}, ${money(menu.price)}. 메뉴 상세 보기`);
+   button.className='map-anchor map-anchor--food'+(!menu.isDemo&&!menu.ownerRegistered?' map-anchor--reported':'')+(menu.id===selectedId?' selected':'');
+   button.setAttribute('aria-label',`${menu.isDemo?'가매장 ':menu.ownerRegistered?'점주 가입매장 ':'제보자 등록매장 · 영업현황 확인불가 '}${menu.shop}, ${menu.name}, ${money(menu.price)}. 메뉴 상세 보기`);
    button.title=`${menu.shop} · ${menu.name}`;
    const pin=document.createElement('span');
    pin.className='map-anchor-pin';

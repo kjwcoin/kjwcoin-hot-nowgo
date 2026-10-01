@@ -129,6 +129,27 @@ body[data-theme] :is(.explorer-filters .budget-active select, .explorer-menu-ite
   border-color: var(--brand-ink);
 }
 body[data-theme] :is(.saved-nav b, .customer-progress, .reporter-ranking__rank) { background: var(--flavor-soft); color: var(--brand-deep); }
+
+/* Community-only stores have no owner-confirmed live information. */
+body[data-theme] .explorer-menu-item.reporter-store,
+body[data-theme] .explorer-selected.reporter-store .explorer-detail-content,
+body[data-theme] .detail-body.reporter-store,
+body[data-theme] .menu-card.reporter-store {
+  background: #f1f3f5;
+  box-shadow: inset 0 0 0 1px #4b556308;
+}
+body[data-theme] .explorer-menu-item.reporter-store:hover { background: #e8ebee; }
+body[data-theme] .place-page--reported .place-columns > section:first-child {
+  padding: 18px;
+  border-radius: 10px;
+  background: #f1f3f5;
+}
+body[data-theme] .map-anchor--reported .map-anchor-price {
+  background: #e5e8ec;
+  border-color: #aab1bb;
+  color: #374151;
+}
+body[data-theme] .map-anchor--reported .map-anchor-pin { filter: saturate(.7) brightness(.94); }
 body[data-theme] :is(.submit-button, .explorer-report, .explorer-owner-join > a, .status-link) { background: var(--brand-ink); color: #fff; }
 body[data-theme] :is(.submit-button:hover, .explorer-report:hover, .explorer-owner-join > a:hover) { background: var(--brand-deep); color: #fff; }
 body[data-theme] :is(.closing, .toast) { background: var(--brand-deep); color: #fff; border-color: var(--brand-ink); }
