@@ -1,0 +1,13 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {reporterRanks,publicReporterNickname} from '../lib/reporter-leaderboard.ts';
+const row={rank:1,public_id:'NG-A1B2C3D4',nickname:'맛탐험가',report_count:3};
+test('shows public ID, nickname and actual count only',()=>assert.deepEqual(reporterRanks([{...row,email:'secret',phone:'01012345678',user_id:'private'}]),[row]));
+test('empty is distinct from failed or invalid payload',()=>{assert.deepEqual(reporterRanks([]),[]);assert.throws(()=>reporterRanks(null));assert.throws(()=>reporterRanks([{...row,report_count:-1}]));});
+test('never exposes raw user UUID as public ID',()=>assert.throws(()=>reporterRanks([{...row,public_id:'12345678-1234-1234-1234-123456789abc'}])));
+test('limits to top 10',()=>assert.equal(reporterRanks(Array.from({length:11},(_,i)=>({...row,rank:i+1,public_id:'NG-'+i.toString(16).toUpperCase().padStart(8,'0')}))).length,10));
+test('rejects duplicate identities and ranks',()=>{assert.throws(()=>reporterRanks([row,row]));assert.throws(()=>reporterRanks([row,{...row,public_id:'NG-B1B2C3D4'}]));});
+test('redacts email and telephone nicknames',()=>{for(const value of ['person@example.com','010-1234-5678','전화 010 1234 5678','+82 10 1234 5678'])assert.equal(publicReporterNickname(value),'제보자');assert.equal(publicReporterNickname('왕 지원'),'왕 지원');});
+test('long nicknames are bounded without breaking emoji',()=>assert.equal(Array.from(publicReporterNickname('😀'.repeat(50))).length,24));
+test('map panel is visible by default and mobile styles do not hide it',()=>{const component=readFileSync(new URL('../components/reporter-leaderboard.tsx',import.meta.url),'utf8');const css=readFileSync(new URL('../components/reporter-leaderboard.module.css',import.meta.url),'utf8');assert.match(component,/useState\(true\)/);assert.match(component,/아이디 \{row.public_id\}/);assert.match(component,/status==='error'/);assert.doesNotMatch(css,/display\s*:\s*none/);assert.match(css,/@media\(max-width:900px\)/);});
