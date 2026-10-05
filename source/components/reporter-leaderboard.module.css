@@ -1,0 +1,15 @@
+.wrap{position:absolute;top:72px;right:16px;z-index:24;display:block;max-width:calc(100% - 24px);color:#32332f}
+.toggle{display:flex;align-items:center;gap:8px;min-height:40px;margin-left:auto;padding:0 12px;border:1px solid #ddd9d0;border-radius:9px;background:#fff;color:#32332f;font:inherit;font-size:13px;font-weight:700;cursor:pointer}
+.toggle strong,.head small{font-size:11px;color:var(--brand-ink);font-weight:800}
+.panel{width:310px;max-width:calc(100vw - 24px);margin-top:8px;background:#fffefa;border:1px solid #ddd9d0;border-radius:12px;box-shadow:0 14px 38px #211c151f;overflow:hidden}
+.head{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid #ece8df}.head b{font-size:14px;letter-spacing:-.3px}
+.note{margin:0;padding:8px 14px 4px;color:#69655e;font-size:11px;line-height:1.5}
+.list{list-style:none;margin:0;padding:6px 0;max-height:min(300px,38dvh);overflow:auto;overscroll-behavior:contain}
+.list li{display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:9px;align-items:center;padding:9px 14px}.list li+li{border-top:1px solid #f0ede7}
+.rank{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#f1eee8;font-size:12px;font-weight:700}
+.list li:nth-child(-n+3) .rank{background:color-mix(in srgb,var(--brand-ink) 12%,#fff);color:var(--brand-ink)}
+.identity{display:flex;min-width:0;flex-direction:column;gap:2px}.identity b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:13px}.identity small{font-size:11px;color:#69655e}
+.count{font-size:12px;font-weight:700;color:#69655e}.empty{margin:0;padding:16px 14px;text-align:center;font-size:12px;line-height:1.6;color:#69655e}.empty p{margin:0 0 8px}.empty button{border:1px solid #ddd9d0;border-radius:6px;padding:6px 10px;color:var(--brand-ink);background:#fff;cursor:pointer}
+.footer{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 14px;border-top:1px solid #ece8df}.footer a{color:var(--brand-ink);font-size:12px;font-weight:700}.footer small{font-size:10px;color:#69655e}
+.toggle:focus-visible,.empty button:focus-visible,.footer a:focus-visible{outline:3px solid var(--brand-ink);outline-offset:2px}
+@media(max-width:900px){.wrap{top:68px;right:12px}.panel{width:280px}.list{max-height:min(220px,30dvh)}}
