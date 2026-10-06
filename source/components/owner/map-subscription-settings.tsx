@@ -36,16 +36,20 @@ export default function MapSubscriptionSettings({ownerVerified,required=false,on
   {active?<><p>이용 기간 종료: {new Date(status!.expiresAt!).toLocaleString('ko-KR',{timeZone:'Asia/Seoul'})}</p>{status!.nextPaymentAt&&!status!.cancelAtPeriodEnd?<p>다음 결제일: {new Date(status!.nextPaymentAt!).toLocaleString('ko-KR',{timeZone:'Asia/Seoul'})}</p>:null}{status!.cancelAtPeriodEnd?<p>자동갱신 해지 완료</p>:<button disabled={busy} onClick={()=>act('cancel')}>다음 회차 자동결제 해지</button>}</>:<button type="button" disabled={busy} onClick={()=>subscriptionDialog.current?.showModal()}>구독 월 1,900원</button>}
   <dialog ref={subscriptionDialog} onCancel={event=>{if(required)event.preventDefault()}} onClose={()=>{if(required&&ownerVerified&&!active)subscriptionDialog.current?.showModal()}} aria-modal="true" aria-labelledby="map-subscription-dialog-title" className={styles.dialog} style={cardStyle}>
    <header className={styles.header}><h2 id="map-subscription-dialog-title">{theme.name} 내 매장관리</h2><span>단일 구독</span></header>
+   <div className={styles.layout}><section className={styles.overview}>
    <p className={styles.price}><strong>1,900</strong>원 / 월</p><p className={styles.vat}>부가세 포함</p>
    <ul className={styles.features}>{['실시간 영업 상태·혼잡도 관리','대표메뉴·가격·사진 관리','예약 접수·예약 내역 관리','웨이팅 접수·대기 팀 관리','선택한 지도에 매장 운영 정보 반영'].map(feature=><li key={feature}><span aria-hidden="true">✓</span>{feature}</li>)}</ul>
-   {required&&<p>구독 결제 확인 전에는 매장 자료를 입력하거나 저장할 수 없습니다.</p>}
-   <label className={styles.consent}><input type="checkbox" className={styles.checkbox} checked={consent} onChange={e=>setConsent(e.target.checked)}/>HOT·SWEET·RICH 내 매장관리 월 1,900원(부가세 포함)을 주식회사 나우고와 결제하고 이후 매월 자동 결제하는 데 동의합니다. 첫 결제는 신청 시 진행되며 다음 결제일은 구독설정에 표시됩니다. 언제든 다음 회차 자동갱신을 해지할 수 있고 결제된 기간 종료일까지 이용할 수 있습니다. 청약철회·환불은 이용약관과 관계 법령에 따릅니다. 나우고 스페이스 구독과 별도이며 기존 계약을 자동 전환하지 않습니다.</label>
+   </section><section className={styles.payment} aria-label="구독 신청"><h3>구독 시작하기</h3><p>로그인한 점주 계정으로 결제합니다.</p>
+   <label className={styles.consent}><input type="checkbox" className={styles.checkbox} checked={consent} onChange={e=>setConsent(e.target.checked)}/>월 1,900원(부가세 포함)을 주식회사 나우고와 결제하고 매월 자동 결제하는 데 동의합니다.</label>
+   <details className={styles.details}><summary>정기결제·해지·환불 안내</summary><p>첫 결제는 신청 시 진행되며 다음 결제일은 구독설정에 표시됩니다. 언제든 다음 회차 자동갱신을 해지할 수 있고 결제된 기간 종료일까지 이용할 수 있습니다. 청약철회·환불은 이용약관과 관계 법령에 따릅니다. 나우고 스페이스 구독과 별도이며 기존 계약을 자동 전환하지 않습니다.</p></details>
    <p><a href="/terms" target="_blank" rel="noreferrer">이용약관 보기</a></p>
-   <button type="button" className={styles.subscribe} disabled={busy||!consent} onClick={()=>act('start')}>{busy?'처리 중…':'구독하기'}</button>
+   <button type="button" className={styles.subscribe} disabled={busy||!consent} onClick={()=>act('start')}>{busy?'처리 중…' :'동의하고 구독하기'}</button>
+   {!consent&&<p className={styles.hint}>정기결제 동의를 체크하면 구독할 수 있어요.</p>}
    {!required&&<button className={styles.secondary} type="button" disabled={busy} onClick={()=>subscriptionDialog.current?.close()}>닫기</button>}
    {required&&<><button className={styles.secondary} type="button" disabled={busy} onClick={()=>act('refresh')}>결제 완료 후 다시 확인</button><p><Link href="/">지도로 돌아가기</Link></p></>}
    <p className={styles.footnote}>월 구독 1,900원 · 부가세 포함 · 결제 확인 후 내 매장관리 이용</p>
    {message&&<p role="status">{message}</p>}
+   </section></div>
   </dialog>
   <button disabled={busy} onClick={()=>status?act('refresh'):load().catch(e=>setMessage(e.message))}>구독 상태 확인</button>{message&&<p role="status">{message}</p>}
  </div>;
