@@ -1,10 +1,10 @@
-import {browserDb} from './supabase-browser';
+import {browserDb,ensureUnifiedSession} from './supabase-browser';
 export class ApiError extends Error {
  constructor(message:string,readonly status:number,readonly code?:string){super(message);this.name='ApiError'}
 }
 export async function api<T=Record<string,unknown>>(path:string,options?:RequestInit){
  const headers=new Headers(options?.headers);
- try{const {data}=await browserDb().auth.getSession();if(data.session?.access_token)headers.set('Authorization','Bearer '+data.session.access_token)}catch{}
+ try{await ensureUnifiedSession();const {data}=await browserDb().auth.getSession();if(data.session?.access_token)headers.set('Authorization','Bearer '+data.session.access_token)}catch{}
  const r=await fetch(path,{...options,headers});const d=await r.json() as {error?:string;code?:string};if(!r.ok)throw new ApiError(d.error||'잠시 후 다시 시도해 주세요.',r.status,d.code);return d as T
 }
 export function track(event:string,target:string){void api('/api/activity/event',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({event,target}),keepalive:true}).then(()=>window.dispatchEvent(new Event('nowgo-activity-change'))).catch(()=>{})}
