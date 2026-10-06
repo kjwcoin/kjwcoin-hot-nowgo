@@ -47,10 +47,12 @@ export default function MapSubscriptionSettings({ownerVerified,required=false,on
    {!consent&&<p className={styles.hint}>정기결제 동의를 체크하면 구독할 수 있어요.</p>}
    {!required&&<button className={styles.secondary} type="button" disabled={busy} onClick={()=>subscriptionDialog.current?.close()}>닫기</button>}
    {required&&<><button className={styles.secondary} type="button" disabled={busy} onClick={()=>act('refresh')}>결제 완료 후 다시 확인</button><p><Link href="/">지도로 돌아가기</Link></p></>}
+   <p>회원탈퇴 시 HOT·RICH·SWEET의 모든 연결 매장과 나우고 스페이스 월 구독까지 함께 종료됩니다. <a href="https://nowgo.space/account/withdraw">회원탈퇴 · 전체 서비스 종료</a></p>
    <p className={styles.footnote}>월 구독 1,900원 · 부가세 포함 · 결제 확인 후 내 매장관리 이용</p>
    {message&&<p role="status">{message}</p>}
    </section></div>
   </dialog>
+  <p><a href="https://nowgo.space/owner/settings">설정 및 구독</a> · <a href="https://nowgo.space/account/withdraw">회원탈퇴 · 전체 서비스 종료</a></p>
   <button disabled={busy} onClick={()=>status?act('refresh'):load().catch(e=>setMessage(e.message))}>구독 상태 확인</button>{message&&<p role="status">{message}</p>}
  </div>;
 }
