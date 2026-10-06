@@ -3,8 +3,10 @@ import {useEffect,useRef,useState} from 'react';
 import {api} from '@/lib/client';
 type Status={status:string;pending:boolean;expiresAt:string|null;cancelAtPeriodEnd:boolean;isTest:boolean;nextPaymentAt:string|null;checkedAt:number};
 const consentVersion='2026-10-06-steppay-month-v1';
-export default function MapSubscriptionSettings({ownerVerified}:{ownerVerified:boolean}){
+export default function MapSubscriptionSettings({ownerVerified,autoOpen=false}:{ownerVerified:boolean;autoOpen?:boolean}){
  const subscriptionDialog=useRef<HTMLDialogElement>(null);
+ const prompted=useRef(false);
+ useEffect(()=>{if(ownerVerified&&autoOpen&&!prompted.current){prompted.current=true;subscriptionDialog.current?.showModal()}},[ownerVerified,autoOpen]);
  const [status,setStatus]=useState<Status|null>(null),[consent,setConsent]=useState(false),[busy,setBusy]=useState(false),[message,setMessage]=useState('');
  async function load(){if(!ownerVerified)return;const s=await api<Status>('/api/owner/subscription');setStatus({...s,checkedAt:Date.now()})}
  useEffect(()=>{if(!ownerVerified){subscriptionDialog.current?.close();return}let active=true;api<Status>('/api/owner/subscription').then(s=>{if(active)setStatus({...s,checkedAt:Date.now()})}).catch(e=>{if(active)setMessage(e.message)});return()=>{active=false}},[ownerVerified]);

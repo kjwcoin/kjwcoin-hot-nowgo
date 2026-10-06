@@ -4,7 +4,7 @@ import MapSubscriptionSettings from './owner/map-subscription-settings';
 import {useCallback,useEffect,useRef,useState,type CSSProperties,type FormEvent} from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import {api} from '@/lib/client';
+import {api,ApiError} from '@/lib/client';
 import {browserDb} from '@/lib/supabase-browser';
 import {siteConfig,type SiteVariant} from '@/lib/site-config';
 import {currentWaiting,fromKoreanInput,localKoreanInput,type OwnerSnapshot,type Appointment} from '@/lib/owner-management';
@@ -15,13 +15,13 @@ const labels:Record<string,string>={pending:'예약 확인 중',confirmed:'예�
 function time(iso:string){return new Date(iso).toLocaleString('ko-KR',{timeZone:'Asia/Seoul',month:'long',day:'numeric',hour:'2-digit',minute:'2-digit'})}
 export default function OwnerStoreManager({variant}:{variant:SiteVariant}){
  const theme=siteConfig(variant);
- const [snapshot,setSnapshot]=useState<OwnerSnapshot|null>(null),[error,setError]=useState(''),[notice,setNotice]=useState(''),[busy,setBusy]=useState(false),[needsLogin,setNeedsLogin]=useState(false),[now,setNow]=useState(()=>new Date().toISOString());
+ const [snapshot,setSnapshot]=useState<OwnerSnapshot|null>(null),[error,setError]=useState(''),[notice,setNotice]=useState(''),[busy,setBusy]=useState(false),[needsLogin,setNeedsLogin]=useState(false),[failureCode,setFailureCode]=useState(''),[now,setNow]=useState(()=>new Date().toISOString());
  const sequence=useRef(0),mounted=useRef(true),storeRef=useRef(''),actionRunning=useRef(false),waitingForm=useRef<HTMLFormElement|null>(null),account=useRef<string|null>(null);
  
  const refresh=useCallback(async(store=storeRef.current)=>{
   const run=++sequence.current;
-  try{const result=await api<OwnerSnapshot>('/api/owner/manage'+(store?`?storeId=${encodeURIComponent(store)}`:''));if(!mounted.current||run!==sequence.current)return;setSnapshot(result);setError('');setNeedsLogin(false);}
-  catch(e){if(mounted.current&&run===sequence.current){setSnapshot(null);setError(e instanceof Error?e.message:'매장 관리 연결 실패');setNeedsLogin(true);}}
+  try{const result=await api<OwnerSnapshot>('/api/owner/manage'+(store?`?storeId=${encodeURIComponent(store)}`:''));if(!mounted.current||run!==sequence.current)return;setSnapshot(result);setError('');setNeedsLogin(false);setFailureCode('');}
+  catch(e){if(mounted.current&&run===sequence.current){setSnapshot(null);setError(e instanceof Error?e.message:'매장 관리 연결 실패');setNeedsLogin(e instanceof ApiError&&e.status===401);setFailureCode(e instanceof ApiError?e.code??'':'');}}
  },[]);
  useEffect(()=>{mounted.current=true;const {data:authListener}=browserDb().auth.onAuthStateChange((_event,session)=>{const id=session?.user&&!session.user.is_anonymous?session.user.id:null;if(account.current!==id){account.current=id;sequence.current++;setSnapshot(null);storeRef.current='';setTimeout(()=>{if(mounted.current)void refresh();},0);}});void refresh();const update=()=>{if(!document.hidden&&!actionRunning.current){setNow(new Date().toISOString());void refresh();}};const timer=setInterval(update,15000);window.addEventListener('focus',update);document.addEventListener('visibilitychange',update);return()=>{mounted.current=false;sequence.current++;authListener.subscription.unsubscribe();clearInterval(timer);window.removeEventListener('focus',update);document.removeEventListener('visibilitychange',update);};},[refresh]);
  const state=snapshot?.state,storeId=snapshot?.storeId,store=snapshot?.stores.find(item=>item.id===storeId),enabled=Boolean(snapshot?.access.enabled&&state),settings=state?.settings;
@@ -44,6 +44,12 @@ export default function OwnerStoreManager({variant}:{variant:SiteVariant}){
   {(item.status==='seated'||(item.status==='confirmed'&&item.scheduled_at&&Date.parse(item.scheduled_at)<=Date.parse(now)))&&<button disabled={busy} onClick={()=>void save({action:'transition',id:item.id,status:'completed'})}>이용 완료</button>}
   {['pending','confirmed','waiting','called'].includes(item.status)&&<button disabled={busy} onClick={()=>{if(window.confirm('이 접수를 취소할까요?'))void save({action:'transition',id:item.id,status:'cancelled'});}}>접수 취소</button>}
  </div></article>}
+ if(error&&!snapshot)return <main className={styles.shell} style={{'--owner-accent':theme.accent} as CSSProperties}>
+  <header className={styles.heading}><div><p className={styles.eyebrow}>{theme.name} · MY STORE</p><h1>내 매장관리</h1></div></header>
+  <section className={styles.paywall}><h2>{needsLogin?'점주 계정으로 로그인해 주세요':failureCode==='owner_required'?'점주 매장 등록을 완료해 주세요':'매장 정보를 확인하지 못했어요'}</h2><p role="alert">{error}</p>
+  {failureCode==='owner_required'&&<p>통합회원 로그인 후 점주 매장 등록과 소유권 확인이 필요합니다. 등록한 매장이 확인되면 월 1,900원 구독을 신청할 수 있습니다.</p>}
+  <div className={styles.actions}>{needsLogin&&<Link className={styles.primaryLink} href="/account/join?type=owner&returnTo=%2Fowner">점주 통합계정 로그인</Link>}{failureCode==='owner_required'&&<a className={styles.primaryLink} href="https://nowgo.space/owner/signup">점주 매장 등록</a>}<button disabled={busy} onClick={()=>void refresh()}>다시 확인</button><Link className={styles.secondary} href="/">지도로 돌아가기</Link></div></section>
+ </main>;
  if(snapshot&&!enabled)return <main className={styles.shell} style={{'--owner-accent':theme.accent} as CSSProperties}>
   <header className={styles.heading}><div><p className={styles.eyebrow}>{theme.name} · MY STORE</p><h1>내 매장관리</h1><p>{store?.name??'내 가게의 오늘을 관리하세요.'}</p></div>{snapshot.stores.length>1&&<label>관리할 매장<select value={storeId??''} disabled={busy} onChange={event=>{const id=event.target.value;storeRef.current=id;setSnapshot(null);setNotice('');void refresh(id);}}>{snapshot.stores.map(item=><option key={item.id} value={item.id}>{item.name}</option>)}</select></label>}</header>
   <section role="status" className={styles.paywall} aria-labelledby="owner-subscription-title">
@@ -51,7 +57,7 @@ export default function OwnerStoreManager({variant}:{variant:SiteVariant}){
    <p>{snapshot.access.message??'점주 구독 결제와 매장 소유권 확인이 필요합니다.'}</p>
    <strong>월 {MAP_SUBSCRIPTION_AMOUNT_KRW.toLocaleString('ko-KR')}원 <small>(VAT 포함)</small></strong>
    <p>결제가 확인되면 {theme.name} 내 매장관리의 영업 상태, 예약, 웨이팅, 대표메뉴 기능이 열립니다.</p>
-   <MapSubscriptionSettings ownerVerified={Boolean(snapshot&&(snapshot.access.enabled||snapshot.access.code==='map_subscription_required'))}/><div className={styles.actions}><a className={styles.primaryLink} href={`mailto:CEO@NOWGO.IO.KR?subject=${encodeURIComponent(`${theme.name} 점주 구독 결제 문의`)}`}>구독 결제 문의</a><Link className={styles.secondary} href="/">지도로 돌아가기</Link></div>
+   <MapSubscriptionSettings autoOpen={snapshot?.access.code==='map_subscription_required'} ownerVerified={Boolean(snapshot&&(snapshot.access.enabled||snapshot.access.code==='map_subscription_required'))}/><div className={styles.actions}>{snapshot.access.code==='approval_required'&&<a className={styles.primaryLink} href="https://nowgo.space/owner/signup">점주 매장 등록·소유권 확인</a>}<Link className={styles.secondary} href="/">지도로 돌아가기</Link></div>
   </section>
  </main>;
  return <main className={styles.shell} style={{'--owner-accent':theme.accent} as CSSProperties}>
