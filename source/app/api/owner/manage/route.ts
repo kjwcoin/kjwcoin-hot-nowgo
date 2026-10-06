@@ -1,11 +1,12 @@
 import {verifiedUser} from '@/lib/supabase';
 import {reply,validOrigin} from '@/lib/server';
+import {variantForHost} from '@/lib/site-config';
 export const dynamic='force-dynamic';
 async function proxy(request:Request){
  try{
   if(request.method==='POST'&&(!request.headers.get('origin')||!validOrigin(request)))return reply(request,{error:'요청 출처를 확인해 주세요.'},403);
   const auth=await verifiedUser(request);if(!auth)return reply(request,{error:'이 지도에서 점주 계정으로 로그인해 주세요.'},401);
-  const url=new URL('https://nowgo.space/api/map-owner');
+  const url=new URL('https://nowgo.space/api/map-owner');url.searchParams.set('planet',variantForHost(new URL(request.url).hostname));
   const storeId=new URL(request.url).searchParams.get('storeId');
   if(storeId){if(!/^[a-f0-9-]{36}$/i.test(storeId))return reply(request,{error:'매장을 확인해 주세요.'},400);url.searchParams.set('storeId',storeId);}
   const headers=new Headers({Authorization:request.headers.get('authorization')!,Origin:url.origin});
@@ -24,3 +25,4 @@ async function proxy(request:Request){
 }
 export const GET=proxy;
 export const POST=proxy;
+
