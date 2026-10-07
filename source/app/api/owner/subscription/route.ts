@@ -5,7 +5,7 @@ export const dynamic='force-dynamic';
 async function proxy(request:Request){try{
  if(request.method==='POST'&&(!request.headers.get('origin')||!validOrigin(request)))return reply(request,{error:'요청 출처를 확인해 주세요.'},403);
  if(!await verifiedUser(request))return reply(request,{error:'점주 계정으로 로그인해 주세요.'},401);
- const url=new URL('https://nowgo.space/api/owner/subscription');url.searchParams.set('product','space_map');const planet=variantForHost(new URL(request.url).hostname);url.searchParams.set('planet',planet);
+ const url=new URL('https://nowgo-prod.vercel.app/api/owner/subscription');url.searchParams.set('product','space_map');const planet=variantForHost(new URL(request.url).hostname);url.searchParams.set('planet',planet);
  let body:string|undefined;
  if(request.method==='POST'){
   const raw=await request.text();if(raw.length>2048)return reply(request,{error:'요청이 너무 큽니다.'},413);
