@@ -5,7 +5,7 @@ import {api} from '@/lib/client';
 import styles from './map-subscription-settings.module.css';
 import {siteConfig,variantForHost} from '@/lib/site-config';
 type Status={ready:boolean;status:string;pending:boolean;expiresAt:string|null;cancelAtPeriodEnd:boolean;isTest:boolean;nextPaymentAt:string|null;checkedAt:number};
-const consentVersion='2026-10-07-paypal-usd-v1';
+const consentVersion='2026-10-07-paypal-usd-v2';
 export default function MapSubscriptionSettings({ownerVerified,required=false,onActivated}:{ownerVerified:boolean;required?:boolean;onActivated?:()=>void}){
  const variant=useSyncExternalStore(()=>()=>{},()=>variantForHost(location.host),()=> 'hot' as const);
  const theme=siteConfig(variant);
@@ -33,14 +33,14 @@ export default function MapSubscriptionSettings({ownerVerified,required=false,on
  if(!ownerVerified)return <div aria-label="점주 구독 로그인 안내"><p>점주 통합계정 로그인과 매장 소유권 확인 후 구독할 수 있습니다.</p><a href="/account/join?type=owner&returnTo=%2Fowner">점주 통합계정 로그인</a></div>;
  return <div aria-label="주식회사 나우고 월 정기결제">
   {status?.isTest&&<p>테스트 결제 · 실제 매장관리 권한은 열리지 않습니다.</p>}
-  {active?<><p>이용 기간 종료: {new Date(status!.expiresAt!).toLocaleString('ko-KR',{timeZone:'Asia/Seoul'})}</p>{status!.nextPaymentAt&&!status!.cancelAtPeriodEnd?<p>다음 결제일: {new Date(status!.nextPaymentAt!).toLocaleString('ko-KR',{timeZone:'Asia/Seoul'})}</p>:null}{status!.cancelAtPeriodEnd?<p>자동갱신 해지 완료</p>:<button disabled={busy} onClick={()=>act('cancel')}>다음 회차 자동결제 해지</button>}</>:<button type="button" disabled={busy} onClick={()=>subscriptionDialog.current?.showModal()}>구독 월 US$11</button>}
+  {active?<><p>이용 기간 종료: {new Date(status!.expiresAt!).toLocaleString('ko-KR',{timeZone:'Asia/Seoul'})}</p>{status!.nextPaymentAt&&!status!.cancelAtPeriodEnd?<p>다음 결제일: {new Date(status!.nextPaymentAt!).toLocaleString('ko-KR',{timeZone:'Asia/Seoul'})}</p>:null}{status!.cancelAtPeriodEnd?<p>자동갱신 해지 완료</p>:<button disabled={busy} onClick={()=>act('cancel')}>다음 회차 자동결제 해지</button>}</>:<button type="button" disabled={busy} onClick={()=>subscriptionDialog.current?.showModal()}>구독 월 US$8</button>}
   <dialog ref={subscriptionDialog} onCancel={event=>{if(required)event.preventDefault()}} onClose={()=>{if(required&&ownerVerified&&!active)subscriptionDialog.current?.showModal()}} aria-modal="true" aria-labelledby="map-subscription-dialog-title" className={styles.dialog} style={cardStyle}>
    <header className={styles.header}><h2 id="map-subscription-dialog-title">{theme.name} 내 매장관리</h2><span>단일 구독</span></header>
    <div className={styles.layout}><section className={styles.overview}>
-   <p className={styles.price}><strong>US$11</strong> / 월</p><p className={styles.vat}>부가세 포함</p>
+   <p className={styles.price}><strong>US$8</strong> / 월</p><p className={styles.vat}>부가세 포함</p>
    <ul className={styles.features}>{['실시간 영업 상태·혼잡도 관리','대표메뉴·가격·사진 관리','예약 접수·예약 내역 관리','웨이팅 접수·대기 팀 관리','선택한 지도에 매장 운영 정보 반영'].map(feature=><li key={feature}><span aria-hidden="true">✓</span>{feature}</li>)}</ul>
    </section><section className={styles.payment} aria-label="구독 신청"><h3>구독 시작하기</h3>{status?.isTest&&<p role="status">테스트 결제 모드 · 실제 청구와 매장관리 권한 부여는 진행되지 않습니다.</p>}{status&&!status.ready&&<p role="status">결제 연결을 준비 중입니다. 아직 결제가 시작되지 않았습니다.</p>}<p>선택한 지도의 구독을 USD로 결제합니다. HOT·SWEET·RICH 구독은 각각 별도입니다.</p>
-   <label className={styles.consent}><input type="checkbox" className={styles.checkbox} checked={consent} onChange={e=>setConsent(e.target.checked)}/>월 US$11(부가세 포함)을 PayPal 결제창에서 결제하고 매월 자동 결제하는 데 동의합니다.</label>
+   <label className={styles.consent}><input type="checkbox" className={styles.checkbox} checked={consent} onChange={e=>setConsent(e.target.checked)}/>월 US$8(부가세 포함)을 PayPal 결제창에서 결제하고 매월 자동 결제하는 데 동의합니다.</label>
    <details className={styles.details}><summary>정기결제·해지·환불 안내</summary><p>첫 결제는 신청 시 진행되며 다음 결제일은 구독설정에 표시됩니다. 언제든 다음 회차 자동갱신을 해지할 수 있고 결제된 기간 종료일까지 이용할 수 있습니다. 청약철회·환불은 이용약관과 관계 법령에 따릅니다. 나우고 스페이스 구독과 별도이며 기존 계약을 자동 전환하지 않습니다.</p></details>
    <p><a href="/terms" target="_blank" rel="noreferrer">이용약관 보기</a></p>
    <button type="button" className={styles.subscribe} disabled={busy||!consent||!status?.ready} onClick={()=>act('start')}>{busy?'처리 중…' :'동의하고 구독하기'}</button>
@@ -48,7 +48,7 @@ export default function MapSubscriptionSettings({ownerVerified,required=false,on
    {!required&&<button className={styles.secondary} type="button" disabled={busy} onClick={()=>subscriptionDialog.current?.close()}>닫기</button>}
    {required&&<><button className={styles.secondary} type="button" disabled={busy} onClick={()=>act('refresh')}>결제 완료 후 다시 확인</button><p><Link href="/">지도로 돌아가기</Link></p></>}
    <p>회원탈퇴 시 HOT·RICH·SWEET의 모든 연결 매장과 나우고 스페이스 월 구독까지 함께 종료됩니다. <a href="https://nowgo.space/account/withdraw">회원탈퇴 · 전체 서비스 종료</a></p>
-   <p className={styles.footnote}>월 구독 US$11 · 부가세 포함 · 결제 확인 후 내 매장관리 이용</p>
+   <p className={styles.footnote}>월 구독 US$8 · 부가세 포함 · 결제 확인 후 내 매장관리 이용</p>
    {message&&<p role="status">{message}</p>}
    </section></div>
   </dialog>
