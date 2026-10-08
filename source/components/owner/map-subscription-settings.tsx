@@ -5,7 +5,7 @@ import {api} from '@/lib/client';
 import styles from './map-subscription-settings.module.css';
 import {siteConfig,variantForHost} from '@/lib/site-config';
 type Status={ready:boolean;status:string;pending:boolean;expiresAt:string|null;cancelAtPeriodEnd:boolean;isTest:boolean;nextPaymentAt:string|null;checkedAt:number};
-const consentVersion='2026-10-07-paypal-usd-v2';
+const consentVersion='2026-10-08-paddle-usd-v1';
 export default function MapSubscriptionSettings({ownerVerified,required=false,onActivated}:{ownerVerified:boolean;required?:boolean;onActivated?:()=>void}){
  const variant=useSyncExternalStore(()=>()=>{},()=>variantForHost(location.host),()=> 'hot' as const);
  const theme=siteConfig(variant);
@@ -16,10 +16,10 @@ export default function MapSubscriptionSettings({ownerVerified,required=false,on
  const load=useCallback(async()=>{if(!ownerVerified)return;const s=await api<Status>('/api/owner/subscription');setStatus({...s,checkedAt:Date.now()})},[ownerVerified]);
  useEffect(()=>{if(!ownerVerified){subscriptionDialog.current?.close();return}let active=true;api<Status>('/api/owner/subscription').then(s=>{if(active)setStatus({...s,checkedAt:Date.now()})}).catch(e=>{if(active)setMessage(e.message)});return()=>{active=false}},[ownerVerified]);
  async function act(action:'start'|'refresh'|'cancel'){
-  if(!ownerVerified)return;
+  if(!ownerVerified||busy)return;
   setBusy(true);setMessage('');try{
    const result=await api<{checkoutUrl?:string}>('/api/owner/subscription',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action,...(action==='start'?{consentAccepted:consent,consentVersion}:{})})});
-   if(result.checkoutUrl){const u=new URL(result.checkoutUrl);if(u.protocol!=='https:'||u.hostname!=='www.paypal.com')throw new Error('결제 링크를 확인해 주세요.');window.location.assign(u.toString());return}
+   if(result.checkoutUrl){const u=new URL(result.checkoutUrl);if(u.origin!=='https://nowgo.space'||u.pathname!=='/billing/paddle-checkout'||!/^txn_[a-z\d]{26}$/.test(u.searchParams.get('_ptxn')??'')||u.username||u.password)throw new Error('결제 링크를 확인해 주세요.');window.location.assign(u.toString());return}
    await load();setMessage(action==='cancel'?'다음 회차 자동결제를 해지했습니다.':'구독 상태를 확인했습니다.');
   }catch(e){setMessage(e instanceof Error?e.message:'구독 상태를 확인하지 못했어요.')}finally{setBusy(false)}
  }
@@ -40,7 +40,7 @@ export default function MapSubscriptionSettings({ownerVerified,required=false,on
    <p className={styles.price}><strong>US$8</strong> / 월</p><p className={styles.vat}>부가세 포함</p>
    <ul className={styles.features}>{['실시간 영업 상태·혼잡도 관리','대표메뉴·가격·사진 관리','예약 접수·예약 내역 관리','웨이팅 접수·대기 팀 관리','선택한 지도에 매장 운영 정보 반영'].map(feature=><li key={feature}><span aria-hidden="true">✓</span>{feature}</li>)}</ul>
    </section><section className={styles.payment} aria-label="구독 신청"><h3>구독 시작하기</h3>{status?.isTest&&<p role="status">테스트 결제 모드 · 실제 청구와 매장관리 권한 부여는 진행되지 않습니다.</p>}{status&&!status.ready&&<p role="status">결제 연결을 준비 중입니다. 아직 결제가 시작되지 않았습니다.</p>}<p>선택한 지도의 구독을 USD로 결제합니다. HOT·SWEET·RICH 구독은 각각 별도입니다.</p>
-   <label className={styles.consent}><input type="checkbox" className={styles.checkbox} checked={consent} onChange={e=>setConsent(e.target.checked)}/>월 US$8(부가세 포함)을 PayPal 결제창에서 결제하고 매월 자동 결제하는 데 동의합니다.</label>
+   <label className={styles.consent}><input type="checkbox" className={styles.checkbox} checked={consent} onChange={e=>setConsent(e.target.checked)}/>월 US$8(부가세 포함)을 Paddle 결제창에서 결제하고 매월 자동 결제하는 데 동의합니다.</label>
    <details className={styles.details}><summary>정기결제·해지·환불 안내</summary><p>첫 결제는 신청 시 진행되며 다음 결제일은 구독설정에 표시됩니다. 언제든 다음 회차 자동갱신을 해지할 수 있고 결제된 기간 종료일까지 이용할 수 있습니다. 청약철회·환불은 이용약관과 관계 법령에 따릅니다. 나우고 스페이스 구독과 별도이며 기존 계약을 자동 전환하지 않습니다.</p></details>
    <p><a href="/terms" target="_blank" rel="noreferrer">이용약관 보기</a></p>
    <button type="button" className={styles.subscribe} disabled={busy||!consent||!status?.ready} onClick={()=>act('start')}>{busy?'처리 중…' :'동의하고 구독하기'}</button>
