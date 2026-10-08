@@ -48,7 +48,7 @@ export default function OwnerStoreManager({variant}:{variant:SiteVariant}){
  if(error&&!snapshot)return <main className={styles.shell} style={{'--owner-accent':theme.accent} as CSSProperties}>
   <header className={styles.heading}><div><p className={styles.eyebrow}>{theme.name} · MY STORE</p><h1>내 매장관리</h1></div></header>
   <section className={styles.paywall}><h2>{needsLogin?'점주 계정으로 로그인해 주세요':failureCode==='owner_required'?'점주 매장 등록을 완료해 주세요':'매장 정보를 확인하지 못했어요'}</h2><p role="alert">{error}</p>
-  {failureCode==='owner_required'&&<p>통합회원 로그인 후 점주 매장 등록과 소유권 확인이 필요합니다. 등록한 매장이 확인되면 월 1,900원 구독을 신청할 수 있습니다.</p>}
+  {failureCode==='owner_required'&&<p>통합회원 로그인 후 점주 매장 등록과 소유권 확인이 필요합니다. 등록한 매장이 확인되면 월 8,000원 구독을 신청할 수 있습니다.</p>}
   <div className={styles.actions}>{needsLogin&&<Link className={styles.primaryLink} href="/account/join?type=owner&returnTo=%2Fowner">점주 통합계정 로그인</Link>}{failureCode==='owner_required'&&<a className={styles.primaryLink} href="https://nowgo.space/owner/signup">점주 매장 등록</a>}<button disabled={busy} onClick={()=>void refresh()}>다시 확인</button><Link className={styles.secondary} href="/">지도로 돌아가기</Link></div></section>
  </main>;
  if(snapshot&&!enabled)return <main className={styles.shell} style={{'--owner-accent':theme.accent} as CSSProperties}>
