@@ -8,11 +8,11 @@ function render(status,required=true){
  const effects=[];let index=0;const values=[status,false,false,''];
  const dialog={open:false,showModal(){this.open=true},close(){this.open=false}};
  const React={createElement(type,props,...children){return {type,props:props??{},children}}};
- const hooks={useState(){return [values[index++],()=>{}]},useRef(){return {current:dialog}},useCallback(fn){return fn},useEffect(fn){effects.push(fn)}};
+ const hooks={useSyncExternalStore(){return 'hot'},useState(){return [values[index++],()=>{}]},useRef(){return {current:dialog}},useCallback(fn){return fn},useEffect(fn){effects.push(fn)}};
  const source=fs.readFileSync(new URL('../components/owner/map-subscription-settings.tsx',import.meta.url),'utf8');
  const code=ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.CommonJS,jsx:ts.JsxEmit.React}}).outputText;
  const exports={};let unlocked=0;
- vm.runInNewContext(code,{exports,React,Date,URL,window:{addEventListener(){},removeEventListener(){}},setInterval(){return 1},clearInterval(){},require(name){return name==='react'?hooks:name==='next/link'?{default:'link'}:{api:async()=>status}}});
+ vm.runInNewContext(code,{exports,React,Date,URL,window:{addEventListener(){},removeEventListener(){}},setInterval(){return 1},clearInterval(){},require(name){return name==='react'?hooks:name.endsWith('.module.css')?{default:{}}:name==='next/link'?{default:'link'}:name==='@/lib/site-config'?{variantForHost:()=> 'hot',siteConfig:()=>({name:'HOT',accent:'#a00'})}:{api:async()=>status}}});
  const tree=exports.default({ownerVerified:true,required,onActivated(){unlocked++}});
  effects.forEach(fn=>fn());
  const nodes=[];function walk(value){if(!value||typeof value!=='object')return;if(Array.isArray(value)){value.forEach(walk);return}nodes.push(value);value.children?.forEach(walk)}walk(tree);
