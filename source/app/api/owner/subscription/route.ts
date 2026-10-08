@@ -10,7 +10,8 @@ async function proxy(request:Request){try{
  if(request.method==='POST'){
   const raw=await request.text();if(raw.length>2048)return reply(request,{error:'요청이 너무 큽니다.'},413);
   const b=JSON.parse(raw);if(!b||typeof b!=='object'||!['start','refresh','cancel'].includes(b.action))return reply(request,{error:'요청을 확인해 주세요.'},400);
-  body=JSON.stringify({action:b.action,product:'space_map',planet,...(b.action==='start'?{consentAccepted:b.consentAccepted,consentVersion:b.consentVersion}:{})});
+  if(b.action==='start')return reply(request,{error:'Paddle 원화 결제를 준비 중입니다.'},503);
+  body=JSON.stringify({action:b.action,product:'space_map',planet});
  }
  const response=await fetch(url,{method:request.method,headers:{Authorization:request.headers.get('authorization')!,Origin:url.origin,'Content-Type':'application/json'},body,cache:'no-store',redirect:'error',signal:AbortSignal.timeout(60000)});
  if(!response.headers.get('content-type')?.includes('application/json'))throw new Error('invalid response');
