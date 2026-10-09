@@ -4,9 +4,10 @@
  .we-dialog{width:calc(100vw - 32px)!important;max-width:380px!important;height:auto;max-height:calc(100svh - 48px);max-height:calc(100dvh - 48px);border-radius:18px!important;overscroll-behavior:contain}
  .we-content{padding:12px 20px 16px}
  .we-top{gap:8px;padding:10px 14px;background:var(--background,#0c142f)}
+ .we-top .brand.brand-logo{width:68px;height:28px}
  .we-top img{width:78px;height:28px}
- .we-top>span{font-size:12px}
- .we-top>button{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:8px;gap:4px;font-size:14px}
+ .we-top>span{flex:1;min-width:0;font-size:12px;line-height:1.3}
+ .we-top>button{display:inline-flex;flex:none;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:8px;gap:4px;font-size:14px}
  .we-top>button svg{width:18px;height:18px}
  .we-close-full,.we-description-full,.we-hero .aw-eyebrow{display:none}
  .we-close-compact,.we-description-compact{display:inline}
