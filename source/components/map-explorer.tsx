@@ -11,6 +11,7 @@ import {NativeSelect} from '@/components/ui/native-select';
 import ReviewLink from '@/components/review-link';
 import CustomerPanel from './customer-panel';
 import ReporterLeaderboard from './reporter-leaderboard';
+import MapChat from './map-chat';
 import VisitActions from './activity/visit-actions';
 import KakaoMap,{type KakaoMapHandle} from './kakao-map';
 import {locationStatusText,type LocationState} from '@/lib/request-current-location';
@@ -80,6 +81,7 @@ export default function MapExplorer({variant='hot'}:{variant?:SiteVariant}){
     <a className="explorer-photo-credit" href="/suggestion#photo-credits">참고 사진 출처 및 시안 안내</a></div>}
    </aside>
    <a className="explorer-report explorer-report--floating" href="/suggestion#report"><Plus size={22}/><span>제보 및 등록</span><ArrowUpRight size={19}/></a>
+   <MapChat variant={variant}/>
   </div>
   {!worldEntryOpen&&<FirstLoginTour taste={variant} page="map"/>}
  </main>
