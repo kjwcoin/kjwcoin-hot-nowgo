@@ -14,13 +14,13 @@ async function proxy(request:Request){try{
   if(b.action==='start'){
    if(b.consentAccepted!==true||b.consentVersion!==MAP_SUBSCRIPTION_TERMS_VERSION)return reply(request,{error:'월 8,000원 정기결제 동의를 확인해 주세요.'},400);
    const check=await fetch(url,{headers:{Authorization:request.headers.get('authorization')!},cache:'no-store',redirect:'error',signal:AbortSignal.timeout(30000)});
-   const state=await check.json();if(!check.ok||state.provider!=='paddle'||state.ready!==true||state.isTest===true)return reply(request,{error:'Paddle 심사 완료 후 결제가 열립니다.'},503);
+   const state=await check.json();if(!check.ok||state.provider!=='paddle'||state.ready!==true||state.isTest===true)return reply(request,{error:'결제를 준비 중입니다. 잠시 후 다시 확인해 주세요.'},503);
   }
   body=JSON.stringify({action:b.action,product:'space_map',planet,...(b.action==='start'?{consentAccepted:true,consentVersion:MAP_SUBSCRIPTION_TERMS_VERSION}:{})});
  }
  const response=await fetch(url,{method:request.method,headers:{Authorization:request.headers.get('authorization')!,Origin:url.origin,'Content-Type':'application/json'},body,cache:'no-store',redirect:'error',signal:AbortSignal.timeout(60000)});
  if(!response.headers.get('content-type')?.includes('application/json'))throw new Error('invalid response');
- const data=await response.json();return reply(request,response.ok?data:{error:data.error?.message??'결제 연결을 확인하지 못했어요.'},response.status);
+ const data=await response.json();const message=String(data.error?.message??'구독 연결을 확인하지 못했어요.').replace(/paddle|패들/gi,'구독 서비스');return reply(request,response.ok?data:{error:message},response.status);
 }catch{return reply(request,{error:'결제 연결을 확인하지 못했어요. 잠시 후 다시 확인해 주세요.'},503)}}
 export const GET=proxy;
 export const POST=proxy;

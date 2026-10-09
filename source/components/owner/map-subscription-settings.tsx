@@ -37,10 +37,10 @@ export default function MapSubscriptionSettings({ownerVerified,required=false,on
    <div className={styles.layout}><section className={styles.overview}>
    <p className={styles.price}><strong>8,000원</strong> / 월</p><p className={styles.vat}>부가세 포함</p>
    <ul className={styles.features}>{['실시간 영업 상태·혼잡도 관리','대표메뉴·가격·사진 관리','예약 접수·예약 내역 관리','웨이팅 접수·대기 팀 관리','선택한 지도에 매장 운영 정보 반영'].map(feature=><li key={feature}><span aria-hidden="true">✓</span>{feature}</li>)}</ul>
-   </section><section className={styles.payment} aria-label="구독 신청"><h3>구독 시작하기</h3>{status?.isTest&&<p role="status">테스트 결제 모드 · 실제 청구와 매장관리 권한 부여는 진행되지 않습니다.</p>}<p role="status">Paddle 원화 결제를 준비 중입니다.</p><p>선택한 지도의 구독을 Paddle에서 원화로 결제합니다. HOT·SWEET·RICH 구독은 각각 별도입니다.</p>
+   </section><section className={styles.payment} aria-label="구독 신청"><h3>구독 시작하기</h3>{status?.isTest&&<p role="status">테스트 결제 모드 · 실제 청구와 매장관리 권한 부여는 진행되지 않습니다.</p>}<p role="status">결제를 준비 중입니다.</p><p>HOT·SWEET·RICH 구독은 각각 별도입니다.</p>
    <details className={styles.details}><summary>정기결제·해지·환불 안내</summary><p>첫 결제는 신청 시 진행되며 다음 결제일은 구독설정에 표시됩니다. 언제든 다음 회차 자동갱신을 해지할 수 있고 결제된 기간 종료일까지 이용할 수 있습니다. 청약철회·환불은 이용약관과 관계 법령에 따릅니다. 나우고 스페이스 구독과 별도이며 기존 계약을 자동 전환하지 않습니다.</p></details>
    <p><a href="/terms" target="_blank" rel="noreferrer">이용약관 보기</a></p>
-   <button type="button" className={styles.subscribe} disabled>Paddle 결제 준비 중</button>
+   <button type="button" className={styles.subscribe} disabled>8,000원</button>
    {!required&&<button className={styles.secondary} type="button" disabled={busy} onClick={()=>subscriptionDialog.current?.close()}>닫기</button>}
    {required&&<><button className={styles.secondary} type="button" disabled={busy} onClick={()=>act('refresh')}>결제 완료 후 다시 확인</button><p><Link href="/">지도로 돌아가기</Link></p></>}
    <p>회원탈퇴 시 HOT·RICH·SWEET의 모든 연결 매장과 나우고 스페이스 월 구독까지 함께 종료됩니다. <a href="https://nowgo.space/account/withdraw">회원탈퇴 · 전체 서비스 종료</a></p>

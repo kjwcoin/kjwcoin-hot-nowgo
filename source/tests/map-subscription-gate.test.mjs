@@ -39,7 +39,7 @@ test('subscription settings outside the paywall remain dismissible',()=>{
 });
 test('new checkout remains unavailable even if the legacy backend reports ready',()=>{
  const {nodes}=render({ready:true,status:'none',isTest:false});
- const checkout=nodes.find(n=>n.type==='button'&&n.children.includes('Paddle 결제 준비 중'));
+ const checkout=nodes.find(n=>n.type==='button'&&n.children.includes('8,000원'));
  assert.equal(checkout.props.disabled,true);
  assert.equal(checkout.props.onClick,undefined);
 });
