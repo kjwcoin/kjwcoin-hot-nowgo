@@ -8,3 +8,5 @@
 .menuRow{display:flex;align-items:center;gap:12px;border:1px solid #e2e8ec;border-radius:12px;padding:12px}.menuRow img{flex:none;object-fit:cover;border-radius:9px}.menuRow div{flex:1;min-width:0}.menuRow p{font-size:13px;margin:5px 0;color:#65707a}.menuRow button{flex:none;font-size:12px!important}.card>label{display:grid;gap:8px;margin:18px 0}.heading>div:last-child{display:flex;gap:12px;align-items:center}
 @media(max-width:480px){.menuRow{flex-wrap:wrap}.menuRow button{margin-left:76px}.heading>div:last-child{flex-wrap:wrap}}
 @media(max-width:700px){.paywall{margin-top:28px;padding:24px}.paywall h2{font-size:24px}}
+
+.linkCard{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px 12px;align-items:end;margin:20px 0 24px;padding:16px;border:1px solid #dbe3db;border-radius:14px;background:#f6f8f4}.linkCard label{display:grid;gap:8px;min-width:0;font-size:13px;font-weight:700}.linkCard input{font-size:13px!important;min-width:0}.linkCard p{grid-column:1/-1;margin:0;font-size:12px;line-height:1.7;color:#65707a}.linkCard button{white-space:nowrap}@media(max-width:600px){.linkCard{grid-template-columns:minmax(0,1fr)}.linkCard button{justify-self:start}}

@@ -7,10 +7,11 @@ export async function GET(request:Request){try{
  const auth=await verifiedUser(request);if(!auth)return reply(request,{error:'점주 계정으로 로그인해 주세요.'},401);
  const url=new URL(request.url),storeId=url.searchParams.get('storeId');
  if(storeId&&!/^[0-9a-f-]{36}$/i.test(storeId))return reply(request,{error:'매장을 확인해 주세요.'},400);
- const planet=variantForHost(url.hostname),args={p_planet:planet,p_store:storeId||null};
- let result=await auth.client.rpc('ng_map_owner_dashboard',args);if(result.error)throw result.error;
+ const link=url.searchParams.get('link');if(link&&!/^[0-9a-f-]{36}$/i.test(link))return reply(request,{error:'관리 주소를 확인해 주세요.'},400);
+ const planet=variantForHost(url.hostname),args={p_planet:planet,p_store:storeId||null,p_link:link||null};
+ let result=await auth.client.rpc('ng_map_dashboard_access',args);if(result.error)throw result.error;
  if(result.data?.storeId&&result.data.access?.code==='map_subscription_required'){
-  try{const check=new URL('https://nowgo-prod.vercel.app/api/owner/subscription');check.searchParams.set('product','space_map');check.searchParams.set('planet',planet);await fetch(check,{headers:{Authorization:request.headers.get('authorization')!},cache:'no-store',redirect:'error',signal:AbortSignal.timeout(5000)});const refreshed=await auth.client.rpc('ng_map_owner_dashboard',args);if(!refreshed.error)result=refreshed}catch{}
+  try{const check=new URL('https://nowgo-prod.vercel.app/api/owner/subscription');check.searchParams.set('product','space_map');check.searchParams.set('planet',planet);await fetch(check,{headers:{Authorization:request.headers.get('authorization')!},cache:'no-store',redirect:'error',signal:AbortSignal.timeout(5000)});const refreshed=await auth.client.rpc('ng_map_dashboard_access',args);if(!refreshed.error)result=refreshed}catch{}
  }
  return reply(request,result.data);
 }catch(error){return ownerError(request,error)}}

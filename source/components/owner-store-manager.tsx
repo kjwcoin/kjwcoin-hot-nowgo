@@ -8,16 +8,17 @@ import {publicConfig} from '@/lib/auth-config';
 import {siteConfig,type SiteVariant} from '@/lib/site-config';
 import {OWNER_STATES,type OwnerSnapshot,type OwnerMenu} from '@/lib/owner-management';
 import MenuFields from './owner/menu-fields';
+import DashboardLink from './owner/dashboard-link';
 import styles from './owner-store-manager.module.css';
 
-export default function OwnerStoreManager({variant}:{variant:SiteVariant}){
+export default function OwnerStoreManager({variant,linkId}:{variant:SiteVariant;linkId?:string}){
  const theme=siteConfig(variant),[snapshot,setSnapshot]=useState<OwnerSnapshot|null>(null),[error,setError]=useState(''),[notice,setNotice]=useState(''),[busy,setBusy]=useState(false),[needsLogin,setNeedsLogin]=useState(false),[selected,setSelected]=useState(''),[shutdown,setShutdown]=useState(false);
  const sequence=useRef(0),mounted=useRef(true),saving=useRef(false),storeRef=useRef('');
  const refresh=useCallback(async(store=storeRef.current)=>{
   const run=++sequence.current;
-  try{const result=await api<OwnerSnapshot>('/api/owner/manage'+(store?'?storeId='+encodeURIComponent(store):''));if(!mounted.current||run!==sequence.current)return;setSnapshot(result);setError('');setNeedsLogin(false);}
+  try{const result=await api<OwnerSnapshot>('/api/owner/manage?'+new URLSearchParams({...store?{storeId:store}:{},...linkId?{link:linkId}:{}}));if(!mounted.current||run!==sequence.current)return;setSnapshot(result);setError('');setNeedsLogin(false);}
   catch(e){if(mounted.current&&run===sequence.current){setSnapshot(null);setError(e instanceof Error?e.message:'관리 정보를 불러오지 못했어요.');setNeedsLogin(e instanceof ApiError&&e.status===401);}}
- },[]);
+ },[linkId]);
  useEffect(()=>{
   mounted.current=true;const initial=setTimeout(()=>void refresh(),0);const update=()=>{if(!document.hidden&&!saving.current)void refresh()};
   const timer=setInterval(update,15000),{data}=browserDb().auth.onAuthStateChange(()=>{sequence.current++;storeRef.current='';setSnapshot(null);setSelected('');setTimeout(()=>{if(mounted.current)void refresh()},0)});
@@ -35,10 +36,11 @@ export default function OwnerStoreManager({variant}:{variant:SiteVariant}){
  async function register(event:FormEvent<HTMLFormElement>){event.preventDefault();const node=event.currentTarget,form=new FormData(node);form.set('storeId',storeId||'');if(await save(form))node.reset()}
  const photo=(menu:OwnerMenu)=>publicConfig().url+'/storage/v1/object/public/ng-map-menu-photos/'+menu.photoPath;
  const shellStyle={'--owner-accent':theme.accent} as CSSProperties;
- if(!snapshot)return <main className={styles.shell} style={shellStyle}><header className={styles.heading}><div><p className={styles.eyebrow}>{theme.name} · OWNER</p><h1>매장 대시보드</h1></div></header>{error?<div className={`${styles.notice} ${styles.error}`} role="alert"><p>{error}</p>{needsLogin?<Link className={styles.primaryLink} href="/account/join?type=owner&returnTo=%2Fowner%2Fdashboard">점주 로그인</Link>:<button onClick={()=>void refresh()}>다시 확인</button>}<p><Link href="/owner/signup">점주 가입 안내</Link></p></div>:<p role="status">내 매장과 구독을 확인하고 있어요.</p>}</main>;
- if(!enabled)return <main className={styles.shell} style={shellStyle}><section className={styles.paywall}><p className={styles.eyebrow}>{theme.name} · OWNER</p><h1>매장 대시보드</h1><p>{store?store.name+'의 지도 구독을 확인해 주세요.':'점주 가입과 매장 소유권 확인을 먼저 완료해 주세요.'}</p><strong>월 8,000원 <small>부가세 포함</small></strong><p>영업현황 · 사진 필수 메뉴등록 · 메뉴품절 관리 · 맛·단계·결 설정</p><Link className={styles.primaryLink} href={store?'/owner/subscribe':'/owner/signup'}>{store?'구독 페이지로 이동':'점주 가입하기'}</Link></section></main>;
+ if(!snapshot)return <main className={styles.shell} style={shellStyle}><header className={styles.heading}><div><p className={styles.eyebrow}>{theme.name} · OWNER</p><h1>매장 대시보드</h1></div></header>{error?<div className={`${styles.notice} ${styles.error}`} role="alert"><p>{error}</p>{needsLogin?<Link className={styles.primaryLink} href={'/account/join?type=owner&returnTo='+encodeURIComponent('/owner/dashboard'+(linkId?'/'+linkId:''))}>점주 로그인</Link>:<button onClick={()=>void refresh()}>다시 확인</button>}<p><Link href="/owner/signup">점주 가입 안내</Link></p></div>:<p role="status">내 매장과 구독을 확인하고 있어요.</p>}</main>;
+ if(!enabled)return <main className={styles.shell} style={shellStyle}><section className={styles.paywall}><p className={styles.eyebrow}>{theme.name} · OWNER</p><h1>매장 대시보드</h1><p>{store?store.name+'의 지도 구독을 확인해 주세요.':'점주 가입과 매장 소유권 확인을 먼저 완료해 주세요.'}</p><strong>월 8,000원 <small>부가세 포함</small></strong><p>영업현황 · 사진 필수 메뉴등록 · 메뉴품절 관리 · 맛·단계·결 설정</p><DashboardLink url={snapshot.managementUrl}/><Link className={styles.primaryLink} href={store&&snapshot.access.code!=='approval_required'?'/owner/subscribe':'/owner/signup'}>{store&&snapshot.access.code!=='approval_required'?'구독 페이지로 이동':'점주 가입하기'}</Link></section></main>;
  return <main className={styles.shell} style={shellStyle}>
- <header className={styles.heading}><div><p className={styles.eyebrow}>{theme.name} · OWNER</p><h1>{store?.name||'매장 대시보드'}</h1><p>메뉴와 오늘의 영업현황을 지도에 알려 주세요.</p></div><div>{snapshot.stores.length>1&&<label>관리할 매장<select value={storeId||''} disabled={busy} onChange={e=>{storeRef.current=e.target.value;setSelected('');setShutdown(false);void refresh(e.target.value)}}>{snapshot.stores.map(s=><option value={s.id} key={s.id}>{s.name}</option>)}</select></label>}<Link className={styles.secondary} href="/owner/subscribe">구독 정보</Link></div></header>
+ <header className={styles.heading}><div><p className={styles.eyebrow}>{theme.name} · OWNER</p><h1>{store?.name||'매장 대시보드'}</h1><p>메뉴와 오늘의 영업현황을 지도에 알려 주세요.</p></div><div>{snapshot.stores.length>1&&!linkId&&<label>관리할 매장<select value={storeId||''} disabled={busy} onChange={e=>{storeRef.current=e.target.value;setSelected('');setShutdown(false);void refresh(e.target.value)}}>{snapshot.stores.map(s=><option value={s.id} key={s.id}>{s.name}</option>)}</select></label>}<Link className={styles.secondary} href="/owner/subscribe">구독 정보</Link></div></header>
+ <DashboardLink url={snapshot.managementUrl}/>
  <nav className={styles.nav} aria-label="매장 관리 기능">{[['status','영업현황'],['register-menu','메뉴등록'],['soldout','메뉴품절 관리'],['taste','맛·단계·결']].map(([id,text])=><a key={id} href={'#'+id}>{text}</a>)}</nav>
  {notice&&<p className={styles.message} role="status">{notice}</p>}{error&&<p className={`${styles.message} ${styles.error}`} role="alert">{error}</p>}
  <div className={styles.grid}>

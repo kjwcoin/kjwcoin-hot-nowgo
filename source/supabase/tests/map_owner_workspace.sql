@@ -29,8 +29,12 @@ do $$ declare s uuid:=current_setting('owner.test_store')::uuid;m uuid:=current_
  begin perform public.ng_map_adopt_signup_menu(s,'hot',m,100,1,'칼칼한','기타',current_setting('owner.test_signup_photo'));raise exception 'Unpaid edit through signup accepted';exception when insufficient_privilege then null;end;
  perform public.ng_map_register_contact('010-1234-5678','hot',s);
  perform public.ng_map_register_contact('010-1234-5678','hot',s);
- if (select count(*) from public.ng_map_owner_link_messages where owner_id=auth.uid())<>1 then raise exception 'SMS registration not idempotent';end if;
- if not exists(select 1 from public.ng_map_owner_link_messages where owner_id=auth.uid() and management_url='https://hot.nowgo.space/owner/dashboard' and status='awaiting_provider') then raise exception 'Dashboard URL or unsent state incorrect';end if;
+ if (select count(*) from public.ng_map_owner_dashboard_links where owner_id=auth.uid())<>1 then raise exception 'Dashboard URL issuance not idempotent';end if;
+ if exists(select 1 from public.ng_map_owner_link_messages where owner_id=auth.uid()) then raise exception 'SMS was queued';end if;
+ perform set_config('owner.test_dashboard_link',(select id::text from public.ng_map_owner_dashboard_links where owner_id=auth.uid() and planet='hot'),true);
+ if public.ng_map_dashboard_access('hot',current_setting('owner.test_dashboard_link')::uuid,s)->>'managementUrl'<>('https://hot.nowgo.space/owner/dashboard/'||current_setting('owner.test_dashboard_link')) then raise exception 'Unique URL not displayed';end if;
+ if public.ng_map_issue_dashboard_link(s,'sweet')=public.ng_map_issue_dashboard_link(s,'rich') then raise exception 'Map links shared';end if;
+ begin perform public.ng_map_dashboard_access('sweet',current_setting('owner.test_dashboard_link')::uuid,s);raise exception 'Cross-map link accepted';exception when insufficient_privilege then null;end;
 end $$;
 reset role;
 insert into public.ng_paddle_subscriptions(owner_id,product,price_id,status,paid_until,verified_at,consent_version) values(current_setting('owner.test_user')::uuid,'hot','pri_01m4d46kazt8e590qejkz7d9wa','active',now()+interval '1 month',now(),'2026-10-08-paddle-krw-v1');
@@ -58,6 +62,7 @@ do $$ declare s uuid:=current_setting('owner.test_store')::uuid;m uuid;v text;be
  if not exists(select 1 from public.ng_map_hot_menu_catalog where id=m) then raise exception 'Published photo reference lost';end if;
 end $$;
 reset role;
+do $$ begin if not exists(select 1 from storage.objects where bucket_id='ng-map-menu-photos' and name=current_setting('owner.test_paid_photo')) then raise exception 'Referenced photo deleted';end if;end $$;
 do $$ declare s uuid:=current_setting('owner.test_store')::uuid;begin
  update public.ng_paddle_subscriptions set status='canceled' where owner_id=current_setting('owner.test_user')::uuid;
  if not public.ng_map_can_publish(s,'hot') then raise exception 'Paid canceled period rejected';end if;
@@ -74,7 +79,9 @@ end $$;
 select set_config('request.jwt.claims',json_build_object('sub',current_setting('owner.test_other'),'role','authenticated','is_anonymous',false)::text,true);
 set local role authenticated;
 do $$ begin
- if exists(select 1 from public.ng_map_owner_link_messages) then raise exception 'Other owner read SMS queue';end if;
+ if exists(select 1 from public.ng_map_owner_dashboard_links) then raise exception 'Other owner read private dashboard links';end if;
+ begin perform public.ng_map_dashboard_access('hot',current_setting('owner.test_dashboard_link')::uuid,null);raise exception 'Other owner used dashboard link';exception when insufficient_privilege then null;end;
+ begin perform public.ng_map_issue_dashboard_link(current_setting('owner.test_store')::uuid,'hot');raise exception 'Other owner issued link';exception when insufficient_privilege then null;end;
  begin perform public.ng_map_owner_dashboard('hot',current_setting('owner.test_store')::uuid);raise exception 'Other dashboard exposed';exception when insufficient_privilege then null;end;
  begin perform public.ng_map_set_status(current_setting('owner.test_store')::uuid,'hot','open');raise exception 'Other owner changed status';exception when insufficient_privilege then null;end;
  begin perform public.ng_map_register_contact('01012345678','hot',current_setting('owner.test_store')::uuid);raise exception 'Other owner registered contact';exception when insufficient_privilege then null;end;
@@ -90,7 +97,8 @@ reset role;
 set local role anon;
 do $$ begin
  begin perform public.ng_map_owner_dashboard('hot',null);raise exception 'Guest dashboard exposed';exception when insufficient_privilege then null;end;
- begin perform * from public.ng_map_owner_link_messages;raise exception 'Guest SMS data exposed';exception when insufficient_privilege then null;end;
+ begin perform * from public.ng_map_owner_dashboard_links;raise exception 'Guest dashboard links exposed';exception when insufficient_privilege then null;end;
+ begin perform public.ng_map_dashboard_access('hot',current_setting('owner.test_dashboard_link')::uuid,null);raise exception 'Guest used dashboard link';exception when insufficient_privilege then null;end;
  begin perform * from public.ng_owner_contacts;raise exception 'Guest phone data exposed';exception when insufficient_privilege then null;end;
  if (select count(*) from public.ng_map_hot_menu_catalog where owner_store_id=current_setting('owner.test_store')::uuid)<>2 then raise exception 'Public menu read failed';end if;
 end $$;
