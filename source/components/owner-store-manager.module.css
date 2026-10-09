@@ -5,4 +5,6 @@
 .paywall>strong{display:block;margin:24px 0 8px;font-size:30px;color:var(--owner-accent)}
 .paywall>strong small{font-size:14px;color:#65707a}
 .primaryLink{display:inline-flex;align-items:center;justify-content:center;min-height:44px;border-radius:12px;padding:10px 16px;background:var(--owner-accent);color:#fff;text-decoration:none;font-weight:800;font-size:14px}
+.menuRow{display:flex;align-items:center;gap:12px;border:1px solid #e2e8ec;border-radius:12px;padding:12px}.menuRow img{flex:none;object-fit:cover;border-radius:9px}.menuRow div{flex:1;min-width:0}.menuRow p{font-size:13px;margin:5px 0;color:#65707a}.menuRow button{flex:none;font-size:12px!important}.card>label{display:grid;gap:8px;margin:18px 0}.heading>div:last-child{display:flex;gap:12px;align-items:center}
+@media(max-width:480px){.menuRow{flex-wrap:wrap}.menuRow button{margin-left:76px}.heading>div:last-child{flex-wrap:wrap}}
 @media(max-width:700px){.paywall{margin-top:28px;padding:24px}.paywall h2{font-size:24px}}

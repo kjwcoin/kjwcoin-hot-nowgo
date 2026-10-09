@@ -347,3 +347,5 @@ body[data-theme="sweet"] .menu-heat{background:#197f6c}
 @media(max-width:900px){.explorer-surface>.reporter-ranking{display:none}}
 
 .explorer-item-copy .reporter-store-status{display:block;font-size:13px;line-height:1.45;white-space:normal}
+
+.menu-soldout-badge{display:inline-block;margin-left:6px;padding:2px 7px;border-radius:6px;background:#f1e9de;color:#8b4439;font-size:11px;vertical-align:middle}
