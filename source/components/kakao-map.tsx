@@ -6,6 +6,7 @@ import {isKoreanCoordinate,isKoreanRegion} from '@/lib/korean-region';
 import {NEIGHBORHOOD_LEVEL,type GeoPoint} from '@/lib/nearby-demo';
 import {resolveDemoLand,type DemoLocationState} from '@/lib/resolve-demo-land';
 import {requestCurrentLocation,locationStatusText,type LocationState} from '@/lib/request-current-location';
+import {appGeolocation} from '@/lib/app-geolocation';
 import {money,type Menu} from '@/lib/menus';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -49,9 +50,10 @@ type Props={
  fullScreen?:boolean;
  selectedId?:string;
  variant?:MapVariant;
+ appLocationBridge?:boolean;
 };
 
-export default function KakaoMap({menus,onSelect,onPoint,onLocation,onLocationState,locationControl,onDemoPositions,addressSearch,onAddressFound,onAddressError,fullScreen=false,selectedId,variant='hot'}:Props){
+export default function KakaoMap({menus,onSelect,onPoint,onLocation,onLocationState,locationControl,onDemoPositions,addressSearch,onAddressFound,onAddressError,fullScreen=false,selectedId,variant='hot',appLocationBridge=false}:Props){
  const rootRef=useRef<HTMLDivElement>(null);
  const canvasRef=useRef<HTMLDivElement>(null);
  const mapRef=useRef<any>(null);
@@ -110,13 +112,13 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,onLocationSt
   if(!window.isSecureContext||!navigator.geolocation){setLocationState('unsupported');return}
   locationBusyRef.current=true;
   setLocationState('locating');
-  void requestCurrentLocation(navigator.geolocation,{isCurrent:()=>request===locationRequestRef.current,onRetry:()=>setLocationState('retrying')}).then(result=>{
+  void requestCurrentLocation(appLocationBridge?appGeolocation():navigator.geolocation,{isCurrent:()=>request===locationRequestRef.current,onRetry:()=>setLocationState('retrying')}).then(result=>{
    if(request!==locationRequestRef.current)return;
    locationBusyRef.current=false;
    if(result.state==='located')showNearby(result.point);
    else if(result.state!=='cancelled')setLocationState(result.state);
   });
- },[showNearby]);
+ },[showNearby,appLocationBridge]);
  useImperativeHandle(locationControl,()=>({requestLocation}),[requestLocation]);
 
  useEffect(()=>{

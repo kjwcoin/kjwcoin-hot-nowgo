@@ -1,14 +1,14 @@
 'use client';
 
-import {useState} from 'react';
+import {useCallback,useEffect,useRef,useState} from 'react';
 import {browserDb} from '@/lib/supabase-browser';
 import {returnPath} from '@/lib/integration-policy';
 
-export default function OAuthButtons({flavor, returnTo = '/', accountType = 'user'}: {flavor: string; returnTo?: string; accountType?: 'user' | 'owner'}) {
-  const [pending, setPending] = useState<'kakao' | 'google' | null>(null);
+export default function OAuthButtons({flavor, returnTo = '/', accountType = 'user',initialProvider,includeApple=false}: {flavor: string; returnTo?: string; accountType?: 'user' | 'owner';initialProvider?:'google'|'kakao'|'apple';includeApple?:boolean}) {
+  const [pending, setPending] = useState<'kakao' | 'google' | 'apple' | null>(null);
   const [error, setError] = useState('');
 
-  async function signIn(provider: 'kakao' | 'google') {
+  const signIn=useCallback(async(provider: 'kakao' | 'google' | 'apple')=>{
     if (pending) return;
     setPending(provider);
     setError('');
@@ -30,7 +30,8 @@ export default function OAuthButtons({flavor, returnTo = '/', accountType = 'use
       setPending(null);
       setError(error instanceof Error ? error.message : '로그인 연결을 다시 시도해 주세요.');
     }
-  }
+  },[pending,flavor,returnTo,accountType]);
+  const started=useRef(false);useEffect(()=>{if(initialProvider&&!started.current){started.current=true;void signIn(initialProvider)}},[initialProvider,signIn]);
 
   return <div className="oauth-options">
     <div className="unified-auth-actions">
@@ -40,6 +41,7 @@ export default function OAuthButtons({flavor, returnTo = '/', accountType = 'use
       <button type="button" className="google-login-small" disabled={!!pending} onClick={() => void signIn('google')}>
         {pending === 'google' ? '구글 연결 중' : '구글로 가입·로그인'}
       </button>
+      {includeApple&&<button type="button" className="apple-login-small" style={{background:'#000',color:'#fff',borderRadius:12,padding:'14px 18px'}} disabled={!!pending} onClick={()=>void signIn('apple')}>{pending==='apple'?'Apple 연결 중':'Apple로 가입·로그인'}</button>}
     </div>
     {error && <p className="customer-error" role="alert">{error}</p>}
   </div>;

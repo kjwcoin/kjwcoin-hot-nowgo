@@ -6,7 +6,7 @@ export function browserDb(){
  if(instance)return instance;
  const {url,key}=publicConfig();
  if(!url||!key)throw new Error('NOWGO 통합회원 연결을 준비하고 있습니다.');
- instance=createClient(url,key,{auth:{flowType:'pkce',detectSessionInUrl:false,persistSession:true,autoRefreshToken:true}});
+ instance=createClient(url,key,{auth:{flowType:'pkce',detectSessionInUrl:false,persistSession:true,autoRefreshToken:!Boolean((window as unknown as {webkit?:{messageHandlers?:{nowgo?:unknown}}}).webkit?.messageHandlers?.nowgo)}});
  return instance;
 }
 

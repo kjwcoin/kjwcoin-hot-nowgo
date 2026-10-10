@@ -1,0 +1,3 @@
+html:has(.nowgo-app-entry),body:has(.nowgo-app-entry){margin:0;background:transparent!important;color:#352822;scrollbar-width:none}.nowgo-app-entry{width:100%;padding:22px 20px;background:white;border-radius:22px;box-sizing:border-box;font-family:inherit}.nowgo-app-entry h1{margin:0 0 16px;font-size:18px;text-align:center;font-weight:750}.nowgo-app-entry button{display:block;width:100%;min-height:50px;border-radius:12px;font-size:16px;font-weight:700;border:1px solid #ddd;background:#fff;margin-top:10px}.nowgo-app-entry .app-entry-kakao{background:#fee500;border-color:#fee500;color:#191919}.nowgo-app-entry p{font-size:14px;color:#ac3020;margin:12px 0 0}
+
+.nowgo-app-entry .app-entry-apple{background:#000;color:#fff;border-color:#000}

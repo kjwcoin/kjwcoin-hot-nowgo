@@ -15,3 +15,5 @@ test('unverified owner cannot set official status',()=>assert.equal(resolve({...
 test('customer reports cannot impersonate official owner',()=>assert.equal(resolve({...current,source:'customer'}).open,'확인 필요'));
 test('future timestamps and excessive validity fail closed',()=>{assert.equal(resolve({...current,observed_at:'2026-09-25T00:00:00Z'}).fresh,false);assert.equal(resolve({...current,expires_at:'2026-10-25T00:00:00Z'}).fresh,false)});
 test('wrong place is never linked',()=>assert.equal(resolve({...current,hot_place_id:'other'}).linked,false));
+
+test("app login returns only keep bridge parameters",()=>{assert.equal(returnPath("/app/report-login?role=customer&channel=550e8400-e29b-41d4-a716-446655440000&provider=google&next=https://evil.test"),"/app/report-login?role=customer&channel=550e8400-e29b-41d4-a716-446655440000&provider=google");assert.equal(returnPath("/app/entry"),"/app/entry");assert.equal(returnPath("/app/report?role=customer"),"/app/report")});

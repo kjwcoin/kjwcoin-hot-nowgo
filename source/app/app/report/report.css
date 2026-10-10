@@ -1,0 +1,25 @@
+html:has([data-app-report]),body:has([data-app-report]){margin:0;padding:0;background:transparent;min-height:0;color:#263957;color-scheme:light;scrollbar-width:none}
+body:has([data-app-report])::-webkit-scrollbar{display:none}
+.nowgo-app-report{margin:0;padding:0;background:transparent;max-width:none;font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',sans-serif}
+.nowgo-app-report .report-section{display:block;padding:0;margin:0;width:100%;max-width:none;background:transparent}
+.nowgo-app-report .report-copy,.nowgo-app-report .role-picker{display:none}
+.nowgo-app-report .report-form{width:100%;max-width:none;margin:0;padding:20px;border:1px solid #dee5f3;border-radius:22px;background:#fff;box-shadow:0 8px 28px #456ba114;color:#263957}
+.nowgo-app-report .report-fields{margin:0;padding:0;border:0;min-width:0}.nowgo-app-report .report-fields[hidden]{display:none}
+.nowgo-app-report .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 14px}.nowgo-app-report label{font-size:15px;line-height:1.6;color:#263957;font-weight:650}
+.nowgo-app-report .wide{grid-column:1/-1}.nowgo-app-report input,.nowgo-app-report select,.nowgo-app-report textarea{background:#f5f7fd!important;color:#243753!important;border:1px solid #d8e1f1!important;border-radius:11px!important;min-height:48px;font-size:16px;width:100%;padding:10px 12px;box-shadow:none}
+.nowgo-app-report .consent{display:flex;align-items:flex-start;gap:10px;margin:18px 0;font-size:14px;font-weight:400}.nowgo-app-report .consent input{width:18px;min-height:18px;height:18px;margin:3px 0;accent-color:#387de5;flex:none}
+.nowgo-app-report small,.nowgo-app-report .small-note{font-size:13px;color:#586b85;line-height:1.65}.nowgo-app-report small{display:block;margin-top:6px}
+.nowgo-app-report .report-access,.nowgo-app-report .app-report-access{background:#edf3ff;border:1px solid #d6e3fa;border-radius:15px;padding:16px;margin:0 0 20px;font-size:15px;line-height:1.6}.nowgo-app-report .app-report-access strong{font-size:17px}.nowgo-app-report .app-report-access p{margin:8px 0 14px}
+.nowgo-app-report .app-form-primary,.nowgo-app-report .app-form-secondary,.nowgo-app-report .submit-button{display:flex;align-items:center;justify-content:center;min-height:50px;width:100%;padding:12px 14px;border:0;border-radius:13px;background:#367de4;color:#fff!important;font-size:16px;font-weight:700;line-height:1.5;text-align:center;text-decoration:none;margin-top:12px;cursor:pointer}
+.nowgo-app-report .app-form-secondary{background:#fff!important;color:#2e66b7!important;border:1px solid #ccd9f0!important}.nowgo-app-report .submit-button{margin-top:20px}
+.nowgo-app-report .upload-field{padding:20px 14px;background:#f1f5ff;border:1px dashed #87a7da;border-radius:14px;text-align:center}.nowgo-app-report .upload-field input{margin-top:12px;font-size:14px}.nowgo-app-report .text-link,.nowgo-app-report a:not(.app-form-primary){color:#2864bb}.nowgo-app-report .form-result{background:#eaf5ee;border-radius:13px;padding:14px;margin-top:18px;line-height:1.65;font-size:15px}
+.nowgo-app-report .report-address-map{height:290px;overflow:hidden;border-radius:14px}.nowgo-app-report .report-address-map .map-panel{height:250px}.nowgo-app-report .owner-store{display:block;margin-bottom:20px}
+@media(max-width:420px){.nowgo-app-report .form-grid{grid-template-columns:1fr}.nowgo-app-report .wide{grid-column:auto}.nowgo-app-report .report-form{padding:16px}.nowgo-app-report .consent{font-size:13px}}
+
+[data-app-report] .app-form-primary{background:var(--brand-ink);color:white} [data-app-report] :is(input,select,textarea):focus-visible,[data-app-map] :is(input,select):focus-visible{outline:2px solid var(--brand-ink);outline-offset:2px}
+
+[data-flavor=hot]{--app-accent:#c93421;--app-ink:#c93421;--app-contrast:#fff;--app-soft:#fff0eb;--app-line:#ead3cb}
+[data-flavor=rich]{--app-accent:#d1a13b;--app-ink:#856020;--app-contrast:#34280b;--app-soft:#fff7e5;--app-line:#e6d8b4}
+[data-flavor=sweet]{--app-accent:#67cfb6;--app-ink:#167661;--app-contrast:#123e34;--app-soft:#eafaf4;--app-line:#c5e4da}
+
+.nowgo-app-report .app-report-access{background:var(--app-soft);border-color:var(--app-line)}.nowgo-app-report :is(.submit-button,.app-form-primary){background:var(--app-accent);color:var(--app-contrast)!important}.nowgo-app-report :is(a,.text-link){color:var(--app-ink)}.nowgo-app-report .consent input{accent-color:var(--app-ink)}.nowgo-app-report :is(input,select,textarea):focus-visible{outline-color:var(--app-ink)}
