@@ -47,7 +47,6 @@ export async function POST(req:Request,{params}:Ctx){
    return reply(req,{saved:p.saved});
   }
   if(action!=='reports')return reply(req,{},404);
-  if(Number(req.headers.get('content-length')||0)>3_000_000)return reject(req,'사진은 2MB 이하로 올려주세요.',413);
   const form=await req.formData(),get=(k:string)=>String(form.get(k)||'').trim();
   const id=get('requestId'),role=get('role');
   let shop=get('shop'),address=get('address');
@@ -73,7 +72,7 @@ export async function POST(req:Request,{params}:Ctx){
   }
   if(!/^[a-f0-9-]{36}$/.test(id)||!['customer','owner'].includes(role)||shop.length<2||shop.length>100||menu.length<2||menu.length>100||theme.menus.some(x=>x.shop===shop)||!isKoreanAddress(address)||!Number.isInteger(price)||price<100||price>1000000||!Number.isInteger(heat)||heat<1||heat>5||!theme.flavors.slice(1).some(x=>x===flavor)||note.length>1000||!/^\d{4}-\d{2}-\d{2}$/.test(observed)||!Number.isFinite(Date.parse(observed))||observed>koreanToday()||new Date(observed).toISOString().slice(0,10)!==observed||get('rights')!=='yes'||get('accuracy')!=='yes'||!theme.categories.some(x=>x===category))return reject(req,'대한민국 내 실제 가게 주소와 메뉴·가격·확인 날짜·사진 공개 동의를 확인해 주세요.',400);
   const photo=form.get('photo');
-  if(!(photo instanceof File)||photo.size===0||photo.size>2_000_000)return reject(req,'JPG·PNG·WebP 사진을 2MB 이하로 첨부해 주세요.',400);
+  if(!(photo instanceof File)||photo.size===0)return reject(req,'JPG·PNG·WebP 사진을 첨부해 주세요.',400);
   const bytes=new Uint8Array(await photo.arrayBuffer());
   const jpg=bytes[0]===255&&bytes[1]===216&&bytes[2]===255,png=bytes[0]===137&&bytes[1]===80&&bytes[2]===78&&bytes[3]===71,webp=new TextDecoder().decode(bytes.slice(0,4))==='RIFF'&&new TextDecoder().decode(bytes.slice(8,12))==='WEBP';
   if(!jpg&&!png&&!webp)return reject(req,'지원되는 이미지 파일을 올려주세요.',400);
@@ -86,7 +85,6 @@ export async function POST(req:Request,{params}:Ctx){
     .webp({quality:82})
     .toBuffer();
   }catch{return reject(req,'이미지 파일을 읽을 수 없어요. 다른 사진을 올려주세요.',400)}
-  if(uploadBytes.length>2_000_000)return reject(req,'사진은 2MB 이하로 올려주세요.',400);
   const mime='image/webp';
   let lat:number|null=null,lng:number|null=null;
   const pointLat=Number(get('lat')),pointLng=Number(get('lng'));
