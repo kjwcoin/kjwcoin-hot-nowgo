@@ -55,3 +55,6 @@
 .report-section[data-consumer-report] .owner-store{display:block;margin:0 0 20px}
 .report-section[data-consumer-report] .report-agreements{margin-top:20px;padding-top:4px;border-top:1px solid var(--app-line)}
 .report-section[data-consumer-report] .report-date input{width:100%!important;max-width:100%!important;min-width:0!important;inline-size:100%;block-size:50px;-webkit-appearance:none;appearance:none}
+
+.report-form .report-gps-button{display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;width:100%;border:1px solid currentColor;border-radius:12px;padding:12px;cursor:pointer}
+.report-form .report-gps-button:disabled{opacity:.6;cursor:wait}

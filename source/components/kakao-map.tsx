@@ -45,6 +45,7 @@ type Props={
  locationControl?:Ref<KakaoMapHandle>;
  onDemoPositions?:(origin:GeoPoint,points:GeoPoint[],state:DemoLocationState)=>void;
  addressSearch?:{text:string;requestId:number}|null;
+ coordinateSearch?:{lat:number;lng:number;requestId:number}|null;
  onAddressFound?:(point:{address:string;lat:number;lng:number})=>void;
  onAddressError?:()=>void;
  fullScreen?:boolean;
@@ -54,7 +55,7 @@ type Props={
  onMapState?:(state:'loading'|'ready'|'setup'|'error')=>void;
 };
 
-export default function KakaoMap({menus,onSelect,onPoint,onLocation,onLocationState,locationControl,onDemoPositions,addressSearch,onAddressFound,onAddressError,fullScreen=false,selectedId,variant='hot',appLocationBridge=false,onMapState}:Props){
+export default function KakaoMap({menus,onSelect,onPoint,onLocation,onLocationState,locationControl,onDemoPositions,addressSearch,coordinateSearch,onAddressFound,onAddressError,fullScreen=false,selectedId,variant='hot',appLocationBridge=false,onMapState}:Props){
  const rootRef=useRef<HTMLDivElement>(null);
  const canvasRef=useRef<HTMLDivElement>(null);
  const mapRef=useRef<any>(null);
@@ -224,6 +225,26 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,onLocationSt
   });
   return()=>{cancelled=true};
  },[addressSearch,mapState]);
+
+ useEffect(()=>{
+  if(!coordinateSearch||mapState!=='ready'||!mapRef.current||!kakaoRef.current)return;
+  let cancelled=false;
+  const k=kakaoRef.current,{lat,lng}=coordinateSearch;
+  new k.maps.services.Geocoder().coord2Address(lng,lat,(results:any,status:any)=>{
+   if(cancelled)return;
+   const found=results?.[0];
+   const address=found?.road_address?.address_name||found?.address?.address_name;
+   const region=found?.address?.region_1depth_name||found?.road_address?.region_1depth_name||'';
+   if(status!==k.maps.services.Status.OK||!address||!isKoreanRegion(region)){callbacksRef.current.onAddressError?.();return}
+   const position=new k.maps.LatLng(lat,lng);
+   addressMarkerRef.current?.setMap(null);
+   addressMarkerRef.current=new k.maps.Marker({map:mapRef.current,position,title:'GPS로 찾은 제보 위치'});
+   mapRef.current.setLevel(4);
+   mapRef.current.panTo(position);
+   callbacksRef.current.onAddressFound?.({address,lat,lng});
+  });
+  return()=>{cancelled=true};
+ },[coordinateSearch,mapState]);
 
  useEffect(()=>{
   if(mapState!=='ready'||!rootRef.current)return;
