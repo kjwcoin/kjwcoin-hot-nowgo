@@ -18,3 +18,5 @@ html:has([data-app-map]),body:has([data-app-map]){height:100%;margin:0;padding:0
 
 /* App canvas owns its layout, independent of desktop map offsets. */
 .nowgo-app-map .map-unavailable{inset:0;padding:24px!important;justify-content:center!important;text-align:center}.nowgo-app-map .map-unavailable>.text-link{display:inline-flex!important}.nowgo-app-map .map-canvas{min-width:1px;min-height:1px}
+
+.app-map-card-wrapper{flex:0 0 255px;min-width:0}.app-map-card-wrapper>.app-map-card{width:100%}.app-map-card-wrapper>section{margin:0;border-radius:0 0 14px 14px}.app-map-card--reported>.app-map-card{background:#eef0f3;border-color:#b7bec7;color:#374151;border-radius:14px 14px 0 0}.nowgo-app-map .app-map-card--reported>.app-map-card span{color:#4b5563}
