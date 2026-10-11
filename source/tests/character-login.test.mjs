@@ -15,3 +15,13 @@ async function run({session=true,consent=false}={}){
 test('verified character login returns without a popup opener',async()=>{const r=await run();assert.deepEqual(r.redirects,['/app']);assert.ok(!r.states.includes('error'))});
 test('missing session shows login choices without pretending to log in',async()=>{const r=await run({session:false});assert.deepEqual(r.states,['guest']);assert.deepEqual(r.redirects,[])});
 test('required consent is completed before returning to character',async()=>{const r=await run({consent:true});assert.ok(r.redirects[0].startsWith('/account/join?type=user&returnTo='));assert.equal(r.redirects.length,1);assert.ok(decodeURIComponent(r.redirects[0]).includes('mode=character'))});
+
+test('embedded character login requests the parent login screen and preserves the app shell',()=>{
+ const component=fs.readFileSync(new URL('../components/app-character.tsx',import.meta.url),'utf8');
+ const begin=component.indexOf(' function connect('),finish=component.indexOf('\n const g=',begin);
+ const connect=ts.transpileModule(component.slice(begin,finish),{compilerOptions:{target:ts.ScriptTarget.ES2022}}).outputText;
+ let prevented=0;const events=[];const w={parent:{}};
+ const ctx=vm.createContext({window:w,variant:'hot',postAppEvent:e=>events.push(e),setMessage(){}});vm.runInContext(connect,ctx);
+ ctx.connect({preventDefault(){prevented++}});assert.equal(prevented,1);assert.equal(events[0].type,'nowgo:sign-in');assert.equal(events[0].brand,'hot');
+ w.parent=w;ctx.connect({preventDefault(){prevented++}});assert.equal(prevented,1,'standalone uses its normal app login link');
+});
