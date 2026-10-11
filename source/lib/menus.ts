@@ -6,7 +6,7 @@ export const RICH_HEAT=['담백','고소','크리미','버터·치즈 진하게'
 export const RICH_FLAVORS=['전체','고소한','크리미한','버터 풍미','치즈 풍미','기름진'];
 export const RICH_MENU_CATEGORIES=['파스타','치즈·그라탱','베이커리','디저트','고기·튀김','기타'];
 export const MENUS:Menu[]=[
-{isDemo:true,id:'demo-menu-01',placeId:'demo-place-01',name:'달콤매콤 떡볶이',shop:'청라 분식집 · 가매장',price:6500,heat:3,flavor:'달콤매콤한',category:'분식',image:'/images/tteokbokki.webp',lat:37.5336,lng:126.6552,area:'인천 서구 · 청라동',rating:4.8,reviewCount:128,description:'쫀득한 떡에 달큰하게 밴 매운맛. 오늘은 익숙한 한 접시가 당길 때.'},
+{isDemo:true,id:'demo-menu-01',placeId:'demo-place-01',name:'달콤매콤 떡볶이',shop:'청라 분식집 · 가매장',price:6500,heat:3,flavor:'달콤매콤한',category:'분식',image:'/images/tteokbokki.webp',lat:37.5336,lng:126.6552,area:'인천 서구 · 청라동',rating:4.8,reviewCount:128,description:'꾸덕한 떡에 달큰하게 밴 매운맛. 오늘은 익숙한 한 접시가 당길 때.'},
 {isDemo:true,id:'demo-menu-02',placeId:'demo-place-02',name:'얼큰 장칼국수',shop:'청라 국수집 · 가매장',price:9500,heat:2,flavor:'얼큰한',category:'국물·면',image:'/images/jangkalguksu.webp',lat:37.5362,lng:126.6508,area:'인천 서구 · 청라동',rating:4.6,reviewCount:86,description:'뜨끈한 국물부터 한 모금. 면과 국물이 함께 생각나는 날의 선택.'},
 {isDemo:true,id:'demo-menu-03',placeId:'demo-place-03',name:'매콤 철판 닭갈비',shop:'청라 철판집 · 가매장',price:14000,heat:4,flavor:'칼칼한',category:'고기·볶음',image:'/images/dakgalbi.webp',lat:37.5298,lng:126.6487,area:'인천 서구 · 청라동',rating:4.7,reviewCount:93,description:'철판에서 피어나는 온기와 매콤한 양념. 여럿이 나누고 싶은 한 끼.'}
 ];
