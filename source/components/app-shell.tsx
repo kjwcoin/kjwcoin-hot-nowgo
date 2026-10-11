@@ -8,7 +8,7 @@ import OAuthButtons from './oauth-buttons';
 import AppNativeSession from './app-native-session';
 type View='home'|'map'|'report'|'regular'|'character';
 const menus=[{id:'home',title:'행성',Icon:Globe},{id:'map',title:'지도',Icon:MapPin},{id:'report',title:'제보',Icon:SquarePen},{id:'regular',title:'단골리스트',Icon:Heart},{id:'character',title:'내 캐릭터',Icon:UserRound}] as const;
-const planets=[{brand:'hot',image:'hot',name:'HOT',taste:'매운 한 접시'},{brand:'rich',image:'chewy',name:'RICH',taste:'진하고 고소한 맛'},{brand:'sweet',image:'sweet',name:'SWEET',taste:'달콤한 디저트'}] as const;
+const planets=[{brand:'hot',image:'hot',name:'HOT',taste:'매운 한 접시'},{brand:'rich',image:'chewy',name:'RICH',taste:'꾸덕한 맛'},{brand:'sweet',image:'sweet',name:'SWEET',taste:'달콤한 디저트'}] as const;
 export default function AppShell({variant}:{variant:SiteVariant}){
  const [brand,setBrand]=useState<SiteVariant>(variant);
  const [stage,setStage]=useState<'entry'|'app'>('entry'),[view,setView]=useState<View>('home'),[preview,setPreview]=useState(false),[message,setMessage]=useState(''),[place,setPlace]=useState<string|null>(null);

@@ -4,7 +4,7 @@ export const planetForVariant = (v: SiteVariant): Planet => v === 'rich' ? 'chew
 export const WORLDS = {
  hot: {challenge:'매운 건 자신 있다는 탐험가와 우리 집이 가장 맵다는 사장님. 서로의 한 입으로 즐겁게 도전해요.',name:'맵잘알',accent:'#ff7468',motto:'매운맛에 진심.',story:'매운 한 입의 맛과 식감을 알아보는 나. 제보로 발견을 나누고, 인증한 발걸음으로 나만의 영토와 휘장을 쌓는다.',taste:'매운맛',brands:[['삼양 불닭','불꽃 원정단','fire-expedition'],['엽기떡볶이','레드 캐슬','first-alliance'],['농심 신라면','붉은 기사','ramen-knight']]},
  sweet: {challenge:'단맛에도 나만의 기준이 있는 탐험가와 기억에 남는 달콤함을 만드는 사장님. 오늘의 한 입을 함께 찾아요.',name:'단잘알',accent:'#96edd2',motto:'단맛에 진심.',story:'달콤함에도 나만의 기준이 있다. 기억에 남은 한 입을 모아, 나의 디저트 왕국을 넓힌다.',taste:'달콤함',brands:[['메가MGC커피','한 잔의 왕관','sweet-first'],['빙그레 바나나맛우유','바나나 궤도','banana-milk'],['오리온 초코파이','초코 성주','choco-pie']]},
- chewy: {challenge:'쫀득함의 차이를 알아보는 탐험가와 남다른 식감을 만드는 사장님. 씹는 즐거움의 기준을 함께 넓혀요.',name:'쫀잘알',accent:'#cbb2ff',motto:'쫀득함에 진심.',story:'한 입의 탄력, 씹을수록 남는 여운. 맛을 넘어 식감까지 기억하는 나만의 감각으로 영토를 넓힌다.',taste:'쫀득함',brands:[['하리보','골드베어 원정','chewy-alliance'],['공차','펄의 성주','gongcha-pearl'],['롯데웰푸드 말랑카우','말랑 구름','malang-cow']]}
+ chewy: {challenge:'꾸덕함의 차이를 알아보는 탐험가와 남다른 식감을 만드는 사장님. 진한 맛의 기준을 함께 넓혀요.',name:'꾸덕잘알',accent:'#cbb2ff',motto:'꾸덕함에 진심.',story:'한 입의 농도, 진하게 남는 여운. 맛을 넘어 식감까지 기억하는 나만의 감각으로 영토를 넓힌다.',taste:'꾸덕함',brands:[['하리보','골드베어 원정','chewy-alliance'],['공차','펄의 성주','gongcha-pearl'],['롯데웰푸드 말랑카우','말랑 구름','malang-cow']]}
 } as const;
 export const RANKS = [{name:'탐험가',level:1,xp:0},{name:'기사',level:3,xp:180},{name:'성주',level:5,xp:500},{name:'백작',level:10,xp:2550},{name:'공작',level:20,xp:9550},{name:'왕',level:30,xp:16550}];
 const THRESHOLDS=[0,80,180,320,500,750,1050,1450,1950,2550];
