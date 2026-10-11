@@ -5,7 +5,7 @@ export async function GET(req:Request,{params}:{params:Promise<{id:string}>}){
  const {id}=await params;
  if(!/^[a-zA-Z0-9_-]{1,100}$/.test(id))return Response.json({linked:false},{status:400});
  const menu=await menuByPlaceId(id,variantForHost(new URL(req.url).host));
- if(!menu||menu.isDemo||!menu.verifiedOwner||!menu.nowgoSlug||!/^[a-zA-Z0-9_-]{1,100}$/.test(menu.nowgoSlug))return Response.json({linked:false},{headers:{'Cache-Control':'no-store'}});
+ if(!menu||menu.isDemo||!menu.ownerRegistered||!menu.nowgoSlug||!/^[a-zA-Z0-9_-]{1,100}$/.test(menu.nowgoSlug))return Response.json({linked:false},{headers:{'Cache-Control':'no-store'}});
  try{
   const res=await fetch(`https://www.nowgo.space/api/bookings?slug=${encodeURIComponent(menu.nowgoSlug)}`,{cache:'no-store',signal:AbortSignal.timeout(5000)});
   if(!res.ok)throw new Error('unavailable');

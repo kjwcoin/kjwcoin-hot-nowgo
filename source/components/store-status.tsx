@@ -1,6 +1,7 @@
 'use client';
 import {useEffect,useState} from 'react';
 import {api} from '@/lib/client';
+import {useRouter} from 'next/navigation';
 import type {OfficialStatus} from '@/lib/integration-policy';
 function elapsed(iso:string|null,now:number){
  if(!iso)return null;
@@ -9,6 +10,8 @@ function elapsed(iso:string|null,now:number){
  return minutes===0?'방금 전':`${Math.min(minutes,99)}분 전`;
 }
 export default function StoreStatus({menuId,isDemo,ownerRegistered=false}:{menuId:string;isDemo:boolean;ownerRegistered?:boolean}){
+ const router=useRouter();
+ useEffect(()=>{if(isDemo)return;let alive=true;const refresh=async()=>{try{const {menu}=await api<{menu:{ownerRegistered:boolean}}>('/api/menu?id='+encodeURIComponent(menuId));if(alive&&menu.ownerRegistered!==ownerRegistered){window.dispatchEvent(new Event('nowgo:catalog-refresh'));window.dispatchEvent(new Event('nowgo-activity-change'));router.refresh()}}catch{}};const tick=()=>{if(!document.hidden)void refresh()};const timer=setInterval(tick,30_000);window.addEventListener('focus',tick);return()=>{alive=false;clearInterval(timer);window.removeEventListener('focus',tick)}},[menuId,isDemo,ownerRegistered,router]);
  const canShowStatus=ownerRegistered&&!isDemo;
  const [state,setState]=useState<OfficialStatus|null>(null),[now,setNow]=useState(()=>Date.now());
  useEffect(()=>{if(!canShowStatus)return;let active=true,sequence=0;const refresh=()=>{const request=++sequence;return api<OfficialStatus>('/api/place-status/'+encodeURIComponent(menuId)).then(d=>{if(active&&request===sequence)setState(d)}).catch(()=>{if(active&&request===sequence)setState(null)})};const tick=()=>{if(!document.hidden)void refresh()};void refresh();const t=setInterval(tick,15000);window.addEventListener('focus',tick);window.addEventListener('nowgo-owner-status-change',tick);document.addEventListener('visibilitychange',tick);return()=>{active=false;clearInterval(t);window.removeEventListener('focus',tick);window.removeEventListener('nowgo-owner-status-change',tick);document.removeEventListener('visibilitychange',tick)}},[menuId,canShowStatus]);

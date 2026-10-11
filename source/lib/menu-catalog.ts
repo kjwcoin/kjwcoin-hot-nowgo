@@ -7,6 +7,16 @@ const fields='id,place_id,menu,shop,price,heat,flavor,category,lat,lng,address,o
 type MenuRow={id:string;place_id:string;menu:string;shop:string;price:number;heat:number;flavor:string;category:string;lat:number|null;lng:number|null;address:string;observed_at:string;verified_owner:boolean;nowgo_slug:string|null;owner_store_id:string|null;soldout:boolean;map_menu_photo:boolean;photo_path:string|null};
 const convert=(x:MenuRow):Menu=>({id:String(x.id),placeId:String(x.place_id),name:String(x.menu),shop:String(x.shop),price:Number(x.price),heat:Number(x.heat),flavor:String(x.flavor),category:String(x.category),image:x.map_menu_photo&&x.photo_path?publicConfig().url+'/storage/v1/object/public/ng-map-menu-photos/'+x.photo_path:x.owner_store_id?`${process.env.NEXT_PUBLIC_NOWGO_SITE_URL||'https://nowgo-space-home.vercel.app'}/featured-menu-photo/${encodeURIComponent(x.owner_store_id)}`:`/api/menu-photos/${x.id}`,lat:x.lat==null?null:Number(x.lat),lng:x.lng==null?null:Number(x.lng),area:String(x.address),description:x.verified_owner?'NOWGO에서 매장 관리 권한을 확인한 점주가 직접 알려준 메뉴입니다. 현재 영업·품절 상태는 따로 확인해 주세요.':'통합회원이 알려준 메뉴입니다. 가격과 영업 상태를 방문 전에 다시 확인해 주세요.',isDemo:false,soldout:!!x.soldout,reportedAt:String(x.observed_at),verifiedOwner:!!x.verified_owner,ownerRegistered:!!x.owner_store_id||!!x.verified_owner,ownerStoreId:x.owner_store_id,nowgoSlug:x.nowgo_slug?String(x.nowgo_slug):null});
 
+async function linkedMenus(rows:MenuRow[],variant:SiteVariant):Promise<Menu[]>{
+ const reported=rows.filter(row=>row.place_id.startsWith('reported-'));
+ if(!reported.length)return rows.map(convert);
+ const {data,error}=await publicDb().rpc('ng_map_matched_report_owners',{p_planet:variant,p_menus:reported.map(row=>row.id)});
+ if(error)throw error;
+ type OwnerMatch={menu_id:string;store_id:string;slug:string};
+ const matches=new Map<string,OwnerMatch>(((data||[]) as OwnerMatch[]).map(row=>[row.menu_id,row]));
+ return rows.map(row=>{const match=matches.get(row.id);return match?{...convert(row),ownerRegistered:true,ownerStoreId:match.store_id,nowgoSlug:match.slug,description:'소비자가 제보한 메뉴이며 상호명·주소가 일치하는 점주의 매장과 연결됐어요. 현재 영업현황은 점주가 알려줘요.'}:convert(row)});
+}
+
 export type MenuSearch={page?:number;query?:string;heat?:number;maxHeat?:number;flavor?:string;category?:string;budget?:number;lat?:number;lng?:number;radiusKm?:number};
 
 export async function communityMenus(filters:MenuSearch={},variant:SiteVariant='hot'){
@@ -35,7 +45,9 @@ export async function communityMenus(filters:MenuSearch={},variant:SiteVariant='
  const {data:counts,error:countError}=await publicDb().rpc('ng_map_store_report_counts',{p_planet:variant});
  if(countError)throw countError;
  const totals=new Map((counts||[]).map((row:{shop_key:string;address_key:string;report_count:number})=>[row.shop_key+'\0'+row.address_key,Number(row.report_count)]));
- return {menus:rows.slice(0,size).filter(row=>!['나우고','나우고 카페'].includes(row.shop.trim())).map(row=>({...convert(row),reportCount:totals.get(row.shop.trim().toLocaleLowerCase()+'\0'+row.address.replace(/\s/g,'').toLocaleLowerCase())??0})),hasMore:rows.length>size};
+ const visible=rows.slice(0,size).filter(row=>!['나우고','나우고 카페'].includes(row.shop.trim()));
+ const linked=await linkedMenus(visible,variant);
+ return {menus:linked.map(menu=>({...menu,reportCount:totals.get(menu.shop.trim().toLocaleLowerCase()+'\0'+menu.area.replace(/\s/g,'').toLocaleLowerCase())??0})),hasMore:rows.length>size};
 }
 
 export async function menuById(id:string,variant:SiteVariant='hot'):Promise<Menu|null>{
@@ -43,7 +55,7 @@ export async function menuById(id:string,variant:SiteVariant='hot'):Promise<Menu
  if(!publicConfig().ready||!/^[a-f0-9-]{36}$/.test(id))return null;
  const {data,error}=await publicDb().from(siteConfig(variant).tables.menus).select(fields).eq('id',id).maybeSingle();
  if(error)throw error;
- return data&&!['나우고','나우고 카페'].includes(String(data.shop).trim())?convert(data as MenuRow):null;
+ return data&&!['나우고','나우고 카페'].includes(String(data.shop).trim())?(await linkedMenus([data as MenuRow],variant))[0]:null;
 }
 
 export async function menuByPlaceId(id:string,variant:SiteVariant='hot'):Promise<Menu|null>{
@@ -51,5 +63,5 @@ export async function menuByPlaceId(id:string,variant:SiteVariant='hot'):Promise
  if(!publicConfig().ready||!/^[a-zA-Z0-9_-]{1,100}$/.test(id))return null;
  const {data,error}=await publicDb().from(siteConfig(variant).tables.menus).select(fields).eq('place_id',id).order('created_at',{ascending:false}).limit(1);
  if(error)throw error;
- return data?.[0]&&!['나우고','나우고 카페'].includes(String(data[0].shop).trim())?convert(data[0] as MenuRow):null;
+ return data?.[0]&&!['나우고','나우고 카페'].includes(String(data[0].shop).trim())?(await linkedMenus([data[0] as MenuRow],variant))[0]:null;
 }
