@@ -1,3 +1,4 @@
+import {MAP_REGIONS} from './map-regions';
 import {publicDb,publicConfig} from './supabase';
 import {type Menu} from './menus';
 import {siteConfig,type SiteVariant} from './site-config';
@@ -17,7 +18,7 @@ async function linkedMenus(rows:MenuRow[],variant:SiteVariant):Promise<Menu[]>{
  return rows.map(row=>{const match=matches.get(row.id);return match?{...convert(row),ownerRegistered:true,ownerStoreId:match.store_id,nowgoSlug:match.slug,description:'소비자가 제보한 메뉴이며 상호명·주소가 일치하는 점주의 매장과 연결됐어요. 현재 영업현황은 점주가 알려줘요.'}:convert(row)});
 }
 
-export type MenuSearch={page?:number;query?:string;heat?:number;maxHeat?:number;flavor?:string;category?:string;budget?:number;lat?:number;lng?:number;radiusKm?:number};
+export type MenuSearch={page?:number;query?:string;heat?:number;maxHeat?:number;flavor?:string;category?:string;budget?:number;lat?:number;lng?:number;radiusKm?:number;region?:string};
 
 export async function communityMenus(filters:MenuSearch={},variant:SiteVariant='hot'){
  if(!publicConfig().ready)return {menus:[] as Menu[],hasMore:false};
@@ -32,6 +33,8 @@ export async function communityMenus(filters:MenuSearch={},variant:SiteVariant='
  if(filters.flavor&&filters.flavor!=='전체')request=request.eq('flavor',filters.flavor);
  if(filters.category&&filters.category!=='전체')request=request.eq('category',filters.category);
  if(Number.isInteger(budget)&&budget>=100&&budget<=1000000)request=request.lte('price',budget);
+ const region=MAP_REGIONS.find(item=>item.id===filters.region);
+ if(region)request=request.or(region.prefixes.map(prefix=>'address.ilike.'+prefix+'%').join(','));
  const radius=Math.min(Math.max(filters.radiusKm||MAP_RADIUS_KM,1),MAP_RADIUS_KM);
  const lat=filters.lat,lng=filters.lng;
  const point=typeof lat==='number'&&typeof lng==='number'&&Number.isFinite(lat)&&Number.isFinite(lng)&&lat>=33&&lat<=39.6&&lng>=124&&lng<=132?{lat,lng}:null;
@@ -65,3 +68,4 @@ export async function menuByPlaceId(id:string,variant:SiteVariant='hot'):Promise
  if(error)throw error;
  return data?.[0]&&!['나우고','나우고 카페'].includes(String(data[0].shop).trim())?(await linkedMenus([data[0] as MenuRow],variant))[0]:null;
 }
+

@@ -1,4 +1,6 @@
 'use client';
+import {useMapRegions} from './use-map-regions';
+import {MAP_REGIONS,mapScopeParameters,type RegionCount} from '@/lib/map-regions';
 import {menuStoreGroups} from '@/lib/menu-store-groups';
 import OwnerJoinRequest from '@/components/owner-join-request';
 import StoreStatus from '@/components/store-status';
@@ -34,7 +36,6 @@ export default function MapExplorer({variant='hot'}:{variant?:SiteVariant}){
  const theme=siteConfig(variant),MENUS=theme.menus,HEAT=theme.heat,FLAVORS=theme.flavors,CATEGORIES=['전체',...theme.categories],tasteLabel=variant==='hot'?'매운맛':variant==='rich'?'느끼함':'달콤함',categoryLabel=variant==='hot'?'매운맛 메뉴':variant==='rich'?'느끼한 메뉴':'달콤한 디저트';
  useEffect(()=>{if(['#report','#owner','#photo-credits','#discover'].includes(location.hash))location.replace('/suggestion'+location.hash)},[]);
  const [reportedMenu,setReportedMenu]=useState<Menu|null>(null);
- useEffect(()=>{let cancelled=false;const reveal=(id:string)=>{if(!id)return;void api<{menu:Menu}>(`/api/menu?id=${encodeURIComponent(id)}`).then(d=>{if(!cancelled){setReportedMenu(d.menu);setSelected(d.menu);setExpanded(true)}}).catch(()=>{})};reveal(new URLSearchParams(location.search).get('report')||'');const channel=typeof BroadcastChannel!=='undefined'?new BroadcastChannel('nowgo-catalog'):null;if(channel)channel.onmessage=event=>{if(event.data?.brand===variant&&typeof event.data?.menuId==='string')reveal(event.data.menuId)};return()=>{cancelled=true;channel?.close()}},[variant]);
  const [worldEntryOpen,setWorldEntryOpen]=useState(true);
  const locationControl=useRef<KakaoMapHandle>(null);
  const [locationState,setLocationState]=useState<LocationState>('idle');
@@ -43,10 +44,15 @@ export default function MapExplorer({variant='hot'}:{variant?:SiteVariant}){
  const requestLocation=()=>locationControl.current?.requestLocation();
  const [catalog,setCatalog]=useState<Menu[]>(MENUS),[page,setPage]=useState(0),[hasMore,setHasMore]=useState(false);
  const [query,setQuery]=useState(''),[heat,setHeat]=useState(0),[flavor,setFlavor]=useState('전체'),[category,setCategory]=useState('전체'),[budget,setBudget]=useState(0),[selected,setSelected]=useState<Menu|null>(null),[expanded,setExpanded]=useState(true),[userLocation,setUserLocation]=useState<GeoPoint|null>(null);
- const parameters=(nextPage:number)=>{const p=new URLSearchParams({page:String(nextPage)});if(query)p.set('q',query);if(heat)p.set('heat',String(heat));if(flavor!=='전체')p.set('flavor',flavor);if(category!=='전체')p.set('category',category);if(budget)p.set('budget',String(budget));if(userLocation){p.set('lat',String(userLocation.lat));p.set('lng',String(userLocation.lng));p.set('radiusKm',String(MAP_RADIUS_KM))}return p};
+ const [scope,setScope]=useState<'national'|'regional'|'nearby'>('national'),[regionId,setRegionId]=useState(''),[nationalRequest,setNationalRequest]=useState(0);
+ const {summary,error:regionError}=useMapRegions();
+ function nationwide(){setScope('national');setRegionId('');setSelected(null);setReportedMenu(null);setNationalRequest(n=>n+1)}
+ function regionSelect(region:RegionCount){setScope('regional');setRegionId(region.id);setSelected(null);setReportedMenu(null);setExpanded(true)}
+ useEffect(()=>{let cancelled=false;const reveal=(id:string)=>{if(!id)return;void api<{menu:Menu}>(`/api/menu?id=${encodeURIComponent(id)}`).then(d=>{if(!cancelled){setReportedMenu(d.menu);setSelected(d.menu);setExpanded(true)}}).catch(()=>{})};reveal(new URLSearchParams(location.search).get('report')||'');const channel=typeof BroadcastChannel!=='undefined'?new BroadcastChannel('nowgo-catalog'):null;if(channel)channel.onmessage=event=>{if(event.data?.brand===variant&&typeof event.data?.menuId==='string')reveal(event.data.menuId)};return()=>{cancelled=true;channel?.close()}},[variant]);
+ const parameters=(nextPage:number)=>{const p=new URLSearchParams({page:String(nextPage),...mapScopeParameters(scope,regionId,userLocation,MAP_RADIUS_KM)});if(query)p.set('q',query);if(heat)p.set('heat',String(heat));if(flavor!=='전체')p.set('flavor',flavor);if(category!=='전체')p.set('category',category);if(budget)p.set('budget',String(budget));return p};
  const load=(nextPage:number)=>api<{menus:Menu[];hasMore:boolean}>(`/api/menus?${parameters(nextPage)}`).then(d=>{setCatalog(old=>nextPage?[...old,...d.menus]:[...MENUS,...d.menus]);setPage(nextPage);setHasMore(d.hasMore)});
- useEffect(()=>{let cancelled=false;const p=parameters(0);const refresh=()=>api<{menus:Menu[];hasMore:boolean}>(`/api/menus?${p}`).then(d=>{if(!cancelled){setCatalog([...MENUS,...d.menus]);setPage(0);setHasMore(d.hasMore)}}).catch(()=>{});const timer=setTimeout(refresh,query?250:0);window.addEventListener('focus',refresh);const visible=()=>{if(document.visibilityState==='visible')void refresh()};const interval=setInterval(visible,30_000);document.addEventListener('visibilitychange',visible);window.addEventListener('nowgo-activity-change',refresh);const channel=typeof BroadcastChannel!=='undefined'?new BroadcastChannel('nowgo-catalog'):null;if(channel)channel.onmessage=event=>{if(event.data?.brand===variant)void refresh()};return()=>{cancelled=true;clearTimeout(timer);clearInterval(interval);document.removeEventListener('visibilitychange',visible);window.removeEventListener('nowgo-activity-change',refresh);channel?.close();window.removeEventListener('focus',refresh)}},[query,heat,flavor,category,budget,userLocation]);
- const locatedCatalog=useMemo(()=>mapMenuCatalog(catalog,userLocation),[catalog,userLocation]);
+ useEffect(()=>{let cancelled=false;const p=parameters(0);const refresh=()=>api<{menus:Menu[];hasMore:boolean}>(`/api/menus?${p}`).then(d=>{if(!cancelled){setCatalog([...MENUS,...d.menus]);setPage(0);setHasMore(d.hasMore)}}).catch(()=>{});const timer=setTimeout(refresh,query?250:0);window.addEventListener('focus',refresh);const visible=()=>{if(document.visibilityState==='visible')void refresh()};const interval=setInterval(visible,30_000);document.addEventListener('visibilitychange',visible);window.addEventListener('nowgo-activity-change',refresh);const channel=typeof BroadcastChannel!=='undefined'?new BroadcastChannel('nowgo-catalog'):null;if(channel)channel.onmessage=event=>{if(event.data?.brand===variant)void refresh()};return()=>{cancelled=true;clearTimeout(timer);clearInterval(interval);document.removeEventListener('visibilitychange',visible);window.removeEventListener('nowgo-activity-change',refresh);channel?.close();window.removeEventListener('focus',refresh)}},[query,heat,flavor,category,budget,userLocation,scope,regionId]);
+ const locatedCatalog=useMemo(()=>scope==='nearby'?mapMenuCatalog(catalog,userLocation):catalog.filter(menu=>!menu.isDemo),[catalog,userLocation,scope]);
  const matching=useMemo(()=>locatedCatalog.filter(m=>(!heat||m.heat===heat)&&(flavor==='전체'||m.flavor===flavor)&&(category==='전체'||m.category===category)&&(!budget||m.price<=budget)&&`${m.name} ${m.shop} ${m.category} ${m.area}`.replace(/\s/g,'').includes(query.trim().replace(/\s/g,''))),[locatedCatalog,query,heat,flavor,category,budget]);
  const filtered=useMemo(()=>reportedMenu?[reportedMenu,...matching.filter(m=>m.id!==reportedMenu.id)]:matching,[reportedMenu,matching]);
  const storeGroups=useMemo(()=>menuStoreGroups(filtered),[filtered]);
@@ -54,12 +60,12 @@ export default function MapExplorer({variant='hot'}:{variant?:SiteVariant}){
  const count=Number(!!heat)+Number(flavor!=='전체')+Number(category!=='전체')+Number(!!budget);
  function reset(){setReportedMenu(null);setQuery('');setHeat(0);setFlavor('전체');setCategory('전체');setBudget(0);setSelected(null)}
  useEffect(()=>{track('map_open','map')},[]);
- function select(m:Menu){setSelected(m);setExpanded(true);track('menu_detail_open',m.id)}
+ function select(m:Menu){if(scope==='national'){setScope('regional');setRegionId('')}setSelected(m);setExpanded(true);track('menu_detail_open',m.id)}
  function collapseSelected(){setSelected(null);setExpanded(false)}
  const directionsUrl=(menu:Menu)=>menu.lat!==null&&menu.lng!==null?'https://map.kakao.com/link/to/'+encodeURIComponent(menu.shop.replace(/ · 가매장$/,''))+','+menu.lat+','+menu.lng:null;
  return <main className="explorer">
   <header className="explorer-toolbar">
-   <div className="explorer-topline"><Brand/><div className="explorer-search"><Search size={21}/><Input aria-label={`${theme.name} 메뉴 검색`} value={query} onChange={e=>{setReportedMenu(null);setQuery(e.target.value)}} placeholder={theme.search}/>{query&&<Button variant="ghost" size="icon" aria-label="검색어 지우기" onClick={()=>setQuery('')}><X size={18}/></Button>}</div><span className="explorer-region"><MapPin size={16}/>{userLocation?'주변 15km':'제보된 매장'} <small>{theme.name}</small></span><CustomerPanel variant={variant} regularHref={`https://nowgo.space/regular/home?flavor=${variant}`} worldEntryOpen={worldEntryOpen} onWorldEntryClose={()=>setWorldEntryOpen(false)}/></div>
+   <div className="explorer-topline"><Brand/><div className="explorer-search"><Search size={21}/><Input aria-label={`${theme.name} 메뉴 검색`} value={query} onChange={e=>{setReportedMenu(null);setQuery(e.target.value)}} placeholder={theme.search}/>{query&&<Button variant="ghost" size="icon" aria-label="검색어 지우기" onClick={()=>setQuery('')}><X size={18}/></Button>}</div><span className="explorer-region"><MapPin size={16}/>{scope==='national'?(regionError||(!summary?'전국 집계 중':`전국 ${summary.total}곳`)):scope==='regional'?MAP_REGIONS.find(region=>region.id===regionId)?.name:'주변 15km'} <small>{theme.name}</small></span><CustomerPanel variant={variant} regularHref={`https://nowgo.space/regular/home?flavor=${variant}`} worldEntryOpen={worldEntryOpen} onWorldEntryClose={()=>setWorldEntryOpen(false)}/></div>
    <div className="explorer-filters" aria-label="메뉴 검색 조건">
     <label>{tasteLabel+' 단계'}<NativeSelect aria-label={tasteLabel+' 단계'} value={heat} onChange={e=>{setReportedMenu(null);setHeat(Number(e.target.value))}}><option value={0}>{'모든 '+tasteLabel}</option>{HEAT.map((h,i)=><option key={h} value={i+1}>{i+1}단계 · {h}</option>)}</NativeSelect></label>
     <label>{tasteLabel+' 카테고리'}<NativeSelect aria-label={tasteLabel+' 카테고리'} value={flavor} onChange={e=>{setReportedMenu(null);setFlavor(e.target.value)}}>{FLAVORS.map(f=><option key={f} value={f}>{f==='전체'?'모든 맛의 결':f}</option>)}</NativeSelect></label>
@@ -69,10 +75,11 @@ export default function MapExplorer({variant='hot'}:{variant?:SiteVariant}){
    </div>
   </header>
   <div className="explorer-surface"><ReporterLeaderboard variant={variant}/>
-   <KakaoMap fullScreen menus={storeGroups.map(store=>store.menus[0])} selectedId={current?.id} onSelect={select} locationControl={locationControl} onLocationState={setLocationState} onLocation={setUserLocation} variant={variant}/>
+   <button type="button" onClick={nationwide} style={{position:'absolute',top:16,left:16,zIndex:5,minHeight:44,padding:'10px 14px',borderRadius:12,border:'1px solid #ddd',background:'#fff',color:variant==='hot'?'#c93421':variant==='rich'?'#856020':'#167661',fontWeight:800}} aria-pressed={scope==='national'}>전국 보기</button>
+   <KakaoMap fullScreen menus={storeGroups.map(store=>store.menus[0])} selectedId={current?.id} onSelect={select} locationControl={locationControl} onLocationState={setLocationState} onLocation={point=>{setUserLocation(point);setScope('nearby');setRegionId('')}} nationalView={scope==='national'} nationalRequest={nationalRequest} regionCounts={summary?.regions} onRegionSelect={regionSelect} onNationwide={nationwide} focusRegion={scope==='regional'?MAP_REGIONS.find(region=>region.id===regionId):undefined} variant={variant}/>
       <aside className={`explorer-results ${expanded?'expanded':'collapsed'} ${current?'has-selection':''}`} style={current?{top:0,bottom:0,maxHeight:'none'}:undefined} aria-label="검색된 메뉴">
     <div className="explorer-results-header">
-    <button className="explorer-results-heading" aria-expanded={expanded} aria-controls="map-results" onClick={()=>current?collapseSelected():setExpanded(!expanded)}><span><small>{userLocation?'내 주변 매장 · 메뉴':'등록된 매장 · 메뉴'}</small><strong>지금 당기는 한 접시 <b>{filtered.length}</b></strong></span>{expanded?<ChevronDown size={20}/>:<ChevronUp size={20}/>}</button>
+    <button className="explorer-results-heading" aria-expanded={expanded} aria-controls="map-results" onClick={()=>current?collapseSelected():setExpanded(!expanded)}><span><small>{scope==='nearby'?'내 주변 매장 · 메뉴':scope==='regional'?'선택한 지역 매장 · 메뉴':'전국 등록 매장 · 메뉴'}</small><strong>지금 당기는 한 접시 <b>{filtered.length}</b></strong></span>{expanded?<ChevronDown size={20}/>:<ChevronUp size={20}/>}</button>
      <a className="explorer-report explorer-report--inline" href="/suggestion#report"><Plus size={16}/><span>제보 및 등록</span></a>
     </div>
     {expanded&&<div id="map-results" className="explorer-results-body">{(locationBusy||locationFailed)&&<p className="explorer-example" role="status">{locationStatusText[locationState]}</p>}
@@ -86,5 +93,6 @@ export default function MapExplorer({variant='hot'}:{variant?:SiteVariant}){
   {!worldEntryOpen&&<FirstLoginTour taste={variant} page="map"/>}
  </main>
 }
+
 
 
