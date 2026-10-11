@@ -16,7 +16,7 @@ export default function Join(){
  useEffect(()=>{queueMicrotask(()=>{try{void browserDb().auth.getUser().then(async({data})=>{
  if(data?.user&&!data.user.is_anonymous){
   const membership=await api<{existingOwner:boolean}>('/api/customer/login-target');
-  if(membership.existingOwner&&!returnTo.startsWith('/app/')){location.replace(returnTo);return}
+  if(membership.existingOwner&&accountType==='owner'&&!returnTo.startsWith('/app/')){location.replace(returnTo);return}
  }
  setSignedIn(!!data?.user&&!data.user.is_anonymous);setAuthChecked(true)
 }).catch(()=>setAuthChecked(true))}catch{setAuthChecked(true)}})},[]);

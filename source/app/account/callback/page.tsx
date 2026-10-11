@@ -24,7 +24,7 @@ export default function Callback(){
    if(appReturn)document.cookie=APP_RETURN_COOKIE+'=; Path=/; Max-Age=0; Secure; SameSite=Lax';
    const accountType=pending?.accountType==='owner'?'owner':'user';
    try{sessionStorage.removeItem(`${variantForHost(location.host)}-pending-consent`)}catch{}
-   if(membership.existingOwner){location.replace(pending||appReturn?returnTo:'/owner');return}
+   if(membership.existingOwner&&accountType==='owner'&&!appReturn){location.replace(returnTo.startsWith('/owner')?returnTo:'/owner');return}
    const profile=await api<{customer:unknown|null;consentRequired:boolean}>('/api/customer/me');
    if(!active)return;
    location.replace(profile.customer&&!profile.consentRequired?(returnTo.startsWith('/app/')?returnTo:accountType==='owner'?(returnTo.startsWith('/owner')?returnTo:'/owner/signup'):'https://www.nowgo.space/flavors'):'/account/join?finish=1&type='+accountType+'&returnTo='+encodeURIComponent(returnTo));
