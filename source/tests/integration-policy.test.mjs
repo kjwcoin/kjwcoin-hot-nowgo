@@ -17,3 +17,5 @@ test('future timestamps and excessive validity fail closed',()=>{assert.equal(re
 test('wrong place is never linked',()=>assert.equal(resolve({...current,hot_place_id:'other'}).linked,false));
 
 test("app login returns only keep bridge parameters",()=>{assert.equal(returnPath("/app/report-login?role=customer&channel=550e8400-e29b-41d4-a716-446655440000&provider=google&next=https://evil.test"),"/app/report-login?role=customer&channel=550e8400-e29b-41d4-a716-446655440000&provider=google");assert.equal(returnPath("/app/entry"),"/app/entry");assert.equal(returnPath("/app/report?role=customer"),"/app/report")});
+
+test('entry handoff survives OAuth return and rejects external redirect parameters',()=>{assert.equal(returnPath('/app/report-login?role=customer&mode=entry&channel=550e8400-e29b-41d4-a716-446655440000&next=https://evil.test'),'/app/report-login?role=customer&mode=entry&channel=550e8400-e29b-41d4-a716-446655440000')});

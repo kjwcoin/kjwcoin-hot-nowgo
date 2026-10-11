@@ -7,7 +7,7 @@ export function returnPath(raw:unknown){
  if(raw==='#report')return '/suggestion#report';
  if(typeof raw!=='string'||raw.length>1500||!raw.startsWith('/')||raw.startsWith('//')||/[\\\u0000-\u0020]/.test(raw))return '/';
  try{const u=new URL(raw,'https://hot.local');if(u.origin!=='https://hot.local'||!(/^(?:\/|\/map|\/owner|\/suggestion|\/app\/(?:report-login|entry|report)|\/place\/[-a-zA-Z0-9_]{1,100})$/.test(u.pathname)))return '/';
- for(const k of [...u.searchParams.keys()])if(!(u.pathname==='/app/report-login'?['channel','role','provider']:['q','taste','spice','budget','menu']).includes(k))u.searchParams.delete(k);
+ for(const k of [...u.searchParams.keys()])if(!(u.pathname==='/app/report-login'?['channel','role','provider','mode']:['q','taste','spice','budget','menu']).includes(k))u.searchParams.delete(k);
  if(u.hash&&!/^#[a-zA-Z0-9_-]{1,80}$/.test(u.hash))u.hash='';
  const path=u.pathname==='/map'?'/':u.pathname;
  if(path==='/'&&['#report','#owner','#photo-credits','#discover'].includes(u.hash))return '/suggestion'+u.search+u.hash;
