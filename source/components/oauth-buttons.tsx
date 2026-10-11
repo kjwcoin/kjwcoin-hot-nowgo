@@ -5,7 +5,7 @@ import {browserDb} from '@/lib/supabase-browser';
 import {APP_RETURN_COOKIE,appLoginReturn} from '@/lib/integration-policy';
 import {returnPath} from '@/lib/integration-policy';
 
-export default function OAuthButtons({flavor, returnTo = '/', accountType = 'user',initialProvider,includeApple=false}: {flavor: string; returnTo?: string; accountType?: 'user' | 'owner';initialProvider?:'google'|'kakao'|'apple';includeApple?:boolean}) {
+export default function OAuthButtons({flavor, returnTo = '/', accountType = 'user',initialProvider,includeApple=false,compactLabels=false}: {flavor: string; returnTo?: string; accountType?: 'user' | 'owner';initialProvider?:'google'|'kakao'|'apple';includeApple?:boolean;compactLabels?:boolean}) {
   const [pending, setPending] = useState<'kakao' | 'google' | 'apple' | null>(null);
   const [error, setError] = useState('');
 
@@ -39,10 +39,10 @@ export default function OAuthButtons({flavor, returnTo = '/', accountType = 'use
   return <div className="oauth-options">
     <div className="unified-auth-actions">
       <button type="button" className="kakao-login-small" disabled={!!pending} onClick={() => void signIn('kakao')}>
-        {pending === 'kakao' ? '카카오 연결 중' : '카카오로 가입·로그인'}
+        {pending === 'kakao' ? '카카오 연결 중' : compactLabels?'카카오 로그인':'카카오로 가입·로그인'}
       </button>
       <button type="button" className="google-login-small" disabled={!!pending} onClick={() => void signIn('google')}>
-        {pending === 'google' ? '구글 연결 중' : '구글로 가입·로그인'}
+        {pending === 'google' ? '구글 연결 중' : compactLabels?'Google 로그인':'구글로 가입·로그인'}
       </button>
       {includeApple&&<button type="button" className="apple-login-small" style={{background:'#000',color:'#fff',borderRadius:12,padding:'14px 18px'}} disabled={!!pending} onClick={()=>void signIn('apple')}>{pending==='apple'?'Apple 연결 중':'Apple로 가입·로그인'}</button>}
     </div>
