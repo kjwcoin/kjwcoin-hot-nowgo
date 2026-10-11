@@ -149,7 +149,7 @@ body[data-theme] .map-anchor--reported .map-anchor-price {
   border-color: #aab1bb;
   color: #374151;
 }
-body[data-theme] .map-anchor--reported .map-anchor-pin { filter: saturate(.7) brightness(.94); }
+body[data-theme] .map-anchor--reported .map-anchor-pin { filter: grayscale(1) brightness(.94); }
 body[data-theme] :is(.submit-button, .explorer-report, .explorer-owner-join > a, .status-link) { background: var(--brand-ink); color: #fff; }
 body[data-theme] :is(.submit-button:hover, .explorer-report:hover, .explorer-owner-join > a:hover) { background: var(--brand-deep); color: #fff; }
 body[data-theme] :is(.closing, .toast) { background: var(--brand-deep); color: #fff; border-color: var(--brand-ink); }

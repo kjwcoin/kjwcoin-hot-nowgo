@@ -1,4 +1,5 @@
 'use client';
+import OwnerJoinRequest from './owner-join-request';
 import {useCallback,useEffect,useMemo,useRef,useState} from 'react';
 import KakaoMap from './kakao-map';
 import {api} from '@/lib/client';
@@ -29,7 +30,7 @@ export default function AppMap({variant}:{variant:SiteVariant}){
   <label>맛의 결<select value={flavor} onChange={event=>setFlavor(event.target.value)}>{theme.flavors.map(label=><option key={label} value={label}>{label==='전체'?'모든 결':label}</option>)}</select></label>
   <label>음식 카테고리<select value={category} onChange={event=>setCategory(event.target.value)}><option value="전체">모든 음식</option>{theme.categories.map(label=><option key={label} value={label}>{label}</option>)}</select></label></div></div>
   <div className="app-map-canvas"><KakaoMap appLocationBridge fullScreen onMapState={status=>postAppEvent({type:'nowgo:map-state',brand:variant,status,realOnly:true})} variant={variant} menus={pins} onSelect={select} onLocation={setLocation}/>
-  <div className="app-map-bottom" aria-live="polite">{loading?<p className="app-map-note">매장을 불러오는 중이에요.</p>:error?<p className="app-map-note">{error}<button type="button" onClick={()=>void load()}>다시 불러오기</button></p>:matched.length?<div className="app-map-cards">{matched.map(menu=><button key={menu.id} type="button" className="app-map-card" onClick={()=>select(menu)}><strong>{menu.shop}</strong><span>{menu.name} · {money(menu.price)}</span><small>{menu.ownerRegistered?'공식 매장':'유저 제보 · 영업현황 확인불가'}</small></button>)}{hasMore&&<button type="button" className="app-map-card" onClick={()=>void load(page+1)}>메뉴 더 보기</button>}</div>:<p className="app-map-note">{query||heat||flavor!=='전체'||category!=='전체'?'조건에 맞는 매장·메뉴가 아직 없어요.':'첫 매장의 제보를 기다리고 있어요.'}<button type="button" onClick={()=>postAppEvent({type:'nowgo:open-report',brand:variant})}>유저 제보하기</button></p>}</div>
+  <div className="app-map-bottom" aria-live="polite">{loading?<p className="app-map-note">매장을 불러오는 중이에요.</p>:error?<p className="app-map-note">{error}<button type="button" onClick={()=>void load()}>다시 불러오기</button></p>:matched.length?<div className="app-map-cards">{matched.map(menu=><article key={menu.id} className={`app-map-card-wrapper ${!menu.ownerRegistered?'app-map-card--reported':''}`}><button type="button" className="app-map-card" onClick={()=>select(menu)}><strong>{menu.shop}</strong><span>{menu.name} · {money(menu.price)}</span><small>{menu.ownerRegistered?'공식 매장':'유저 제보 · 영업현황 확인불가'}</small></button><OwnerJoinRequest compact menuId={menu.id} ownerRegistered={menu.ownerRegistered} appVariant={variant}/></article>)}{hasMore&&<button type="button" className="app-map-card" onClick={()=>void load(page+1)}>메뉴 더 보기</button>}</div>:<p className="app-map-note">{query||heat||flavor!=='전체'||category!=='전체'?'조건에 맞는 매장·메뉴가 아직 없어요.':'첫 매장의 제보를 기다리고 있어요.'}<button type="button" onClick={()=>postAppEvent({type:'nowgo:open-report',brand:variant})}>유저 제보하기</button></p>}</div>
   </div>
  </main>;
 }

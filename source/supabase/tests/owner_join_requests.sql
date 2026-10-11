@@ -1,0 +1,35 @@
+begin;
+do $$
+declare m uuid; place text; u1 uuid; u2 uuid; baseline bigint; result jsonb;
+begin
+ select id,place_id into m,place from public.ng_map_hot_menu_catalog where owner_store_id is null and not verified_owner limit 1;
+ if m is null then raise exception 'test requires a published consumer store';end if;
+ select id into u1 from auth.users where not is_anonymous and not exists(select 1 from public.ng_map_owner_join_requests where user_id=auth.users.id and place_id=place) limit 1;
+ select id into u2 from auth.users where id<>u1 and not is_anonymous and not exists(select 1 from public.ng_map_owner_join_requests where user_id=auth.users.id and place_id=place) limit 1;
+ if u1 is null or u2 is null then raise exception 'test requires two existing users';end if;
+ if has_table_privilege('anon','public.ng_map_owner_join_requests','select') or has_table_privilege('authenticated','public.ng_map_owner_join_requests','insert') or has_table_privilege('authenticated','public.ng_map_owner_join_requests','update') or has_table_privilege('authenticated','public.ng_map_owner_join_requests','delete') then raise exception 'unsafe grants';end if;
+ if has_function_privilege('anon','public.ng_map_request_owner_join(text,uuid)','execute') then raise exception 'anon can submit';end if;
+ perform set_config('request.jwt.claims','{}',true);
+ result:=public.ng_map_owner_join_request_state('hot',m);baseline:=(result->>'count')::bigint;
+ if (result->>'requested')::boolean then raise exception 'anonymous marked requested';end if;
+ begin perform taste_private.owner_join_request('hot',m,true);raise exception 'anonymous submit accepted';exception when insufficient_privilege then null;end;
+ begin perform public.ng_map_owner_join_request_state('invalid',m);raise exception 'invalid brand accepted';exception when others then if sqlerrm<>'invalid_planet' then raise;end if;end;
+ begin perform public.ng_map_owner_join_request_state('hot','00000000-0000-0000-0000-000000000000');raise exception 'invented menu accepted';exception when others then if sqlerrm<>'store_not_found' then raise;end if;end;
+ perform set_config('request.jwt.claims',jsonb_build_object('sub',u1,'role','authenticated','is_anonymous',true)::text,true);
+ begin perform public.ng_map_request_owner_join('hot',m);raise exception 'anonymous auth user accepted';exception when insufficient_privilege then null;end;
+ perform set_config('request.jwt.claims',jsonb_build_object('sub',u1,'role','authenticated','is_anonymous',false)::text,true);
+ set local role authenticated;
+ result:=public.ng_map_request_owner_join('hot',m);
+ if (result->>'count')::bigint<>baseline+1 or not (result->>'requested')::boolean then raise exception 'first request failed';end if;
+ result:=public.ng_map_request_owner_join('hot',m);
+ if (result->>'count')::bigint<>baseline+1 then raise exception 'duplicate counted';end if;
+ if (select count(*) from public.ng_map_owner_join_requests where user_id<>u1)>0 then raise exception 'requester privacy failed';end if;
+ perform set_config('request.jwt.claims',jsonb_build_object('sub',u2,'role','authenticated','is_anonymous',false)::text,true);
+ result:=public.ng_map_owner_join_request_state('hot',m);
+ if (result->>'requested')::boolean then raise exception 'second user marked requested';end if;
+ result:=public.ng_map_request_owner_join('hot',m);
+ if (result->>'count')::bigint<>baseline+2 then raise exception 'second user request failed';end if;
+ reset role;
+end;
+$$;
+rollback;
