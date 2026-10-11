@@ -29,5 +29,7 @@ test('real stores retain their coordinates and distance filter; duplicate demos 
  const far={...real,id:'far',placeId:'far',lat:35.1796,lng:129.0756};
  const result=mapMenuCatalog([...MENUS,...MENUS,real,far],origin);
  assert.equal(result.length,4);assert.strictEqual(result.at(-1),real);
- assert.equal(mapMenuCatalog([...MENUS,real],null).length,3);
+ assert.equal(mapMenuCatalog([...MENUS,real],null).length,4);
+ assert.strictEqual(mapMenuCatalog([...MENUS,real],null).at(-1),real);
+ assert.equal(mapMenuCatalog([...MENUS,{...real,lat:null}],null).length,3);
 });

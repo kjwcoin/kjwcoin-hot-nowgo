@@ -31,3 +31,9 @@ export async function publishReport(steps:{
  throw new Error('아직 제보 접수가 완료되지 않았어요. 같은 화면에서 다시 제출해 주세요.');
 }
 export const koreanToday=(now=new Date())=>new Date(now.getTime()+9*60*60*1000).toISOString().slice(0,10);
+
+/** Only an existing, caller-owned draft can be retried; the RPC checks its saved photo. */
+export async function retrySavedReport(steps:{find:()=>Promise<Receipt|null>;publish:()=>Promise<{status:unknown;error:StepError|null}>}):Promise<Receipt>{
+ if(!await steps.find())throw new Error('저장된 제보를 찾을 수 없어요.');
+ return publishReport({...steps,insert:async()=>{throw new Error('저장된 제보를 찾을 수 없어요.');},upload:async()=>null});
+}

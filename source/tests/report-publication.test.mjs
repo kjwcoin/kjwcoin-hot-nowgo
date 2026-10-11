@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {publishReport,koreanToday} from '../lib/report-publication.ts';
+import {retrySavedReport,publishReport,koreanToday} from '../lib/report-publication.ts';
 function fixture({initial=null,uploadError=null,lostReply=false,failedPublish=false,race=false}={}){
  let row=initial,uploads=0,inserts=0;
  return {get counts(){return {uploads,inserts}},steps:{
@@ -18,3 +18,16 @@ test('lost publish response uses persisted success',async()=>{const f=fixture({l
 test('a real publication failure never returns draft as success',async()=>{const f=fixture({failedPublish:true});await assert.rejects(publishReport(f.steps));assert.equal((await f.steps.find()).status,'draft')});
 test('an upload permission failure is not treated as an existing image',async()=>{const f=fixture({uploadError:{statusCode:'400',message:'Permission denied'}});await assert.rejects(publishReport(f.steps))});
 test('Korean today rolls over at 15:00 UTC',()=>{assert.equal(koreanToday(new Date('2026-09-29T15:01:00Z')),'2026-09-30')});
+
+test('saved draft retry publishes without another upload',async()=>{
+ let row={id:'mine',status:'draft'},calls=0;
+ const receipt=await retrySavedReport({find:async()=>row,publish:async()=>{calls++;row={...row,status:'published_unverified'};return {status:row.status,error:null}}});
+ assert.equal(receipt.status,'published_unverified');assert.equal(calls,1);
+});
+test('missing or inaccessible draft never invokes publication',async()=>{
+ let calls=0;await assert.rejects(retrySavedReport({find:async()=>null,publish:async()=>{calls++;return {status:null,error:null}}}),/저장된 제보/);assert.equal(calls,0);
+});
+test('already published saved report retry is idempotent',async()=>{
+ let calls=0;const row={id:'mine',status:'published_unverified'};
+ assert.deepEqual(await retrySavedReport({find:async()=>row,publish:async()=>{calls++;return {status:null,error:null}}}),row);assert.equal(calls,0);
+});

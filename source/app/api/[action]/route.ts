@@ -5,7 +5,7 @@ import {isKoreanAddress,isKoreanCoordinate,isKoreanRegion} from '@/lib/korean-re
 import {siteConfig,variantForHost} from '@/lib/site-config';
 import sharp from 'sharp';
 import {after} from 'next/server';
-import {publishReport,koreanToday} from '@/lib/report-publication';
+import {publishReport,retrySavedReport,koreanToday} from '@/lib/report-publication';
 
 type Ctx={params:Promise<{action:string}>};
 const reject=(req:Request,error:string,status:number)=>reply(req,{error},status);
@@ -17,6 +17,7 @@ export async function GET(req:Request,{params}:Ctx){
  try{
   if(action==='config'){const {kakaoKey,chatUrl}=config();return reply(req,{kakaoKey,chatUrl})}
   if(action==='menus'){const url=new URL(req.url),num=(name:string)=>Number(url.searchParams.get(name)||0);return reply(req,await communityMenus({page:num('page'),query:url.searchParams.get('q')||'',heat:num('heat'),maxHeat:num('maxHeat'),flavor:url.searchParams.get('flavor')||'',category:url.searchParams.get('category')||'',budget:num('budget'),lat:num('lat'),lng:num('lng'),radiusKm:num('radiusKm')},variant))}
+  if(action==='menu'){const menu=await menuById(new URL(req.url).searchParams.get('id')||'',variant);return menu?reply(req,{menu}):reject(req,'공개된 메뉴를 찾을 수 없어요.',404)}
   if(action!=='state')return reply(req,{},404);
   const auth=await verifiedUser(req);
   if(!auth)return reply(req,{saved:[],reports:[]});
@@ -45,6 +46,22 @@ export async function POST(req:Request,{params}:Ctx){
    const q=p.saved?client.from(theme.tables.saves).upsert({user_id:user.id,menu_id:p.menuId},{onConflict:'user_id,menu_id'}):client.from(theme.tables.saves).delete().eq('user_id',user.id).eq('menu_id',p.menuId);
    const {error}=await q;if(error)throw error;
    return reply(req,{saved:p.saved});
+  }
+  if(action==='report-retry'){
+   const {id}=await req.json() as {id:string};
+   if(typeof id!=='string'||!/^[a-f0-9-]{36}$/.test(id))return reject(req,'제보 번호를 확인해 주세요.',400);
+   const find=async()=>{const {data,error}=await client.from(theme.tables.reports).select('id,status').eq('id',id).eq('user_id',user.id).maybeSingle();if(error)throw error;return data};
+   try{
+    const receipt=await retrySavedReport({find,publish:async()=>{const {data,error}=await client.rpc(theme.publish,{report_id:id});return {status:data,error}}});
+    const authorization=req.headers.get('authorization')||'';
+    after(async()=>{try{await fetch('https://nowgo.space/api/taste-photo-review',{method:'POST',redirect:'error',headers:{'Content-Type':'application/json',authorization},body:JSON.stringify({kind:variant,reportId:id}),signal:AbortSignal.timeout(25000)})}catch{console.warn('Photo review remains queued')}});
+    return reply(req,receipt);
+   }catch(e){const message=(e as {message?:string}).message||'';
+    if(message.includes('membership consent required'))return reject(req,'필수 이용 동의를 확인한 뒤 다시 제출해 주세요.',400);
+    if(message.includes('photo required'))return reject(req,'저장된 사진이 없어요. 사진을 첨부해 새 제보를 제출해 주세요.',400);
+    if(message.includes('저장된 제보')||message.includes('삭제되었어요'))return reject(req,message,404);
+    throw e;
+   }
   }
   if(action!=='reports')return reply(req,{},404);
   const form=await req.formData(),get=(k:string)=>String(form.get(k)||'').trim();
