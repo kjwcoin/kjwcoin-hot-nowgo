@@ -51,9 +51,10 @@ type Props={
  selectedId?:string;
  variant?:MapVariant;
  appLocationBridge?:boolean;
+ onMapState?:(state:'loading'|'ready'|'setup'|'error')=>void;
 };
 
-export default function KakaoMap({menus,onSelect,onPoint,onLocation,onLocationState,locationControl,onDemoPositions,addressSearch,onAddressFound,onAddressError,fullScreen=false,selectedId,variant='hot',appLocationBridge=false}:Props){
+export default function KakaoMap({menus,onSelect,onPoint,onLocation,onLocationState,locationControl,onDemoPositions,addressSearch,onAddressFound,onAddressError,fullScreen=false,selectedId,variant='hot',appLocationBridge=false,onMapState}:Props){
  const rootRef=useRef<HTMLDivElement>(null);
  const canvasRef=useRef<HTMLDivElement>(null);
  const mapRef=useRef<any>(null);
@@ -62,8 +63,8 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,onLocationSt
  const userMarkerRef=useRef<any>(null);
  const addressMarkerRef=useRef<any>(null);
  const userPointRef=useRef<GeoPoint|null>(null);
- const callbacksRef=useRef({onSelect,onPoint,onLocation,onLocationState,onDemoPositions,onAddressFound,onAddressError});
- callbacksRef.current={onSelect,onPoint,onLocation,onLocationState,onDemoPositions,onAddressFound,onAddressError};
+ const callbacksRef=useRef({onSelect,onPoint,onLocation,onLocationState,onDemoPositions:appLocationBridge?undefined:onDemoPositions,onAddressFound,onAddressError,onMapState});
+ callbacksRef.current={onSelect,onPoint,onLocation,onLocationState,onDemoPositions:appLocationBridge?undefined:onDemoPositions,onAddressFound,onAddressError,onMapState};
  const landRequestRef=useRef(0);
  const locationRequestRef=useRef(0);
  const locationBusyRef=useRef(false);
@@ -72,6 +73,8 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,onLocationSt
  const [mapAttempt,setMapAttempt]=useState(0);
  const [locationState,setLocationState]=useState<LocationState>('idle');
  useEffect(()=>{callbacksRef.current.onLocationState?.(locationState)},[locationState]);
+ useEffect(()=>{callbacksRef.current.onMapState?.(mapState)},[mapState]);
+ useEffect(()=>{const root=rootRef.current;if(!root)return;const relayout=()=>{if(root.clientWidth>0&&root.clientHeight>0)mapRef.current?.relayout()};const observer=new ResizeObserver(relayout);observer.observe(root);window.addEventListener('nowgo:map-visible',relayout);return()=>{observer.disconnect();window.removeEventListener('nowgo:map-visible',relayout)}},[]);
 
  const focusNeighborhood=useCallback((point:GeoPoint)=>{
   const map=mapRef.current,k=kakaoRef.current;
@@ -173,7 +176,7 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,onLocationSt
   const k=kakaoRef.current;
   overlaysRef.current.forEach(overlay=>overlay.setMap(null));
   const groups=new Map<string,Menu[]>();
-  menus.filter(menu=>menu.lat!==null&&menu.lng!==null).forEach(menu=>groups.set(menu.placeId,[...(groups.get(menu.placeId)||[]),menu]));
+  menus.filter(menu=>(!appLocationBridge||menu.isDemo===false)&&menu.lat!==null&&menu.lng!==null).forEach(menu=>groups.set(menu.placeId,[...(groups.get(menu.placeId)||[]),menu]));
   overlaysRef.current=[...groups.values()].map(group=>{
    const menu=group[0],button=document.createElement('button');
    button.type='button';
@@ -194,7 +197,7 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,onLocationSt
   });
   mapRef.current.relayout();
   return()=>overlaysRef.current.forEach(overlay=>overlay.setMap(null));
- },[mapState,menus,selectedId,variant]);
+ },[mapState,menus,selectedId,variant,appLocationBridge]);
 
  useEffect(()=>{
   if(mapState!=='ready'||!mapRef.current||!kakaoRef.current)return;
@@ -250,7 +253,7 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,onLocationSt
  const statusText=locationStatusText[locationState];
  return <div className={fullScreen?'map-panel map-fullscreen':'map-panel'} ref={rootRef}>
   <div key={mapAttempt} className="map-canvas" ref={canvasRef} aria-label={`카카오 대한민국 ${label} 메뉴 지도`}/>
-  {mapState!=='ready'&&<div className="map-unavailable"><MapPin size={30} strokeWidth={1.3}/><span className="eyebrow">KAKAO MAP · {variant.toUpperCase()} NOWGO</span><h3>{mapState==='loading'?'지도를 불러오는 중':mapState==='setup'?'지도 연결을 준비하고 있어요':'잠시 지도를 불러올 수 없어요'}</h3><p>지도 연결을 확인한 뒤 다시 시도해 주세요.</p>{mapState!=='loading'&&<button type="button" className="text-link" onClick={retryMap}>지도 다시 불러오기</button>}<a className="text-link" href="https://www.nowgo.space/" target="_blank" rel="noreferrer">나우고에서 운영 매장 확인 <ArrowUpRight size={18}/></a></div>}
+  {mapState!=='ready'&&<div className="map-unavailable"><MapPin size={30} strokeWidth={1.3}/><span className="eyebrow">KAKAO MAP · {variant.toUpperCase()} NOWGO</span><h3>{mapState==='loading'?'지도를 불러오는 중':mapState==='setup'?'지도 연결을 준비하고 있어요':'잠시 지도를 불러올 수 없어요'}</h3><p>지도 연결을 확인한 뒤 다시 시도해 주세요.</p>{mapState!=='loading'&&<button type="button" className="text-link" onClick={retryMap}>지도 다시 불러오기</button>}{!appLocationBridge&&<a className="text-link" href="https://www.nowgo.space/" target="_blank" rel="noreferrer">나우고에서 운영 매장 확인 <ArrowUpRight size={18}/></a>}</div>}
   {mapState==='ready'&&onLocation&&<button type="button" className="map-location-button" aria-label="내 위치로 이동" onClick={requestLocation} disabled={locationBusy}><LocateFixed size={16}/>{locationBusy?'위치 확인 중':'내 위치'}</button>}
   {mapState==='ready'&&tileFailed&&<div role="alert" style={{position:'absolute',bottom:60,right:16,zIndex:5,maxWidth:300,padding:14,borderRadius:10,background:'#fff',color:'#20211e',boxShadow:'0 3px 18px #0002',fontSize:14}}>지도 배경을 불러오지 못했어요.<button type="button" className="text-link" onClick={retryMap}>지도 다시 불러오기</button></div>}
   {mapState==='ready'&&locationFailed&&<div role="status" style={{position:'absolute',top:72,right:16,zIndex:5,maxWidth:300,padding:14,borderRadius:10,background:'#fff',color:'#20211e',boxShadow:'0 3px 18px #0002',fontSize:14}}>{statusText}{userPointRef.current&&<p>이전에 확인한 위치를 표시하고 있어요.</p>}<button type="button" className="text-link" onClick={requestLocation}>위치 다시 확인</button></div>}

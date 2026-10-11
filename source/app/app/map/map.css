@@ -15,3 +15,6 @@ html:has([data-app-map]),body:has([data-app-map]){height:100%;margin:0;padding:0
 [data-flavor=sweet]{--app-accent:#67cfb6;--app-ink:#167661;--app-contrast:#123e34;--app-soft:#eafaf4;--app-line:#c5e4da}
 
 .nowgo-app-map .app-map-filters{background:var(--app-soft);border-color:var(--app-line)}.nowgo-app-map .app-map-search span,.nowgo-app-map .app-map-card span,.nowgo-app-map .app-map-note button{color:var(--app-ink)}.nowgo-app-map .app-map-selects label{color:var(--app-ink)}.nowgo-app-map :is(.app-map-search,select,.app-map-card,.app-map-note){border-color:var(--app-line)}
+
+/* App canvas owns its layout, independent of desktop map offsets. */
+.nowgo-app-map .map-unavailable{inset:0;padding:24px!important;justify-content:center!important;text-align:center}.nowgo-app-map .map-unavailable>.text-link{display:inline-flex!important}.nowgo-app-map .map-canvas{min-width:1px;min-height:1px}
