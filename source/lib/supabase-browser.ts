@@ -14,6 +14,7 @@ export function browserDb(){
 // Tokens travel in the response body, never in a URL or shared-domain cookie.
 let restoring:Promise<void>|null=null;
 export async function ensureUnifiedSession(){
+ try{if(localStorage.getItem('nowgo-explicit-logout')==='1')return}catch{}
  const db=browserDb();
  const {data}=await db.auth.getSession();
  if(data.session||!['hot.nowgo.space','sweet.nowgo.space','rich.nowgo.space'].includes(location.hostname))return;

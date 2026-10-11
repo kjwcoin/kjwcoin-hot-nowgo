@@ -15,6 +15,7 @@ export default function OAuthButtons({flavor, returnTo = '/', accountType = 'use
     setError('');
     try {
       window.dispatchEvent(new Event('nowgo-report-save-draft'));
+      try{localStorage.removeItem('nowgo-explicit-logout')}catch{}
       const appReturn=appLoginReturn(returnTo);document.cookie=APP_RETURN_COOKIE+'='+(appReturn?encodeURIComponent(appReturn):'')+'; Path=/; Max-Age='+(appReturn?'600':'0')+'; Secure; SameSite=Lax';
       sessionStorage.setItem(`${flavor}-pending-consent`, JSON.stringify({essential: false, returnTo: returnPath(returnTo), accountType}));
       if (location.hostname === 'nowgo.space' || location.hostname.endsWith('.nowgo.space')) {
