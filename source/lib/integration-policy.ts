@@ -32,3 +32,7 @@ export function resolveOfficialStatus(raw:unknown,placeId:string,menuId:string,n
  if(m&&m.hot_menu_id===menuId){const mc=Date.parse(String(m.observed_at)),me=Date.parse(String(m.expires_at));if(Number.isFinite(mc)&&Number.isFinite(me)&&mc<=now&&me>now&&me>mc&&me-mc<=86400000&&now-mc<=86400000){out.menu=m.status==='SOLD_OUT'?'품절':m.status==='AVAILABLE'?'주문 가능':'확인 필요';out.validUntil=new Date(Math.min(expires,me)).toISOString()}}
  return out;
 }
+
+export const APP_RETURN_COOKIE='nowgo-app-oauth-return';
+export function appLoginReturn(value:unknown):string|null {const path=returnPath(value);return path.startsWith('/app/report-login?')||path==='/app/entry'?path:null}
+export function readAppReturnCookie(cookies:string):string|null {try{const value=cookies.split(';').map(v=>v.trim()).find(v=>v.startsWith(APP_RETURN_COOKIE+'='));return value?appLoginReturn(decodeURIComponent(value.slice(APP_RETURN_COOKIE.length+1))):null}catch{return null}}

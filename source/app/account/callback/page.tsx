@@ -3,6 +3,7 @@ import {useEffect,useState} from 'react';
 import FlavorHeader from '@/components/flavor-header';
 import {browserDb} from '@/lib/supabase-browser';
 import {api} from '@/lib/client';
+import {APP_RETURN_COOKIE,readAppReturnCookie} from '@/lib/integration-policy';
 import {returnPath} from '@/lib/integration-policy';
 import {variantForHost} from '@/lib/site-config';
 export default function Callback(){
@@ -16,12 +17,14 @@ export default function Callback(){
    if(sessionError||!data.session)throw sessionError||new Error('로그인을 완료하지 못했어요. 다시 시도해 주세요.');
    const membership=await api<{existingOwner:boolean}>('/api/customer/login-target');
    if(!active)return;
-   const raw=sessionStorage.getItem(`${variantForHost(location.host)}-pending-consent`);
-   const pending=raw?JSON.parse(raw) as {returnTo?:string;accountType?:'user'|'owner'}:null;
-   const returnTo=returnPath(pending?.returnTo);
+   let pending:{returnTo?:string;accountType?:'user'|'owner'}|null=null;
+   try{const raw=sessionStorage.getItem(`${variantForHost(location.host)}-pending-consent`);pending=raw?JSON.parse(raw):null}catch{}
+   const appReturn=readAppReturnCookie(document.cookie);
+   const returnTo=returnPath(appReturn||pending?.returnTo);
+   if(appReturn)document.cookie=APP_RETURN_COOKIE+'=; Path=/; Max-Age=0; Secure; SameSite=Lax';
    const accountType=pending?.accountType==='owner'?'owner':'user';
-   sessionStorage.removeItem(`${variantForHost(location.host)}-pending-consent`);
-   if(membership.existingOwner){location.replace(pending?returnTo:'/owner');return}
+   try{sessionStorage.removeItem(`${variantForHost(location.host)}-pending-consent`)}catch{}
+   if(membership.existingOwner){location.replace(pending||appReturn?returnTo:'/owner');return}
    const profile=await api<{customer:unknown|null;consentRequired:boolean}>('/api/customer/me');
    if(!active)return;
    location.replace(profile.customer&&!profile.consentRequired?(returnTo.startsWith('/app/')?returnTo:accountType==='owner'?(returnTo.startsWith('/owner')?returnTo:'/owner/signup'):'https://www.nowgo.space/flavors'):'/account/join?finish=1&type='+accountType+'&returnTo='+encodeURIComponent(returnTo));

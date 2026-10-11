@@ -1,0 +1,3 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {appLoginReturn,readAppReturnCookie} from '../lib/integration-policy.ts';
+test('app OAuth return survives losing tab session storage',()=>{const path='/app/report-login?mode=entry&channel=550e8400-e29b-41d4-a716-446655440000';assert.equal(readAppReturnCookie('other=1; nowgo-app-oauth-return='+encodeURIComponent(path)),path)});
+test('external or ordinary website return cannot override app routing',()=>{for(const path of ['https://evil.test/app/entry','//evil.test','/','/owner','/place/demo'])assert.equal(appLoginReturn(path),null);assert.equal(readAppReturnCookie('nowgo-app-oauth-return=%E0%A4%A'),null)});

@@ -2,6 +2,7 @@
 
 import {useCallback,useEffect,useRef,useState} from 'react';
 import {browserDb} from '@/lib/supabase-browser';
+import {APP_RETURN_COOKIE,appLoginReturn} from '@/lib/integration-policy';
 import {returnPath} from '@/lib/integration-policy';
 
 export default function OAuthButtons({flavor, returnTo = '/', accountType = 'user',initialProvider,includeApple=false}: {flavor: string; returnTo?: string; accountType?: 'user' | 'owner';initialProvider?:'google'|'kakao'|'apple';includeApple?:boolean}) {
@@ -14,6 +15,7 @@ export default function OAuthButtons({flavor, returnTo = '/', accountType = 'use
     setError('');
     try {
       window.dispatchEvent(new Event('nowgo-report-save-draft'));
+      const appReturn=appLoginReturn(returnTo);document.cookie=APP_RETURN_COOKIE+'='+(appReturn?encodeURIComponent(appReturn):'')+'; Path=/; Max-Age='+(appReturn?'600':'0')+'; Secure; SameSite=Lax';
       sessionStorage.setItem(`${flavor}-pending-consent`, JSON.stringify({essential: false, returnTo: returnPath(returnTo), accountType}));
       if (location.hostname === 'nowgo.space' || location.hostname.endsWith('.nowgo.space')) {
         document.cookie = 'nowgo-flavor-oauth-return=' + encodeURIComponent(location.origin) + '; Path=/; Domain=.nowgo.space; Max-Age=600; Secure; SameSite=Lax';

@@ -16,7 +16,7 @@ export default function Join(){
  useEffect(()=>{queueMicrotask(()=>{try{void browserDb().auth.getUser().then(async({data})=>{
  if(data?.user&&!data.user.is_anonymous){
   const membership=await api<{existingOwner:boolean}>('/api/customer/login-target');
-  if(membership.existingOwner){location.replace(returnTo);return}
+  if(membership.existingOwner&&!returnTo.startsWith('/app/')){location.replace(returnTo);return}
  }
  setSignedIn(!!data?.user&&!data.user.is_anonymous);setAuthChecked(true)
 }).catch(()=>setAuthChecked(true))}catch{setAuthChecked(true)}})},[]);
@@ -26,7 +26,7 @@ export default function Join(){
   try{
    if(!accountType){setBusy(false);setError('유저 또는 점주를 선택해 주세요.');return}
    await api('/api/customer/consents',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({essential:true,marketingEmail:marketing,version:theme.consent})});
-   const {error:profileError}=await browserDb().auth.updateUser({data:{nowgo_account_type:accountType}});if(profileError)throw profileError;
+   if(!returnTo.startsWith('/app/')){const {error:profileError}=await browserDb().auth.updateUser({data:{nowgo_account_type:accountType}});if(profileError)throw profileError;}
    window.dispatchEvent(new Event('hot-customer-change'));
    location.assign(returnTo.startsWith('/app/')?returnTo:accountType==='owner'?(returnTo.startsWith('/owner')?returnTo:'/owner/signup'):'https://www.nowgo.space/flavors');
   }catch(e){setBusy(false);setError((e as Error).message)}
