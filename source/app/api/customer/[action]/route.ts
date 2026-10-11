@@ -1,9 +1,13 @@
+import {menuByPlaceId} from '@/lib/menu-catalog';
+import {createHash} from 'node:crypto';
+import type {SiteVariant} from '@/lib/site-config';
 import {reply,validOrigin,failure} from '@/lib/server';
 import {verifiedUser,publicConfig} from '@/lib/supabase';
 import {isExistingOwner} from '@/lib/existing-owner';
 import {LEVELS} from '@/lib/loyalty';
 import {siteConfig,variantForHost} from '@/lib/site-config';
 type Ctx={params:Promise<{action:string}>};
+async function reportedPlace(placeId:unknown,variant:SiteVariant){if(typeof placeId!=='string'||!/^reported-[a-f0-9]{24}$/.test(placeId))return null;const menu=await menuByPlaceId(placeId,variant);if(!menu||menu.isDemo)return null;const key=createHash('sha256').update(menu.shop.trim().toLocaleLowerCase()+'\0'+menu.area.replace(/\s/g,'').toLocaleLowerCase()).digest('hex');return {menu,key}}
 export async function GET(req:Request,{params}:Ctx){
  try{
   const theme=siteConfig(variantForHost(req.headers.get('host')));
@@ -21,7 +25,9 @@ export async function GET(req:Request,{params}:Ctx){
   }
   if(action==='favorite'){
    const auth=await verifiedUser(req);if(!auth)return reply(req,{error:'통합 로그인 후 다시 시도해 주세요.'},401);
-   const storeId=new URL(req.url).searchParams.get('storeId');
+   const url=new URL(req.url),variant=variantForHost(req.headers.get('host'));
+   if(url.searchParams.has('placeId')){const place=await reportedPlace(url.searchParams.get('placeId'),variant);if(!place)return reply(req,{error:'현재 이용할 수 없는 매장이에요.'},404);const {data,error}=await auth.client.from('ng_map_place_favorites').select('place_key').eq('user_id',auth.user.id).eq('place_key',place.key).maybeSingle();if(error)throw error;return reply(req,{registered:!!data})}
+   const storeId=url.searchParams.get('storeId');
    if(!storeId||!/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(storeId))return reply(req,{error:'매장을 확인해 주세요.'},400);
    const [favorite,hidden]=await Promise.all([auth.client.from('store_favorites').select('store_id').eq('user_id',auth.user.id).eq('store_id',storeId).maybeSingle(),auth.client.from('regular_home_hidden').select('store_id').eq('user_id',auth.user.id).eq('store_id',storeId).maybeSingle()]);
    if(favorite.error||hidden.error)throw favorite.error||hidden.error;
@@ -46,7 +52,8 @@ export async function POST(req:Request,{params}:Ctx){
   const theme=siteConfig(variantForHost(req.headers.get('host')));
   if(action==='favorite'){
    const auth=await verifiedUser(req);if(!auth)return reply(req,{error:'통합 로그인 후 다시 시도해 주세요.'},401);
-   const body=await req.json() as {storeId?:string;active?:boolean};
+   const body=await req.json() as {storeId?:string;placeId?:string;active?:boolean};
+   if(body.placeId!==undefined){if(typeof body.active!=='boolean')return reply(req,{error:'매장을 확인해 주세요.'},400);const variant=variantForHost(req.headers.get('host')),place=await reportedPlace(body.placeId,variant);if(!place)return reply(req,{error:'현재 이용할 수 없는 매장이에요.'},404);const {error}=body.active?await auth.client.from('ng_map_place_favorites').upsert({user_id:auth.user.id,place_key:place.key,place_id:place.menu.placeId,planet:variant,menu_id:place.menu.id,shop:place.menu.shop,address:place.menu.area},{onConflict:'user_id,place_key'}):await auth.client.from('ng_map_place_favorites').delete().eq('user_id',auth.user.id).eq('place_key',place.key);if(error)throw error;return reply(req,{registered:body.active})}
    if(typeof body.storeId!=='string'||!/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(body.storeId)||typeof body.active!=='boolean')return reply(req,{error:'매장을 확인해 주세요.'},400);
    const {error}=await auth.client.rpc('ng_customer_set_favorite',{p_store:body.storeId,p_active:body.active});if(error)throw error;
    return reply(req,{registered:body.active});
