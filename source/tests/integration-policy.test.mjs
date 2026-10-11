@@ -19,3 +19,5 @@ test('wrong place is never linked',()=>assert.equal(resolve({...current,hot_plac
 test("app login returns only keep bridge parameters",()=>{assert.equal(returnPath("/app/report-login?role=customer&channel=550e8400-e29b-41d4-a716-446655440000&provider=google&next=https://evil.test"),"/app/report-login?role=customer&channel=550e8400-e29b-41d4-a716-446655440000&provider=google");assert.equal(returnPath("/app/entry"),"/app/entry");assert.equal(returnPath("/app/report?role=customer"),"/app/report")});
 
 test('entry handoff survives OAuth return and rejects external redirect parameters',()=>{assert.equal(returnPath('/app/report-login?role=customer&mode=entry&channel=550e8400-e29b-41d4-a716-446655440000&next=https://evil.test'),'/app/report-login?role=customer&mode=entry&channel=550e8400-e29b-41d4-a716-446655440000')});
+
+test('favorite login retains selected store without accepting external return URLs',()=>{const path='/app/report-login?mode=entry&favoriteStoreId=9116f942-8551-4520-9623-576fce3201a3';assert.equal(returnPath(path+'&next=https://evil.test'),path)});
