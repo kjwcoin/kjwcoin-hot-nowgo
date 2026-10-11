@@ -32,21 +32,24 @@ export async function communityMenus(filters:MenuSearch={},variant:SiteVariant='
  const {data,error}=await request.order('created_at',{ascending:false}).range(page*size,page*size+size);
  if(error)throw error;
  const rows=((data||[]) as MenuRow[]).filter(row=>!point||row.lat!==null&&row.lng!==null&&distanceKm(point,{lat:row.lat,lng:row.lng})<=radius);
- return {menus:rows.slice(0,size).map(convert),hasMore:rows.length>size};
+ const {data:counts,error:countError}=await publicDb().rpc('ng_map_store_report_counts',{p_planet:variant});
+ if(countError)throw countError;
+ const totals=new Map((counts||[]).map((row:{shop_key:string;address_key:string;report_count:number})=>[row.shop_key+'\0'+row.address_key,Number(row.report_count)]));
+ return {menus:rows.slice(0,size).filter(row=>!['나우고','나우고 카페'].includes(row.shop.trim())).map(row=>({...convert(row),reportCount:totals.get(row.shop.trim().toLocaleLowerCase()+'\0'+row.address.replace(/\s/g,'').toLocaleLowerCase())??0})),hasMore:rows.length>size};
 }
 
 export async function menuById(id:string,variant:SiteVariant='hot'):Promise<Menu|null>{
- const demo=siteConfig(variant).menus.find(m=>m.id===id);if(demo)return demo;
+
  if(!publicConfig().ready||!/^[a-f0-9-]{36}$/.test(id))return null;
  const {data,error}=await publicDb().from(siteConfig(variant).tables.menus).select(fields).eq('id',id).maybeSingle();
  if(error)throw error;
- return data?convert(data as MenuRow):null;
+ return data&&!['나우고','나우고 카페'].includes(String(data.shop).trim())?convert(data as MenuRow):null;
 }
 
 export async function menuByPlaceId(id:string,variant:SiteVariant='hot'):Promise<Menu|null>{
- const demo=siteConfig(variant).menus.find(m=>m.placeId===id);if(demo)return demo;
+
  if(!publicConfig().ready||!/^[a-zA-Z0-9_-]{1,100}$/.test(id))return null;
  const {data,error}=await publicDb().from(siteConfig(variant).tables.menus).select(fields).eq('place_id',id).order('created_at',{ascending:false}).limit(1);
  if(error)throw error;
- return data?.[0]?convert(data[0] as MenuRow):null;
+ return data?.[0]&&!['나우고','나우고 카페'].includes(String(data[0].shop).trim())?convert(data[0] as MenuRow):null;
 }
