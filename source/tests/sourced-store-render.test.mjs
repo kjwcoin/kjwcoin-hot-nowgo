@@ -10,8 +10,8 @@ test('rendered source cards expose canonical mini-pages and known facts without 
  assert.equal((html.match(/class="source-store-legacy-card"/g)||[]).length,6);
  assert.equal((html.match(/https:\/\/hot.nowgo.space\/p\/source-store-/g)||[]).length,6);
  assert.match(html,/공공자료 등록 · 점주 미등록/);assert.match(html,/가격 미확인/);assert.match(html,/맵기 미확인/);assert.match(html,/사진 미등록/);
- assert.match(html,/explorer-store-name/);assert.match(html,/explorer-menu-item reporter-store/);assert.match(html,/explorer-item-copy/);assert.doesNotMatch(html,/reportStore|맵기 제보|참여 고객 0명/);
- assert.doesNotMatch(html,/<img|0원|소비자 제보|1단계|현재 영업/);
+ assert.match(html,/explorer-store-name/);assert.match(html,/class="explorer-menu-item"/);assert.doesNotMatch(html,/explorer-menu-item reporter-store/);assert.match(html,/explorer-item-copy/);assert.doesNotMatch(html,/reportStore|맵기 제보|참여 고객 0명/);
+ assert.match(html,/src="\/images\/nowgo-red.png"/);assert.doesNotMatch(html,/0원|소비자 제보|1단계|현재 영업/);
 });
 test('rendered null-location and verified-without-menu states remain explicit',()=>{
  const unknown=renderToStaticMarkup(React.createElement(Card,{store:sourceStore(1,{coordinates:null})}));assert.match(unknown,/지도 위치 미확인/);

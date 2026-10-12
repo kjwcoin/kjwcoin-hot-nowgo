@@ -12,7 +12,8 @@ import {money,type Menu} from '@/lib/menus';
 import {hasVerifiedOwner,storePinMenu} from '@/lib/menu-store-groups';
 import {mapStoreGroups,sourceIsPrimaryPin} from '@/lib/map-sourced-stores';
 import {type PublicSourcedStore} from '@/lib/sourced-store';
-import {sourcedStoreMarker,bindSourceMarkerSelection} from '@/lib/source-map-marker';
+import {sourcedStoreMarker,bindSourceMarkerSelection,appendPreviewMarkerHeat} from '@/lib/source-map-marker';
+import type {PreviewMenuHeat} from '@/lib/preview-menu-heat';
 import {createViewportCounter,type ViewportCountState} from '@/lib/viewport-count-client';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -65,10 +66,11 @@ type Props={
  onMapState?:(state:'loading'|'ready'|'setup'|'error')=>void;
  viewportCountQuery?:string;
  sourcePreview?:boolean;
+ previewSourceHeat?:PreviewMenuHeat;
  initialCenter?:GeoPoint;
 };
 
-export default function KakaoMap({menus,sourcedStores=EMPTY_SOURCES,sourceIdentityStores=sourcedStores,onSelect,onSourceSelect,selectedSourceId,onPoint,onLocation,onLocationState,locationControl,onDemoPositions,addressSearch,coordinateSearch,onAddressFound,onAddressError,fullScreen=false,selectedId,variant='hot',appLocationBridge=false,onMapState,viewportCountQuery,sourcePreview=false,initialCenter}:Props){
+export default function KakaoMap({menus,sourcedStores=EMPTY_SOURCES,sourceIdentityStores=sourcedStores,onSelect,onSourceSelect,selectedSourceId,onPoint,onLocation,onLocationState,locationControl,onDemoPositions,addressSearch,coordinateSearch,onAddressFound,onAddressError,fullScreen=false,selectedId,variant='hot',appLocationBridge=false,onMapState,viewportCountQuery,sourcePreview=false,previewSourceHeat,initialCenter}:Props){
  const initialLat=initialCenter?.lat??37.5665,initialLng=initialCenter?.lng??126.978;
  const sourceSelectionEnabled=typeof onSourceSelect==='function';
  const rootRef=useRef<HTMLDivElement>(null);
@@ -200,6 +202,7 @@ export default function KakaoMap({menus,sourcedStores=EMPTY_SOURCES,sourceIdenti
     const store=group.source,link=sourcedStoreMarker(store);
     if(sourcePreview){link.href='/p/'+encodeURIComponent(store.slug)+'?preview=source';link.removeAttribute('target')}
     bindSourceMarkerSelection(link,store,sourceSelectionEnabled?value=>callbacksRef.current.onSourceSelect?.(value):undefined,selectedSourceId===store.id);
+    if(sourcePreview)appendPreviewMarkerHeat(link,store,previewSourceHeat);
     return new k.maps.CustomOverlay({map:mapRef.current,position:new k.maps.LatLng(store.coordinates!.lat,store.coordinates!.lon),content:link,yAnchor:1.2});
    }
    if(!group.catalog)return null;
@@ -223,7 +226,7 @@ export default function KakaoMap({menus,sourcedStores=EMPTY_SOURCES,sourceIdenti
   }).filter(Boolean);
   mapRef.current.relayout();
   return()=>overlaysRef.current.forEach(overlay=>overlay.setMap(null));
- },[mapState,menus,sourcedStores,sourceIdentityStores,selectedId,selectedSourceId,sourceSelectionEnabled,variant,appLocationBridge,sourcePreview]);
+ },[mapState,menus,sourcedStores,sourceIdentityStores,selectedId,selectedSourceId,sourceSelectionEnabled,variant,appLocationBridge,sourcePreview,previewSourceHeat]);
 
  useEffect(()=>{
   if(viewportCountQuery===undefined||mapState!=='ready'||!mapRef.current||!kakaoRef.current)return;

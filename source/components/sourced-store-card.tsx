@@ -1,16 +1,16 @@
 import {ArrowUpRight} from 'lucide-react';
-import SourcedStorePhoto from '@/components/sourced-store-photo';
+import SourcedStorePhoto,{type SourcePreviewPhoto} from '@/components/sourced-store-photo';
 import {sourcedStoreUrl,type PublicSourcedStore} from '@/lib/sourced-store';
 
-type Props={store:PublicSourcedStore;showHeading?:boolean;preview?:boolean;onSelect?:(store:PublicSourcedStore,menuId?:string)=>void};
+type Props={store:PublicSourcedStore;showHeading?:boolean;preview?:boolean;previewPhoto?:SourcePreviewPhoto;previewPhotoMenuId?:string;onSelect?:(store:PublicSourcedStore,menuId?:string)=>void};
 /** Public facts use the original HOT menu row, without adapting nulls into Menu. */
-export default function SourcedStoreCard({store,showHeading=true,preview=false,onSelect}:Props){
+export default function SourcedStoreCard({store,showHeading=true,preview=false,previewPhoto,previewPhotoMenuId,onSelect}:Props){
  const status=store.ownerClaimVerified?'점주 확인 · 공공자료 메뉴':'공공자료 등록 · 점주 미등록';
  return <div className="source-store-legacy-card" data-store-id={store.id}>
   {showHeading&&<header className="explorer-store-name"><strong>{store.name}</strong></header>}
   {store.menus.map(menu=>{
-   const content=<><SourcedStorePhoto name={menu.name}/><span className="explorer-item-copy"><small>맵기 미확인</small><strong>{menu.name}</strong><span>가격 미확인</span><small className="reporter-store-status">{status}</small>{!store.coordinates&&<small>지도 위치 미확인</small>}</span><ArrowUpRight size={17} aria-hidden="true"/></>;
-   return onSelect?<button key={menu.id} data-source-menu-id={menu.id} type="button" className="explorer-menu-item reporter-store" aria-label={`${store.name} · ${menu.name} 상세 보기`} onClick={()=>onSelect(store,menu.id)}>{content}</button>:<a key={menu.id} className="explorer-menu-item reporter-store" href={preview?'/p/'+encodeURIComponent(store.slug)+'?preview=source':sourcedStoreUrl(store)}>{content}</a>;
+   const content=<><SourcedStorePhoto previewPhoto={preview&&previewPhotoMenuId===menu.id?previewPhoto:undefined}/><span className="explorer-item-copy"><small>맵기 미확인</small><strong>{menu.name}</strong><span>가격 미확인</span><small className="reporter-store-status">{status}</small>{!store.coordinates&&<small>지도 위치 미확인</small>}</span><ArrowUpRight size={17} aria-hidden="true"/></>;
+   return onSelect?<button key={menu.id} data-source-menu-id={menu.id} type="button" className="explorer-menu-item" aria-label={`${store.name} · ${menu.name} 상세 보기`} onClick={()=>onSelect(store,menu.id)}>{content}</button>:<a key={menu.id} className="explorer-menu-item" href={preview?'/p/'+encodeURIComponent(store.slug)+'?preview=source':sourcedStoreUrl(store)}>{content}</a>;
   })}
  </div>;
 }
