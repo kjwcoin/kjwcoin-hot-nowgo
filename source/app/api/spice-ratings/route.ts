@@ -12,8 +12,7 @@ export async function GET(req:Request){
   const menuId=new URL(req.url).searchParams.get('menuId')||'';
   if(!uuid.test(menuId))return error(req,'메뉴 ID를 확인해 주세요.',400);
   if(!await menuById(menuId,'hot'))return error(req,'HOT 메뉴를 찾을 수 없습니다.',404);
-  const {data,error:dbError}=await publicDb().from('hot_menu_spice_summary')
-    .select('median_level,rating_count').eq('menu_id',menuId).maybeSingle();
+  const {data,error:dbError}=await publicDb().rpc('hot_menu_spice_summary_for',{p_menu_id:menuId}).single();
   if(dbError)throw dbError;
   return reply(req,{menuId,median:data?.median_level??null,count:data?.rating_count??0,
     provisional:!!data&&data.rating_count>0&&data.rating_count<3});
