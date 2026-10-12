@@ -1,3 +1,4 @@
+import { sourcePreviewEnabled } from '@/lib/source-store-preview';
 import type { MetadataRoute } from 'next';
 import { headers } from 'next/headers';
 import { variantForHost } from '@/lib/site-config';
@@ -5,8 +6,9 @@ import { flavorOrigins, publicFlavorHost } from '@/lib/seo';
 
 export const dynamic = 'force-dynamic';
 export default async function robots(): Promise<MetadataRoute.Robots> {
+ if (sourcePreviewEnabled()) return { rules: { userAgent: '*', disallow: '/' } };
  const host = (await headers()).get('host');
  const origin = flavorOrigins[variantForHost(host)];
  if (!publicFlavorHost(host)) return { rules: { userAgent: '*', disallow: '/' } };
- return { rules: { userAgent: '*', allow: '/', disallow: ['/api/', '/account', '/activity', '/sponsor-admin', '/go/'] }, sitemap: `${origin}/sitemap.xml` };
+ return { rules: { userAgent: '*', allow: '/', disallow: ['/api/', '/account', '/activity', '/sponsor-admin', '/go/', '/preview/'] }, sitemap: `${origin}/sitemap.xml` };
 }

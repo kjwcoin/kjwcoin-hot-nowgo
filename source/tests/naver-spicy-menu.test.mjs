@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import {test} from 'node:test';
+import {classifyNaverSpicyMenu} from '../lib/naver-spicy-menu.ts';
+const now=Date.parse('2026-10-12T06:00:00Z');
+const base={placeUrl:'https://place.naver.com/restaurant/123/menu',menuName:'떡볶이',provenance:'independent_owner',permissionReference:'owner-consent-42',permissionScope:{persistFacts:true,publicDisplay:true,commercialUse:true},countryCode:'KR',checkedAt:'2026-10-12T00:00:00Z'};
+const classify=e=>classifyNaverSpicyMenu(e,now);
+test('literal menu-specific spicy text qualifies only with independently established rights',()=>{assert.equal(classify({...base,menuDescription:'신라면 매운맛'}).eligible,true);assert.equal(classify({...base,menuName:'매운맛 닭발'}).eligible,true)});
+test('verified menu heat pepper qualifies, decorative or unverified pepper does not',()=>{assert.equal(classify({...base,pepperIndicatorVerified:true,pepperIndicatorContext:'spice_level'}).eligible,true);for(const patch of [{pepperIndicatorVerified:false,pepperIndicatorContext:'spice_level'},{pepperIndicatorVerified:true,pepperIndicatorContext:'decorative'}])assert.equal(classify({...base,...patch}).eligible,false)});
+test('restaurant or food type alone never proves a spicy menu',()=>{for(const menuName of ['마라탕','닭발','떡볶이'])assert.equal(classify({...base,menuName}).eligible,false)});
+test('missing storage/display/commercial permission blocks permanent listing use',()=>{for(const patch of [{permissionReference:''},{permissionScope:undefined},{permissionScope:{...base.permissionScope,commercialUse:false}},{permissionScope:{...base.permissionScope,persistFacts:false}}])assert.equal(classify({...base,menuName:'매운맛 닭발',...patch}).reason,'missing_permission')});
+test('NAVER Search data can never become catalogue evidence through this gate',()=>{assert.equal(classify({...base,menuName:'매운맛 닭발',provenance:'naver_search'}).reason,'prohibited_api_import')});
+test('deceptive source URLs and future timestamps fail closed',()=>{for(const placeUrl of ['https://place.naver.com.evil.test/restaurant/123','https://user@place.naver.com/restaurant/123','http://place.naver.com/restaurant/123','https://place.naver.com:8443/menu'])assert.equal(classify({...base,placeUrl,menuName:'매운맛 닭발'}).reason,'invalid_source');assert.equal(classify({...base,checkedAt:'2027-01-01',menuName:'매운맛 닭발'}).reason,'invalid_evidence')});
+test('nationwide eligibility is limited to explicitly confirmed Korean branches',()=>{assert.equal(classify({...base,menuName:'매운맛 닭발',countryCode:'JP'}).reason,'outside_korea');assert.equal(classify({...base,menuName:'매운맛 닭발',countryCode:''}).reason,'outside_korea')});
