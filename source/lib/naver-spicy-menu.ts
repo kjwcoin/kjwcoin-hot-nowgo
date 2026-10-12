@@ -2,12 +2,7 @@
  * Do not scrape NAVER Place or create listings merely from the store name.
  * Gate all imports on documented permission and specific menu-level evidence.
  */
-import {isKoreanAddress,isKoreanCoordinate} from './korean-region';
-
 export type PlaceMenuEvidence = {
-  storeAddress: string;
-  latitude: number;
-  longitude: number;
   placeUrl: string;
   menuName: string;
   menuDescription?: string;
@@ -19,15 +14,12 @@ export type PlaceMenuEvidence = {
 export type PlaceMenuDecision = {
   eligible: boolean;
   reason: 'eligible_text' | 'eligible_pepper' | 'missing_permission' |
-   'invalid_source' | 'invalid_evidence' | 'outside_korea' | 'no_spicy_menu_evidence';
+   'invalid_source' | 'invalid_evidence' | 'no_spicy_menu_evidence';
 };
 const naverPlace = /^https:\/\/(?:m\.)?(?:place|map)\.naver\.com\//i;
 export function classifyNaverSpicyMenu(e: PlaceMenuEvidence): PlaceMenuDecision {
   if (!e.permissionReference?.trim()) return {eligible:false,reason:'missing_permission'};
   if (!naverPlace.test(e.placeUrl)) return {eligible:false,reason:'invalid_source'};
-  if (!isKoreanAddress(e.storeAddress) || !isKoreanCoordinate(e.latitude,e.longitude)) {
-    return {eligible:false,reason:'outside_korea'};
-  }
   if (!e.menuName?.trim() || !Number.isFinite(Date.parse(e.checkedAt))) {
     return {eligible:false,reason:'invalid_evidence'};
   }
