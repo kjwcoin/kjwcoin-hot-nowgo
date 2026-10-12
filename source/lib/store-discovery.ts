@@ -5,8 +5,8 @@ import type { SiteVariant } from './site-config';
 import { sourcedStoreUrl, type PublicSourcedStore } from './sourced-store.ts';
 
 export const HOT_DISCOVERY_ORIGIN = 'https://hot.nowgo.space';
-/** Release gate: source DTO does not yet preserve NOINDEX/publication eligibility.
- * Keep existing store-page noindex policy until a reviewed indexability contract exists. */
+/** Legacy catalog gate remains conservative until per-place NOINDEX proof is exposed.
+ * Sourced stores now use their explicit per-store eligibility below. */
 export const STORE_DISCOVERY_INDEXING_READY: boolean = false;
 export function publicHotHost(host: string | null) {
   return /^hot\.nowgo\.space(?::443)?$/i.test(host || '');
@@ -33,7 +33,7 @@ function pageMetadata(title: string, description: string, url: string, index: bo
 export function sourcedStoreMetadata(store: PublicSourcedStore, host: string | null = null): Metadata {
   const title = `${store.name} · ${store.address} | 나우고 HOT`;
   const description = `${store.address}의 ${store.name}. 공개자료에 기재된 메뉴: ${store.menus.slice(0, 3).map(menu => menu.name).join(', ')}. ${store.ownerClaimVerified ? '점주 권한 확인 매장.' : '점주 미확인 매장.'} 현재 영업·가격·메뉴 판매 여부는 방문 전에 확인하세요.`;
-  return pageMetadata(title, description, sourcedStoreUrl(store), STORE_DISCOVERY_INDEXING_READY && publicHotHost(host));
+  return pageMetadata(title, description, sourcedStoreUrl(store), store.indexable===true && publicHotHost(host));
 }
 
 export function sourcedStoreJsonLd(store: PublicSourcedStore) {

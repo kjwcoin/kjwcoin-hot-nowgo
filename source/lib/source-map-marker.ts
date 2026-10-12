@@ -4,12 +4,14 @@ import {sourcedStoreUrl,type PublicSourcedStore} from './sourced-store.ts';
 /** Trust comes only from the validated public feed's explicit claim state. */
 export function sourcedStoreMarker(store:PublicSourcedStore,dom:Pick<Document,'createElement'>=document):HTMLAnchorElement{
  const verified=store.ownerClaimVerified===true&&store.ownership==='verified'&&store.pinStatus==='owner-verified';
- const ownership=verified?'점주 확인':'점주 미등록';
+ const sourceOnly=store.registrationState==='source-only';
+ const ownership=verified?'점주 확인':sourceOnly?'점주 확인 전':'점주 미등록';
+ const publication=sourceOnly?'공공자료 소개':'공공자료 등록';
  const link=dom.createElement('a');
  link.className='map-anchor map-anchor--sourced'+(verified?' map-anchor--sourced-verified':'');
  link.href=sourcedStoreUrl(store);link.target='_blank';link.rel='noopener noreferrer';
- link.title=`${store.name} · 공공자료 등록 · ${ownership}`;
- link.setAttribute('aria-label',`${store.name}. 공공자료 등록, ${ownership}. 가격, 매운맛 단계, 영업 여부 미확인. 매장 미니홈피 보기`);
+ link.title=`${store.name} · ${publication} · ${ownership}`;
+ link.setAttribute('aria-label',`${store.name}. ${publication}, ${ownership}. 가격, 매운맛 단계, 영업 여부 미확인. 매장 미니홈피 보기`);
  const pin=dom.createElement('span');pin.className='map-source-pin';pin.setAttribute('aria-hidden','true');
  const label=dom.createElement('span');label.className='map-source-label';label.textContent=store.name+' · '+ownership;
  link.append(pin,label);return link;

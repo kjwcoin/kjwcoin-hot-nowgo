@@ -1,10 +1,11 @@
+import {READONLY_SOURCE_PUBLICATION} from '@/lib/readonly-source-listings';
 import {sourcePreviewEnabled} from '@/lib/source-store-preview';
 import {reply,validOrigin,failure} from '@/lib/server';
 import {publicDb,verifiedUser} from '@/lib/supabase';
 import {variantForHost} from '@/lib/site-config';
 import {STORE_UUID,parseOwnerInformationRequestState} from '@/lib/sourced-store';
 
-function enabled(request:Request){return !sourcePreviewEnabled()&&process.env.NOWGO_UNCLAIMED_STORES_ENABLED==='true'&&variantForHost(request.headers.get('host'))==='hot'}
+function enabled(request:Request){return !READONLY_SOURCE_PUBLICATION&&!sourcePreviewEnabled()&&process.env.NOWGO_UNCLAIMED_STORES_ENABLED==='true'&&variantForHost(request.headers.get('host'))==='hot'}
 function rpcFailure(request:Request,error:{message:string}){
  if(error.message.includes('owner_already_registered'))return reply(request,{error:'이미 점주가 등록한 매장입니다.',code:'owner_already_registered'},409);
  if(error.message.includes('store_not_found'))return reply(request,{error:'공개된 매장을 찾을 수 없어요.',code:'store_not_found'},404);

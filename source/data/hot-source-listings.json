@@ -1,0 +1,250 @@
+[
+  {
+    "id": "fb31d9c8-c552-5610-a2b5-447beeea75b7",
+    "slug": "hot-busan-1531",
+    "name": "할매집회국수",
+    "address": "부산광역시 중구 남포길 25-3",
+    "lat": 35.09885,
+    "lon": 129.03146,
+    "source_ref": "data-go-kr-15084242-1531",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15084242/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-12T07:01:34Z",
+      "sourceRecordId": "uc_seq 1531",
+      "datasetSha256": "8e8659dc857553c16b169c102109c1d3ba4f38a750c7757baf695703ce9b979f",
+      "catalogueAsOf": "2026-09-10",
+      "nativeZipMemberDate": "2023-09-21",
+      "corroborationUrls": [
+        "https://www.visitbusan.net/index.do?lang_cd=ko&menuCd=DOM_000000201002001000&uc_seq=1531"
+      ],
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "reviewedAt": "2026-10-12T06:22:45.159601+00:00"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15084242-1531:menu:1",
+          "name": "회비빔국수",
+          "sourceTaste": {
+            "description": "출처에 매운맛으로 소개된 회국수",
+            "preparationTraits": [],
+            "choiceOffered": false,
+            "sourceUrl": "https://www.data.go.kr/data/15084242/fileData.do",
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-12T07:01:34Z",
+            "licenseName": "이용허락범위 제한 없음",
+            "publicDisplayAllowed": true
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      }
+    }
+  },
+  {
+    "id": "163c0c2c-14a6-5987-a09d-014a14c7a44c",
+    "slug": "hot-busan-1256",
+    "name": "소우닭계",
+    "address": "부산광역시 동구 조방로 16번길 20",
+    "lat": 35.13942,
+    "lon": 129.0646,
+    "source_ref": "data-go-kr-15084242-1256",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15084242/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-12T07:01:34Z",
+      "sourceRecordId": "uc_seq 1256",
+      "datasetSha256": "8e8659dc857553c16b169c102109c1d3ba4f38a750c7757baf695703ce9b979f",
+      "catalogueAsOf": "2026-09-10",
+      "nativeZipMemberDate": "2023-09-21",
+      "corroborationUrls": [
+        "https://www.visitbusan.net/index.do?menuCd=DOM_000000201002001000&uc_seq=1256",
+        "https://www.visitbusan.net/index.do?lang_cd=en&menuCd=DOM_000000301002001000&uc_seq=1256"
+      ],
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "reviewedAt": "2026-10-12T06:22:45.159601+00:00"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15084242-1256:menu:1",
+          "name": "매운 찜갈비 정식",
+          "sourceTaste": {
+            "description": "출처 메뉴명: 매운 찜갈비 정식",
+            "preparationTraits": [],
+            "choiceOffered": false,
+            "sourceUrl": "https://www.data.go.kr/data/15084242/fileData.do",
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-12T07:01:34Z",
+            "licenseName": "이용허락범위 제한 없음",
+            "publicDisplayAllowed": true
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      }
+    }
+  },
+  {
+    "id": "2b2abcea-e019-51cb-89aa-007d90add68b",
+    "slug": "hot-busan-1282",
+    "name": "대왕불맛",
+    "address": "부산광역시 사상구 덕상로 54, 1층",
+    "lat": 35.17614,
+    "lon": 128.99005,
+    "source_ref": "data-go-kr-15084242-1282",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15084242/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-12T07:03:35.980774+00:00",
+      "sourceRecordId": "uc_seq 1282",
+      "datasetSha256": "8e8659dc857553c16b169c102109c1d3ba4f38a750c7757baf695703ce9b979f",
+      "catalogueAsOf": "2026-09-10",
+      "nativeZipMemberDate": "2023-09-21",
+      "corroborationUrls": [
+        "https://www.visitbusan.net/index.do?lang_cd=ko&menuCd=DOM_000000201002001000&uc_seq=1282"
+      ],
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "reviewedAt": "2026-10-12T06:22:45.159601+00:00"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15084242-1282:menu:1",
+          "name": "불곱창",
+          "sourceTaste": {
+            "description": "출처에 매운 곱창 메뉴로 소개",
+            "preparationTraits": [
+              "직화구이"
+            ],
+            "choiceOffered": false,
+            "sourceUrl": "https://www.data.go.kr/data/15084242/fileData.do",
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-12T07:03:35.980774+00:00",
+            "licenseName": "이용허락범위 제한 없음",
+            "publicDisplayAllowed": true
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      }
+    }
+  },
+  {
+    "id": "4ae89202-684b-5b30-b81e-454e1a31ecb9",
+    "slug": "hot-busan-1456",
+    "name": "일미아구찜",
+    "address": "부산광역시 기장군 일광읍 학리등대로 102",
+    "lat": 35.25894,
+    "lon": 129.24767,
+    "source_ref": "data-go-kr-15084242-1456",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15084242/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-12T07:03:35.980774+00:00",
+      "sourceRecordId": "uc_seq 1456",
+      "datasetSha256": "8e8659dc857553c16b169c102109c1d3ba4f38a750c7757baf695703ce9b979f",
+      "catalogueAsOf": "2026-09-10",
+      "nativeZipMemberDate": "2023-09-21",
+      "corroborationUrls": [
+        "https://www.visitbusan.net/index.do?lang_cd=en&menuCd=DOM_000000301002001000&uc_seq=1456"
+      ],
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "reviewedAt": "2026-10-12T06:22:45.159601+00:00"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15084242-1456:menu:1",
+          "name": "아구찜",
+          "sourceTaste": {
+            "description": "출처에 매운 정도 선택 가능으로 안내",
+            "preparationTraits": [],
+            "choiceOffered": true,
+            "sourceUrl": "https://www.data.go.kr/data/15084242/fileData.do",
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-12T07:03:35.980774+00:00",
+            "licenseName": "이용허락범위 제한 없음",
+            "publicDisplayAllowed": true
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      }
+    }
+  },
+  {
+    "id": "ea244e9c-f1b6-523a-a5d4-c542e14a3be1",
+    "slug": "hot-busan-1512",
+    "name": "정짓간",
+    "address": "부산광역시 사하구 비봉로 6 1층",
+    "lat": 35.095695,
+    "lon": 128.96248,
+    "source_ref": "data-go-kr-15084242-1512",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15084242/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-12T07:03:35.980774+00:00",
+      "sourceRecordId": "uc_seq 1512",
+      "datasetSha256": "8e8659dc857553c16b169c102109c1d3ba4f38a750c7757baf695703ce9b979f",
+      "catalogueAsOf": "2026-09-10",
+      "nativeZipMemberDate": "2023-09-21",
+      "corroborationUrls": [
+        "https://www.visitbusan.net/index.do?lang_cd=ko&menuCd=DOM_000000201002001000&uc_seq=1512"
+      ],
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "reviewedAt": "2026-10-12T06:22:45.159601+00:00"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15084242-1512:menu:1",
+          "name": "돼지국밥",
+          "sourceTaste": {
+            "description": "출처에 취향에 따른 맵기 선택 가능으로 안내",
+            "preparationTraits": [],
+            "choiceOffered": true,
+            "sourceUrl": "https://www.data.go.kr/data/15084242/fileData.do",
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-12T07:03:35.980774+00:00",
+            "licenseName": "이용허락범위 제한 없음",
+            "publicDisplayAllowed": true
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      }
+    }
+  }
+]

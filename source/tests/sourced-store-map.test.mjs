@@ -86,3 +86,14 @@ test('missing, malformed or enabled public reporting states fail closed before a
   const parsed=parseSourcedStoreFeed(feed([store])).stores[0];assert.equal(parsed.reportingState,'pending');assert.equal(parsed.ownerClaimVerified,verified);assert.equal(parsed.menus[0].heat,null);
  }
 });
+
+
+test('legacy status lookup hints cannot replace an unverified source-only pin',()=>{
+ const source=sourceStore(1,{registrationState:'source-only'});
+ const legacy=report(1,{placeId:'nowgo-'+source.id,ownerStoreId:source.id,ownerRegistered:true,ownerClaimVerified:false});
+ const group=mapStoreGroups([legacy],[source])[0];
+ assert.equal(group.catalog.ownerRegistered,true);assert.equal(group.catalog.ownerClaimVerified,false);
+ assert.equal(sourceIsPrimaryPin(group),true);
+ const marker=sourcedStoreMarker(source,fakeDocument());
+ assert.match(marker.title,/공공자료 소개 · 점주 확인 전/);assert.doesNotMatch(marker.title,/공공자료 등록|점주 미등록/);
+});

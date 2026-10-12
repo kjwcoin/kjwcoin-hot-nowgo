@@ -1,3 +1,4 @@
+import {isReadonlySourceStoreId} from '@/lib/readonly-source-listings';
 import {verifiedUser,publicDb} from '@/lib/supabase';
 import {reply,validOrigin,failure} from '@/lib/server';
 import {variantForHost} from '@/lib/site-config';
@@ -31,7 +32,7 @@ export async function POST(req:Request,{params}:Ctx){
 
  if(action==='photo'||action==='receipt'){
  if(Number(req.headers.get('content-length')||0)>3_000_000)return reply(req,{error:'사진은 2MB 이하로 올려주세요.'},413);
- const form=await req.formData();const photo=form.get('photo');if(!(photo instanceof File)||photo.size>2_000_000||photo.size===0)return reply(req,{error:'2MB 이하의 사진을 첨부해 주세요.'},400);
+ const form=await req.formData();if(isReadonlySourceStoreId(form.get('storeId')))return reply(req,{error:'이 공공자료 소개 매장은 계정 연결을 준비 중이에요.',code:'source_registration_pending'},409);const photo=form.get('photo');if(!(photo instanceof File)||photo.size>2_000_000||photo.size===0)return reply(req,{error:'2MB 이하의 사진을 첨부해 주세요.'},400);
  let bytes:Buffer;try{bytes=await sharp(await photo.arrayBuffer(),{limitInputPixels:40_000_000}).autoOrient().resize({width:1600,height:1600,fit:'inside',withoutEnlargement:true}).webp({quality:82}).toBuffer()}catch{return reply(req,{error:'사진을 읽을 수 없어요. JPG·PNG·WebP로 올려주세요.'},400)}
  const id=randomUUID(),path=`${auth.user.id}/${planet}/${action==='photo'?'photos':'receipts'}/${id}.webp`;
  const {error:uploadError}=await auth.client.storage.from('planet-private').upload(path,bytes,{contentType:'image/webp'});if(uploadError)throw uploadError;
@@ -39,6 +40,6 @@ export async function POST(req:Request,{params}:Ctx){
  }
  if(!['profile','gps','visit','event','context','status','review','read','push','push-off','revoke-share'].includes(action))return reply(req,{error:'찾을 수 없는 기능이에요.'},404);
  if(Number(req.headers.get('content-length')||0)>10000)return reply(req,{error:'입력 내용이 너무 길어요.'},413);
- body=await req.json();if(action==='read'){const n=await auth.client.rpc('ng_customer_trust_notices_read');if(n.error)throw n.error;}if(action==='event'){const target=String(body.target||'');if(/^(nowgo-)?[a-f0-9-]{36}$/.test(target)){body.storeId=target.replace(/^nowgo-/,'')}else if(target.length<=150){const menu=await menuById(target,variantForHost(req.headers.get('host')));if(menu?.placeId.startsWith('nowgo-'))body.storeId=menu.placeId.slice(6)}}const {data,error}=await auth.client.rpc('ng_planet_action',{p_planet:planet,p_action:action,p_data:body});if(error)return reply(req,{error:message[error.message]||'입력 내용을 확인해 주세요.'},400);return reply(req,data);
+ body=await req.json();if(isReadonlySourceStoreId(body.storeId)||isReadonlySourceStoreId(typeof body.target==='string'?body.target.replace(/^nowgo-/i,''):null))return reply(req,{error:'이 공공자료 소개 매장은 계정 연결을 준비 중이에요.',code:'source_registration_pending'},409);if(action==='read'){const n=await auth.client.rpc('ng_customer_trust_notices_read');if(n.error)throw n.error;}if(action==='event'){const target=String(body.target||'');if(/^(nowgo-)?[a-f0-9-]{36}$/.test(target)){body.storeId=target.replace(/^nowgo-/,'')}else if(target.length<=150){const menu=await menuById(target,variantForHost(req.headers.get('host')));if(menu?.placeId.startsWith('nowgo-'))body.storeId=menu.placeId.slice(6)}}const {data,error}=await auth.client.rpc('ng_planet_action',{p_planet:planet,p_action:action,p_data:body});if(error)return reply(req,{error:message[error.message]||'입력 내용을 확인해 주세요.'},400);return reply(req,data);
  }catch(e){return failure(req,e)}
 }

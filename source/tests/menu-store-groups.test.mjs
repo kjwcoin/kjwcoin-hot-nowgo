@@ -28,7 +28,9 @@ test('repeated pages count each original report once and respect server totals',
 test('registration or an owner ID alone cannot color an unverified pin',()=>{
  for(const candidate of [{...report,ownerRegistered:true},{...report,ownerStoreId:'store-a'},{...report,ownerRegistered:true,ownerStoreId:'store-a'}]){
   assert.equal(hasVerifiedOwner(candidate),false);
-  assert.equal(menuStoreGroups([candidate])[0].ownerRegistered,false);
+  assert.equal(menuStoreGroups([candidate])[0].ownerRegistered,candidate.ownerRegistered===true);
+  assert.equal(menuStoreGroups([candidate])[0].ownerClaimVerified,false);
+  assert.equal(hasVerifiedOwner(storePinMenu(menuStoreGroups([candidate])[0])),false);
  }
 });
 test('approved owner claim colors the store while preserving consumer attribution and counts',()=>{

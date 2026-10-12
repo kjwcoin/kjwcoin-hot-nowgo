@@ -5,8 +5,9 @@ import {sourcedStoreUrl,type PublicSourcedStore} from '@/lib/sourced-store';
 type Props={store:PublicSourcedStore;showHeading?:boolean;preview?:boolean;previewPhoto?:SourcePreviewPhoto;previewPhotoMenuId?:string;onSelect?:(store:PublicSourcedStore,menuId?:string)=>void};
 /** Public facts use the original HOT menu row, without adapting nulls into Menu. */
 export default function SourcedStoreCard({store,showHeading=true,preview=false,previewPhoto,previewPhotoMenuId,onSelect}:Props){
- const status=store.ownerClaimVerified?'점주 확인 · 공공자료 메뉴':'공공자료 등록 · 점주 미등록';
- return <div className="source-store-legacy-card" data-store-id={store.id}>
+ const sourceOnly=!preview&&store.registrationState==='source-only';
+ const status=sourceOnly?'공공자료 소개 · 점주 확인 전':store.ownerClaimVerified?'점주 확인 · 공공자료 메뉴':'공공자료 등록 · 점주 미등록';
+ return <div className="source-store-legacy-card" data-store-id={store.id} data-registration-state={sourceOnly?'source-only':undefined}>
   {showHeading&&<header className="explorer-store-name"><strong>{store.name}</strong></header>}
   {store.menus.map(menu=>{
    const content=<><SourcedStorePhoto previewPhoto={preview&&previewPhotoMenuId===menu.id?previewPhoto:undefined}/><span className="explorer-item-copy"><small>맵기 미확인</small><strong>{menu.name}</strong><span>가격 미확인</span><small className="reporter-store-status">{status}</small>{!store.coordinates&&<small>지도 위치 미확인</small>}</span><ArrowUpRight size={17} aria-hidden="true"/></>;

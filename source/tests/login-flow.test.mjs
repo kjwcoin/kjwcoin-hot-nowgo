@@ -41,6 +41,7 @@ test('missing consent retains the review flow and local return, never automatic 
 test('an explicit new owner retains the signup/consent flow',async()=>{assert.match((await callback({accountType:'owner',consentRequired:true})).redirects[0],/^\/account\/join\?finish=1&type=owner/)});
 for(const authenticated of [true,false])test(`login-target ${authenticated?'uses only the verified user ID':'rejects unauthenticated callers'}`,async()=>{
  const lookups=[];const loaded=load('../app/api/customer/[action]/route.ts',{
+  '@/lib/readonly-source-listings':{isReadonlySourceStoreId:()=>false},
   '@/lib/menu-catalog':{menuByPlaceId(){}},'node:crypto':{createHash},
   '@/lib/server':{reply(req,body,status=200){return {body,status}},failure(req,e){throw e}},
   '@/lib/supabase':{async verifiedUser(){return authenticated?{user:{id:'verified-owner'},client:{}}:null},publicConfig(){return {ready:true}}},

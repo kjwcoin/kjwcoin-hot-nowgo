@@ -13,7 +13,7 @@ vm.runInNewContext(ts.transpileModule(source,{compilerOptions:{module:ts.ModuleK
  throw Error(name);
 }});
 const {sourcedStoreMetadata,sourcedStoreJsonLd,sourceFactsNotice,serializeJsonLd,legacyStoreMetadata,legacyStoreJsonLd}=exports;
-test('source canonical stays on HOT before and after claim; every store remains noindex until publication is reviewed',()=>{
+test('source canonical stays on HOT before and after claim; missing or false per-store eligibility always stays noindex',()=>{
  for(const ownerClaimVerified of [false,true]){
   const store=sourceStore(1,{slug:'hot-busan-1531',ownerClaimVerified});
   for(const host of ['hot.nowgo.space','localhost:3000','preview.vercel.app',null]){
@@ -57,3 +57,5 @@ test('legacy gray/registered menus never become owner-authored, renamed or moved
  assert.equal(legacyStoreJsonLd({...menu,isDemo:true},'hot'),null);
  assert.equal(legacyStoreMetadata({...menu,isDemo:true},'hot','hot.nowgo.space').robots.index,false);
 });
+
+test('only explicitly eligible source stores index on canonical HOT host; ownership is independent',()=>{for(const ownerClaimVerified of [false,true])for(const indexable of [false,true])for(const host of ['hot.nowgo.space','preview.vercel.app',null]){const metadata=sourcedStoreMetadata(sourceStore(1,{ownerClaimVerified,indexable}),host);assert.equal(metadata.robots.index,indexable&&host==='hot.nowgo.space')}});

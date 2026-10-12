@@ -8,6 +8,7 @@ import * as phase from '../lib/hot-reporting-phase.ts';
 import * as contract from '../lib/selected-report-target.ts';
 import * as publication from '../lib/report-publication.ts';
 import * as korean from '../lib/korean-region.ts';
+import {isReadonlySourceReportBinding,readonlySourceStoreFeed} from '../lib/readonly-source-listings.ts';
 const source=fs.readFileSync(new URL('../app/api/[action]/route.ts',import.meta.url),'utf8');
 const storeId='00000000-0000-4000-8000-000000000001',menuId='data-go-kr-15000000-1:menu:1',requestId='00000000-0000-4000-8000-000000000050';
 const target={storeId,menuId,storeName:'자료 식당',menuName:'매운 닭발',address:'서울특별시 중구 자료길 1',placeId:'nowgo-'+storeId,kind:'sourced',lat:37.56,lng:126.98};
@@ -16,6 +17,7 @@ function harness({reportingEnabled=true,initial=null,targetError=null,variant='h
  const client={from(table){calls.push(['from',table]);return {select(fields){calls.push(['select',fields]);return this},eq(){return this},async maybeSingle(){return {data:row,error:null}},async insert(value){calls.push(['insert',value]);row=value;return {error:null}}}},storage:{from(){return {async upload(...args){calls.push(['upload',...args]);return {error:null}}}}},async rpc(name){calls.push(['rpc',name]);row={...row,status:'published_unverified'};return {data:'published_unverified',error:null}}};
  const dependencies={
   '@/lib/hot-reporting-phase':{...phase,selectedReportingEnabled:()=>reportingEnabled},
+  '@/lib/readonly-source-listings':{isReadonlySourceReportBinding},
   '@/lib/server':{reply:(_req,body,status=200)=>({body,status}),validOrigin:()=>true,failure:(_req,error)=>({body:{error:error.message},status:503}),config:()=>({})},
   '@/lib/menu-catalog':{communityMenus:()=>{},menuById:()=>{}},
   '@/lib/supabase':{publicDb:()=>{throw Error('Unexpected direct store read')},verifiedUser:async()=>({user:{id:'test-user'},client})},
@@ -75,10 +77,19 @@ test('direct source and owned GET selection fail pending before any resolver',as
   const h=harness({reportingEnabled:phase.selectedReportingEnabled()});const result=await h.get(menu);assert.equal(result.status,503);assert.equal(result.body.state,'pending');assert.deepEqual(h.calls,[]);
  }
 });
-test('selected source/owned saved draft retry is blocked before publication and photo review',async()=>{
- for(const selectedMenuId of [menuId,'00000000-0000-4000-8000-000000000010']){
-  const h=harness({reportingEnabled:false,initial:{id:requestId,status:'draft',menu_id:selectedMenuId,nowgo_store_id:storeId,place_id:'nowgo-'+storeId}});const result=await h.retry();
-  assert.equal(result.status,503);assert.equal(result.body.state,'pending');assert.equal(result.body.code,'hot_reporting_pending');assert.match(result.body.error,/준비 중/);assert.equal(h.calls.some(c=>['insert','upload','rpc','sharp'].includes(c[0])),false);
+const sourceStores=readonlySourceStoreFeed().stores;
+function sourceBindings(store){
+ const ids=[store.id,store.id.toUpperCase(),store.id.replaceAll('-',''),'{'+store.id+'}','  '+store.id+'  '];
+ return [
+  ...ids.map(id=>({nowgo_store_id:id,menu_id:'unrelated-legacy-menu',place_id:'forged'})),
+  ...ids.map(id=>({nowgo_store_id:null,menu_id:'unrelated-legacy-menu',place_id:'NOWGO-'+id})),
+  ...store.menus.map(menu=>({nowgo_store_id:null,menu_id:menu.id,place_id:null})),
+ ];
+}
+test('each manifest source identity independently blocks saved draft retry before publication and photo review',async()=>{
+ for(const store of sourceStores)for(const binding of sourceBindings(store)){
+  const h=harness({reportingEnabled:false,initial:{id:requestId,status:'draft',...binding}});const result=await h.retry();
+  assert.equal(result.status,503,JSON.stringify(binding));assert.equal(result.body.state,'pending');assert.equal(result.body.code,'hot_reporting_pending');assert.match(result.body.error,/준비 중/);assert.equal(h.calls.some(c=>['insert','upload','rpc','sharp','after'].includes(c[0])),false);
  }
 });
 test('ordinary free-text report and saved legacy retry remain usable while canonical reporting is off',async()=>{
@@ -86,12 +97,32 @@ test('ordinary free-text report and saved legacy retry remain usable while canon
  const saved=harness({reportingEnabled:false,initial:{id:requestId,menu_id:requestId,status:'draft'}});assert.equal((await saved.retry()).status,200);assert.equal(saved.calls.some(c=>c[0]==='rpc'),true);
 });
 
-test('malformed or missing selected draft target bindings cannot bypass the retry phase gate',async()=>{
- for(const binding of [{},{nowgo_store_id:null,place_id:null},{nowgo_store_id:storeId,place_id:'forged'}]){
-  const h=harness({reportingEnabled:false,initial:{id:requestId,status:'draft',menu_id:menuId,...binding}});const result=await h.retry();assert.equal(result.status,503);assert.equal(result.body.code,'hot_reporting_pending');assert.equal(h.calls.some(c=>['insert','upload','rpc','sharp'].includes(c[0])),false);
+test('ordinary resubmission cannot publish a source-bound stored receipt even with missing or forged companion bindings',async()=>{
+ for(const store of sourceStores)for(const binding of sourceBindings(store)){
+  const h=harness({reportingEnabled:false,initial:{id:requestId,status:'draft',...binding}});
+  const result=await h.submit({selectionMode:'',selectedMenuId:'',storeId:''});
+  assert.equal(result.status,503,JSON.stringify(binding));assert.equal(result.body.code,'hot_reporting_pending');assert.equal(h.calls.some(c=>['insert','upload','rpc','after'].includes(c[0])),false);
  }
 });
 
-test('even an already-published canonical receipt cannot restart photo-review work through phase-one retry',async()=>{
- const h=harness({reportingEnabled:false,initial:{id:requestId,status:'published_unverified',menu_id:menuId}});const result=await h.retry();assert.equal(result.status,503);assert.equal(result.body.code,'hot_reporting_pending');assert.equal(h.calls.some(c=>['rpc','after','upload','insert'].includes(c[0])),false);
+test('even an already-published manifest-source receipt cannot restart photo-review work through retry',async()=>{
+ for(const store of sourceStores){
+  const h=harness({reportingEnabled:false,initial:{id:requestId,status:'published_unverified',menu_id:store.menus[0].id}});const result=await h.retry();assert.equal(result.status,503);assert.equal(result.body.code,'hot_reporting_pending');assert.equal(h.calls.some(c=>['rpc','after','upload','insert'].includes(c[0])),false);
+ }
+});
+
+test('unrelated historical differing menu IDs preserve saved retry and ordinary resubmission while selected creation is pending',async()=>{
+ for(const historicalMenuId of ['legacy-correction-menu','00000000-0000-4000-8000-000000000010',menuId]){
+  const initial={id:requestId,status:'draft',menu_id:historicalMenuId,nowgo_store_id:storeId,place_id:'nowgo-'+storeId};
+  const saved=harness({reportingEnabled:false,initial});
+  const retried=await saved.retry();assert.equal(retried.status,200);assert.equal(retried.body.id,requestId);assert.equal(saved.row.menu_id,historicalMenuId);assert.equal(saved.calls.filter(c=>c[0]==='rpc').length,1);assert.equal(saved.calls.some(c=>['target','insert','upload','sharp'].includes(c[0])),false);
+  const resubmission=harness({reportingEnabled:false,initial});
+  const submitted=await resubmission.submit({selectionMode:'',selectedMenuId:'',storeId:''});
+  assert.equal(submitted.status,201);assert.equal(submitted.body.id,requestId);assert.equal(resubmission.row.menu_id,historicalMenuId);assert.equal(resubmission.row.nowgo_store_id,storeId);assert.equal(resubmission.calls.filter(c=>c[0]==='rpc').length,1);assert.equal(resubmission.calls.some(c=>['target','insert'].includes(c[0])),false);
+ }
+});
+
+test('source receipt guard needs an actual manifest binding and cannot classify unrelated historical IDs by shape alone',()=>{
+ for(const value of [null,undefined,[],{}, {id:requestId,menu_id:'historical-menu'}, {nowgo_store_id:storeId,place_id:'nowgo-'+storeId,menu_id:menuId}])assert.equal(isReadonlySourceReportBinding(value),false);
+ for(const store of sourceStores){assert.equal(isReadonlySourceReportBinding({nowgo_store_id:store.id}),true);assert.equal(isReadonlySourceReportBinding({place_id:'nowgo-'+store.id}),true);assert.equal(isReadonlySourceReportBinding({menu_id:store.menus[0].id}),true);}
 });

@@ -2,7 +2,7 @@ import type {Menu} from './menus';
 import {canonicalStoreKey,identityAnchors,resolvedStoreKey,type StoreIdentityAnchor} from './store-identity.ts';
 export {storeIdentity} from './store-identity.ts';
 
-export type MenuStoreGroup={key:string;placeId:string;menus:Menu[];ownerRegistered:boolean;reportCount:number;reportCountIsMinimum:true};
+export type MenuStoreGroup={key:string;placeId:string;menus:Menu[];ownerRegistered:boolean;ownerClaimVerified:boolean;reportCount:number;reportCountIsMinimum:true};
 
 // A registration, a public store ID, or a matching name alone is not an approved claim.
 // verifiedOwner describes the menu author; ownerClaimVerified describes its store.
@@ -22,9 +22,11 @@ export function menuStoreGroups(menus:readonly Menu[],extraAnchors:readonly Stor
   const canonical=canonicalStoreKey(menu.placeId,menu.ownerStoreId);
   const key=menu.isDemo?'demo:'+menu.id:resolvedStoreKey(menu.shop,menu.area,canonical,menu.placeId||menu.id,anchors);
   let store=stores.get(key);
-  if(!store){store={key,placeId:key.startsWith('nowgo-')?key:menu.placeId||key,menus:[],ownerRegistered:false,reportCount:0,reportCountIsMinimum:true};stores.set(key,store)}
+  if(!store){store={key,placeId:key.startsWith('nowgo-')?key:menu.placeId||key,menus:[],ownerRegistered:false,ownerClaimVerified:false,reportCount:0,reportCountIsMinimum:true};stores.set(key,store)}
   store.menus.push(menu);
-  store.ownerRegistered ||=hasVerifiedOwner(menu);
+  // Preserve the existing catalog status-lookup hint without turning it into claim proof.
+  store.ownerRegistered ||=menu.ownerRegistered===true||hasVerifiedOwner(menu);
+  store.ownerClaimVerified ||=hasVerifiedOwner(menu);
   if(Number.isSafeInteger(menu.reportCount)&&menu.reportCount!>=0)store.reportCount=Math.max(store.reportCount,menu.reportCount!);
  }
  for(const store of stores.values()){
@@ -41,5 +43,5 @@ export function menuStoreGroups(menus:readonly Menu[],extraAnchors:readonly Stor
 
 export function storePinMenu(store:MenuStoreGroup,selectedId?:string):Menu{
  const menu=store.menus.find(item=>item.id===selectedId)||store.menus[0];
- return {...menu,ownerRegistered:store.ownerRegistered,ownerClaimVerified:store.ownerRegistered,reportCount:store.reportCount,reportCountIsMinimum:true};
+ return {...menu,ownerRegistered:store.ownerRegistered,ownerClaimVerified:store.ownerClaimVerified,reportCount:store.reportCount,reportCountIsMinimum:true};
 }

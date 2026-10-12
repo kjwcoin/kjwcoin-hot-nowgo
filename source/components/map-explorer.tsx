@@ -78,7 +78,7 @@ export default function MapExplorer({variant='hot',previewStore,initialSourceSto
  const combinedStores=useMemo(()=>mapStoreGroups(filtered,matchingSources,sourceStores),[filtered,matchingSources,sourceStores]);
  const storeGroups=useMemo(()=>combinedStores.flatMap(group=>group.catalog?[group.catalog]:[]),[combinedStores]);
  const sourceOnlyStores=useMemo(()=>combinedStores.flatMap(group=>!group.catalog&&group.source?[group.source]:[]),[combinedStores]);
- const sourceByKey=useMemo(()=>new Map(combinedStores.flatMap(group=>group.source&&!group.catalog?.ownerRegistered?[[group.key,group.source] as const]:[])),[combinedStores]);
+ const sourceByKey=useMemo(()=>new Map(combinedStores.flatMap(group=>group.source&&!group.catalog?.ownerClaimVerified?[[group.key,group.source] as const]:[])),[combinedStores]);
  const current=selected?filtered.find(m=>m.id===selected.id)||null:null;
  const currentSource=selectedSource?matchingSources.find(store=>store.id===selectedSource.id)||null:null;
  const previewHeatMenuId=previewStore?.menus.find(menu=>menu.id===selectedSourceMenuId)?.id||previewStore?.menus[0]?.id;
@@ -119,7 +119,7 @@ export default function MapExplorer({variant='hot',previewStore,initialSourceSto
    <KakaoMap previewSourceHeat={previewStore?localHeat:undefined} onSourceSelect={selectSource} selectedSourceId={currentSource?.id} sourcedStores={matchingSources} sourceIdentityStores={sourceStores} fullScreen sourcePreview={!!previewStore} initialCenter={(initialSourceStore||previewStore)?.coordinates?{lat:(initialSourceStore||previewStore)!.coordinates!.lat,lng:(initialSourceStore||previewStore)!.coordinates!.lon}:undefined} viewportCountQuery={previewStore?undefined:viewportCountQuery} menus={filtered} selectedId={current?.id} onSelect={select} locationControl={locationControl} onLocationState={setLocationState} onLocation={previewStore?undefined:setUserLocation} variant={variant}/>
       <aside className={`explorer-results ${expanded?'expanded':'collapsed'} ${hasSelection?'has-selection':''}`} style={hasSelection?{top:0,bottom:0,maxHeight:'none'}:undefined} aria-label="검색된 메뉴">
     <div className="explorer-results-header">
-    <button className="explorer-results-heading" aria-expanded={expanded} aria-controls="map-results" onClick={()=>hasSelection?collapseSelected():setExpanded(!expanded)}><span><small>{userLocation?'내 주변 매장 · 메뉴':'등록된 매장 · 메뉴'}</small><strong>불러온 매장 <b>{combinedStores.length}</b></strong></span>{expanded?<ChevronDown size={20}/>:<ChevronUp size={20}/>}</button>
+    <button className="explorer-results-heading" aria-expanded={expanded} aria-controls="map-results" onClick={()=>hasSelection?collapseSelected():setExpanded(!expanded)}><span><small>{userLocation?'내 주변 매장 · 메뉴':sourceOnlyStores.some(store=>store.registrationState==='source-only')?'지도에 소개된 매장 · 메뉴':'등록된 매장 · 메뉴'}</small><strong>불러온 매장 <b>{combinedStores.length}</b></strong></span>{expanded?<ChevronDown size={20}/>:<ChevronUp size={20}/>}</button>
      {!previewStore&&<a className="explorer-report explorer-report--inline" href="/suggestion#report"><Plus size={16}/><span>제보 및 등록</span></a>}
     </div>
     {expanded&&<div id="map-results" ref={resultsBody} className="explorer-results-body"><p className="sourced-store-notice">핀·목록은 불러온 자료 기준 · 메뉴 요청당 최대 100개{userLocation?' · 내 위치 주변 15km':''}</p>{variant==='hot'&&<SourcedStoreNotice state={sourceState} retry={()=>void sourceState.refresh()}/>}{(locationBusy||locationFailed)&&<p className="explorer-example" role="status">{locationStatusText[locationState]}</p>}

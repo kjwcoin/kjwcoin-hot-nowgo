@@ -1,4 +1,5 @@
 import {selectedReportingEnabled,HOT_REPORTING_PENDING_CODE,HOT_REPORTING_PENDING_MESSAGE} from '@/lib/hot-reporting-phase';
+import {isReadonlySourceReportBinding} from '@/lib/readonly-source-listings';
 import {reply,validOrigin,failure,config} from '@/lib/server';
 import {communityMenus,menuById} from '@/lib/menu-catalog';
 import {publicDb,verifiedUser} from '@/lib/supabase';
@@ -54,8 +55,8 @@ export async function POST(req:Request,{params}:Ctx){
   if(action==='report-retry'){
    const {id}=await req.json() as {id:string};
    if(typeof id!=='string'||!/^[a-f0-9-]{36}$/.test(id))return reject(req,'제보 번호를 확인해 주세요.',400);
-   // Match the SQL phase boundary: every nonlegacy receipt stays pending, even with malformed target bindings.
-   const find=async()=>{const {data,error}=await client.from(theme.tables.reports).select('id,status,menu_id').eq('id',id).eq('user_id',user.id).maybeSingle();if(error)throw error;if(variant==='hot'&&data&&data.menu_id!==data.id&&!selectedReportingEnabled())throw new ReportTargetError(HOT_REPORTING_PENDING_MESSAGE,503,HOT_REPORTING_PENDING_CODE);return data};
+   // Only known source identities are read-only; unrelated historical menu IDs keep their existing retry flow.
+   const find=async()=>{const {data,error}=await client.from(theme.tables.reports).select('id,status,menu_id,nowgo_store_id,place_id').eq('id',id).eq('user_id',user.id).maybeSingle();if(error)throw error;if(isReadonlySourceReportBinding(data))throw new ReportTargetError(HOT_REPORTING_PENDING_MESSAGE,503,HOT_REPORTING_PENDING_CODE);return data};
    try{
     const receipt=await retrySavedReport({find,publish:async()=>{const {data,error}=await client.rpc(theme.publish,{report_id:id});return {status:data,error}}});
     const authorization=req.headers.get('authorization')||'';
@@ -133,7 +134,7 @@ export async function POST(req:Request,{params}:Ctx){
   const path=id;
   const binding={id,role,nowgo_store_id:ownerStore||customerStore||selectedTarget?storeId:null,place_id:placeId,menu_id:selectedTarget?.menuId||id,shop,menu,address,price,heat,flavor,category,observed_at:observed,note,lat,lng,phone,business_number:role==='owner'?businessNumber:null};
   const receipt=await publishReport({
-   find:async()=>{const {data,error}=await client.from(theme.tables.reports).select(SELECTED_REPORT_RETRY_FIELDS).eq('id',id).eq('user_id',user.id).maybeSingle();if(error)throw error;assertSelectedReportRetry(data,binding,!!selectedTarget);return data?{id:data.id,status:data.status}:null},
+   find:async()=>{const {data,error}=await client.from(theme.tables.reports).select(SELECTED_REPORT_RETRY_FIELDS).eq('id',id).eq('user_id',user.id).maybeSingle();if(error)throw error;if(isReadonlySourceReportBinding(data))throw new ReportTargetError(HOT_REPORTING_PENDING_MESSAGE,503,HOT_REPORTING_PENDING_CODE);if(selectedTarget||selectedReportingEnabled())assertSelectedReportRetry(data,binding,!!selectedTarget);return data?{id:data.id,status:data.status}:null},
    insert:async()=>{const {error}=await client.from(theme.tables.reports).insert({...binding,user_id:user.id,photo_path:path,photo_mime:mime,status:'draft'});return error},
    upload:async()=>{const {error}=await client.storage.from(theme.bucket).upload(path,uploadBytes,{contentType:mime,upsert:false});return error},
    publish:async()=>{const {data,error}=await client.rpc(theme.publish,{report_id:id});return {status:data,error}},

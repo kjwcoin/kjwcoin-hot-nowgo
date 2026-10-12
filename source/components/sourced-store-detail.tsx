@@ -7,6 +7,9 @@ import PreviewPhotoReport from '@/components/preview-photo-report';
 import PreviewRegularControls from '@/components/preview-regular-controls';
 import PreviewStoreInformation from '@/components/preview-store-information';
 import RegularFavorite from '@/components/regular-favorite';
+import RegularHomeLink from '@/components/regular-home-link';
+import SourceAccountCharacter from '@/components/source-account-character';
+import SourceReadonlyActions from '@/components/source-readonly-actions';
 import SourcedStorePhoto,{type SourcePreviewPhoto} from '@/components/sourced-store-photo';
 import SourcePreviewActions from '@/components/source-preview-actions';
 import StoreOwnerJoinRequest from '@/components/store-owner-join-request';
@@ -15,16 +18,17 @@ import {sourceFactsNotice} from '@/lib/store-discovery';
 import ownerStyles from './owner-join-request.module.css';
 
 type Props={store:PublicSourcedStore;preview?:boolean;menuId?:string|null;onBack:()=>void;previewHeat?:PreviewHeatSummary;onPreviewHeat?:(menuId:string,heat:number)=>void;onPreviewHeatReset?:()=>void;previewPhoto?:SourcePreviewPhoto;onPreviewPhoto?:(menuId:string,file:File,nickname:string)=>void;onPreviewPhotoReset?:()=>void;previewFavorite?:boolean;onPreviewFavoriteToggle?:()=>void};
-/** Same selected-panel structure as the legacy HOT menu detail. No demo actions. */
+/** Reuse the legacy HOT panel while isolating public-only facts from store-backed actions. */
 export default function SourcedStoreDetail({store,preview=false,menuId,onBack,previewHeat,onPreviewHeat,onPreviewHeatReset,previewPhoto,onPreviewPhoto,onPreviewPhotoReset,previewFavorite,onPreviewFavoriteToggle}:Props){
  const menu=store.menus.find(item=>item.id===menuId)||store.menus[0];
+ const sourceOnly=!preview&&store.registrationState==='source-only';
  const path='/p/'+encodeURIComponent(store.slug);
  const directions=store.coordinates?'https://map.kakao.com/link/to/'+encodeURIComponent(store.name)+','+store.coordinates.lat+','+store.coordinates.lon:null;
- return <article className="explorer-selected source-store-detail" data-store-id={store.id} data-preview={preview?'true':undefined}>
+ return <article className="explorer-selected source-store-detail" data-store-id={store.id} data-preview={preview?'true':undefined} data-registration-state={sourceOnly?'source-only':undefined}>
   <Button variant="ghost" className="explorer-back" onClick={onBack}>← 메뉴 목록</Button>
   <SourcedStorePhoto detail previewPhoto={preview?previewPhoto:undefined}/>
   <div className="explorer-detail-content">
-   <span className="explorer-tags">{store.name} · {store.ownerClaimVerified?'점주 확인':'점주 미등록'}</span>
+   <span className="explorer-tags">{store.name} · {sourceOnly?'공공자료 소개 · 점주 확인 전':store.ownerClaimVerified?'점주 확인':'점주 미등록'}</span>
    <h1>{menu?.name||store.name}</h1>
    <div className="explorer-taste-price" aria-label="맵기 미확인, 가격 미확인">
     <span className="explorer-taste-icon source-taste-unknown"><span aria-hidden="true">?</span><small>맵기 미확인</small></span>
@@ -32,20 +36,20 @@ export default function SourcedStoreDetail({store,preview=false,menuId,onBack,pr
    </div>
    <p>{store.address}</p>
    <section className="store-status" aria-label="공공자료 매장 영업현황">
-    <strong>{store.ownerClaimVerified?'점주 확인 · 공공자료 메뉴':'공공자료 등록 · 점주 미등록'}</strong>
+    <strong>{sourceOnly?'공공자료 소개 · 점주 확인 전':store.ownerClaimVerified?'점주 확인 · 공공자료 메뉴':'공공자료 등록 · 점주 미등록'}</strong>
     <p>영업현황 미확인<br/>현재 메뉴 제공 여부 미확인</p>
    </section>
-   {preview?<PreviewRegularControls store={store} saved={previewFavorite||false} onToggle={onPreviewFavoriteToggle}/>:<RegularFavorite placeId={'nowgo-'+store.id} slug={store.slug}/>}
+   {preview?<PreviewRegularControls store={store} saved={previewFavorite||false} onToggle={onPreviewFavoriteToggle}/>:sourceOnly?<><SourceReadonlyActions key={'favorite:'+store.id} kind="favorite"><RegularHomeLink variant="hot" className="text-link">내 단골 목록</RegularHomeLink></SourceReadonlyActions><SourceAccountCharacter returnTo={path} readOnly/></>:<RegularFavorite placeId={'nowgo-'+store.id} slug={store.slug}/>}
    <div className="explorer-quick-actions source-quick-actions" aria-label="매장 이용 정보">
     {directions?<a className="explorer-action explorer-action--primary source-direction" href={directions} target="_blank" rel="noopener noreferrer"><Navigation size={18}/><span>길찾기</span></a>:<button type="button" className="explorer-action" disabled title="공공자료의 지도 위치가 확인되지 않았어요."><Navigation size={18}/><span>길찾기</span></button>}
     <button type="button" className="explorer-action" disabled title="점주의 예약 서비스 등록이 확인되지 않았어요."><CalendarClock size={18}/><span>예약하기</span></button>
     <button type="button" className="explorer-action" disabled title="점주의 웨이팅 서비스 등록이 확인되지 않았어요."><UsersRound size={18}/><span>웨이팅수 보기</span></button>
    </div>
    <p className="source-action-note">예약·웨이팅 정보 미확인 · 점주 확인 후 이용 가능{!directions?' · 지도 위치 미확인':''}</p>
-   {preview?<PreviewMenuHeat key={store.id+':'+menu?.id} storeId={store.id} menus={store.menus} menuId={menu?.id} summary={previewHeat} onPreviewHeat={onPreviewHeat} onPreviewHeatReset={onPreviewHeatReset}/>:<><ConsumerMenuHeat storeId={store.id} menus={store.menus} reportingState={store.reportingState}/><button className="source-heat-pending" type="button" disabled title="실제 메뉴별 맵기 제보 등록은 준비 중이에요.">먹어본 메뉴 맵기 제보 · 준비 중</button></>}
+   {preview?<PreviewMenuHeat key={store.id+':'+menu?.id} storeId={store.id} menus={store.menus} menuId={menu?.id} summary={previewHeat} onPreviewHeat={onPreviewHeat} onPreviewHeatReset={onPreviewHeatReset}/>:sourceOnly?<section className="source-public-taste" aria-label="공공자료의 맵기 설명"><h3>공공자료의 맵기 설명</h3>{menu?.sourceTaste?<><p>{menu.sourceTaste.description}</p>{menu.sourceTaste.preparationTraits.length>0&&<ul>{menu.sourceTaste.preparationTraits.map(trait=><li key={trait}>{trait}</li>)}</ul>}{menu.sourceTaste.choiceOffered&&<p>자료에 맵기 선택 제공이 명시되어 있어요.</p>}<small>공공자료의 설명이며 고객이 평가한 맵기 단계가 아닙니다.</small></>:<p>공공자료에 확인 가능한 맵기 설명이 없어요.</p>}<small>고객 연결 준비 중 · 메뉴별 맵기 제보·집계 미연결</small></section>:<><ConsumerMenuHeat storeId={store.id} menus={store.menus} reportingState={store.reportingState}/><button className="source-heat-pending" type="button" disabled title="실제 메뉴별 맵기 제보 등록은 준비 중이에요.">먹어본 메뉴 맵기 제보 · 준비 중</button></>}
    {preview&&<><PreviewPhotoReport key={'photo:'+store.id+':'+menu?.id} store={store} selectedMenuId={menu?.id} onPreviewPhoto={onPreviewPhoto} onReset={onPreviewPhotoReset}/><PreviewStoreInformation/></>}
    <footer className="source-detail-footer">
-    {preview?<SourcePreviewActions/>:<>{!store.ownerClaimVerified&&<><StoreOwnerJoinRequest storeId={store.id} returnTo={path+'#owner-information'}/><a className={ownerStyles.login} href={sourcedStoreClaimPath(store.id)}>이 매장의 점주이신가요? 소유권 확인하기 ↗</a></>}</>}
+    {preview?<SourcePreviewActions/>:sourceOnly?<><SourceReadonlyActions key={'report:'+store.id+':'+menu?.id} kind="report"/><SourceReadonlyActions key={'owner:'+store.id} kind="owner"/></>:<>{!store.ownerClaimVerified&&<><StoreOwnerJoinRequest storeId={store.id} returnTo={path+'#owner-information'}/><a className={ownerStyles.login} href={sourcedStoreClaimPath(store.id)}>이 매장의 점주이신가요? 소유권 확인하기 ↗</a></>}</>}
     <details className="source-detail-attribution"><summary>공공자료 출처 · 확인 범위</summary><p>{sourceFactsNotice(store)}</p><a href={store.source.url} target="_blank" rel="noopener noreferrer">공공데이터포털 원문 ↗</a><small>{store.source.licenseName}</small><small>{store.coordinates?`자료 속 위치: 위도 ${store.coordinates.lat} · 경도 ${store.coordinates.lon}`:'지도 위치 미확인'}</small><small>공공자료는 점주의 직접 등록이나 현재 영업을 뜻하지 않습니다.</small></details>
    </footer>
   </div>

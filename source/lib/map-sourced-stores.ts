@@ -19,4 +19,4 @@ export function mapStoreGroups(menus:readonly Menu[],sources:readonly PublicSour
  for(const source of sources){const key='nowgo-'+source.id;const group=groups.get(key)||{key};group.source=source;groups.set(key,group)}
  return [...groups.values()];
 }
-export function sourceIsPrimaryPin(group:MapStoreGroup):boolean{return !!group.source&&!group.catalog?.ownerRegistered}
+export function sourceIsPrimaryPin(group:MapStoreGroup):boolean{return !!group.source&&!group.catalog?.ownerClaimVerified}

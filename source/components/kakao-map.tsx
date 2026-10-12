@@ -319,7 +319,7 @@ export default function KakaoMap({menus,sourcedStores=EMPTY_SOURCES,sourceIdenti
   <div key={mapAttempt} className="map-canvas" ref={canvasRef} aria-label={`카카오 대한민국 ${label} 메뉴 지도`}/>
   {mapState!=='ready'&&<div className="map-unavailable"><MapPin size={30} strokeWidth={1.3}/><span className="eyebrow">KAKAO MAP · {variant.toUpperCase()} NOWGO</span><h3>{mapState==='loading'?'지도를 불러오는 중':mapState==='setup'?'지도 연결을 준비하고 있어요':'잠시 지도를 불러올 수 없어요'}</h3><p>지도 연결을 확인한 뒤 다시 시도해 주세요.</p>{mapState!=='loading'&&<button type="button" className="text-link" onClick={retryMap}>지도 다시 불러오기</button>}{!sourcePreview&&!appLocationBridge&&<a className="text-link" href="https://www.nowgo.space/" target="_blank" rel="noreferrer">나우고에서 운영 매장 확인 <ArrowUpRight size={18}/></a>}</div>}
   {mapState==='ready'&&viewportCountQuery!==undefined&&<div className="map-visible-store-count" role="status" aria-live="polite" aria-atomic="true">
-   <strong>{viewportCount.status==='loading'?'화면 안 매장 집계 중':viewportCount.status==='error'?'매장 수를 확인하지 못했어요':`현재 화면 ${viewportCount.complete?'등록 매장':'확인된 매장 최소'} ${viewportCount.count.toLocaleString('ko-KR')}곳`}</strong>
+   <strong>{viewportCount.status==='loading'?'화면 안 매장 집계 중':viewportCount.status==='error'?'매장 수를 확인하지 못했어요':`현재 화면 ${viewportCount.complete?'매장':'확인된 매장 최소'} ${viewportCount.count.toLocaleString('ko-KR')}곳`}</strong>
    <small>{viewportCount.status==='ready'?'화면 전체 별도 집계 · 핀·목록은 불러온 자료 기준':'지도 이동 후 다시 확인해요'}</small>
    {viewportCount.status==='error'&&<button type="button" style={{pointerEvents:'auto',fontWeight:700,textDecoration:'underline'}} onClick={()=>window.dispatchEvent(new Event('nowgo:catalog-refresh'))}>매장 수 다시 확인</button>}
   </div>}

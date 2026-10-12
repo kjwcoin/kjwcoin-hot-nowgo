@@ -15,12 +15,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   if (!publicFlavorHost(host)) return [];
   const variant = variantForHost(host), origin = flavorOrigins[variant];
   const urls = new Set(['/', '/suggestion'].map(path => `${origin}${path}`));
-  if (variant === 'hot' && STORE_DISCOVERY_INDEXING_READY) {
-    for (const id of await readLegacyPlaceIds(variant)) urls.add(legacyStoreUrl(id, variant));
+  if (variant === 'hot') {
+    if (STORE_DISCOVERY_INDEXING_READY) for (const id of await readLegacyPlaceIds(variant)) urls.add(legacyStoreUrl(id, variant));
     if (process.env.NOWGO_UNCLAIMED_STORES_ENABLED === 'true') {
       const feed = await readSourcedStoreFeed();
       if (!feed.complete) throw Error('discovery_source_feed_incomplete');
-      for (const store of feed.stores) urls.add(sourcedStoreUrl(store));
+      for (const store of feed.stores) if(store.indexable===true) urls.add(sourcedStoreUrl(store));
     }
   }
   // 4,000+ records fit a request-time sitemap. Never silently cut an oversized catalog.

@@ -1,11 +1,14 @@
 import {sourceReportingState,type HotReportingState} from './hot-reporting-phase.ts';
 /** Public, non-owner facts only. Never convert this into a consumer Report/Menu. */
-export type SourcedMenu = { id: string; name: string; price: null; heat: null; image: null };
+export type SourceTaste = {description:string;preparationTraits:string[];choiceOffered:boolean;sourceUrl:string;sourceAsOf:string|null;checkedAt:string;licenseName:string;publicDisplayAllowed:true};
+export type SourcedMenu = { id: string; name: string; price: null; heat: null; image: null; sourceTaste?:SourceTaste|null };
 export type PublicSourcedStore = {
   id: string; slug: string; sourceRef: string; name: string; address: string;
   coordinates: { lat: number; lon: number } | null;
   menus: SourcedMenu[];
   reportingState: HotReportingState;
+  indexable?: boolean;
+  registrationState?: 'database'|'source-only';
   ownership: 'unclaimed' | 'verified'; ownerClaimVerified: boolean; pinStatus: 'gray' | 'owner-verified';
   operatingStatus: null; currentMenuAvailability: null;
   source: { url: string; licenseName: string; asOf: string | null; checkedAt: string };
@@ -20,6 +23,13 @@ export const STORE_UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9
 const record = (value: unknown): Record<string, unknown> | null =>
   value !== null && typeof value === 'object' && !Array.isArray(value) ? value as Record<string, unknown> : null;
 const nonempty = (value: unknown, max: number): value is string => typeof value === 'string' && value.trim().length > 0 && value.length <= max;
+/** Textual source statements are never numeric customer evaluations. */
+export function parseSourceTaste(value:unknown,sourceUrl:string,licenseName:string):SourceTaste|null|undefined{
+ if(value===undefined||value===null)return null;
+ const row=record(value);
+ if(!row||!nonempty(row.description,200)||!Array.isArray(row.preparationTraits)||row.preparationTraits.length>4||row.preparationTraits.some(x=>!nonempty(x,40))||new Set(row.preparationTraits).size!==row.preparationTraits.length||typeof row.choiceOffered!=='boolean'||row.publicDisplayAllowed!==true||row.sourceUrl!==sourceUrl||row.licenseName!==licenseName||typeof row.checkedAt!=='string'||!Number.isFinite(Date.parse(row.checkedAt))||!(row.sourceAsOf===null||typeof row.sourceAsOf==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(row.sourceAsOf)&&Number.isFinite(Date.parse(row.sourceAsOf))&&new Date(row.sourceAsOf).toISOString().slice(0,10)===row.sourceAsOf))return undefined;
+ return{description:row.description,preparationTraits:row.preparationTraits as string[],choiceOffered:row.choiceOffered,sourceUrl,sourceAsOf:row.sourceAsOf as string|null,checkedAt:row.checkedAt,licenseName,publicDisplayAllowed:true};
+}
 export function publicSourcedStore(row: SourcedStoreRow): PublicSourcedStore | null {
   const meta = record(row.source_metadata), rights = record(meta?.rights);
   if (!meta || !rights || rights.publicDisplay !== true || rights.factsStorage !== true ||
@@ -40,8 +50,10 @@ export function publicSourcedStore(row: SourcedStoreRow): PublicSourcedStore | n
     if (!menu || typeof menu.id !== 'string' || !menu.id.startsWith(row.source_ref + ':menu:') ||
       !/^[a-z0-9:-]{1,120}$/.test(menu.id) || ids.has(menu.id) || !nonempty(menu.name, 100)) return null;
     ids.add(menu.id);
-    // Unknown price/heat/media stay unknown, regardless of untrusted metadata extras.
-    menus.push({ id: menu.id, name: menu.name, price: null, heat: null, image: null });
+    const sourceTaste=parseSourceTaste(menu.sourceTaste,meta.sourceUrl,meta.licenseName);
+    if(sourceTaste===undefined)return null;
+    // Source descriptions never create a numeric score, price, media asset or vote.
+    menus.push({ id: menu.id, name: menu.name, price: null, heat: null, image: null, sourceTaste });
   }
   if (!menus.length || menus.length > 50) return null;
   const coordinates = typeof row.lat === 'number' && typeof row.lon === 'number' &&
@@ -49,7 +61,7 @@ export function publicSourcedStore(row: SourcedStoreRow): PublicSourcedStore | n
       ? { lat: row.lat, lon: row.lon } : null;
   return {
     id: row.id, slug: row.slug, sourceRef: row.source_ref, name: row.name, address: row.address,
-    coordinates, menus, reportingState: sourceReportingState(row.source_metadata), ownership: 'unclaimed', ownerClaimVerified: false, pinStatus: 'gray', operatingStatus: null,
+    coordinates, menus, reportingState: sourceReportingState(row.source_metadata), indexable: row.publication_state==='DISCOVERED'||row.publication_state==='PUBLISHED', ownership: 'unclaimed', ownerClaimVerified: false, pinStatus: 'gray', operatingStatus: null,
     currentMenuAvailability: null,
     source: { url: meta.sourceUrl, licenseName: meta.licenseName, asOf: meta.sourceAsOf as string | null, checkedAt: meta.checkedAt },
   };
@@ -75,7 +87,7 @@ export function parseSourcedStoreFeed(value:unknown):PublicSourcedStoreFeed{
  const stores=new Map<string,PublicSourcedStore>(),slugs=new Set<string>(),refs=new Set<string>();
  for(const value of feed.stores){
   const item=record(value),source=record(item?.source),coordinates=record(item?.coordinates);
-  if(!item||!source||!((item.ownership==='unclaimed'&&item.ownerClaimVerified===false&&item.pinStatus==='gray')||(item.ownership==='verified'&&item.ownerClaimVerified===true&&item.pinStatus==='owner-verified'))||item.operatingStatus!==null||item.currentMenuAvailability!==null||
+  if(!item||!source||(item.registrationState!==undefined&&!['database','source-only'].includes(String(item.registrationState)))||(item.registrationState==='source-only'&&item.ownerClaimVerified!==false)||(item.indexable!==undefined&&typeof item.indexable!=='boolean')||!((item.ownership==='unclaimed'&&item.ownerClaimVerified===false&&item.pinStatus==='gray')||(item.ownership==='verified'&&item.ownerClaimVerified===true&&item.pinStatus==='owner-verified'))||item.operatingStatus!==null||item.currentMenuAvailability!==null||
    !Array.isArray(item.menus)||item.menus.some(value=>{const menu=record(value);return !menu||menu.price!==null||menu.heat!==null||menu.image!==null})||
    !(item.coordinates===null||coordinates&&typeof coordinates.lat==='number'&&typeof coordinates.lon==='number'&&
     Number.isFinite(coordinates.lat)&&Number.isFinite(coordinates.lon)&&coordinates.lat>=33&&coordinates.lat<=39.6&&coordinates.lon>=124&&coordinates.lon<=132))throw Error('invalid_source_store');
@@ -84,7 +96,7 @@ export function parseSourcedStoreFeed(value:unknown):PublicSourcedStoreFeed{
    publication_state:'DISCOVERED',source_ref:item.sourceRef,source_metadata:{planet:'hot',rights:{publicDisplay:true,factsStorage:true},
     reporting:{state:item.reportingState},licenseName:source.licenseName,sourceUrl:source.url,sourceAsOf:source.asOf,checkedAt:source.checkedAt,menus:item.menus}});
   if(!facts)throw Error('invalid_source_store');
-  const store:PublicSourcedStore={...facts,ownership:item.ownership as PublicSourcedStore['ownership'],ownerClaimVerified:item.ownerClaimVerified as boolean,pinStatus:item.pinStatus as PublicSourcedStore['pinStatus']};
+  const store:PublicSourcedStore={...facts,indexable:item.indexable===true,...(item.registrationState==='source-only'?{registrationState:'source-only' as const}:{}),ownership:item.ownership as PublicSourcedStore['ownership'],ownerClaimVerified:item.ownerClaimVerified as boolean,pinStatus:item.pinStatus as PublicSourcedStore['pinStatus']};
   const previous=stores.get(store.id);
   if(previous){if(JSON.stringify(previous)!==JSON.stringify(store))throw Error('conflicting_source_store');continue}
   if(slugs.has(store.slug)||refs.has(store.sourceRef))throw Error('conflicting_source_store');

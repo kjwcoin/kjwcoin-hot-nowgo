@@ -10,5 +10,5 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
  const host = (await headers()).get('host');
  const origin = flavorOrigins[variantForHost(host)];
  if (!publicFlavorHost(host)) return { rules: { userAgent: '*', disallow: '/' } };
- return { rules: { userAgent: '*', allow: '/', disallow: ['/api/', '/account', '/activity', '/sponsor-admin', '/go/', '/preview/'] }, sitemap: `${origin}/sitemap.xml` };
+ return { rules: { userAgent: '*', allow: '/', disallow: ['/api/', '/account', '/activity', '/sponsor-admin', '/go/', '/preview/', '/owner/'] }, sitemap: `${origin}/sitemap.xml` };
 }
