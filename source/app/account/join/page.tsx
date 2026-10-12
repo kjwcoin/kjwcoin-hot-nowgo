@@ -11,7 +11,7 @@ import OAuthButtons from '@/components/oauth-buttons';
 
 export default function Join(){
  const variant=useSyncExternalStore(()=>()=>{},()=>variantForHost(location.host),()=> 'hot' as const),theme=siteConfig(variant);
- const search=useSyncExternalStore(()=>()=>{},()=>location.search,()=>''),params=new URLSearchParams(search),returnTo=returnPath(params.get('returnTo')),accountType=params.get('type')==='owner'?'owner':params.get('type')==='user'?'user':null;
+ const search=useSyncExternalStore(()=>()=>{},()=>location.search,()=>''),params=new URLSearchParams(search),requestedReturn=returnPath(params.get('returnTo')),returnTo=requestedReturn.startsWith('/app/')?'/':requestedReturn,accountType=params.get('type')==='owner'?'owner':params.get('type')==='user'?'user':null;
  const [signedIn,setSignedIn]=useState(false),[authChecked,setAuthChecked]=useState(false),[essential,setEssential]=useState(false),[marketing,setMarketing]=useState(false),[busy,setBusy]=useState(false),[error,setError]=useState('');
  useEffect(()=>{queueMicrotask(()=>{try{void browserDb().auth.getUser().then(async({data})=>{
  if(data?.user&&!data.user.is_anonymous){
@@ -28,7 +28,7 @@ export default function Join(){
    await api('/api/customer/consents',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({essential:true,marketingEmail:marketing,version:theme.consent})});
    if(!returnTo.startsWith('/app/')){const {error:profileError}=await browserDb().auth.updateUser({data:{nowgo_account_type:accountType}});if(profileError)throw profileError;}
    window.dispatchEvent(new Event('hot-customer-change'));
-   location.assign(returnTo.startsWith('/app/')?returnTo:accountType==='owner'?(returnTo.startsWith('/owner')?returnTo:'/owner/signup'):returnTo);
+   location.assign(accountType==='owner'?(returnTo.startsWith('/owner')?returnTo:'/owner/signup'):returnTo);
   }catch(e){setBusy(false);setError((e as Error).message)}
  }
  return <><FlavorHeader/><main className="terms-page join-page"><div className="eyebrow">{theme.name} · NOWGO ACCOUNT</div><h1>{accountType?`${accountType==='owner'?'점주':'유저'}로 시작하기`:'통합회원가입/로그인'}</h1><p>{accountType?`${theme.name}에서 사용할 ${accountType==='owner'?'점주':'유저'} 계정을 카카오 또는 구글로 연결해 주세요.`:'유저 또는 점주를 먼저 선택해 주세요.'}</p>
