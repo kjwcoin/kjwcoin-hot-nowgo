@@ -25,6 +25,6 @@ jobs:
           package_json_file: source/package.json
       - run: pnpm install --frozen-lockfile
       - name: Payment, density, publication and location contracts
-        run: node --experimental-strip-types --test tests/hot-ad-policy.test.mjs tests/hot-ad-route.test.mjs tests/hot-ad-checkout.test.mjs tests/map-density.test.mjs tests/consumer-report-submit.test.mjs tests/report-publication.test.mjs tests/map-menu-catalog.test.mjs tests/request-current-location.test.mjs
+        run: node --experimental-strip-types --test tests/hot-ad-policy.test.mjs tests/hot-ad-route.test.mjs tests/hot-ad-checkout.test.mjs tests/map-density.test.mjs tests/naver-sdk.test.mjs tests/consumer-report-submit.test.mjs tests/report-publication.test.mjs tests/map-menu-catalog.test.mjs tests/request-current-location.test.mjs
       - run: pnpm exec tsc --noEmit
       - run: pnpm build

@@ -1,4 +1,5 @@
 'use client';
+import {loadNaverSdk} from '@/lib/naver-sdk';
 import {displayTasteLevel,tastePinPosition} from '@/lib/taste-level';
 
 import {useCallback,useEffect,useImperativeHandle,useMemo,useRef,useState,type Ref} from 'react';
@@ -13,29 +14,6 @@ import {money,type Menu} from '@/lib/menus';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 declare global { interface Window { naver?:any;navermap_authFailure?:()=>void } }
-
-let naverSdkPromise:Promise<any>|null=null;
-
-function loadNaverSdk(key:string){
- if(naverSdkPromise)return naverSdkPromise;
- naverSdkPromise=new Promise((resolve,reject)=>{
-  const script=document.createElement('script');
-  const timer=setTimeout(()=>{script?.remove();reject(new Error('Naver Map SDK timed out'))},10000);
-  const ready=()=>{
-   clearTimeout(timer);
-   if(!window.naver?.maps?.Map||!window.naver.maps.Service){reject(new Error('Naver Map SDK is unavailable'));return}
-   resolve(window.naver);
-  };
-  if(window.naver?.maps?.Map&&window.naver.maps.Service){ready();return}
-  window.navermap_authFailure=()=>window.dispatchEvent(new Event('nowgo:naver-auth-failed'));
-  script.src=`https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=${encodeURIComponent(key)}&submodules=geocoder`;
-  script.async=true;
-  script.onload=ready;
-  script.onerror=()=>{clearTimeout(timer);script?.remove();reject(new Error('Naver Map SDK load failed'))};
-  document.head.appendChild(script);
- }).catch(error=>{naverSdkPromise=null;throw error});
- return naverSdkPromise;
-}
 
 type MapVariant='hot'|'rich'|'sweet';
 export type NaverMapHandle={requestLocation:()=>void};
