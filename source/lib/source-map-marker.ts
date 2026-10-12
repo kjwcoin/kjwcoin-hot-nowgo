@@ -12,3 +12,15 @@ export function sourcedStoreMarker(store:PublicSourcedStore,dom:Pick<Document,'c
  const label=dom.createElement('span');label.className='map-source-label';label.textContent=store.name+' · '+ownership;
  link.append(pin,label);return link;
 }
+
+/** Keep the canonical link available; ordinary activation opens the existing map panel. */
+export function bindSourceMarkerSelection(link:HTMLAnchorElement,store:PublicSourcedStore,onSelect?:((store:PublicSourcedStore)=>void),selected=false):void{
+ if(selected){link.className+=' selected';link.setAttribute('aria-current','true')}
+ if(!onSelect)return;
+ link.removeAttribute('target');
+ link.onclick=event=>{
+  // Modified clicks intentionally retain the direct, shareable mini-home URL.
+  if(event.defaultPrevented||event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
+  event.preventDefault();onSelect(store);
+ };
+}

@@ -29,7 +29,7 @@ test('confirmed empty dish has no peppers/median zero, and loading/pending/error
 });
 test('client source section batches only known menu IDs once visible, rather than retrieving raw reports',()=>{
  assert.match(source,/IntersectionObserver/);assert.match(source,/props\.menus\.map\(menu=>menu.id\)/);assert.doesNotMatch(source,/\/api\/reports|\.heat\s*\|\||reportCount|menuStoreGroups/);
- const card=fs.readFileSync(new URL('../components/sourced-store-card.tsx',import.meta.url),'utf8');assert.match(card,/<ConsumerMenuHeat storeId=\{store.id\} menus=\{store.menus\}/);
+ const detail=fs.readFileSync(new URL('../components/sourced-store-detail.tsx',import.meta.url),'utf8');assert.match(detail,/<ConsumerMenuHeat storeId=\{store.id\} menus=\{store.menus\}/);
 });
 
 test('actual phase-one component renders pending at first paint even with missing or forged enabled state',()=>{

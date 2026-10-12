@@ -3,8 +3,9 @@ import {useCallback,useEffect,useRef,useState} from 'react';
 import {parseSourcedStoreFeed,type PublicSourcedStoreFeed} from '@/lib/sourced-store';
 import type {SiteVariant} from '@/lib/site-config';
 export type SourceFeedState={status:'loading'|'error'|'ready';feed:PublicSourcedStoreFeed|null};
-export function useSourcedStores(variant:SiteVariant,previewFeed?:PublicSourcedStoreFeed){
- const [state,setState]=useState<SourceFeedState>(previewFeed?{status:'ready',feed:previewFeed}:{status:'loading',feed:null});
+export function useSourcedStores(variant:SiteVariant,previewFeed?:PublicSourcedStoreFeed,initialFeed?:PublicSourcedStoreFeed){
+ // An SSR seed supplies first-paint facts only; refresh still clears stale data.
+ const [state,setState]=useState<SourceFeedState>((previewFeed||initialFeed)?{status:'ready',feed:previewFeed||initialFeed!}:{status:'loading',feed:null});
  const request=useRef(0),controller=useRef<AbortController|null>(null);
  const refresh=useCallback(async()=>{
   if(previewFeed){setState({status:'ready',feed:previewFeed});return}

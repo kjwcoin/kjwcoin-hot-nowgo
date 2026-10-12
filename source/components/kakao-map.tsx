@@ -12,7 +12,7 @@ import {money,type Menu} from '@/lib/menus';
 import {hasVerifiedOwner,storePinMenu} from '@/lib/menu-store-groups';
 import {mapStoreGroups,sourceIsPrimaryPin} from '@/lib/map-sourced-stores';
 import {type PublicSourcedStore} from '@/lib/sourced-store';
-import {sourcedStoreMarker} from '@/lib/source-map-marker';
+import {sourcedStoreMarker,bindSourceMarkerSelection} from '@/lib/source-map-marker';
 import {createViewportCounter,type ViewportCountState} from '@/lib/viewport-count-client';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -47,6 +47,8 @@ type Props={
  sourcedStores?:PublicSourcedStore[];
  sourceIdentityStores?:PublicSourcedStore[];
  onSelect:(menu:Menu)=>void;
+ onSourceSelect?:(store:PublicSourcedStore)=>void;
+ selectedSourceId?:string;
  onPoint?:(point:{address:string;lat:number;lng:number})=>void;
  onLocation?:(point:GeoPoint)=>void;
  onLocationState?:(state:LocationState)=>void;
@@ -66,8 +68,9 @@ type Props={
  initialCenter?:GeoPoint;
 };
 
-export default function KakaoMap({menus,sourcedStores=EMPTY_SOURCES,sourceIdentityStores=sourcedStores,onSelect,onPoint,onLocation,onLocationState,locationControl,onDemoPositions,addressSearch,coordinateSearch,onAddressFound,onAddressError,fullScreen=false,selectedId,variant='hot',appLocationBridge=false,onMapState,viewportCountQuery,sourcePreview=false,initialCenter}:Props){
+export default function KakaoMap({menus,sourcedStores=EMPTY_SOURCES,sourceIdentityStores=sourcedStores,onSelect,onSourceSelect,selectedSourceId,onPoint,onLocation,onLocationState,locationControl,onDemoPositions,addressSearch,coordinateSearch,onAddressFound,onAddressError,fullScreen=false,selectedId,variant='hot',appLocationBridge=false,onMapState,viewportCountQuery,sourcePreview=false,initialCenter}:Props){
  const initialLat=initialCenter?.lat??37.5665,initialLng=initialCenter?.lng??126.978;
+ const sourceSelectionEnabled=typeof onSourceSelect==='function';
  const rootRef=useRef<HTMLDivElement>(null);
  const canvasRef=useRef<HTMLDivElement>(null);
  const mapRef=useRef<any>(null);
@@ -76,8 +79,8 @@ export default function KakaoMap({menus,sourcedStores=EMPTY_SOURCES,sourceIdenti
  const userMarkerRef=useRef<any>(null);
  const addressMarkerRef=useRef<any>(null);
  const userPointRef=useRef<GeoPoint|null>(null);
- const callbacksRef=useRef({onSelect,onPoint,onLocation,onLocationState,onDemoPositions:appLocationBridge?undefined:onDemoPositions,onAddressFound,onAddressError,onMapState});
- useEffect(()=>{callbacksRef.current={onSelect,onPoint,onLocation,onLocationState,onDemoPositions:appLocationBridge?undefined:onDemoPositions,onAddressFound,onAddressError,onMapState}},[onSelect,onPoint,onLocation,onLocationState,onDemoPositions,appLocationBridge,onAddressFound,onAddressError,onMapState]);
+ const callbacksRef=useRef({onSelect,onSourceSelect,onPoint,onLocation,onLocationState,onDemoPositions:appLocationBridge?undefined:onDemoPositions,onAddressFound,onAddressError,onMapState});
+ useEffect(()=>{callbacksRef.current={onSelect,onSourceSelect,onPoint,onLocation,onLocationState,onDemoPositions:appLocationBridge?undefined:onDemoPositions,onAddressFound,onAddressError,onMapState}},[onSelect,onSourceSelect,onPoint,onLocation,onLocationState,onDemoPositions,appLocationBridge,onAddressFound,onAddressError,onMapState]);
  const landRequestRef=useRef(0);
  const locationRequestRef=useRef(0);
  const locationBusyRef=useRef(false);
@@ -196,6 +199,7 @@ export default function KakaoMap({menus,sourcedStores=EMPTY_SOURCES,sourceIdenti
    if(sourceIsPrimaryPin(group)&&group.source?.coordinates){
     const store=group.source,link=sourcedStoreMarker(store);
     if(sourcePreview){link.href='/p/'+encodeURIComponent(store.slug)+'?preview=source';link.removeAttribute('target')}
+    bindSourceMarkerSelection(link,store,sourceSelectionEnabled?value=>callbacksRef.current.onSourceSelect?.(value):undefined,selectedSourceId===store.id);
     return new k.maps.CustomOverlay({map:mapRef.current,position:new k.maps.LatLng(store.coordinates!.lat,store.coordinates!.lon),content:link,yAnchor:1.2});
    }
    if(!group.catalog)return null;
@@ -219,7 +223,7 @@ export default function KakaoMap({menus,sourcedStores=EMPTY_SOURCES,sourceIdenti
   }).filter(Boolean);
   mapRef.current.relayout();
   return()=>overlaysRef.current.forEach(overlay=>overlay.setMap(null));
- },[mapState,menus,sourcedStores,sourceIdentityStores,selectedId,variant,appLocationBridge,sourcePreview]);
+ },[mapState,menus,sourcedStores,sourceIdentityStores,selectedId,selectedSourceId,sourceSelectionEnabled,variant,appLocationBridge,sourcePreview]);
 
  useEffect(()=>{
   if(viewportCountQuery===undefined||mapState!=='ready'||!mapRef.current||!kakaoRef.current)return;
@@ -236,9 +240,11 @@ export default function KakaoMap({menus,sourcedStores=EMPTY_SOURCES,sourceIdenti
 
  useEffect(()=>{
   if(mapState!=='ready'||!mapRef.current||!kakaoRef.current)return;
+  const source=sourceIdentityStores.find(store=>store.id===selectedSourceId);
+  if(source?.coordinates){mapRef.current.setLevel(4);mapRef.current.panTo(new kakaoRef.current.maps.LatLng(source.coordinates.lat,source.coordinates.lon));return}
   const menu=menus.find(item=>item.id===selectedId);
   if(menu&&menu.lat!==null&&menu.lng!==null){mapRef.current.setLevel(4);mapRef.current.panTo(new kakaoRef.current.maps.LatLng(menu.lat,menu.lng))}
- },[mapState,menus,selectedId]);
+ },[mapState,menus,selectedId,sourceIdentityStores,selectedSourceId]);
 
  useEffect(()=>{
   if(mapState!=='ready'||!mapRef.current||!kakaoRef.current)return;

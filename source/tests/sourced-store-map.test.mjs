@@ -55,7 +55,7 @@ test('source store identity, rather than name heuristics, always gets a gray sou
  const source=fs.readFileSync(new URL('../components/kakao-map.tsx',import.meta.url),'utf8');
  const branch=source.slice(source.indexOf('if(sourceIsPrimaryPin(group)'),source.indexOf('if(!group.catalog)return null;'));
  assert.match(branch,/sourcedStoreMarker\(store\)/);assert.doesNotMatch(branch,/money\(|\.heat|\.price|storePinMenu/);
- const card=fs.readFileSync(new URL('../components/sourced-store-card.tsx',import.meta.url),'utf8');assert.match(card,/가격 · 매운맛 단계 · 사진 미확인/);assert.match(card,/영업 여부 · 현재 메뉴 제공 여부 미확인/);assert.doesNotMatch(card,/<img|소비자 제보/);
+ const card=fs.readFileSync(new URL('../components/sourced-store-card.tsx',import.meta.url),'utf8');assert.match(card,/가격 미확인/);assert.match(card,/맵기 미확인/);assert.match(card,/SourcedStorePhoto/);assert.doesNotMatch(card,/<img|소비자 제보/);
 });
 
 function fakeDocument(){return {createElement(tag){return {tag,children:[],attributes:{},setAttribute(key,value){this.attributes[key]=value},append(...children){this.children.push(...children)}}}}}
