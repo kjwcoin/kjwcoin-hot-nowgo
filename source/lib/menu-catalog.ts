@@ -27,8 +27,8 @@ export async function communityMenus(filters:MenuSearch={},variant:SiteVariant='
  const keyword=(filters.query||'').replace(/[^\p{L}\p{N}\s]/gu,'').trim().slice(0,60);
  if(keyword)request=request.or(`menu.ilike.%${keyword}%,shop.ilike.%${keyword}%,address.ilike.%${keyword}%`);
  const heat=filters.heat??0,maxHeat=filters.maxHeat??0,budget=filters.budget??0;
- if(Number.isInteger(heat)&&heat>=1&&heat<=5)request=request.eq('heat',heat);
- if(Number.isInteger(maxHeat)&&maxHeat>=1&&maxHeat<=5)request=request.lte('heat',maxHeat);
+ if(Number.isInteger(heat)&&heat>=1&&heat<=siteConfig(variant).heat.length)request=request.eq('heat',heat);
+ if(Number.isInteger(maxHeat)&&maxHeat>=1&&maxHeat<=siteConfig(variant).heat.length)request=request.lte('heat',maxHeat);
  if(filters.flavor&&filters.flavor!=='전체')request=request.eq('flavor',filters.flavor);
  if(filters.category&&filters.category!=='전체')request=request.eq('category',filters.category);
  if(Number.isInteger(budget)&&budget>=100&&budget<=1000000)request=request.lte('price',budget);

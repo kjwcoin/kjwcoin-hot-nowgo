@@ -15,7 +15,7 @@ export async function GET(req:Request,{params}:Ctx){
  const {action}=await params;
  const variant=variantForHost(req.headers.get('host')),theme=siteConfig(variant);
  try{
-  if(action==='config'){const {kakaoKey,chatUrl}=config();return reply(req,{kakaoKey,chatUrl})}
+  if(action==='config'){const {naverKey,chatUrl}=config();return reply(req,{naverKey,chatUrl})}
   if(action==='menus'){const url=new URL(req.url),num=(name:string)=>Number(url.searchParams.get(name)||0);return reply(req,await communityMenus({page:num('page'),query:url.searchParams.get('q')||'',heat:num('heat'),maxHeat:num('maxHeat'),flavor:url.searchParams.get('flavor')||'',category:url.searchParams.get('category')||'',budget:num('budget'),lat:num('lat'),lng:num('lng'),radiusKm:num('radiusKm')},variant))}
   if(action==='menu'){const menu=await menuById(new URL(req.url).searchParams.get('id')||'',variant);return menu?reply(req,{menu}):reject(req,'공개된 메뉴를 찾을 수 없어요.',404)}
   if(action!=='state')return reply(req,{},404);
@@ -87,7 +87,7 @@ export async function POST(req:Request,{params}:Ctx){
    customerStore=data;
    shop=data.name;address=data.address;
   }
-  if(!/^[a-f0-9-]{36}$/.test(id)||!['customer','owner'].includes(role)||shop.length<2||shop.length>100||menu.length<2||menu.length>100||theme.menus.some(x=>x.shop===shop)||!isKoreanAddress(address)||!Number.isInteger(price)||price<100||price>1000000||!Number.isInteger(heat)||heat<1||heat>5||!theme.flavors.slice(1).some(x=>x===flavor)||note.length>1000||!/^\d{4}-\d{2}-\d{2}$/.test(observed)||!Number.isFinite(Date.parse(observed))||observed>koreanToday()||new Date(observed).toISOString().slice(0,10)!==observed||get('rights')!=='yes'||get('accuracy')!=='yes'||!theme.categories.some(x=>x===category))return reject(req,'대한민국 내 실제 가게 주소와 메뉴·가격·확인 날짜·사진 공개 동의를 확인해 주세요.',400);
+  if(!/^[a-f0-9-]{36}$/.test(id)||!['customer','owner'].includes(role)||shop.length<2||shop.length>100||menu.length<2||menu.length>100||theme.menus.some(x=>x.shop===shop)||!isKoreanAddress(address)||!Number.isInteger(price)||price<100||price>1000000||!Number.isInteger(heat)||heat<1||heat>theme.heat.length||!theme.flavors.slice(1).some(x=>x===flavor)||note.length>1000||!/^\d{4}-\d{2}-\d{2}$/.test(observed)||!Number.isFinite(Date.parse(observed))||observed>koreanToday()||new Date(observed).toISOString().slice(0,10)!==observed||get('rights')!=='yes'||get('accuracy')!=='yes'||!theme.categories.some(x=>x===category))return reject(req,'대한민국 내 실제 가게 주소와 메뉴·가격·확인 날짜·사진 공개 동의를 확인해 주세요.',400);
   const photo=form.get('photo');
   if(!(photo instanceof File)||photo.size===0)return reject(req,'JPG·PNG·WebP 사진을 첨부해 주세요.',400);
   const bytes=new Uint8Array(await photo.arrayBuffer());

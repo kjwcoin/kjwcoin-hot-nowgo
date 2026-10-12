@@ -233,3 +233,6 @@ body[data-theme] :is(.sa-notice, .se-notice) { background: var(--flavor-soft); c
 .explorer-store-name{padding:14px 18px 0;font-size:14px;color:#374151}.explorer-menu-list>article{border-bottom:1px solid #ddd}.explorer-menu-list [data-owner-join-request]{margin:8px 14px 14px}
 
 .store-report-count{display:block;font-size:13px;font-weight:700;line-height:1.5;color:#59616d;margin:6px 0;padding:4px 8px;border-radius:8px;background:#e6e8ec}
+
+body[data-theme=hot] .heat-scale button:nth-child(n+6){--heat-tint:100%}
+body[data-theme=hot] .heat-scale button:nth-child(n+6)>span{color:#fff}

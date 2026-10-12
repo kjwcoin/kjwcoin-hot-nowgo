@@ -1,4 +1,4 @@
-export function config(){const chat=process.env.KAKAO_CHAT_URL||'';return {kakaoKey:process.env.KAKAO_MAP_JAVASCRIPT_KEY||'',chatUrl:/^https:\/\/(pf\.kakao\.com|open\.kakao\.com)\//.test(chat)?chat:'',places:process.env.NOWGO_PLACE_URLS||'{}'}}
+export function config(){const chat=process.env.KAKAO_CHAT_URL||'';return {naverKey:process.env.NEXT_PUBLIC_NAVER_MAPS_NCP_KEY_ID||process.env.NAVER_MAPS_NCP_KEY_ID||'',chatUrl:/^https:\/\/(pf\.kakao\.com|open\.kakao\.com)\//.test(chat)?chat:'',places:process.env.NOWGO_PLACE_URLS||'{}'}}
 export function reply(_req:Request,data:unknown,status=200){return Response.json(data,{status,headers:{'Cache-Control':'no-store'}})}
 export function validOrigin(req:Request){
  const origin=req.headers.get('origin');if(!origin)return true;
