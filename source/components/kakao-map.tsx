@@ -18,7 +18,7 @@ function loadKakaoSdk(key:string){
  if(kakaoSdkPromise)return kakaoSdkPromise;
  kakaoSdkPromise=new Promise((resolve,reject)=>{
   let script:HTMLScriptElement|undefined;
-  const timer=setTimeout(()=>{script?.remove();reject(new Error('Kakao Map SDK timed out'))},10000);
+  const timer=setTimeout(()=>{script?.remove();reject(new Error('Kakao Map SDK timed out'))},20000);
   const ready=()=>{
    if(!window.kakao?.maps?.load){clearTimeout(timer);reject(new Error('Kakao Map SDK is unavailable'));return}
    window.kakao.maps.load(()=>{clearTimeout(timer);resolve(window.kakao)});
@@ -129,19 +129,14 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,onLocationSt
   let cancelled=false;
   const controller=new AbortController();
   let configTimeout:ReturnType<typeof setTimeout>|undefined;
-  let timeout:ReturnType<typeof setTimeout>|undefined;
-  const observer=new IntersectionObserver(entries=>{
-   if(!entries.some(entry=>entry.isIntersecting))return;
-   observer.disconnect();
-   configTimeout=setTimeout(()=>controller.abort(),8000);
+  const initialize=()=>{
+   configTimeout=setTimeout(()=>controller.abort(),12000);
    fetch('/api/config',{cache:'no-store',signal:controller.signal}).then(response=>{if(!response.ok)throw new Error('Map configuration unavailable');return response.json() as Promise<{kakaoKey?:string}>}).then(async config=>{
     clearTimeout(configTimeout);
     if(cancelled)return;
     if(!config.kakaoKey){setMapState('setup');return}
-    timeout=setTimeout(()=>setMapState('error'),10000);
     const k=await loadKakaoSdk(config.kakaoKey);
     if(cancelled||!canvasRef.current)return;
-    if(timeout)clearTimeout(timeout);
     kakaoRef.current=k;
     // Neutral inland placeholder only while waiting for the visitor's own GPS fix.
     const map=new k.maps.Map(canvasRef.current,{center:new k.maps.LatLng(37.5665,126.978),level:NEIGHBORHOOD_LEVEL});
@@ -167,9 +162,9 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,onLocationSt
      }).catch(()=>{});
     }
    }).catch(()=>!cancelled&&setMapState('error'));
-  },{rootMargin:'200px'});
-  if(rootRef.current)observer.observe(rootRef.current);
-  return()=>{cancelled=true;controller.abort();clearTimeout(configTimeout);if(timeout)clearTimeout(timeout);observer.disconnect();landRequestRef.current++;locationRequestRef.current++;locationBusyRef.current=false;overlaysRef.current.forEach(overlay=>overlay.setMap(null));userMarkerRef.current?.setMap(null);addressMarkerRef.current?.setMap(null);mapRef.current=null};
+  };
+  initialize();
+  return()=>{cancelled=true;controller.abort();clearTimeout(configTimeout);landRequestRef.current++;locationRequestRef.current++;locationBusyRef.current=false;overlaysRef.current.forEach(overlay=>overlay.setMap(null));userMarkerRef.current?.setMap(null);addressMarkerRef.current?.setMap(null);mapRef.current=null};
  },[fullScreen,mapAttempt,requestLocation,showNearby]);
 
  useEffect(()=>{
@@ -274,7 +269,7 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,onLocationSt
  const statusText=locationStatusText[locationState];
  return <div className={fullScreen?'map-panel map-fullscreen':'map-panel'} ref={rootRef}>
   <div key={mapAttempt} className="map-canvas" ref={canvasRef} aria-label={`카카오 대한민국 ${label} 메뉴 지도`}/>
-  {mapState!=='ready'&&<div className="map-unavailable"><MapPin size={30} strokeWidth={1.3}/><span className="eyebrow">KAKAO MAP · {variant.toUpperCase()} NOWGO</span><h3>{mapState==='loading'?'지도를 불러오는 중':mapState==='setup'?'지도 연결을 준비하고 있어요':'잠시 지도를 불러올 수 없어요'}</h3><p>지도 연결을 확인한 뒤 다시 시도해 주세요.</p>{mapState!=='loading'&&<button type="button" className="text-link" onClick={retryMap}>지도 다시 불러오기</button>}{!appLocationBridge&&<a className="text-link" href="https://www.nowgo.space/" target="_blank" rel="noreferrer">나우고에서 운영 매장 확인 <ArrowUpRight size={18}/></a>}</div>}
+  {mapState!=='ready'&&<div className="map-unavailable"><MapPin size={30} strokeWidth={1.3}/><span className="eyebrow">KAKAO MAP · {variant.toUpperCase()} NOWGO</span><h3>{mapState==='loading'?'지도를 불러오는 중':mapState==='setup'?'지도 연결을 준비하고 있어요':'잠시 지도를 불러올 수 없어요'}</h3><p>지도 연결을 확인한 뒤 다시 시도해 주세요.</p>{mapState!=='loading'&&<button type="button" className="text-link" onClick={retryMap}>지도 다시 불러오기</button>}</div>}
   {mapState==='ready'&&onLocation&&<button type="button" className="map-location-button" aria-label="내 위치로 이동" onClick={requestLocation} disabled={locationBusy}><LocateFixed size={16}/>{locationBusy?'위치 확인 중':'내 위치'}</button>}
   {mapState==='ready'&&tileFailed&&<div role="alert" style={{position:'absolute',bottom:60,right:16,zIndex:5,maxWidth:300,padding:14,borderRadius:10,background:'#fff',color:'#20211e',boxShadow:'0 3px 18px #0002',fontSize:14}}>지도 배경을 불러오지 못했어요.<button type="button" className="text-link" onClick={retryMap}>지도 다시 불러오기</button></div>}
   {mapState==='ready'&&locationFailed&&<div role="status" style={{position:'absolute',top:72,right:16,zIndex:5,maxWidth:300,padding:14,borderRadius:10,background:'#fff',color:'#20211e',boxShadow:'0 3px 18px #0002',fontSize:14}}>{statusText}{userPointRef.current&&<p>이전에 확인한 위치를 표시하고 있어요.</p>}<button type="button" className="text-link" onClick={requestLocation}>위치 다시 확인</button></div>}

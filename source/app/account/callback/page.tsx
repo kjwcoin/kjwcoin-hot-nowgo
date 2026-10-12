@@ -20,14 +20,16 @@ export default function Callback(){
    let pending:{returnTo?:string;accountType?:'user'|'owner'}|null=null;
    try{const raw=sessionStorage.getItem(`${variantForHost(location.host)}-pending-consent`);pending=raw?JSON.parse(raw):null}catch{}
    const appReturn=readAppReturnCookie(document.cookie);
-   const returnTo=returnPath(appReturn||pending?.returnTo);
-   if(appReturn)document.cookie=APP_RETURN_COOKIE+'=; Path=/; Max-Age=0; Secure; SameSite=Lax';
+   // Browser flavor login always returns to this site's web map, never the companion app.
    const accountType=pending?.accountType==='owner'?'owner':'user';
+   const returnTo=returnPath(accountType==='user'?pending?.returnTo:(appReturn||pending?.returnTo));
+   const webReturn=returnTo.startsWith('/app/')?'/':returnTo;
+   if(appReturn)document.cookie=APP_RETURN_COOKIE+'=; Path=/; Max-Age=0; Secure; SameSite=Lax';
    try{sessionStorage.removeItem(`${variantForHost(location.host)}-pending-consent`)}catch{}
    if(membership.existingOwner&&accountType==='owner'&&!appReturn){location.replace(returnTo.startsWith('/owner')?returnTo:'/owner');return}
    const profile=await api<{customer:unknown|null;consentRequired:boolean}>('/api/customer/me');
    if(!active)return;
-   location.replace(profile.customer&&!profile.consentRequired?(returnTo.startsWith('/app/')?returnTo:accountType==='owner'?(returnTo.startsWith('/owner')?returnTo:'/owner/signup'):'https://www.nowgo.space/flavors'):'/account/join?finish=1&type='+accountType+'&returnTo='+encodeURIComponent(returnTo));
+   location.replace(profile.customer&&!profile.consentRequired?(accountType==='owner'?(returnTo.startsWith('/owner')?returnTo:'/owner/signup'):webReturn):'/account/join?finish=1&type='+accountType+'&returnTo='+encodeURIComponent(accountType==='user'?webReturn:returnTo));
   }catch(e){if(active)setError((e as Error).message)}
  }void complete();return()=>{active=false}},[]);
  return <><FlavorHeader/><main className="terms-page join-page"><h1>회원 연결 중</h1><p>{error||'NOWGO 통합회원 정보를 확인하고 있어요.'}</p>{error&&<a href="/account/join">가입·로그인 다시 하기 ↗</a>}</main></>

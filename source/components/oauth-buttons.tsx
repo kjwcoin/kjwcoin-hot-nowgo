@@ -16,7 +16,9 @@ export default function OAuthButtons({flavor, returnTo = '/', accountType = 'use
     try {
       window.dispatchEvent(new Event('nowgo-report-save-draft'));
       try{localStorage.removeItem('nowgo-explicit-logout')}catch{}
-      const appReturn=appLoginReturn(returnTo);document.cookie=APP_RETURN_COOKIE+'='+(appReturn?encodeURIComponent(appReturn):'')+'; Path=/; Max-Age='+(appReturn?'600':'0')+'; Secure; SameSite=Lax';
+      // Browser login never hands users to the companion app.
+      const appReturn=accountType==='owner'?appLoginReturn(returnTo):null;
+      document.cookie=APP_RETURN_COOKIE+'='+(appReturn?encodeURIComponent(appReturn):'')+'; Path=/; Max-Age='+(appReturn?'600':'0')+'; Secure; SameSite=Lax';
       sessionStorage.setItem(`${flavor}-pending-consent`, JSON.stringify({essential: false, returnTo: returnPath(returnTo), accountType}));
       if (location.hostname === 'nowgo.space' || location.hostname.endsWith('.nowgo.space')) {
         document.cookie = 'nowgo-flavor-oauth-return=' + encodeURIComponent(location.origin) + '; Path=/; Domain=.nowgo.space; Max-Age=600; Secure; SameSite=Lax';
