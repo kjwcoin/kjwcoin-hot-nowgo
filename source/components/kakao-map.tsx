@@ -18,7 +18,7 @@ function loadKakaoSdk(key:string){
  if(kakaoSdkPromise)return kakaoSdkPromise;
  kakaoSdkPromise=new Promise((resolve,reject)=>{
   let script:HTMLScriptElement|undefined;
-  const timer=setTimeout(()=>{script?.remove();reject(new Error('Kakao Map SDK timed out'))},10000);
+  const timer=setTimeout(()=>{script?.remove();reject(new Error('Kakao Map SDK timed out'))},20000);
   const ready=()=>{
    if(!window.kakao?.maps?.load){clearTimeout(timer);reject(new Error('Kakao Map SDK is unavailable'));return}
    window.kakao.maps.load(()=>{clearTimeout(timer);resolve(window.kakao)});
@@ -129,19 +129,14 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,onLocationSt
   let cancelled=false;
   const controller=new AbortController();
   let configTimeout:ReturnType<typeof setTimeout>|undefined;
-  let timeout:ReturnType<typeof setTimeout>|undefined;
-  const observer=new IntersectionObserver(entries=>{
-   if(!entries.some(entry=>entry.isIntersecting))return;
-   observer.disconnect();
-   configTimeout=setTimeout(()=>controller.abort(),8000);
+  const initialize=()=>{
+   configTimeout=setTimeout(()=>controller.abort(),12000);
    fetch('/api/config',{cache:'no-store',signal:controller.signal}).then(response=>{if(!response.ok)throw new Error('Map configuration unavailable');return response.json() as Promise<{kakaoKey?:string}>}).then(async config=>{
     clearTimeout(configTimeout);
     if(cancelled)return;
     if(!config.kakaoKey){setMapState('setup');return}
-    timeout=setTimeout(()=>setMapState('error'),10000);
     const k=await loadKakaoSdk(config.kakaoKey);
     if(cancelled||!canvasRef.current)return;
-    if(timeout)clearTimeout(timeout);
     kakaoRef.current=k;
     // Neutral inland placeholder only while waiting for the visitor's own GPS fix.
     const map=new k.maps.Map(canvasRef.current,{center:new k.maps.LatLng(37.5665,126.978),level:NEIGHBORHOOD_LEVEL});
@@ -167,9 +162,9 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,onLocationSt
      }).catch(()=>{});
     }
    }).catch(()=>!cancelled&&setMapState('error'));
-  },{rootMargin:'200px'});
-  if(rootRef.current)observer.observe(rootRef.current);
-  return()=>{cancelled=true;controller.abort();clearTimeout(configTimeout);if(timeout)clearTimeout(timeout);observer.disconnect();landRequestRef.current++;locationRequestRef.current++;locationBusyRef.current=false;overlaysRef.current.forEach(overlay=>overlay.setMap(null));userMarkerRef.current?.setMap(null);addressMarkerRef.current?.setMap(null);mapRef.current=null};
+  };
+  initialize();
+  return()=>{cancelled=true;controller.abort();clearTimeout(configTimeout);landRequestRef.current++;locationRequestRef.current++;locationBusyRef.current=false;overlaysRef.current.forEach(overlay=>overlay.setMap(null));userMarkerRef.current?.setMap(null);addressMarkerRef.current?.setMap(null);mapRef.current=null};
  },[fullScreen,mapAttempt,requestLocation,showNearby]);
 
  useEffect(()=>{
