@@ -367,3 +367,58 @@ body[data-theme="sweet"] .menu-heat{background:#197f6c}
 /* Preview heat is a separate menu-specific annotation, never ownership evidence. */
 .map-preview-heat{display:flex;flex-direction:column;gap:2px;margin-left:5px;padding:5px 7px;border:1px solid #dccfc1;border-radius:8px;background:#fffefa;color:#372c26;font-size:10px}
 .map-preview-heat>small{font-size:9px;font-weight:600;line-height:1.3;max-width:160px;overflow:hidden;text-overflow:ellipsis}
+
+/* HOT owner-request and report entries stay white with bold red labels. */
+body[data-theme="hot"] :is(
+  [data-owner-join-request] > button:first-of-type,
+  #owner-information > button:first-of-type,
+  [data-source-readonly-action="report"] > button:first-of-type,
+  .source-preview-heat-open,
+  .source-heat-pending,
+  .explorer .explorer-report
+) {
+  min-height: 44px;
+  max-width: 100%;
+  border: 1px solid var(--brand-ink);
+  background: #fff;
+  color: var(--brand-ink);
+  font-weight: 800;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+body[data-theme="hot"] :is(
+  [data-owner-join-request] > button:first-of-type,
+  #owner-information > button:first-of-type,
+  [data-source-readonly-action="report"] > button:first-of-type,
+  .source-preview-heat-open,
+  .explorer .explorer-report
+):not(:disabled):hover {
+  background: #fff;
+  color: var(--brand-ink);
+  box-shadow: 0 0 0 1px var(--brand-ink);
+}
+body[data-theme="hot"] :is(
+  [data-owner-join-request] > button:first-of-type,
+  #owner-information > button:first-of-type,
+  [data-source-readonly-action="report"] > button:first-of-type,
+  .source-preview-heat-open,
+  .explorer .explorer-report
+):focus-visible {
+  outline: 3px solid var(--brand-ink);
+  outline-offset: 3px;
+}
+
+/* Light-gray unverified HOT icons retain a visible edge, without changing cards. */
+body[data-theme="hot"] .map-anchor--sourced:not(.map-anchor--sourced-verified) .map-source-pin {
+  background: #d9dde1;
+  border-color: #727c86;
+  box-shadow: 0 0 0 2px #fff, 0 2px 6px #0003;
+}
+body[data-theme="hot"] .map-anchor.map-anchor--reported .map-anchor-pin {
+  filter: grayscale(1) contrast(.2) brightness(1.7) drop-shadow(0 0 1px #606972);
+}
+/* Spatial quantity only: never a heat score or ownership indicator. */
+.map-store-cluster{display:grid;place-items:center;width:52px;height:52px;box-sizing:border-box;padding:0;border:3px solid #fff;border-radius:50%;background:#e5e7eb;color:#34383b;box-shadow:0 0 0 1px #929aa2,0 3px 9px #17213c29;font-size:17px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums;white-space:nowrap;cursor:pointer;touch-action:manipulation}
+.map-store-cluster--large{width:62px;height:62px;font-size:16px}
+.map-store-cluster:hover{background:#f0f1f3;box-shadow:0 0 0 2px #68737d,0 3px 9px #17213c29}
+.map-store-cluster:focus-visible{outline:3px solid #a52b21;outline-offset:4px}
