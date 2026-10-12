@@ -14,8 +14,10 @@ export async function GET(req:Request){
   if(!await menuById(menuId,'hot'))return error(req,'HOT 메뉴를 찾을 수 없습니다.',404);
   const {data,error:dbError}=await publicDb().rpc('hot_menu_spice_summary_for',{p_menu_id:menuId}).single();
   if(dbError)throw dbError;
-  return reply(req,{menuId,median:data?.median_level??null,count:data?.rating_count??0,
-    provisional:!!data&&data.rating_count>0&&data.rating_count<3});
+  const summary = data as {median_level:number|null;rating_count:number|string}|null;
+  const count = Number(summary?.rating_count??0);
+  return reply(req,{menuId,median:summary?.median_level??null,count,
+    provisional:count>0&&count<3});
  }catch(e){return failure(req,e)}
 }
 
