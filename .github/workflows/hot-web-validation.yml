@@ -1,0 +1,30 @@
+name: HOT web validation
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: hot-web-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  web:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: source
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+      - uses: pnpm/action-setup@v6
+        with:
+          package_json_file: source/package.json
+      - run: pnpm install --frozen-lockfile
+      - name: Payment, density, publication and location contracts
+        run: node --experimental-strip-types --test tests/hot-ad-policy.test.mjs tests/hot-ad-route.test.mjs tests/hot-ad-checkout.test.mjs tests/map-density.test.mjs tests/naver-sdk.test.mjs tests/consumer-report-submit.test.mjs tests/report-publication.test.mjs tests/map-menu-catalog.test.mjs tests/request-current-location.test.mjs
+      - run: pnpm exec tsc --noEmit
+      - run: pnpm build

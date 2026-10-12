@@ -11,6 +11,7 @@ async function proxy(request:Request){try{
  if(request.method==='POST'){
   const raw=await request.text();if(raw.length>2048)return reply(request,{error:'요청이 너무 큽니다.'},413);
   const b=JSON.parse(raw);if(!b||typeof b!=='object'||!['start','refresh','cancel'].includes(b.action))return reply(request,{error:'요청을 확인해 주세요.'},400);
+  if(b.action==='start'&&planet==='hot')return reply(request,{error:'HOT 기본 매장 관리는 무료입니다. 별도 광고는 광고 신청 화면에서 입찰해 주세요.',code:'use_advertising_checkout'},410);
   if(b.action==='start'){
    if(b.consentAccepted!==true||b.consentVersion!==MAP_SUBSCRIPTION_TERMS_VERSION)return reply(request,{error:'월 8,000원 정기결제 동의를 확인해 주세요.'},400);
    const check=await fetch(url,{headers:{Authorization:request.headers.get('authorization')!},cache:'no-store',redirect:'error',signal:AbortSignal.timeout(30000)});

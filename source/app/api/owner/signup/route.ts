@@ -14,7 +14,7 @@ export async function POST(request:Request){try{
   const result=await auth.client.rpc('ng_map_register_contact',{p_phone:phone,p_planet:variant,p_store:storeId});if(result.error)throw result.error;return reply(request,{ok:true,...result.data});
  }
  const name=get('menu'),price=Number(get('price')),level=Number(get('level')),flavor=get('flavor'),category=get('category'),lat=Number(get('lat')),lng=Number(get('lng'));
- if(!get('shop')||!isKoreanAddress(get('address'))||!isKoreanCoordinate(lat,lng)||!name||name.length>100||!Number.isInteger(price)||price<100||price>1000000||!Number.isInteger(level)||level<1||level>5||!theme.flavors.slice(1).some(f=>f===flavor)||!theme.categories.some(c=>c===category))return reply(request,{error:'매장 위치·메뉴·가격·맛 정보를 확인해 주세요.'},400);
+ if(!get('shop')||!isKoreanAddress(get('address'))||!isKoreanCoordinate(lat,lng)||!name||name.length>100||!Number.isInteger(price)||price<100||price>1000000||!Number.isInteger(level)||level<1||level>theme.heat.length||!theme.flavors.slice(1).some(f=>f===flavor)||!theme.categories.some(c=>c===category))return reply(request,{error:'매장 위치·메뉴·가격·맛 정보를 확인해 주세요.'},400);
  const photo=await prepareOwnerPhoto(form.get('photo'));
  if(!storeId){
   const registered=await ownerSignupRequest(request,auth.user,'/api/nowgo/business-verification',{businessNumber:get('businessNumber').replace(/-/g,''),openingDate:get('openingDate').replace(/-/g,''),representativeName:get('representative'),representativePhone:phone,acceptedTerms:true,newStore:{name:get('shop'),address:get('address'),category:get('storeCategory')}});
