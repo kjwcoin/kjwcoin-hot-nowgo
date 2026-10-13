@@ -18,3 +18,15 @@ body[data-theme="rich"] .aw-avatar[data-planet="chewy"]{background-image:url('/a
 .activity-world :is(h1,h2,h3,h4,label,summary,dt,dd,strong,figcaption){color:#fff}.activity-world :is(p,small){color:#e0e7f2}.activity-world :is(button,a){color:#fff}.activity-world :is(input,textarea,select){color:#fff;background:#101a36;border-color:#8390aa}.activity-world input::placeholder,.activity-world textarea::placeholder{color:#c0cadc;opacity:1}.activity-world .aw-pill.is-earned{color:#fff}.activity-world .aw-footprint-photo{margin-top:14px;display:grid;gap:12px}.aw-footprint-photo form{display:grid;gap:8px}.aw-footprint-pictures{display:flex;flex-wrap:wrap;gap:8px}.aw-footprint-pictures img{width:140px;height:110px;object-fit:cover;border-radius:8px}.activity-world .aw-footprint-photo button{border:1px solid #8390aa;background:#202e4b;border-radius:8px;min-height:44px;padding:9px 14px}.activity-world .aw-footprint-photo a{width:fit-content}
 
 .activity-world .aw-button,.activity-world [data-slot=button]{color:#121932}.activity-world .aw-toast,.activity-world .aw-toast button{color:#101a36}.activity-world .we-notice :is(h2,h3,p,small,strong){color:#172440}
+/* Override the shared flavor palette only inside the dark account/world surfaces. */
+body[data-theme] .activity-world.activity-world{background:#0c142f!important;color:#fff!important}
+body[data-theme] .activity-world.activity-world :is(.aw-panel,.we-columns>article,.aw-account-summary button){background:#151f3e!important;border-color:#596a89!important}
+body[data-theme] .activity-world.activity-world :is(h1,h2,h3,h4,label,summary,dt,dd,strong,figcaption){color:#fff!important}
+body[data-theme] .activity-world.activity-world :is(p,small){color:#e0e7f2!important}
+body[data-theme] .activity-world.activity-world :is(button,a){color:#fff!important}
+body[data-theme] .activity-world.activity-world :is(.aw-button,[data-slot=button]){background:#bd3828!important;color:#fff!important}
+body[data-theme] .activity-world.activity-world :is(input,textarea,select){background:#101a36!important;color:#fff!important;border-color:#8390aa!important}
+body[data-theme] .activity-world.activity-world :is(input,textarea)::placeholder{color:#c0cadc!important;opacity:1}
+body[data-theme] .activity-world.activity-world .aw-toast,body[data-theme] .activity-world.activity-world .aw-toast button{background:#151f3e!important;color:#fff!important}
+body[data-theme] .activity-world.activity-world .we-notice{background:#151f3e!important;color:#fff!important}
+body[data-theme] .activity-world.activity-world .we-notice :is(h2,h3,p,small,strong){color:#fff!important}
