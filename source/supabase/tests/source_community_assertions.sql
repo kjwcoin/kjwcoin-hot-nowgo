@@ -1,0 +1,43 @@
+do $$
+declare u1 uuid:=gen_random_uuid();u2 uuid:=gen_random_uuid();u3 uuid:=gen_random_uuid();s uuid;owned uuid:=gen_random_uuid();owner_user uuid:=gen_random_uuid();j jsonb;n integer;before_count integer;
+begin
+ select id into s from hot_source_community.stores order by id limit 1;
+ insert into auth.users(id,aud,role,is_anonymous,created_at,updated_at) values(u1,'authenticated','authenticated',false,now(),now()),(u2,'authenticated','authenticated',false,now(),now()),(u3,'authenticated','authenticated',false,now(),now()),(owner_user,'authenticated','authenticated',false,now(),now());
+ insert into public.owners(id,status) values(owner_user,'active');
+ insert into public.stores(id,owner_id,name,category,address,slug) select owned,owner_user,name,'음식점',address,'source-test-'||owned::text from hot_source_community.stores where id=s;
+ perform set_config('request.jwt.claim.sub',u1::text,true);
+ perform set_config('request.jwt.claims',jsonb_build_object('sub',u1,'role','authenticated','is_anonymous',false)::text,true);
+ j:=public.ng_hot_source_community_submit(s,'taste','테스트 메뉴',3,'얼큰한','실제 테스트',true);
+ if (j->>'awardedExp')::integer<>60 then raise exception 'first_report_and_quest_must_be_60';end if;
+ j:=public.ng_hot_source_community_submit(s,'taste','테스트 메뉴',5,'알싸한','수정',true);
+ if (j->>'awardedExp')::integer<>0 or (j->'menus'->0->>'count')::integer<>1 or (j->'menus'->0->>'heat')::numeric<>5 then raise exception 'duplicate_report_or_summary';end if;
+ j:=public.ng_hot_source_community_submit(s,'taste','두번째 메뉴',2,'칼칼한','',true);
+ if (j->>'awardedExp')::integer<>0 then raise exception 'daily_limit_with_one_time_quest';end if;
+ -- Existing quest was already paid, so the report that would exceed 100 earns zero.
+ if (select sum(xp) from public.ng_planet_events where user_id=u1)>100 then raise exception 'daily_cap_failed';end if;
+ j:=public.ng_hot_source_community_submit(s,'owner-request');j:=public.ng_hot_source_community_submit(s,'owner-request');
+ if (j->>'ownerRequests')::integer<>1 then raise exception 'owner_request_duplicate';end if;
+ perform set_config('request.jwt.claim.sub',u2::text,true);
+ perform set_config('request.jwt.claims',jsonb_build_object('sub',u2,'role','authenticated','is_anonymous',false)::text,true);
+ j:=public.ng_hot_source_community_state(s);
+ if jsonb_array_length(j->'myReports')<>0 or (j->>'requested')::boolean then raise exception 'cross_user_leak';end if;
+ begin perform public.ng_hot_source_community_submit(s,'taste','비정상 메뉴',9,'알싸한','',true);raise exception 'invalid_heat_accepted';exception when others then if sqlerrm<>'invalid_taste_report' then raise;end if;end;
+ j:=public.ng_hot_source_status_submit(s,'temporary_closed');
+ if jsonb_array_length(j->'statuses')<>1 or (j->>'awardedExp')::integer<>0 then raise exception 'unconfirmed_status_awarded';end if;
+ perform set_config('request.jwt.claim.sub',u1::text,true);perform set_config('request.jwt.claims',jsonb_build_object('sub',u1,'role','authenticated','is_anonymous',false)::text,true);j:=public.ng_hot_source_status_submit(s,'temporary_closed');
+ perform set_config('request.jwt.claim.sub',u3::text,true);perform set_config('request.jwt.claims',jsonb_build_object('sub',u3,'role','authenticated','is_anonymous',false)::text,true);j:=public.ng_hot_source_status_submit(s,'temporary_closed');
+ if not (j->'statuses'->0->>'confirmed')::boolean or (j->'statuses'->0->>'count')::integer<>3 or (j->>'awardedExp')::integer<>60 then raise exception 'status_consensus_reward';end if;
+ if (select owner_penalty_points from public.stores where id=owned)<>5 then raise exception 'SPACE_penalty_not_applied_once';end if;
+ update public.stores set owner_penalty_points=30,trust_disabled_at=now() where id=owned;
+ if not s=any(public.ng_hot_source_hidden_stores()) then raise exception 'disabled_owner_source_reappeared';end if;
+ update public.stores set owner_penalty_points=5,trust_disabled_at=null where id=owned;
+ if s=any(public.ng_hot_source_hidden_stores()) then raise exception 'active_owner_hidden';end if;
+ if not exists(select 1 from public.ng_planet_events where user_id=u2 and kind='status' and xp=50) then raise exception 'earlier_supporter_not_awarded';end if;
+ perform set_config('request.jwt.claim.sub',owner_user::text,true);perform set_config('request.jwt.claims',jsonb_build_object('sub',owner_user,'role','authenticated','is_anonymous',false)::text,true);
+ begin perform public.ng_hot_source_status_submit(s,'temporary_closed');raise exception 'owner_self_consensus_allowed';exception when others then if sqlerrm<>'owner_report_requires_dashboard' then raise;end if;end;
+ perform set_config('request.jwt.claim.sub','',true);perform set_config('request.jwt.claims','{}',true);
+ begin perform public.ng_hot_source_community_submit(s,'owner-request');raise exception 'anon_write_allowed';exception when others then if sqlerrm<>'login_required' then raise;end if;end;
+ if has_table_privilege('anon','hot_source_community.taste_reports','select') or has_table_privilege('authenticated','hot_source_community.taste_reports','select') or has_function_privilege('anon','public.ng_hot_source_status_submit(uuid,text)','execute') then raise exception 'raw_privilege_leak';end if;
+end $$;
+select 'PASS: actual save, aggregate, update, duplicate request, cross-user privacy, anonymous denial, EXP idempotency/daily cap and three-customer status rewards' as result;
+rollback;

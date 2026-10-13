@@ -6,9 +6,9 @@ export const WORLDS = {
  sweet: {challenge:'단맛에도 나만의 기준이 있는 탐험가와 기억에 남는 달콤함을 만드는 사장님. 오늘의 한 입을 함께 찾아요.',name:'단잘알',accent:'#96edd2',motto:'단맛에 진심.',story:'달콤함에도 나만의 기준이 있다. 기억에 남은 한 입을 모아, 나의 디저트 왕국을 넓힌다.',taste:'달콤함',brands:[['메가MGC커피','한 잔의 왕관','sweet-first'],['빙그레 바나나맛우유','바나나 궤도','banana-milk'],['오리온 초코파이','초코 성주','choco-pie']]},
  chewy: {challenge:'꾸덕함의 차이를 알아보는 탐험가와 남다른 식감을 만드는 사장님. 진한 맛의 기준을 함께 넓혀요.',name:'꾸덕잘알',accent:'#cbb2ff',motto:'꾸덕함에 진심.',story:'한 입의 농도, 진하게 남는 여운. 맛을 넘어 식감까지 기억하는 나만의 감각으로 영토를 넓힌다.',taste:'꾸덕함',brands:[['하리보','골드베어 원정','chewy-alliance'],['공차','펄의 성주','gongcha-pearl'],['롯데웰푸드 말랑카우','말랑 구름','malang-cow']]}
 } as const;
-export const RANKS = [{name:'탐험가',level:1,xp:0},{name:'기사',level:3,xp:180},{name:'성주',level:5,xp:500},{name:'백작',level:10,xp:2550},{name:'공작',level:20,xp:9550},{name:'왕',level:30,xp:16550}];
-const THRESHOLDS=[0,80,180,320,500,750,1050,1450,1950,2550];
-export function growth(xp:number){xp=Math.max(0,Math.floor(xp));let level=1;for(let n=0;n<THRESHOLDS.length;n++)if(xp>=THRESHOLDS[n])level=n+1;if(xp>=2550)level=10+Math.floor((xp-2550)/700);const min=level<=10?THRESHOLDS[level-1]:2550+(level-10)*700,next=level<10?THRESHOLDS[level]:2550+(level-9)*700;return {level,min,next,progress:Math.round((xp-min)/(next-min)*100),rank:RANKS.filter(r=>level>=r.level).at(-1)!,character:RANKS.filter(r=>level>=r.level).length-1}}
+export const RANKS = [{name:'탐험가',level:1,xp:0},{name:'기사',level:3,xp:150},{name:'성주',level:5,xp:500},{name:'백작',level:10,xp:3000},{name:'공작',level:20,xp:15500},{name:'왕',level:30,xp:38000}];
+export const EXP_THRESHOLDS=[0,50,150,300,500,800,1200,1700,2300,3000,3800,4700,5700,6800,8000,9300,10700,12200,13800,15500,17300,19200,21200,23300,25500,27800,30200,32700,35300,38000];
+export function growth(xp:number){xp=Math.max(0,Math.floor(xp));let level=1;for(let n=0;n<EXP_THRESHOLDS.length;n++)if(xp>=EXP_THRESHOLDS[n])level=n+1;if(xp>=38000)level=30+Math.floor((xp-38000)/3000);const min=level<=30?EXP_THRESHOLDS[level-1]:38000+(level-30)*3000,next=level<30?EXP_THRESHOLDS[level]:38000+(level-29)*3000;return {level,min,next,progress:Math.round((xp-min)/(next-min)*100),rank:RANKS.filter(r=>level>=r.level).at(-1)!,character:RANKS.filter(r=>level>=r.level).length-1}}
 export const BADGES = [
  {id:'first-step',name:'첫발자국',image:'award-0',rule:'GPS 위치와 결제가 함께 확인된 첫 방문'},
  {id:'steady-recorder',name:'꾸준한 기록가',image:'award-1',rule:'3일 이상에 걸쳐 공개 제보 5회'},

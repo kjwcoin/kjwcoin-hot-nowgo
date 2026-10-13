@@ -1,3 +1,4 @@
+import {publicDb} from '@/lib/supabase';
 import {headers} from 'next/headers';
 import {notFound} from 'next/navigation';
 import SourcedStoreMinihome from '@/components/sourced-store-minihome';
@@ -13,7 +14,7 @@ async function resolvePage({params,searchParams}:Props){
  if(preview){const store=sourcePreviewStore();if(slug!==store.slug)notFound();return {store,preview:true}}
  if(sourcePreviewEnabled())notFound();
  if(variantForHost((await headers()).get('host'))!=='hot')notFound();
- const store=await readSourcedStoreBySlug(slug);if(!store)notFound();return {store,preview:false};
+ const store=await readSourcedStoreBySlug(slug);if(!store)notFound();const hidden=await publicDb().rpc('ng_hot_source_hidden_stores');if(hidden.error)throw Error('store_visibility_unavailable');if((hidden.data||[]).includes(store.id))notFound();return {store,preview:false};
 }
 export async function generateMetadata(props:Props){
  const {store,preview}=await resolvePage(props),metadata=sourcedStoreMetadata(store,(await headers()).get('host'));
