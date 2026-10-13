@@ -1,3 +1,4 @@
+import * as menuSearch from '../lib/menu-search.ts';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -18,7 +19,7 @@ const plain=value=>JSON.parse(JSON.stringify(value));
 
 function load({ready=true,sourceFeed=async()=>({stores:[],complete:true}),pages=async()=>({data:[],error:null})}={}){
  const exports={},calls=[];
- const dependencies={
+ const dependencies={'./menu-search.ts':menuSearch,
   './store-identity.ts':storeIdentityModule,'./map-sourced-stores.ts':{sourcedStoreMatches},'./sourced-store-feed.ts':{readSourcedStoreFeed:sourceFeed},'./korean-region.ts':{isKoreanCoordinate},
   './site-config':{siteConfig(variant){return {tables:{menus:'ng_map_'+variant+'_menu_catalog'},flavors:variant==='sweet'?menus.SWEET_FLAVORS:variant==='rich'?menus.RICH_FLAVORS:menus.FLAVORS,categories:variant==='sweet'?menus.SWEET_MENU_CATEGORIES:variant==='rich'?menus.RICH_MENU_CATEGORIES:menus.MENU_CATEGORIES}}},
   './supabase':{publicConfig:()=>({ready}),publicDb(...args){assert.equal(args.length,0,'No user token or elevated credential is needed');return {from(table){const operations=[['from',table]];const builder={};for(const name of ['select','gte','lte','or','eq','gt','order','limit','abortSignal'])builder[name]=(...args)=>{operations.push([name,...args]);return builder};builder.then=(resolve,reject)=>{calls.push(operations);return Promise.resolve().then(()=>pages(operations,calls.length)).then(resolve,reject)};return builder}}}},
@@ -40,7 +41,7 @@ test('bounds and active filters are bounded, normalized, and variant-aware',()=>
 test('text filter strips PostgREST syntax exactly like communityMenus',()=>{
  const api=load(),input=api.parseViewportCountParams(params('q='+encodeURIComponent('서울%,address.not.is.null( )')));
  assert.equal(input.query,'서울addressnotisnull');
- assert.equal(api.parseViewportCountParams(params('q='+'가'.repeat(70))).query.length,60);
+ assert.throws(()=>api.parseViewportCountParams(params('q='+'가'.repeat(70))),api.InvalidViewportCountQuery);
 });
 
 test('identity-only dedup matches canonical menu grouping across owner, text, and place cases',()=>{
@@ -136,7 +137,7 @@ test('public query uses only existing catalog identity fields, geo/filter predic
  assert.deepEqual(first.find(x=>x[0]==='from'),['from','ng_map_hot_menu_catalog']);
  assert.deepEqual(first.find(x=>x[0]==='select'),['select','id,place_id,owner_store_id,shop,address,lat,lng']);
  for(const op of [['gte','lat',37],['lte','lat',38],['gte','lng',126],['lte','lng',128],['eq','heat',3],['eq','flavor','칼칼한'],['eq','category','닭발'],['lte','price',15000],['order','id',{ascending:true}],['limit',500]])assert.ok(first.some(x=>JSON.stringify(x)===JSON.stringify(op)),JSON.stringify(op));
- assert.equal(first.find(x=>x[0]==='or')[1],'menu.ilike.%닭발%,shop.ilike.%닭발%,address.ilike.%닭발%');
+ assert.equal(first.find(x=>x[0]==='or')[1],menuSearch.catalogMenuSearchFilter('닭발'));
  assert.deepEqual(api.calls[1].find(x=>x[0]==='gt'),['gt','id','00000001']);
  assert.equal(first.find(x=>x[0]==='abortSignal')[1] instanceof AbortSignal,true);
  await api.viewportStoreCount(input,'hot');assert.equal(api.calls.length,2,'Repeated exact viewport uses bounded short-lived cache');

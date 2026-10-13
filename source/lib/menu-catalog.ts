@@ -1,3 +1,4 @@
+import {catalogMenuSearchFilter,menuSearchError} from './menu-search.ts';
 import {publicDb,publicConfig} from './supabase';
 import {type Menu} from './menus';
 import {siteConfig,type SiteVariant} from './site-config';
@@ -20,12 +21,12 @@ async function linkedMenus(rows:MenuRow[],variant:SiteVariant):Promise<Menu[]>{
 export type MenuSearch={page?:number;query?:string;heat?:number;maxHeat?:number;flavor?:string;category?:string;budget?:number;lat?:number;lng?:number;radiusKm?:number};
 
 export async function communityMenus(filters:MenuSearch={},variant:SiteVariant='hot'){
- if(!publicConfig().ready)return {menus:[] as Menu[],hasMore:false};
+ if(menuSearchError(filters.query||'')||!publicConfig().ready)return {menus:[] as Menu[],hasMore:false};
  const requestedPage=filters.page??0;
  const page=Number.isSafeInteger(requestedPage)&&requestedPage>=0?Math.min(requestedPage,10000):0,size=100;
  let request=publicDb().from(siteConfig(variant).tables.menus).select(fields);
- const keyword=(filters.query||'').replace(/[^\p{L}\p{N}\s]/gu,'').trim().slice(0,60);
- if(keyword)request=request.or(`menu.ilike.%${keyword}%,shop.ilike.%${keyword}%,address.ilike.%${keyword}%`);
+ const searchFilter=catalogMenuSearchFilter(filters.query||'');
+ if(searchFilter)request=request.or(searchFilter);
  const heat=filters.heat??0,maxHeat=filters.maxHeat??0,budget=filters.budget??0;
  if(Number.isInteger(heat)&&heat>=1&&heat<=5)request=request.eq('heat',heat);
  if(Number.isInteger(maxHeat)&&maxHeat>=1&&maxHeat<=5)request=request.lte('heat',maxHeat);
