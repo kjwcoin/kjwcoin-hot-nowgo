@@ -29,7 +29,7 @@ test('source-only detail keeps the legacy ordered slots with no store-bound live
  const ordered = ['explorer-back', 'explorer-detail-photo', 'explorer-detail-content', 'explorer-tags', '<h1>', 'explorer-taste-price', 'store-status', 'data-source-readonly-action="favorite"', 'explorer-quick-actions', 'source-public-taste', 'source-detail-footer'];
  let cursor = -1;
  for (const marker of ordered) {const index = html.indexOf(marker); assert.ok(index > cursor, marker); cursor = index;}
- for (const expected of ['공공자료 소개 · 점주 확인 전', '공공자료의 맵기 설명', '고객 연결 준비 중', '맵기 미확인', '가격 미확인', '현재 메뉴 제공 여부 미확인', '방문 후 맛을 확인해 주세요', '직접 먹어보셨나요? 맵기 단계와 맛의 특징을 제보해 주세요!', '제보 등록·저장·집계는 아직 연결되지 않았어요', '점주 연결 전에는 요청이나 신청이 접수되지 않아요']) assert.ok(html.includes(expected), expected);
+ for (const expected of ['공공자료 소개 · 점주 확인 전', '메뉴별 맵기 안내', '맵기는 같은 메뉴를 먹은 분들이 제보한 맵기 단계의 중앙값으로 정해집니다.', '맵기 미확인', '가격 미확인', '현재 메뉴 제공 여부 미확인', '방문 후 맛을 확인해 주세요', '직접 먹어보셨나요? 맵기 단계와 맛의 특징을 제보해 주세요!', '제보 등록·저장·집계는 아직 연결되지 않았어요', '점주 연결 전에는 요청이나 신청이 접수되지 않아요']) assert.ok(html.includes(expected), expected);
  assert.equal((html.match(/data-source-readonly-action=/g) || []).length, 3);
  noLive(html);
 });
@@ -63,13 +63,13 @@ test('source-only does not auto-initialize an account or invent character/EXP va
  }
 });
 
-test('source-only uses the exact selected menu description and distinguishes missing facts', () => {
+test('source-only selected menu keeps actual heat unknown while explaining the median rule', () => {
  const missing = {...store.menus[0], id: store.sourceRef + ':menu:2', name: '다른 메뉴', sourceTaste: null};
  const html = detail({...store, menus: [...store.menus, missing]}, {menuId: missing.id});
  assert.match(html, /<h1>다른 메뉴<\/h1>/);
- assert.match(html, /공공자료에 확인 가능한 맵기 설명이 없어요/);
+ assert.match(html, /이 메뉴의 맵기와 제보 수는 미확인입니다/);
  assert.doesNotMatch(html, /매콤한 양념|맵기 선택 제공이 명시/);
- assert.match(detail(), /자료에 맵기 선택 제공이 명시되어 있어요/);
+ assert.match(detail(), /맵기는 같은 메뉴를 먹은 분들이 제보한 맵기 단계의 중앙값으로 정해집니다/);
  assert.doesNotMatch(detail({...store, menus: [{...store.menus[0], sourceTaste: {...store.menus[0].sourceTaste, choiceOffered: false}}]}), /자료에 맵기 선택 제공이 명시/);
 });
 

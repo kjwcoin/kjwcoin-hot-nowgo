@@ -15,6 +15,7 @@ import {type PublicSourcedStore} from '@/lib/sourced-store';
 import {sourcedStoreMarker,bindSourceMarkerSelection,appendPreviewMarkerHeat} from '@/lib/source-map-marker';
 import type {PreviewMenuHeat} from '@/lib/preview-menu-heat';
 import {createViewportCounter,readViewportBounds,type ViewportCountState} from '@/lib/viewport-count-client';
+import {loadedMapStoreCount,loadedMapCountLabel} from '@/lib/loaded-map-count';
 import {positionedStoreGroups,clusterStorePoints,storeClusterButton,clusterZoomLevel,createStoreOverlayReconciler} from '@/lib/map-store-clusters';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -94,6 +95,7 @@ export default function KakaoMap({menus,sourcedStores=EMPTY_SOURCES,sourceIdenti
  const [mapRevision,setMapRevision]=useState(0);
  const [tileFailed,setTileFailed]=useState(false);
  const [viewportCount,setViewportCount]=useState<ViewportCountState>({status:'loading'});
+ const [loadedVisibleCount,setLoadedVisibleCount]=useState<number|null>(null);
  const [hasUserPoint,setHasUserPoint]=useState(false);
  const [mapAttempt,setMapAttempt]=useState(0);
  const [locationState,setLocationState]=useState<LocationState>('idle');
@@ -259,9 +261,11 @@ export default function KakaoMap({menus,sourcedStores=EMPTY_SOURCES,sourceIdenti
   const draw=()=>{
    frame=0;if(disposed||mapRef.current!==map)return;
    let displays:ReturnType<typeof clusterStorePoints>=points.map(point=>({kind:'store',key:'store:'+point.key,point}));
+   let displayedBounds:ReturnType<typeof readViewportBounds>=null;
    if(clusteringEnabled){
     try{
      const level=map.getLevel(),bounds=readViewportBounds(map.getBounds()),projection=map.getProjection();
+     displayedBounds=bounds;
      if(Number.isFinite(level)&&bounds&&typeof projection?.containerPointFromCoords==='function')displays=clusterStorePoints(points,{
       level,bounds,project:point=>projection.containerPointFromCoords(new k.maps.LatLng(point.lat,point.lng)),
      });
@@ -270,6 +274,7 @@ export default function KakaoMap({menus,sourcedStores=EMPTY_SOURCES,sourceIdenti
    const focusedKey=[...contentByKey].find(([,content])=>content===document.activeElement)?.[0];
    const keyboardFocus=keyboardMembers&&document.activeElement===keyboardOrigin;
    overlaysRef.current=layer.update(displays);
+   if(clusteringEnabled)setLoadedVisibleCount(loadedMapStoreCount(displays,displayedBounds));
    const active=new Set(displays.map(display=>display.key));for(const key of contentByKey.keys())if(!active.has(key))contentByKey.delete(key);
    if(keyboardMembers){
     const members=keyboardMembers;keyboardMembers=null;keyboardOrigin=null;
@@ -293,9 +298,10 @@ export default function KakaoMap({menus,sourcedStores=EMPTY_SOURCES,sourceIdenti
   refreshOverlaysRef.current=update;map.relayout();update();
   if(!clusteringEnabled)return dispose;
   k.maps.event.addListener(map,'idle',refresh);
+  k.maps.event.addListener(map,'bounds_changed',refresh);
   k.maps.event.addListener(map,'zoom_changed',refresh);
   const resize=new ResizeObserver(refresh);if(rootRef.current)resize.observe(rootRef.current);
-  return()=>{disposed=true;cancelAnimationFrame(frame);resize.disconnect();k.maps.event.removeListener(map,'idle',refresh);k.maps.event.removeListener(map,'zoom_changed',refresh);dispose()};
+  return()=>{disposed=true;cancelAnimationFrame(frame);resize.disconnect();k.maps.event.removeListener(map,'idle',refresh);k.maps.event.removeListener(map,'bounds_changed',refresh);k.maps.event.removeListener(map,'zoom_changed',refresh);dispose()};
  },[mapState,clusteringEnabled,mapRevision]);
 
  useEffect(()=>{
@@ -389,10 +395,16 @@ export default function KakaoMap({menus,sourcedStores=EMPTY_SOURCES,sourceIdenti
   <div key={mapAttempt} className="map-canvas" ref={canvasRef} tabIndex={-1} aria-label={`카카오 대한민국 ${label} 메뉴 지도`}/>
   {mapState!=='ready'&&<div className="map-unavailable"><MapPin size={30} strokeWidth={1.3}/><span className="eyebrow">KAKAO MAP · {variant.toUpperCase()} NOWGO</span><h3>{mapState==='loading'?'지도를 불러오는 중':mapState==='setup'?'지도 연결을 준비하고 있어요':'잠시 지도를 불러올 수 없어요'}</h3><p>지도 연결을 확인한 뒤 다시 시도해 주세요.</p>{mapState!=='loading'&&<button type="button" className="text-link" onClick={retryMap}>지도 다시 불러오기</button>}{!sourcePreview&&!appLocationBridge&&<a className="text-link" href="https://www.nowgo.space/" target="_blank" rel="noreferrer">나우고에서 운영 매장 확인 <ArrowUpRight size={18}/></a>}</div>}
   {mapState==='ready'&&viewportCountQuery!==undefined&&<div className="map-visible-store-count" role="status" aria-live="polite" aria-atomic="true">
-   <strong>{viewportCount.status==='loading'?'화면 안 매장 집계 중':viewportCount.status==='error'?'매장 수를 확인하지 못했어요':`현재 화면 ${viewportCount.complete?'매장':'확인된 매장 최소'} ${viewportCount.count.toLocaleString('ko-KR')}곳`}</strong>
-   <small>{viewportCount.status==='ready'?'화면 전체 별도 집계 · 핀·목록은 불러온 자료 기준':'지도 이동 후 다시 확인해요'}</small>
+   {variant==='hot'?<>
+    <strong>{loadedMapCountLabel(loadedVisibleCount)}</strong>
+    <small>불러온 자료의 핀·묶음 기준 · 중복 매장 제외</small>
+    <small>{viewportCount.status==='loading'?'화면 안 전체 자료는 별도 집계 중':viewportCount.status==='error'?'전체 자료 수 확인 불가 · 표시 매장 수와 별개':`화면 안 전체 자료 ${viewportCount.complete?'':'확인된 최소 '}${viewportCount.count.toLocaleString('ko-KR')}곳 · 표시 매장 수와 별개`}</small>
+   </>:<>
+    <strong>{viewportCount.status==='loading'?'화면 안 매장 집계 중':viewportCount.status==='error'?'매장 수를 확인하지 못했어요':`현재 화면 ${viewportCount.complete?'매장':'확인된 매장 최소'} ${viewportCount.count.toLocaleString('ko-KR')}곳`}</strong>
+    <small>{viewportCount.status==='ready'?'화면 전체 별도 집계 · 핀·목록은 불러온 자료 기준':'지도 이동 후 다시 확인해요'}</small>
+   </>}
    {clusteringEnabled&&<small>원 안 숫자: 불러온 매장 수 · 확대하면 개별 핀</small>}
-   {viewportCount.status==='error'&&<button type="button" style={{pointerEvents:'auto',fontWeight:700,textDecoration:'underline'}} onClick={()=>window.dispatchEvent(new Event('nowgo:catalog-refresh'))}>매장 수 다시 확인</button>}
+   {viewportCount.status==='error'&&<button type="button" style={{pointerEvents:'auto',fontWeight:700,textDecoration:'underline'}} onClick={()=>window.dispatchEvent(new Event('nowgo:catalog-refresh'))}>{variant==='hot'?'전체 자료 수 다시 확인':'매장 수 다시 확인'}</button>}
   </div>}
   {mapState==='ready'&&onLocation&&<button type="button" className="map-location-button" aria-label="내 위치로 이동" onClick={requestLocation} disabled={locationBusy}><LocateFixed size={16}/>{locationBusy?'위치 확인 중':'내 위치'}</button>}
   {mapState==='ready'&&tileFailed&&<div role="alert" style={{position:'absolute',bottom:60,right:16,zIndex:5,maxWidth:300,padding:14,borderRadius:10,background:'#fff',color:'#20211e',boxShadow:'0 3px 18px #0002',fontSize:14}}>지도 배경을 불러오지 못했어요.<button type="button" className="text-link" onClick={retryMap}>지도 다시 불러오기</button></div>}

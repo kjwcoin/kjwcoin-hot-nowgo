@@ -7,6 +7,7 @@ import * as clustering from '../lib/map-store-clusters.ts';
 import {mapStoreGroups,sourceIsPrimaryPin} from '../lib/map-sourced-stores.ts';
 import {storePinMenu,hasVerifiedOwner} from '../lib/menu-store-groups.ts';
 import {isKoreanCoordinate} from '../lib/korean-region.ts';
+import {loadedMapStoreCount} from '../lib/loaded-map-count.ts';
 import {readViewportBounds} from '../lib/viewport-count-client.ts';
 import {sourcedStoreMarker,bindSourceMarkerSelection,appendPreviewMarkerHeat} from '../lib/source-map-marker.ts';
 import {money} from '../lib/menus.ts';
@@ -81,7 +82,7 @@ function harness(options={}){
   appLocationBridge:false,selectedId:undefined,selectedSourceId:undefined,sourceSelectionEnabled:options.sourceSelectionEnabled??true,
   sourcePreview:options.sourcePreview??false,previewSourceHeat:undefined,variant:options.variant??'hot',
   callbacksRef:{current:{onSelect:menu=>stats.selected.push(menu),onSourceSelect:store=>stats.sourceSelected.push(store)}},
-  ...clustering,mapStoreGroups,sourceIsPrimaryPin,storePinMenu,hasVerifiedOwner,isKoreanCoordinate,readViewportBounds,money,menuHeatAttribution,
+  loadedMapStoreCount,setLoadedVisibleCount:count=>{stats.visibleCount=count},...clustering,mapStoreGroups,sourceIsPrimaryPin,storePinMenu,hasVerifiedOwner,isKoreanCoordinate,readViewportBounds,money,menuHeatAttribution,
   document:dom,
   sourcedStoreMarker:store=>sourcedStoreMarker(store,dom),bindSourceMarkerSelection,
   appendPreviewMarkerHeat:(link,store,summary)=>appendPreviewMarkerHeat(link,store,summary,dom),
@@ -126,7 +127,7 @@ test('SDK/DOM mock: initial invalid or throwing SDK reads fall back to existing 
   {getBounds:()=>null},{getProjection:()=>({})},{getLevel:()=>NaN},
   {getProjection:()=>({containerPointFromCoords:()=>{throw Error('temporary point projection failure')}})},
  ];
- for(const mapOverrides of failures){const h=harness({mapOverrides});assert.equal(h.singles().length,2);assert.equal(h.clusters().length,0);assert.equal(h.listeners.size,2);h.unmount();assert.equal(h.live.size,0);assert.equal(h.listeners.size,0)}
+ for(const mapOverrides of failures){const h=harness({mapOverrides});assert.equal(h.singles().length,2);assert.equal(h.clusters().length,0);assert.equal(h.listeners.size,3);h.unmount();assert.equal(h.live.size,0);assert.equal(h.listeners.size,0)}
 });
 
 test('SDK/DOM mock: a later SDK read failure keeps pins usable and a restored read reclusters',()=>{
@@ -220,7 +221,7 @@ test('SDK/DOM mock: HOT sourcePreview remains unclustered with preview links and
 
 test('SDK/DOM mock: changing HOT to RICH and back disposes the old mode cleanly',()=>{
  const h=harness();h.emit('idle');h.update({variant:'rich'});assert.equal(h.frames.size,0);assert.equal(h.listeners.size,0);assert.equal(h.clusters().length,0);assert.equal(h.singles().length,2);
- h.update({variant:'hot'});assert.equal(h.clusters().length,1);assert.equal(h.singles().length,0);assert.equal(h.listeners.size,2);h.unmount();assert.equal(h.stats.created,h.stats.removed);
+ h.update({variant:'hot'});assert.equal(h.clusters().length,1);assert.equal(h.singles().length,0);assert.equal(h.listeners.size,3);h.unmount();assert.equal(h.stats.created,h.stats.removed);
 });
 
 test('SDK/DOM mock: repeated equivalent fresh feeds preserve the exact focused cluster and its listeners',()=>{
@@ -320,7 +321,7 @@ test('SDK/DOM mock: an already-ready replacement map gets a fresh layer and old 
  assert.match(component,/mapRef\.current=map;\s*setMapRevision\(revision=>revision\+1\)/);
  const h=harness(),old=h.clusters()[0],oldMap=h.map,lateUpdate=h.context.refreshOverlaysRef.current;old.focus();h.emit('idle');const lateFrame=[...h.frames.values()][0];
  const nextMap=h.replaceMap();assert.notStrictEqual(nextMap,oldMap);assert.equal(h.context.mapState,'ready');assert.equal(old.isConnected,false);assert.notStrictEqual(h.clusters()[0],old);
- assert.ok([...h.live].every(overlay=>overlay.options.map===nextMap));assert.equal(h.frames.size,0);assert.equal(h.listeners.size,2);assert.equal(h.observers.length,2);assert.equal(h.observers[0].disconnected,true);
+ assert.ok([...h.live].every(overlay=>overlay.options.map===nextMap));assert.equal(h.frames.size,0);assert.equal(h.listeners.size,3);assert.equal(h.observers.length,2);assert.equal(h.observers[0].disconnected,true);
  const created=h.stats.created;lateUpdate();lateFrame();assert.equal(h.stats.created,created);assert.strictEqual(h.dom.activeElement,h.dom.body,'A map replacement does not restore abandoned overlay focus');h.unmount();
 });
 
@@ -332,5 +333,14 @@ test('SDK/DOM mock: retry gaps and ready/error/remount cycles cannot draw onto t
  h.update({mapState:'error'});assert.equal(h.listeners.size,0);assert.equal(h.frames.size,0);assert.strictEqual(h.context.refreshOverlaysRef.current,null);
  h.update({mapState:'loading'});h.replaceMap();assert.equal(h.live.size,0);h.update({mapState:'ready'});assert.equal(h.clusters().length,1);assert.ok([...h.live].every(overlay=>overlay.options.map===h.map));
  h.update({sourcePreview:true});assert.equal(h.clusters().length,0);assert.equal(h.singles().length,2);assert.equal(h.listeners.size,0);
- h.update({sourcePreview:false});assert.equal(h.clusters().length,1);assert.equal(h.listeners.size,2);h.unmount();assert.equal(h.stats.created,h.stats.removed);
+ h.update({sourcePreview:false});assert.equal(h.clusters().length,1);assert.equal(h.listeners.size,3);h.unmount();assert.equal(h.stats.created,h.stats.removed);
+});
+
+test('SDK/DOM mock: primary loaded count follows the same mounted clusters across pan, refresh and invalid bounds',()=>{
+ const h=harness();assert.equal(h.stats.visibleCount,2);assert.equal(Number(h.clusters()[0].textContent),2);
+ const focused=h.clusters()[0];focused.focus();h.update({sourcedStores:JSON.parse(JSON.stringify(h.context.sourcedStores))});assert.strictEqual(h.dom.activeElement,focused);assert.equal(h.stats.visibleCount,2);
+ h.state.bounds={south:33,north:34,west:125,east:126};h.emit('bounds_changed');h.flush();assert.equal(h.stats.visibleCount,0);assert.equal(h.live.size,0);
+ h.state.bounds={...initialBounds};h.emit('bounds_changed');h.flush();assert.equal(h.stats.visibleCount,2);assert.equal(h.clusters().length,1);
+ const original=h.map.getBounds;h.map.getBounds=()=>null;h.emit('bounds_changed');h.flush();assert.equal(h.stats.visibleCount,null);assert.equal(h.singles().length,2);
+ h.map.getBounds=original;h.emit('bounds_changed');h.flush();assert.equal(h.stats.visibleCount,2);h.unmount();assert.equal(h.listeners.size,0);
 });

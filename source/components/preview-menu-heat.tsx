@@ -59,6 +59,6 @@ export default function PreviewMenuHeat({storeId,menus,menuId,summary,onPreviewH
    <p>실제 제보는 등록되지 않아요. 선택한 메뉴의 미리보기 중앙값과 지도 아이콘에만 반영돼요.</p>
    <div className="source-preview-heat-form-actions"><button type="button" onClick={close}>취소</button><button type="submit" disabled={!canSubmit}>미리보기로 반영</button></div>
   </form>}
-  <div className="source-preview-heat-footer"><small>실제 제보 등록·집계 공개는 아직 준비 중이에요.</small>{onPreviewHeatReset&&<button type="button" onClick={()=>{onPreviewHeatReset();close()}}>미리보기 초기화</button>}</div>
+  <div className="source-preview-heat-footer"><small>실제 제보 등록·집계 공개는 아직 연결되지 않았어요.</small>{onPreviewHeatReset&&<button type="button" onClick={()=>{onPreviewHeatReset();close()}}>미리보기 초기화</button>}</div>
  </section>;
 }

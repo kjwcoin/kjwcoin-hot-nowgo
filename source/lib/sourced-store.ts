@@ -1,16 +1,20 @@
+import reviewedRegistry from '../data/hot-reviewed-source-registry.json' with {type:'json'};
 import {sourceReportingState,type HotReportingState} from './hot-reporting-phase.ts';
 /** Public, non-owner facts only. Never convert this into a consumer Report/Menu. */
 export type SourceTaste = {description:string;preparationTraits:string[];choiceOffered:boolean;sourceUrl:string;sourceAsOf:string|null;checkedAt:string;licenseName:string;publicDisplayAllowed:true};
 export type SourceFieldAttribution = {url:string;asOf:string;checkedAt:string};
 export type SourceFieldProvenance = {
   licenseScope:'identity-location-only';
-  registration:SourceFieldAttribution & {nativeRecordId:null};
+  registration:(SourceFieldAttribution & {nativeRecordId:null})|null;
+  identity?:SourceFieldAttribution & {nativeRecordId:string};
   coordinates:SourceFieldAttribution & {nativeRecordId:string};
 };
 /** A bounded individual fact assessment is not an open licence for a tourism website. */
 export type MenuFactProvenance = {
-  kind:'official-tourism-place-menu';sourceUrl:string;sourceRecordIds:Record<string,string>;
-  sourceAsOf:null;checkedAt:string;licenseName:null;explicitOpenLicense:false;
+  kind:'official-tourism-place-menu'|'official-brand-menu';sourceUrl:string;sourceRecordIds:Record<string,string>;
+  sourceScope?:'brand_common'|'specific_restaurant_official_tourism_record';
+  branchMenuApplicability?:null|'source_record_specific_restaurant_not_current_sale';brandName?:string;
+  sourceAsOf:string|null;checkedAt:string;licenseName:null;explicitOpenLicense:false;
   reuseBasis:'limited-individual-fact-review';originalName:string;
   nameRepresentation:'original'|'ja-transliteration';currentAvailability:null;priceAsOf:null;
 };
@@ -41,6 +45,23 @@ const timestamp=(value:unknown):value is string=>typeof value==='string'&&Number
 const onlyKeys=(row:Record<string,unknown>,keys:readonly string[])=>Object.keys(row).every(key=>keys.includes(key));
 const REGISTRATION_URL='https://www.data.go.kr/data/15047498/fileData.do';
 const COORDINATE_URL='https://www.data.go.kr/data/15083033/fileData.do';
+// Only the reviewed release's compact public facts enter the client bundle. Raw CSV
+// locators and legal review records stay in the server-only listing manifest.
+type ReviewedSource={id:string;slug:string;name:string;address:string;lat:number;lon:number;fieldProvenance:SourceFieldProvenance;menuKey:string};
+type ReviewedMenu={name:string;provenance:MenuFactProvenance};
+const RELEASE_RECORDS=reviewedRegistry.records as unknown as Record<string,ReviewedSource>;
+const RELEASE_MENUS=reviewedRegistry.menus as unknown as Record<string,ReviewedMenu>;
+function sameReviewedFact(actual:unknown,expected:unknown):boolean{
+ if(actual===expected)return true;
+ const a=record(actual),b=record(expected);
+ return Boolean(a&&b&&Object.keys(a).length===Object.keys(b).length&&Object.keys(b).every(key=>Object.hasOwn(a,key)&&sameReviewedFact(a[key],b[key])));
+}
+function releaseMenu(sourceRef:string):ReviewedMenu|undefined{
+ const expected=RELEASE_RECORDS[sourceRef];return expected?RELEASE_MENUS[expected.menuKey]:undefined;
+}
+export const BRAND_COMMON_MENU_NOTICE='브랜드 공통 메뉴 · 지점 판매 여부 미확인';
+export function isBrandCommonMenu(menu:Pick<SourcedMenu,'provenance'>):boolean{return menu.provenance?.sourceScope==='brand_common';}
+
 // This review covers exactly two observations, not arbitrary tourism pages or collection.
 const REVIEWED_MENU_FACTS:Record<string,{name:string;originalName:string;sourceUrl:string;sourceRecordIds:Record<string,string>;nameRepresentation:MenuFactProvenance['nameRepresentation']}>= {
  'data-go-kr-15083033-MA010120220802577654':{name:'매운묵은지등갈비찜',originalName:'매운묵은지등갈비찜',sourceUrl:'https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=1dffc549-f2dc-4292-b9eb-baf6f031d3ca',sourceRecordIds:{cotid:'1dffc549-f2dc-4292-b9eb-baf6f031d3ca',contentid:'2878004'},nameRepresentation:'original'},
@@ -48,6 +69,12 @@ const REVIEWED_MENU_FACTS:Record<string,{name:string;originalName:string;sourceU
 };
 function parseFieldProvenance(value:unknown,sourceRef:string,sourceUrl:string,asOf:unknown,checkedAt:string):SourceFieldProvenance|null|undefined{
  if(value===undefined)return null;
+ const approved=RELEASE_RECORDS[sourceRef];
+ if(approved){
+  const expected=approved.fieldProvenance;
+  if(!expected.identity||sourceUrl!==COORDINATE_URL||asOf!==expected.identity.asOf||checkedAt!==expected.identity.checkedAt||!sameReviewedFact(value,expected))return undefined;
+  return{licenseScope:'identity-location-only',registration:null,identity:{...expected.identity},coordinates:{...expected.coordinates}};
+ }
  const row=record(value),registration=record(row?.registration),coordinates=record(row?.coordinates);
  if(!row||!registration||!coordinates||!onlyKeys(row,['licenseScope','registration','coordinates'])||row.licenseScope!=='identity-location-only'||
   !onlyKeys(registration,['url','asOf','checkedAt','nativeRecordId'])||!onlyKeys(coordinates,['url','asOf','checkedAt','nativeRecordId'])||
@@ -58,6 +85,11 @@ function parseFieldProvenance(value:unknown,sourceRef:string,sourceUrl:string,as
 }
 function parseMenuProvenance(value:unknown,sourceRef:string,name:string):MenuFactProvenance|null|undefined{
  if(value===undefined)return null;
+ const approved=releaseMenu(sourceRef);
+ if(approved){
+  if(name!==approved.name||!sameReviewedFact(value,approved.provenance))return undefined;
+  return{...approved.provenance,sourceRecordIds:{...approved.provenance.sourceRecordIds}};
+ }
  const row=record(value),expected=REVIEWED_MENU_FACTS[sourceRef],ids=record(row?.sourceRecordIds);
  if(!row||!expected||!ids||!onlyKeys(row,['kind','sourceUrl','sourceRecordIds','sourceAsOf','checkedAt','licenseName','explicitOpenLicense','reuseBasis','originalName','nameRepresentation','currentAvailability','priceAsOf'])||
   row.kind!=='official-tourism-place-menu'||name!==expected.name||row.sourceUrl!==expected.sourceUrl||row.originalName!==expected.originalName||row.nameRepresentation!==expected.nameRepresentation||
@@ -79,7 +111,7 @@ export function publicSourcedStore(row: SourcedStoreRow): PublicSourcedStore | n
     typeof row.owner_penalty_points !== 'number' || row.owner_penalty_points >= 30 ||
     !['DISCOVERED', 'NOINDEX', 'PUBLISHED'].includes(String(row.publication_state)) ||
     typeof row.id !== 'string' || !STORE_UUID.test(row.id) ||
-    typeof row.source_ref !== 'string' || !/^data-go-kr-(?:\d+-\d+|15083033-MA\d{18})$/.test(row.source_ref) ||
+    typeof row.source_ref !== 'string' || !/^data-go-kr-(?:\d+-\d+|15083033-MA[0-9A-Z]{18})$/.test(row.source_ref) ||
     typeof row.slug !== 'string' || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(row.slug) || row.slug.length > 80 ||
     !nonempty(row.name, 100) || !nonempty(row.address, 300) || !nonempty(meta.licenseName, 100) ||
     typeof meta.sourceUrl !== 'string' || !/^https:\/\/www\.data\.go\.kr\/data\/\d+\/fileData\.do$/.test(meta.sourceUrl) ||
@@ -88,7 +120,10 @@ export function publicSourcedStore(row: SourcedStoreRow): PublicSourcedStore | n
     !Array.isArray(meta.menus)) return null;
   const fieldProvenance=parseFieldProvenance(meta.fieldProvenance,row.source_ref,meta.sourceUrl,meta.sourceAsOf,meta.checkedAt);
   const isMixedRights=/^data-go-kr-15083033-MA/.test(row.source_ref);
-  if(fieldProvenance===undefined||isMixedRights!==Boolean(fieldProvenance)||isMixedRights&&(!REVIEWED_MENU_FACTS[row.source_ref]||rights.scope!=='identity-location-only'||meta.licenseName!=='이용허락범위 제한 없음'||meta.menus.length!==1))return null;
+  if(fieldProvenance===undefined||isMixedRights!==Boolean(fieldProvenance)||isMixedRights&&(!(REVIEWED_MENU_FACTS[row.source_ref]||RELEASE_RECORDS[row.source_ref])||rights.scope!=='identity-location-only'||meta.licenseName!=='이용허락범위 제한 없음'||meta.menus.length!==1))return null;
+  const approved=RELEASE_RECORDS[row.source_ref];
+  if(approved&&(['id','slug','name','address','lat','lon'] as const).some(key=>row[key]!==approved[key]))return null;
+  if(approved&&record(meta.reporting)?.state!=='pending')return null;
   const menus: SourcedMenu[] = [], ids = new Set<string>();
   for (const value of meta.menus) {
     const menu = record(value);
@@ -137,6 +172,7 @@ export function parseSourcedStoreFeed(value:unknown):PublicSourcedStoreFeed{
    !Array.isArray(item.menus)||item.menus.some(value=>{const menu=record(value);return !menu||menu.price!==null||menu.heat!==null||menu.image!==null})||
    !(item.coordinates===null||coordinates&&typeof coordinates.lat==='number'&&typeof coordinates.lon==='number'&&
     Number.isFinite(coordinates.lat)&&Number.isFinite(coordinates.lon)&&coordinates.lat>=33&&coordinates.lat<=39.6&&coordinates.lon>=124&&coordinates.lon<=132))throw Error('invalid_source_store');
+  if(typeof item.sourceRef==='string'&&RELEASE_RECORDS[item.sourceRef]&&(item.registrationState!=='source-only'||item.ownerClaimVerified!==false||item.ownership!=='unclaimed'||item.pinStatus!=='gray'))throw Error('invalid_source_store');
   const facts=publicSourcedStore({id:item.id,slug:item.slug,name:item.name,address:item.address,owner_id:null,
    lat:coordinates?.lat??null,lon:coordinates?.lon??null,archived_at:null,trust_disabled_at:null,owner_penalty_points:0,
    publication_state:'DISCOVERED',source_ref:item.sourceRef,source_metadata:{planet:'hot',rights:{publicDisplay:true,factsStorage:true,...(source.fieldProvenance?{scope:'identity-location-only'}:{})},

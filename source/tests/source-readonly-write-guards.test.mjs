@@ -125,13 +125,13 @@ function signupForm(storeId, resume = false) {
  return form;
 }
 
-test('all seven reserved source UUIDs are recognized across equivalent PostgreSQL text forms', () => {
- assert.equal(stores.length, 7);
+test('all reserved source UUIDs are recognized across equivalent PostgreSQL text forms', () => {
+ assert.equal(stores.length, 105);
  for (const store of stores) for (const id of uuidForms(store.id)) assert.equal(isReadonlySourceStoreId(id), true, id);
  for (const value of [null, {}, 42, '', 'not-a-store', unrelatedId]) assert.equal(isReadonlySourceStoreId(value), false);
 });
 
-test('112 source photo/receipt/event cases stop before image work, storage, catalog or RPC', async () => {
+test('all source photo/receipt/event cases stop before image work, storage, catalog or RPC', async () => {
  const h = activityHarness();
  let attempts = 0;
  for (const store of stores) for (const id of uuidForms(store.id).slice(0, 4)) {
@@ -148,7 +148,7 @@ test('112 source photo/receipt/event cases stop before image work, storage, cata
    attempts++;
   }
  }
- assert.equal(attempts, 112);
+ assert.equal(attempts, stores.length * 16);
  assert.deepEqual(h.calls, []);
 });
 

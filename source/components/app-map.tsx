@@ -12,7 +12,8 @@ import KakaoMap from './kakao-map';
 import {api} from '@/lib/client';
 import {siteConfig,type SiteVariant} from '@/lib/site-config';
 import {type Menu,money} from '@/lib/menus';
-import {MAP_RADIUS_KM,type GeoPoint} from '@/lib/nearby-demo';
+import {type GeoPoint} from '@/lib/nearby-demo';
+import {mapBrowseOrigin,appendMapBrowseLocation} from '@/lib/map-browse-scope';
 import {isKoreanCoordinate} from '@/lib/korean-region';
 import {appParentOrigin,postAppEvent} from '@/lib/app-embed';
 export default function AppMap({variant}:{variant:SiteVariant}){
@@ -21,17 +22,18 @@ export default function AppMap({variant}:{variant:SiteVariant}){
  const [menus,setMenus]=useState<Menu[]>([]),[loading,setLoading]=useState(true),[error,setError]=useState(''),[page,setPage]=useState(0),[hasMore,setHasMore]=useState(false),[location,setLocation]=useState<GeoPoint|null>(null);
  const [selectedPlace,setSelectedPlace]=useState<string|null>(null),[listOpen,setListOpen]=useState(false);
  const request=useRef(0),controller=useRef<AbortController|null>(null);
+ const browseOrigin=mapBrowseOrigin(variant,location);
  const load=useCallback(async(nextPage=0)=>{
   const run=++request.current;controller.current?.abort();const abort=new AbortController();controller.current=abort;
-  const params=new URLSearchParams({page:String(nextPage)});if(query.trim())params.set('q',query.trim());if(heat)params.set('heat',String(heat));if(flavor!=='전체')params.set('flavor',flavor);if(category!=='전체')params.set('category',category);if(location){params.set('lat',String(location.lat));params.set('lng',String(location.lng));params.set('radiusKm',String(MAP_RADIUS_KM))}
+  const params=new URLSearchParams({page:String(nextPage)});if(query.trim())params.set('q',query.trim());if(heat)params.set('heat',String(heat));if(flavor!=='전체')params.set('flavor',flavor);if(category!=='전체')params.set('category',category);appendMapBrowseLocation(params,variant,browseOrigin);
   setLoading(true);setError('');try{const data=await api<{menus:Menu[];hasMore:boolean}>('/api/menus?'+params,{signal:abort.signal});if(run!==request.current)return;const real=(Array.isArray(data.menus)?data.menus:[]).filter(menu=>menu&&menu.isDemo===false);setMenus(previous=>nextPage?[...previous,...real]:real);setPage(nextPage);setHasMore(data.hasMore===true)}catch(cause){if(run!==request.current||abort.signal.aborted)return;setError(cause instanceof Error?cause.message:'매장 정보를 불러오지 못했어요.');setMenus([]);setHasMore(false)}finally{if(run===request.current)setLoading(false)}
- },[query,heat,flavor,category,location]);
+ },[query,heat,flavor,category,browseOrigin,variant]);
  const cancel=useCallback(()=>{request.current++;controller.current?.abort()},[]);
  useEffect(()=>{const timer=setTimeout(()=>void load(),query?250:0);const refresh=()=>void load();window.addEventListener('focus',refresh);const receive=(event:MessageEvent)=>{if(event.origin!==appParentOrigin()||event.source!==window.parent)return;if(event.data?.type==='nowgo:map-refresh'){window.dispatchEvent(new Event('nowgo:catalog-refresh'));window.dispatchEvent(new Event('nowgo:map-visible'))}if(event.data?.type==='nowgo:map-probe')postAppEvent({type:'nowgo:map-frame-ready',brand:variant,realOnly:true})};window.addEventListener('message',receive);const visible=()=>{if(document.visibilityState==='visible')refresh()};const interval=setInterval(visible,30_000);window.addEventListener('nowgo:catalog-refresh',refresh);document.addEventListener('visibilitychange',visible);return()=>{clearTimeout(timer);clearInterval(interval);window.removeEventListener('nowgo:catalog-refresh',refresh);document.removeEventListener('visibilitychange',visible);cancel();window.removeEventListener('focus',refresh);window.removeEventListener('message',receive)}},[load,query,cancel,variant]);
  useEffect(()=>{postAppEvent({type:'nowgo:map-frame-ready',brand:variant,realOnly:true})},[variant]);
  const sourceState=useSourcedStores(variant);
  const sourceStores=useMemo(()=>sourceState.feed?.stores||[],[sourceState.feed]);
- const matchingSources=useMemo(()=>sourcedStoresNearby(sourceStores,location).filter(store=>sourcedStoreMatches(store,{query,heat,flavor,category,budget:0})),[sourceStores,location,query,heat,flavor,category]);
+ const matchingSources=useMemo(()=>sourcedStoresNearby(sourceStores,browseOrigin).filter(store=>sourcedStoreMatches(store,{query,heat,flavor,category,budget:0})),[sourceStores,browseOrigin,query,heat,flavor,category]);
  const viewportCountQuery=useMemo(()=>new URLSearchParams({variant,q:query,heat:String(heat),flavor,category}).toString(),[variant,query,heat,flavor,category]);
  const matched=useMemo(()=>menus.filter(menu=>(!heat||menu.heat===heat)&&(flavor==='전체'||menu.flavor===flavor)&&(category==='전체'||menu.category===category)&&`${menu.name} ${menu.shop} ${menu.area}`.replace(/\s/g,'').includes(query.trim().replace(/\s/g,''))),[menus,heat,flavor,category,query]);
  const combinedStores=useMemo(()=>mapStoreGroups(matched,matchingSources,sourceStores),[matched,matchingSources,sourceStores]);
@@ -52,7 +54,7 @@ export default function AppMap({variant}:{variant:SiteVariant}){
   </div>
   <section className="app-map-results" aria-label="매장 목록">
    <div className="app-map-results-toolbar"><button type="button" aria-expanded={listOpen||!!selectedStore} aria-controls="app-map-results-list" onClick={()=>{setSelectedPlace(null);setListOpen(open=>!open)}}>{selectedStore?'매장 목록 보기':listOpen?'목록 접기':`불러온 매장 ${combinedStores.length}곳 보기`}</button>{selectedStore&&<button type="button" onClick={()=>setSelectedPlace(null)} aria-label="선택한 매장 닫기">닫기 ×</button>}</div>
-   <p className="sourced-store-notice">핀·목록은 불러온 자료 기준 · 메뉴 요청당 최대 100개{location?' · 내 위치 주변 15km':''}</p>
+   <p className="sourced-store-notice">핀·목록은 불러온 자료 기준 · 메뉴 요청당 최대 100개{browseOrigin?' · 내 위치 주변 15km':''}</p>
    {variant==='hot'&&<SourcedStoreNotice state={sourceState} retry={()=>void sourceState.refresh()}/>}
    {loading?<p className="app-map-result-status" role="status">매장을 불러오는 중이에요.</p>:error?<p className="app-map-result-status" role="status">{error}<button type="button" onClick={()=>void load()}>다시 불러오기</button></p>:!combinedStores.length?<p className="app-map-result-status">{query||heat||flavor!=='전체'||category!=='전체'?'조건에 맞는 매장·메뉴가 아직 없어요.':'첫 매장의 제보를 기다리고 있어요.'}<button type="button" onClick={()=>postAppEvent({type:'nowgo:open-report',brand:variant})}>유저 제보하기</button></p>:null}
    {(!!visibleStores.length||listOpen&&!!sourceOnlyStores.length)&&<div id="app-map-results-list" className="app-map-results-list">{visibleStores.map(store=><article key={store.key} className={`app-map-card-wrapper ${!store.ownerRegistered?'app-map-card--reported':''}`}><header className="app-map-store-heading"><strong>{store.menus[0].shop}</strong><span>소비자 제보 최소 {store.reportCount}건{store.reportCount>=3?' · 제보가 많은 매장':store.reportCount>1?' · 제보 누적':''}</span></header>{sourceByKey.has(store.key)&&<SourcedStoreCard store={sourceByKey.get(store.key)!} showHeading={false}/>}{store.menus.map(menu=><button key={menu.id} type="button" className="app-map-card" onClick={()=>openDetail(menu)}><span>{menu.name} · {money(menu.price)}</span>{variant==='hot'&&<small className="reported-heat-attribution">{menuHeatAttribution(menu)}</small>}<small>{menu.ownerRegistered?'공식 매장':'유저 제보 · 영업현황 확인불가'} · 상세 보기 ↗</small></button>)}<OwnerJoinRequest compact menuId={store.menus[0].id} ownerRegistered={store.ownerRegistered} appVariant={variant}/><RegularFavorite compact placeId={store.placeId} slug={store.menus[0].nowgoSlug} appVariant={variant}/></article>)}{listOpen&&sourceOnlyStores.map(store=><article key={store.id} className="app-map-card-wrapper app-map-card--reported"><SourcedStoreCard store={store}/></article>)}{hasMore&&listOpen&&<button type="button" className="app-map-card" onClick={()=>void load(page+1)}>메뉴 더 보기</button>}</div>}

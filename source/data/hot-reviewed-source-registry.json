@@ -1,0 +1,2684 @@
+{
+  "schemaVersion": 1,
+  "records": {
+    "data-go-kr-15083033-MA010120220801091899": {
+      "id": "740e660b-e313-54bb-a92c-e944d55d391a",
+      "slug": "hot-incheon-ma010120220801091899",
+      "name": "신포닭강정",
+      "address": "인천광역시 제물포구 우현로49번길 3",
+      "lat": 37.4715997586807,
+      "lon": 126.628178389463,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:42:00Z",
+          "nativeRecordId": "MA010120220801091899"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:42:00Z",
+          "nativeRecordId": "MA010120220801091899"
+        }
+      },
+      "menuKey": "fcbfdacf75a5581f"
+    },
+    "data-go-kr-15083033-MA010120220802109618": {
+      "id": "b053999a-f4f0-5fe2-b378-8c384eeb1bfe",
+      "slug": "hot-incheon-ma010120220802109618",
+      "name": "신포순대",
+      "address": "인천광역시 제물포구 제물량로166번길 33",
+      "lat": 37.4715216165559,
+      "lon": 126.626256993277,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:42:00Z",
+          "nativeRecordId": "MA010120220802109618"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:42:00Z",
+          "nativeRecordId": "MA010120220802109618"
+        }
+      },
+      "menuKey": "1ad07e71f42b72ca"
+    },
+    "data-go-kr-15083033-MA010120220802082754": {
+      "id": "70e7ffb0-6c46-56bf-8afc-8448b5494c78",
+      "slug": "hot-incheon-ma010120220802082754",
+      "name": "동원물텀벙",
+      "address": "인천광역시 미추홀구 독배로 405",
+      "lat": 37.4559515415605,
+      "lon": 126.649560646706,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:42:00Z",
+          "nativeRecordId": "MA010120220802082754"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:42:00Z",
+          "nativeRecordId": "MA010120220802082754"
+        }
+      },
+      "menuKey": "c35ddfa31c3c1c1b"
+    },
+    "data-go-kr-15083033-MA010120220802101142": {
+      "id": "5a7ad637-6723-543c-a4ae-26155deae2e4",
+      "slug": "hot-incheon-ma010120220802101142",
+      "name": "떡도날드",
+      "address": "인천광역시 연수구 독배로40번길 47",
+      "lat": 37.4246083374006,
+      "lon": 126.647526351817,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:42:00Z",
+          "nativeRecordId": "MA010120220802101142"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:42:00Z",
+          "nativeRecordId": "MA010120220802101142"
+        }
+      },
+      "menuKey": "34bd3e15c08952dd"
+    },
+    "data-go-kr-15083033-MA010120220801100248": {
+      "id": "bf5b0704-b40b-5093-8e10-067d4272a6dc",
+      "slug": "hot-incheon-ma010120220801100248",
+      "name": "짱구네",
+      "address": "인천광역시 영종구 햇내로안길 18-7",
+      "lat": 37.4953704316931,
+      "lon": 126.499441359351,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:42:00Z",
+          "nativeRecordId": "MA010120220801100248"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:42:00Z",
+          "nativeRecordId": "MA010120220801100248"
+        }
+      },
+      "menuKey": "5d14778b2e23a240"
+    },
+    "data-go-kr-15083033-MA010120220805206483": {
+      "id": "6b8779f1-26d5-59e7-9a26-b2b343430437",
+      "slug": "hot-incheon-ma010120220805206483",
+      "name": "청년다방인천검단 신도시점",
+      "address": "인천광역시 검단구 이음5로 76",
+      "lat": 37.5951181695589,
+      "lon": 126.716056196299,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220805206483"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220805206483"
+        }
+      },
+      "menuKey": "3cb54a1cf2a6eabb"
+    },
+    "data-go-kr-15083033-MA010120220810289661": {
+      "id": "bd3f44ea-e327-5b26-9ef2-c1704f9a81a9",
+      "slug": "hot-incheon-ma010120220810289661",
+      "name": "청년다방인천강화점",
+      "address": "인천광역시 강화군 강화읍 동문안길 20-1",
+      "lat": 37.747176846718,
+      "lon": 126.487073239936,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220810289661"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220810289661"
+        }
+      },
+      "menuKey": "3cb54a1cf2a6eabb"
+    },
+    "data-go-kr-15083033-MA010120220812287587": {
+      "id": "28d54b1b-56b0-54b7-8853-823ead30343b",
+      "slug": "hot-incheon-ma010120220812287587",
+      "name": "청년다방 인하대점",
+      "address": "인천광역시 미추홀구 경인남길30번길 58",
+      "lat": 37.4515149323498,
+      "lon": 126.657537675066,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220812287587"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220812287587"
+        }
+      },
+      "menuKey": "3cb54a1cf2a6eabb"
+    },
+    "data-go-kr-15083033-MA010120220809992605": {
+      "id": "a674321a-b0c2-5558-af11-515a3a0342d1",
+      "slug": "hot-incheon-ma010120220809992605",
+      "name": "청년다방스퀘어원점",
+      "address": "인천광역시 연수구 청능대로 210",
+      "lat": 37.4059963589047,
+      "lon": 126.683621277325,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220809992605"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220809992605"
+        }
+      },
+      "menuKey": "3cb54a1cf2a6eabb"
+    },
+    "data-go-kr-15083033-MA010120220804964197": {
+      "id": "0a5a71e5-6998-513e-aec4-d032101520c7",
+      "slug": "hot-incheon-ma010120220804964197",
+      "name": "청년다방송도더 테라스점",
+      "address": "인천광역시 연수구 센트럴로 415",
+      "lat": 37.4108759742808,
+      "lon": 126.626682750504,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220804964197"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220804964197"
+        }
+      },
+      "menuKey": "3cb54a1cf2a6eabb"
+    },
+    "data-go-kr-15083033-MA010120220814226439": {
+      "id": "e9a921fe-320e-5fe6-8b32-f9a689e02daa",
+      "slug": "hot-incheon-ma010120220814226439",
+      "name": "청년다방퍼스트월드점",
+      "address": "인천광역시 연수구 해돋이로 106",
+      "lat": 37.3916315593619,
+      "lon": 126.650695938267,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220814226439"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220814226439"
+        }
+      },
+      "menuKey": "3cb54a1cf2a6eabb"
+    },
+    "data-go-kr-15083033-MA010120220804425570": {
+      "id": "36b71955-cd75-50e3-a367-c56493523618",
+      "slug": "hot-incheon-ma010120220804425570",
+      "name": "청년다방검암점",
+      "address": "인천광역시 서해구 승학로 509",
+      "lat": 37.5655892553211,
+      "lon": 126.67621285058,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220804425570"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220804425570"
+        }
+      },
+      "menuKey": "3cb54a1cf2a6eabb"
+    },
+    "data-go-kr-15083033-MA010120220811690163": {
+      "id": "e1972947-5181-52e7-b4ab-d6d84f5e2161",
+      "slug": "hot-incheon-ma010120220811690163",
+      "name": "청년다방연수 구청점",
+      "address": "인천광역시 연수구 먼우금로 197",
+      "lat": 37.4150043745288,
+      "lon": 126.67617313419,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220811690163"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220811690163"
+        }
+      },
+      "menuKey": "3cb54a1cf2a6eabb"
+    },
+    "data-go-kr-15083033-MA010120220800451466": {
+      "id": "6f5155ff-37a0-54d4-9ca7-d10ca8b1689d",
+      "slug": "hot-incheon-ma010120220800451466",
+      "name": "청년다방만수점",
+      "address": "인천광역시 남동구 만수로 79",
+      "lat": 37.4623933694033,
+      "lon": 126.736068288099,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220800451466"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220800451466"
+        }
+      },
+      "menuKey": "3cb54a1cf2a6eabb"
+    },
+    "data-go-kr-15083033-MA010120220802638852": {
+      "id": "1f2432f5-d7e2-5130-999a-9d02514518a4",
+      "slug": "hot-incheon-ma010120220802638852",
+      "name": "청년다방 인천점",
+      "address": "인천광역시 남동구 인하로 485",
+      "lat": 37.4440185659394,
+      "lon": 126.700694493121,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220802638852"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220802638852"
+        }
+      },
+      "menuKey": "3cb54a1cf2a6eabb"
+    },
+    "data-go-kr-15083033-MA010120220812256132": {
+      "id": "90ba3f14-1ddd-5b55-b749-df3da76daedb",
+      "slug": "hot-incheon-ma010120220812256132",
+      "name": "청년다방인천 구월점",
+      "address": "인천광역시 남동구 예술로 138",
+      "lat": 37.4462178693542,
+      "lon": 126.701024756522,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220812256132"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220812256132"
+        }
+      },
+      "menuKey": "3cb54a1cf2a6eabb"
+    },
+    "data-go-kr-15083033-MA0101202305A0064979": {
+      "id": "b72c6e3a-3a9c-500a-9221-e09e622d2755",
+      "slug": "hot-incheon-ma0101202305a0064979",
+      "name": "청년다방",
+      "address": "인천광역시 남동구 논고개로123번길 17",
+      "lat": 37.4016893783821,
+      "lon": 126.723078492574,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202305A0064979"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202305A0064979"
+        }
+      },
+      "menuKey": "3cb54a1cf2a6eabb"
+    },
+    "data-go-kr-15083033-MA0101202309A0031411": {
+      "id": "f16ad641-9811-5da7-a9d4-955f7681291d",
+      "slug": "hot-incheon-ma0101202309a0031411",
+      "name": "청년다방신현점",
+      "address": "인천광역시 서해구 원창로 220",
+      "lat": 37.5173797258528,
+      "lon": 126.673944039423,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202309A0031411"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202309A0031411"
+        }
+      },
+      "menuKey": "3cb54a1cf2a6eabb"
+    },
+    "data-go-kr-15083033-MA010120220808827189": {
+      "id": "b1db8b7b-315c-5bdc-841a-469200f1c703",
+      "slug": "hot-incheon-ma010120220808827189",
+      "name": "청년다방 청라점",
+      "address": "인천광역시 서해구 중봉대로586번길 9-4",
+      "lat": 37.5320993460056,
+      "lon": 126.650935673933,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220808827189"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220808827189"
+        }
+      },
+      "menuKey": "3cb54a1cf2a6eabb"
+    },
+    "data-go-kr-15083033-MA0101202507A0010237": {
+      "id": "f888dd71-6619-575b-bcc3-c7040c8f65a5",
+      "slug": "hot-incheon-ma0101202507a0010237",
+      "name": "청년다방 부평부개점",
+      "address": "인천광역시 부평구 길주남로101번길 12-8",
+      "lat": 37.5045546901022,
+      "lon": 126.733499679047,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202507A0010237"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202507A0010237"
+        }
+      },
+      "menuKey": "3cb54a1cf2a6eabb"
+    },
+    "data-go-kr-15083033-MA0101202604A0039777": {
+      "id": "3ca26d6d-b908-5502-bd43-5071d3c0cb1a",
+      "slug": "hot-incheon-ma0101202604a0039777",
+      "name": "청년다방 간석점",
+      "address": "인천광역시 남동구 남동대로916번길 75",
+      "lat": 37.4636627994989,
+      "lon": 126.71247352058,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202604A0039777"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202604A0039777"
+        }
+      },
+      "menuKey": "3cb54a1cf2a6eabb"
+    },
+    "data-go-kr-15083033-MA010120220808353602": {
+      "id": "40e3b63a-a146-583e-8048-a706061fbcd9",
+      "slug": "hot-incheon-ma010120220808353602",
+      "name": "삼첩분식만수점",
+      "address": "인천광역시 남동구 만수로19번길 3",
+      "lat": 37.4588946609847,
+      "lon": 126.730836114916,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220808353602"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220808353602"
+        }
+      },
+      "menuKey": "82e114b40294be71"
+    },
+    "data-go-kr-15083033-MA010120220807795044": {
+      "id": "7b4d256f-6830-57a9-a85c-c669ac74e7c9",
+      "slug": "hot-incheon-ma010120220807795044",
+      "name": "삼첩분식계양점",
+      "address": "인천광역시 계양구 임학서로6번길 3-1",
+      "lat": 37.5443615392004,
+      "lon": 126.733799350919,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220807795044"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220807795044"
+        }
+      },
+      "menuKey": "82e114b40294be71"
+    },
+    "data-go-kr-15083033-MA010120220803444107": {
+      "id": "098d6d9c-af30-524b-b510-3bd14cc0dcfa",
+      "slug": "hot-incheon-ma010120220803444107",
+      "name": "삼첩분식",
+      "address": "인천광역시 미추홀구 미추로 38",
+      "lat": 37.4634037404449,
+      "lon": 126.646824357694,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220803444107"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220803444107"
+        }
+      },
+      "menuKey": "82e114b40294be71"
+    },
+    "data-go-kr-15083033-MA010120220813953157": {
+      "id": "2950d9a4-0036-5089-afd6-f45d2da70f36",
+      "slug": "hot-incheon-ma010120220813953157",
+      "name": "삼첩분식",
+      "address": "인천광역시 연수구 벚꽃로158번길 5",
+      "lat": 37.4149577029075,
+      "lon": 126.682216757582,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220813953157"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220813953157"
+        }
+      },
+      "menuKey": "82e114b40294be71"
+    },
+    "data-go-kr-15083033-MA0101202302A0080842": {
+      "id": "c704130c-9ef8-58e4-a7b8-e872c7a89c27",
+      "slug": "hot-incheon-ma0101202302a0080842",
+      "name": "삼첩분식덮덮밥 가좌점",
+      "address": "인천광역시 서해구 서달로 20",
+      "lat": 37.500038496983,
+      "lon": 126.678339466545,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202302A0080842"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202302A0080842"
+        }
+      },
+      "menuKey": "82e114b40294be71"
+    },
+    "data-go-kr-15083033-MA010120220810175783": {
+      "id": "54c99afe-91ba-5752-abc6-bad06735eb1f",
+      "slug": "hot-incheon-ma010120220810175783",
+      "name": "삼첩분식",
+      "address": "인천광역시 영종구 운중로 103",
+      "lat": 37.4943825903812,
+      "lon": 126.544793080869,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220810175783"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220810175783"
+        }
+      },
+      "menuKey": "82e114b40294be71"
+    },
+    "data-go-kr-15083033-MA0101202501A0043192": {
+      "id": "2c5d8634-31d2-5c3c-8451-04419671689d",
+      "slug": "hot-incheon-ma0101202501a0043192",
+      "name": "삼첩분식",
+      "address": "인천광역시 남동구 포구로 45",
+      "lat": 37.4028486414514,
+      "lon": 126.737542240751,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202501A0043192"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202501A0043192"
+        }
+      },
+      "menuKey": "82e114b40294be71"
+    },
+    "data-go-kr-15083033-MA0101202507A0024692": {
+      "id": "3bcfe858-5dc4-545e-940f-bd3b96b66e86",
+      "slug": "hot-incheon-ma0101202507a0024692",
+      "name": "삼첩분식 청라점",
+      "address": "인천광역시 서해구 크리스탈로 94",
+      "lat": 37.5333813874863,
+      "lon": 126.636866466605,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202507A0024692"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202507A0024692"
+        }
+      },
+      "menuKey": "82e114b40294be71"
+    },
+    "data-go-kr-15083033-MA0101202510A0008957": {
+      "id": "726f8c11-9e33-562a-b000-a7863f442210",
+      "slug": "hot-incheon-ma0101202510a0008957",
+      "name": "삼첩분식",
+      "address": "인천광역시 남동구 하촌로51번길 13-2",
+      "lat": 37.4525180773197,
+      "lon": 126.731966540395,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202510A0008957"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202510A0008957"
+        }
+      },
+      "menuKey": "82e114b40294be71"
+    },
+    "data-go-kr-15083033-MA0101202602A0031941": {
+      "id": "dd3b6a0e-3ebf-5902-9fdd-3187cd043089",
+      "slug": "hot-incheon-ma0101202602a0031941",
+      "name": "삼첩분식",
+      "address": "인천광역시 미추홀구 인하로247번길 22",
+      "lat": 37.4493497981436,
+      "lon": 126.675742610465,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202602A0031941"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202602A0031941"
+        }
+      },
+      "menuKey": "82e114b40294be71"
+    },
+    "data-go-kr-15083033-MA0101202307A0034904": {
+      "id": "96dfa457-54b7-5f48-8a15-469ce7671c37",
+      "slug": "hot-incheon-ma0101202307a0034904",
+      "name": "스텔라떡볶이인천 작전점",
+      "address": "인천광역시 계양구 효서로 300",
+      "lat": 37.5277917943888,
+      "lon": 126.729661075378,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202307A0034904"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202307A0034904"
+        }
+      },
+      "menuKey": "0e392ce773b69d8e"
+    },
+    "data-go-kr-15083033-MA0101202309A0066119": {
+      "id": "123b45c2-7334-515e-9491-5b9c423a9d2b",
+      "slug": "hot-incheon-ma0101202309a0066119",
+      "name": "스텔라떡볶이인천 동춘점",
+      "address": "인천광역시 연수구 앵고개로 250",
+      "lat": 37.4081798450405,
+      "lon": 126.6715150451,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202309A0066119"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202309A0066119"
+        }
+      },
+      "menuKey": "0e392ce773b69d8e"
+    },
+    "data-go-kr-15083033-MA0101202406A0397719": {
+      "id": "4dff4ecd-3573-55f4-a4fb-efe30e61287b",
+      "slug": "hot-incheon-ma0101202406a0397719",
+      "name": "스텔라떡볶이 인천계산점",
+      "address": "인천광역시 계양구 계산새로 71",
+      "lat": 37.5387798982997,
+      "lon": 126.735821911947,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202406A0397719"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202406A0397719"
+        }
+      },
+      "menuKey": "0e392ce773b69d8e"
+    },
+    "data-go-kr-15083033-MA0101202406A0450305": {
+      "id": "1a01eb4e-4b85-5aa2-a8a3-a87058043442",
+      "slug": "hot-incheon-ma0101202406a0450305",
+      "name": "스텔라떡볶이 인천송도점",
+      "address": "인천광역시 연수구 신송로 165-10",
+      "lat": 37.3976049858585,
+      "lon": 126.647551210533,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202406A0450305"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202406A0450305"
+        }
+      },
+      "menuKey": "0e392ce773b69d8e"
+    },
+    "data-go-kr-15083033-MA0101202406A0009815": {
+      "id": "19483cc8-6f07-5c8d-a817-60dc99cf145c",
+      "slug": "hot-incheon-ma0101202406a0009815",
+      "name": "스텔라떡볶이인천 부평점",
+      "address": "인천광역시 부평구 시장로 24",
+      "lat": 37.4929584248839,
+      "lon": 126.725478377975,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202406A0009815"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202406A0009815"
+        }
+      },
+      "menuKey": "0e392ce773b69d8e"
+    },
+    "data-go-kr-15083033-MA0101202409A0119662": {
+      "id": "ca3b3424-db81-576f-b130-135df6d9311a",
+      "slug": "hot-incheon-ma0101202409a0119662",
+      "name": "스텔라떡볶이인천 학익점",
+      "address": "인천광역시 미추홀구 학익로 116",
+      "lat": 37.4419487644376,
+      "lon": 126.643173567789,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202409A0119662"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202409A0119662"
+        }
+      },
+      "menuKey": "0e392ce773b69d8e"
+    },
+    "data-go-kr-15083033-MA0101202411A0071334": {
+      "id": "f1556ba5-fa40-5845-9832-e2b716df2093",
+      "slug": "hot-incheon-ma0101202411a0071334",
+      "name": "스텔라떡볶이인천루원시티점",
+      "address": "인천광역시 서해구 서곶로 50",
+      "lat": 37.5232139326973,
+      "lon": 126.678963989546,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202411A0071334"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202411A0071334"
+        }
+      },
+      "menuKey": "0e392ce773b69d8e"
+    },
+    "data-go-kr-15083033-MA0101202411A0039455": {
+      "id": "a09bdd56-4a1b-5a95-a7c5-7edf289974cf",
+      "slug": "hot-incheon-ma0101202411a0039455",
+      "name": "스텔라떡볶이인천주안아인 병원점",
+      "address": "인천광역시 미추홀구 경인로 372",
+      "lat": 37.4581856740363,
+      "lon": 126.681254047699,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202411A0039455"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202411A0039455"
+        }
+      },
+      "menuKey": "0e392ce773b69d8e"
+    },
+    "data-go-kr-15083033-MA0101202502A0091753": {
+      "id": "396cfae7-83b1-557f-8813-19ba29d9f72b",
+      "slug": "hot-incheon-ma0101202502a0091753",
+      "name": "스텔라떡볶이인천 청라점",
+      "address": "인천광역시 서해구 청라커낼로 300",
+      "lat": 37.5345321128589,
+      "lon": 126.647926093615,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202502A0091753"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202502A0091753"
+        }
+      },
+      "menuKey": "0e392ce773b69d8e"
+    },
+    "data-go-kr-15083033-MA0101202501A0040536": {
+      "id": "ff677a26-167c-59a0-affc-bc7fa1af0510",
+      "slug": "hot-incheon-ma0101202501a0040536",
+      "name": "스텔라떡볶이인천 구월점",
+      "address": "인천광역시 남동구 구월남로 174",
+      "lat": 37.4527792805121,
+      "lon": 126.709068134137,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202501A0040536"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202501A0040536"
+        }
+      },
+      "menuKey": "0e392ce773b69d8e"
+    },
+    "data-go-kr-15083033-MA010120220804402026": {
+      "id": "5b61b4f7-ca2e-5442-bca8-3d451e6872d4",
+      "slug": "hot-incheon-ma010120220804402026",
+      "name": "춘리마라탕계양 구청점",
+      "address": "인천광역시 계양구 계양문화로 96",
+      "lat": 37.5392425338961,
+      "lon": 126.737223321779,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220804402026"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220804402026"
+        }
+      },
+      "menuKey": "f7f7e2c1a7e587be"
+    },
+    "data-go-kr-15083033-MA0101202212A0015006": {
+      "id": "9c0cb31d-42f5-51f7-9c03-25f3c86efd98",
+      "slug": "hot-incheon-ma0101202212a0015006",
+      "name": "춘리마라탕 서창점",
+      "address": "인천광역시 남동구 서창남로 71",
+      "lat": 37.4255600172939,
+      "lon": 126.748478266423,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202212A0015006"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202212A0015006"
+        }
+      },
+      "menuKey": "f7f7e2c1a7e587be"
+    },
+    "data-go-kr-15083033-MA0101202212A0099378": {
+      "id": "c2430181-675a-5e6d-bc6d-34faf833bb1d",
+      "slug": "hot-incheon-ma0101202212a0099378",
+      "name": "춘리마라탕",
+      "address": "인천광역시 부평구 원적로 292",
+      "lat": 37.504344916175,
+      "lon": 126.698700843488,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202212A0099378"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202212A0099378"
+        }
+      },
+      "menuKey": "f7f7e2c1a7e587be"
+    },
+    "data-go-kr-15083033-MA0101202301A0010875": {
+      "id": "c2b7802a-87f6-52e3-88e6-ac84b760d782",
+      "slug": "hot-incheon-ma0101202301a0010875",
+      "name": "춘리마라탕송도동점",
+      "address": "인천광역시 연수구 신송로 161",
+      "lat": 37.397598631742,
+      "lon": 126.648443426885,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202301A0010875"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202301A0010875"
+        }
+      },
+      "menuKey": "f7f7e2c1a7e587be"
+    },
+    "data-go-kr-15083033-MA0101202302A0096054": {
+      "id": "91e842ef-9254-53d6-80a4-8b9a26ff7ac2",
+      "slug": "hot-incheon-ma0101202302a0096054",
+      "name": "춘리마라탕부평 로데오점",
+      "address": "인천광역시 부평구 부평문화로66번길 7",
+      "lat": 37.4936663908536,
+      "lon": 126.723836130656,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202302A0096054"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202302A0096054"
+        }
+      },
+      "menuKey": "f7f7e2c1a7e587be"
+    },
+    "data-go-kr-15083033-MA0101202305A0019057": {
+      "id": "92ca6979-0a67-5ec5-aa31-39a462dccf99",
+      "slug": "hot-incheon-ma0101202305a0019057",
+      "name": "춘리마라탕송도8공구점",
+      "address": "인천광역시 연수구 랜드마크로 20",
+      "lat": 37.4159683715778,
+      "lon": 126.624364337254,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202305A0019057"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202305A0019057"
+        }
+      },
+      "menuKey": "f7f7e2c1a7e587be"
+    },
+    "data-go-kr-15083033-MA0101202406A0498980": {
+      "id": "391f0b78-8b87-5f0f-9b1c-8b21b11c4ecd",
+      "slug": "hot-incheon-ma0101202406a0498980",
+      "name": "춘리마라탕",
+      "address": "인천광역시 서해구 청라커낼로260번길 15",
+      "lat": 37.5320767378559,
+      "lon": 126.646365025016,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202406A0498980"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202406A0498980"
+        }
+      },
+      "menuKey": "f7f7e2c1a7e587be"
+    },
+    "data-go-kr-15083033-MA0101202406A0114327": {
+      "id": "0f24ec8c-fb39-5f97-a4b4-bee98d7210e9",
+      "slug": "hot-incheon-ma0101202406a0114327",
+      "name": "춘리마라탕연수동점",
+      "address": "인천광역시 연수구 먼우금로 194",
+      "lat": 37.4143398558917,
+      "lon": 126.676989308732,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202406A0114327"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202406A0114327"
+        }
+      },
+      "menuKey": "f7f7e2c1a7e587be"
+    },
+    "data-go-kr-15083033-MA0101202406A0401812": {
+      "id": "774ba461-1d1f-536d-bf00-04997ec470ac",
+      "slug": "hot-incheon-ma0101202406a0401812",
+      "name": "춘리마라탕",
+      "address": "인천광역시 검단구 이음5로 34",
+      "lat": 37.5938455927505,
+      "lon": 126.711441201946,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202406A0401812"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202406A0401812"
+        }
+      },
+      "menuKey": "f7f7e2c1a7e587be"
+    },
+    "data-go-kr-15083033-MA0101202411A0145656": {
+      "id": "8dd5b9f7-ed96-5994-9eb3-f382ec2c81f6",
+      "slug": "hot-incheon-ma0101202411a0145656",
+      "name": "춘리마라탕",
+      "address": "인천광역시 영종구 신도시남로142번길 6",
+      "lat": 37.4934263731307,
+      "lon": 126.491493603418,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202411A0145656"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202411A0145656"
+        }
+      },
+      "menuKey": "f7f7e2c1a7e587be"
+    },
+    "data-go-kr-15083033-MA0101202502A0068481": {
+      "id": "7793dffe-6d41-50fa-a3b4-c684349592c4",
+      "slug": "hot-incheon-ma0101202502a0068481",
+      "name": "춘리마라탕검단사거리역점",
+      "address": "인천광역시 검단구 완정로 185",
+      "lat": 37.6024723379297,
+      "lon": 126.655895621054,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202502A0068481"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202502A0068481"
+        }
+      },
+      "menuKey": "f7f7e2c1a7e587be"
+    },
+    "data-go-kr-15083033-MA0101202506A0011914": {
+      "id": "748800e4-8cf3-574d-a895-b9418d4bd37c",
+      "slug": "hot-incheon-ma0101202506a0011914",
+      "name": "춘리마라탕",
+      "address": "인천광역시 남동구 담방로 39",
+      "lat": 37.4431532529569,
+      "lon": 126.738531562707,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202506A0011914"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202506A0011914"
+        }
+      },
+      "menuKey": "f7f7e2c1a7e587be"
+    },
+    "data-go-kr-15083033-MA0101202508A0024539": {
+      "id": "bd1c8003-a4ae-5232-b743-59a25127eb12",
+      "slug": "hot-incheon-ma0101202508a0024539",
+      "name": "춘리마라탕",
+      "address": "인천광역시 남동구 용천로 80",
+      "lat": 37.4565780274339,
+      "lon": 126.715021077632,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202508A0024539"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202508A0024539"
+        }
+      },
+      "menuKey": "f7f7e2c1a7e587be"
+    },
+    "data-go-kr-15083033-MA010120220805938782": {
+      "id": "9843d7a6-761b-5f97-b0b2-8b3dc2e1f0b9",
+      "slug": "hot-incheon-ma010120220805938782",
+      "name": "홍콩반점0410",
+      "address": "인천광역시 서해구 탁옥로 46",
+      "lat": 37.5437268592207,
+      "lon": 126.674655360583,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220805938782"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220805938782"
+        }
+      },
+      "menuKey": "2010dd697d144567"
+    },
+    "data-go-kr-15083033-MA010120220808774442": {
+      "id": "82e02123-0d06-5386-b825-72a7ed725b9c",
+      "slug": "hot-incheon-ma010120220808774442",
+      "name": "홍콩반점0410송도SK뷰 센트럴점",
+      "address": "인천광역시 연수구 하모니로188번길 17",
+      "lat": 37.382146424882,
+      "lon": 126.639550377471,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220808774442"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220808774442"
+        }
+      },
+      "menuKey": "2010dd697d144567"
+    },
+    "data-go-kr-15083033-MA010120220813131167": {
+      "id": "67e0ad4b-3f86-5adb-8b79-1557e633f92b",
+      "slug": "hot-incheon-ma010120220813131167",
+      "name": "홍콩반점0410 인천용현점",
+      "address": "인천광역시 미추홀구 낙섬서로 36",
+      "lat": 37.4525845515988,
+      "lon": 126.635584774697,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220813131167"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220813131167"
+        }
+      },
+      "menuKey": "2010dd697d144567"
+    },
+    "data-go-kr-15083033-MA010120220803094160": {
+      "id": "e6215382-0865-5dbb-8ed4-c5be546b600b",
+      "slug": "hot-incheon-ma010120220803094160",
+      "name": "홍콩반점0410인천만수점",
+      "address": "인천광역시 남동구 백범로 206",
+      "lat": 37.4599295442355,
+      "lon": 126.726356460513,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220803094160"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220803094160"
+        }
+      },
+      "menuKey": "2010dd697d144567"
+    },
+    "data-go-kr-15083033-MA010120220812854496": {
+      "id": "6e69750c-ffc3-5ff8-ac73-10a2feb4ae98",
+      "slug": "hot-incheon-ma010120220812854496",
+      "name": "홍콩반점0410 인천논현점",
+      "address": "인천광역시 남동구 논고개로 121",
+      "lat": 37.4019252526491,
+      "lon": 126.723766569085,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220812854496"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220812854496"
+        }
+      },
+      "menuKey": "2010dd697d144567"
+    },
+    "data-go-kr-15083033-MA010120220814319785": {
+      "id": "a14d7ee1-5e7c-521a-87e6-ca36a96fda36",
+      "slug": "hot-incheon-ma010120220814319785",
+      "name": "홍콩반점0410인천석바위 시장점",
+      "address": "인천광역시 미추홀구 경원대로 848",
+      "lat": 37.4584337505167,
+      "lon": 126.689831709962,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220814319785"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220814319785"
+        }
+      },
+      "menuKey": "2010dd697d144567"
+    },
+    "data-go-kr-15083033-MA010120220800161238": {
+      "id": "565c643f-0d6e-50e5-a249-aaf83674374e",
+      "slug": "hot-incheon-ma010120220800161238",
+      "name": "홍콩반점0410인천 청라점",
+      "address": "인천광역시 서해구 중봉대로586번길 22",
+      "lat": 37.5308031313431,
+      "lon": 126.651349002829,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220800161238"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220800161238"
+        }
+      },
+      "menuKey": "2010dd697d144567"
+    },
+    "data-go-kr-15083033-MA010120220804411129": {
+      "id": "f26b4961-a6fc-5d33-9923-39bcc7a651cd",
+      "slug": "hot-incheon-ma010120220804411129",
+      "name": "홍콩반점0410 인천송도점",
+      "address": "인천광역시 연수구 컨벤시아대로 81",
+      "lat": 37.3949367143291,
+      "lon": 126.650161118245,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220804411129"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220804411129"
+        }
+      },
+      "menuKey": "2010dd697d144567"
+    },
+    "data-go-kr-15083033-MA010120220811940000": {
+      "id": "4d735778-fe81-5c03-8fa5-a2e659ecbf4f",
+      "slug": "hot-incheon-ma010120220811940000",
+      "name": "홍콩반점0410인천검암점",
+      "address": "인천광역시 서해구 승학로 479",
+      "lat": 37.5646888627369,
+      "lon": 126.673160702296,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220811940000"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220811940000"
+        }
+      },
+      "menuKey": "2010dd697d144567"
+    },
+    "data-go-kr-15083033-MA010120220801093901": {
+      "id": "c57993ba-bd8f-531c-96d9-1efef13e9b6e",
+      "slug": "hot-incheon-ma010120220801093901",
+      "name": "홍콩반점0410",
+      "address": "인천광역시 미추홀구 미추홀대로734번길 17",
+      "lat": 37.4631057031183,
+      "lon": 126.681447926656,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220801093901"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220801093901"
+        }
+      },
+      "menuKey": "2010dd697d144567"
+    },
+    "data-go-kr-15083033-MA010120220803336572": {
+      "id": "7f4695cc-39da-5931-8c1d-d65888715ebd",
+      "slug": "hot-incheon-ma010120220803336572",
+      "name": "홍콩반점0410인천강화점",
+      "address": "인천광역시 강화군 강화읍 남문로 14",
+      "lat": 37.7394358732299,
+      "lon": 126.48874901744,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220803336572"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220803336572"
+        }
+      },
+      "menuKey": "2010dd697d144567"
+    },
+    "data-go-kr-15083033-MA0101202211A0099648": {
+      "id": "7770db7a-9e78-58ac-96d5-66a51d91539b",
+      "slug": "hot-incheon-ma0101202211a0099648",
+      "name": "홍콩반점0410인천 구월점",
+      "address": "인천광역시 남동구 성말로 10",
+      "lat": 37.445191983634,
+      "lon": 126.701526068125,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202211A0099648"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202211A0099648"
+        }
+      },
+      "menuKey": "2010dd697d144567"
+    },
+    "data-go-kr-15083033-MA0101202302A0072014": {
+      "id": "aad07507-d558-54f0-8171-5807392a8600",
+      "slug": "hot-incheon-ma0101202302a0072014",
+      "name": "홍콩반점0410검단아라점",
+      "address": "인천광역시 검단구 발산로 27",
+      "lat": 37.5929436982882,
+      "lon": 126.711071026199,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202302A0072014"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202302A0072014"
+        }
+      },
+      "menuKey": "2010dd697d144567"
+    },
+    "data-go-kr-15083033-MA0101202406A0197499": {
+      "id": "739d8ee6-c891-5595-8764-ac3454cf6416",
+      "slug": "hot-incheon-ma0101202406a0197499",
+      "name": "홍콩반점0410영종도운서역점",
+      "address": "인천광역시 영종구 영종대로196번길 19",
+      "lat": 37.4905954678632,
+      "lon": 126.499518455357,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202406A0197499"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202406A0197499"
+        }
+      },
+      "menuKey": "2010dd697d144567"
+    },
+    "data-go-kr-15083033-MA0101202409A0005876": {
+      "id": "e982f68d-d902-5ced-92c6-e71c354bc75e",
+      "slug": "hot-incheon-ma0101202409a0005876",
+      "name": "홍콩반점0410송도더 테라스점",
+      "address": "인천광역시 연수구 센트럴로 415",
+      "lat": 37.4108759742808,
+      "lon": 126.626682750504,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202409A0005876"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202409A0005876"
+        }
+      },
+      "menuKey": "2010dd697d144567"
+    },
+    "data-go-kr-15083033-MA0101202409A0141281": {
+      "id": "4fdca3a0-8698-5966-b70f-a243726d21c2",
+      "slug": "hot-incheon-ma0101202409a0141281",
+      "name": "홍콩반점0410인천검단 사거리점",
+      "address": "인천광역시 검단구 완정로178번길 1",
+      "lat": 37.602736060764,
+      "lon": 126.656732415123,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202409A0141281"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202409A0141281"
+        }
+      },
+      "menuKey": "2010dd697d144567"
+    },
+    "data-go-kr-15083033-MA0101202409A0091634": {
+      "id": "fb691594-f43b-5e8b-9eab-9ec445b28d58",
+      "slug": "hot-incheon-ma0101202409a0091634",
+      "name": "홍콩반점0410 인천연수점",
+      "address": "인천광역시 연수구 먼우금로 190",
+      "lat": 37.4140778852545,
+      "lon": 126.676741922057,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202409A0091634"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202409A0091634"
+        }
+      },
+      "menuKey": "2010dd697d144567"
+    },
+    "data-go-kr-15083033-MA0101202406A0468478": {
+      "id": "ee264ace-371b-5603-9d84-c8a08307d058",
+      "slug": "hot-incheon-ma0101202406a0468478",
+      "name": "홍콩반점0410인천 삼산점",
+      "address": "인천광역시 부평구 체육관로 40",
+      "lat": 37.5082367181143,
+      "lon": 126.736144480321,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202406A0468478"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202406A0468478"
+        }
+      },
+      "menuKey": "2010dd697d144567"
+    },
+    "data-go-kr-15083033-MA010120220813471438": {
+      "id": "81a0b709-e188-50f2-835b-13d74c08f602",
+      "slug": "hot-incheon-ma010120220813471438",
+      "name": "홍콩반점0410 인천신현점",
+      "address": "인천광역시 서해구 가정로 387",
+      "lat": 37.5216831970939,
+      "lon": 126.672748845629,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220813471438"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA010120220813471438"
+        }
+      },
+      "menuKey": "2010dd697d144567"
+    },
+    "data-go-kr-15083033-MA0101202409A0086983": {
+      "id": "ad7a155d-9264-50f7-9b85-25094481af67",
+      "slug": "hot-incheon-ma0101202409a0086983",
+      "name": "홍콩반점0410인천완정역점",
+      "address": "인천광역시 검단구 완정로10번길 2",
+      "lat": 37.5946370360502,
+      "lon": 126.67289388448,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202409A0086983"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202409A0086983"
+        }
+      },
+      "menuKey": "2010dd697d144567"
+    },
+    "data-go-kr-15083033-MA0101202504A0060734": {
+      "id": "29756e2b-09b4-5475-855b-1f7ab89d3176",
+      "slug": "hot-incheon-ma0101202504a0060734",
+      "name": "홍콩반점0410인천도화점",
+      "address": "인천광역시 미추홀구 숙골로87번길 2",
+      "lat": 37.4701003546753,
+      "lon": 126.662980757772,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202504A0060734"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202504A0060734"
+        }
+      },
+      "menuKey": "2010dd697d144567"
+    },
+    "data-go-kr-15083033-MA0101202604A0004975": {
+      "id": "9584582f-1927-5951-a960-50d68a19f112",
+      "slug": "hot-incheon-ma0101202604a0004975",
+      "name": "홍콩반점0410인천계양 구청점",
+      "address": "인천광역시 계양구 오조산로 91",
+      "lat": 37.5390473795876,
+      "lon": 126.738604415407,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202604A0004975"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:42:52.169685+00:00",
+          "nativeRecordId": "MA0101202604A0004975"
+        }
+      },
+      "menuKey": "2010dd697d144567"
+    },
+    "data-go-kr-15083033-MA010120220809853720": {
+      "id": "e86a8c10-f245-5643-a017-c7dd5dfdc3f5",
+      "slug": "hot-incheon-ma010120220809853720",
+      "name": "동대문엽기떡볶이 인천강화점",
+      "address": "인천광역시 강화군 강화읍 강화대로393번길 5",
+      "lat": 37.7449695133089,
+      "lon": 126.487077128052,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA010120220809853720"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA010120220809853720"
+        }
+      },
+      "menuKey": "794b0d408589c6db"
+    },
+    "data-go-kr-15083033-MA010120220801128425": {
+      "id": "bef4f50b-9848-569e-95cd-c81efc9f2a84",
+      "slug": "hot-incheon-ma010120220801128425",
+      "name": "동대문엽기떡볶이 동인천점",
+      "address": "인천광역시 제물포구 우현로87번길 10",
+      "lat": 37.4749305900223,
+      "lon": 126.63012897994,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA010120220801128425"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA010120220801128425"
+        }
+      },
+      "menuKey": "794b0d408589c6db"
+    },
+    "data-go-kr-15083033-MA0101202209A0025696": {
+      "id": "46557f5e-d70d-5a39-a017-b15f2b35ea69",
+      "slug": "hot-incheon-ma0101202209a0025696",
+      "name": "동대문엽기떡볶이 운서역점",
+      "address": "인천광역시 영종구 영종대로 118",
+      "lat": 37.4948260890199,
+      "lon": 126.49223044547,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA0101202209A0025696"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA0101202209A0025696"
+        }
+      },
+      "menuKey": "794b0d408589c6db"
+    },
+    "data-go-kr-15083033-MA010120220810225192": {
+      "id": "76f63708-9e62-5d7a-b6b0-f2fcd6e6554d",
+      "slug": "hot-incheon-ma010120220810225192",
+      "name": "동대문엽기떡볶이 계산역점",
+      "address": "인천광역시 계양구 경명대로1079번길 4",
+      "lat": 37.5438055235858,
+      "lon": 126.727045948619,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA010120220810225192"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA010120220810225192"
+        }
+      },
+      "menuKey": "794b0d408589c6db"
+    },
+    "data-go-kr-15083033-MA010120220806809856": {
+      "id": "800996c7-b695-55e6-ab32-78a2f2822461",
+      "slug": "hot-incheon-ma010120220806809856",
+      "name": "동대문엽기떡볶이",
+      "address": "인천광역시 부평구 대정로 66",
+      "lat": 37.4935648719594,
+      "lon": 126.726674801852,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA010120220806809856"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA010120220806809856"
+        }
+      },
+      "menuKey": "794b0d408589c6db"
+    },
+    "data-go-kr-15083033-MA010120220812259595": {
+      "id": "8ec5363e-0e3c-5589-9a91-864e062612a0",
+      "slug": "hot-incheon-ma010120220812259595",
+      "name": "동대문엽기떡볶이 인천영종하늘도시점",
+      "address": "인천광역시 영종구 하늘중앙로225번길 3",
+      "lat": 37.4882083630026,
+      "lon": 126.558410368736,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA010120220812259595"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA010120220812259595"
+        }
+      },
+      "menuKey": "794b0d408589c6db"
+    },
+    "data-go-kr-15083033-MA010120220802582114": {
+      "id": "4aead961-1f0b-5ec8-8d4f-dffdfe6015b9",
+      "slug": "hot-incheon-ma010120220802582114",
+      "name": "동대문엽기떡볶이 검단점",
+      "address": "인천광역시 검단구 완정로 19",
+      "lat": 37.5948590737533,
+      "lon": 126.671737940639,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA010120220802582114"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA010120220802582114"
+        }
+      },
+      "menuKey": "794b0d408589c6db"
+    },
+    "data-go-kr-15083033-MA0101202604A0004150": {
+      "id": "37b54b7d-ddc7-5172-8589-9f56b7261c45",
+      "slug": "hot-incheon-ma0101202604a0004150",
+      "name": "동대문엽기떡볶이 인천작전역점",
+      "address": "인천광역시 계양구 계양대로 45",
+      "lat": 37.5277743339827,
+      "lon": 126.722137913551,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA0101202604A0004150"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA0101202604A0004150"
+        }
+      },
+      "menuKey": "794b0d408589c6db"
+    },
+    "data-go-kr-15083033-MA0101202511A0023530": {
+      "id": "1604c9f0-9a91-5f4e-abf5-e54dfaff0286",
+      "slug": "hot-incheon-ma0101202511a0023530",
+      "name": "동대문엽기떡볶이 인천부개점",
+      "address": "인천광역시 부평구 동수천로 132",
+      "lat": 37.4971569101615,
+      "lon": 126.737280393069,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA0101202511A0023530"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA0101202511A0023530"
+        }
+      },
+      "menuKey": "794b0d408589c6db"
+    },
+    "data-go-kr-15083033-MA010120220803087454": {
+      "id": "a1454303-3a10-530d-b30a-30428fda0615",
+      "slug": "hot-incheon-ma010120220803087454",
+      "name": "동대문엽기떡볶이 인천원당점",
+      "address": "인천광역시 검단구 원당대로 876",
+      "lat": 37.5931743852557,
+      "lon": 126.698829962802,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA010120220803087454"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA010120220803087454"
+        }
+      },
+      "menuKey": "794b0d408589c6db"
+    },
+    "data-go-kr-15083033-MA0101202411A0111178": {
+      "id": "5a2badca-fc98-5811-bbac-3bb8c391eda8",
+      "slug": "hot-incheon-ma0101202411a0111178",
+      "name": "동대문엽기떡볶이 인천효성점",
+      "address": "인천광역시 계양구 봉오대로555번길 14",
+      "lat": 37.5318809724392,
+      "lon": 126.710096175972,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA0101202411A0111178"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA0101202411A0111178"
+        }
+      },
+      "menuKey": "794b0d408589c6db"
+    },
+    "data-go-kr-15083033-MA010120220813893648": {
+      "id": "bea0cbbe-531e-5d63-a40d-a146aa4a4ed7",
+      "slug": "hot-incheon-ma010120220813893648",
+      "name": "동대문엽기떡볶이",
+      "address": "인천광역시 부평구 마장로324번길 7",
+      "lat": 37.5069980376963,
+      "lon": 126.703915390222,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA010120220813893648"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA010120220813893648"
+        }
+      },
+      "menuKey": "794b0d408589c6db"
+    },
+    "data-go-kr-15083033-MA0101202501A0057266": {
+      "id": "f6e68e60-c6f9-5cf1-9276-947ef7b69001",
+      "slug": "hot-incheon-ma0101202501a0057266",
+      "name": "동대문엽기떡볶이 인천아라점",
+      "address": "인천광역시 검단구 이음5로 34",
+      "lat": 37.5938455927505,
+      "lon": 126.711441201946,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA0101202501A0057266"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA0101202501A0057266"
+        }
+      },
+      "menuKey": "794b0d408589c6db"
+    },
+    "data-go-kr-15083033-MA010120220801214780": {
+      "id": "e142a797-ca2c-5afa-8367-531bad1d3fc9",
+      "slug": "hot-incheon-ma010120220801214780",
+      "name": "동대문엽기떡볶이",
+      "address": "인천광역시 계양구 장제로 732",
+      "lat": 37.5331542370928,
+      "lon": 126.734291747488,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA010120220801214780"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA010120220801214780"
+        }
+      },
+      "menuKey": "794b0d408589c6db"
+    },
+    "data-go-kr-15083033-MA0101202406A0149808": {
+      "id": "dad3813b-c08e-5cd8-a9f4-b20f427eded8",
+      "slug": "hot-incheon-ma0101202406a0149808",
+      "name": "동대문엽기떡볶이 부평구청역점",
+      "address": "인천광역시 부평구 부평대로 125",
+      "lat": 37.5025895236522,
+      "lon": 126.72136045524,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA0101202406A0149808"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA0101202406A0149808"
+        }
+      },
+      "menuKey": "794b0d408589c6db"
+    },
+    "data-go-kr-15083033-MA010120220805688840": {
+      "id": "adc80d77-de52-50e8-8eda-860c101d2574",
+      "slug": "hot-incheon-ma010120220805688840",
+      "name": "동대문엽기떡볶이",
+      "address": "인천광역시 계양구 장제로 933",
+      "lat": 37.5497400436463,
+      "lon": 126.741713049718,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA010120220805688840"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA010120220805688840"
+        }
+      },
+      "menuKey": "794b0d408589c6db"
+    },
+    "data-go-kr-15083033-MA010120220801227793": {
+      "id": "a26d0c59-a0e1-5db2-9288-d653cdb5163c",
+      "slug": "hot-incheon-ma010120220801227793",
+      "name": "동대문엽기떡볶이 동암간석점",
+      "address": "인천광역시 부평구 아트센터로 38",
+      "lat": 37.4713443333575,
+      "lon": 126.703536070706,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA010120220801227793"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA010120220801227793"
+        }
+      },
+      "menuKey": "794b0d408589c6db"
+    },
+    "data-go-kr-15083033-MA010120220804723173": {
+      "id": "6293fbdb-764a-5ce8-815f-20b5a190854f",
+      "slug": "hot-incheon-ma010120220804723173",
+      "name": "동대문엽기떡볶이 관교점",
+      "address": "인천광역시 미추홀구 경원대로 741",
+      "lat": 37.4488283490471,
+      "lon": 126.689588842068,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA010120220804723173"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA010120220804723173"
+        }
+      },
+      "menuKey": "794b0d408589c6db"
+    },
+    "data-go-kr-15083033-MA0101202306A0059077": {
+      "id": "75e5dbb1-f095-5a9c-b337-6e9ad1e500bf",
+      "slug": "hot-incheon-ma0101202306a0059077",
+      "name": "동대문엽기떡볶이 삼산점",
+      "address": "인천광역시 부평구 충선로203번길 24",
+      "lat": 37.5075761806382,
+      "lon": 126.73489138709,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA0101202306A0059077"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA0101202306A0059077"
+        }
+      },
+      "menuKey": "794b0d408589c6db"
+    },
+    "data-go-kr-15083033-MA0101202503A0014842": {
+      "id": "ac3ed20e-8ec0-5d76-825c-4791fe5e1a9d",
+      "slug": "hot-incheon-ma0101202503a0014842",
+      "name": "동대문엽기떡볶이 인천주안점",
+      "address": "인천광역시 미추홀구 석바위로 68",
+      "lat": 37.4608599911689,
+      "lon": 126.68063233321,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA0101202503A0014842"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA0101202503A0014842"
+        }
+      },
+      "menuKey": "794b0d408589c6db"
+    },
+    "data-go-kr-15083033-MA0101202406A0499119": {
+      "id": "60afa7c6-5a76-5bc2-8183-9cb25719d947",
+      "slug": "hot-incheon-ma0101202406a0499119",
+      "name": "동대문엽기떡볶이 인천삼산사거리점",
+      "address": "인천광역시 부평구 충선로311번길 11-7",
+      "lat": 37.5164958749439,
+      "lon": 126.734791967673,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA0101202406A0499119"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA0101202406A0499119"
+        }
+      },
+      "menuKey": "794b0d408589c6db"
+    },
+    "data-go-kr-15083033-MA010120220807135232": {
+      "id": "a7b7bdc9-cc62-5107-9f5d-6a4a64326a2c",
+      "slug": "hot-incheon-ma010120220807135232",
+      "name": "동대문엽기떡볶이 제물포점",
+      "address": "인천광역시 미추홀구 석정로92번길 175",
+      "lat": 37.4670801741504,
+      "lon": 126.65609890729,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA010120220807135232"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T02:37:50Z",
+          "nativeRecordId": "MA010120220807135232"
+        }
+      },
+      "menuKey": "794b0d408589c6db"
+    }
+  },
+  "menus": {
+    "fcbfdacf75a5581f": {
+      "name": "닭강정",
+      "provenance": {
+        "kind": "official-tourism-place-menu",
+        "sourceScope": "specific_restaurant_official_tourism_record",
+        "branchMenuApplicability": "source_record_specific_restaurant_not_current_sale",
+        "sourceUrl": "https://itour.incheon.go.kr/ssst/ssst/detail.do?cotId=APD21120710052497838",
+        "sourceRecordIds": {
+          "cotId": "APD21120710052497838"
+        },
+        "sourceAsOf": "2026-07-01",
+        "checkedAt": "2026-10-13T02:42:00Z",
+        "licenseName": null,
+        "explicitOpenLicense": false,
+        "reuseBasis": "limited-individual-fact-review",
+        "originalName": "닭강정",
+        "nameRepresentation": "original",
+        "currentAvailability": null,
+        "priceAsOf": null
+      }
+    },
+    "1ad07e71f42b72ca": {
+      "name": "매운 순대",
+      "provenance": {
+        "kind": "official-tourism-place-menu",
+        "sourceScope": "specific_restaurant_official_tourism_record",
+        "branchMenuApplicability": "source_record_specific_restaurant_not_current_sale",
+        "sourceUrl": "https://itour.incheon.go.kr/ssst/ssst/detail.do?cotId=APD21112609191801020",
+        "sourceRecordIds": {
+          "cotId": "APD21112609191801020"
+        },
+        "sourceAsOf": "2026-07-01",
+        "checkedAt": "2026-10-13T02:42:00Z",
+        "licenseName": null,
+        "explicitOpenLicense": false,
+        "reuseBasis": "limited-individual-fact-review",
+        "originalName": "매운 순대",
+        "nameRepresentation": "original",
+        "currentAvailability": null,
+        "priceAsOf": null
+      }
+    },
+    "c35ddfa31c3c1c1b": {
+      "name": "해물찜",
+      "provenance": {
+        "kind": "official-tourism-place-menu",
+        "sourceScope": "specific_restaurant_official_tourism_record",
+        "branchMenuApplicability": "source_record_specific_restaurant_not_current_sale",
+        "sourceUrl": "https://itour.incheon.go.kr/ssst/ssst/detail.do?cotId=ITD22010409324640602",
+        "sourceRecordIds": {
+          "cotId": "ITD22010409324640602"
+        },
+        "sourceAsOf": "2023-01-09",
+        "checkedAt": "2026-10-13T02:42:00Z",
+        "licenseName": null,
+        "explicitOpenLicense": false,
+        "reuseBasis": "limited-individual-fact-review",
+        "originalName": "해물찜",
+        "nameRepresentation": "original",
+        "currentAvailability": null,
+        "priceAsOf": null
+      }
+    },
+    "34bd3e15c08952dd": {
+      "name": "매운 어묵",
+      "provenance": {
+        "kind": "official-tourism-place-menu",
+        "sourceScope": "specific_restaurant_official_tourism_record",
+        "branchMenuApplicability": "source_record_specific_restaurant_not_current_sale",
+        "sourceUrl": "https://itour.incheon.go.kr/thmtour/thmtour/detail.do?cotId=ITA23112010252703418",
+        "sourceRecordIds": {
+          "cotId": "ITA23112010252703418"
+        },
+        "sourceAsOf": "2024-12-05",
+        "checkedAt": "2026-10-13T02:42:00Z",
+        "licenseName": null,
+        "explicitOpenLicense": false,
+        "reuseBasis": "limited-individual-fact-review",
+        "originalName": "매운 어묵",
+        "nameRepresentation": "original",
+        "currentAvailability": null,
+        "priceAsOf": null
+      }
+    },
+    "5d14778b2e23a240": {
+      "name": "빨간 거 낙지전골",
+      "provenance": {
+        "kind": "official-tourism-place-menu",
+        "sourceScope": "specific_restaurant_official_tourism_record",
+        "branchMenuApplicability": "source_record_specific_restaurant_not_current_sale",
+        "sourceUrl": "https://itour.incheon.go.kr/ssst/ssst/detail.do?cotId=APD21121010002418027",
+        "sourceRecordIds": {
+          "cotId": "APD21121010002418027"
+        },
+        "sourceAsOf": "2026-07-01",
+        "checkedAt": "2026-10-13T02:42:00Z",
+        "licenseName": null,
+        "explicitOpenLicense": false,
+        "reuseBasis": "limited-individual-fact-review",
+        "originalName": "빨간 거 낙지전골",
+        "nameRepresentation": "original",
+        "currentAvailability": null,
+        "priceAsOf": null
+      }
+    },
+    "3cb54a1cf2a6eabb": {
+      "name": "크림차돌떡볶이",
+      "provenance": {
+        "kind": "official-brand-menu",
+        "sourceScope": "brand_common",
+        "branchMenuApplicability": null,
+        "brandName": "청년다방",
+        "sourceUrl": "https://youngdabang.com/board/index.php?board=notice_01&idx=88&type=view",
+        "sourceRecordIds": {},
+        "sourceAsOf": "2025-11-06",
+        "checkedAt": "2026-10-12T23:51:41.729766+00:00",
+        "licenseName": null,
+        "explicitOpenLicense": false,
+        "reuseBasis": "limited-individual-fact-review",
+        "originalName": "크림차돌떡볶이",
+        "nameRepresentation": "original",
+        "currentAvailability": null,
+        "priceAsOf": null
+      }
+    },
+    "82e114b40294be71": {
+      "name": "매콤튀김어묵",
+      "provenance": {
+        "kind": "official-brand-menu",
+        "sourceScope": "brand_common",
+        "branchMenuApplicability": null,
+        "brandName": "삼첩분식",
+        "sourceUrl": "https://samcheop.com/bbs/content.php?co_id=menu&tab=2",
+        "sourceRecordIds": {},
+        "sourceAsOf": null,
+        "checkedAt": "2026-10-12T23:51:41.729766+00:00",
+        "licenseName": null,
+        "explicitOpenLicense": false,
+        "reuseBasis": "limited-individual-fact-review",
+        "originalName": "매콤튀김어묵",
+        "nameRepresentation": "original",
+        "currentAvailability": null,
+        "priceAsOf": null
+      }
+    },
+    "0e392ce773b69d8e": {
+      "name": "스텔라떡볶이",
+      "provenance": {
+        "kind": "official-brand-menu",
+        "sourceScope": "brand_common",
+        "branchMenuApplicability": null,
+        "brandName": "스텔라떡볶이",
+        "sourceUrl": "https://stellapick.com/21?sca=%EB%96%A1%EB%B3%B6%EC%9D%B4",
+        "sourceRecordIds": {},
+        "sourceAsOf": null,
+        "checkedAt": "2026-10-12T23:51:41.729766+00:00",
+        "licenseName": null,
+        "explicitOpenLicense": false,
+        "reuseBasis": "limited-individual-fact-review",
+        "originalName": "스텔라떡볶이",
+        "nameRepresentation": "original",
+        "currentAvailability": null,
+        "priceAsOf": null
+      }
+    },
+    "f7f7e2c1a7e587be": {
+      "name": "마라탕",
+      "provenance": {
+        "kind": "official-brand-menu",
+        "sourceScope": "brand_common",
+        "branchMenuApplicability": null,
+        "brandName": "춘리마라탕",
+        "sourceUrl": "https://chunlimalatang.com/menu/",
+        "sourceRecordIds": {},
+        "sourceAsOf": null,
+        "checkedAt": "2026-10-12T23:51:41.729766+00:00",
+        "licenseName": null,
+        "explicitOpenLicense": false,
+        "reuseBasis": "limited-individual-fact-review",
+        "originalName": "마라탕",
+        "nameRepresentation": "original",
+        "currentAvailability": null,
+        "priceAsOf": null
+      }
+    },
+    "2010dd697d144567": {
+      "name": "고추짬뽕",
+      "provenance": {
+        "kind": "official-brand-menu",
+        "sourceScope": "brand_common",
+        "branchMenuApplicability": null,
+        "brandName": "홍콩반점",
+        "sourceUrl": "https://www.theborn.co.kr/theborn_brand/%ED%99%8D%EC%BD%A9%EB%B0%98%EC%A0%902/",
+        "sourceRecordIds": {},
+        "sourceAsOf": null,
+        "checkedAt": "2026-10-13T02:42:18.238025+00:00",
+        "licenseName": null,
+        "explicitOpenLicense": false,
+        "reuseBasis": "limited-individual-fact-review",
+        "originalName": "고추짬뽕",
+        "nameRepresentation": "original",
+        "currentAvailability": null,
+        "priceAsOf": null
+      }
+    },
+    "794b0d408589c6db": {
+      "name": "엽기떡볶이",
+      "provenance": {
+        "kind": "official-brand-menu",
+        "sourceScope": "brand_common",
+        "branchMenuApplicability": null,
+        "brandName": "동대문엽기떡볶이",
+        "sourceUrl": "https://www.yupdduk.com/sub/event/yup-event-detail?eventno=2026090003&f_stype=&f_sval=&opt_ev=&pnum=1&row=6",
+        "sourceRecordIds": {
+          "eventno": "2026090003"
+        },
+        "sourceAsOf": "2026-09-16",
+        "checkedAt": "2026-10-13T02:37:50Z",
+        "licenseName": null,
+        "explicitOpenLicense": false,
+        "reuseBasis": "limited-individual-fact-review",
+        "originalName": "4인 엽기메뉴(떡볶이/반반/오뎅/분모자)",
+        "nameRepresentation": "original",
+        "currentAvailability": null,
+        "priceAsOf": null
+      }
+    }
+  }
+}

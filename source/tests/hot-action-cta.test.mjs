@@ -54,7 +54,7 @@ test('emphasized source-only entries retain pending disclosure and expose no sub
  const ui = sourceUi();
  for (const kind of ['report', 'owner']) {
   const html = renderToStaticMarkup(React.createElement(ui.ReadonlyActions, {kind}));
-  assert.match(html, /준비 중/);
+  assert.doesNotMatch(html, /준비\s*중/);
   assert.match(html, /aria-expanded="false"/);
   assert.doesNotMatch(html, /<form|<input|<select|<textarea|href=/);
   if (kind === 'report') assert.match(html, /제보 등록·저장·집계는 아직 연결되지 않았어요/);

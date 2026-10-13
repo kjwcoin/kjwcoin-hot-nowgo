@@ -6,8 +6,11 @@ import React from 'react';
 import * as runtime from 'react/jsx-runtime';
 import * as icons from 'lucide-react';
 import * as sourced from '../../lib/sourced-store.ts';
+import * as identities from '../../lib/menu-store-groups.ts';
+import * as koreanRegion from '../../lib/korean-region.ts';
 import * as groups from '../../lib/map-sourced-stores.ts';
 import * as nearby from '../../lib/nearby-demo.ts';
+import * as browseScope from '../../lib/map-browse-scope.ts';
 import * as catalog from '../../lib/map-menu-catalog.ts';
 import * as heat from '../../lib/hot-menu-heat.ts';
 import * as heatClient from '../../lib/menu-heat-client.ts';
@@ -20,7 +23,7 @@ export function moduleAt(path,dependencies,globals={}){
  return exports;
 }
 const wrapped=defaultExport=>({default:defaultExport});
-export function sourceUi({react=React,stores,menus=[],sourceState,accountState,globals={}}={}){
+export function sourceUi({react=React,stores,menus=[],sourceState,accountState,client,globals={}}={}){
  const live=name=>function LiveFixture(){return React.createElement('span',{'data-live-component':name},name)};
  const Button=properties=>{const props={...properties};delete props.variant;delete props.size;return React.createElement('button',props)};
  const css=new Proxy({},{get:(_,name)=>'legacy-'+String(name)});
@@ -44,10 +47,11 @@ export function sourceUi({react=React,stores,menus=[],sourceState,accountState,g
  const Detail=moduleAt('components/sourced-store-detail.tsx',deps).default;
  const Notice=moduleAt('components/sourced-store-notice.tsx',deps).default;
  const Map=()=>React.createElement('div',{'data-map-shell':true});
- const mapDeps={...deps,'@/lib/menu-heat-attribution':{menuHeatAttribution:()=> '개별 제보 맵기 · 메뉴별 중앙값 미집계'},'@/lib/map-sourced-stores':groups,'@/components/owner-join-request':wrapped(live('legacy-owner-request')),'@/components/store-status':wrapped(live('status')),'@/hooks/use-sourced-stores':{useSourcedStores:(_variant,previewFeed,initialFeed)=>sourceState?{...sourceState,refresh:()=>{}}:({status:previewFeed||stores||initialFeed?'ready':'loading',feed:previewFeed||(stores?{stores,complete:true,asOf:'2026-10-12T00:00:00Z'}:initialFeed||null),refresh:()=>{}})},'@/components/sourced-store-card':wrapped(Card),'@/components/sourced-store-detail':wrapped(Detail),'@/components/sourced-store-notice':wrapped(Notice),'@/components/booking-actions':wrapped(live('booking')),'@/components/brand':wrapped(()=>React.createElement('span',{},'NOWGO')),'@/components/ui/input':{Input:props=>React.createElement('input',props)},'@/components/ui/native-select':{NativeSelect:props=>React.createElement('select',props)},'./customer-panel':wrapped(live('customer')),'./reporter-leaderboard':wrapped(live('leaderboard')),'./map-chat':wrapped(live('chat')),'./activity/visit-actions':wrapped(live('visit')),'./kakao-map':wrapped(Map),'@/lib/request-current-location':{locationStatusText:{}},'./first-login-tour':wrapped(live('tour')),'@/lib/map-menu-catalog':catalog,'@/lib/nearby-demo':nearby,'@/lib/menus':{money:value=>value+'원'},'@/lib/site-config':{siteConfig:()=>({name:'HOT',menus,heat:['1','2','3','4','5'],flavors:['전체'],categories:[],search:'메뉴 검색'})},'@/lib/client':{api:()=>{throw Error('Unexpected live API')},track:()=>{}}};
+ const mapDeps={...deps,'@/lib/menu-heat-attribution':{menuHeatAttribution:()=> '개별 제보 맵기 · 메뉴별 중앙값 미집계'},'@/lib/map-sourced-stores':groups,'@/components/owner-join-request':wrapped(live('legacy-owner-request')),'@/components/store-status':wrapped(live('status')),'@/hooks/use-sourced-stores':{useSourcedStores:(_variant,previewFeed,initialFeed)=>sourceState?{...sourceState,refresh:()=>{}}:({status:previewFeed||stores||initialFeed?'ready':'loading',feed:previewFeed||(stores?{stores,complete:true,asOf:'2026-10-12T00:00:00Z'}:initialFeed||null),refresh:()=>{}})},'@/components/sourced-store-card':wrapped(Card),'@/components/sourced-store-detail':wrapped(Detail),'@/components/sourced-store-notice':wrapped(Notice),'@/components/booking-actions':wrapped(live('booking')),'@/components/brand':wrapped(()=>React.createElement('span',{},'NOWGO')),'@/components/ui/input':{Input:props=>React.createElement('input',props)},'@/components/ui/native-select':{NativeSelect:props=>React.createElement('select',props)},'./customer-panel':wrapped(live('customer')),'./reporter-leaderboard':wrapped(live('leaderboard')),'./map-chat':wrapped(live('chat')),'./activity/visit-actions':wrapped(live('visit')),'./kakao-map':wrapped(Map),'@/lib/request-current-location':{locationStatusText:{}},'./first-login-tour':wrapped(live('tour')),'@/lib/map-browse-scope':browseScope,'@/lib/map-menu-catalog':catalog,'@/lib/nearby-demo':nearby,'@/lib/menus':{money:value=>value+'원'},'@/lib/site-config':{siteConfig:()=>({name:'HOT',menus,heat:['1','2','3','4','5'],flavors:['전체'],categories:[],search:'메뉴 검색'})},'@/lib/client':client||{api:()=>{throw Error('Unexpected live API')},track:()=>{}}};
  const Explorer=moduleAt('components/map-explorer.tsx',mapDeps,globals).default;
+ const App=moduleAt('components/app-map.tsx',{...mapDeps,'@/lib/menu-store-groups':identities,'@/lib/korean-region':koreanRegion,'@/lib/app-embed':{appParentOrigin:()=>'',postAppEvent:()=>{}},'./regular-favorite':deps['@/components/regular-favorite'],'./owner-join-request':mapDeps['@/components/owner-join-request']},globals).default;
  const Mini=moduleAt('components/sourced-store-minihome.tsx',{...base,'@/components/map-explorer':wrapped(Explorer)}).default;
- return {Card,Detail,Notice,Actions,ReadonlyActions,Account,RegularHomeLink,ConsumerHeat:Heat.default,Photo,PreviewHeat,PreviewInformation,PreviewPhoto,PreviewRegular,Explorer,Mini,Map};
+ return {Card,Detail,Notice,Actions,ReadonlyActions,Account,RegularHomeLink,ConsumerHeat:Heat.default,Photo,PreviewHeat,PreviewInformation,PreviewPhoto,PreviewRegular,Explorer,App,Mini,Map};
 }
 export function elements(node){if(!node||typeof node!=='object')return [];if(Array.isArray(node))return node.flatMap(elements);return [node,...elements(node.props?.children)];}
 export function textOf(node){if(node==null||typeof node==='boolean')return '';if(typeof node==='string'||typeof node==='number')return String(node);if(Array.isArray(node))return node.map(textOf).join('');return textOf(node.props?.children);}

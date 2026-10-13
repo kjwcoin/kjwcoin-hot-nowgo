@@ -12,7 +12,7 @@ test('source detail keeps the old photo, taste-price, status, favorite and three
  const html=renderToStaticMarkup(React.createElement(ui.Detail,{store,preview:true,onBack(){}}));
  const ordered=['explorer-back','explorer-detail-photo','explorer-detail-content','explorer-tags','<h1>','explorer-taste-price','store-status','단골 · 계정 미리보기','explorer-quick-actions','source-detail-footer'];
  let position=-1;for(const marker of ordered){const next=html.indexOf(marker);assert.ok(next>position,marker);position=next;}
- for(const expected of ['회비빔국수','할매집회국수','가격 미확인','맵기 미확인','영업현황 미확인','현재 메뉴 제공 여부 미확인','길찾기','예약하기','웨이팅수 보기','실제 제보 등록·집계 공개는 아직 준비 중','이용허락범위 제한 없음'])assert.ok(html.includes(expected),expected);
+ for(const expected of ['회비빔국수','할매집회국수','가격 미확인','맵기 미확인','영업현황 미확인','현재 메뉴 제공 여부 미확인','길찾기','예약하기','웨이팅수 보기','실제 제보 등록·집계 공개는 아직 연결되지 않았','이용허락범위 제한 없음'])assert.ok(html.includes(expected),expected);
  assert.match(html,/map\.kakao\.com\/link\/to\/[^" ]+,35.09885,129.03146/);
  assert.ok((html.match(/disabled=""/g)||[]).length>=3);
  assert.match(html,/src="\/images\/nowgo-red.png"/);assert.doesNotMatch(html,/<iframe|data-live-component|0원|1단계|중앙값 [0-9]|참여 고객 0명|현재 영업 중/);
@@ -70,7 +70,7 @@ test('preview request and claim explanations support repeat, switch and Close wi
 
 test('no-coordinate detail does not invent directions or enable bookings and forged heat stays pending in preview',()=>{
  const html=renderToStaticMarkup(React.createElement(ui.Detail,{store:{...store,coordinates:null,reportingState:'enabled'},preview:true,onBack(){}}));
- assert.doesNotMatch(html,/map\.kakao\.com\/link\/to/);assert.match(html,/지도 위치 미확인/);assert.match(html,/실제 제보 등록·집계 공개는 아직 준비 중/);assert.doesNotMatch(html,/data-reporting-state="enabled"/);assert.ok((html.match(/disabled=""/g)||[]).length>=4);
+ assert.doesNotMatch(html,/map\.kakao\.com\/link\/to/);assert.match(html,/지도 위치 미확인/);assert.match(html,/실제 제보 등록·집계 공개는 아직 연결되지 않았/);assert.doesNotMatch(html,/data-reporting-state="enabled"/);assert.ok((html.match(/disabled=""/g)||[]).length>=4);
 });
 
 test('source-specific CSS keeps original panel and photo geometry instead of a second document layout',()=>{

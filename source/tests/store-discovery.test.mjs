@@ -4,11 +4,11 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 import ts from 'typescript';
 import {sourceStore} from './fixtures/sourced-stores.mjs';
-import {sourcedStoreUrl} from '../lib/sourced-store.ts';
+import {sourcedStoreUrl,isBrandCommonMenu,BRAND_COMMON_MENU_NOTICE} from '../lib/sourced-store.ts';
 const source=fs.readFileSync(new URL('../lib/store-discovery.ts',import.meta.url),'utf8');
 const exports={};
 vm.runInNewContext(ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.CommonJS}}).outputText,{exports,require:name=>{
- if(name==='./sourced-store.ts')return {sourcedStoreUrl};
+ if(name==='./sourced-store.ts')return {sourcedStoreUrl,isBrandCommonMenu,BRAND_COMMON_MENU_NOTICE};
  if(name==='./social-preview')return {socialMetadata:()=>({openGraph:{images:['approved-art.jpg']},twitter:{images:['approved-art.jpg']}})};
  throw Error(name);
 }});

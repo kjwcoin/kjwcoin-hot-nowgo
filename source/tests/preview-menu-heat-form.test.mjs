@@ -24,7 +24,7 @@ function setup(extra={}){
 test('preview begins without seeded heat, customer count or a mounted form',()=>{
  const {PreviewHeat}=sourceUi();
  const html=renderToStaticMarkup(React.createElement(PreviewHeat,{storeId:store.id,menus:store.menus,onPreviewHeat(){}}));
- for(const text of ['이 메뉴를 먹고 느낀 맵기','새로고침·초기화하면 지워져요','내 최신 입력 1개','실제 제보 등록·집계 공개는 아직 준비 중'])assert.ok(html.includes(text),text);
+ for(const text of ['이 메뉴를 먹고 느낀 맵기','새로고침·초기화하면 지워져요','내 최신 입력 1개','실제 제보 등록·집계 공개는 아직 연결되지 않았'])assert.ok(html.includes(text),text);
  assert.doesNotMatch(html,/<form|미리보기 중앙값 [0-9]|참여 고객|등록 완료|<input/);
  assert.match(html,/aria-expanded="false"/);
 });
@@ -96,7 +96,7 @@ test('reset delegates clearing to the parent and dismisses an open draft',()=>{
 
 test('live source detail ignores all local preview values and remains reporting-pending',()=>{
  const {Detail}=sourceUi();const html=renderToStaticMarkup(React.createElement(Detail,{store:{...store,reportingState:'enabled'},preview:false,onBack(){},previewHeat:{medianHeat:5,sampleCount:1,myHeat:5},previewPhoto:{url:'blob:local-photo',nickname:'내 별명'},onPreviewHeat(){throw Error('Must never run')}}));
- assert.match(html,/data-reporting-state="pending"/);assert.match(html,/disabled=""[^>]*>먹어본 메뉴 맵기 제보 · 준비 중/);assert.doesNotMatch(html,/data-heat-mode="local-preview"|blob:local-photo|미리보기 중앙값/);
+ assert.match(html,/data-reporting-state="pending"/);assert.match(html,/disabled=""[^>]*>먹어본 메뉴 맵기 제보/);assert.doesNotMatch(html,/data-heat-mode="local-preview"|blob:local-photo|미리보기 중앙값/);
 });
 
 test('logo uses the existing asset and original footprint; photo attribution is scoped to the canonical preview menu',()=>{

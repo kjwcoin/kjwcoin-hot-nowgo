@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { socialMetadata } from './social-preview';
 import type { Menu } from './menus';
 import type { SiteVariant } from './site-config';
-import { sourcedStoreUrl, type PublicSourcedStore } from './sourced-store.ts';
+import { BRAND_COMMON_MENU_NOTICE, isBrandCommonMenu, sourcedStoreUrl, type PublicSourcedStore } from './sourced-store.ts';
 
 export const HOT_DISCOVERY_ORIGIN = 'https://hot.nowgo.space';
 /** Legacy catalog gate remains conservative until per-place NOINDEX proof is exposed.
@@ -18,6 +18,12 @@ export function sourceFactsNotice(store: PublicSourcedStore): string {
   if(fields){
     const checkedDate=(value:string)=>new Date(value).toISOString().slice(0,10);
     const menu=store.menus[0]?.provenance;
+    if(fields.registration===null&&fields.identity){
+      const scope=menu?.sourceScope==='brand_common'?BRAND_COMMON_MENU_NOTICE:'공식 관광자료 기재 메뉴 · 현재 판매 여부 미확인';
+      const menuType=menu?.sourceScope==='brand_common'?'브랜드 공통':'관광자료';
+      return `${scope}. 상호·주소 자료 기준일 ${fields.identity.asOf} · 좌표 자료 기준일 ${fields.coordinates.asOf} · ${menuType} 메뉴 자료 기준일 ${menu?.sourceAsOf||'미제공'}. 상호·주소 출처 확인일 ${checkedDate(fields.identity.checkedAt)} (UTC) · 좌표 출처 확인일 ${checkedDate(fields.coordinates.checkedAt)} (UTC) · 메뉴 출처 확인일 ${menu?checkedDate(menu.checkedAt):'미제공'} (UTC). 출처 확인일은 영업·메뉴 현황 확인일이 아닙니다. 가격·맵기·사진·현재 영업 및 메뉴 판매 여부는 확인되지 않았습니다.`;
+    }
+    if(!fields.registration)throw Error('missing_source_identity');
     return `상호·주소 자료 기준일 ${fields.registration.asOf} · 좌표 자료 기준일 ${fields.coordinates.asOf} · 관광자료 메뉴 기준일 미제공. 상호·주소 출처 확인일 ${checkedDate(fields.registration.checkedAt)} (UTC) · 좌표 출처 확인일 ${checkedDate(fields.coordinates.checkedAt)} (UTC) · 메뉴 출처 확인일 ${menu?checkedDate(menu.checkedAt):'미제공'} (UTC). 출처 확인일은 영업·메뉴 현황 확인일이 아닙니다. 가격·맵기·사진·현재 영업 및 메뉴 판매 여부는 확인되지 않았습니다.`;
   }
   const asOf = store.source.asOf ? `자료 기준일 ${store.source.asOf}` : '자료 기준일 미제공';
@@ -38,7 +44,8 @@ function pageMetadata(title: string, description: string, url: string, index: bo
 
 export function sourcedStoreMetadata(store: PublicSourcedStore, host: string | null = null): Metadata {
   const title = `${store.name} · ${store.address} | 나우고 HOT`;
-  const description = `${store.address}의 ${store.name}. 공개자료에 기재된 메뉴: ${store.menus.slice(0, 3).map(menu => menu.name).join(', ')}. ${store.ownerClaimVerified ? '점주 권한 확인 매장.' : '점주 미확인 매장.'} 현재 영업·가격·메뉴 판매 여부는 방문 전에 확인하세요.`;
+  const menuScope=store.menus.some(isBrandCommonMenu)?`${BRAND_COMMON_MENU_NOTICE}:`:'공개자료에 기재된 메뉴:';
+  const description = `${store.address}의 ${store.name}. ${menuScope} ${store.menus.slice(0, 3).map(menu => menu.name).join(', ')}. ${store.ownerClaimVerified ? '점주 권한 확인 매장.' : '점주 미확인 매장.'} 현재 영업·가격·메뉴 판매 여부는 방문 전에 확인하세요.`;
   return pageMetadata(title, description, sourcedStoreUrl(store), store.indexable===true && publicHotHost(host));
 }
 

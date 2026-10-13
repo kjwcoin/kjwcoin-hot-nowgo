@@ -25,7 +25,7 @@ test('five chili segments represent exact 2.5/5 independently of participant cou
 test('confirmed empty dish has no peppers/median zero, and loading/pending/error never imply zero participants',()=>{
  const zero=render({status:'ready',summaries:[{menuId:'dish-a',medianHeat:null,sampleCount:0},{menuId:'dish-b',medianHeat:3,sampleCount:1}]});assert.match(zero,/아직 이 메뉴의 고객 평가가 없어요/);assert.match(zero,/참여 고객 0명/);assert.doesNotMatch(zero,/중앙값 0/);
  for(const status of ['loading','pending','error']){const result=render({status});assert.doesNotMatch(result,/참여 고객 0명|중앙값 [0-9]/);assert.doesNotMatch(result,/class="median-pepper"/)}
- assert.match(render({status:'error'}),/확인하지 못했어요/);assert.match(render({status:'pending'}),/집계 준비 중/);
+ assert.match(render({status:'error'}),/확인하지 못했어요/);assert.match(render({status:'pending'}),/집계 미연결/);
 });
 test('client source section batches only known menu IDs once visible, rather than retrieving raw reports',()=>{
  assert.match(source,/IntersectionObserver/);assert.match(source,/props\.menus\.map\(menu=>menu.id\)/);assert.doesNotMatch(source,/\/api\/reports|\.heat\s*\|\||reportCount|menuStoreGroups/);
@@ -34,6 +34,6 @@ test('client source section batches only known menu IDs once visible, rather tha
 
 test('actual phase-one component renders pending at first paint even with missing or forged enabled state',()=>{
  for(const reportingState of [undefined,'pending','enabled',null,'bad']){
-  const html=renderToStaticMarkup(React.createElement(exports.default,{storeId:'source',menus,reportingState}));assert.match(html,/평가 등록과 집계는 준비 중/);assert.doesNotMatch(html,/참여 고객 0명|중앙값 [0-9]|확인 중/);
+  const html=renderToStaticMarkup(React.createElement(exports.default,{storeId:'source',menus,reportingState}));assert.match(html,/평가 등록과 집계는 아직 연결되지 않았/);assert.doesNotMatch(html,/참여 고객 0명|중앙값 [0-9]|확인 중/);
  }
 });

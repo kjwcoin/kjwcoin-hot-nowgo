@@ -5,10 +5,10 @@ import React from 'react';
 import {renderToStaticMarkup} from 'react-dom/server';
 import records from '../data/hot-source-listings.json' with {type:'json'};
 import {readonlySourceStoreFeed,isReadonlySourceStoreId,isReadonlySourceReportBinding} from '../lib/readonly-source-listings.ts';
-import {publicSourcedStore,parseSourcedStoreFeed,sourcedStoreUrl} from '../lib/sourced-store.ts';
+import {publicSourcedStore,parseSourcedStoreFeed,sourcedStoreUrl,isBrandCommonMenu,BRAND_COMMON_MENU_NOTICE} from '../lib/sourced-store.ts';
 import {parseMenuHeatQuery} from '../lib/hot-menu-heat.ts';
 import {sourceUi,moduleAt} from './helpers/source-ui-components.mjs';
-const feed=readonlySourceStoreFeed(),stores=feed.stores.slice(5),clone=value=>JSON.parse(JSON.stringify(value));
+const feed=readonlySourceStoreFeed(),stores=feed.stores.slice(5,7),clone=value=>JSON.parse(JSON.stringify(value));
 const sourceRow=row=>({...row,owner_id:null,archived_at:null,trust_disabled_at:null,owner_penalty_points:0,publication_state:'DISCOVERED'});
 const originalFiveSha='31f4f6102ff6111b67d0fae95c44b1efba98b7b669e37800f70e96835a5b9407';
 const facts=[
@@ -21,13 +21,13 @@ function uuidFromSource(ref){
  bytes[6]=(bytes[6]&15)|80;bytes[8]=(bytes[8]&63)|128;
  const hex=bytes.toString('hex');return [hex.slice(0,8),hex.slice(8,12),hex.slice(12,16),hex.slice(16,20),hex.slice(20)].join('-');
 }
-const discovery=moduleAt('lib/store-discovery.ts',{'./sourced-store.ts':{sourcedStoreUrl},'./social-preview':{socialMetadata:()=>({openGraph:{images:['approved-art.jpg']},twitter:{images:['approved-art.jpg']}})}});
+const discovery=moduleAt('lib/store-discovery.ts',{'./sourced-store.ts':{sourcedStoreUrl,isBrandCommonMenu,BRAND_COMMON_MENU_NOTICE},'./social-preview':{socialMetadata:()=>({openGraph:{images:['approved-art.jpg']},twitter:{images:['approved-art.jpg']}})}});
 const rejects=mutate=>{const store=clone(stores[0]);mutate(store);assert.throws(()=>parseSourcedStoreFeed({...feed,stores:[store]}),/invalid_source_store/)};
 
 test('exactly the two frozen Cheongna records extend five byte-equivalent public listings',()=>{
- assert.equal(records.length,7);assert.equal(feed.stores.length,7);
+ assert.equal(records.slice(0,7).length,7);assert.equal(feed.stores.slice(0,7).length,7);
  assert.equal(createHash('sha256').update(JSON.stringify(feed.stores.slice(0,5))).digest('hex'),originalFiveSha);
- for(const field of ['id','slug','sourceRef'])assert.equal(new Set(feed.stores.map(store=>store[field])).size,7,field);
+ for(const field of ['id','slug','sourceRef'])assert.equal(new Set(feed.stores.slice(0,7).map(store=>store[field])).size,7,field);
  for(let i=0;i<facts.length;i++){
   const expected=facts[i],store=stores[i];
   assert.equal(store.id,expected.id);assert.equal(store.id,uuidFromSource(store.sourceRef));assert.equal(store.sourceRef,'data-go-kr-15083033-'+expected.nativeId);

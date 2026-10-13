@@ -180,7 +180,7 @@ test('missing preview callback disables opening and cannot fabricate a successfu
   assert.equal(h.button('사진 제보').props.disabled, true);
   h.button('사진 제보').props.onClick();
   assert.equal(elements(h.render()).some(node => node.type === 'form'), false);
-  assert.match(textOf(h.render()), /사진 미리보기는 준비 중/);
+  assert.match(textOf(h.render()), /사진 미리보기는 아직 연결되지 않았/);
   assert.doesNotMatch(textOf(h.render()), /미리보기에만 반영했어요/);
 });
 

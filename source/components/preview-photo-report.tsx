@@ -111,7 +111,7 @@ export default function PreviewPhotoReport({store, selectedMenuId, onPreviewPhot
     </div>
     <p className="preview-photo-report__note" id={`${id}-privacy`}>로컬 미리보기 · 사진은 이 브라우저에서만 보여요. 저장·게시되지 않으며 초기화하거나 새로고침하면 사라져요.</p>
     {!store.menus.length && <p className="preview-photo-report__note">사진을 연결할 메뉴가 없어요.</p>}
-    {!onPreviewPhoto && <p className="preview-photo-report__note">사진 미리보기는 준비 중이에요.</p>}
+    {!onPreviewPhoto && <p className="preview-photo-report__note">사진 미리보기는 아직 연결되지 않았어요.</p>}
     {open && <form id={`${id}-form`} className="preview-photo-report__form" onSubmit={submit} aria-describedby={`${id}-privacy`} noValidate>
       <div className="preview-photo-report__field">
         <label htmlFor={`${id}-menu`}>사진을 연결할 메뉴</label>

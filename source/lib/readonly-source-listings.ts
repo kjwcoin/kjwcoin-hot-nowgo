@@ -5,8 +5,10 @@ import {publicSourcedStore,type PublicSourcedStoreFeed} from './sourced-store.ts
  * Held records are absent from this allowlist. No flag can turn these IDs writable.
  */
 export const READONLY_SOURCE_PUBLICATION=true;
-const reservedIds=new Set(records.map(row=>row.id.replace(/-/g,'').toLowerCase()));
-const reservedMenuIds=new Set(records.flatMap(row=>row.source_metadata.menus.map(menu=>menu.id)));
+type SourceAliasBinding={sourceRef:string;id:string;menuId:string};
+const aliasBindings=records.flatMap(row=>('aliasBindings' in row.source_metadata?row.source_metadata.aliasBindings:[]) as SourceAliasBinding[]);
+const reservedIds=new Set([...records.map(row=>row.id),...aliasBindings.map(alias=>alias.id)].map(id=>id.replace(/-/g,'').toLowerCase()));
+const reservedMenuIds=new Set([...records.flatMap(row=>row.source_metadata.menus.map(menu=>menu.id)),...aliasBindings.map(alias=>alias.menuId)]);
 /** Match the equivalent UUID text forms PostgreSQL accepts, before any side effect. */
 export function isReadonlySourceStoreId(id:unknown):boolean{
  if(typeof id!=='string')return false;
