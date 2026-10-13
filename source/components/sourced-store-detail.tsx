@@ -35,6 +35,7 @@ export default function SourcedStoreDetail({store,preview=false,menuId,onBack,pr
     <strong>가격 미확인</strong>
    </div>
    <p>{store.address}</p>
+   {menu?.provenance&&<p className="source-action-note">공식 관광자료 기재 메뉴 · 현재 판매 여부 미확인{menu.provenance.nameRepresentation==='ja-transliteration'&&<><br/>일본어 메뉴명 한글 음역 · 현행 한국어 메뉴판 표기 미확인</>}</p>}
    <section className="store-status" aria-label="공공자료 매장 영업현황">
     <strong>{sourceOnly?'공공자료 소개 · 점주 확인 전':store.ownerClaimVerified?'점주 확인 · 공공자료 메뉴':'공공자료 등록 · 점주 미등록'}</strong>
     <p>영업현황 미확인<br/>현재 메뉴 제공 여부 미확인</p>
@@ -50,7 +51,7 @@ export default function SourcedStoreDetail({store,preview=false,menuId,onBack,pr
    {preview&&<><PreviewPhotoReport key={'photo:'+store.id+':'+menu?.id} store={store} selectedMenuId={menu?.id} onPreviewPhoto={onPreviewPhoto} onReset={onPreviewPhotoReset}/><PreviewStoreInformation/></>}
    <footer className="source-detail-footer">
     {preview?<SourcePreviewActions/>:sourceOnly?<><SourceReadonlyActions key={'report:'+store.id+':'+menu?.id} kind="report"/><SourceReadonlyActions key={'owner:'+store.id} kind="owner"/></>:<>{!store.ownerClaimVerified&&<><StoreOwnerJoinRequest storeId={store.id} returnTo={path+'#owner-information'}/><a className={ownerStyles.login} href={sourcedStoreClaimPath(store.id)}>이 매장의 점주이신가요? 소유권 확인하기 ↗</a></>}</>}
-    <details className="source-detail-attribution"><summary>공공자료 출처 · 확인 범위</summary><p>{sourceFactsNotice(store)}</p><a href={store.source.url} target="_blank" rel="noopener noreferrer">공공데이터포털 원문 ↗</a><small>{store.source.licenseName}</small><small>{store.coordinates?`자료 속 위치: 위도 ${store.coordinates.lat} · 경도 ${store.coordinates.lon}`:'지도 위치 미확인'}</small><small>공공자료는 점주의 직접 등록이나 현재 영업을 뜻하지 않습니다.</small></details>
+    <details className="source-detail-attribution"><summary>공공자료 출처 · 확인 범위</summary><p>{sourceFactsNotice(store)}</p><a href={store.source.url} target="_blank" rel="noopener noreferrer">{store.source.fieldProvenance?'상호·주소 공공 CSV 원문 ↗':'공공데이터포털 원문 ↗'}</a><small>{store.source.fieldProvenance?`상호·주소·좌표 공공 CSV에만 적용: ${store.source.licenseName}`:store.source.licenseName}</small>{store.source.fieldProvenance&&<><a href={store.source.fieldProvenance.coordinates.url} target="_blank" rel="noopener noreferrer">좌표 공공 CSV 원문 ↗</a><small>좌표 원천 ID: {store.source.fieldProvenance.coordinates.nativeRecordId}</small></>}{menu?.provenance&&<><a href={menu.provenance.sourceUrl} target="_blank" rel="noopener noreferrer">공식 관광자료 메뉴 출처 ↗</a><small>메뉴 자료 기준일 미제공 · 출처 확인일 {new Date(menu.provenance.checkedAt).toISOString().slice(0,10)} (UTC)</small><small>메뉴명 한 항목의 개별 사실 검토 · 관광 웹페이지의 명시적 오픈 라이선스는 확인되지 않았습니다.</small><small>공식 관광자료에 기재된 메뉴입니다. 현재 판매 여부는 확인이 필요합니다. 메뉴명의 표현은 고객이 평가한 맵기 단계가 아닙니다.</small>{menu.provenance.nameRepresentation==='ja-transliteration'&&<small>일본어 원문 메뉴명: {menu.provenance.originalName} · 한글 음역이며 현행 한국어 메뉴판 표기는 확인되지 않았습니다.</small>}</>}<small>{store.coordinates?`자료 속 위치: 위도 ${store.coordinates.lat} · 경도 ${store.coordinates.lon}`:'지도 위치 미확인'}</small><small>공공자료는 점주의 직접 등록이나 현재 영업을 뜻하지 않습니다.</small></details>
    </footer>
   </div>
  </article>;

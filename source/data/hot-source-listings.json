@@ -246,5 +246,244 @@
         "state": "pending"
       }
     }
+  },
+  {
+    "id": "f78a7946-3463-5d0a-84a1-697370d3649d",
+    "slug": "hot-cheongna-ma010120220802577654",
+    "name": "빨간돼지 청라점",
+    "address": "인천광역시 서해구 청라커낼로319번길 3-13, 1층 (경서동, 850-18 (1층))",
+    "lat": 37.5364745896207,
+    "lon": 126.643696685757,
+    "source_ref": "data-go-kr-15083033-MA010120220802577654",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15047498/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-09-03",
+      "checkedAt": "2026-10-12T23:41:45.850830+00:00",
+      "nativeBusinessName": "빨간돼지",
+      "displayNameBasis": "Public restaurant identifier corroborated by official tourism place title; preserve administrative nativeBusinessName separately.",
+      "sourceRecordId": "MA010120220802577654",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": {
+          "url": "https://www.data.go.kr/data/15047498/fileData.do",
+          "asOf": "2026-09-03",
+          "checkedAt": "2026-10-12T23:41:45.850830+00:00",
+          "nativeRecordId": null
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:39:35.273900+00:00",
+          "nativeRecordId": "MA010120220802577654"
+        }
+      },
+      "registrationLocator": {
+        "dataRowNumber": 1087,
+        "rowNumberDefinition": "1-based data row, excluding CSV header; locator only, not a native ID",
+        "datasetSha256": "785ee0b94afb893f3acbf0991e997f12cf3d777ad4e39e8d3f4422910d34e4ee"
+      },
+      "coordinateLocator": {
+        "dataRowNumber": 54524,
+        "datasetSha256": "9198cdf381f7cc6adffe9c91c7856fdad037fbddb442fb49c68f796bf85bc1bc",
+        "accuracy": "building_level; no survey/entrance accuracy claimed",
+        "coordinateSystem": {
+          "name": "WGS84",
+          "epsg": 4326,
+          "axisOrderInSource": [
+            "경도",
+            "위도"
+          ],
+          "units": "decimal_degrees",
+          "transformation": "none; source numeric strings preserved alongside parsed numbers",
+          "evidenceType": "same-provider same-dataset API coordinate specification; the CSV itself does not encode an EPSG label",
+          "guideUrl": "https://www.data.go.kr/data/15012005/openapi.do",
+          "guideDownloadUrl": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000003706124&fileDetailSn=3",
+          "guideSha256": "4ed2112e2a90e49e88243fa7963ae7d19628aed247b6492bcbae6a947534970e",
+          "guideVersion": "260805",
+          "guideExtract": "raw/sbiz-api-guide-extracted.txt",
+          "evidence": "상가업소 lon/lat response fields are described as WGS84 coordinates in the provider guide. The longitude description repeats 위도, a provider wording typo; the lon/lat field labels and sample values distinguish axes."
+        },
+        "rawLatitude": "37.5364745896207",
+        "rawLongitude": "126.643696685757"
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only"
+      },
+      "factualUseReview": {
+        "batchId": "cheongna-20261013-batch01",
+        "frozenFileSha256": "ac98b3558b7b694814dc935c19bb540e9cc084a33e20ed21231a6e75d4641fe6",
+        "oneMenuFact": {
+          "basis": "limited_individual_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal factual source-card use recommended; not blanket website content reuse approval",
+          "allowedFields": [
+            "one ordinary menu name",
+            "source URL",
+            "source ID",
+            "checked date",
+            "own factual attribution"
+          ],
+          "knownTermsScope": "Identified commercial-use restriction addresses members; its application to this nonlogged-in single-fact observation was not established.",
+          "residualUncertainty": [
+            "페이지 푸터에 저작권정책 메뉴가 존재하지만 팝업 연결 정책 본문은 확인하지 못함. 관련 JS 읽기의 결과 수신이 취소되어 확인 완료로 처리하지 않음.",
+            "제3조는 이용자를 회원·비회원으로 구분하지만 제11조의 금지 주체는 회원이다. 제2조는 게시와 이용자 동의로 효력 발생, 제4조는 소셜로그인 회원가입 시 동의 간주를 정한다. 이번 비로그인 소량 사실 관찰에 회원 조항이 직접 적용된다고 확정할 근거는 확인하지 못함."
+          ],
+          "legalReviewFile": "balanced_minimal_facts_review.json",
+          "reviewedAt": "2026-10-12T23:40:24.700320+00:00"
+        },
+        "releaseDecision": "bounded_factual_source_card_eligible_with_documented_policy_uncertainty"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA010120220802577654:menu:1",
+          "name": "매운묵은지등갈비찜",
+          "provenance": {
+            "kind": "official-tourism-place-menu",
+            "sourceUrl": "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=1dffc549-f2dc-4292-b9eb-baf6f031d3ca",
+            "sourceRecordIds": {
+              "cotid": "1dffc549-f2dc-4292-b9eb-baf6f031d3ca",
+              "contentid": "2878004"
+            },
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-12T23:41:45.850830+00:00",
+            "licenseName": null,
+            "explicitOpenLicense": false,
+            "reuseBasis": "limited-individual-fact-review",
+            "originalName": "매운묵은지등갈비찜",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      }
+    }
+  },
+  {
+    "id": "f827a9fe-6c35-5049-9bec-1de30ef61ecc",
+    "slug": "hot-cheongna-ma010120220809138248",
+    "name": "브런치빈 청라점",
+    "address": "인천광역시 서해구 청라라임로 57, 영화블렌하임 203,203-1,204호 (청라동)",
+    "lat": 37.5326097328313,
+    "lon": 126.652913215437,
+    "source_ref": "data-go-kr-15083033-MA010120220809138248",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15047498/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-09-03",
+      "checkedAt": "2026-10-12T23:41:45.850830+00:00",
+      "nativeBusinessName": "브런치빈",
+      "displayNameBasis": "Public restaurant identifier corroborated by official tourism place title; preserve administrative nativeBusinessName separately.",
+      "sourceRecordId": "MA010120220809138248",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": {
+          "url": "https://www.data.go.kr/data/15047498/fileData.do",
+          "asOf": "2026-09-03",
+          "checkedAt": "2026-10-12T23:41:45.850830+00:00",
+          "nativeRecordId": null
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-12T23:39:35.273900+00:00",
+          "nativeRecordId": "MA010120220809138248"
+        }
+      },
+      "registrationLocator": {
+        "dataRowNumber": 1729,
+        "rowNumberDefinition": "1-based data row, excluding CSV header; locator only, not a native ID",
+        "datasetSha256": "785ee0b94afb893f3acbf0991e997f12cf3d777ad4e39e8d3f4422910d34e4ee"
+      },
+      "coordinateLocator": {
+        "dataRowNumber": 22021,
+        "datasetSha256": "9198cdf381f7cc6adffe9c91c7856fdad037fbddb442fb49c68f796bf85bc1bc",
+        "accuracy": "building_level; no survey/entrance accuracy claimed",
+        "coordinateSystem": {
+          "name": "WGS84",
+          "epsg": 4326,
+          "axisOrderInSource": [
+            "경도",
+            "위도"
+          ],
+          "units": "decimal_degrees",
+          "transformation": "none; source numeric strings preserved alongside parsed numbers",
+          "evidenceType": "same-provider same-dataset API coordinate specification; the CSV itself does not encode an EPSG label",
+          "guideUrl": "https://www.data.go.kr/data/15012005/openapi.do",
+          "guideDownloadUrl": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000003706124&fileDetailSn=3",
+          "guideSha256": "4ed2112e2a90e49e88243fa7963ae7d19628aed247b6492bcbae6a947534970e",
+          "guideVersion": "260805",
+          "guideExtract": "raw/sbiz-api-guide-extracted.txt",
+          "evidence": "상가업소 lon/lat response fields are described as WGS84 coordinates in the provider guide. The longitude description repeats 위도, a provider wording typo; the lon/lat field labels and sample values distinguish axes."
+        },
+        "rawLatitude": "37.5326097328313",
+        "rawLongitude": "126.652913215437"
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only"
+      },
+      "factualUseReview": {
+        "batchId": "cheongna-20261013-batch01",
+        "frozenFileSha256": "ac98b3558b7b694814dc935c19bb540e9cc084a33e20ed21231a6e75d4641fe6",
+        "oneMenuFact": {
+          "basis": "limited_individual_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal factual source-card use recommended; not blanket website content reuse approval",
+          "allowedFields": [
+            "one ordinary menu name",
+            "source URL",
+            "source ID",
+            "checked date",
+            "own factual attribution"
+          ],
+          "knownTermsScope": "Identified commercial-use restriction addresses members; its application to this nonlogged-in single-fact observation was not established.",
+          "residualUncertainty": [
+            "",
+            "동 약관은 User를 회원·비회원으로 구분하고 해당 금지의 주체를 Members로 적는다. Ch1 Art2는 회원 동의로 효력 발생을 규정한다. 비회원의 개별 사실 기재에 직접 적용되는지 미확정. 일본어 사이트의 정확한 약관 URL·동일 정책 연결은 확인하지 못했으므로 영문 정책을 일본어 페이지에 확정 적용하지 않음."
+          ],
+          "legalReviewFile": "balanced_minimal_facts_review.json",
+          "reviewedAt": "2026-10-12T23:40:24.700320+00:00"
+        },
+        "releaseDecision": "bounded_factual_source_card_eligible_with_documented_policy_uncertainty"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA010120220809138248:menu:1",
+          "name": "스파이시 쉬림프 파스타",
+          "provenance": {
+            "kind": "official-tourism-place-menu",
+            "sourceUrl": "https://japanese.visitkorea.or.kr/svc/contents/contentsView.do?vcontsId=190421",
+            "sourceRecordIds": {
+              "vcontsId": "190421"
+            },
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-12T23:41:45.850830+00:00",
+            "licenseName": null,
+            "explicitOpenLicense": false,
+            "reuseBasis": "limited-individual-fact-review",
+            "originalName": "スパイシーシュリンプパスタ",
+            "nameRepresentation": "ja-transliteration",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      }
+    }
   }
 ]

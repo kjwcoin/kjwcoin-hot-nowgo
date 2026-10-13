@@ -15,28 +15,30 @@ import {sourceStore} from './fixtures/sourced-stores.mjs';
 
 // Local SDK/DOM mock regression only: execute the actual component effect bodies.
 // This does not load React, a browser, map tiles, live Kakao, a key, or any network.
-// Effect cleanup/remount is driven explicitly, matching a React dependency change.
+// Real dependency arrays drive cleanup/remount versus an in-place data update.
 const component=fs.readFileSync(new URL('../components/kakao-map.tsx',import.meta.url),'utf8');
 const ast=ts.createSourceFile('kakao-map.tsx',component,ts.ScriptTarget.Latest,true,ts.ScriptKind.TSX);
-const effects={};let gate;
+const effects={},dependencies={};let gate,inputDefaults;
 function visit(node){
  if(ts.isVariableDeclaration(node)&&node.name.getText(ast)==='clusteringEnabled')gate=node.initializer.getText(ast);
+ if(ts.isVariableDeclaration(node)&&node.name.getText(ast)==='overlayInputsRef')inputDefaults=node.initializer.arguments[0].getText(ast);
  if(ts.isCallExpression(node)&&node.expression.getText(ast)==='useEffect'){
   const text=node.arguments[0]?.getText(ast)||'';
-  if(text.includes('createStoreOverlayReconciler'))effects.mount=text;
+  if(text.includes('createStoreOverlayReconciler')){effects.mount=text;dependencies.mount=node.arguments[1].getText(ast)}
+  if(text.includes('overlayInputsRef.current=')){effects.inputs=text;dependencies.inputs=node.arguments[1].getText(ast)}
   if(text.includes('sourceIdentityStores.find(store=>store.id===selectedSourceId)'))effects.selection=text;
  }
  ts.forEachChild(node,visit);
 }
 visit(ast);
-assert.ok(effects.mount&&effects.selection&&gate,'Locate the actual layer, selection, and variant-gating implementation');
-const compiled=ts.transpileModule(Object.entries(effects).map(([name,body])=>`exports.${name} = ${body};`).join('\n'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;
+assert.ok(effects.mount&&effects.inputs&&effects.selection&&gate&&inputDefaults,'Locate the actual layer, data update, selection, refs, and variant gating');
+const compiled=ts.transpileModule([...Object.entries(effects).map(([name,body])=>`exports.${name} = ${body};`),...Object.entries(dependencies).map(([name,body])=>`exports.${name}Dependencies = () => (${body});`)].join('\n'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;
 const initialBounds={south:37,north:38,west:126,east:128};
 const report={id:'report-a',placeId:'reported-a',shop:'제보 식당',area:'서울 중구 제보길 1',name:'매운 메뉴',price:12000,heat:2,flavor:'칼칼한',category:'닭발',image:'/photo',lat:37.56,lng:126.99,isDemo:false,description:'회원 제보',verifiedOwner:false,ownerRegistered:false};
 
 function harness(options={}){
  const stats={created:0,removed:0,relayouts:0,centers:[],levels:[],pans:[],focus:[],selected:[],sourceSelected:[]};
- const frames=new Map(),listeners=new Map(),observers=[],live=new Set();let nextFrame=0,cleanup;
+ const frames=new Map(),listeners=new Map(),listenerTargets=new WeakMap(),observers=[],live=new Set();let nextFrame=0,cleanup;
  const dom={activeElement:null,createElement(tag){return new Element(tag)},createElementNS(namespace,tag){return new Element(tag)}};
  class Element{
   constructor(tag){this.tagName=tag.toUpperCase();this.attributes={};this.children=[];this.style={};this.className='';this.isConnected=false;this.textContent='';}
@@ -51,7 +53,7 @@ function harness(options={}){
  const outside=dom.createElement('button');outside.isConnected=true;
  const state={level:options.level??8,bounds:{...initialBounds}};
  function emit(name){for(const callback of [...listeners.get(name)||[]])callback()}
- const map={
+ let map={
   getProjection:()=>({containerPointFromCoords:point=>options.project?options.project(point,state):({x:50+(point.lng-126.98)*10000*2**(8-state.level),y:50+(point.lat-37.55)*10000*2**(8-state.level)})}),
   getBounds:()=>({getSouthWest:()=>({getLat:()=>state.bounds.south,getLng:()=>state.bounds.west}),getNorthEast:()=>({getLat:()=>state.bounds.north,getLng:()=>state.bounds.east})}),
   getLevel:()=>state.level,
@@ -68,13 +70,13 @@ function harness(options={}){
    setMap(value){assert.equal(value,null);if(live.delete(this)){stats.removed++;this.options.content.isConnected=false;if(dom.activeElement===this.options.content)dom.activeElement=dom.body}}
   },
   event:{
-   addListener(target,name,callback){assert.strictEqual(target,map);if(!listeners.has(name))listeners.set(name,new Set());listeners.get(name).add(callback)},
-   removeListener(target,name,callback){assert.strictEqual(target,map);assert.ok(listeners.get(name)?.delete(callback),'Remove the exact registered callback');if(!listeners.get(name).size)listeners.delete(name)},
+   addListener(target,name,callback){assert.strictEqual(target,map);listenerTargets.set(callback,target);if(!listeners.has(name))listeners.set(name,new Set());listeners.get(name).add(callback)},
+   removeListener(target,name,callback){assert.strictEqual(target,listenerTargets.get(callback),'Remove listener from its original map');assert.ok(listeners.get(name)?.delete(callback),'Remove the exact registered callback');if(!listeners.get(name).size)listeners.delete(name)},
   },
  }};
  const sources=options.sources??[sourceStore(1),sourceStore(2)];
  const context={
-  exports:{},mapState:'ready',mapRef:{current:map},kakaoRef:{current:k},overlaysRef:{current:[]},rootRef:{current:{}},canvasRef:{current:canvas},
+  exports:{},mapState:'ready',mapRevision:1,mapRef:{current:map},kakaoRef:{current:k},overlaysRef:{current:[]},rootRef:{current:{}},canvasRef:{current:canvas},overlayInputsRef:{current:null},refreshOverlaysRef:{current:null},
   menus:options.menus??[],sourcedStores:sources,sourceIdentityStores:options.identitySources??sources,
   appLocationBridge:false,selectedId:undefined,selectedSourceId:undefined,sourceSelectionEnabled:options.sourceSelectionEnabled??true,
   sourcePreview:options.sourcePreview??false,previewSourceHeat:undefined,variant:options.variant??'hot',
@@ -89,8 +91,18 @@ function harness(options={}){
   ResizeObserver:class{constructor(callback){this.callback=callback;this.disconnected=false;observers.push(this)}observe(target){this.target=target}disconnect(){this.disconnected=true}},
  };
  vm.createContext(context);vm.runInContext(compiled,context);
- const mount=()=>{context.clusteringEnabled=vm.runInContext(gate,context);cleanup=context.exports.mount()};
- const unmount=()=>{cleanup?.();cleanup=undefined};
+ context.overlayInputsRef.current=vm.runInContext('('+inputDefaults+')',context);
+ let mounted=false,lastInputs,lastMount;
+ const unmount=()=>{cleanup?.();cleanup=undefined;mounted=false};
+ const changed=(previous,next)=>!previous||next.some((value,index)=>!Object.is(value,previous[index]));
+ const mount=()=>{
+  context.clusteringEnabled=vm.runInContext(gate,context);
+  const nextInputs=context.exports.inputsDependencies(),nextMount=context.exports.mountDependencies();
+  if(mounted&&changed(lastMount,nextMount))unmount();
+  if(!mounted||changed(lastInputs,nextInputs))context.exports.inputs();
+  if(!mounted){cleanup=context.exports.mount();mounted=true}
+  lastInputs=nextInputs;lastMount=nextMount;
+ };
  const nodes=()=>[...live].map(overlay=>overlay.options.content);
  const clusters=()=>nodes().filter(node=>node.className.startsWith('map-store-cluster'));
  const singles=()=>nodes().filter(node=>!node.className.startsWith('map-store-cluster'));
@@ -100,8 +112,9 @@ function harness(options={}){
   node.onclick?.(event);return event;
  };
  mount();
- return {stats,state,dom,canvas,outside,map,context,frames,listeners,observers,live,nodes,clusters,singles,emit,flush,click,unmount,
-  update(props){unmount();Object.assign(context,props);mount()},
+ return {stats,state,dom,canvas,outside,get map(){return map},context,frames,listeners,observers,live,nodes,clusters,singles,emit,flush,click,unmount,
+  update(props){Object.assign(context,props);if('sourcedStores' in props&&!('sourceIdentityStores' in props)&&!options.identitySources)context.sourceIdentityStores=props.sourcedStores;mount()},
+  replaceMap(){map={...map};context.mapRef.current=map;context.mapRevision++;mount();return map},
   runSelection(){context.exports.selection()},
  };
 }
@@ -208,4 +221,116 @@ test('SDK/DOM mock: HOT sourcePreview remains unclustered with preview links and
 test('SDK/DOM mock: changing HOT to RICH and back disposes the old mode cleanly',()=>{
  const h=harness();h.emit('idle');h.update({variant:'rich'});assert.equal(h.frames.size,0);assert.equal(h.listeners.size,0);assert.equal(h.clusters().length,0);assert.equal(h.singles().length,2);
  h.update({variant:'hot'});assert.equal(h.clusters().length,1);assert.equal(h.singles().length,0);assert.equal(h.listeners.size,2);h.unmount();assert.equal(h.stats.created,h.stats.removed);
+});
+
+test('SDK/DOM mock: repeated equivalent fresh feeds preserve the exact focused cluster and its listeners',()=>{
+ const sources=[sourceStore(1),sourceStore(2),sourceStore(3),sourceStore(4)],h=harness({sources}),original=h.clusters()[0];
+ original.focus();const listeners=[...h.listeners.values()].flatMap(callbacks=>[...callbacks]);
+ for(let i=0;i<5;i++){
+  const fresh=structuredClone(sources);if(i%2)fresh.reverse();
+  h.update({sourcedStores:fresh});h.emit('idle');h.flush();
+  assert.strictEqual(h.clusters()[0],original);assert.strictEqual(h.dom.activeElement,original);assert.equal(original.isConnected,true);
+ }
+ assert.equal(h.stats.created,1);assert.equal(h.stats.removed,0);assert.equal(h.stats.focus.length,1,'No synthetic refocus on an equivalent refresh');
+ assert.equal(h.observers.length,1);assert.equal(h.stats.relayouts,1);assert.deepEqual([...h.listeners.values()].flatMap(callbacks=>[...callbacks]),listeners);
+ h.click(original,0);h.flush();assert.ok(h.clusters().includes(h.dom.activeElement),'The retained cluster still supports keyboard zoom');
+ h.unmount();assert.equal(h.live.size,0);assert.equal(h.listeners.size,0);
+});
+
+test('SDK/DOM mock: equivalent source and reported pins keep real focus but select the fresh records',()=>{
+ const source=sourceStore(1),h=harness({level:4,sources:[source],menus:[{...report}]}),[link,button]=[h.singles().find(node=>node.tagName==='A'),h.singles().find(node=>node.tagName==='BUTTON')];
+ const fresh=structuredClone(source);link.focus();h.update({sourcedStores:[fresh],menus:[{...report}]});
+ assert.ok(h.singles().includes(link));assert.strictEqual(h.dom.activeElement,link);h.click(link);assert.strictEqual(h.stats.sourceSelected.at(-1),fresh);
+ button.focus();h.update({sourcedStores:[structuredClone(source)],menus:[{...report}]});assert.ok(h.singles().includes(button));assert.strictEqual(h.dom.activeElement,button);
+ let selected;h.context.callbacksRef.current.onSelect=menu=>{selected=menu};h.click(button);assert.equal(selected.id,report.id);assert.equal(selected.reportCount,1);
+ assert.equal(h.stats.created,2);assert.equal(h.stats.focus.length,2);h.unmount();
+});
+
+test('SDK/DOM mock: same-source identity changes replace coordinates, claims, names, menus, and selected state immediately',()=>{
+ const initial=sourceStore(1,{ownerClaimVerified:true,ownership:'verified',pinStatus:'owner-verified'}),h=harness({level:4,sources:[initial]});
+ let previous=h.singles()[0];previous.focus();assert.match(previous.className,/sourced-verified/);
+ const fresh=structuredClone(initial);Object.assign(fresh,{name:'새 자료명',ownerClaimVerified:false,ownership:'unclaimed',pinStatus:'gray',coordinates:{lat:37.62,lon:127.04}});
+ fresh.menus[0]={...fresh.menus[0],name:'새 메뉴',price:15000,heat:4};
+ h.update({sourcedStores:[fresh],selectedSourceId:fresh.id});const link=h.singles()[0];
+ assert.notStrictEqual(link,previous);assert.equal(previous.isConnected,false);assert.strictEqual(h.dom.activeElement,link);
+ assert.doesNotMatch(link.className,/sourced-verified/);assert.match(link.className,/selected/);assert.equal(link.getAttribute('aria-current'),'true');assert.match(link.getAttribute('aria-label'),/새 자료명/);
+ const overlay=[...h.live][0];assert.equal(overlay.options.position.lat,37.62);assert.equal(overlay.options.position.lng,127.04);
+ h.click(link);assert.strictEqual(h.stats.sourceSelected.at(-1),fresh);assert.equal(h.stats.sourceSelected.at(-1).menus[0].price,15000);
+ previous=link;h.update({sourceSelectionEnabled:false});assert.equal(previous.isConnected,false);assert.equal(h.singles()[0].onclick,undefined);assert.equal(h.singles()[0].target,'_blank');h.unmount();
+});
+
+test('SDK/DOM mock: same-report identity refresh cannot retain old heat, price, ownership, coordinates, or selection',()=>{
+ const initial={...report,verifiedOwner:true,ownerClaimVerified:true},h=harness({level:4,sources:[],menus:[initial]}),old=h.singles()[0];old.focus();
+ const fresh={...report,name:'새 제보 메뉴',price:19000,heat:5,lat:37.61,lng:127.05};h.update({menus:[fresh],selectedId:fresh.id});const button=h.singles()[0];
+ assert.notStrictEqual(button,old);assert.equal(old.isConnected,false);assert.strictEqual(h.dom.activeElement,button);assert.match(button.className,/map-anchor--reported/);assert.match(button.className,/selected/);
+ assert.match(button.getAttribute('aria-label'),/새 제보 메뉴/);assert.match(button.getAttribute('aria-label'),/19,000원/);assert.doesNotMatch(button.getAttribute('aria-label'),/소유권 확인 매장/);assert.equal(button.children[0].style.backgroundPosition,'100% 0%');
+ const position=[...h.live][0].options.position;assert.equal(position.lat,37.61);assert.equal(position.lng,127.05);
+ h.click(button);assert.equal(h.stats.selected.at(-1).heat,5);assert.equal(h.stats.selected.at(-1).verifiedOwner,false);assert.equal(h.stats.selected.at(-1).price,19000);h.unmount();
+});
+
+test('SDK/DOM mock: refreshed cluster seed coordinates and membership use the current data',()=>{
+ const sources=[sourceStore(1),sourceStore(2)],h=harness({sources}),original=h.clusters()[0];original.focus();
+ const moved=sources.map(source=>({...source,coordinates:{lat:source.coordinates.lat+.01,lon:source.coordinates.lon+.01}}));h.update({sourcedStores:moved});const changed=h.clusters()[0];
+ assert.notStrictEqual(changed,original);assert.equal(original.isConnected,false);assert.strictEqual(h.dom.activeElement,changed);
+ const position=[...h.live][0].options.position;assert.equal(position.lat,moved[0].coordinates.lat);assert.equal(position.lng,moved[0].coordinates.lon);
+ h.click(changed,1);assert.equal(h.stats.centers.at(-1).lat,moved[0].coordinates.lat);h.flush();
+ const extra=sourceStore(3,{coordinates:{lat:moved[0].coordinates.lat,lon:moved[0].coordinates.lon}});h.update({sourcedStores:[...moved,extra]});assert.equal(h.clusters()[0].textContent,'3');
+ h.map.setLevel(4);h.flush();h.click(h.singles()[0]);assert.ok([...moved,extra].includes(h.stats.sourceSelected.at(-1)));h.unmount();
+});
+
+test('SDK/DOM mock: fresh data and pending keyboard redraws never steal focus from an outside control',()=>{
+ const h=harness({level:6}),cluster=h.clusters()[0];cluster.focus();h.click(cluster,0);h.outside.focus();h.flush();assert.strictEqual(h.dom.activeElement,h.outside);
+ const calls=h.stats.focus.length;h.update({sourcedStores:[sourceStore(1,{name:'변경된 이름'})]});assert.strictEqual(h.dom.activeElement,h.outside);
+ h.update({sourcedStores:[]});assert.strictEqual(h.dom.activeElement,h.outside);assert.equal(h.stats.focus.length,calls);assert.equal(h.live.size,0);h.unmount();
+});
+
+test('SDK/DOM mock: focus moved to another disappearing overlay before keyboard redraw falls back to the canvas',()=>{
+ const h=harness({level:6,sources:[sourceStore(1),sourceStore(2),sourceStore(10),sourceStore(11)]});assert.equal(h.clusters().length,2);
+ const [first,second]=h.clusters();first.focus();h.click(first,0);second.focus();h.flush();
+ assert.equal(second.isConnected,false);assert.strictEqual(h.dom.activeElement,h.canvas);assert.ok(h.stats.focus.every(call=>call.connected));h.unmount();
+});
+
+test('SDK/DOM mock: removed or failed feeds drop focused nodes, focus the canvas, and never resurrect old focus',()=>{
+ for(const level of [4,8]){
+  const sources=[sourceStore(1),sourceStore(2)],h=harness({sources,level}),old=h.nodes()[0];old.focus();h.emit('idle');
+  // useSourcedStores exposes an empty public source input after a failed refresh.
+  h.update({sourcedStores:[],sourceIdentityStores:[]});assert.equal(h.frames.size,0);assert.equal(h.live.size,0);assert.equal(old.isConnected,false);assert.strictEqual(h.dom.activeElement,h.canvas);
+  assert.equal(h.context.overlaysRef.current.length,0);h.click(old);assert.equal(h.stats.sourceSelected.length,0,'A retained JS reference cannot select a removed source');
+  h.update({sourcedStores:structuredClone(sources)});assert.strictEqual(h.dom.activeElement,h.canvas,'Newly returned data does not revive abandoned overlay focus');
+  assert.ok(!h.nodes().includes(old));h.unmount();
+ }
+ const h=harness({level:4,sources:[],menus:[{...report}]}),old=h.singles()[0];old.focus();h.update({menus:[]});assert.strictEqual(h.dom.activeElement,h.canvas);h.click(old);assert.equal(h.stats.selected.length,0);h.unmount();
+});
+
+test('SDK/DOM mock: changed preview heat refreshes a same-ID pin without carrying the old annotation',()=>{
+ const store=sourceStore(1),h=harness({sources:[store],sourcePreview:true,sourceSelectionEnabled:false}),initial=h.singles()[0];initial.focus();
+ const preview={scope:'preview-local',storeId:store.id,menuId:store.menus[0].id,menuName:store.menus[0].name,medianHeat:2,myHeat:2,sampleCount:1};
+ h.update({previewSourceHeat:preview});const first=h.singles()[0];assert.notStrictEqual(first,initial);assert.match(first.getAttribute('aria-label'),/중앙값 2\/5/);assert.strictEqual(h.dom.activeElement,first);
+ h.update({previewSourceHeat:{...preview,medianHeat:5,myHeat:5}});assert.match(h.singles()[0].getAttribute('aria-label'),/중앙값 5\/5/);assert.doesNotMatch(h.singles()[0].getAttribute('aria-label'),/중앙값 2\/5/);h.unmount();
+});
+
+test('SDK/DOM mock: unmount after fresh data clears the layer ref, cancels pending work, and never restores focus',()=>{
+ const h=harness();h.clusters()[0].focus();h.update({sourcedStores:[sourceStore(1),sourceStore(2)]});h.emit('idle');
+ const lateUpdate=h.context.refreshOverlaysRef.current,lateCallbacks=[...h.frames.values(),...[...h.listeners.values()].flatMap(callbacks=>[...callbacks])],calls=h.stats.focus.length;
+ h.unmount();assert.strictEqual(h.context.refreshOverlaysRef.current,null);assert.equal(h.context.overlaysRef.current.length,0);assert.equal(h.frames.size,0);assert.equal(h.listeners.size,0);assert.equal(h.live.size,0);assert.strictEqual(h.dom.activeElement,h.dom.body);
+ lateUpdate();for(const callback of lateCallbacks)callback();assert.equal(h.stats.focus.length,calls);assert.equal(h.frames.size,0);assert.equal(h.live.size,0);assert.equal(h.stats.created,h.stats.removed);
+});
+
+test('SDK/DOM mock: an already-ready replacement map gets a fresh layer and old map callbacks cannot redraw',()=>{
+ assert.match(component,/mapRef\.current=map;\s*setMapRevision\(revision=>revision\+1\)/);
+ const h=harness(),old=h.clusters()[0],oldMap=h.map,lateUpdate=h.context.refreshOverlaysRef.current;old.focus();h.emit('idle');const lateFrame=[...h.frames.values()][0];
+ const nextMap=h.replaceMap();assert.notStrictEqual(nextMap,oldMap);assert.equal(h.context.mapState,'ready');assert.equal(old.isConnected,false);assert.notStrictEqual(h.clusters()[0],old);
+ assert.ok([...h.live].every(overlay=>overlay.options.map===nextMap));assert.equal(h.frames.size,0);assert.equal(h.listeners.size,2);assert.equal(h.observers.length,2);assert.equal(h.observers[0].disconnected,true);
+ const created=h.stats.created;lateUpdate();lateFrame();assert.equal(h.stats.created,created);assert.strictEqual(h.dom.activeElement,h.dom.body,'A map replacement does not restore abandoned overlay focus');h.unmount();
+});
+
+test('SDK/DOM mock: retry gaps and ready/error/remount cycles cannot draw onto the old map',()=>{
+ const h=harness(),lateUpdate=h.context.refreshOverlaysRef.current;h.emit('idle');const lateFrame=[...h.frames.values()][0],created=h.stats.created;
+ // Match map initialization cleanup before a replacement SDK map is available.
+ h.context.overlaysRef.current.forEach(overlay=>overlay.setMap(null));h.context.mapRef.current=null;
+ h.update({sourcedStores:[sourceStore(3),sourceStore(4)]});lateUpdate();h.flush();lateFrame();assert.equal(h.live.size,0);assert.equal(h.stats.created,created);
+ h.update({mapState:'error'});assert.equal(h.listeners.size,0);assert.equal(h.frames.size,0);assert.strictEqual(h.context.refreshOverlaysRef.current,null);
+ h.update({mapState:'loading'});h.replaceMap();assert.equal(h.live.size,0);h.update({mapState:'ready'});assert.equal(h.clusters().length,1);assert.ok([...h.live].every(overlay=>overlay.options.map===h.map));
+ h.update({sourcePreview:true});assert.equal(h.clusters().length,0);assert.equal(h.singles().length,2);assert.equal(h.listeners.size,0);
+ h.update({sourcePreview:false});assert.equal(h.clusters().length,1);assert.equal(h.listeners.size,2);h.unmount();assert.equal(h.stats.created,h.stats.removed);
 });

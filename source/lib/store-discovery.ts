@@ -14,6 +14,12 @@ export function publicHotHost(host: string | null) {
 
 /** These dates describe the source, never current opening/menu availability. */
 export function sourceFactsNotice(store: PublicSourcedStore): string {
+  const fields=store.source.fieldProvenance;
+  if(fields){
+    const checkedDate=(value:string)=>new Date(value).toISOString().slice(0,10);
+    const menu=store.menus[0]?.provenance;
+    return `상호·주소 자료 기준일 ${fields.registration.asOf} · 좌표 자료 기준일 ${fields.coordinates.asOf} · 관광자료 메뉴 기준일 미제공. 상호·주소 출처 확인일 ${checkedDate(fields.registration.checkedAt)} (UTC) · 좌표 출처 확인일 ${checkedDate(fields.coordinates.checkedAt)} (UTC) · 메뉴 출처 확인일 ${menu?checkedDate(menu.checkedAt):'미제공'} (UTC). 출처 확인일은 영업·메뉴 현황 확인일이 아닙니다. 가격·맵기·사진·현재 영업 및 메뉴 판매 여부는 확인되지 않았습니다.`;
+  }
   const asOf = store.source.asOf ? `자료 기준일 ${store.source.asOf}` : '자료 기준일 미제공';
   return `${asOf} · 출처 확인일 ${store.source.checkedAt.slice(0, 10)}. 출처 확인일은 영업·메뉴 현황 확인일이 아닙니다. 가격·맵기·사진·현재 영업 및 메뉴 판매 여부는 확인되지 않았습니다.`;
 }

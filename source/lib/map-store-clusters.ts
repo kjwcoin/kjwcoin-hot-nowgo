@@ -82,15 +82,20 @@ export function storeClusterButton(count:number,onZoom:(keyboard:boolean)=>void,
 }
 
 /** Mount only displayed overlays, retain unchanged ones, and remove stale overlays. */
-export function createStoreOverlayReconciler<T extends {setMap:(map:null)=>void}>(create:(display:StoreMapDisplay)=>T|null){
+export function createStoreOverlayReconciler<T extends {setMap:(map:null)=>void}>(create:(display:StoreMapDisplay)=>T|null,revision:(display:StoreMapDisplay)=>string=display=>display.key){
  const overlays=new Map<string,T>();
+ const revisions=new Map<string,string>();
  return {
   update(displays:readonly StoreMapDisplay[]):T[]{
    const next=new Set(displays.map(display=>display.key));
-   for(const [key,overlay] of overlays)if(!next.has(key)){overlay.setMap(null);overlays.delete(key)}
-   for(const display of displays)if(!overlays.has(display.key)){const overlay=create(display);if(overlay)overlays.set(display.key,overlay)}
+   for(const [key,overlay] of overlays)if(!next.has(key)){overlay.setMap(null);overlays.delete(key);revisions.delete(key)}
+   for(const display of displays){
+    const current=revision(display);
+    if(overlays.has(display.key)&&revisions.get(display.key)!==current){overlays.get(display.key)!.setMap(null);overlays.delete(display.key);revisions.delete(display.key)}
+    if(!overlays.has(display.key)){const overlay=create(display);if(overlay){overlays.set(display.key,overlay);revisions.set(display.key,current)}}
+   }
    return [...overlays.values()];
   },
-  dispose(){for(const overlay of overlays.values())overlay.setMap(null);overlays.clear()},
+  dispose(){for(const overlay of overlays.values())overlay.setMap(null);overlays.clear();revisions.clear()},
  };
 }

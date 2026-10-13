@@ -1,7 +1,20 @@
 import {sourceReportingState,type HotReportingState} from './hot-reporting-phase.ts';
 /** Public, non-owner facts only. Never convert this into a consumer Report/Menu. */
 export type SourceTaste = {description:string;preparationTraits:string[];choiceOffered:boolean;sourceUrl:string;sourceAsOf:string|null;checkedAt:string;licenseName:string;publicDisplayAllowed:true};
-export type SourcedMenu = { id: string; name: string; price: null; heat: null; image: null; sourceTaste?:SourceTaste|null };
+export type SourceFieldAttribution = {url:string;asOf:string;checkedAt:string};
+export type SourceFieldProvenance = {
+  licenseScope:'identity-location-only';
+  registration:SourceFieldAttribution & {nativeRecordId:null};
+  coordinates:SourceFieldAttribution & {nativeRecordId:string};
+};
+/** A bounded individual fact assessment is not an open licence for a tourism website. */
+export type MenuFactProvenance = {
+  kind:'official-tourism-place-menu';sourceUrl:string;sourceRecordIds:Record<string,string>;
+  sourceAsOf:null;checkedAt:string;licenseName:null;explicitOpenLicense:false;
+  reuseBasis:'limited-individual-fact-review';originalName:string;
+  nameRepresentation:'original'|'ja-transliteration';currentAvailability:null;priceAsOf:null;
+};
+export type SourcedMenu = { id: string; name: string; price: null; heat: null; image: null; sourceTaste?:SourceTaste|null;provenance?:MenuFactProvenance };
 export type PublicSourcedStore = {
   id: string; slug: string; sourceRef: string; name: string; address: string;
   coordinates: { lat: number; lon: number } | null;
@@ -11,7 +24,7 @@ export type PublicSourcedStore = {
   registrationState?: 'database'|'source-only';
   ownership: 'unclaimed' | 'verified'; ownerClaimVerified: boolean; pinStatus: 'gray' | 'owner-verified';
   operatingStatus: null; currentMenuAvailability: null;
-  source: { url: string; licenseName: string; asOf: string | null; checkedAt: string };
+  source: { url: string; licenseName: string; asOf: string | null; checkedAt: string;fieldProvenance?:SourceFieldProvenance };
 };
 export type SourcedStoreRow = {
   id: unknown; slug: unknown; name: unknown; address: unknown; owner_id: unknown;
@@ -23,6 +36,35 @@ export const STORE_UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9
 const record = (value: unknown): Record<string, unknown> | null =>
   value !== null && typeof value === 'object' && !Array.isArray(value) ? value as Record<string, unknown> : null;
 const nonempty = (value: unknown, max: number): value is string => typeof value === 'string' && value.trim().length > 0 && value.length <= max;
+const dateOnly=(value:unknown):value is string=>typeof value==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(value)&&Number.isFinite(Date.parse(value))&&new Date(value).toISOString().slice(0,10)===value;
+const timestamp=(value:unknown):value is string=>typeof value==='string'&&Number.isFinite(Date.parse(value));
+const onlyKeys=(row:Record<string,unknown>,keys:readonly string[])=>Object.keys(row).every(key=>keys.includes(key));
+const REGISTRATION_URL='https://www.data.go.kr/data/15047498/fileData.do';
+const COORDINATE_URL='https://www.data.go.kr/data/15083033/fileData.do';
+// This review covers exactly two observations, not arbitrary tourism pages or collection.
+const REVIEWED_MENU_FACTS:Record<string,{name:string;originalName:string;sourceUrl:string;sourceRecordIds:Record<string,string>;nameRepresentation:MenuFactProvenance['nameRepresentation']}>= {
+ 'data-go-kr-15083033-MA010120220802577654':{name:'매운묵은지등갈비찜',originalName:'매운묵은지등갈비찜',sourceUrl:'https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=1dffc549-f2dc-4292-b9eb-baf6f031d3ca',sourceRecordIds:{cotid:'1dffc549-f2dc-4292-b9eb-baf6f031d3ca',contentid:'2878004'},nameRepresentation:'original'},
+ 'data-go-kr-15083033-MA010120220809138248':{name:'스파이시 쉬림프 파스타',originalName:'スパイシーシュリンプパスタ',sourceUrl:'https://japanese.visitkorea.or.kr/svc/contents/contentsView.do?vcontsId=190421',sourceRecordIds:{vcontsId:'190421'},nameRepresentation:'ja-transliteration'},
+};
+function parseFieldProvenance(value:unknown,sourceRef:string,sourceUrl:string,asOf:unknown,checkedAt:string):SourceFieldProvenance|null|undefined{
+ if(value===undefined)return null;
+ const row=record(value),registration=record(row?.registration),coordinates=record(row?.coordinates);
+ if(!row||!registration||!coordinates||!onlyKeys(row,['licenseScope','registration','coordinates'])||row.licenseScope!=='identity-location-only'||
+  !onlyKeys(registration,['url','asOf','checkedAt','nativeRecordId'])||!onlyKeys(coordinates,['url','asOf','checkedAt','nativeRecordId'])||
+  sourceUrl!==REGISTRATION_URL||registration.url!==REGISTRATION_URL||registration.asOf!==asOf||registration.checkedAt!==checkedAt||registration.nativeRecordId!==null||
+  coordinates.url!==COORDINATE_URL||typeof coordinates.nativeRecordId!=='string'||!/^MA\d{18}$/.test(coordinates.nativeRecordId)||sourceRef!=='data-go-kr-15083033-'+coordinates.nativeRecordId||
+  !dateOnly(registration.asOf)||!dateOnly(coordinates.asOf)||!timestamp(registration.checkedAt)||!timestamp(coordinates.checkedAt))return undefined;
+ return{licenseScope:'identity-location-only',registration:{url:REGISTRATION_URL,asOf:registration.asOf,checkedAt:registration.checkedAt,nativeRecordId:null},coordinates:{url:COORDINATE_URL,asOf:coordinates.asOf,checkedAt:coordinates.checkedAt,nativeRecordId:coordinates.nativeRecordId}};
+}
+function parseMenuProvenance(value:unknown,sourceRef:string,name:string):MenuFactProvenance|null|undefined{
+ if(value===undefined)return null;
+ const row=record(value),expected=REVIEWED_MENU_FACTS[sourceRef],ids=record(row?.sourceRecordIds);
+ if(!row||!expected||!ids||!onlyKeys(row,['kind','sourceUrl','sourceRecordIds','sourceAsOf','checkedAt','licenseName','explicitOpenLicense','reuseBasis','originalName','nameRepresentation','currentAvailability','priceAsOf'])||
+  row.kind!=='official-tourism-place-menu'||name!==expected.name||row.sourceUrl!==expected.sourceUrl||row.originalName!==expected.originalName||row.nameRepresentation!==expected.nameRepresentation||
+  Object.keys(ids).length!==Object.keys(expected.sourceRecordIds).length||Object.entries(expected.sourceRecordIds).some(([key,value])=>ids[key]!==value)||
+  row.sourceAsOf!==null||!timestamp(row.checkedAt)||row.licenseName!==null||row.explicitOpenLicense!==false||row.reuseBasis!=='limited-individual-fact-review'||row.currentAvailability!==null||row.priceAsOf!==null)return undefined;
+ return{kind:'official-tourism-place-menu',sourceUrl:expected.sourceUrl,sourceRecordIds:{...expected.sourceRecordIds},sourceAsOf:null,checkedAt:row.checkedAt,licenseName:null,explicitOpenLicense:false,reuseBasis:'limited-individual-fact-review',originalName:expected.originalName,nameRepresentation:expected.nameRepresentation,currentAvailability:null,priceAsOf:null};
+}
 /** Textual source statements are never numeric customer evaluations. */
 export function parseSourceTaste(value:unknown,sourceUrl:string,licenseName:string):SourceTaste|null|undefined{
  if(value===undefined||value===null)return null;
@@ -37,23 +79,27 @@ export function publicSourcedStore(row: SourcedStoreRow): PublicSourcedStore | n
     typeof row.owner_penalty_points !== 'number' || row.owner_penalty_points >= 30 ||
     !['DISCOVERED', 'NOINDEX', 'PUBLISHED'].includes(String(row.publication_state)) ||
     typeof row.id !== 'string' || !STORE_UUID.test(row.id) ||
-    typeof row.source_ref !== 'string' || !/^data-go-kr-\d+-\d+$/.test(row.source_ref) ||
+    typeof row.source_ref !== 'string' || !/^data-go-kr-(?:\d+-\d+|15083033-MA\d{18})$/.test(row.source_ref) ||
     typeof row.slug !== 'string' || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(row.slug) || row.slug.length > 80 ||
     !nonempty(row.name, 100) || !nonempty(row.address, 300) || !nonempty(meta.licenseName, 100) ||
     typeof meta.sourceUrl !== 'string' || !/^https:\/\/www\.data\.go\.kr\/data\/\d+\/fileData\.do$/.test(meta.sourceUrl) ||
     typeof meta.checkedAt !== 'string' || !Number.isFinite(Date.parse(meta.checkedAt)) ||
     !(meta.sourceAsOf === null || typeof meta.sourceAsOf === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(meta.sourceAsOf)) ||
     !Array.isArray(meta.menus)) return null;
+  const fieldProvenance=parseFieldProvenance(meta.fieldProvenance,row.source_ref,meta.sourceUrl,meta.sourceAsOf,meta.checkedAt);
+  const isMixedRights=/^data-go-kr-15083033-MA/.test(row.source_ref);
+  if(fieldProvenance===undefined||isMixedRights!==Boolean(fieldProvenance)||isMixedRights&&(!REVIEWED_MENU_FACTS[row.source_ref]||rights.scope!=='identity-location-only'||meta.licenseName!=='이용허락범위 제한 없음'||meta.menus.length!==1))return null;
   const menus: SourcedMenu[] = [], ids = new Set<string>();
   for (const value of meta.menus) {
     const menu = record(value);
     if (!menu || typeof menu.id !== 'string' || !menu.id.startsWith(row.source_ref + ':menu:') ||
-      !/^[a-z0-9:-]{1,120}$/.test(menu.id) || ids.has(menu.id) || !nonempty(menu.name, 100)) return null;
+      !(/^[a-z0-9:-]{1,120}$/.test(menu.id)||isMixedRights&&menu.id===row.source_ref+':menu:1') || ids.has(menu.id) || !nonempty(menu.name, 100)) return null;
     ids.add(menu.id);
     const sourceTaste=parseSourceTaste(menu.sourceTaste,meta.sourceUrl,meta.licenseName);
-    if(sourceTaste===undefined)return null;
+    const provenance=parseMenuProvenance(menu.provenance,row.source_ref,menu.name);
+    if(sourceTaste===undefined||provenance===undefined||isMixedRights!==Boolean(provenance)||provenance&&sourceTaste)return null;
     // Source descriptions never create a numeric score, price, media asset or vote.
-    menus.push({ id: menu.id, name: menu.name, price: null, heat: null, image: null, sourceTaste });
+    menus.push({ id: menu.id, name: menu.name, price: null, heat: null, image: null, sourceTaste,...(provenance?{provenance}:{}) });
   }
   if (!menus.length || menus.length > 50) return null;
   const coordinates = typeof row.lat === 'number' && typeof row.lon === 'number' &&
@@ -63,7 +109,7 @@ export function publicSourcedStore(row: SourcedStoreRow): PublicSourcedStore | n
     id: row.id, slug: row.slug, sourceRef: row.source_ref, name: row.name, address: row.address,
     coordinates, menus, reportingState: sourceReportingState(row.source_metadata), indexable: row.publication_state==='DISCOVERED'||row.publication_state==='PUBLISHED', ownership: 'unclaimed', ownerClaimVerified: false, pinStatus: 'gray', operatingStatus: null,
     currentMenuAvailability: null,
-    source: { url: meta.sourceUrl, licenseName: meta.licenseName, asOf: meta.sourceAsOf as string | null, checkedAt: meta.checkedAt },
+    source: { url: meta.sourceUrl, licenseName: meta.licenseName, asOf: meta.sourceAsOf as string | null, checkedAt: meta.checkedAt,...(fieldProvenance?{fieldProvenance}:{}) },
   };
 }
 export function sourcedStoreClaimPath(storeId: string) {
@@ -93,8 +139,8 @@ export function parseSourcedStoreFeed(value:unknown):PublicSourcedStoreFeed{
     Number.isFinite(coordinates.lat)&&Number.isFinite(coordinates.lon)&&coordinates.lat>=33&&coordinates.lat<=39.6&&coordinates.lon>=124&&coordinates.lon<=132))throw Error('invalid_source_store');
   const facts=publicSourcedStore({id:item.id,slug:item.slug,name:item.name,address:item.address,owner_id:null,
    lat:coordinates?.lat??null,lon:coordinates?.lon??null,archived_at:null,trust_disabled_at:null,owner_penalty_points:0,
-   publication_state:'DISCOVERED',source_ref:item.sourceRef,source_metadata:{planet:'hot',rights:{publicDisplay:true,factsStorage:true},
-    reporting:{state:item.reportingState},licenseName:source.licenseName,sourceUrl:source.url,sourceAsOf:source.asOf,checkedAt:source.checkedAt,menus:item.menus}});
+   publication_state:'DISCOVERED',source_ref:item.sourceRef,source_metadata:{planet:'hot',rights:{publicDisplay:true,factsStorage:true,...(source.fieldProvenance?{scope:'identity-location-only'}:{})},
+    reporting:{state:item.reportingState},licenseName:source.licenseName,sourceUrl:source.url,sourceAsOf:source.asOf,checkedAt:source.checkedAt,fieldProvenance:source.fieldProvenance,menus:item.menus}});
   if(!facts)throw Error('invalid_source_store');
   const store:PublicSourcedStore={...facts,indexable:item.indexable===true,...(item.registrationState==='source-only'?{registrationState:'source-only' as const}:{}),ownership:item.ownership as PublicSourcedStore['ownership'],ownerClaimVerified:item.ownerClaimVerified as boolean,pinStatus:item.pinStatus as PublicSourcedStore['pinStatus']};
   const previous=stores.get(store.id);

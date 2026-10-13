@@ -80,6 +80,8 @@ export default function KakaoMap({menus,sourcedStores=EMPTY_SOURCES,sourceIdenti
  const mapRef=useRef<any>(null);
  const kakaoRef=useRef<any>(null);
  const overlaysRef=useRef<any[]>([]);
+ const overlayInputsRef=useRef({menus,sourcedStores,sourceIdentityStores,selectedId,selectedSourceId,sourceSelectionEnabled,variant,appLocationBridge,sourcePreview,previewSourceHeat});
+ const refreshOverlaysRef=useRef<(()=>void)|null>(null);
  const userMarkerRef=useRef<any>(null);
  const addressMarkerRef=useRef<any>(null);
  const userPointRef=useRef<GeoPoint|null>(null);
@@ -89,6 +91,7 @@ export default function KakaoMap({menus,sourcedStores=EMPTY_SOURCES,sourceIdenti
  const locationRequestRef=useRef(0);
  const locationBusyRef=useRef(false);
  const [mapState,setMapState]=useState<'loading'|'ready'|'setup'|'error'>('loading');
+ const [mapRevision,setMapRevision]=useState(0);
  const [tileFailed,setTileFailed]=useState(false);
  const [viewportCount,setViewportCount]=useState<ViewportCountState>({status:'loading'});
  const [hasUserPoint,setHasUserPoint]=useState(false);
@@ -168,6 +171,7 @@ export default function KakaoMap({menus,sourcedStores=EMPTY_SOURCES,sourceIdenti
     // Neutral inland placeholder only while waiting for the visitor's own GPS fix.
     const map=new k.maps.Map(canvasRef.current,{center:new k.maps.LatLng(initialLat,initialLng),level:NEIGHBORHOOD_LEVEL});
     mapRef.current=map;
+    setMapRevision(revision=>revision+1);
     map.addControl(new k.maps.ZoomControl(),k.maps.ControlPosition.RIGHT);
     if(callbacksRef.current.onPoint)k.maps.event.addListener(map,'click',(event:any)=>{
      const lat=event.latLng.getLat(),lng=event.latLng.getLng();
@@ -195,17 +199,24 @@ export default function KakaoMap({menus,sourcedStores=EMPTY_SOURCES,sourceIdenti
  },[fullScreen,mapAttempt,requestLocation,showNearby,initialLat,initialLng]);
 
  useEffect(()=>{
+  overlayInputsRef.current={menus,sourcedStores,sourceIdentityStores,selectedId,selectedSourceId,sourceSelectionEnabled,variant,appLocationBridge,sourcePreview,previewSourceHeat};
+  refreshOverlaysRef.current?.();
+ },[menus,sourcedStores,sourceIdentityStores,selectedId,selectedSourceId,sourceSelectionEnabled,variant,appLocationBridge,sourcePreview,previewSourceHeat]);
+
+ useEffect(()=>{
   if(mapState!=='ready'||!mapRef.current||!kakaoRef.current)return;
   const k=kakaoRef.current,map=mapRef.current;
   overlaysRef.current.forEach(overlay=>overlay.setMap(null));
-  const groups=mapStoreGroups(menus.filter(menu=>(!appLocationBridge||menu.isDemo===false)&&isKoreanCoordinate(menu.lat,menu.lng)),sourcedStores,sourceIdentityStores).filter(group=>group.catalog||group.source?.coordinates);
-  const points=positionedStoreGroups(groups,selectedId);
+  let points:ReturnType<typeof positionedStoreGroups>=[];
+  const pointByKey=new Map<string,(typeof points)[number]>();
   const contentByKey=new Map<string,HTMLElement>();
   let keyboardMembers:Set<string>|null=null;
+  let keyboardOrigin:HTMLElement|null=null;
   const layer=createStoreOverlayReconciler(display=>{
+   const {selectedId,selectedSourceId,sourceSelectionEnabled,variant,sourcePreview,previewSourceHeat}=overlayInputsRef.current;
    if(display.kind==='cluster'){
     const position=new k.maps.LatLng(display.lat,display.lng);
-    const button=storeClusterButton(display.count,keyboard=>{keyboardMembers=keyboard?new Set(display.members.map(point=>point.key)):null;map.setCenter(position);map.setLevel(clusterZoomLevel(map.getLevel()))});
+    const button=storeClusterButton(display.count,keyboard=>{keyboardMembers=keyboard?new Set(display.members.map(point=>point.key)):null;keyboardOrigin=keyboard?button:null;map.setCenter(position);map.setLevel(clusterZoomLevel(map.getLevel()))});
     contentByKey.set(display.key,button);
     return new k.maps.CustomOverlay({map,position,content:button,xAnchor:.5,yAnchor:.5,clickable:true,zIndex:1});
    }
@@ -213,7 +224,7 @@ export default function KakaoMap({menus,sourcedStores=EMPTY_SOURCES,sourceIdenti
    if(sourceIsPrimaryPin(group)&&group.source?.coordinates){
     const store=group.source,link=sourcedStoreMarker(store);
     if(sourcePreview){link.href='/p/'+encodeURIComponent(store.slug)+'?preview=source';link.removeAttribute('target')}
-    bindSourceMarkerSelection(link,store,sourceSelectionEnabled?value=>callbacksRef.current.onSourceSelect?.(value):undefined,selectedSourceId===store.id);
+    bindSourceMarkerSelection(link,store,sourceSelectionEnabled?()=>{const current=pointByKey.get(display.point.key)?.group.source;if(current)callbacksRef.current.onSourceSelect?.(current)}:undefined,selectedSourceId===store.id);
     if(sourcePreview)appendPreviewMarkerHeat(link,store,previewSourceHeat);
     contentByKey.set(display.key,link);
     return new k.maps.CustomOverlay({map,position:new k.maps.LatLng(store.coordinates!.lat,store.coordinates!.lon),content:link,yAnchor:1.2});
@@ -234,13 +245,19 @@ export default function KakaoMap({menus,sourcedStores=EMPTY_SOURCES,sourceIdenti
    price.textContent=money(menu.price);
    if(variant==='hot'){const note=document.createElement('small');note.className='map-anchor-heat-kind';note.textContent=menu.isDemo?'예시 맵기':menu.verifiedOwner?'점주 안내 맵기':'개별 제보 맵기';price.append(note)}
    button.append(pin,price);
-   button.onclick=()=>callbacksRef.current.onSelect(menu);
+   button.onclick=()=>{const current=pointByKey.get(display.point.key)?.group.catalog;if(current)callbacksRef.current.onSelect(storePinMenu(current,overlayInputsRef.current.selectedId))};
    contentByKey.set(display.key,button);
    return new k.maps.CustomOverlay({map,position:new k.maps.LatLng(menu.lat,menu.lng),content:button,yAnchor:1.2});
+  },display=>{
+   // Keep real DOM focus on equivalent feed refreshes. Any changed pin data,
+   // ownership, selection, or preview state must replace its old representation.
+   if(display.kind==='cluster')return JSON.stringify([display.lat,display.lng,display.count]);
+   const {selectedId,selectedSourceId,sourceSelectionEnabled,variant,sourcePreview,previewSourceHeat}=overlayInputsRef.current;
+   return JSON.stringify([display.point,selectedId,selectedSourceId,sourceSelectionEnabled,variant,sourcePreview,previewSourceHeat]);
   });
   let frame=0,disposed=false;
   const draw=()=>{
-   frame=0;if(disposed)return;
+   frame=0;if(disposed||mapRef.current!==map)return;
    let displays:ReturnType<typeof clusterStorePoints>=points.map(point=>({kind:'store',key:'store:'+point.key,point}));
    if(clusteringEnabled){
     try{
@@ -250,22 +267,36 @@ export default function KakaoMap({menus,sourcedStores=EMPTY_SOURCES,sourceIdenti
      });
     }catch{/* Keep existing individual pins if a transient SDK projection/bounds read fails. */}
    }
+   const focusedKey=[...contentByKey].find(([,content])=>content===document.activeElement)?.[0];
+   const keyboardFocus=keyboardMembers&&document.activeElement===keyboardOrigin;
    overlaysRef.current=layer.update(displays);
    const active=new Set(displays.map(display=>display.key));for(const key of contentByKey.keys())if(!active.has(key))contentByKey.delete(key);
    if(keyboardMembers){
-    const members=keyboardMembers;keyboardMembers=null;
+    const members=keyboardMembers;keyboardMembers=null;keyboardOrigin=null;
     const target=displays.find(display=>display.kind==='store'?members.has(display.point.key):display.members.some(point=>members.has(point.key)));
-    (target?contentByKey.get(target.key):canvasRef.current)?.focus({preventScroll:true});
+    if(keyboardFocus)(target?contentByKey.get(target.key):canvasRef.current)?.focus({preventScroll:true});
+   }
+   if(focusedKey&&document.activeElement===document.body){
+    // Only replace focus lost by this draw; never take it from another control.
+    (contentByKey.get(focusedKey)??canvasRef.current)?.focus({preventScroll:true});
    }
   };
   const refresh=()=>{if(!disposed&&!frame)frame=requestAnimationFrame(draw)};
-  map.relayout();draw();
-  if(!clusteringEnabled)return()=>layer.dispose();
+  const update=()=>{
+   if(disposed||mapRef.current!==map)return;
+   const {menus,sourcedStores,sourceIdentityStores,selectedId,appLocationBridge}=overlayInputsRef.current;
+   const groups=mapStoreGroups(menus.filter(menu=>(!appLocationBridge||menu.isDemo===false)&&isKoreanCoordinate(menu.lat,menu.lng)),sourcedStores,sourceIdentityStores).filter(group=>group.catalog||group.source?.coordinates);
+   points=positionedStoreGroups(groups,selectedId);pointByKey.clear();for(const point of points)pointByKey.set(point.key,point);
+   cancelAnimationFrame(frame);draw();
+  };
+  const dispose=()=>{disposed=true;layer.dispose();contentByKey.clear();pointByKey.clear();overlaysRef.current=[];if(refreshOverlaysRef.current===update)refreshOverlaysRef.current=null};
+  refreshOverlaysRef.current=update;map.relayout();update();
+  if(!clusteringEnabled)return dispose;
   k.maps.event.addListener(map,'idle',refresh);
   k.maps.event.addListener(map,'zoom_changed',refresh);
   const resize=new ResizeObserver(refresh);if(rootRef.current)resize.observe(rootRef.current);
-  return()=>{disposed=true;cancelAnimationFrame(frame);resize.disconnect();k.maps.event.removeListener(map,'idle',refresh);k.maps.event.removeListener(map,'zoom_changed',refresh);layer.dispose()};
- },[mapState,menus,sourcedStores,sourceIdentityStores,selectedId,selectedSourceId,sourceSelectionEnabled,variant,appLocationBridge,sourcePreview,previewSourceHeat,clusteringEnabled]);
+  return()=>{disposed=true;cancelAnimationFrame(frame);resize.disconnect();k.maps.event.removeListener(map,'idle',refresh);k.maps.event.removeListener(map,'zoom_changed',refresh);dispose()};
+ },[mapState,clusteringEnabled,mapRevision]);
 
  useEffect(()=>{
   if(viewportCountQuery===undefined||mapState!=='ready'||!mapRef.current||!kakaoRef.current)return;
