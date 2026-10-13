@@ -14,7 +14,7 @@ import SourcedStoreNotice from '@/components/sourced-store-notice';
 import RegularFavorite from '@/components/regular-favorite';
 import BookingActions from '@/components/booking-actions';
 import Brand from '@/components/brand';
-import {useEffect,useMemo,useRef,useState} from 'react';import {Search,X,MapPin,Plus,ArrowUpRight,ChevronDown,ChevronUp,RotateCcw,Navigation} from 'lucide-react';
+import {useEffect,useMemo,useRef,useState,type CSSProperties} from 'react';import {Search,X,MapPin,Plus,ArrowUpRight,ChevronDown,ChevronUp,RotateCcw,Navigation} from 'lucide-react';
 import {Input} from '@/components/ui/input';
 import {Button} from '@/components/ui/button';
 import {NativeSelect} from '@/components/ui/native-select';
@@ -53,6 +53,13 @@ export default function MapExplorer({variant='hot',previewStore,initialSourceSto
  const [selectedSource,setSelectedSource]=useState<PublicSourcedStore|null>(initialSourceStore||null);
  const [selectedSourceMenuId,setSelectedSourceMenuId]=useState<string|null>(initialSourceStore?.menus[0]?.id||null);
  const resultsBody=useRef<HTMLDivElement>(null),listScrollTop=useRef(0);
+ const searchRow=useRef<HTMLDivElement>(null);
+ const [mobileDetailTop,setMobileDetailTop]=useState(0);
+ const sheet=useRef<HTMLElement>(null);
+ const sheetOffset=useRef(0);
+ const moveSheet=(offset:number)=>{sheetOffset.current=offset;sheet.current?.style.setProperty('--explorer-sheet-offset',`${offset}px`)};
+ const sheetTouch=useRef<number|null>(null);
+ useEffect(()=>{const row=searchRow.current;if(!row)return;const measure=()=>setMobileDetailTop(row.getBoundingClientRect().bottom);measure();const observer=new ResizeObserver(measure);observer.observe(row);window.addEventListener('resize',measure);return()=>{observer.disconnect();window.removeEventListener('resize',measure)}},[]);
  const listFocus=useRef<{kind:'menu'|'source';id:string}|null>(null);
  const [worldEntryOpen,setWorldEntryOpen]=useState(true);
  const locationControl=useRef<KakaoMapHandle>(null);
@@ -107,9 +114,9 @@ export default function MapExplorer({variant='hot',previewStore,initialSourceSto
  function backToList(){setSelected(null);setSelectedSource(null);setExpanded(true)}
  function collapseSelected(){setSelected(null);setSelectedSource(null);setExpanded(false)}
  const directionsUrl=(menu:Menu)=>menu.lat!==null&&menu.lng!==null?'https://map.kakao.com/link/to/'+encodeURIComponent(menu.shop.replace(/ · 가매장$/,''))+','+menu.lat+','+menu.lng:null;
- return <main className={previewStore?'explorer source-preview-map':'explorer'}>
+ return <main className={previewStore?'explorer source-preview-map':'explorer'} style={{'--explorer-detail-top':`${mobileDetailTop}px`} as CSSProperties}>
   <header className="explorer-toolbar">{previewStore&&<aside className="source-preview-banner" role="note">화면 미리보기 · 공공자료 매장 · 요청·점주 신청은 저장되지 않습니다.</aside>}
-   <div className="explorer-topline"><Brand/><div className="explorer-search"><Search size={21}/><Input aria-label={`${theme.name} 메뉴 검색`} value={query} onChange={e=>{setReportedMenu(null);setQuery(e.target.value)}} placeholder={theme.search}/>{query&&<Button variant="ghost" size="icon" aria-label="검색어 지우기" onClick={()=>setQuery('')}><X size={18}/></Button>}</div><span className="explorer-region"><MapPin size={16}/>{previewStore?'공공자료 매장':browseOrigin?'주변 15km':variant==='hot'?'지도에서 매장 찾기':'제보된 매장'} <small>{theme.name}</small></span>{!previewStore&&<CustomerPanel variant={variant} regularHref={`https://nowgo.space/regular/home?flavor=${variant}`} worldEntryOpen={worldEntryOpen} onWorldEntryClose={()=>setWorldEntryOpen(false)}/>}</div>
+   <div ref={searchRow} className="explorer-topline"><Brand/><div className="explorer-search"><Search size={21}/><Input aria-label={`${theme.name} 메뉴 검색`} value={query} onChange={e=>{setReportedMenu(null);setQuery(e.target.value)}} placeholder={theme.search}/>{query&&<Button variant="ghost" size="icon" aria-label="검색어 지우기" onClick={()=>setQuery('')}><X size={18}/></Button>}</div><span className="explorer-region"><MapPin size={16}/>{previewStore?'공공자료 매장':browseOrigin?'주변 15km':variant==='hot'?'지도에서 매장 찾기':'제보된 매장'} <small>{theme.name}</small></span>{!previewStore&&<CustomerPanel variant={variant} regularHref={`https://nowgo.space/regular/home?flavor=${variant}`} worldEntryOpen={worldEntryOpen} onWorldEntryClose={()=>setWorldEntryOpen(false)}/>}</div>
    <div className="explorer-filters" aria-label="메뉴 검색 조건">
     <label>{tasteLabel+' 단계'}<NativeSelect aria-label={tasteLabel+' 단계'} value={heat} onChange={e=>{setReportedMenu(null);setHeat(Number(e.target.value))}}><option value={0}>{'모든 '+tasteLabel}</option>{HEAT.map((h,i)=><option key={h} value={i+1}>{i+1}단계 · {h}</option>)}</NativeSelect></label>
     <label>{tasteLabel+' 카테고리'}<NativeSelect aria-label={tasteLabel+' 카테고리'} value={flavor} onChange={e=>{setReportedMenu(null);setFlavor(e.target.value)}}>{FLAVORS.map(f=><option key={f} value={f}>{f==='전체'?'모든 맛의 결':f}</option>)}</NativeSelect></label>
@@ -120,8 +127,8 @@ export default function MapExplorer({variant='hot',previewStore,initialSourceSto
   </header>
   <div className="explorer-surface">{!previewStore&&<ReporterLeaderboard variant={variant}/>}
    <KakaoMap previewSourceHeat={previewStore?localHeat:undefined} onSourceSelect={selectSource} selectedSourceId={currentSource?.id} sourcedStores={matchingSources} sourceIdentityStores={sourceStores} fullScreen sourcePreview={!!previewStore} initialCenter={(initialSourceStore||previewStore)?.coordinates?{lat:(initialSourceStore||previewStore)!.coordinates!.lat,lng:(initialSourceStore||previewStore)!.coordinates!.lon}:undefined} viewportCountQuery={previewStore?undefined:viewportCountQuery} menus={filtered} selectedId={current?.id} onSelect={select} locationControl={locationControl} onLocationState={setLocationState} onLocation={previewStore?undefined:setUserLocation} variant={variant}/>
-      <aside className={`explorer-results ${expanded?'expanded':'collapsed'} ${hasSelection?'has-selection':''}`} style={hasSelection?{top:0,bottom:0,maxHeight:'none'}:undefined} aria-label="검색된 메뉴">
-    <div className="explorer-results-header">
+      <aside ref={sheet} className={`explorer-results ${expanded?'expanded':'collapsed'} ${hasSelection?'has-selection':''}`} style={hasSelection?{top:0,bottom:0,maxHeight:'none'}:undefined} aria-label="검색된 메뉴">
+    <div className="explorer-results-header" onTouchStart={event=>{if(hasSelection&&window.matchMedia('(max-width:700px)').matches)sheetTouch.current=event.touches[0].clientY}} onTouchMove={event=>{if(sheetTouch.current!==null)moveSheet(Math.max(0,event.touches[0].clientY-sheetTouch.current))}} onTouchEnd={()=>{if(sheetOffset.current>70)collapseSelected();sheetTouch.current=null;moveSheet(0)}} onTouchCancel={()=>{sheetTouch.current=null;moveSheet(0)}}>
     <button className="explorer-results-heading" aria-expanded={expanded} aria-controls="map-results" onClick={()=>hasSelection?collapseSelected():setExpanded(!expanded)}><span><small>{browseOrigin?'내 주변 매장 · 메뉴':sourceOnlyStores.some(store=>store.registrationState==='source-only')?'지도에 소개된 매장 · 메뉴':'등록된 매장 · 메뉴'}</small><strong>불러온 매장 <b>{combinedStores.length}</b></strong></span>{expanded?<ChevronDown size={20}/>:<ChevronUp size={20}/>}</button>
      {!previewStore&&<a className="explorer-report explorer-report--inline" href="/suggestion#report"><Plus size={16}/><span>제보 및 등록</span></a>}
     </div>
