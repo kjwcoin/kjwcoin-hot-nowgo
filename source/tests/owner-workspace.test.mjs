@@ -45,6 +45,7 @@ function panel(variant,owner){
  const React={createElement(type,props,...children){return {type,props:props??{},children}}};
  const regular=function RegularHomeLink(){};
  const module=load('../components/customer-panel.tsx',{
+ './source-account-character':{SourceAccountCharacterView(){throw new Error('Account-only card must not render in header');}},
  react:{useState(value){return [value,()=>{}]}},'./regular-home-link':{default:regular},'next/link':{default:function Link(){}},'lucide-react':{UserRound(){},LogOut(){}},
  '@/lib/supabase-browser':{browserDb(){}},'./customer-account.module.css':{default:{}},
  '@/components/ui/dialog':{Dialog(){},DialogContent(){},DialogTitle(){},DialogDescription(){}},'@/components/ui/button':{Button(){}},

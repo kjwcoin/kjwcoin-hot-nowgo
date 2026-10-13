@@ -228,3 +228,54 @@ test('public source-only account panel does not mount snapshot initialization or
  const html=renderToStaticMarkup(React.createElement(Component,{returnTo,readOnly:true,state:state()}));
  assert.equal(calls,0);noPersonal(html);assert.match(html,/기존 내 계정 화면/);assert.match(html,/href="\/account"/);assert.doesNotMatch(html,/확인 중|로그인한 내 ID/);
 });
+
+test('account page opts HOT into the card and preserves the exact safe login return', () => {
+ const account = fs.readFileSync(new URL('../app/account/page.tsx', import.meta.url), 'utf8');
+ assert.match(account, /<CustomerPanel variant=\{variant\} showAccountCharacter=\{variant==='hot'\}\/>/);
+ const html = render(state({signedIn: false, owner: null}), '/account');
+ noPersonal(html);
+ assert.match(html, /returnTo=%2Faccount/);
+});
+
+function renderPanel(accountState, props = {}) {
+ const calls = [];
+ const Null = () => null;
+ const Panel = load('components/customer-panel.tsx', {
+  react: React, 'react/jsx-runtime': jsxRuntime,
+  './source-account-character': {SourceAccountCharacterView: View},
+  './regular-home-link': {default: Null},
+  'lucide-react': {UserRound: Null, LogOut: Null},
+  '@/lib/supabase-browser': {browserDb: () => {throw Error('Rendering must not start extra auth');}},
+  './customer-account.module.css': {default: {}},
+  '@/components/ui/dialog': {Dialog: Null, DialogContent: Null, DialogTitle: Null, DialogDescription: Null},
+  '@/components/ui/button': {Button: ({children}) => React.createElement('button', null, children)},
+  '@/lib/activity/model': model,
+  'next/dynamic': {default: () => Null},
+  '@/components/activity/use-activity': {useActivity: planet => {calls.push(planet); return {...accountState, refresh: () => {throw Error('Rendering must not refresh');}};}},
+  '@/components/activity/activity.css': {}, './activity/world-entry': {default: Null},
+ }).default;
+ return {html: renderToStaticMarkup(React.createElement(Panel, {variant: 'hot', showAccountCharacter: true, ...props})), calls};
+}
+
+test('account card consumes the single existing customer panel hook without extra reads', () => {
+ const {html, calls} = renderPanel(state());
+ assert.deepEqual(calls, ['hot']);
+ assert.match(html, /내 불꽃이/);
+ assert.match(html, /500 EXP/);
+ assert.match(html, /레벨<\/dt><dd>5/);
+});
+
+test('integrated account card never exposes old values while signed out, switching, owner, or failed', () => {
+ for (const status of [{signedIn: false, owner: null, data: null}, {signedIn: null, owner: null, data: null}, {owner: null, data: null}, {owner: true, data: null}, {error: 'unavailable', data: null}]) {
+  const {html, calls} = renderPanel(state(status));
+  noPersonal(html);
+  assert.deepEqual(calls, ['hot']);
+ }
+});
+
+test('other CustomerPanel placements and flavors keep the new card disabled', () => {
+ for (const props of [{showAccountCharacter: false}, {variant: 'sweet'}, {variant: 'rich'}]) {
+  const {html} = renderPanel(state(), props);
+  assert.doesNotMatch(html, /내 계정 · 내 캐릭터|내 불꽃이|500 EXP|characters-growth/);
+ }
+});

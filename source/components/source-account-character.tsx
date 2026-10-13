@@ -9,7 +9,7 @@ export type SourceAccountState = Pick<ReturnType<typeof useActivity>, 'data' | '
 type Props = {returnTo: string; state?: SourceAccountState; readOnly?: boolean};
 
 function loginPath(returnTo: string) {
- const path = returnTo === returnTo.trim() && /^\/p\/[a-zA-Z0-9_-]{1,160}$/.test(returnTo) ? returnTo : '/';
+ const path = returnTo === '/account' || (returnTo === returnTo.trim() && /^\/p\/[a-zA-Z0-9_-]{1,160}$/.test(returnTo)) ? returnTo : '/';
  return '/account/join?type=user&returnTo=' + encodeURIComponent(path);
 }
 

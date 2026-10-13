@@ -2450,6 +2450,631 @@
         }
       },
       "menuKey": "794b0d408589c6db"
+    },
+    "data-go-kr-15083033-MA010120220807799327": {
+      "id": "163816db-9f82-540b-a463-32aadce06344",
+      "slug": "hot-seoul-ma010120220807799327",
+      "name": "청년다방 압구정점",
+      "address": "서울특별시 강남구 논현로176길 24",
+      "lat": 37.527430530475,
+      "lon": 127.030466182957,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:39:15.940641+00:00",
+          "nativeRecordId": "MA010120220807799327"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:39:15.940641+00:00",
+          "nativeRecordId": "MA010120220807799327"
+        }
+      },
+      "menuKey": "3cb54a1cf2a6eabb"
+    },
+    "data-go-kr-15083033-MA010120220813033156": {
+      "id": "f21c4cb3-f581-5ea2-a4ba-97caa4322ae7",
+      "slug": "hot-seoul-ma010120220813033156",
+      "name": "홍콩반점0410 선릉역점",
+      "address": "서울특별시 강남구 선릉로76길 22",
+      "lat": 37.5016812190503,
+      "lon": 127.052259883864,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:39:15.940641+00:00",
+          "nativeRecordId": "MA010120220813033156"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:39:15.940641+00:00",
+          "nativeRecordId": "MA010120220813033156"
+        }
+      },
+      "menuKey": "2010dd697d144567"
+    },
+    "data-go-kr-15083033-MA010120220804465453": {
+      "id": "88ded7db-b613-5e49-a806-d2ff24f0bb0e",
+      "slug": "hot-seoul-ma010120220804465453",
+      "name": "땡초불닭발동대문엽기떡볶이 역삼점",
+      "address": "서울특별시 강남구 언주로 323",
+      "lat": 37.4967466563947,
+      "lon": 127.045098183238,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:39:15.940641+00:00",
+          "nativeRecordId": "MA010120220804465453"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:39:15.940641+00:00",
+          "nativeRecordId": "MA010120220804465453"
+        }
+      },
+      "menuKey": "794b0d408589c6db"
+    },
+    "data-go-kr-15083033-MA010120220808211829": {
+      "id": "84784a16-6ef6-5d32-93c6-27864cab8215",
+      "slug": "hot-seoul-ma010120220808211829",
+      "name": "케이욱스텔라떡볶이 개포점",
+      "address": "서울특별시 강남구 개포로82길 13-15",
+      "lat": 37.4888156448769,
+      "lon": 127.068341170979,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:39:15.940641+00:00",
+          "nativeRecordId": "MA010120220808211829"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:39:15.940641+00:00",
+          "nativeRecordId": "MA010120220808211829"
+        }
+      },
+      "menuKey": "0e392ce773b69d8e"
+    },
+    "data-go-kr-15083033-MA010120220805382855": {
+      "id": "63a48afa-e447-5f07-950d-5969db597633",
+      "slug": "hot-seoul-ma010120220805382855",
+      "name": "청년다방 강남구청역점",
+      "address": "서울특별시 강남구 학동로 343",
+      "lat": 37.517435359357,
+      "lon": 127.04060861718,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:39:15.940641+00:00",
+          "nativeRecordId": "MA010120220805382855"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:39:15.940641+00:00",
+          "nativeRecordId": "MA010120220805382855"
+        }
+      },
+      "menuKey": "3cb54a1cf2a6eabb"
+    },
+    "data-go-kr-15083033-MA010120220812030885": {
+      "id": "f5160e45-d138-5146-b051-b037a371ff5a",
+      "slug": "hot-seoul-ma010120220812030885",
+      "name": "엽기떡볶이수서점 동대문",
+      "address": "서울특별시 강남구 광평로51길 27",
+      "lat": 37.4896481597048,
+      "lon": 127.101042924621,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:39:15.940641+00:00",
+          "nativeRecordId": "MA010120220812030885"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:39:15.940641+00:00",
+          "nativeRecordId": "MA010120220812030885"
+        }
+      },
+      "menuKey": "794b0d408589c6db"
+    },
+    "data-go-kr-15083033-MA010120220806872657": {
+      "id": "e1d329b0-e646-5348-ad1b-3a3953faa28c",
+      "slug": "hot-seoul-ma010120220806872657",
+      "name": "삼첩분식 대치점",
+      "address": "서울특별시 강남구 남부순환로 2917",
+      "lat": 37.4931634530126,
+      "lon": 127.059163093631,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:39:15.940641+00:00",
+          "nativeRecordId": "MA010120220806872657"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:39:15.940641+00:00",
+          "nativeRecordId": "MA010120220806872657"
+        }
+      },
+      "menuKey": "82e114b40294be71"
+    },
+    "data-go-kr-15083033-MA010120220814296200": {
+      "id": "e5764b71-d63f-58cd-9a7f-71162f4a9149",
+      "slug": "hot-seoul-ma010120220814296200",
+      "name": "핫토리엽기떡볶이강남구청역점 동대문",
+      "address": "서울특별시 강남구 선릉로131길 8",
+      "lat": 37.5179760736003,
+      "lon": 127.040280871657,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:39:15.940641+00:00",
+          "nativeRecordId": "MA010120220814296200"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:39:15.940641+00:00",
+          "nativeRecordId": "MA010120220814296200"
+        }
+      },
+      "menuKey": "794b0d408589c6db"
+    },
+    "data-go-kr-15083033-MA010120220804057922": {
+      "id": "a5e4eb43-f598-5219-b172-1bb87a89009b",
+      "slug": "hot-seoul-ma010120220804057922",
+      "name": "핫시즈너땡초불닭발엽기떡볶이 동대문",
+      "address": "서울특별시 강남구 논현로 841",
+      "lat": 37.5240614172377,
+      "lon": 127.027896854319,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:39:15.940641+00:00",
+          "nativeRecordId": "MA010120220804057922"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:39:15.940641+00:00",
+          "nativeRecordId": "MA010120220804057922"
+        }
+      },
+      "menuKey": "794b0d408589c6db"
+    },
+    "data-go-kr-15083033-MA010120220812790562": {
+      "id": "2f5e4480-4616-5317-8048-93a8b6031470",
+      "slug": "hot-seoul-ma010120220812790562",
+      "name": "불닭발엽기떡볶이개포동역점 동대문",
+      "address": "서울특별시 강남구 개포로 506",
+      "lat": 37.4891404755891,
+      "lon": 127.067527339671,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:39:15.940641+00:00",
+          "nativeRecordId": "MA010120220812790562"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:39:15.940641+00:00",
+          "nativeRecordId": "MA010120220812790562"
+        }
+      },
+      "menuKey": "794b0d408589c6db"
+    },
+    "data-go-kr-15083033-MA010120220803033888": {
+      "id": "e876325d-9612-59a3-86e5-7341b7eb079e",
+      "slug": "hot-seoul-ma010120220803033888",
+      "name": "청년다방 선릉역점",
+      "address": "서울특별시 강남구 선릉로86길 31",
+      "lat": 37.504213148777,
+      "lon": 127.052024147131,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:39:15.940641+00:00",
+          "nativeRecordId": "MA010120220803033888"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:39:15.940641+00:00",
+          "nativeRecordId": "MA010120220803033888"
+        }
+      },
+      "menuKey": "3cb54a1cf2a6eabb"
+    },
+    "data-go-kr-15083033-MA010120220811976414": {
+      "id": "df5e0b16-faf0-51a5-8401-eb2d386df183",
+      "slug": "hot-seoul-ma010120220811976414",
+      "name": "유노청년다방강남케이 스퀘어점",
+      "address": "서울특별시 강남구 강남대로94길 10",
+      "lat": 37.4991936196164,
+      "lon": 127.02822686566,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:39:15.940641+00:00",
+          "nativeRecordId": "MA010120220811976414"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:39:15.940641+00:00",
+          "nativeRecordId": "MA010120220811976414"
+        }
+      },
+      "menuKey": "3cb54a1cf2a6eabb"
+    },
+    "data-go-kr-15083033-MA010120220804913363": {
+      "id": "9ac7815d-c52a-5463-abcd-609b57922ac2",
+      "slug": "hot-seoul-ma010120220804913363",
+      "name": "불닭발동대문엽기떡볶이 양재점",
+      "address": "서울특별시 강남구 남부순환로359길 8",
+      "lat": 37.4856761151475,
+      "lon": 127.03691671002,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:39:15.940641+00:00",
+          "nativeRecordId": "MA010120220804913363"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:39:15.940641+00:00",
+          "nativeRecordId": "MA010120220804913363"
+        }
+      },
+      "menuKey": "794b0d408589c6db"
+    },
+    "data-go-kr-15083033-MA0101202211A0031429": {
+      "id": "054f1439-6fb0-53c8-ba12-08fae1353310",
+      "slug": "hot-seoul-ma0101202211a0031429",
+      "name": "불닭발땡초엽기떡볶이대치점 동대문",
+      "address": "서울특별시 강남구 역삼로 406",
+      "lat": 37.5006092860483,
+      "lon": 127.051659756979,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:39:15.940641+00:00",
+          "nativeRecordId": "MA0101202211A0031429"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:39:15.940641+00:00",
+          "nativeRecordId": "MA0101202211A0031429"
+        }
+      },
+      "menuKey": "794b0d408589c6db"
+    },
+    "data-go-kr-15083033-MA0101202308A0003054": {
+      "id": "ad439e20-5ced-5dce-8bcc-37abbd8da569",
+      "slug": "hot-seoul-ma0101202308a0003054",
+      "name": "엽기떡볶이청담점 동대문",
+      "address": "서울특별시 강남구 도산대로89길 3",
+      "lat": 37.5250541581757,
+      "lon": 127.050194639065,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:39:15.940641+00:00",
+          "nativeRecordId": "MA0101202308A0003054"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:39:15.940641+00:00",
+          "nativeRecordId": "MA0101202308A0003054"
+        }
+      },
+      "menuKey": "794b0d408589c6db"
+    },
+    "data-go-kr-15083033-MA0101202406A0496403": {
+      "id": "0f0fb722-7d9f-5cbe-8621-4d9482791c39",
+      "slug": "hot-seoul-ma0101202406a0496403",
+      "name": "삼첩분식 논현점",
+      "address": "서울특별시 강남구 강남대로146길 28",
+      "lat": 37.515052459614,
+      "lon": 127.022905246892,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:39:15.940641+00:00",
+          "nativeRecordId": "MA0101202406A0496403"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:39:15.940641+00:00",
+          "nativeRecordId": "MA0101202406A0496403"
+        }
+      },
+      "menuKey": "82e114b40294be71"
+    },
+    "data-go-kr-15083033-MA0101202406A0184004": {
+      "id": "750365bb-d087-5d0d-891b-a52a0e48cc65",
+      "slug": "hot-seoul-ma0101202406a0184004",
+      "name": "엽기떡볶이언주역점 동대문",
+      "address": "서울특별시 강남구 논현로114길 14",
+      "lat": 37.5086705097527,
+      "lon": 127.034575495015,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:39:15.940641+00:00",
+          "nativeRecordId": "MA0101202406A0184004"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:39:15.940641+00:00",
+          "nativeRecordId": "MA0101202406A0184004"
+        }
+      },
+      "menuKey": "794b0d408589c6db"
+    },
+    "data-go-kr-15083033-MA0101202409A0094489": {
+      "id": "9eac3a3b-ab3b-54d3-a9f9-c0d9c7d9096d",
+      "slug": "hot-seoul-ma0101202409a0094489",
+      "name": "춘리마라탕 압구정점",
+      "address": "서울특별시 강남구 압구정로20길 7",
+      "lat": 37.5248369587931,
+      "lon": 127.024854024136,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:39:15.940641+00:00",
+          "nativeRecordId": "MA0101202409A0094489"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:39:15.940641+00:00",
+          "nativeRecordId": "MA0101202409A0094489"
+        }
+      },
+      "menuKey": "f7f7e2c1a7e587be"
+    },
+    "data-go-kr-15083033-MA0101202504A0109120": {
+      "id": "232630d2-662e-5ee0-8137-40d9a8c3d5b4",
+      "slug": "hot-seoul-ma0101202504a0109120",
+      "name": "춘리마라탕 강남점",
+      "address": "서울특별시 강남구 강남대로 438",
+      "lat": 37.5016447920051,
+      "lon": 127.026339150331,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:39:15.940641+00:00",
+          "nativeRecordId": "MA0101202504A0109120"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:39:15.940641+00:00",
+          "nativeRecordId": "MA0101202504A0109120"
+        }
+      },
+      "menuKey": "f7f7e2c1a7e587be"
+    },
+    "data-go-kr-15083033-MA010120220808590582": {
+      "id": "571d435f-6172-5741-811a-3a54423f1f8d",
+      "slug": "hot-seoul-ma010120220808590582",
+      "name": "두마리찜닭두찜강남세곡점",
+      "address": "서울특별시 강남구 자곡로 202",
+      "lat": 37.4747690374897,
+      "lon": 127.105024914758,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:48:08.910056+00:00",
+          "nativeRecordId": "MA010120220808590582"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:48:08.910056+00:00",
+          "nativeRecordId": "MA010120220808590582"
+        }
+      },
+      "menuKey": "9ed8e30bf51231c8"
+    },
+    "data-go-kr-15083033-MA0101202409A0164420": {
+      "id": "fe9873a9-59f1-5acc-84ba-319079e9ba57",
+      "slug": "hot-seoul-ma0101202409a0164420",
+      "name": "두찜강남 대치점",
+      "address": "서울특별시 강남구 선릉로64길 28",
+      "lat": 37.4982383340348,
+      "lon": 127.054564458296,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:48:08.910056+00:00",
+          "nativeRecordId": "MA0101202409A0164420"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:48:08.910056+00:00",
+          "nativeRecordId": "MA0101202409A0164420"
+        }
+      },
+      "menuKey": "9ed8e30bf51231c8"
+    },
+    "data-go-kr-15083033-MA0101202411A0001705": {
+      "id": "b5fd1d55-dae2-504f-a8de-3ad5c75d602a",
+      "slug": "hot-seoul-ma0101202411a0001705",
+      "name": "두찜강남 일원점",
+      "address": "서울특별시 강남구 양재대로33길 25",
+      "lat": 37.4910952121896,
+      "lon": 127.082432538473,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:48:08.910056+00:00",
+          "nativeRecordId": "MA0101202411A0001705"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:48:08.910056+00:00",
+          "nativeRecordId": "MA0101202411A0001705"
+        }
+      },
+      "menuKey": "9ed8e30bf51231c8"
+    },
+    "data-go-kr-15083033-MA0101202601A0008833": {
+      "id": "c3154e8b-dcb0-51f7-954b-cef3e09dd35f",
+      "slug": "hot-seoul-ma0101202601a0008833",
+      "name": "두찜강남 도곡점",
+      "address": "서울특별시 강남구 남부순환로363길 12-29",
+      "lat": 37.4864594537344,
+      "lon": 127.038601826567,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:48:08.910056+00:00",
+          "nativeRecordId": "MA0101202601A0008833"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:48:08.910056+00:00",
+          "nativeRecordId": "MA0101202601A0008833"
+        }
+      },
+      "menuKey": "9ed8e30bf51231c8"
+    },
+    "data-go-kr-15083033-MA0101202510A0035828": {
+      "id": "93094453-1acb-5e6f-916c-9961df06997f",
+      "slug": "hot-seoul-ma0101202510a0035828",
+      "name": "두찜강남 역삼점",
+      "address": "서울특별시 강남구 역삼로 145",
+      "lat": 37.4947587913894,
+      "lon": 127.035213646385,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:48:08.910056+00:00",
+          "nativeRecordId": "MA0101202510A0035828"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:48:08.910056+00:00",
+          "nativeRecordId": "MA0101202510A0035828"
+        }
+      },
+      "menuKey": "9ed8e30bf51231c8"
+    },
+    "data-go-kr-15083033-MA010120220804039246": {
+      "id": "ec40f204-318d-5f37-81de-972b6d52eb45",
+      "slug": "hot-seoul-ma010120220804039246",
+      "name": "뱃고동",
+      "address": "서울특별시 강남구 언주로172길 54",
+      "lat": 37.5268426844289,
+      "lon": 127.038034349291,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:47:54.565667+00:00",
+          "nativeRecordId": "MA010120220804039246"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:47:54.565667+00:00",
+          "nativeRecordId": "MA010120220804039246"
+        }
+      },
+      "menuKey": "4882fc839b6cf9bd"
     }
   },
   "menus": {
@@ -2675,6 +3300,47 @@
         "explicitOpenLicense": false,
         "reuseBasis": "limited-individual-fact-review",
         "originalName": "4인 엽기메뉴(떡볶이/반반/오뎅/분모자)",
+        "nameRepresentation": "original",
+        "currentAvailability": null,
+        "priceAsOf": null
+      }
+    },
+    "9ed8e30bf51231c8": {
+      "name": "빨간찜닭",
+      "provenance": {
+        "kind": "official-brand-menu",
+        "sourceScope": "brand_common",
+        "branchMenuApplicability": null,
+        "brandName": "두찜",
+        "sourceUrl": "https://twozzim.com/bbs/content.php?co_id=menu",
+        "sourceRecordIds": {},
+        "sourceAsOf": null,
+        "checkedAt": "2026-10-13T04:48:08.910056+00:00",
+        "licenseName": null,
+        "explicitOpenLicense": false,
+        "reuseBasis": "limited-individual-fact-review",
+        "originalName": "빨간찜닭",
+        "nameRepresentation": "original",
+        "currentAvailability": null,
+        "priceAsOf": null
+      }
+    },
+    "4882fc839b6cf9bd": {
+      "name": "낙지전골백반",
+      "provenance": {
+        "kind": "official-tourism-place-menu",
+        "sourceScope": "specific_restaurant_official_tourism_record",
+        "branchMenuApplicability": "source_record_specific_restaurant_not_current_sale",
+        "sourceUrl": "https://www.visitgangnam.net/places/baetgodong",
+        "sourceRecordIds": {
+          "pageSlug": "baetgodong"
+        },
+        "sourceAsOf": "2026-10-07",
+        "checkedAt": "2026-10-13T04:47:54.565667+00:00",
+        "licenseName": null,
+        "explicitOpenLicense": false,
+        "reuseBasis": "limited-individual-fact-review",
+        "originalName": "낙지전골백반",
         "nameRepresentation": "original",
         "currentAvailability": null,
         "priceAsOf": null
