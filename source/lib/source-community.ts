@@ -1,6 +1,6 @@
 export const SOURCE_HEAT=['순한맛','약간 매운맛','보통 매운맛','매운맛','아주 매운맛'] as const;
 export const SOURCE_FLAVORS=['얼큰한','칼칼한','달콤매콤한','알싸한'] as const;
-export type SourceCommunityState={ownerRequests:number;requested:boolean;menus:{menu:string;count:number;heat:number;flavor:string}[];statuses:{status:string;count:number;reportedAt:string;expiresAt:string;confirmed:boolean}[];awardedExp?:number;myReports:{menu:string;heat:number;flavor:string;note:string}[]};
+export type SourceCommunityState={ownerRequests:number;requested:boolean;menus:{menu:string;count:number;heat:number;flavor:string;price?:number|null;photoUrl?:string|null}[];statuses:{status:string;count:number;reportedAt:string;expiresAt:string;confirmed:boolean}[];awardedExp?:number;myReports:{menu:string;heat:number;flavor:string;note:string}[]};
 export function sourceTasteInput(value:unknown){
  if(!value||typeof value!=='object'||Array.isArray(value))throw Error('invalid_taste_report');
  const row=value as Record<string,unknown>;
