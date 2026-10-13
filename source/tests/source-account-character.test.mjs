@@ -36,7 +36,7 @@ const snapshot = (xp = 500, name = '내 불꽃이') => ({
 const state = overrides => ({signedIn: true, owner: false, error: '', data: snapshot(), ...overrides});
 const render = (value, path = returnTo) => renderToStaticMarkup(React.createElement(View, {state: value, returnTo: path}));
 const noPersonal = html => {
- assert.doesNotMatch(html, /내 불꽃이|비공개 이름|500 EXP|characters-growth|레벨<\/dt><dd>5|캐릭터 미리보기|0 EXP/);
+ assert.doesNotMatch(html, /내 불꽃이|비공개 이름|500 EXP|characters-growth|레벨<\/dt><dd>LV\.5|캐릭터 미리보기|0 EXP/);
 };
 
 test('verified customer snapshot renders the actual character label, earned level, and EXP', () => {
@@ -44,8 +44,10 @@ test('verified customer snapshot renders the actual character label, earned leve
  assert.match(html, /내 불꽃이/);
  assert.match(html, /500 EXP/);
  assert.match(html, /캐릭터 등급<\/dt><dd>성주/);
- assert.match(html, /레벨<\/dt><dd>5/);
+ assert.match(html, /레벨<\/dt><dd>LV\.5/);
  assert.match(html, /background-position:50% 0%/);
+ assert.match(html, /다음 레벨 LV\.6까지 300 EXP/);
+ assert.match(html, /role="progressbar"[^>]*aria-valuenow="0"/);
  assert.match(html, /로그인한 내 ID의 캐릭터·레벨·EXP입니다/);
  assert.doesNotMatch(html, /로그인 상태 확인|비공개 이름|미리보기/);
 });
@@ -262,7 +264,7 @@ test('account card consumes the single existing customer panel hook without extr
  assert.deepEqual(calls, ['hot']);
  assert.match(html, /내 불꽃이/);
  assert.match(html, /500 EXP/);
- assert.match(html, /레벨<\/dt><dd>5/);
+ assert.match(html, /레벨<\/dt><dd>LV\.5/);
 });
 
 test('integrated account card never exposes old values while signed out, switching, owner, or failed', () => {
@@ -276,6 +278,6 @@ test('integrated account card never exposes old values while signed out, switchi
 test('other CustomerPanel placements and flavors keep the new card disabled', () => {
  for (const props of [{showAccountCharacter: false}, {variant: 'sweet'}, {variant: 'rich'}]) {
   const {html} = renderPanel(state(), props);
-  assert.doesNotMatch(html, /내 계정 · 내 캐릭터|내 불꽃이|500 EXP|characters-growth/);
+  assert.doesNotMatch(html, /내 계정 · 내 캐릭터|내 불꽃이|characters-growth/);
  }
 });

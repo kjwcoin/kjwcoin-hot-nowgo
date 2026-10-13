@@ -62,9 +62,11 @@ export function SourceAccountCharacterView({state, returnTo}: {state: SourceAcco
    <p>로그인한 내 ID의 캐릭터·레벨·EXP입니다.</p>
    <dl className={styles.values}>
     <div><dt>캐릭터 등급</dt><dd>{earned.rank.name}</dd></div>
-    <div><dt>레벨</dt><dd>{earned.level}</dd></div>
+    <div><dt>레벨</dt><dd>LV.{earned.level}</dd></div>
     <div><dt>EXP</dt><dd>{data.xp.toLocaleString('ko-KR')} EXP</dd></div>
    </dl>
+   <div className={styles.progress} role="progressbar" aria-label="다음 레벨까지 EXP 진행률" aria-valuemin={0} aria-valuemax={100} aria-valuenow={earned.progress}><span style={{width:earned.progress+'%'}}/></div>
+   <p>다음 레벨 LV.{earned.level+1}까지 {(earned.next-data.xp).toLocaleString('ko-KR')} EXP · {(data.xp-earned.min).toLocaleString('ko-KR')} / {(earned.next-earned.min).toLocaleString('ko-KR')} EXP</p>
   </div>
  </section>;
 }

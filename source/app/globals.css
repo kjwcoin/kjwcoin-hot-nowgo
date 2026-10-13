@@ -430,8 +430,8 @@ body[data-theme="hot"] .map-store-cluster:focus-visible{background:var(--brand-d
 
 /* Mobile pin details rise below the search row and retain their own scrolling. */
 @media(max-width:700px){
- .explorer-results.has-selection{position:fixed;top:var(--explorer-detail-top)!important;bottom:env(safe-area-inset-bottom,0px)!important;left:14px;right:14px;max-height:none!important;z-index:35;transform:translateY(var(--explorer-sheet-offset,0px))}
- .explorer-results.has-selection .explorer-results-header{position:relative;padding-top:12px;touch-action:pan-x}
- .explorer-results.has-selection .explorer-results-header::before{content:"";position:absolute;top:5px;left:calc(50% - 20px);width:40px;height:4px;border-radius:999px;background:#bbb}
- .explorer-results.has-selection .explorer-results-body{overflow-y:auto;overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch;padding-bottom:env(safe-area-inset-bottom,0px)}
+ .explorer-results.expanded{position:fixed;top:var(--explorer-detail-top)!important;bottom:env(safe-area-inset-bottom,0px)!important;left:14px;right:14px;max-height:none!important;z-index:35;transform:translateY(var(--explorer-sheet-offset,0px))}
+ .explorer-results.expanded .explorer-results-header{position:relative;padding-top:12px;touch-action:pan-x}
+ .explorer-results.expanded .explorer-results-header::before{content:"";position:absolute;top:5px;left:calc(50% - 20px);width:40px;height:4px;border-radius:999px;background:#bbb}
+ .explorer-results.expanded .explorer-results-body{overflow-y:auto;overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch;padding-bottom:env(safe-area-inset-bottom,0px)}
 }

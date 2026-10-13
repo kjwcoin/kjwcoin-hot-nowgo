@@ -44,7 +44,7 @@ export default function SourcedStoreDetail({store,preview=false,menuId,onBack,pr
     <strong>{sourceOnly?'공공자료 소개 · 점주 확인 전':store.ownerClaimVerified?'점주 확인 · 공공자료 메뉴':'공공자료 등록 · 점주 미등록'}</strong>
     <p>영업현황 미확인<br/>현재 메뉴 제공 여부 미확인</p>
    </section>
-   {preview?<PreviewRegularControls store={store} saved={previewFavorite||false} onToggle={onPreviewFavoriteToggle}/>:sourceOnly?<><SourceReadonlyActions key={'favorite:'+store.id} kind="favorite"><RegularHomeLink variant="hot" className="text-link">내 단골 목록</RegularHomeLink></SourceReadonlyActions><SourceAccountCharacter returnTo={path} readOnly/></>:<RegularFavorite placeId={'nowgo-'+store.id} slug={store.slug}/>}
+   {preview?<PreviewRegularControls store={store} saved={previewFavorite||false} onToggle={onPreviewFavoriteToggle}/>:sourceOnly?<><SourceReadonlyActions key={'favorite:'+store.id} kind="favorite"><RegularHomeLink variant="hot" className="text-link">내 단골 목록</RegularHomeLink></SourceReadonlyActions><SourceAccountCharacter returnTo={path}/></>:<RegularFavorite placeId={'nowgo-'+store.id} slug={store.slug}/>}
    <div className="explorer-quick-actions source-quick-actions" aria-label="매장 이용 정보">
     {directions?<a className="explorer-action explorer-action--primary source-direction" href={directions} target="_blank" rel="noopener noreferrer"><Navigation size={18}/><span>길찾기</span></a>:<button type="button" className="explorer-action" disabled title="공공자료의 지도 위치가 확인되지 않았어요."><Navigation size={18}/><span>길찾기</span></button>}
     <button type="button" className="explorer-action" disabled title="점주의 예약 서비스 등록이 확인되지 않았어요."><CalendarClock size={18}/><span>예약하기</span></button>

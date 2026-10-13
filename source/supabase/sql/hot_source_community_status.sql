@@ -1,6 +1,6 @@
 create table if not exists hot_source_community.status_reports(
  store_id uuid not null references hot_source_community.stores(id),user_id uuid not null references auth.users(id) on delete cascade,
- status text not null check(status in ('permanent_closed','temporary_closed','ingredients_soldout')),
+ status text not null check(status in ('open','closed_for_day','regular_closed','permanent_closed','temporary_closed','ingredients_soldout')),
  created_at timestamptz not null default now(), expires_at timestamptz not null,
  primary key(store_id,user_id)
 );
@@ -17,7 +17,7 @@ create or replace function hot_source_community.submit_status(p_store uuid,p_sta
 declare v_user uuid:=auth.uid();v_owned uuid;v_old text;v_old_at timestamptz;v_value text;v_expiry timestamptz;v_awarded integer:=0;v_inserted integer;v_reporter uuid;v_points integer;
 begin
  if v_user is null or not exists(select 1 from auth.users where id=v_user and coalesce(is_anonymous,false)=false) then raise exception 'login_required'; end if;
- if p_status is null or p_status not in ('permanent_closed','temporary_closed','ingredients_soldout') then raise exception 'invalid_source_status'; end if;
+ if p_status is null or p_status not in ('open','closed_for_day','regular_closed','permanent_closed','temporary_closed','ingredients_soldout') then raise exception 'invalid_source_status'; end if;
  if not exists(select 1 from hot_source_community.stores where id=p_store) then raise exception 'source_store_not_found'; end if;
  if exists(select 1 from public.stores s join hot_source_community.stores c on c.id=p_store where s.owner_id=v_user and s.archived_at is null and regexp_replace(lower(s.name),'[[:space:]]','','g')=regexp_replace(lower(c.name),'[[:space:]]','','g') and regexp_replace(lower(s.address),'[[:space:]]','','g')=regexp_replace(lower(c.address),'[[:space:]]','','g')) then raise exception 'owner_report_requires_dashboard';end if;
  perform pg_advisory_xact_lock(hashtextextended(v_user::text,731));
@@ -35,7 +35,7 @@ begin
  and regexp_replace(lower(s.name),'[[:space:]]','','g')=regexp_replace(lower(c.name),'[[:space:]]','','g')
  and regexp_replace(lower(s.address),'[[:space:]]','','g')=regexp_replace(lower(c.address),'[[:space:]]','','g');
  if v_owned is not null and p_status<>'permanent_closed' and (v_old is distinct from p_status or v_old_at<now()-interval '2 hours') then
-  v_value:=case when p_status='temporary_closed' then 'closed_for_day' else 'ingredients_soldout' end;
+  v_value:=case when p_status='open' then 'open' when p_status in ('temporary_closed','closed_for_day','regular_closed') then 'closed_for_day' else 'ingredients_soldout' end;
   insert into public.reports(store_id,kind,value,reporter_id,expires_at) values(v_owned,'open_status',to_jsonb(v_value),v_user,v_expiry);
  end if;
  -- Status signals become rewardable after three distinct current customer reports agree.
