@@ -1,5 +1,6 @@
 import {selectedReportingEnabled,HOT_REPORTING_PENDING_MESSAGE} from '@/lib/hot-reporting-phase';
 import {flavorPageMetadata} from '@/lib/seo';
+import FootprintReportEntry from '@/components/footprint-report-entry';
 import HotApp from '@/components/hot-app';
 import Link from 'next/link';
 import {headers} from 'next/headers';
@@ -9,6 +10,7 @@ export async function generateMetadata(){return flavorPageMetadata((await header
 
 export default async function SuggestionPage({searchParams}:{searchParams:Promise<Record<string,string|string[]|undefined>>}) {
   const query=await searchParams;
+  if(typeof query.footprint==='string'&&/^[a-f0-9-]{36}$/.test(query.footprint))return <FootprintReportEntry visitId={query.footprint} variant={variantForHost((await headers()).get('host'))}/>;
   // A direct selected-menu URL is an entrypoint too. Do not mount a photo form,
   // login flow or target/heat loaders while this release is facts-only.
   if((query.reportStore!==undefined||query.reportMenu!==undefined)&&!selectedReportingEnabled())return <main data-reporting-state="pending" style={{maxWidth:640,margin:'64px auto',padding:24}}>

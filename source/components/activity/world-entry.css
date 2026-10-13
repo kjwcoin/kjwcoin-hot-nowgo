@@ -46,3 +46,5 @@
 }
 
 .we-dialog .we-challenge-copy{font-size:clamp(23px,2.7vw,36px);line-height:1.35;margin:16px 0 0;color:var(--planet);font-weight:800;letter-spacing:-.04em}.we-description-full,.we-description-compact{overflow-wrap:anywhere}@media(max-width:700px){.we-dialog .we-challenge-copy{font-size:22px;margin-top:12px}.we-hero .aw-actions>*{font-size:14px}.we-hero .aw-button svg{width:15px;flex-shrink:0}}
+
+.we-dialog.activity-world{color:#fff}.we-dialog .we-top{background:#0c142f!important;color:#fff}.we-dialog .we-details-toggle{color:#fff!important}.we-dialog .we-description,.we-dialog .we-description-full,.we-dialog .we-description-compact{color:#e0e7f2!important}.we-dialog .we-ghost,.we-dialog .we-top>button{color:#fff}.we-dialog .we-top>span{color:#fff}

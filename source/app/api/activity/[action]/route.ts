@@ -1,3 +1,5 @@
+import records from '@/lib/readonly-source-records';
+import {readSourcedStoreBySlug} from '@/lib/sourced-store-page';
 import {isReadonlySourceStoreId} from '@/lib/readonly-source-listings';
 import {verifiedUser,publicDb} from '@/lib/supabase';
 import {reply,validOrigin,failure} from '@/lib/server';
@@ -11,6 +13,16 @@ type Ctx={params:Promise<{action:string}>};
 const message:Record<string,string>={LOGIN_REQUIRED:'통합 로그인 후 나의 기록을 만나보세요.',OUTSIDE_STORE:'매장 가까이에서 다시 위치를 확인해 주세요. 인증 반경은 150m예요.',GPS_NOT_FRESH:'정확한 현재 위치를 확인하지 못했어요. 위치 권한을 확인하고 다시 시도해 주세요.',STORE_LOCATION_REQUIRED:'이 매장은 정확한 위치 확인이 필요해요.',RATE_LIMIT:'조금 쉬었다가 다시 시도해 주세요.',OWNER_REQUIRED:'이 매장의 점주만 다른 손님의 기록을 확인할 수 있어요.',BAD_BADGE:'아직 획득하지 않은 훈장이에요.',CUSTOMER_TRUST_RESTRICTED:'신뢰 검토에 따른 접수 제한 기간이에요. 나의 신뢰에서 기간과 이의신청을 확인해 주세요.',CUSTOMER_TRUST_DUPLICATE:'같은 매장에 같은 상태를 30분 안에 다시 제보할 수 없어요.',TRUST_RESPONSE_CLOSED:'소명·이의신청 접수 기간이 끝났어요.',TRUST_FORBIDDEN:'이 기록을 처리할 권한이 없어요.',STORE_NOT_FOUND:'매장을 다시 선택해 주세요.',PHOTO_MISSING:'사진 저장을 확인하지 못했어요. 다시 첨부해 주세요.',BAD_DATE:'기록 날짜를 확인해 주세요.'};
 export async function GET(req:Request,{params}:Ctx){
  try{const {action}=await params;if(action==='push-key'){const {data,error}=await publicDb().rpc('ng_planet_push_public_key');if(error)throw error;return reply(req,{key:data||''})}const auth=await verifiedUser(req);if(!auth)return reply(req,{error:message.LOGIN_REQUIRED},401);const planet=planetForVariant(variantForHost(req.headers.get('host')));
+ if(action==='footprint-draft'){
+ const id=new URL(req.url).searchParams.get('visitId');if(!id||!/^[a-f0-9-]{36}$/.test(id))return reply(req,{error:'발자국을 다시 선택해 주세요.'},400);
+ const {data:visit,error}=await auth.client.from('ng_planet_visits').select('id,store_id,source_store_id,shop,menu,country,region,visited_on,status,note,taste,texture').eq('id',id).eq('user_id',auth.user.id).eq('planet',planet).maybeSingle();if(error)throw error;if(!visit)return reply(req,{error:'내 발자국을 찾지 못했어요.'},404);
+ const {data:photo,error:photoError}=await auth.client.from('ng_planet_photos').select('path,bucket').eq('visit_id',id).eq('user_id',auth.user.id).eq('planet',planet).order('created_at',{ascending:false}).limit(1).maybeSingle();if(photoError)throw photoError;
+ let photoUrl=null;if(photo){const bucket=photo.bucket||'planet-private';if(['planet-private','hot-report-photos','sweet-report-photos','rich-report-photos'].includes(bucket)){const signed=await auth.client.storage.from(bucket).createSignedUrl(photo.path,300);if(signed.error)throw signed.error;photoUrl=signed.data?.signedUrl||null}}
+ let store=null;if(visit.store_id){const found=await auth.client.from('stores').select('id,name,address,slug').eq('id',visit.store_id).is('archived_at',null).maybeSingle();if(found.error)throw found.error;store=found.data}
+ const record=records.find(row=>row.id===visit.source_store_id);let sourceStore=record?await readSourcedStoreBySlug(record.slug):null;
+ if(sourceStore){const hidden=await auth.client.rpc('ng_hot_source_hidden_stores');if(hidden.error)throw hidden.error;if((hidden.data||[]).includes(sourceStore.id))sourceStore=null}
+ return reply(req,{visit,store,sourceStore,photoUrl});
+ }
  if(action==='trust'){const {data,error}=await auth.client.rpc('ng_customer_trust_snapshot');if(error)throw error;return reply(req,data);}
  if(action==='snapshot'){const {data,error}=await auth.client.rpc('ng_planet_snapshot',{p_planet:planet});if(error)throw error;const snapshot=data as ActivitySnapshot;
  const trust=await auth.client.rpc('ng_customer_trust_snapshot');if(trust.error)throw trust.error;
