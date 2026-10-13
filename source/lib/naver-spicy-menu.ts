@@ -9,6 +9,9 @@ export type PlaceMenuEvidence = {
   pepperIndicatorVerified?: boolean;
   pepperIndicatorContext?: 'spice_level' | 'decorative' | 'unknown';
   permissionReference?: string;
+  // Only trusted, server-side reviewers may set these; never trust client input.
+  permissionVerified?: boolean;
+  menuEvidenceVerified?: boolean;
   checkedAt: string;
 };
 export type PlaceMenuDecision = {
@@ -18,9 +21,12 @@ export type PlaceMenuDecision = {
 };
 const naverPlace = /^https:\/\/(?:m\.)?(?:place|map)\.naver\.com\//i;
 export function classifyNaverSpicyMenu(e: PlaceMenuEvidence): PlaceMenuDecision {
-  if (!e.permissionReference?.trim()) return {eligible:false,reason:'missing_permission'};
+  // A permission reference is not itself verified permission.
+  if (!e.permissionReference?.trim() || e.permissionVerified !== true) return {eligible:false,reason:'missing_permission'};
   if (!naverPlace.test(e.placeUrl)) return {eligible:false,reason:'invalid_source'};
-  if (!e.menuName?.trim() || !Number.isFinite(Date.parse(e.checkedAt))) {
+  const checkedAt = Date.parse(e.checkedAt);
+  if (!e.menuName?.trim() || !Number.isFinite(checkedAt) || checkedAt > Date.now() ||
+      e.menuEvidenceVerified !== true) {
     return {eligible:false,reason:'invalid_evidence'};
   }
   // Require menu-specific proof, not an unrelated store title/category/review.
