@@ -126,7 +126,7 @@ function signupForm(storeId, resume = false) {
 }
 
 test('all reserved source UUIDs are recognized across equivalent PostgreSQL text forms', () => {
- assert.equal(stores.length, 588);
+ assert.equal(stores.length, 591);
  for (const store of stores) for (const id of uuidForms(store.id)) assert.equal(isReadonlySourceStoreId(id), true, id);
  for (const value of [null, {}, 42, '', 'not-a-store', unrelatedId]) assert.equal(isReadonlySourceStoreId(value), false);
 });

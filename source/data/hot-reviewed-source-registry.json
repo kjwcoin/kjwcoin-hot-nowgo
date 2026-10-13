@@ -14525,6 +14525,81 @@
         }
       },
       "menuKey": "31968ca38ee98509"
+    },
+    "data-go-kr-15083033-MA0101202212A0013161": {
+      "id": "dca5fde3-4284-54c6-a5f6-dd258fea1fe9",
+      "slug": "hot-seoul-ma0101202212a0013161",
+      "name": "깃대봉냉면",
+      "address": "서울특별시 중구 청계천로 400",
+      "lat": 37.5708155923725,
+      "lon": 127.021462076959,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T12:40:45Z",
+          "nativeRecordId": "MA0101202212A0013161"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T12:40:45Z",
+          "nativeRecordId": "MA0101202212A0013161"
+        }
+      },
+      "menuKey": "individual-menu-ma0101202212a0013161"
+    },
+    "data-go-kr-15083033-MA010120220800023018": {
+      "id": "ac490890-e3bb-59c6-bb8d-8f4588c15f57",
+      "slug": "hot-seoul-ma010120220800023018",
+      "name": "낙산냉면",
+      "address": "서울특별시 종로구 지봉로5길 8",
+      "lat": 37.5744926166339,
+      "lon": 127.015259653091,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T12:40:45Z",
+          "nativeRecordId": "MA010120220800023018"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T12:40:45Z",
+          "nativeRecordId": "MA010120220800023018"
+        }
+      },
+      "menuKey": "individual-menu-ma010120220800023018"
+    },
+    "data-go-kr-15083033-MA010120220810619843": {
+      "id": "bedda2f5-331e-534f-99cd-f0b233bd79ba",
+      "slug": "hot-busan-ma010120220810619843",
+      "name": "매떡",
+      "address": "부산광역시 부산진구 골드테마길 52-2",
+      "lat": 35.144070237023,
+      "lon": 129.060250331159,
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T12:48:19Z",
+          "nativeRecordId": "MA010120220810619843"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T12:48:19Z",
+          "nativeRecordId": "MA010120220810619843"
+        }
+      },
+      "menuKey": "individual-menu-ma010120220810619843"
     }
   },
   "menus": {
@@ -14815,6 +14890,73 @@
         "currentAvailability": null,
         "priceAsOf": null,
         "preparationNotice": "직접 조리하며 소스 선택에 따라 맵기가 달라집니다. 지점별 재료는 확인되지 않았습니다."
+      }
+    },
+    "individual-menu-ma0101202212a0013161": {
+      "name": "비빔냉면",
+      "provenance": {
+        "kind": "official-tourism-place-menu",
+        "sourceUrl": "https://korean.visitseoul.net/restaurants/깃대봉냉면-KR/KOP013129",
+        "sourceRecordIds": {
+          "post_sn": "13132",
+          "pageId": "KOP013129"
+        },
+        "sourceScope": "specific_restaurant_official_tourism_record",
+        "branchMenuApplicability": "source_record_specific_restaurant_not_current_sale",
+        "preparationNotice": "출처상 매운맛 선택 가능. 현재 선택지·판매 여부는 확인되지 않았습니다.",
+        "sourceAsOf": "2026-05-05",
+        "checkedAt": "2026-10-13T12:40:45Z",
+        "licenseName": null,
+        "explicitOpenLicense": false,
+        "reuseBasis": "limited-individual-fact-review",
+        "originalName": "비빔냉면",
+        "nameRepresentation": "original",
+        "currentAvailability": null,
+        "priceAsOf": null
+      }
+    },
+    "individual-menu-ma010120220800023018": {
+      "name": "냉면",
+      "provenance": {
+        "kind": "official-tourism-place-menu",
+        "sourceUrl": "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=4adc01c0-50c9-4d36-b06d-c0e8dc14cfe6",
+        "sourceRecordIds": {
+          "cotid": "4adc01c0-50c9-4d36-b06d-c0e8dc14cfe6"
+        },
+        "sourceScope": "specific_restaurant_official_tourism_record",
+        "branchMenuApplicability": "source_record_specific_restaurant_not_current_sale",
+        "preparationNotice": "출처상 아주 얼큰한 맛 선택 가능. 현재 선택지·판매 여부는 확인되지 않았습니다.",
+        "sourceAsOf": null,
+        "checkedAt": "2026-10-13T12:40:45Z",
+        "licenseName": null,
+        "explicitOpenLicense": false,
+        "reuseBasis": "limited-individual-fact-review",
+        "originalName": "냉면",
+        "nameRepresentation": "original",
+        "currentAvailability": null,
+        "priceAsOf": null
+      }
+    },
+    "individual-menu-ma010120220810619843": {
+      "name": "매운 떡볶이",
+      "provenance": {
+        "kind": "official-tourism-place-menu",
+        "sourceUrl": "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=2cf559b4-0aaf-44f9-9ecd-4edcb926d5e4",
+        "sourceRecordIds": {
+          "cotid": "2cf559b4-0aaf-44f9-9ecd-4edcb926d5e4"
+        },
+        "sourceScope": "specific_restaurant_official_tourism_record",
+        "branchMenuApplicability": "source_record_specific_restaurant_not_current_sale",
+        "preparationNotice": "출처상 매운맛·순한맛 선택 가능. 현재 선택지·판매 여부는 확인되지 않았습니다.",
+        "sourceAsOf": null,
+        "checkedAt": "2026-10-13T12:48:19Z",
+        "licenseName": null,
+        "explicitOpenLicense": false,
+        "reuseBasis": "limited-individual-fact-review",
+        "originalName": "매운 떡볶이",
+        "nameRepresentation": "original",
+        "currentAvailability": null,
+        "priceAsOf": null
       }
     }
   }

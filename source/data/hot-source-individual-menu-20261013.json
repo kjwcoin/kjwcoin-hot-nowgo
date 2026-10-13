@@ -1,0 +1,401 @@
+[
+  {
+    "id": "dca5fde3-4284-54c6-a5f6-dd258fea1fe9",
+    "slug": "hot-seoul-ma0101202212a0013161",
+    "name": "깃대봉냉면",
+    "address": "서울특별시 중구 청계천로 400",
+    "lat": 37.5708155923725,
+    "lon": 127.021462076959,
+    "source_ref": "data-go-kr-15083033-MA0101202212A0013161",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T12:40:45Z",
+      "sourceRecordId": "MA0101202212A0013161",
+      "nativeBusinessName": "깃대봉냉면",
+      "nativeBranchName": null,
+      "district": "중구",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T12:40:45Z",
+          "nativeRecordId": "MA0101202212A0013161"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T12:40:45Z",
+          "nativeRecordId": "MA0101202212A0013161"
+        }
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only",
+        "reviewedAt": "2026-10-13T12:40:45Z"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA0101202212A0013161:menu:1",
+          "name": "비빔냉면",
+          "provenance": {
+            "kind": "official-tourism-place-menu",
+            "sourceUrl": "https://korean.visitseoul.net/restaurants/깃대봉냉면-KR/KOP013129",
+            "sourceRecordIds": {
+              "post_sn": "13132",
+              "pageId": "KOP013129"
+            },
+            "sourceScope": "specific_restaurant_official_tourism_record",
+            "branchMenuApplicability": "source_record_specific_restaurant_not_current_sale",
+            "preparationNotice": "출처상 매운맛 선택 가능. 현재 선택지·판매 여부는 확인되지 않았습니다.",
+            "sourceAsOf": "2026-05-05",
+            "checkedAt": "2026-10-13T12:40:45Z",
+            "licenseName": null,
+            "explicitOpenLicense": false,
+            "reuseBasis": "limited-individual-fact-review",
+            "originalName": "비빔냉면",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      },
+      "aliasBindings": [],
+      "independentReview": {
+        "packetFile": "outputs/hot-blog-leads-20261013/seoul-highheat/first-ready1.json",
+        "packetSha256": "612d9ccd28cde99f2af3f287da9054670caf0daf3e292d9299a50f0770a754f6",
+        "coordinateSource": {
+          "datasetUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+          "sourceAsOf": "2026-06-30",
+          "file": "outputs/seoul-spicy-research-20261013/raw/sbiz-seoul-202606.csv",
+          "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+          "dataRowNumber": 360189,
+          "nativeID": "MA0101202212A0013161",
+          "coordinateSystem": "WGS84",
+          "license": "이용허락범위 제한 없음"
+        },
+        "menuSource": {
+          "dataset": "서울시 관광 음식 OA-21054",
+          "datasetUrl": "https://data.seoul.go.kr/dataList/OA-21054/S/1/datasetView.do",
+          "catalogueUpdated": "2026-10-13",
+          "retrievedAt": "2026-10-13T12:38:11.053171+00:00",
+          "recordPostSN": 13132,
+          "sourceRow": {
+            "new_address": "03108 서울 중구 청계천로 400 베네치아메가몰 2층 2038호 ",
+            "post_sj": "깃대봉냉면",
+            "cmmn_hmpg_lang": null,
+            "address": "110-862 서울 중구 황학동 2545 56-25",
+            "post_url": "https://korean.visitseoul.net/restaurants/깃대봉냉면-KR/KOP013129?utm_source=seoulopendata&utm_medium=restaurants&utm_content=KOP013129",
+            "lang_code_id": "ko",
+            "cmmn_telno": "02-762-4407",
+            "fd_reprsnt_menu": "냉면, 만두",
+            "cmmn_hmpg_url": null,
+            "subway_info": "지하철 1/2호선/우이신설선 신설동역 10번 출구,  620m\r\n\r\n",
+            "cmmn_use_time": "11:00 ~ 20:30",
+            "post_sn": 13132
+          },
+          "file": "oa21054-korean-full.json",
+          "sha256": "0fb80407d6ef2dd0e1848bf75cc49ef8b19bd122b546e3365100d3a5a698caba",
+          "license": "공공누리 제1유형, 출처표시; 카탈로그 제3저작권자 없음",
+          "attribution": "서울관광재단·서울 열린데이터광장, 서울시 관광 음식(OA-21054), 2026-10-13 조회"
+        },
+        "heatSource": {
+          "url": "https://korean.visitseoul.net/restaurants/깃대봉냉면-KR/KOP013129",
+          "pageUpdated": "2026-05-05",
+          "bodyCheckedAt": "2026-10-13T12:38:11.053171+00:00",
+          "minimalFacts": "비빔냉면; 매운맛/덜 매운맛/안 매운맛 선택",
+          "reuseBasis": "Only noncreative factual menu names/options independently restated; no prose, reviews, images or whole-page database reproduction. OA license covers retrieved dataset row, not blanket linked-page reuse.",
+          "scope": "official editorial restaurant section only; Tripadvisor entirely excluded"
+        },
+        "addressDetail": "베네치아메가몰 2층 2038호",
+        "dedupBaseline": 2396,
+        "doesNotEstablish": [
+          "current_operation",
+          "current_menu_sale",
+          "numeric_heat",
+          "consumer_rating",
+          "ownership"
+        ],
+        "scope": "individual minimal menu and option facts only; no prose/photos or blanket webpage licence"
+      }
+    }
+  },
+  {
+    "id": "ac490890-e3bb-59c6-bb8d-8f4588c15f57",
+    "slug": "hot-seoul-ma010120220800023018",
+    "name": "낙산냉면",
+    "address": "서울특별시 종로구 지봉로5길 8",
+    "lat": 37.5744926166339,
+    "lon": 127.015259653091,
+    "source_ref": "data-go-kr-15083033-MA010120220800023018",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T12:40:45Z",
+      "sourceRecordId": "MA010120220800023018",
+      "nativeBusinessName": "낙산냉면",
+      "nativeBranchName": null,
+      "district": "종로구",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T12:40:45Z",
+          "nativeRecordId": "MA010120220800023018"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T12:40:45Z",
+          "nativeRecordId": "MA010120220800023018"
+        }
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only",
+        "reviewedAt": "2026-10-13T12:40:45Z"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA010120220800023018:menu:1",
+          "name": "냉면",
+          "provenance": {
+            "kind": "official-tourism-place-menu",
+            "sourceUrl": "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=4adc01c0-50c9-4d36-b06d-c0e8dc14cfe6",
+            "sourceRecordIds": {
+              "cotid": "4adc01c0-50c9-4d36-b06d-c0e8dc14cfe6"
+            },
+            "sourceScope": "specific_restaurant_official_tourism_record",
+            "branchMenuApplicability": "source_record_specific_restaurant_not_current_sale",
+            "preparationNotice": "출처상 아주 얼큰한 맛 선택 가능. 현재 선택지·판매 여부는 확인되지 않았습니다.",
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-13T12:40:45Z",
+            "licenseName": null,
+            "explicitOpenLicense": false,
+            "reuseBasis": "limited-individual-fact-review",
+            "originalName": "냉면",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      },
+      "aliasBindings": [],
+      "independentReview": {
+        "packetFile": "outputs/hot-blog-leads-20261013/seoul-highheat/second-naksan-rights-qa1.json",
+        "packetSha256": "a64ffc4fbb9facf62b887d6f56e679a4e6ec69fe310920c2b4fa975786c30b8d",
+        "coordinateSource": {
+          "datasetUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+          "sourceAsOf": "2026-06-30",
+          "file": "outputs/seoul-spicy-research-20261013/raw/sbiz-seoul-202606.csv",
+          "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+          "dataRowNumber": 84801,
+          "nativeID": "MA010120220800023018",
+          "coordinateSystem": "WGS84",
+          "license": "이용허락범위 제한 없음"
+        },
+        "menuSource": {
+          "url": "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=4adc01c0-50c9-4d36-b06d-c0e8dc14cfe6",
+          "bodyCheckedAt": "2026-10-13T12:39:20.137622+00:00",
+          "sourceUpdatedDate": null,
+          "minimalFact": "냉면의 아주 얼큰한 맛 선택 가능",
+          "license": "No explicit page license asserted",
+          "reuseBasis": "Independently restated uncopyrightable single menu/option fact; no prose/photos; parent independent rights review required because KTO English member-terms scope is unresolved",
+          "doesNotReuse": [
+            "KTO prose",
+            "six-menu-count as rating",
+            "blog assessments",
+            "photos"
+          ]
+        },
+        "heatSource": {
+          "url": "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=4adc01c0-50c9-4d36-b06d-c0e8dc14cfe6",
+          "bodyCheckedAt": "2026-10-13T12:39:20.137622+00:00",
+          "sourceUpdatedDate": null,
+          "minimalFact": "냉면의 아주 얼큰한 맛 선택 가능",
+          "license": "No explicit page license asserted",
+          "reuseBasis": "Independently restated uncopyrightable single menu/option fact; no prose/photos; parent independent rights review required because KTO English member-terms scope is unresolved",
+          "doesNotReuse": [
+            "KTO prose",
+            "six-menu-count as rating",
+            "blog assessments",
+            "photos"
+          ]
+        },
+        "addressDetail": null,
+        "dedupBaseline": 2396,
+        "doesNotEstablish": [
+          "current_operation",
+          "current_menu_sale",
+          "numeric_heat",
+          "consumer_rating",
+          "ownership"
+        ],
+        "scope": "individual minimal menu and option facts only; no prose/photos or blanket webpage licence"
+      }
+    }
+  },
+  {
+    "id": "bedda2f5-331e-534f-99cd-f0b233bd79ba",
+    "slug": "hot-busan-ma010120220810619843",
+    "name": "매떡",
+    "address": "부산광역시 부산진구 골드테마길 52-2",
+    "lat": 35.144070237023,
+    "lon": 129.060250331159,
+    "source_ref": "data-go-kr-15083033-MA010120220810619843",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T12:48:19Z",
+      "sourceRecordId": "MA010120220810619843",
+      "nativeBusinessName": "매떡",
+      "nativeBranchName": null,
+      "district": "부산진구",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T12:48:19Z",
+          "nativeRecordId": "MA010120220810619843"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T12:48:19Z",
+          "nativeRecordId": "MA010120220810619843"
+        }
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only",
+        "reviewedAt": "2026-10-13T12:48:19Z"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA010120220810619843:menu:1",
+          "name": "매운 떡볶이",
+          "provenance": {
+            "kind": "official-tourism-place-menu",
+            "sourceUrl": "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=2cf559b4-0aaf-44f9-9ecd-4edcb926d5e4",
+            "sourceRecordIds": {
+              "cotid": "2cf559b4-0aaf-44f9-9ecd-4edcb926d5e4"
+            },
+            "sourceScope": "specific_restaurant_official_tourism_record",
+            "branchMenuApplicability": "source_record_specific_restaurant_not_current_sale",
+            "preparationNotice": "출처상 매운맛·순한맛 선택 가능. 현재 선택지·판매 여부는 확인되지 않았습니다.",
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-13T12:48:19Z",
+            "licenseName": null,
+            "explicitOpenLicense": false,
+            "reuseBasis": "limited-individual-fact-review",
+            "originalName": "매운 떡볶이",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      },
+      "aliasBindings": [],
+      "nameAliases": [
+        "매떡",
+        "원조범일동매떡",
+        "원조 범일동 매떡"
+      ],
+      "independentReview": {
+        "packetFile": "outputs/hot-busan-independent-20261013/maetteok-ready-minimal-fact.json",
+        "packetSha256": "cf7ea2ede45b8ec2481def6150fee1d228dea3da191855073df710dab34da6ee",
+        "coordinateSource": {
+          "id": "MA010120220810619843",
+          "nativeName": "매떡",
+          "nativeBranch": null,
+          "address": "부산광역시 부산진구 골드테마길 52-2",
+          "jibun": "부산광역시 부산진구 범천동 844-35",
+          "latitude": 35.144070237023,
+          "longitude": 129.060250331159,
+          "dataRowNumber": 57359,
+          "sourceAsOf": "2026-06-30",
+          "datasetId": "15083033",
+          "datasetUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+          "license": "이용허락범위 제한 없음",
+          "rawSha256": "9a2de9bed72f70691e26d55f5fede506d95c5dc521d9154564d1b95f69d7cb19",
+          "coordinateSystem": "WGS84 per provider guide; no CSV EPSG tag"
+        },
+        "menuSource": {
+          "url": "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=2cf559b4-0aaf-44f9-9ecd-4edcb926d5e4",
+          "sourceRecordID": "2cf559b4-0aaf-44f9-9ecd-4edcb926d5e4",
+          "provider": "한국관광공사 대한민국 구석구석",
+          "access": "Public unauthenticated web read; no login, no consent or membership created",
+          "checkedAt": "2026-10-13",
+          "sourceUpdatedAt": null,
+          "scope": "Only ordinary menu name and two option names. No source sentence, promotional claims, ranking, photos or ratings retained."
+        },
+        "identityLinkageEvidence": {
+          "url": "https://english.visitkorea.or.kr/svc/whereToGo/locIntrdn/rgnContentsView.do?vcontsId=75176",
+          "provider": "한국관광공사 VISITKOREA",
+          "sourceRecordID": "75176",
+          "checkedAt": "2026-10-13T12:47:36Z",
+          "access": "Unauthenticated public page read",
+          "verifiedName": "원조범일동매떡",
+          "verifiedAddress": "부산광역시 부산진구 골드테마길 52-2",
+          "verifiedMenu": "Maetteok (Spicy tteokbokki)",
+          "sourceSections": "Title, Specialty Menu, Address",
+          "matchingMethod": "KTO exact named restaurant + full address matches the SBIZ native name 매떡 at exactly the same road address. Korean KTO exact distinctive full-name profile independently confirms two menu options.",
+          "coordinatesSource": "Coordinates remain exclusively SBIZ dataset15083033 recordMA010120220810619843, not KTO or inferred geocoding.",
+          "scope": "Ordinary name/address link verification only; no English editorial expression, media, price or hours reused. English membership terms already reviewed; not a blanket reuse license."
+        },
+        "rightsAssessment": {
+          "decision": "Accept this one narrowly bounded factual listing under the corrected minimal-facts framework. Not a blanket commercial license and not legal clearance for bulk extraction.",
+          "koreanTermsURL": "https://korean.visitkorea.or.kr/term/term02.do",
+          "koreanTermsCheckedAt": "2026-10-13",
+          "koreanTermsFindings": [
+            "Article 3 distinguishes social-login members from nonmembers.",
+            "Article 11 is member obligations; item 8 prohibits members using the service for profit without consent.",
+            "No social login or member features used in this research. No specific prohibition on this one nonmember ordinary-fact record was found in the reviewed Korean terms.",
+            "Article 13 addresses rights/responsibility for member posts; not a public-domain declaration."
+          ],
+          "englishTermsURL": "https://english.visitkorea.or.kr/svc/contents/contentsView.do?vcontsId=1589650",
+          "englishTermsTreatment": "Preserve prior commercial-use concern for English member-service materials; final menu evidence is separately verified Korean public page. No universal English-to-Korean restriction or exemption inferred.",
+          "lawSources": [
+            "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1029423451",
+            "https://www.law.go.kr/LSW/precInfoP.do?evtNo=2004%EB%8F%845350"
+          ],
+          "lawReview": "Article 93 protects substantial database use and harmful repeated/systematic extraction; individual constituents are not automatically substantial. Supreme Court 2004도5350 distinguishes creative expression from underlying facts. Applied as a narrow research assessment, not a guarantee or general scraping authorization.",
+          "sbizLicense": "이용허락범위 제한 없음",
+          "noClaimOfKTOOpenLicense": true
+        },
+        "dedupBaseline": 2396,
+        "scope": "individual minimal menu and option facts only; no prose/photos, restricted API data or blanket webpage licence"
+      }
+    }
+  }
+]

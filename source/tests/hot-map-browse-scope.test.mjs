@@ -9,7 +9,7 @@ import {positionedStoreGroups,clusterStorePoints} from '../lib/map-store-cluster
 import {loadedMapStoreCount,loadedMapCountLabel} from '../lib/loaded-map-count.ts';
 import {sourceUi,hookHarness,elements,textOf} from './helpers/source-ui-components.mjs';
 const sources=readonlySourceStoreFeed().stores;
-const seven=sources.filter(s=>s.slug.startsWith('hot-busan-')||s.slug==='hot-cheongna-ma010120220802577654'||s.slug==='hot-cheongna-ma010120220809138248');
+const seven=readonlySourceStoreFeed('hot-source-588-v1').stores.filter(s=>s.slug.startsWith('hot-busan-')||s.slug==='hot-cheongna-ma010120220802577654'||s.slug==='hot-cheongna-ma010120220809138248');
 const cheongna={lat:37.5364745896207,lng:126.643696685757};
 const country={south:33,north:39.6,west:124,east:132};
 const busan={south:35,north:35.3,west:128.8,east:129.3};
@@ -18,8 +18,8 @@ const reports=[hdd,{...hdd,id:'hdd-report-b',placeId:'reported-hdd-b'}];
 const draw=(menus,stores,bounds=country,level=12)=>clusterStorePoints(positionedStoreGroups(mapStoreGroups(menus,stores,stores)),{bounds,level,project:p=>({x:(p.lng-124)*50,y:(p.lat-33)*50})});
 const filters={query:'',heat:0,flavor:'전체',category:'전체',budget:0};
 
-test('location does not limit HOT discovery for current seven or candidate 588 sources; SWEET/RICH keep 15 km',()=>{
- assert.equal(seven.length,7);assert.equal(sources.length,588);
+test('location does not limit HOT discovery for current seven or candidate 591 sources; SWEET/RICH keep 15 km',()=>{
+ assert.equal(seven.length,7);assert.equal(sources.length,591);
  for(const stores of [seven,sources])for(const variant of ['hot','sweet','rich']){
   const origin=mapBrowseOrigin(variant,cheongna),params=new URLSearchParams({q:'청라',heat:'3',page:'2'});
   appendMapBrowseLocation(params,variant,cheongna);
@@ -34,7 +34,7 @@ test('location does not limit HOT discovery for current seven or candidate 588 s
  }
 });
 
-for(const [name,stores] of [['current seven',seven],['candidate 588',sources]])test(`actual main HOT component: ${name} and HDD remain available after location and query reset`,()=>{
+for(const [name,stores] of [['current seven',seven],['candidate 591',sources]])test(`actual main HOT component: ${name} and HDD remain available after location and query reset`,()=>{
  const h=hookHarness(),ui=sourceUi({react:h.react,stores,menus:reports});
  const render=()=>elements(h.render(()=>ui.Explorer({variant:'hot'})));
  let nodes=render();nodes.find(n=>n.type===ui.Map).props.onLocation(cheongna);nodes=render();
@@ -52,7 +52,7 @@ for(const [name,stores] of [['current seven',seven],['candidate 588',sources]])t
  }
 });
 
-for(const [name,stores] of [['current seven',seven],['candidate 588',sources]])test(`actual embedded HOT component: ${name}, location-present menu request and pins have no hidden radius`,async()=>{
+for(const [name,stores] of [['current seven',seven],['candidate 591',sources]])test(`actual embedded HOT component: ${name}, location-present menu request and pins have no hidden radius`,async()=>{
  const h=hookHarness(),calls=[],timers=[];
  const globals={AbortController,setTimeout:fn=>{timers.push(fn);return timers.length},clearTimeout(){},setInterval(){return 1},clearInterval(){},window:{parent:{},addEventListener(){},removeEventListener(){}},document:{visibilityState:'visible',addEventListener(){},removeEventListener(){}}};
  const ui=sourceUi({react:h.react,stores,globals,client:{track(){},api:async url=>{calls.push(url);return {menus:reports,hasMore:true}}}});
@@ -68,7 +68,7 @@ test('rendered count matches identical pin/cluster population, bounding, canonic
  for(const stores of [seven,sources])for(const level of [4,12]){
   const displays=draw(reports,stores,country,level);assert.equal(loadedMapStoreCount(displays,country),stores.length+1);
   assert.equal(displays.reduce((n,d)=>n+(d.kind==='cluster'?d.count:1),0),stores.length+1);
-  assert.equal(loadedMapStoreCount(draw(reports,stores,busan,level),busan),5);
+  assert.equal(loadedMapStoreCount(draw(reports,stores,busan,level),busan),stores===seven?5:6);
  }
  const anchor=seven[0],alias={...hdd,id:'source-alias',placeId:'nowgo-'+anchor.id,shop:'alternate',area:'alternate',lat:anchor.coordinates.lat,lng:anchor.coordinates.lon};
  assert.equal(loadedMapStoreCount(draw([...reports,alias],seven),country),8);

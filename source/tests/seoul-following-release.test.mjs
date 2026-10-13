@@ -4,7 +4,7 @@ import {createHash} from 'node:crypto';
 import {readFileSync} from 'node:fs';
 import React from 'react';
 import {renderToStaticMarkup} from 'react-dom/server';
-import records from '../lib/readonly-source-records.ts';
+import {reviewed588Records as records} from '../lib/readonly-source-records.ts';
 import base from '../data/hot-source-listings.json' with {type:'json'};
 import index from '../data/hot-source-seoul-following/index.json' with {type:'json'};
 import registry from '../data/hot-reviewed-source-registry.json' with {type:'json'};
@@ -12,7 +12,7 @@ import * as sourced from '../lib/sourced-store.ts';
 import {readonlySourceStoreFeed,isReadonlySourceStoreId,isReadonlySourceReportBinding} from '../lib/readonly-source-listings.ts';
 import * as grouped from '../lib/map-sourced-stores.ts';
 import {sourceUi,moduleAt,elements,hookHarness} from './helpers/source-ui-components.mjs';
-const feed=readonlySourceStoreFeed(),added=feed.stores.slice(130),dookki=added.filter(s=>s.menus[0].provenance.brandName==='두끼');
+const feed=readonlySourceStoreFeed('hot-source-588-v1'),added=feed.stores.slice(130),dookki=added.filter(s=>s.menus[0].provenance.brandName==='두끼');
 const hash=value=>createHash('sha256').update(JSON.stringify(value)).digest('hex');
 const notice='직접 조리하며 소스 선택에 따라 맵기가 달라집니다. 지점별 재료는 확인되지 않았습니다.';
 const discovery=moduleAt('lib/store-discovery.ts',{'./sourced-store.ts':sourced,'./social-preview':{socialMetadata:()=>({openGraph:{},twitter:{}})}});
@@ -21,7 +21,7 @@ test('district partitions reproduce exact588 semantic release with frozen130 pre
  assert.equal(hash(records),'2143b51c0161e86ec66e624441bd5af546addec4ae4c9010210d51843f2225a8');
  assert.equal(index.total,458);assert.equal(index.districtFiles.length,25);
  for(const item of index.districtFiles){const bytes=readFileSync(new URL('../data/hot-source-seoul-following/'+item.file,import.meta.url));assert.equal(createHash('sha256').update(bytes).digest('hex'),item.sha256);assert.equal(bytes.length,item.bytes);assert.equal(JSON.parse(bytes).length,item.count);}
- assert.equal(Object.keys(registry.records).length,581);
+ assert.equal(Object.keys(registry.records).length,584);
 });
 test('588 unique source-only cards retain100 Incheon,5 Busan,483 Seoul and575 brand-common facts',()=>{
  assert.equal(feed.stores.length,588);assert.equal(added.length,458);assert.equal(dookki.length,35);

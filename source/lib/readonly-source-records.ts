@@ -1,3 +1,4 @@
+import individualMenus from '../data/hot-source-individual-menu-20261013.json' with {type:'json'};
 /** Server-only evidence assembly. Never import this module into client components.
  * The public DTO is separately validated; raw CSV and rights reviews stay here.
  * District partitions preserve every frozen record and the exact reviewed ordering.
@@ -34,6 +35,7 @@ const additions=[...district11110,...district11140,...district11170,...district1
 const byRef=new Map(additions.map(row=>[row.source_ref,row]));
 if(base.length!==130||additions.length!==458||byRef.size!==458||index.total!==458||index.orderedSourceRefs.length!==458||new Set(index.orderedSourceRefs).size!==458)throw Error('invalid_source_district_partition');
 const ordered=index.orderedSourceRefs.map(ref=>{const row=byRef.get(ref);if(!row)throw Error('missing_source_partition_record');return row});
-const records:ReadonlySourceRecord[]=[...base,...ordered];
+export const reviewed588Records:ReadonlySourceRecord[]=[...base,...ordered];
+const records:ReadonlySourceRecord[]=[...reviewed588Records,...individualMenus];
 if(new Set(records.map(row=>row.id)).size!==records.length||new Set(records.map(row=>row.source_ref)).size!==records.length)throw Error('duplicate_source_partition_identity');
 export default records;

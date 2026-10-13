@@ -1,6 +1,6 @@
-import records from './readonly-source-records.ts';
+import records,{reviewed588Records} from './readonly-source-records.ts';
 import legacyRecords from '../data/hot-source-listings.json' with {type:'json'};
-import {CURRENT_SOURCE_FEED_CONTRACT,LEGACY_SOURCE_FEED_CONTRACT,type SourceFeedContract} from './source-feed-contract.ts';
+import {CURRENT_SOURCE_FEED_CONTRACT,PREVIOUS_SOURCE_FEED_CONTRACT,LEGACY_SOURCE_FEED_CONTRACT,type SourceFeedContract} from './source-feed-contract.ts';
 import {publicSourcedStore,type PublicSourcedStoreFeed} from './sourced-store.ts';
 /** A versioned public-source listing is not a stores-table registration.
  * No database row, owner claim, operating status or consumer evaluation is implied.
@@ -30,7 +30,7 @@ export function isReadonlySourceReportBinding(value:unknown):boolean{
   (typeof row.menu_id==='string'&&reservedMenuIds.has(row.menu_id));
 }
 export function readonlySourceStoreFeed(contract:SourceFeedContract=CURRENT_SOURCE_FEED_CONTRACT):PublicSourcedStoreFeed{
- const snapshot=contract===CURRENT_SOURCE_FEED_CONTRACT?records:contract===LEGACY_SOURCE_FEED_CONTRACT?legacyRecords:null;
+ const snapshot=contract===CURRENT_SOURCE_FEED_CONTRACT?records:contract===PREVIOUS_SOURCE_FEED_CONTRACT?reviewed588Records:contract===LEGACY_SOURCE_FEED_CONTRACT?legacyRecords:null;
  if(!snapshot)throw Error('unsupported_source_feed_contract');
  const seen=new Set<string>();
  const stores=snapshot.map(row=>{
