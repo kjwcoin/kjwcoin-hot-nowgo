@@ -18,8 +18,8 @@ const reports=[hdd,{...hdd,id:'hdd-report-b',placeId:'reported-hdd-b'}];
 const draw=(menus,stores,bounds=country,level=12)=>clusterStorePoints(positionedStoreGroups(mapStoreGroups(menus,stores,stores)),{bounds,level,project:p=>({x:(p.lng-124)*50,y:(p.lat-33)*50})});
 const filters={query:'',heat:0,flavor:'전체',category:'전체',budget:0};
 
-test('location does not limit HOT discovery for current seven or candidate 130 sources; SWEET/RICH keep 15 km',()=>{
- assert.equal(seven.length,7);assert.equal(sources.length,130);
+test('location does not limit HOT discovery for current seven or candidate 588 sources; SWEET/RICH keep 15 km',()=>{
+ assert.equal(seven.length,7);assert.equal(sources.length,588);
  for(const stores of [seven,sources])for(const variant of ['hot','sweet','rich']){
   const origin=mapBrowseOrigin(variant,cheongna),params=new URLSearchParams({q:'청라',heat:'3',page:'2'});
   appendMapBrowseLocation(params,variant,cheongna);
@@ -34,7 +34,7 @@ test('location does not limit HOT discovery for current seven or candidate 130 s
  }
 });
 
-for(const [name,stores] of [['current seven',seven],['candidate 130',sources]])test(`actual main HOT component: ${name} and HDD remain available after location and query reset`,()=>{
+for(const [name,stores] of [['current seven',seven],['candidate 588',sources]])test(`actual main HOT component: ${name} and HDD remain available after location and query reset`,()=>{
  const h=hookHarness(),ui=sourceUi({react:h.react,stores,menus:reports});
  const render=()=>elements(h.render(()=>ui.Explorer({variant:'hot'})));
  let nodes=render();nodes.find(n=>n.type===ui.Map).props.onLocation(cheongna);nodes=render();
@@ -52,7 +52,7 @@ for(const [name,stores] of [['current seven',seven],['candidate 130',sources]])t
  }
 });
 
-for(const [name,stores] of [['current seven',seven],['candidate 130',sources]])test(`actual embedded HOT component: ${name}, location-present menu request and pins have no hidden radius`,async()=>{
+for(const [name,stores] of [['current seven',seven],['candidate 588',sources]])test(`actual embedded HOT component: ${name}, location-present menu request and pins have no hidden radius`,async()=>{
  const h=hookHarness(),calls=[],timers=[];
  const globals={AbortController,setTimeout:fn=>{timers.push(fn);return timers.length},clearTimeout(){},setInterval(){return 1},clearInterval(){},window:{parent:{},addEventListener(){},removeEventListener(){}},document:{visibilityState:'visible',addEventListener(){},removeEventListener(){}}};
  const ui=sourceUi({react:h.react,stores,globals,client:{track(){},api:async url=>{calls.push(url);return {menus:reports,hasMore:true}}}});

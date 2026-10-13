@@ -1,4 +1,5 @@
 import test from 'node:test';
+import * as contracts from '../lib/source-feed-contract.ts';
 import assert from 'node:assert/strict';
 import {sourcePreviewStore} from '../lib/source-store-preview.ts';
 import * as sourced from '../lib/sourced-store.ts';
@@ -7,8 +8,8 @@ const store=sourcePreviewStore(),seed={stores:[store],complete:false,asOf:store.
 
 test('SSR feed seed is not the preview bypass: mount refreshes, and failure drops seeded facts',async()=>{
  const harness=hookHarness(),timers=[];let calls=0,fail=false;
- const globals={AbortController,setTimeout:callback=>{timers.push(callback);return timers.length},clearTimeout(){},setInterval(){return 1},clearInterval(){},window:{addEventListener(){},removeEventListener(){}},document:{visibilityState:'visible',addEventListener(){},removeEventListener(){}},fetch:async()=>{calls++;if(fail)throw Error('unavailable');return {ok:true,json:async()=>({...seed,complete:true})}}};
- const {useSourcedStores}=moduleAt('hooks/use-sourced-stores.ts',{react:harness.react,'@/lib/sourced-store':sourced},globals);
+ const globals={AbortController,setTimeout:callback=>{timers.push(callback);return timers.length},clearTimeout(){},setInterval(){return 1},clearInterval(){},window:{addEventListener(){},removeEventListener(){}},document:{visibilityState:'visible',addEventListener(){},removeEventListener(){}},fetch:async()=>{calls++;if(fail)throw Error('unavailable');return {ok:true,headers:new Headers({[contracts.SOURCE_FEED_CONTRACT_HEADER]:contracts.CURRENT_SOURCE_FEED_CONTRACT}),json:async()=>({...seed,complete:true})}}};
+ const {useSourcedStores}=moduleAt('hooks/use-sourced-stores.ts',{react:harness.react,'@/lib/source-feed-contract':contracts,'@/lib/sourced-store':sourced},globals);
  let state=harness.render(()=>useSourcedStores('hot',undefined,seed));assert.equal(state.status,'ready');assert.strictEqual(state.feed,seed);
  harness.flushEffects();assert.equal(timers.length,1);timers[0]();await new Promise(resolve=>setImmediate(resolve));
  state=harness.render(()=>useSourcedStores('hot',undefined,seed));assert.equal(calls,1);assert.equal(state.status,'ready');assert.equal(state.feed.complete,true);
@@ -17,7 +18,7 @@ test('SSR feed seed is not the preview bypass: mount refreshes, and failure drop
 
 test('the explicit preview feed still skips scheduling and all network reads',async()=>{
  const harness=hookHarness();const blocked=()=>{throw Error('Unexpected preview side effect')};
- const {useSourcedStores}=moduleAt('hooks/use-sourced-stores.ts',{react:harness.react,'@/lib/sourced-store':sourced},{fetch:blocked,setTimeout:blocked,setInterval:blocked});
+ const {useSourcedStores}=moduleAt('hooks/use-sourced-stores.ts',{react:harness.react,'@/lib/source-feed-contract':contracts,'@/lib/sourced-store':sourced},{fetch:blocked,setTimeout:blocked,setInterval:blocked});
  let state=harness.render(()=>useSourcedStores('hot',seed));harness.flushEffects();await state.refresh();state=harness.render(()=>useSourcedStores('hot',seed));assert.strictEqual(state.feed,seed);assert.equal(state.status,'ready');
 });
 
@@ -25,9 +26,9 @@ test('the explicit preview feed still skips scheduling and all network reads',as
 function deferredRead({feed=seed}={}){
  const harness=hookHarness();let resolve,reject;
  const globals={AbortController,setTimeout(){return 1},clearTimeout(){},fetch:()=>new Promise((yes,no)=>{resolve=yes;reject=no})};
- const {useSourcedStores}=moduleAt('hooks/use-sourced-stores.ts',{react:harness.react,'@/lib/sourced-store':sourced},globals);
+ const {useSourcedStores}=moduleAt('hooks/use-sourced-stores.ts',{react:harness.react,'@/lib/source-feed-contract':contracts,'@/lib/sourced-store':sourced},globals);
  const render=()=>harness.render(()=>useSourcedStores('hot',undefined,feed));
- return{render,reply:body=>resolve({ok:true,json:async()=>body}),fail:()=>reject(Error('unavailable'))};
+ return{render,reply:body=>resolve({ok:true,headers:new Headers({[contracts.SOURCE_FEED_CONTRACT_HEADER]:contracts.CURRENT_SOURCE_FEED_CONTRACT}),json:async()=>body}),fail:()=>reject(Error('unavailable'))};
 }
 const readonlySeed={...seed,complete:true,stores:[{...store,registrationState:'source-only'}]};
 

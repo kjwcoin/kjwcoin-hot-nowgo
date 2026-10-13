@@ -14,6 +14,8 @@ export type MenuFactProvenance = {
   kind:'official-tourism-place-menu'|'official-brand-menu';sourceUrl:string;sourceRecordIds:Record<string,string>;
   sourceScope?:'brand_common'|'specific_restaurant_official_tourism_record';
   branchMenuApplicability?:null|'source_record_specific_restaurant_not_current_sale';brandName?:string;
+  /** Optional exact-reviewed brand caveat, bound to this menu by the release registry. */
+  preparationNotice?:string;
   sourceAsOf:string|null;checkedAt:string;licenseName:null;explicitOpenLicense:false;
   reuseBasis:'limited-individual-fact-review';originalName:string;
   nameRepresentation:'original'|'ja-transliteration';currentAvailability:null;priceAsOf:null;
@@ -160,6 +162,11 @@ export function parseOwnerInformationRequestState(value: unknown): OwnerInformat
 }
 
 export type PublicSourcedStoreFeed={stores:PublicSourcedStore[];asOf:string;complete:boolean};
+/** This shape gate alone does not prove a feed came from the immutable manifest. */
+export function isSourceOnlyFeed(feed:PublicSourcedStoreFeed|null):feed is PublicSourcedStoreFeed{
+ return Boolean(feed&&feed.stores.every(store=>store.registrationState==='source-only'&&
+  store.ownerClaimVerified===false&&store.ownership==='unclaimed'&&store.pinStatus==='gray'));
+}
 /** Validate and whitelist every item on both sides of the public feed boundary. */
 export function parseSourcedStoreFeed(value:unknown):PublicSourcedStoreFeed{
  const feed=record(value);

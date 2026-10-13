@@ -1,0 +1,2205 @@
+[
+  {
+    "id": "30f80893-5af5-5310-a376-8058239034bc",
+    "slug": "hot-seoul-ma010120220800007341",
+    "name": "불닭발엽기떡볶이 동대문",
+    "address": "서울특별시 종로구 삼봉로 100",
+    "lat": 37.5719154919387,
+    "lon": 126.982714623658,
+    "source_ref": "data-go-kr-15083033-MA010120220800007341",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+      "nativeBusinessName": "불닭발엽기떡볶이",
+      "nativeBranchName": "동대문",
+      "displayNameBasis": "Exact licensed SBIZ native business and branch strings; current franchise affiliation and operation unverified",
+      "sourceRecordId": "MA010120220800007341",
+      "district": "종로구",
+      "districtCode": "11110",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+          "nativeRecordId": "MA010120220800007341"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+          "nativeRecordId": "MA010120220800007341"
+        }
+      },
+      "registrationLocator": null,
+      "identityLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA010120220800007341",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 180428,
+        "rowNumberDefinition": "1-based data row excluding CSV header",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "rawFile": "outputs/seoul-spicy-research-20261013/raw/sbiz-seoul-202606.csv",
+        "rawRecord": {
+          "상가업소번호": "MA010120220800007341",
+          "상호명": "불닭발엽기떡볶이",
+          "지점명": "동대문",
+          "상권업종대분류코드": "I2",
+          "상권업종대분류명": "음식",
+          "상권업종중분류코드": "I210",
+          "상권업종중분류명": "기타 간이",
+          "상권업종소분류코드": "I21007",
+          "상권업종소분류명": "김밥/만두/분식",
+          "표준산업분류코드": "I56194",
+          "표준산업분류명": "김밥 및 기타 간이 음식점업",
+          "시도코드": "11",
+          "시도명": "서울특별시",
+          "시군구코드": "11110",
+          "시군구명": "종로구",
+          "행정동코드": "11110615",
+          "행정동명": "종로1.2.3.4가동",
+          "법정동코드": "1111012700",
+          "법정동명": "공평동",
+          "지번코드": "1111012700101240000",
+          "대지구분코드": "1",
+          "대지구분명": "대지",
+          "지번본번지": "124",
+          "지번부번지": "",
+          "지번주소": "서울특별시 종로구 공평동 124",
+          "도로명코드": "111103100006",
+          "도로명": "서울특별시 종로구 삼봉로",
+          "건물본번지": "100",
+          "건물부번지": "",
+          "건물관리번호": "1111012700101240000016306",
+          "건물명": "영원빌딩",
+          "도로명주소": "서울특별시 종로구 삼봉로 100",
+          "구우편번호": "110160",
+          "신우편번호": "03158",
+          "동정보": "",
+          "층정보": "2",
+          "호정보": "",
+          "경도": "126.982714623658",
+          "위도": "37.5719154919387"
+        },
+        "licenseName": "이용허락범위 제한 없음",
+        "licenseEvidenceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+      },
+      "coordinateLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA010120220800007341",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 180428,
+        "rowNumberDefinition": "1-based CSV data row, excluding header; locator only",
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+        "rawLongitude": "126.982714623658",
+        "rawLatitude": "37.5719154919387",
+        "coordinateSystem": {
+          "name": "WGS84",
+          "epsg": 4326,
+          "axisOrderInSource": [
+            "경도",
+            "위도"
+          ],
+          "units": "decimal_degrees",
+          "transformation": "none; source numeric strings preserved alongside parsed numbers",
+          "evidenceType": "same-provider same-dataset API coordinate specification; the CSV itself does not encode an EPSG label",
+          "guideUrl": "https://www.data.go.kr/data/15012005/openapi.do",
+          "guideDownloadUrl": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000003706124&fileDetailSn=3",
+          "guideSha256": "4ed2112e2a90e49e88243fa7963ae7d19628aed247b6492bcbae6a947534970e",
+          "guideVersion": "260805",
+          "guideExtract": "raw/sbiz-api-guide-extracted.txt",
+          "evidence": "상가업소 lon/lat response fields are described as WGS84 coordinates in the provider guide. The longitude description repeats 위도, a provider wording typo; the lon/lat field labels and sample values distinguish axes."
+        },
+        "accuracy": "building_level; no survey/entrance accuracy claimed",
+        "matchMethod": "same original licensed SBIZ row; district text/code, original native identity, coordinate plausibility and duplicate premises screening; not current operation verification",
+        "matchedName": "불닭발엽기떡볶이",
+        "matchedBranchName": "동대문",
+        "matchedAddress": "서울특별시 종로구 삼봉로 100",
+        "buildingManagementNumber": "1111012700101240000016306",
+        "licenseName": "이용허락범위 제한 없음",
+        "rights": {
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true
+        }
+      },
+      "aliasBindings": [],
+      "deduplication": {
+        "key": "동대문엽기떡볶이|서울특별시 종로구 삼봉로 100",
+        "sourceIds": [
+          "MA010120220800007341"
+        ],
+        "sourceRows": [
+          180428
+        ],
+        "allSourceRecords": [
+          {
+            "상가업소번호": "MA010120220800007341",
+            "상호명": "불닭발엽기떡볶이",
+            "지점명": "동대문",
+            "상권업종대분류코드": "I2",
+            "상권업종대분류명": "음식",
+            "상권업종중분류코드": "I210",
+            "상권업종중분류명": "기타 간이",
+            "상권업종소분류코드": "I21007",
+            "상권업종소분류명": "김밥/만두/분식",
+            "표준산업분류코드": "I56194",
+            "표준산업분류명": "김밥 및 기타 간이 음식점업",
+            "시도코드": "11",
+            "시도명": "서울특별시",
+            "시군구코드": "11110",
+            "시군구명": "종로구",
+            "행정동코드": "11110615",
+            "행정동명": "종로1.2.3.4가동",
+            "법정동코드": "1111012700",
+            "법정동명": "공평동",
+            "지번코드": "1111012700101240000",
+            "대지구분코드": "1",
+            "대지구분명": "대지",
+            "지번본번지": "124",
+            "지번부번지": "",
+            "지번주소": "서울특별시 종로구 공평동 124",
+            "도로명코드": "111103100006",
+            "도로명": "서울특별시 종로구 삼봉로",
+            "건물본번지": "100",
+            "건물부번지": "",
+            "건물관리번호": "1111012700101240000016306",
+            "건물명": "영원빌딩",
+            "도로명주소": "서울특별시 종로구 삼봉로 100",
+            "구우편번호": "110160",
+            "신우편번호": "03158",
+            "동정보": "",
+            "층정보": "2",
+            "호정보": "",
+            "경도": "126.982714623658",
+            "위도": "37.5719154919387"
+          }
+        ],
+        "method": "same brand and exact address; if multirow, identical building/floor/wing/unit/coordinates; original aliases preserved",
+        "provisional": false,
+        "missingUnitCaveat": null
+      },
+      "duplicateSourceRows": null,
+      "sourcePremises": {
+        "건물관리번호": "1111012700101240000016306",
+        "건물명": "영원빌딩",
+        "동정보": null,
+        "층정보": "2",
+        "호정보": null
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only"
+      },
+      "fieldRights": {
+        "nameAddress": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "coordinates": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "oneMenuFact": {
+          "basis": "limited_individual_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "one ordinary brand menu fact plus own attribution; no brand directory, menu catalogue, images, or marketing prose copied",
+          "allowedFields": [
+            "one ordinary menu name",
+            "source URL",
+            "source ID",
+            "source date",
+            "checked date",
+            "own factual attribution"
+          ],
+          "knownTermsScope": "회원의 취득정보 무승낙 영리이용·상업이용 제한. 회원은 회원등록/이용계약자이며 비회원 일반열람으로 확장하는 명시 조항을 확인하지 못함.",
+          "termsReview": {
+            "status": "member_scope_restriction_application_to_nonmember_unresolved",
+            "explicitNonmemberOrAllUserCommercialRestrictionFound": false,
+            "exactProhibitionClause": null,
+            "clauseReferences": [
+              "통합회원 이용약관 제14조3항",
+              "제24조1항③·⑩",
+              "제2조 회원 정의"
+            ],
+            "clauseSummary": "회원의 취득정보 무승낙 영리이용·상업이용 제한. 회원은 회원등록/이용계약자이며 비회원 일반열람으로 확장하는 명시 조항을 확인하지 못함.",
+            "checkedUrls": [
+              "https://www.yupdduk.com/json/j_terms_list"
+            ],
+            "isBlanketNonmemberProhibitionEstablished": false
+          },
+          "residualUncertainty": [
+            "Nonmember application of member terms remains unresolved; this is not a blanket licence.",
+            "This record is a discovery reference to a brand-common menu, not evidence that this branch currently sells it."
+          ],
+          "reviewedAt": "2026-10-13T02:37:50Z"
+        },
+        "prosePhotosLogosMenusBulk": {
+          "cleared": false,
+          "include": false
+        }
+      },
+      "requiredPublicNotices": [
+        "브랜드 공통 메뉴 · 지점 판매 여부 미확인",
+        "공공 상가정보 기준 위치이며 현재 영업 여부는 확인되지 않았습니다.",
+        "매운 정도·고객 평가·가격은 확인되지 않았습니다."
+      ],
+      "branchSpecificMenuConfirmed": false,
+      "branchMenuApplicability": null,
+      "factualUseReview": {
+        "batchId": "seoul-seven-brand-following423-candidates",
+        "frozenFileSha256": "406cfcc7d6bc73f07f446b633ee7adde9eff7a06a68ce6739dbec8b382474cf8",
+        "oneMenuFact": {
+          "basis": "limited_individual_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "one ordinary brand menu fact plus own attribution; no brand directory, menu catalogue, images, or marketing prose copied",
+          "allowedFields": [
+            "one ordinary menu name",
+            "source URL",
+            "source ID",
+            "source date",
+            "checked date",
+            "own factual attribution"
+          ],
+          "knownTermsScope": "회원의 취득정보 무승낙 영리이용·상업이용 제한. 회원은 회원등록/이용계약자이며 비회원 일반열람으로 확장하는 명시 조항을 확인하지 못함.",
+          "termsReview": {
+            "status": "member_scope_restriction_application_to_nonmember_unresolved",
+            "explicitNonmemberOrAllUserCommercialRestrictionFound": false,
+            "exactProhibitionClause": null,
+            "clauseReferences": [
+              "통합회원 이용약관 제14조3항",
+              "제24조1항③·⑩",
+              "제2조 회원 정의"
+            ],
+            "clauseSummary": "회원의 취득정보 무승낙 영리이용·상업이용 제한. 회원은 회원등록/이용계약자이며 비회원 일반열람으로 확장하는 명시 조항을 확인하지 못함.",
+            "checkedUrls": [
+              "https://www.yupdduk.com/json/j_terms_list"
+            ],
+            "isBlanketNonmemberProhibitionEstablished": false
+          },
+          "residualUncertainty": [
+            "Nonmember application of member terms remains unresolved; this is not a blanket licence.",
+            "This record is a discovery reference to a brand-common menu, not evidence that this branch currently sells it."
+          ],
+          "reviewedAt": "2026-10-13T02:37:50Z"
+        },
+        "releaseDecision": "draft_pending_seoul_wide_exception_review_and_independent_qa"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA010120220800007341:menu:1",
+          "name": "엽기떡볶이",
+          "provenance": {
+            "kind": "official-brand-menu",
+            "sourceScope": "brand_common",
+            "branchMenuApplicability": null,
+            "brandName": "동대문엽기떡볶이",
+            "sourceUrl": "https://www.yupdduk.com/sub/event/yup-event-detail?eventno=2026090003&f_stype=&f_sval=&opt_ev=&pnum=1&row=6",
+            "sourceRecordIds": {
+              "eventno": "2026090003"
+            },
+            "sourceAsOf": "2026-09-16",
+            "checkedAt": "2026-10-13T02:37:50Z",
+            "licenseName": null,
+            "explicitOpenLicense": false,
+            "reuseBasis": "limited-individual-fact-review",
+            "originalName": "4인 엽기메뉴(떡볶이/반반/오뎅/분모자)",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      }
+    }
+  },
+  {
+    "id": "5e19dc28-ecd9-5e2d-a2c3-aa407a7cb3cf",
+    "slug": "hot-seoul-ma010120220800040224",
+    "name": "불닭발엽기떡볶이대학로점 동대문",
+    "address": "서울특별시 종로구 대학로11길 32",
+    "lat": 37.5822511624077,
+    "lon": 126.999988678608,
+    "source_ref": "data-go-kr-15083033-MA010120220800040224",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+      "nativeBusinessName": "불닭발엽기떡볶이대학로점",
+      "nativeBranchName": "동대문",
+      "displayNameBasis": "Exact licensed SBIZ native business and branch strings; current franchise affiliation and operation unverified",
+      "sourceRecordId": "MA010120220800040224",
+      "district": "종로구",
+      "districtCode": "11110",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+          "nativeRecordId": "MA010120220800040224"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+          "nativeRecordId": "MA010120220800040224"
+        }
+      },
+      "registrationLocator": null,
+      "identityLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA010120220800040224",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 237239,
+        "rowNumberDefinition": "1-based data row excluding CSV header",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "rawFile": "outputs/seoul-spicy-research-20261013/raw/sbiz-seoul-202606.csv",
+        "rawRecord": {
+          "상가업소번호": "MA010120220800040224",
+          "상호명": "불닭발엽기떡볶이대학로점",
+          "지점명": "동대문",
+          "상권업종대분류코드": "I2",
+          "상권업종대분류명": "음식",
+          "상권업종중분류코드": "I210",
+          "상권업종중분류명": "기타 간이",
+          "상권업종소분류코드": "I21007",
+          "상권업종소분류명": "김밥/만두/분식",
+          "표준산업분류코드": "I56194",
+          "표준산업분류명": "김밥 및 기타 간이 음식점업",
+          "시도코드": "11",
+          "시도명": "서울특별시",
+          "시군구코드": "11110",
+          "시군구명": "종로구",
+          "행정동코드": "11110650",
+          "행정동명": "혜화동",
+          "법정동코드": "1111017200",
+          "법정동명": "명륜4가",
+          "지번코드": "1111017200100770002",
+          "대지구분코드": "1",
+          "대지구분명": "대지",
+          "지번본번지": "77",
+          "지번부번지": "2",
+          "지번주소": "서울특별시 종로구 명륜4가 77-2",
+          "도로명코드": "111104100034",
+          "도로명": "서울특별시 종로구 대학로11길",
+          "건물본번지": "32",
+          "건물부번지": "",
+          "건물관리번호": "1111017200100770002009002",
+          "건물명": "",
+          "도로명주소": "서울특별시 종로구 대학로11길 32",
+          "구우편번호": "110530",
+          "신우편번호": "03078",
+          "동정보": "",
+          "층정보": "1",
+          "호정보": "",
+          "경도": "126.999988678608",
+          "위도": "37.5822511624077"
+        },
+        "licenseName": "이용허락범위 제한 없음",
+        "licenseEvidenceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+      },
+      "coordinateLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA010120220800040224",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 237239,
+        "rowNumberDefinition": "1-based CSV data row, excluding header; locator only",
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+        "rawLongitude": "126.999988678608",
+        "rawLatitude": "37.5822511624077",
+        "coordinateSystem": {
+          "name": "WGS84",
+          "epsg": 4326,
+          "axisOrderInSource": [
+            "경도",
+            "위도"
+          ],
+          "units": "decimal_degrees",
+          "transformation": "none; source numeric strings preserved alongside parsed numbers",
+          "evidenceType": "same-provider same-dataset API coordinate specification; the CSV itself does not encode an EPSG label",
+          "guideUrl": "https://www.data.go.kr/data/15012005/openapi.do",
+          "guideDownloadUrl": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000003706124&fileDetailSn=3",
+          "guideSha256": "4ed2112e2a90e49e88243fa7963ae7d19628aed247b6492bcbae6a947534970e",
+          "guideVersion": "260805",
+          "guideExtract": "raw/sbiz-api-guide-extracted.txt",
+          "evidence": "상가업소 lon/lat response fields are described as WGS84 coordinates in the provider guide. The longitude description repeats 위도, a provider wording typo; the lon/lat field labels and sample values distinguish axes."
+        },
+        "accuracy": "building_level; no survey/entrance accuracy claimed",
+        "matchMethod": "same original licensed SBIZ row; district text/code, original native identity, coordinate plausibility and duplicate premises screening; not current operation verification",
+        "matchedName": "불닭발엽기떡볶이대학로점",
+        "matchedBranchName": "동대문",
+        "matchedAddress": "서울특별시 종로구 대학로11길 32",
+        "buildingManagementNumber": "1111017200100770002009002",
+        "licenseName": "이용허락범위 제한 없음",
+        "rights": {
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true
+        }
+      },
+      "aliasBindings": [],
+      "deduplication": {
+        "key": "동대문엽기떡볶이|서울특별시 종로구 대학로11길 32",
+        "sourceIds": [
+          "MA010120220800040224"
+        ],
+        "sourceRows": [
+          237239
+        ],
+        "allSourceRecords": [
+          {
+            "상가업소번호": "MA010120220800040224",
+            "상호명": "불닭발엽기떡볶이대학로점",
+            "지점명": "동대문",
+            "상권업종대분류코드": "I2",
+            "상권업종대분류명": "음식",
+            "상권업종중분류코드": "I210",
+            "상권업종중분류명": "기타 간이",
+            "상권업종소분류코드": "I21007",
+            "상권업종소분류명": "김밥/만두/분식",
+            "표준산업분류코드": "I56194",
+            "표준산업분류명": "김밥 및 기타 간이 음식점업",
+            "시도코드": "11",
+            "시도명": "서울특별시",
+            "시군구코드": "11110",
+            "시군구명": "종로구",
+            "행정동코드": "11110650",
+            "행정동명": "혜화동",
+            "법정동코드": "1111017200",
+            "법정동명": "명륜4가",
+            "지번코드": "1111017200100770002",
+            "대지구분코드": "1",
+            "대지구분명": "대지",
+            "지번본번지": "77",
+            "지번부번지": "2",
+            "지번주소": "서울특별시 종로구 명륜4가 77-2",
+            "도로명코드": "111104100034",
+            "도로명": "서울특별시 종로구 대학로11길",
+            "건물본번지": "32",
+            "건물부번지": "",
+            "건물관리번호": "1111017200100770002009002",
+            "건물명": "",
+            "도로명주소": "서울특별시 종로구 대학로11길 32",
+            "구우편번호": "110530",
+            "신우편번호": "03078",
+            "동정보": "",
+            "층정보": "1",
+            "호정보": "",
+            "경도": "126.999988678608",
+            "위도": "37.5822511624077"
+          }
+        ],
+        "method": "same brand and exact address; if multirow, identical building/floor/wing/unit/coordinates; original aliases preserved",
+        "provisional": false,
+        "missingUnitCaveat": null
+      },
+      "duplicateSourceRows": null,
+      "sourcePremises": {
+        "건물관리번호": "1111017200100770002009002",
+        "건물명": null,
+        "동정보": null,
+        "층정보": "1",
+        "호정보": null
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only"
+      },
+      "fieldRights": {
+        "nameAddress": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "coordinates": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "oneMenuFact": {
+          "basis": "limited_individual_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "one ordinary brand menu fact plus own attribution; no brand directory, menu catalogue, images, or marketing prose copied",
+          "allowedFields": [
+            "one ordinary menu name",
+            "source URL",
+            "source ID",
+            "source date",
+            "checked date",
+            "own factual attribution"
+          ],
+          "knownTermsScope": "회원의 취득정보 무승낙 영리이용·상업이용 제한. 회원은 회원등록/이용계약자이며 비회원 일반열람으로 확장하는 명시 조항을 확인하지 못함.",
+          "termsReview": {
+            "status": "member_scope_restriction_application_to_nonmember_unresolved",
+            "explicitNonmemberOrAllUserCommercialRestrictionFound": false,
+            "exactProhibitionClause": null,
+            "clauseReferences": [
+              "통합회원 이용약관 제14조3항",
+              "제24조1항③·⑩",
+              "제2조 회원 정의"
+            ],
+            "clauseSummary": "회원의 취득정보 무승낙 영리이용·상업이용 제한. 회원은 회원등록/이용계약자이며 비회원 일반열람으로 확장하는 명시 조항을 확인하지 못함.",
+            "checkedUrls": [
+              "https://www.yupdduk.com/json/j_terms_list"
+            ],
+            "isBlanketNonmemberProhibitionEstablished": false
+          },
+          "residualUncertainty": [
+            "Nonmember application of member terms remains unresolved; this is not a blanket licence.",
+            "This record is a discovery reference to a brand-common menu, not evidence that this branch currently sells it."
+          ],
+          "reviewedAt": "2026-10-13T02:37:50Z"
+        },
+        "prosePhotosLogosMenusBulk": {
+          "cleared": false,
+          "include": false
+        }
+      },
+      "requiredPublicNotices": [
+        "브랜드 공통 메뉴 · 지점 판매 여부 미확인",
+        "공공 상가정보 기준 위치이며 현재 영업 여부는 확인되지 않았습니다.",
+        "매운 정도·고객 평가·가격은 확인되지 않았습니다."
+      ],
+      "branchSpecificMenuConfirmed": false,
+      "branchMenuApplicability": null,
+      "factualUseReview": {
+        "batchId": "seoul-seven-brand-following423-candidates",
+        "frozenFileSha256": "406cfcc7d6bc73f07f446b633ee7adde9eff7a06a68ce6739dbec8b382474cf8",
+        "oneMenuFact": {
+          "basis": "limited_individual_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "one ordinary brand menu fact plus own attribution; no brand directory, menu catalogue, images, or marketing prose copied",
+          "allowedFields": [
+            "one ordinary menu name",
+            "source URL",
+            "source ID",
+            "source date",
+            "checked date",
+            "own factual attribution"
+          ],
+          "knownTermsScope": "회원의 취득정보 무승낙 영리이용·상업이용 제한. 회원은 회원등록/이용계약자이며 비회원 일반열람으로 확장하는 명시 조항을 확인하지 못함.",
+          "termsReview": {
+            "status": "member_scope_restriction_application_to_nonmember_unresolved",
+            "explicitNonmemberOrAllUserCommercialRestrictionFound": false,
+            "exactProhibitionClause": null,
+            "clauseReferences": [
+              "통합회원 이용약관 제14조3항",
+              "제24조1항③·⑩",
+              "제2조 회원 정의"
+            ],
+            "clauseSummary": "회원의 취득정보 무승낙 영리이용·상업이용 제한. 회원은 회원등록/이용계약자이며 비회원 일반열람으로 확장하는 명시 조항을 확인하지 못함.",
+            "checkedUrls": [
+              "https://www.yupdduk.com/json/j_terms_list"
+            ],
+            "isBlanketNonmemberProhibitionEstablished": false
+          },
+          "residualUncertainty": [
+            "Nonmember application of member terms remains unresolved; this is not a blanket licence.",
+            "This record is a discovery reference to a brand-common menu, not evidence that this branch currently sells it."
+          ],
+          "reviewedAt": "2026-10-13T02:37:50Z"
+        },
+        "releaseDecision": "draft_pending_seoul_wide_exception_review_and_independent_qa"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA010120220800040224:menu:1",
+          "name": "엽기떡볶이",
+          "provenance": {
+            "kind": "official-brand-menu",
+            "sourceScope": "brand_common",
+            "branchMenuApplicability": null,
+            "brandName": "동대문엽기떡볶이",
+            "sourceUrl": "https://www.yupdduk.com/sub/event/yup-event-detail?eventno=2026090003&f_stype=&f_sval=&opt_ev=&pnum=1&row=6",
+            "sourceRecordIds": {
+              "eventno": "2026090003"
+            },
+            "sourceAsOf": "2026-09-16",
+            "checkedAt": "2026-10-13T02:37:50Z",
+            "licenseName": null,
+            "explicitOpenLicense": false,
+            "reuseBasis": "limited-individual-fact-review",
+            "originalName": "4인 엽기메뉴(떡볶이/반반/오뎅/분모자)",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      }
+    }
+  },
+  {
+    "id": "2bf057e2-d064-57ca-957b-f87aae207cf7",
+    "slug": "hot-seoul-ma010120220800025877",
+    "name": "홍콩반점0410",
+    "address": "서울특별시 종로구 대학로10길 16",
+    "lat": 37.5816294366642,
+    "lon": 127.003079393047,
+    "source_ref": "data-go-kr-15083033-MA010120220800025877",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+      "nativeBusinessName": "홍콩반점0410",
+      "nativeBranchName": null,
+      "displayNameBasis": "Exact licensed SBIZ native business and branch strings; current franchise affiliation and operation unverified",
+      "sourceRecordId": "MA010120220800025877",
+      "district": "종로구",
+      "districtCode": "11110",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+          "nativeRecordId": "MA010120220800025877"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+          "nativeRecordId": "MA010120220800025877"
+        }
+      },
+      "registrationLocator": null,
+      "identityLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA010120220800025877",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 282107,
+        "rowNumberDefinition": "1-based data row excluding CSV header",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "rawFile": "outputs/seoul-spicy-research-20261013/raw/sbiz-seoul-202606.csv",
+        "rawRecord": {
+          "상가업소번호": "MA010120220800025877",
+          "상호명": "홍콩반점0410",
+          "지점명": "",
+          "상권업종대분류코드": "I2",
+          "상권업종대분류명": "음식",
+          "상권업종중분류코드": "I202",
+          "상권업종중분류명": "중식",
+          "상권업종소분류코드": "I20201",
+          "상권업종소분류명": "중국집",
+          "표준산업분류코드": "I56121",
+          "표준산업분류명": "중식 음식점업",
+          "시도코드": "11",
+          "시도명": "서울특별시",
+          "시군구코드": "11110",
+          "시군구명": "종로구",
+          "행정동코드": "11110640",
+          "행정동명": "이화동",
+          "법정동코드": "1111016800",
+          "법정동명": "동숭동",
+          "지번코드": "1111016800100010105",
+          "대지구분코드": "1",
+          "대지구분명": "대지",
+          "지번본번지": "1",
+          "지번부번지": "105",
+          "지번주소": "서울특별시 종로구 동숭동 1-105",
+          "도로명코드": "111104100033",
+          "도로명": "서울특별시 종로구 대학로10길",
+          "건물본번지": "16",
+          "건물부번지": "",
+          "건물관리번호": "1111016800100010105009418",
+          "건물명": "동",
+          "도로명주소": "서울특별시 종로구 대학로10길 16",
+          "구우편번호": "110809",
+          "신우편번호": "03086",
+          "동정보": "",
+          "층정보": "",
+          "호정보": "",
+          "경도": "127.003079393047",
+          "위도": "37.5816294366642"
+        },
+        "licenseName": "이용허락범위 제한 없음",
+        "licenseEvidenceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+      },
+      "coordinateLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA010120220800025877",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 282107,
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+        "rawLongitude": "127.003079393047",
+        "rawLatitude": "37.5816294366642",
+        "coordinateSystem": {
+          "name": "WGS84",
+          "epsg": 4326,
+          "axisOrderInSource": [
+            "경도",
+            "위도"
+          ],
+          "units": "decimal_degrees",
+          "transformation": "none; source numeric strings preserved alongside parsed numbers",
+          "evidenceType": "same-provider same-dataset API coordinate specification; the CSV itself does not encode an EPSG label",
+          "guideUrl": "https://www.data.go.kr/data/15012005/openapi.do",
+          "guideDownloadUrl": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000003706124&fileDetailSn=3",
+          "guideSha256": "4ed2112e2a90e49e88243fa7963ae7d19628aed247b6492bcbae6a947534970e",
+          "guideVersion": "260805",
+          "guideExtract": "raw/sbiz-api-guide-extracted.txt",
+          "evidence": "상가업소 lon/lat response fields are described as WGS84 coordinates in the provider guide. The longitude description repeats 위도, a provider wording typo; the lon/lat field labels and sample values distinguish axes."
+        },
+        "accuracy": "building_level; no survey/entrance accuracy claimed",
+        "matchMethod": "same original licensed SBIZ row; district text/code, original native identity, coordinate plausibility and duplicate premises screening; not current operation verification",
+        "matchedName": "홍콩반점0410",
+        "matchedBranchName": null,
+        "matchedAddress": "서울특별시 종로구 대학로10길 16",
+        "buildingManagementNumber": "1111016800100010105009418",
+        "licenseName": "이용허락범위 제한 없음",
+        "rights": {
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false
+        }
+      },
+      "aliasBindings": [],
+      "deduplication": {
+        "key": "홍콩반점|서울특별시 종로구 대학로10길 16",
+        "sourceIds": [
+          "MA010120220800025877"
+        ],
+        "sourceRows": [
+          282107
+        ],
+        "allSourceRecords": [
+          {
+            "상가업소번호": "MA010120220800025877",
+            "상호명": "홍콩반점0410",
+            "지점명": "",
+            "상권업종대분류코드": "I2",
+            "상권업종대분류명": "음식",
+            "상권업종중분류코드": "I202",
+            "상권업종중분류명": "중식",
+            "상권업종소분류코드": "I20201",
+            "상권업종소분류명": "중국집",
+            "표준산업분류코드": "I56121",
+            "표준산업분류명": "중식 음식점업",
+            "시도코드": "11",
+            "시도명": "서울특별시",
+            "시군구코드": "11110",
+            "시군구명": "종로구",
+            "행정동코드": "11110640",
+            "행정동명": "이화동",
+            "법정동코드": "1111016800",
+            "법정동명": "동숭동",
+            "지번코드": "1111016800100010105",
+            "대지구분코드": "1",
+            "대지구분명": "대지",
+            "지번본번지": "1",
+            "지번부번지": "105",
+            "지번주소": "서울특별시 종로구 동숭동 1-105",
+            "도로명코드": "111104100033",
+            "도로명": "서울특별시 종로구 대학로10길",
+            "건물본번지": "16",
+            "건물부번지": "",
+            "건물관리번호": "1111016800100010105009418",
+            "건물명": "동",
+            "도로명주소": "서울특별시 종로구 대학로10길 16",
+            "구우편번호": "110809",
+            "신우편번호": "03086",
+            "동정보": "",
+            "층정보": "",
+            "호정보": "",
+            "경도": "127.003079393047",
+            "위도": "37.5816294366642"
+          }
+        ],
+        "method": "same brand and exact address; if multirow, identical building/floor/wing/unit/coordinates; original aliases preserved",
+        "provisional": false,
+        "missingUnitCaveat": null
+      },
+      "duplicateSourceRows": null,
+      "sourcePremises": {
+        "건물관리번호": "1111016800100010105009418",
+        "건물명": "동",
+        "동정보": null,
+        "층정보": null,
+        "호정보": null
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only"
+      },
+      "fieldRights": {
+        "nameAddress": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "coordinates": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "brand-menu-evidence.json#hongkongbanjeom",
+          "residualUncertainty": [
+            "No website open licence or general legal guarantee is claimed.",
+            "Branch availability and current operation remain unverified."
+          ],
+          "legalReviewFile": "brand-menu-evidence.json",
+          "reviewedAt": "2026-10-13T02:42:18.238025+00:00"
+        },
+        "prosePhotosLogosMenusBulk": {
+          "cleared": false,
+          "include": false
+        }
+      },
+      "requiredPublicNotices": [
+        "브랜드 공통 메뉴 · 지점 판매 여부 미확인",
+        "공공 상가정보 기준 위치이며 현재 영업 여부는 확인되지 않았습니다.",
+        "매운 정도·고객 평가·가격은 확인되지 않았습니다."
+      ],
+      "branchSpecificMenuConfirmed": false,
+      "branchMenuApplicability": null,
+      "factualUseReview": {
+        "batchId": "seoul-seven-brand-following423-candidates",
+        "frozenFileSha256": "406cfcc7d6bc73f07f446b633ee7adde9eff7a06a68ce6739dbec8b382474cf8",
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "brand-menu-evidence.json#hongkongbanjeom",
+          "residualUncertainty": [
+            "No website open licence or general legal guarantee is claimed.",
+            "Branch availability and current operation remain unverified."
+          ],
+          "legalReviewFile": "brand-menu-evidence.json",
+          "reviewedAt": "2026-10-13T02:42:18.238025+00:00"
+        },
+        "releaseDecision": "draft_pending_seoul_wide_exception_review_and_independent_qa"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA010120220800025877:menu:1",
+          "name": "고추짬뽕",
+          "provenance": {
+            "kind": "official-brand-menu",
+            "sourceScope": "brand_common",
+            "branchMenuApplicability": null,
+            "brandName": "홍콩반점",
+            "sourceUrl": "https://www.theborn.co.kr/theborn_brand/%ED%99%8D%EC%BD%A9%EB%B0%98%EC%A0%902/",
+            "sourceRecordIds": {},
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-13T02:42:18.238025+00:00",
+            "licenseName": null,
+            "explicitOpenLicense": false,
+            "reuseBasis": "limited-individual-fact-review",
+            "originalName": "고추짬뽕",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      }
+    }
+  },
+  {
+    "id": "de665ee9-b014-5352-9373-cc47bff19849",
+    "slug": "hot-seoul-ma0101202510a0003149",
+    "name": "홍콩반점0410종각역점",
+    "address": "서울특별시 종로구 종로10길 21",
+    "lat": 37.5689965198931,
+    "lon": 126.984537719296,
+    "source_ref": "data-go-kr-15083033-MA0101202510A0003149",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+      "nativeBusinessName": "홍콩반점0410종각역점",
+      "nativeBranchName": null,
+      "displayNameBasis": "Exact licensed SBIZ native business and branch strings; current franchise affiliation and operation unverified",
+      "sourceRecordId": "MA0101202510A0003149",
+      "district": "종로구",
+      "districtCode": "11110",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+          "nativeRecordId": "MA0101202510A0003149"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+          "nativeRecordId": "MA0101202510A0003149"
+        }
+      },
+      "registrationLocator": null,
+      "identityLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA0101202510A0003149",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 500464,
+        "rowNumberDefinition": "1-based data row excluding CSV header",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "rawFile": "outputs/seoul-spicy-research-20261013/raw/sbiz-seoul-202606.csv",
+        "rawRecord": {
+          "상가업소번호": "MA0101202510A0003149",
+          "상호명": "홍콩반점0410종각역점",
+          "지점명": "",
+          "상권업종대분류코드": "I2",
+          "상권업종대분류명": "음식",
+          "상권업종중분류코드": "I202",
+          "상권업종중분류명": "중식",
+          "상권업종소분류코드": "I20201",
+          "상권업종소분류명": "중국집",
+          "표준산업분류코드": "I56121",
+          "표준산업분류명": "중식 음식점업",
+          "시도코드": "11",
+          "시도명": "서울특별시",
+          "시군구코드": "11110",
+          "시군구명": "종로구",
+          "행정동코드": "11110615",
+          "행정동명": "종로1.2.3.4가동",
+          "법정동코드": "1111013500",
+          "법정동명": "관철동",
+          "지번코드": "1111013500100420004",
+          "대지구분코드": "1",
+          "대지구분명": "대지",
+          "지번본번지": "42",
+          "지번부번지": "4",
+          "지번주소": "서울특별시 종로구 관철동 42-4",
+          "도로명코드": "111104100305",
+          "도로명": "서울특별시 종로구 종로10길",
+          "건물본번지": "21",
+          "건물부번지": "",
+          "건물관리번호": "1111013500100420004016944",
+          "건물명": "",
+          "도로명주소": "서울특별시 종로구 종로10길 21",
+          "구우편번호": "110111",
+          "신우편번호": "03189",
+          "동정보": "",
+          "층정보": "2",
+          "호정보": "",
+          "경도": "126.984537719296",
+          "위도": "37.5689965198931"
+        },
+        "licenseName": "이용허락범위 제한 없음",
+        "licenseEvidenceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+      },
+      "coordinateLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA0101202510A0003149",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 500464,
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+        "rawLongitude": "126.984537719296",
+        "rawLatitude": "37.5689965198931",
+        "coordinateSystem": {
+          "name": "WGS84",
+          "epsg": 4326,
+          "axisOrderInSource": [
+            "경도",
+            "위도"
+          ],
+          "units": "decimal_degrees",
+          "transformation": "none; source numeric strings preserved alongside parsed numbers",
+          "evidenceType": "same-provider same-dataset API coordinate specification; the CSV itself does not encode an EPSG label",
+          "guideUrl": "https://www.data.go.kr/data/15012005/openapi.do",
+          "guideDownloadUrl": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000003706124&fileDetailSn=3",
+          "guideSha256": "4ed2112e2a90e49e88243fa7963ae7d19628aed247b6492bcbae6a947534970e",
+          "guideVersion": "260805",
+          "guideExtract": "raw/sbiz-api-guide-extracted.txt",
+          "evidence": "상가업소 lon/lat response fields are described as WGS84 coordinates in the provider guide. The longitude description repeats 위도, a provider wording typo; the lon/lat field labels and sample values distinguish axes."
+        },
+        "accuracy": "building_level; no survey/entrance accuracy claimed",
+        "matchMethod": "same original licensed SBIZ row; district text/code, original native identity, coordinate plausibility and duplicate premises screening; not current operation verification",
+        "matchedName": "홍콩반점0410종각역점",
+        "matchedBranchName": null,
+        "matchedAddress": "서울특별시 종로구 종로10길 21",
+        "buildingManagementNumber": "1111013500100420004016944",
+        "licenseName": "이용허락범위 제한 없음",
+        "rights": {
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false
+        }
+      },
+      "aliasBindings": [],
+      "deduplication": {
+        "key": "홍콩반점|서울특별시 종로구 종로10길 21",
+        "sourceIds": [
+          "MA0101202510A0003149"
+        ],
+        "sourceRows": [
+          500464
+        ],
+        "allSourceRecords": [
+          {
+            "상가업소번호": "MA0101202510A0003149",
+            "상호명": "홍콩반점0410종각역점",
+            "지점명": "",
+            "상권업종대분류코드": "I2",
+            "상권업종대분류명": "음식",
+            "상권업종중분류코드": "I202",
+            "상권업종중분류명": "중식",
+            "상권업종소분류코드": "I20201",
+            "상권업종소분류명": "중국집",
+            "표준산업분류코드": "I56121",
+            "표준산업분류명": "중식 음식점업",
+            "시도코드": "11",
+            "시도명": "서울특별시",
+            "시군구코드": "11110",
+            "시군구명": "종로구",
+            "행정동코드": "11110615",
+            "행정동명": "종로1.2.3.4가동",
+            "법정동코드": "1111013500",
+            "법정동명": "관철동",
+            "지번코드": "1111013500100420004",
+            "대지구분코드": "1",
+            "대지구분명": "대지",
+            "지번본번지": "42",
+            "지번부번지": "4",
+            "지번주소": "서울특별시 종로구 관철동 42-4",
+            "도로명코드": "111104100305",
+            "도로명": "서울특별시 종로구 종로10길",
+            "건물본번지": "21",
+            "건물부번지": "",
+            "건물관리번호": "1111013500100420004016944",
+            "건물명": "",
+            "도로명주소": "서울특별시 종로구 종로10길 21",
+            "구우편번호": "110111",
+            "신우편번호": "03189",
+            "동정보": "",
+            "층정보": "2",
+            "호정보": "",
+            "경도": "126.984537719296",
+            "위도": "37.5689965198931"
+          }
+        ],
+        "method": "same brand and exact address; if multirow, identical building/floor/wing/unit/coordinates; original aliases preserved",
+        "provisional": false,
+        "missingUnitCaveat": null
+      },
+      "duplicateSourceRows": null,
+      "sourcePremises": {
+        "건물관리번호": "1111013500100420004016944",
+        "건물명": null,
+        "동정보": null,
+        "층정보": "2",
+        "호정보": null
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only"
+      },
+      "fieldRights": {
+        "nameAddress": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "coordinates": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "brand-menu-evidence.json#hongkongbanjeom",
+          "residualUncertainty": [
+            "No website open licence or general legal guarantee is claimed.",
+            "Branch availability and current operation remain unverified."
+          ],
+          "legalReviewFile": "brand-menu-evidence.json",
+          "reviewedAt": "2026-10-13T02:42:18.238025+00:00"
+        },
+        "prosePhotosLogosMenusBulk": {
+          "cleared": false,
+          "include": false
+        }
+      },
+      "requiredPublicNotices": [
+        "브랜드 공통 메뉴 · 지점 판매 여부 미확인",
+        "공공 상가정보 기준 위치이며 현재 영업 여부는 확인되지 않았습니다.",
+        "매운 정도·고객 평가·가격은 확인되지 않았습니다."
+      ],
+      "branchSpecificMenuConfirmed": false,
+      "branchMenuApplicability": null,
+      "factualUseReview": {
+        "batchId": "seoul-seven-brand-following423-candidates",
+        "frozenFileSha256": "406cfcc7d6bc73f07f446b633ee7adde9eff7a06a68ce6739dbec8b382474cf8",
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "brand-menu-evidence.json#hongkongbanjeom",
+          "residualUncertainty": [
+            "No website open licence or general legal guarantee is claimed.",
+            "Branch availability and current operation remain unverified."
+          ],
+          "legalReviewFile": "brand-menu-evidence.json",
+          "reviewedAt": "2026-10-13T02:42:18.238025+00:00"
+        },
+        "releaseDecision": "draft_pending_seoul_wide_exception_review_and_independent_qa"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA0101202510A0003149:menu:1",
+          "name": "고추짬뽕",
+          "provenance": {
+            "kind": "official-brand-menu",
+            "sourceScope": "brand_common",
+            "branchMenuApplicability": null,
+            "brandName": "홍콩반점",
+            "sourceUrl": "https://www.theborn.co.kr/theborn_brand/%ED%99%8D%EC%BD%A9%EB%B0%98%EC%A0%902/",
+            "sourceRecordIds": {},
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-13T02:42:18.238025+00:00",
+            "licenseName": null,
+            "explicitOpenLicense": false,
+            "reuseBasis": "limited-individual-fact-review",
+            "originalName": "고추짬뽕",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      }
+    }
+  },
+  {
+    "id": "f0db8033-8107-59b5-9bc2-9c8e237e5078",
+    "slug": "hot-seoul-ma0101202510a0034309",
+    "name": "두찜종로혜화점",
+    "address": "서울특별시 종로구 명륜길 35",
+    "lat": 37.5887111769663,
+    "lon": 126.995006834603,
+    "source_ref": "data-go-kr-15083033-MA0101202510A0034309",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+      "nativeBusinessName": "두찜종로혜화점",
+      "nativeBranchName": null,
+      "displayNameBasis": "Exact licensed SBIZ native business and branch strings; current franchise affiliation and operation unverified",
+      "sourceRecordId": "MA0101202510A0034309",
+      "district": "종로구",
+      "districtCode": "11110",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+          "nativeRecordId": "MA0101202510A0034309"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+          "nativeRecordId": "MA0101202510A0034309"
+        }
+      },
+      "registrationLocator": null,
+      "identityLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA0101202510A0034309",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 521731,
+        "rowNumberDefinition": "1-based data row excluding CSV header",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "rawFile": "outputs/seoul-spicy-research-20261013/raw/sbiz-seoul-202606.csv",
+        "rawRecord": {
+          "상가업소번호": "MA0101202510A0034309",
+          "상호명": "두찜종로혜화점",
+          "지점명": "",
+          "상권업종대분류코드": "I2",
+          "상권업종대분류명": "음식",
+          "상권업종중분류코드": "I201",
+          "상권업종중분류명": "한식",
+          "상권업종소분류코드": "I20101",
+          "상권업종소분류명": "백반/한정식",
+          "표준산업분류코드": "I56111",
+          "표준산업분류명": "한식 일반 음식점업",
+          "시도코드": "11",
+          "시도명": "서울특별시",
+          "시군구코드": "11110",
+          "시군구명": "종로구",
+          "행정동코드": "11110650",
+          "행정동명": "혜화동",
+          "법정동코드": "1111017300",
+          "법정동명": "명륜3가",
+          "지번코드": "1111017300100010008",
+          "대지구분코드": "1",
+          "대지구분명": "대지",
+          "지번본번지": "1",
+          "지번부번지": "8",
+          "지번주소": "서울특별시 종로구 명륜3가 1-8",
+          "도로명코드": "111104100089",
+          "도로명": "서울특별시 종로구 명륜길",
+          "건물본번지": "35",
+          "건물부번지": "",
+          "건물관리번호": "1111017300100010008032346",
+          "건물명": "",
+          "도로명주소": "서울특별시 종로구 명륜길 35",
+          "구우편번호": "110811",
+          "신우편번호": "03071",
+          "동정보": "",
+          "층정보": "1",
+          "호정보": "",
+          "경도": "126.995006834603",
+          "위도": "37.5887111769663"
+        },
+        "licenseName": "이용허락범위 제한 없음",
+        "licenseEvidenceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+      },
+      "coordinateLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA0101202510A0034309",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 521731,
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+        "rawLongitude": "126.995006834603",
+        "rawLatitude": "37.5887111769663",
+        "coordinateSystem": {
+          "name": "WGS84",
+          "epsg": 4326,
+          "axisOrderInSource": [
+            "경도",
+            "위도"
+          ],
+          "units": "decimal_degrees",
+          "transformation": "none; source numeric strings preserved alongside parsed numbers",
+          "evidenceType": "same-provider same-dataset API coordinate specification; the CSV itself does not encode an EPSG label",
+          "guideUrl": "https://www.data.go.kr/data/15012005/openapi.do",
+          "guideDownloadUrl": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000003706124&fileDetailSn=3",
+          "guideSha256": "4ed2112e2a90e49e88243fa7963ae7d19628aed247b6492bcbae6a947534970e",
+          "guideVersion": "260805",
+          "guideExtract": "raw/sbiz-api-guide-extracted.txt",
+          "evidence": "상가업소 lon/lat response fields are described as WGS84 coordinates in the provider guide. The longitude description repeats 위도, a provider wording typo; the lon/lat field labels and sample values distinguish axes."
+        },
+        "accuracy": "building_level; no survey/entrance accuracy claimed",
+        "matchMethod": "same original licensed SBIZ row; district text/code, original native identity, coordinate plausibility and duplicate premises screening; not current operation verification",
+        "matchedName": "두찜종로혜화점",
+        "matchedBranchName": null,
+        "matchedAddress": "서울특별시 종로구 명륜길 35",
+        "buildingManagementNumber": "1111017300100010008032346",
+        "licenseName": "이용허락범위 제한 없음",
+        "rights": {
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false
+        }
+      },
+      "aliasBindings": [],
+      "deduplication": {
+        "key": "두찜|서울특별시 종로구 명륜길 35",
+        "sourceIds": [
+          "MA0101202510A0034309"
+        ],
+        "sourceRows": [
+          521731
+        ],
+        "allSourceRecords": [
+          {
+            "상가업소번호": "MA0101202510A0034309",
+            "상호명": "두찜종로혜화점",
+            "지점명": "",
+            "상권업종대분류코드": "I2",
+            "상권업종대분류명": "음식",
+            "상권업종중분류코드": "I201",
+            "상권업종중분류명": "한식",
+            "상권업종소분류코드": "I20101",
+            "상권업종소분류명": "백반/한정식",
+            "표준산업분류코드": "I56111",
+            "표준산업분류명": "한식 일반 음식점업",
+            "시도코드": "11",
+            "시도명": "서울특별시",
+            "시군구코드": "11110",
+            "시군구명": "종로구",
+            "행정동코드": "11110650",
+            "행정동명": "혜화동",
+            "법정동코드": "1111017300",
+            "법정동명": "명륜3가",
+            "지번코드": "1111017300100010008",
+            "대지구분코드": "1",
+            "대지구분명": "대지",
+            "지번본번지": "1",
+            "지번부번지": "8",
+            "지번주소": "서울특별시 종로구 명륜3가 1-8",
+            "도로명코드": "111104100089",
+            "도로명": "서울특별시 종로구 명륜길",
+            "건물본번지": "35",
+            "건물부번지": "",
+            "건물관리번호": "1111017300100010008032346",
+            "건물명": "",
+            "도로명주소": "서울특별시 종로구 명륜길 35",
+            "구우편번호": "110811",
+            "신우편번호": "03071",
+            "동정보": "",
+            "층정보": "1",
+            "호정보": "",
+            "경도": "126.995006834603",
+            "위도": "37.5887111769663"
+          }
+        ],
+        "method": "same brand and exact address; if multirow, identical building/floor/wing/unit/coordinates; original aliases preserved",
+        "provisional": false,
+        "missingUnitCaveat": null
+      },
+      "duplicateSourceRows": null,
+      "sourcePremises": {
+        "건물관리번호": "1111017300100010008032346",
+        "건물명": null,
+        "동정보": null,
+        "층정보": "1",
+        "호정보": null
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only"
+      },
+      "fieldRights": {
+        "nameAddress": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "coordinates": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "twozzim-menu-evidence.json#twozzim",
+          "residualUncertainty": [
+            "No website open licence or general legal guarantee is claimed.",
+            "Separate site-use terms were not located; privacy text refers to terms whose contents remain unresolved.",
+            "Branch availability and current operation remain unverified."
+          ],
+          "legalReviewFile": "twozzim-menu-evidence.json",
+          "reviewedAt": "2026-10-13T04:48:08.910056+00:00"
+        },
+        "prosePhotosLogosMenusBulk": {
+          "cleared": false,
+          "include": false
+        }
+      },
+      "requiredPublicNotices": [
+        "브랜드 공통 메뉴 · 지점 판매 여부 미확인",
+        "공공 상가정보 기준 위치이며 현재 영업 여부는 확인되지 않았습니다.",
+        "매운 정도·고객 평가·가격은 확인되지 않았습니다."
+      ],
+      "branchSpecificMenuConfirmed": false,
+      "branchMenuApplicability": null,
+      "factualUseReview": {
+        "batchId": "seoul-seven-brand-following423-candidates",
+        "frozenFileSha256": "406cfcc7d6bc73f07f446b633ee7adde9eff7a06a68ce6739dbec8b382474cf8",
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "twozzim-menu-evidence.json#twozzim",
+          "residualUncertainty": [
+            "No website open licence or general legal guarantee is claimed.",
+            "Separate site-use terms were not located; privacy text refers to terms whose contents remain unresolved.",
+            "Branch availability and current operation remain unverified."
+          ],
+          "legalReviewFile": "twozzim-menu-evidence.json",
+          "reviewedAt": "2026-10-13T04:48:08.910056+00:00"
+        },
+        "releaseDecision": "draft_pending_seoul_wide_exception_review_and_independent_qa"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA0101202510A0034309:menu:1",
+          "name": "빨간찜닭",
+          "provenance": {
+            "kind": "official-brand-menu",
+            "sourceScope": "brand_common",
+            "branchMenuApplicability": null,
+            "brandName": "두찜",
+            "sourceUrl": "https://twozzim.com/bbs/content.php?co_id=menu",
+            "sourceRecordIds": {},
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-13T04:48:08.910056+00:00",
+            "licenseName": null,
+            "explicitOpenLicense": false,
+            "reuseBasis": "limited-individual-fact-review",
+            "originalName": "빨간찜닭",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      }
+    }
+  },
+  {
+    "id": "c8c16b91-eb56-53de-8d21-6f4c764739d6",
+    "slug": "hot-seoul-ma0101202601a0019004",
+    "name": "두찜종로경복궁점",
+    "address": "서울특별시 종로구 사직로8길 20",
+    "lat": 37.5739313227929,
+    "lon": 126.970590296106,
+    "source_ref": "data-go-kr-15083033-MA0101202601A0019004",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+      "nativeBusinessName": "두찜종로경복궁점",
+      "nativeBranchName": null,
+      "displayNameBasis": "Exact licensed SBIZ native business and branch strings; current franchise affiliation and operation unverified",
+      "sourceRecordId": "MA0101202601A0019004",
+      "district": "종로구",
+      "districtCode": "11110",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+          "nativeRecordId": "MA0101202601A0019004"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+          "nativeRecordId": "MA0101202601A0019004"
+        }
+      },
+      "registrationLocator": null,
+      "identityLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA0101202601A0019004",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 536561,
+        "rowNumberDefinition": "1-based data row excluding CSV header",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "rawFile": "outputs/seoul-spicy-research-20261013/raw/sbiz-seoul-202606.csv",
+        "rawRecord": {
+          "상가업소번호": "MA0101202601A0019004",
+          "상호명": "두찜종로경복궁점",
+          "지점명": "",
+          "상권업종대분류코드": "I2",
+          "상권업종대분류명": "음식",
+          "상권업종중분류코드": "I201",
+          "상권업종중분류명": "한식",
+          "상권업종소분류코드": "I20101",
+          "상권업종소분류명": "백반/한정식",
+          "표준산업분류코드": "I56111",
+          "표준산업분류명": "한식 일반 음식점업",
+          "시도코드": "11",
+          "시도명": "서울특별시",
+          "시군구코드": "11110",
+          "시군구명": "종로구",
+          "행정동코드": "11110530",
+          "행정동명": "사직동",
+          "법정동코드": "1111011800",
+          "법정동명": "내수동",
+          "지번코드": "1111011800100950000",
+          "대지구분코드": "1",
+          "대지구분명": "대지",
+          "지번본번지": "95",
+          "지번부번지": "",
+          "지번주소": "서울특별시 종로구 내수동 95",
+          "도로명코드": "111104100135",
+          "도로명": "서울특별시 종로구 사직로8길",
+          "건물본번지": "20",
+          "건물부번지": "",
+          "건물관리번호": "1111011800100950000029035",
+          "건물명": "파크팰리스",
+          "도로명주소": "서울특별시 종로구 사직로8길 20",
+          "구우편번호": "110901",
+          "신우편번호": "03174",
+          "동정보": "",
+          "층정보": "1",
+          "호정보": "",
+          "경도": "126.970590296106",
+          "위도": "37.5739313227929"
+        },
+        "licenseName": "이용허락범위 제한 없음",
+        "licenseEvidenceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+      },
+      "coordinateLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA0101202601A0019004",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 536561,
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+        "rawLongitude": "126.970590296106",
+        "rawLatitude": "37.5739313227929",
+        "coordinateSystem": {
+          "name": "WGS84",
+          "epsg": 4326,
+          "axisOrderInSource": [
+            "경도",
+            "위도"
+          ],
+          "units": "decimal_degrees",
+          "transformation": "none; source numeric strings preserved alongside parsed numbers",
+          "evidenceType": "same-provider same-dataset API coordinate specification; the CSV itself does not encode an EPSG label",
+          "guideUrl": "https://www.data.go.kr/data/15012005/openapi.do",
+          "guideDownloadUrl": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000003706124&fileDetailSn=3",
+          "guideSha256": "4ed2112e2a90e49e88243fa7963ae7d19628aed247b6492bcbae6a947534970e",
+          "guideVersion": "260805",
+          "guideExtract": "raw/sbiz-api-guide-extracted.txt",
+          "evidence": "상가업소 lon/lat response fields are described as WGS84 coordinates in the provider guide. The longitude description repeats 위도, a provider wording typo; the lon/lat field labels and sample values distinguish axes."
+        },
+        "accuracy": "building_level; no survey/entrance accuracy claimed",
+        "matchMethod": "same original licensed SBIZ row; district text/code, original native identity, coordinate plausibility and duplicate premises screening; not current operation verification",
+        "matchedName": "두찜종로경복궁점",
+        "matchedBranchName": null,
+        "matchedAddress": "서울특별시 종로구 사직로8길 20",
+        "buildingManagementNumber": "1111011800100950000029035",
+        "licenseName": "이용허락범위 제한 없음",
+        "rights": {
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false
+        }
+      },
+      "aliasBindings": [],
+      "deduplication": {
+        "key": "두찜|서울특별시 종로구 사직로8길 20",
+        "sourceIds": [
+          "MA0101202601A0019004"
+        ],
+        "sourceRows": [
+          536561
+        ],
+        "allSourceRecords": [
+          {
+            "상가업소번호": "MA0101202601A0019004",
+            "상호명": "두찜종로경복궁점",
+            "지점명": "",
+            "상권업종대분류코드": "I2",
+            "상권업종대분류명": "음식",
+            "상권업종중분류코드": "I201",
+            "상권업종중분류명": "한식",
+            "상권업종소분류코드": "I20101",
+            "상권업종소분류명": "백반/한정식",
+            "표준산업분류코드": "I56111",
+            "표준산업분류명": "한식 일반 음식점업",
+            "시도코드": "11",
+            "시도명": "서울특별시",
+            "시군구코드": "11110",
+            "시군구명": "종로구",
+            "행정동코드": "11110530",
+            "행정동명": "사직동",
+            "법정동코드": "1111011800",
+            "법정동명": "내수동",
+            "지번코드": "1111011800100950000",
+            "대지구분코드": "1",
+            "대지구분명": "대지",
+            "지번본번지": "95",
+            "지번부번지": "",
+            "지번주소": "서울특별시 종로구 내수동 95",
+            "도로명코드": "111104100135",
+            "도로명": "서울특별시 종로구 사직로8길",
+            "건물본번지": "20",
+            "건물부번지": "",
+            "건물관리번호": "1111011800100950000029035",
+            "건물명": "파크팰리스",
+            "도로명주소": "서울특별시 종로구 사직로8길 20",
+            "구우편번호": "110901",
+            "신우편번호": "03174",
+            "동정보": "",
+            "층정보": "1",
+            "호정보": "",
+            "경도": "126.970590296106",
+            "위도": "37.5739313227929"
+          }
+        ],
+        "method": "same brand and exact address; if multirow, identical building/floor/wing/unit/coordinates; original aliases preserved",
+        "provisional": false,
+        "missingUnitCaveat": null
+      },
+      "duplicateSourceRows": null,
+      "sourcePremises": {
+        "건물관리번호": "1111011800100950000029035",
+        "건물명": "파크팰리스",
+        "동정보": null,
+        "층정보": "1",
+        "호정보": null
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only"
+      },
+      "fieldRights": {
+        "nameAddress": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "coordinates": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "twozzim-menu-evidence.json#twozzim",
+          "residualUncertainty": [
+            "No website open licence or general legal guarantee is claimed.",
+            "Separate site-use terms were not located; privacy text refers to terms whose contents remain unresolved.",
+            "Branch availability and current operation remain unverified."
+          ],
+          "legalReviewFile": "twozzim-menu-evidence.json",
+          "reviewedAt": "2026-10-13T04:48:08.910056+00:00"
+        },
+        "prosePhotosLogosMenusBulk": {
+          "cleared": false,
+          "include": false
+        }
+      },
+      "requiredPublicNotices": [
+        "브랜드 공통 메뉴 · 지점 판매 여부 미확인",
+        "공공 상가정보 기준 위치이며 현재 영업 여부는 확인되지 않았습니다.",
+        "매운 정도·고객 평가·가격은 확인되지 않았습니다."
+      ],
+      "branchSpecificMenuConfirmed": false,
+      "branchMenuApplicability": null,
+      "factualUseReview": {
+        "batchId": "seoul-seven-brand-following423-candidates",
+        "frozenFileSha256": "406cfcc7d6bc73f07f446b633ee7adde9eff7a06a68ce6739dbec8b382474cf8",
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "twozzim-menu-evidence.json#twozzim",
+          "residualUncertainty": [
+            "No website open licence or general legal guarantee is claimed.",
+            "Separate site-use terms were not located; privacy text refers to terms whose contents remain unresolved.",
+            "Branch availability and current operation remain unverified."
+          ],
+          "legalReviewFile": "twozzim-menu-evidence.json",
+          "reviewedAt": "2026-10-13T04:48:08.910056+00:00"
+        },
+        "releaseDecision": "draft_pending_seoul_wide_exception_review_and_independent_qa"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA0101202601A0019004:menu:1",
+          "name": "빨간찜닭",
+          "provenance": {
+            "kind": "official-brand-menu",
+            "sourceScope": "brand_common",
+            "branchMenuApplicability": null,
+            "brandName": "두찜",
+            "sourceUrl": "https://twozzim.com/bbs/content.php?co_id=menu",
+            "sourceRecordIds": {},
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-13T04:48:08.910056+00:00",
+            "licenseName": null,
+            "explicitOpenLicense": false,
+            "reuseBasis": "limited-individual-fact-review",
+            "originalName": "빨간찜닭",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      }
+    }
+  },
+  {
+    "id": "f07f5ae0-0891-5cde-b1b3-41adc253b967",
+    "slug": "hot-seoul-ma010120220807385872",
+    "name": "두끼 대학로점",
+    "address": "서울특별시 종로구 대학로10길 5",
+    "lat": 37.5818637069492,
+    "lon": 127.002581264025,
+    "source_ref": "data-go-kr-15083033-MA010120220807385872",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T05:12:56.833667+00:00",
+      "nativeBusinessName": "두끼",
+      "nativeBranchName": "대학로점",
+      "displayNameBasis": "Exact licensed native business and branch strings joined with one space; no inferred shortening, owner-certified branch name or current affiliation",
+      "sourceRecordId": "MA010120220807385872",
+      "district": "종로구",
+      "districtCode": "11110",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T05:12:56.833667+00:00",
+          "nativeRecordId": "MA010120220807385872"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T05:12:56.833667+00:00",
+          "nativeRecordId": "MA010120220807385872"
+        }
+      },
+      "registrationLocator": null,
+      "identityLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA010120220807385872",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 124209,
+        "rowNumberDefinition": "1-based data row excluding CSV header",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T05:12:56.833667+00:00",
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "rawFile": "outputs/seoul-spicy-research-20261013/raw/sbiz-seoul-202606.csv",
+        "rawRecord": {
+          "상가업소번호": "MA010120220807385872",
+          "상호명": "두끼",
+          "지점명": "대학로점",
+          "상권업종대분류코드": "I2",
+          "상권업종대분류명": "음식",
+          "상권업종중분류코드": "I210",
+          "상권업종중분류명": "기타 간이",
+          "상권업종소분류코드": "I21007",
+          "상권업종소분류명": "김밥/만두/분식",
+          "표준산업분류코드": "I56194",
+          "표준산업분류명": "김밥 및 기타 간이 음식점업",
+          "시도코드": "11",
+          "시도명": "서울특별시",
+          "시군구코드": "11110",
+          "시군구명": "종로구",
+          "행정동코드": "11110640",
+          "행정동명": "이화동",
+          "법정동코드": "1111016800",
+          "법정동명": "동숭동",
+          "지번코드": "1111016800100010060",
+          "대지구분코드": "1",
+          "대지구분명": "대지",
+          "지번본번지": "1",
+          "지번부번지": "60",
+          "지번주소": "서울특별시 종로구 동숭동 1-60",
+          "도로명코드": "111104100033",
+          "도로명": "서울특별시 종로구 대학로10길",
+          "건물본번지": "5",
+          "건물부번지": "",
+          "건물관리번호": "1111016800100010060010872",
+          "건물명": "바탕골소극장",
+          "도로명주소": "서울특별시 종로구 대학로10길 5",
+          "구우편번호": "110809",
+          "신우편번호": "03086",
+          "동정보": "",
+          "층정보": "3",
+          "호정보": "",
+          "경도": "127.002581264025",
+          "위도": "37.5818637069492"
+        },
+        "licenseName": "이용허락범위 제한 없음",
+        "licenseEvidenceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+      },
+      "coordinateLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA010120220807385872",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 124209,
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T05:12:56.833667+00:00",
+        "rawLongitude": "127.002581264025",
+        "rawLatitude": "37.5818637069492",
+        "coordinateSystem": {
+          "name": "WGS84",
+          "epsg": 4326,
+          "axisOrderInSource": [
+            "경도",
+            "위도"
+          ],
+          "units": "decimal_degrees",
+          "transformation": "none; source numeric strings preserved alongside parsed numbers",
+          "evidenceType": "same-provider same-dataset API coordinate specification; the CSV itself does not encode an EPSG label",
+          "guideUrl": "https://www.data.go.kr/data/15012005/openapi.do",
+          "guideDownloadUrl": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000003706124&fileDetailSn=3",
+          "guideSha256": "4ed2112e2a90e49e88243fa7963ae7d19628aed247b6492bcbae6a947534970e",
+          "guideVersion": "260805",
+          "guideExtract": "raw/sbiz-api-guide-extracted.txt",
+          "evidence": "상가업소 lon/lat response fields are described as WGS84 coordinates in the provider guide. The longitude description repeats 위도, a provider wording typo; the lon/lat field labels and sample values distinguish axes."
+        },
+        "accuracy": "building_level; no survey/entrance accuracy claimed",
+        "matchMethod": "same native licensed SBIZ source row supplies identity and location; geographic plausibility and district text/code agree, no fresh business operation confirmation",
+        "matchedName": "두끼",
+        "matchedBranchName": "대학로점",
+        "matchedAddress": "서울특별시 종로구 대학로10길 5",
+        "buildingManagementNumber": "1111016800100010060010872",
+        "licenseName": "이용허락범위 제한 없음",
+        "rights": {
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false
+        }
+      },
+      "aliasBindings": [],
+      "deduplication": {
+        "key": "두끼|서울특별시 종로구 대학로10길 5",
+        "sourceIds": [
+          "MA010120220807385872"
+        ],
+        "sourceRows": [
+          124209
+        ],
+        "allSourceRecords": [
+          {
+            "상가업소번호": "MA010120220807385872",
+            "상호명": "두끼",
+            "지점명": "대학로점",
+            "상권업종대분류코드": "I2",
+            "상권업종대분류명": "음식",
+            "상권업종중분류코드": "I210",
+            "상권업종중분류명": "기타 간이",
+            "상권업종소분류코드": "I21007",
+            "상권업종소분류명": "김밥/만두/분식",
+            "표준산업분류코드": "I56194",
+            "표준산업분류명": "김밥 및 기타 간이 음식점업",
+            "시도코드": "11",
+            "시도명": "서울특별시",
+            "시군구코드": "11110",
+            "시군구명": "종로구",
+            "행정동코드": "11110640",
+            "행정동명": "이화동",
+            "법정동코드": "1111016800",
+            "법정동명": "동숭동",
+            "지번코드": "1111016800100010060",
+            "대지구분코드": "1",
+            "대지구분명": "대지",
+            "지번본번지": "1",
+            "지번부번지": "60",
+            "지번주소": "서울특별시 종로구 동숭동 1-60",
+            "도로명코드": "111104100033",
+            "도로명": "서울특별시 종로구 대학로10길",
+            "건물본번지": "5",
+            "건물부번지": "",
+            "건물관리번호": "1111016800100010060010872",
+            "건물명": "바탕골소극장",
+            "도로명주소": "서울특별시 종로구 대학로10길 5",
+            "구우편번호": "110809",
+            "신우편번호": "03086",
+            "동정보": "",
+            "층정보": "3",
+            "호정보": "",
+            "경도": "127.002581264025",
+            "위도": "37.5818637069492"
+          }
+        ],
+        "method": "same brand and exact address plus identical building/floor/wing/unit/coordinates",
+        "provisional": false,
+        "missingUnitCaveat": null
+      },
+      "duplicateSourceRows": null,
+      "sourcePremises": {
+        "건물관리번호": "1111016800100010060010872",
+        "건물명": "바탕골소극장",
+        "동정보": null,
+        "층정보": "3",
+        "호정보": null
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only"
+      },
+      "fieldRights": {
+        "nameAddress": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "coordinates": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "dookki-menu-evidence.json#dookki",
+          "residualUncertainty": [
+            "No explicit website open licence or legal guarantee.",
+            "No all-user commercial restriction located in reviewed public pages; review is not exhaustive.",
+            "Branch affiliation, ingredients, menu sale and current operation unverified."
+          ],
+          "legalReviewFile": "dookki-menu-evidence.json",
+          "reviewedAt": "2026-10-13T05:07:17.883528+00:00"
+        },
+        "prosePhotosLogosMenusBulk": {
+          "cleared": false,
+          "include": false
+        }
+      },
+      "requiredPublicNotices": [
+        "브랜드 공통 메뉴 · 지점 판매 여부 미확인",
+        "직접 조리하며 소스 선택에 따라 맵기가 달라집니다. 지점별 재료는 확인되지 않았습니다.",
+        "공공 상가정보 기준 위치이며 현재 영업 여부는 확인되지 않았습니다.",
+        "매운 정도·고객 평가·가격은 확인되지 않았습니다."
+      ],
+      "branchSpecificMenuConfirmed": false,
+      "branchMenuApplicability": null,
+      "factualUseReview": {
+        "batchId": "seoul-dookki-next35-draft",
+        "frozenFileSha256": "e4ef9a5c468598f68c9f57aa7b3b11e286024abb6b9dd61851ce9b301b9b0ea0",
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "dookki-menu-evidence.json#dookki",
+          "residualUncertainty": [
+            "No explicit website open licence or legal guarantee.",
+            "No all-user commercial restriction located in reviewed public pages; review is not exhaustive.",
+            "Branch affiliation, ingredients, menu sale and current operation unverified."
+          ],
+          "legalReviewFile": "dookki-menu-evidence.json",
+          "reviewedAt": "2026-10-13T05:07:17.883528+00:00"
+        },
+        "releaseDecision": "draft_pending_independent_qa"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA010120220807385872:menu:1",
+          "name": "떡볶이",
+          "provenance": {
+            "kind": "official-brand-menu",
+            "sourceScope": "brand_common",
+            "branchMenuApplicability": null,
+            "brandName": "두끼",
+            "sourceUrl": "https://www.dookki.co.kr/menu/dookki",
+            "sourceRecordIds": {},
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-13T05:07:17.883528+00:00",
+            "licenseName": null,
+            "explicitOpenLicense": false,
+            "reuseBasis": "limited-individual-fact-review",
+            "originalName": "떡볶이",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null,
+            "preparationNotice": "직접 조리하며 소스 선택에 따라 맵기가 달라집니다. 지점별 재료는 확인되지 않았습니다."
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      }
+    }
+  }
+]

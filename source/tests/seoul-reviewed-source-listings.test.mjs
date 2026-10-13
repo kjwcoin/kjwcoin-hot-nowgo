@@ -12,17 +12,18 @@ import {isKoreanCoordinate} from '../lib/korean-region.ts';
 import {readonlySourceStoreFeed,isReadonlySourceStoreId,isReadonlySourceReportBinding} from '../lib/readonly-source-listings.ts';
 import {sourceUuid,prepareSeoulRelease,freezeSha} from '../scripts/prepare-seoul-source-release.mjs';
 import {sourceUi,moduleAt} from './helpers/source-ui-components.mjs';
-const feed=readonlySourceStoreFeed(),seoul=feed.stores.slice(105),newRows=records.slice(105);
+// Preserve the original frozen25 assertions after later append-only releases.
+const completeFeed=readonlySourceStoreFeed(),feed={...completeFeed,stores:completeFeed.stores.slice(0,130)},seoul=feed.stores.slice(105),newRows=records.slice(105,130);
 const hash=value=>createHash('sha256').update(JSON.stringify(value)).digest('hex');
 const clone=value=>JSON.parse(JSON.stringify(value));
 const discovery=moduleAt('lib/store-discovery.ts',{'./sourced-store.ts':sourced,'./social-preview':{socialMetadata:()=>({openGraph:{},twitter:{}})}});
 test('append exactly25 Seoul to105 unchanged records/DTOs, never rebuild the original seven alone',()=>{
- assert.equal(records.length,130);assert.equal(feed.stores.length,130);assert.equal(seoul.length,25);
+ assert.equal(records.slice(0,130).length,130);assert.equal(feed.stores.length,130);assert.equal(seoul.length,25);
  assert.equal(hash(records.slice(0,105)),'94b3c4b132cce0570769d1047864fc6a23b61252d79f42dcf521e872122a130f');
  assert.equal(hash(feed.stores.slice(0,105)),'ca061db71a0cd7c91cc4a45ef9fdce78e3f9442ea3c7481b09cbb6794ac654e5');
  for(const [prefix,count] of [['서울특별시 강남구 ',25],['인천광역시',100],['부산광역시',5]])assert.equal(feed.stores.filter(s=>s.address.startsWith(prefix)).length,count);
  for(const key of ['id','slug','sourceRef'])assert.equal(new Set(feed.stores.map(s=>s[key])).size,130);
- assert.deepEqual(sourced.parseSourcedStoreFeed(feed),feed);assert.equal(Object.keys(registry.records).length,123);
+ assert.deepEqual(sourced.parseSourcedStoreFeed(feed),feed);assert.equal(feed.stores.filter(store=>registry.records[store.sourceRef]).length,123);
  assert.equal(seoul.filter(s=>sourced.isBrandCommonMenu(s.menus[0])).length,24);
  assert.equal(feed.stores.filter(s=>sourced.isBrandCommonMenu(s.menus[0])).length,117);
 });

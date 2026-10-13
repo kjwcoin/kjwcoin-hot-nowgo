@@ -1,4 +1,6 @@
-import records from '../data/hot-source-listings.json' with {type:'json'};
+import records from './readonly-source-records.ts';
+import legacyRecords from '../data/hot-source-listings.json' with {type:'json'};
+import {CURRENT_SOURCE_FEED_CONTRACT,LEGACY_SOURCE_FEED_CONTRACT,type SourceFeedContract} from './source-feed-contract.ts';
 import {publicSourcedStore,type PublicSourcedStoreFeed} from './sourced-store.ts';
 /** A versioned public-source listing is not a stores-table registration.
  * No database row, owner claim, operating status or consumer evaluation is implied.
@@ -27,13 +29,23 @@ export function isReadonlySourceReportBinding(value:unknown):boolean{
   isReadonlySourceStoreId(typeof row.place_id==='string'?row.place_id.trim().replace(/^nowgo-/i,''):null)||
   (typeof row.menu_id==='string'&&reservedMenuIds.has(row.menu_id));
 }
-export function readonlySourceStoreFeed():PublicSourcedStoreFeed{
+export function readonlySourceStoreFeed(contract:SourceFeedContract=CURRENT_SOURCE_FEED_CONTRACT):PublicSourcedStoreFeed{
+ const snapshot=contract===CURRENT_SOURCE_FEED_CONTRACT?records:contract===LEGACY_SOURCE_FEED_CONTRACT?legacyRecords:null;
+ if(!snapshot)throw Error('unsupported_source_feed_contract');
  const seen=new Set<string>();
- const stores=records.map(row=>{
+ const stores=snapshot.map(row=>{
   if(seen.has(row.id))throw Error('duplicate_source_listing');seen.add(row.id);
   const facts=publicSourcedStore({...row,owner_id:null,archived_at:null,trust_disabled_at:null,owner_penalty_points:0,publication_state:'DISCOVERED'});
   if(!facts)throw Error('invalid_source_listing');
   return {...facts,indexable:true,registrationState:'source-only' as const};
  });
- return{stores,asOf:new Date().toISOString(),complete:true};
+ // A stable manifest review watermark, not the request time, source data date,
+ // current operating verification, or a claim that every record was reviewed then.
+ // Empty manifests use the epoch watermark and still revoke all previous facts.
+ const reviewTimes=stores.flatMap(store=>[store.source.checkedAt,store.source.fieldProvenance?.registration?.checkedAt,
+  store.source.fieldProvenance?.identity?.checkedAt,store.source.fieldProvenance?.coordinates.checkedAt,
+  ...store.menus.flatMap(menu=>[menu.sourceTaste?.checkedAt,menu.provenance?.checkedAt])])
+  .filter((value):value is string=>Boolean(value));
+ const asOf=new Date(reviewTimes.reduce((latest,value)=>Math.max(latest,Date.parse(value)),0)).toISOString();
+ return{stores,asOf,complete:true};
 }

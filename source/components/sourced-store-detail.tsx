@@ -32,6 +32,7 @@ export default function SourcedStoreDetail({store,preview=false,menuId,onBack,pr
    <span className="explorer-tags">{store.name} · {sourceOnly?'공공자료 소개 · 점주 확인 전':store.ownerClaimVerified?'점주 확인':'점주 미등록'}</span>
    <h1>{menu?.name||store.name}</h1>
    {brandCommon&&<p className="source-action-note source-menu-scope">{BRAND_COMMON_MENU_NOTICE}</p>}
+   {menu?.provenance?.preparationNotice&&<p className="source-action-note source-menu-preparation">{menu.provenance.preparationNotice}</p>}
    <div className="explorer-taste-price" aria-label="맵기 미확인, 가격 미확인">
     <span className="explorer-taste-icon source-taste-unknown"><span aria-hidden="true">?</span><small>맵기 미확인</small></span>
     <strong>가격 미확인</strong>
