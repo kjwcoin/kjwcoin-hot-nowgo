@@ -6,7 +6,7 @@ type Props={store:PublicSourcedStore;showHeading?:boolean;preview?:boolean;previ
 /** Public facts use the original HOT menu row, without adapting nulls into Menu. */
 export default function SourcedStoreCard({store,showHeading=true,preview=false,previewPhoto,previewPhotoMenuId,onSelect}:Props){
  const sourceOnly=!preview&&store.registrationState==='source-only';
- const status=sourceOnly?'공공자료 소개 · 점주 확인 전':store.ownerClaimVerified?'점주 확인 · 공공자료 메뉴':'공공자료 등록 · 점주 미등록';
+ const status=store.markerColor==='red'?'블로그 출처 매장 · 영업현황 확인불가':sourceOnly?'공공자료 소개 · 점주 확인 전':store.ownerClaimVerified?'점주 확인 · 공공자료 메뉴':'공공자료 등록 · 점주 미등록';
  const identityContent=<><SourcedStorePhoto/><span className="explorer-item-copy"><small>공공자료 매장 정보</small><strong>확인된 메뉴 정보가 없어요</strong><span>{store.address}</span><small className="reporter-store-status">{status}</small>{!store.coordinates&&<small>지도 위치 미확인</small>}</span><ArrowUpRight size={17} aria-hidden="true"/></>;
  return <div className="source-store-legacy-card" data-store-id={store.id} data-registration-state={sourceOnly?'source-only':undefined}>
   {showHeading&&<header className="explorer-store-name"><strong>{store.name}</strong></header>}

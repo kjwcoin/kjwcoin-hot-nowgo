@@ -14,6 +14,7 @@ export function publicHotHost(host: string | null) {
 
 /** These dates describe the source, never current opening/menu availability. */
 export function sourceFactsNotice(store: PublicSourcedStore): string {
+  if(store.sourceRef.startsWith('blog-source-'))return `블로그에 기재된 상호·주소·메뉴명입니다. 출처 수집일 ${store.source.checkedAt.slice(0,10)}. ${store.coordinates?'상호와 주소 또는 매장 전화번호가 일치하는 지도 위치를 연결했습니다.':'현재 지도 위치는 확인되지 않았습니다.'} 현재 영업, 메뉴 판매 여부, 가격과 맵기 단계는 확인되지 않았습니다.`;
   const fields=store.source.fieldProvenance;
   if(fields){
     const checkedDate=(value:string)=>new Date(value).toISOString().slice(0,10);
@@ -60,7 +61,7 @@ export function sourcedStoreJsonLd(store: PublicSourcedStore) {
     '@graph': [
       { '@type': 'WebPage', '@id': `${url}#webpage`, url, name: store.name, inLanguage: 'ko-KR',
         description: sourceFactsNotice(store), mainEntity: { '@id': entityId },
-        isBasedOn: { '@type': 'CreativeWork', url: store.source.url, name: '공공데이터 출처' } },
+        isBasedOn: { '@type': 'CreativeWork', url: store.source.url, name: store.sourceRef.startsWith('blog-source-')?'블로그 출처':'공공데이터 출처' } },
       { '@type': 'Restaurant', '@id': entityId, url, name: store.name,
         identifier: [
           { '@type': 'PropertyValue', propertyID: 'NOWGO store UUID', value: store.id },

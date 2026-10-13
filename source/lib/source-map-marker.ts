@@ -6,9 +6,9 @@ export function sourcedStoreMarker(store:PublicSourcedStore,dom:Pick<Document,'c
  const verified=store.ownerClaimVerified===true&&store.ownership==='verified'&&store.pinStatus==='owner-verified';
  const sourceOnly=store.registrationState==='source-only';
  const ownership=verified?'점주 확인':sourceOnly?'점주 확인 전':'점주 미등록';
- const publication=sourceOnly?'공공자료 소개':'공공자료 등록';
+ const publication=store.markerColor==='red'?'블로그 출처 매장':sourceOnly?'공공자료 소개':'공공자료 등록';
  const link=dom.createElement('a');
- link.className='map-anchor map-anchor--sourced'+(verified?' map-anchor--sourced-verified':'');
+ link.className='map-anchor map-anchor--sourced'+(verified?' map-anchor--sourced-verified':'')+(store.markerColor==='red'?' map-anchor--collected-red':'');
  link.href=sourcedStoreUrl(store);link.target='_blank';link.rel='noopener noreferrer';
  link.title=`${store.name} · ${publication} · ${ownership}`;
  link.setAttribute('aria-label',`${store.name}. ${publication}, ${ownership}. 가격, 매운맛 단계, 영업 여부 미확인. 매장 미니홈피 보기`);

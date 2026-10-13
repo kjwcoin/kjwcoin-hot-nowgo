@@ -1,4 +1,5 @@
 import reviewedRegistry from '../data/hot-reviewed-source-registry.json' with {type:'json'};
+import {publicCollectedBlogStore} from './collected-blog-stores.ts';
 import {sourceReportingState,type HotReportingState} from './hot-reporting-phase.ts';
 /** Public, non-owner facts only. Never convert this into a consumer Report/Menu. */
 export type SourceTaste = {description:string;preparationTraits:string[];choiceOffered:boolean;sourceUrl:string;sourceAsOf:string|null;checkedAt:string;licenseName:string;publicDisplayAllowed:true};
@@ -38,8 +39,9 @@ export type PublicSourcedStore = {
   indexable?: boolean;
   registrationState?: 'database'|'source-only';
   ownership: 'unclaimed' | 'verified'; ownerClaimVerified: boolean; pinStatus: 'gray' | 'owner-verified';
+  markerColor?: 'red';
   operatingStatus: null; currentMenuAvailability: null;
-  source: { url: string; licenseName: string; asOf: string | null; checkedAt: string;fieldProvenance?:SourceFieldProvenance };
+  source: { url: string; licenseName: string; asOf: string | null; checkedAt: string;fieldProvenance?:SourceFieldProvenance;coordinateUrl?:string };
 };
 export type SourcedStoreRow = {
   id: unknown; slug: unknown; name: unknown; address: unknown; owner_id: unknown;
@@ -116,6 +118,7 @@ export function parseSourceTaste(value:unknown,sourceUrl:string,licenseName:stri
  return{description:row.description,preparationTraits:row.preparationTraits as string[],choiceOffered:row.choiceOffered,sourceUrl,sourceAsOf:row.sourceAsOf as string|null,checkedAt:row.checkedAt,licenseName,publicDisplayAllowed:true};
 }
 export function publicSourcedStore(row: SourcedStoreRow): PublicSourcedStore | null {
+  if(typeof row.source_ref==='string'&&row.source_ref.startsWith('blog-source-'))return publicCollectedBlogStore(row);
   const meta = record(row.source_metadata), rights = record(meta?.rights);
   if (!meta || !rights || rights.publicDisplay !== true || rights.factsStorage !== true ||
     meta.planet !== 'hot' || row.owner_id !== null || row.archived_at !== null || row.trust_disabled_at !== null ||

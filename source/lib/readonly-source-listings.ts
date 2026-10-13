@@ -1,8 +1,10 @@
 import {excludedSourceStoreIds,excludedSourceMenuIds} from './readonly-source-reserved-bindings.server.ts';
+import {collectedBlogStores,collectedBlogStoreIds,collectedBlogMenuIds} from './collected-blog-stores.ts';
+import {REVIEWED774_SOURCE_FEED_CONTRACT} from './source-feed-contract.ts';
 import records,{reviewed588Records,reviewed591Records,reviewed946Records} from './readonly-source-records.ts';
 import legacyRecords from '../data/hot-source-listings.json' with {type:'json'};
 import {CURRENT_SOURCE_FEED_CONTRACT,REVIEWED948_SOURCE_FEED_CONTRACT,REVIEWED946_SOURCE_FEED_CONTRACT,MENU_WITHDRAWAL_SOURCE_FEED_CONTRACT,PREVIOUS_SOURCE_FEED_CONTRACT,LEGACY_SOURCE_FEED_CONTRACT,WITHDRAWN_MENU_COMPAT_SOURCE_FEED_CONTRACT,type SourceFeedContract} from './source-feed-contract.ts';
-import {publicSourcedStore,type PublicSourcedStoreFeed} from './sourced-store.ts';
+import {publicSourcedStore,type PublicSourcedStore,type PublicSourcedStoreFeed} from './sourced-store.ts';
 /** A versioned public-source listing is not a stores-table registration.
  * No database row, owner claim, operating status or consumer evaluation is implied.
  * Held records are absent from this allowlist. No flag can turn these IDs writable.
@@ -12,9 +14,9 @@ export const READONLY_SOURCE_PUBLICATION=true;
 const MENU_WITHDRAWAL_REVIEWED_AT='2026-10-13T13:31:00.000Z';
 type SourceAliasBinding={sourceRef:string;id:string;menuId:string};
 const aliasBindings=records.flatMap(row=>('aliasBindings' in row.source_metadata?row.source_metadata.aliasBindings:[]) as SourceAliasBinding[]);
-const reservedIds=new Set([...excludedSourceStoreIds,...records.map(row=>row.id),...aliasBindings.map(alias=>alias.id)].map(id=>id.replace(/-/g,'').toLowerCase()));
+const reservedIds=new Set([...collectedBlogStoreIds,...excludedSourceStoreIds,...records.map(row=>row.id),...aliasBindings.map(alias=>alias.id)].map(id=>id.replace(/-/g,'').toLowerCase()));
 // Withdrawing public menu facts never makes a historical source binding writable.
-const reservedMenuIds=new Set([...excludedSourceMenuIds,...records.flatMap(row=>[...row.source_metadata.menus.map(menu=>menu.id),...(row.source_metadata.revokedMenuIds||[])]),...aliasBindings.map(alias=>alias.menuId)]);
+const reservedMenuIds=new Set([...collectedBlogMenuIds,...excludedSourceMenuIds,...records.flatMap(row=>[...row.source_metadata.menus.map(menu=>menu.id),...(row.source_metadata.revokedMenuIds||[])]),...aliasBindings.map(alias=>alias.menuId)]);
 /** Match the equivalent UUID text forms PostgreSQL accepts, before any side effect. */
 export function isReadonlySourceStoreId(id:unknown):boolean{
  if(typeof id!=='string')return false;
@@ -34,18 +36,23 @@ export function isReadonlySourceReportBinding(value:unknown):boolean{
   (typeof row.menu_id==='string'&&reservedMenuIds.has(row.menu_id));
 }
 export function readonlySourceStoreFeed(contract:SourceFeedContract=CURRENT_SOURCE_FEED_CONTRACT):PublicSourcedStoreFeed{
- const reviewed=(contract===CURRENT_SOURCE_FEED_CONTRACT||contract===REVIEWED948_SOURCE_FEED_CONTRACT)?records:contract===REVIEWED946_SOURCE_FEED_CONTRACT?reviewed946Records:contract===MENU_WITHDRAWAL_SOURCE_FEED_CONTRACT||contract===WITHDRAWN_MENU_COMPAT_SOURCE_FEED_CONTRACT?reviewed591Records:contract===PREVIOUS_SOURCE_FEED_CONTRACT?reviewed588Records:contract===LEGACY_SOURCE_FEED_CONTRACT?legacyRecords:null;
+ const reviewed=(contract===CURRENT_SOURCE_FEED_CONTRACT||contract===REVIEWED774_SOURCE_FEED_CONTRACT||contract===REVIEWED948_SOURCE_FEED_CONTRACT)?records:contract===REVIEWED946_SOURCE_FEED_CONTRACT?reviewed946Records:contract===MENU_WITHDRAWAL_SOURCE_FEED_CONTRACT||contract===WITHDRAWN_MENU_COMPAT_SOURCE_FEED_CONTRACT?reviewed591Records:contract===PREVIOUS_SOURCE_FEED_CONTRACT?reviewed588Records:contract===LEGACY_SOURCE_FEED_CONTRACT?legacyRecords:null;
  // Every public contract excludes unpublishable identities. Its reviewed identity
  // set remains explicit; no contract can resurrect menu-less facts from caches.
  const snapshot=reviewed;
  if(!snapshot)throw Error('unsupported_source_feed_contract');
  const seen=new Set<string>();
- const stores=snapshot.map(row=>{
+ const stores:PublicSourcedStore[]=snapshot.map(row=>{
   if(seen.has(row.id))throw Error('duplicate_source_listing');seen.add(row.id);
   const facts=publicSourcedStore({...row,owner_id:null,archived_at:null,trust_disabled_at:null,owner_penalty_points:0,publication_state:'DISCOVERED'});
   if(!facts)throw Error('invalid_source_listing');
   return {...facts,indexable:true,registrationState:'source-only' as const};
  });
+ if(contract===CURRENT_SOURCE_FEED_CONTRACT){
+  const same=(name:string,address:string)=>name.replace(/\s/g,'').toLowerCase()+'|'+address.replace(/\s/g,'').toLowerCase();
+  const identities=new Set(stores.map(store=>same(store.name,store.address)));
+  for(const store of collectedBlogStores){if(!identities.has(same(store.name,store.address))){stores.push(store);identities.add(same(store.name,store.address))}}
+ }
  // A stable manifest review watermark, not the request time, source data date,
  // current operating verification, or a claim that every record was reviewed then.
  // Empty manifests use the epoch watermark and still revoke all previous facts.
