@@ -8,6 +8,7 @@ import * as phase from '../lib/hot-reporting-phase.ts';
 import * as contract from '../lib/selected-report-target.ts';
 import * as publication from '../lib/report-publication.ts';
 import * as korean from '../lib/korean-region.ts';
+import sourceRecords from '../lib/readonly-source-records.ts';
 import {isReadonlySourceReportBinding,readonlySourceStoreFeed} from '../lib/readonly-source-listings.ts';
 const source=fs.readFileSync(new URL('../app/api/[action]/route.ts',import.meta.url),'utf8');
 const storeId='00000000-0000-4000-8000-000000000001',menuId='data-go-kr-15000000-1:menu:1',requestId='00000000-0000-4000-8000-000000000050';
@@ -78,12 +79,14 @@ test('direct source and owned GET selection fail pending before any resolver',as
  }
 });
 const sourceStores=readonlySourceStoreFeed().stores;
+const revokedMenuIds=new Map(sourceRecords.map(row=>[row.id,row.source_metadata.revokedMenuIds||[]]));
+const sourceMenuIds=store=>[...store.menus.map(menu=>menu.id),...revokedMenuIds.get(store.id)];
 function sourceBindings(store){
  const ids=[store.id,store.id.toUpperCase(),store.id.replaceAll('-',''),'{'+store.id+'}','  '+store.id+'  '];
  return [
   ...ids.map(id=>({nowgo_store_id:id,menu_id:'unrelated-legacy-menu',place_id:'forged'})),
   ...ids.map(id=>({nowgo_store_id:null,menu_id:'unrelated-legacy-menu',place_id:'NOWGO-'+id})),
-  ...store.menus.map(menu=>({nowgo_store_id:null,menu_id:menu.id,place_id:null})),
+  ...sourceMenuIds(store).map(menu_id=>({nowgo_store_id:null,menu_id,place_id:null})),
  ];
 }
 test('each manifest source identity independently blocks saved draft retry before publication and photo review',async()=>{
@@ -106,8 +109,8 @@ test('ordinary resubmission cannot publish a source-bound stored receipt even wi
 });
 
 test('even an already-published manifest-source receipt cannot restart photo-review work through retry',async()=>{
- for(const store of sourceStores){
-  const h=harness({reportingEnabled:false,initial:{id:requestId,status:'published_unverified',menu_id:store.menus[0].id}});const result=await h.retry();assert.equal(result.status,503);assert.equal(result.body.code,'hot_reporting_pending');assert.equal(h.calls.some(c=>['rpc','after','upload','insert'].includes(c[0])),false);
+ for(const store of sourceStores)for(const menu_id of sourceMenuIds(store)){
+  const h=harness({reportingEnabled:false,initial:{id:requestId,status:'published_unverified',menu_id}});const result=await h.retry();assert.equal(result.status,503);assert.equal(result.body.code,'hot_reporting_pending');assert.equal(h.calls.some(c=>['rpc','after','upload','insert'].includes(c[0])),false);
  }
 });
 
@@ -124,5 +127,5 @@ test('unrelated historical differing menu IDs preserve saved retry and ordinary 
 
 test('source receipt guard needs an actual manifest binding and cannot classify unrelated historical IDs by shape alone',()=>{
  for(const value of [null,undefined,[],{}, {id:requestId,menu_id:'historical-menu'}, {nowgo_store_id:storeId,place_id:'nowgo-'+storeId,menu_id:menuId}])assert.equal(isReadonlySourceReportBinding(value),false);
- for(const store of sourceStores){assert.equal(isReadonlySourceReportBinding({nowgo_store_id:store.id}),true);assert.equal(isReadonlySourceReportBinding({place_id:'nowgo-'+store.id}),true);assert.equal(isReadonlySourceReportBinding({menu_id:store.menus[0].id}),true);}
+ for(const store of sourceStores){assert.equal(isReadonlySourceReportBinding({nowgo_store_id:store.id}),true);assert.equal(isReadonlySourceReportBinding({place_id:'nowgo-'+store.id}),true);for(const menu_id of sourceMenuIds(store))assert.equal(isReadonlySourceReportBinding({menu_id}),true);}
 });

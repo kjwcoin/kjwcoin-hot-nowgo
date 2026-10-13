@@ -1,0 +1,1760 @@
+[
+  {
+    "id": "71306463-6126-59e8-ae73-91d3f49ab400",
+    "slug": "hot-gwangju-ma0101202509a0001872",
+    "name": "두끼광주 경안점",
+    "address": "경기도 광주시 중앙로 107",
+    "lat": 37.4093722785769,
+    "lon": 127.25824478083,
+    "source_ref": "data-go-kr-15083033-MA0101202509A0001872",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+      "sourceRecordId": "MA0101202509A0001872",
+      "nativeBusinessName": "두끼광주",
+      "nativeBranchName": "경안점",
+      "displayNameBasis": "Exact licensed SBIZ native business and branch strings joined with one space; no inferred shortening or current franchise affiliation",
+      "district": "광주시",
+      "districtCode": "41610",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+          "nativeRecordId": "MA0101202509A0001872"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+          "nativeRecordId": "MA0101202509A0001872"
+        }
+      },
+      "identityLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA0101202509A0001872",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 618248,
+        "rowNumberDefinition": "1-based data row excluding CSV header",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+        "sha256": "6f7b3c855ee8f51060e7b5100b1f23e5f1a854b6115665fe6bc3d397b1e68645",
+        "rawFile": "/workspace/scratch/1b6177ac5314/outputs/gyeonggi-spicy-batch-20261013/raw/sbiz-gyeonggi-202606.csv",
+        "rawRecord": {
+          "상가업소번호": "MA0101202509A0001872",
+          "상호명": "두끼광주",
+          "지점명": "경안점",
+          "상권업종대분류코드": "I2",
+          "상권업종대분류명": "음식",
+          "상권업종중분류코드": "I210",
+          "상권업종중분류명": "기타 간이",
+          "상권업종소분류코드": "I21007",
+          "상권업종소분류명": "김밥/만두/분식",
+          "표준산업분류코드": "I56194",
+          "표준산업분류명": "김밥 및 기타 간이 음식점업",
+          "시도코드": "41",
+          "시도명": "경기도",
+          "시군구코드": "41610",
+          "시군구명": "광주시",
+          "행정동코드": "41610510",
+          "행정동명": "경안동",
+          "법정동코드": "4161010100",
+          "법정동명": "경안동",
+          "지번코드": "4161010100100310013",
+          "대지구분코드": "1",
+          "대지구분명": "대지",
+          "지번본번지": "31",
+          "지번부번지": "13",
+          "지번주소": "경기도 광주시 경안동 31-13",
+          "도로명코드": "416103211038",
+          "도로명": "경기도 광주시 중앙로",
+          "건물본번지": "107",
+          "건물부번지": "",
+          "건물관리번호": "4161010100100310004002575",
+          "건물명": "",
+          "도로명주소": "경기도 광주시 중앙로 107",
+          "구우편번호": "464801",
+          "신우편번호": "12759",
+          "동정보": "",
+          "층정보": "2",
+          "호정보": "",
+          "경도": "127.25824478083",
+          "위도": "37.4093722785769"
+        },
+        "licenseName": "이용허락범위 제한 없음",
+        "licenseEvidenceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+        "licenseCheckedAt": "2026-10-13T06:50:32.272820+00:00"
+      },
+      "coordinateLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA0101202509A0001872",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 618248,
+        "sha256": "6f7b3c855ee8f51060e7b5100b1f23e5f1a854b6115665fe6bc3d397b1e68645",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+        "rawLongitude": "127.25824478083",
+        "rawLatitude": "37.4093722785769",
+        "coordinateSystem": {
+          "name": "WGS84",
+          "epsg": 4326,
+          "axisOrderInSource": [
+            "경도",
+            "위도"
+          ],
+          "units": "decimal_degrees",
+          "transformation": "none; source numeric strings preserved alongside parsed numbers",
+          "evidenceType": "same-provider same-dataset API coordinate specification; the CSV itself does not encode an EPSG label",
+          "guideUrl": "https://www.data.go.kr/data/15012005/openapi.do",
+          "guideDownloadUrl": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000003706124&fileDetailSn=3",
+          "guideSha256": "4ed2112e2a90e49e88243fa7963ae7d19628aed247b6492bcbae6a947534970e",
+          "guideVersion": "260805",
+          "guideExtract": "raw/sbiz-api-guide-extracted.txt",
+          "evidence": "상가업소 lon/lat response fields are described as WGS84 coordinates in the provider guide. The longitude description repeats 위도, a provider wording typo; the lon/lat field labels and sample values distinguish axes."
+        },
+        "accuracy": "building_level; no survey/entrance accuracy claimed",
+        "matchMethod": "Exact licensed SBIZ row, district text/code and broad Gyeonggi coordinate plausibility checked; no point-in-polygon or current-operation assertion.",
+        "matchedName": "두끼광주",
+        "matchedBranchName": "경안점",
+        "matchedAddress": "경기도 광주시 중앙로 107",
+        "buildingManagementNumber": "4161010100100310004002575",
+        "licenseName": "이용허락범위 제한 없음",
+        "rights": {
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false
+        }
+      },
+      "fieldRights": {
+        "nameAddress": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "coordinates": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "evidence/dookki-menu-evidence.json#dookki",
+          "residualUncertainty": [
+            "No explicit website open licence or legal guarantee.",
+            "No all-user commercial restriction located in reviewed public pages; review is not exhaustive.",
+            "Branch affiliation, ingredients, menu sale and current operation unverified."
+          ],
+          "legalReviewFile": "evidence/dookki-menu-evidence.json",
+          "reviewedAt": "2026-10-13T05:07:17.883528+00:00"
+        },
+        "prosePhotosLogosMenusBulk": {
+          "cleared": false,
+          "include": false
+        }
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only",
+        "reviewedAt": "2026-10-13T07:47:46.672646+00:00"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA0101202509A0001872:menu:1",
+          "name": "떡볶이",
+          "provenance": {
+            "kind": "official-brand-menu",
+            "sourceScope": "brand_common",
+            "branchMenuApplicability": null,
+            "brandName": "두끼",
+            "sourceUrl": "https://www.dookki.co.kr/menu/dookki",
+            "sourceRecordIds": {},
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-13T05:07:17.883528+00:00",
+            "licenseName": null,
+            "explicitOpenLicense": false,
+            "reuseBasis": "limited-individual-fact-review",
+            "originalName": "떡볶이",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null,
+            "preparationNotice": "직접 조리하며 소스 선택에 따라 맵기가 달라집니다. 지점별 재료는 확인되지 않았습니다."
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      },
+      "aliasBindings": [],
+      "deduplication": {
+        "key": "두끼|경기도 광주시 중앙로 107",
+        "sourceIds": [
+          "MA0101202509A0001872"
+        ],
+        "sourceRows": [
+          618248
+        ],
+        "allSourceRecords": [
+          {
+            "상가업소번호": "MA0101202509A0001872",
+            "상호명": "두끼광주",
+            "지점명": "경안점",
+            "상권업종대분류코드": "I2",
+            "상권업종대분류명": "음식",
+            "상권업종중분류코드": "I210",
+            "상권업종중분류명": "기타 간이",
+            "상권업종소분류코드": "I21007",
+            "상권업종소분류명": "김밥/만두/분식",
+            "표준산업분류코드": "I56194",
+            "표준산업분류명": "김밥 및 기타 간이 음식점업",
+            "시도코드": "41",
+            "시도명": "경기도",
+            "시군구코드": "41610",
+            "시군구명": "광주시",
+            "행정동코드": "41610510",
+            "행정동명": "경안동",
+            "법정동코드": "4161010100",
+            "법정동명": "경안동",
+            "지번코드": "4161010100100310013",
+            "대지구분코드": "1",
+            "대지구분명": "대지",
+            "지번본번지": "31",
+            "지번부번지": "13",
+            "지번주소": "경기도 광주시 경안동 31-13",
+            "도로명코드": "416103211038",
+            "도로명": "경기도 광주시 중앙로",
+            "건물본번지": "107",
+            "건물부번지": "",
+            "건물관리번호": "4161010100100310004002575",
+            "건물명": "",
+            "도로명주소": "경기도 광주시 중앙로 107",
+            "구우편번호": "464801",
+            "신우편번호": "12759",
+            "동정보": "",
+            "층정보": "2",
+            "호정보": "",
+            "경도": "127.25824478083",
+            "위도": "37.4093722785769"
+          }
+        ],
+        "method": "same brand/address, identical building/floor/unit/wing/coordinates, aliases preserved",
+        "provisional": false,
+        "missingUnitCaveat": null
+      },
+      "requiredPublicNotices": [
+        "브랜드 공통 메뉴 · 지점 판매 여부 미확인",
+        "직접 조리하며 소스 선택에 따라 맵기가 달라집니다. 지점별 재료는 확인되지 않았습니다.",
+        "공공 상가정보 기준 위치이며 현재 영업 여부는 확인되지 않았습니다.",
+        "매운 정도·고객 평가·가격은 확인되지 않았습니다."
+      ],
+      "independentReview": {
+        "packetFile": "outputs/hot-reviewed-backlog-priority-20261013/gwangju-records.json",
+        "packetSha256": "8115284be48c949ae270796701e43e966fb327b92a99a474c1f8c2019ec56ca4",
+        "originalRecordSha256": "1fc573fb4f570c746726564a03d921ab1607ed72ffeb1f3d32c0e66d5e825d71",
+        "manifestFile": "outputs/hot-reviewed-backlog-priority-20261013/whole-city496-manifest.json",
+        "manifestSha256": "e1e952f412ae83f3034dd0b9cd7367a2ba4edd026d5afae2e70ae7c795276af5",
+        "brandEvidenceReuse": {
+          "method": "reuse_frozen_bounded_brand_common_fact_once_per_brand",
+          "newPerBranchMenuWebRetrieval": false,
+          "branchAffiliationConfirmed": false,
+          "sourceTemplateBatch": "seoul-dookki-next35-draft"
+        },
+        "currentBranchOperationVerified": false,
+        "currentBranchMenuSaleVerified": false,
+        "updatedPublicationReview": {
+          "decisionFile": "outputs/hot-regional496-release-20261013/review/independent-candidates-publication-decision.json",
+          "decisionSha256": "85c2c3014e16607939a5ba50954f6a67c0a78a91f7d5283afca7474594be1708",
+          "assessment": "bounded_anonymous_single_brand_fact_with_documented_limits_not_blanket_license"
+        }
+      }
+    }
+  },
+  {
+    "id": "a2a838f9-b95e-5555-836a-4fef6373acca",
+    "slug": "hot-gwangju-ma010120220807030418",
+    "name": "청년다방 경안점",
+    "address": "경기도 광주시 경안로 18",
+    "lat": 37.4099750421856,
+    "lon": 127.258664779167,
+    "source_ref": "data-go-kr-15083033-MA010120220807030418",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+      "sourceRecordId": "MA010120220807030418",
+      "nativeBusinessName": "청년다방",
+      "nativeBranchName": "경안점",
+      "displayNameBasis": "Exact licensed SBIZ native business and branch strings joined with one space; no inferred shortening or current franchise affiliation",
+      "district": "광주시",
+      "districtCode": "41610",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+          "nativeRecordId": "MA010120220807030418"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+          "nativeRecordId": "MA010120220807030418"
+        }
+      },
+      "identityLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA010120220807030418",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 234526,
+        "rowNumberDefinition": "1-based data row excluding CSV header",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+        "sha256": "6f7b3c855ee8f51060e7b5100b1f23e5f1a854b6115665fe6bc3d397b1e68645",
+        "rawFile": "/workspace/scratch/1b6177ac5314/outputs/gyeonggi-spicy-batch-20261013/raw/sbiz-gyeonggi-202606.csv",
+        "rawRecord": {
+          "상가업소번호": "MA010120220807030418",
+          "상호명": "청년다방",
+          "지점명": "경안점",
+          "상권업종대분류코드": "I2",
+          "상권업종대분류명": "음식",
+          "상권업종중분류코드": "I210",
+          "상권업종중분류명": "기타 간이",
+          "상권업종소분류코드": "I21007",
+          "상권업종소분류명": "김밥/만두/분식",
+          "표준산업분류코드": "I56194",
+          "표준산업분류명": "김밥 및 기타 간이 음식점업",
+          "시도코드": "41",
+          "시도명": "경기도",
+          "시군구코드": "41610",
+          "시군구명": "광주시",
+          "행정동코드": "41610510",
+          "행정동명": "경안동",
+          "법정동코드": "4161010100",
+          "법정동명": "경안동",
+          "지번코드": "4161010100100570005",
+          "대지구분코드": "1",
+          "대지구분명": "대지",
+          "지번본번지": "57",
+          "지번부번지": "5",
+          "지번주소": "경기도 광주시 경안동 57-5",
+          "도로명코드": "416103211001",
+          "도로명": "경기도 광주시 경안로",
+          "건물본번지": "18",
+          "건물부번지": "",
+          "건물관리번호": "4161010100100240008002503",
+          "건물명": "",
+          "도로명주소": "경기도 광주시 경안로 18",
+          "구우편번호": "464801",
+          "신우편번호": "12756",
+          "동정보": "",
+          "층정보": "1",
+          "호정보": "",
+          "경도": "127.258664779167",
+          "위도": "37.4099750421856"
+        },
+        "licenseName": "이용허락범위 제한 없음",
+        "licenseEvidenceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+        "licenseCheckedAt": "2026-10-13T06:50:32.272820+00:00"
+      },
+      "coordinateLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA010120220807030418",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 234526,
+        "sha256": "6f7b3c855ee8f51060e7b5100b1f23e5f1a854b6115665fe6bc3d397b1e68645",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+        "rawLongitude": "127.258664779167",
+        "rawLatitude": "37.4099750421856",
+        "coordinateSystem": {
+          "name": "WGS84",
+          "epsg": 4326,
+          "axisOrderInSource": [
+            "경도",
+            "위도"
+          ],
+          "units": "decimal_degrees",
+          "transformation": "none; source numeric strings preserved alongside parsed numbers",
+          "evidenceType": "same-provider same-dataset API coordinate specification; the CSV itself does not encode an EPSG label",
+          "guideUrl": "https://www.data.go.kr/data/15012005/openapi.do",
+          "guideDownloadUrl": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000003706124&fileDetailSn=3",
+          "guideSha256": "4ed2112e2a90e49e88243fa7963ae7d19628aed247b6492bcbae6a947534970e",
+          "guideVersion": "260805",
+          "guideExtract": "raw/sbiz-api-guide-extracted.txt",
+          "evidence": "상가업소 lon/lat response fields are described as WGS84 coordinates in the provider guide. The longitude description repeats 위도, a provider wording typo; the lon/lat field labels and sample values distinguish axes."
+        },
+        "accuracy": "building_level; no survey/entrance accuracy claimed",
+        "matchMethod": "Exact licensed SBIZ row, district text/code and broad Gyeonggi coordinate plausibility checked; no point-in-polygon or current-operation assertion.",
+        "matchedName": "청년다방",
+        "matchedBranchName": "경안점",
+        "matchedAddress": "경기도 광주시 경안로 18",
+        "buildingManagementNumber": "4161010100100240008002503",
+        "licenseName": "이용허락범위 제한 없음",
+        "rights": {
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false
+        }
+      },
+      "fieldRights": {
+        "nameAddress": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "coordinates": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "evidence/brand-menu-evidence.json#youngdabang",
+          "residualUncertainty": [
+            "No website open licence or general legal guarantee is claimed.",
+            "Branch availability and current operation remain unverified."
+          ],
+          "legalReviewFile": "evidence/brand-menu-evidence.json",
+          "reviewedAt": "2026-10-13T02:42:18.238025+00:00"
+        },
+        "prosePhotosLogosMenusBulk": {
+          "cleared": false,
+          "include": false
+        }
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only",
+        "reviewedAt": "2026-10-13T07:47:46.672646+00:00"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA010120220807030418:menu:1",
+          "name": "크림차돌떡볶이",
+          "provenance": {
+            "kind": "official-brand-menu",
+            "sourceScope": "brand_common",
+            "branchMenuApplicability": null,
+            "brandName": "청년다방",
+            "sourceUrl": "https://youngdabang.com/board/index.php?board=notice_01&idx=88&type=view",
+            "sourceRecordIds": {},
+            "sourceAsOf": "2025-11-06",
+            "checkedAt": "2026-10-12T23:51:41.729766+00:00",
+            "licenseName": null,
+            "explicitOpenLicense": false,
+            "reuseBasis": "limited-individual-fact-review",
+            "originalName": "크림차돌떡볶이",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      },
+      "aliasBindings": [],
+      "deduplication": {
+        "key": "청년다방|경기도 광주시 경안로 18",
+        "sourceIds": [
+          "MA010120220807030418"
+        ],
+        "sourceRows": [
+          234526
+        ],
+        "allSourceRecords": [
+          {
+            "상가업소번호": "MA010120220807030418",
+            "상호명": "청년다방",
+            "지점명": "경안점",
+            "상권업종대분류코드": "I2",
+            "상권업종대분류명": "음식",
+            "상권업종중분류코드": "I210",
+            "상권업종중분류명": "기타 간이",
+            "상권업종소분류코드": "I21007",
+            "상권업종소분류명": "김밥/만두/분식",
+            "표준산업분류코드": "I56194",
+            "표준산업분류명": "김밥 및 기타 간이 음식점업",
+            "시도코드": "41",
+            "시도명": "경기도",
+            "시군구코드": "41610",
+            "시군구명": "광주시",
+            "행정동코드": "41610510",
+            "행정동명": "경안동",
+            "법정동코드": "4161010100",
+            "법정동명": "경안동",
+            "지번코드": "4161010100100570005",
+            "대지구분코드": "1",
+            "대지구분명": "대지",
+            "지번본번지": "57",
+            "지번부번지": "5",
+            "지번주소": "경기도 광주시 경안동 57-5",
+            "도로명코드": "416103211001",
+            "도로명": "경기도 광주시 경안로",
+            "건물본번지": "18",
+            "건물부번지": "",
+            "건물관리번호": "4161010100100240008002503",
+            "건물명": "",
+            "도로명주소": "경기도 광주시 경안로 18",
+            "구우편번호": "464801",
+            "신우편번호": "12756",
+            "동정보": "",
+            "층정보": "1",
+            "호정보": "",
+            "경도": "127.258664779167",
+            "위도": "37.4099750421856"
+          }
+        ],
+        "method": "same brand/address, identical building/floor/unit/wing/coordinates, aliases preserved",
+        "provisional": false,
+        "missingUnitCaveat": null
+      },
+      "requiredPublicNotices": [
+        "브랜드 공통 메뉴 · 지점 판매 여부 미확인",
+        "공공 상가정보 기준 위치이며 현재 영업 여부는 확인되지 않았습니다.",
+        "매운 정도·고객 평가·가격은 확인되지 않았습니다."
+      ],
+      "independentReview": {
+        "packetFile": "outputs/hot-reviewed-backlog-priority-20261013/gwangju-records.json",
+        "packetSha256": "8115284be48c949ae270796701e43e966fb327b92a99a474c1f8c2019ec56ca4",
+        "originalRecordSha256": "c5349911e91f9d16932119bc3fb06d27164bcb5f291e4a63caba54d83fcb9f10",
+        "manifestFile": "outputs/hot-reviewed-backlog-priority-20261013/whole-city496-manifest.json",
+        "manifestSha256": "e1e952f412ae83f3034dd0b9cd7367a2ba4edd026d5afae2e70ae7c795276af5",
+        "brandEvidenceReuse": {
+          "method": "reuse_frozen_bounded_brand_common_fact_once_per_brand",
+          "newPerBranchMenuWebRetrieval": false,
+          "branchAffiliationConfirmed": false,
+          "sourceTemplateBatch": "seoul-gangnam-20261013-reviewed25"
+        },
+        "currentBranchOperationVerified": false,
+        "currentBranchMenuSaleVerified": false,
+        "updatedPublicationReview": {
+          "decisionFile": "outputs/hot-regional496-release-20261013/review/independent-candidates-publication-decision.json",
+          "decisionSha256": "85c2c3014e16607939a5ba50954f6a67c0a78a91f7d5283afca7474594be1708",
+          "assessment": "bounded_anonymous_single_brand_fact_with_documented_limits_not_blanket_license"
+        }
+      }
+    }
+  },
+  {
+    "id": "1f95c8d6-ab1d-5eaa-bfd3-5fff76c58c47",
+    "slug": "hot-gwangju-ma0101202302a0075056",
+    "name": "두마리찜닭두찜광주 태전점",
+    "address": "경기도 광주시 고불로 128",
+    "lat": 37.3936380750133,
+    "lon": 127.224086122751,
+    "source_ref": "data-go-kr-15083033-MA0101202302A0075056",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+      "sourceRecordId": "MA0101202302A0075056",
+      "nativeBusinessName": "두마리찜닭두찜광주",
+      "nativeBranchName": "태전점",
+      "displayNameBasis": "Exact licensed SBIZ native business and branch strings joined with one space; no inferred shortening or current franchise affiliation",
+      "district": "광주시",
+      "districtCode": "41610",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+          "nativeRecordId": "MA0101202302A0075056"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+          "nativeRecordId": "MA0101202302A0075056"
+        }
+      },
+      "identityLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA0101202302A0075056",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 408451,
+        "rowNumberDefinition": "1-based data row excluding CSV header",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+        "sha256": "6f7b3c855ee8f51060e7b5100b1f23e5f1a854b6115665fe6bc3d397b1e68645",
+        "rawFile": "/workspace/scratch/1b6177ac5314/outputs/gyeonggi-spicy-batch-20261013/raw/sbiz-gyeonggi-202606.csv",
+        "rawRecord": {
+          "상가업소번호": "MA0101202302A0075056",
+          "상호명": "두마리찜닭두찜광주",
+          "지점명": "태전점",
+          "상권업종대분류코드": "I2",
+          "상권업종대분류명": "음식",
+          "상권업종중분류코드": "I201",
+          "상권업종중분류명": "한식",
+          "상권업종소분류코드": "I20110",
+          "상권업종소분류명": "닭/오리고기 구이/찜",
+          "표준산업분류코드": "I56111",
+          "표준산업분류명": "한식 일반 음식점업",
+          "시도코드": "41",
+          "시도명": "경기도",
+          "시군구코드": "41610",
+          "시군구명": "광주시",
+          "행정동코드": "41610560",
+          "행정동명": "광남1동",
+          "법정동코드": "4161011000",
+          "법정동명": "태전동",
+          "지번코드": "4161011000103700000",
+          "대지구분코드": "1",
+          "대지구분명": "대지",
+          "지번본번지": "370",
+          "지번부번지": "",
+          "지번주소": "경기도 광주시 태전동 370",
+          "도로명코드": "416103211002",
+          "도로명": "경기도 광주시 고불로",
+          "건물본번지": "128",
+          "건물부번지": "",
+          "건물관리번호": "4161011000103700000012497",
+          "건물명": "",
+          "도로명주소": "경기도 광주시 고불로 128",
+          "구우편번호": "464805",
+          "신우편번호": "12781",
+          "동정보": "",
+          "층정보": "1",
+          "호정보": "",
+          "경도": "127.224086122751",
+          "위도": "37.3936380750133"
+        },
+        "licenseName": "이용허락범위 제한 없음",
+        "licenseEvidenceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+        "licenseCheckedAt": "2026-10-13T06:50:32.272820+00:00"
+      },
+      "coordinateLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA0101202302A0075056",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 408451,
+        "sha256": "6f7b3c855ee8f51060e7b5100b1f23e5f1a854b6115665fe6bc3d397b1e68645",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+        "rawLongitude": "127.224086122751",
+        "rawLatitude": "37.3936380750133",
+        "coordinateSystem": {
+          "name": "WGS84",
+          "epsg": 4326,
+          "axisOrderInSource": [
+            "경도",
+            "위도"
+          ],
+          "units": "decimal_degrees",
+          "transformation": "none; source numeric strings preserved alongside parsed numbers",
+          "evidenceType": "same-provider same-dataset API coordinate specification; the CSV itself does not encode an EPSG label",
+          "guideUrl": "https://www.data.go.kr/data/15012005/openapi.do",
+          "guideDownloadUrl": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000003706124&fileDetailSn=3",
+          "guideSha256": "4ed2112e2a90e49e88243fa7963ae7d19628aed247b6492bcbae6a947534970e",
+          "guideVersion": "260805",
+          "guideExtract": "raw/sbiz-api-guide-extracted.txt",
+          "evidence": "상가업소 lon/lat response fields are described as WGS84 coordinates in the provider guide. The longitude description repeats 위도, a provider wording typo; the lon/lat field labels and sample values distinguish axes."
+        },
+        "accuracy": "building_level; no survey/entrance accuracy claimed",
+        "matchMethod": "Exact licensed SBIZ row, district text/code and broad Gyeonggi coordinate plausibility checked; no point-in-polygon or current-operation assertion.",
+        "matchedName": "두마리찜닭두찜광주",
+        "matchedBranchName": "태전점",
+        "matchedAddress": "경기도 광주시 고불로 128",
+        "buildingManagementNumber": "4161011000103700000012497",
+        "licenseName": "이용허락범위 제한 없음",
+        "rights": {
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false
+        }
+      },
+      "fieldRights": {
+        "nameAddress": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "coordinates": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "evidence/twozzim-menu-evidence.json#twozzim",
+          "residualUncertainty": [
+            "No website open licence or general legal guarantee is claimed.",
+            "Separate site-use terms were not located; privacy text refers to terms whose contents remain unresolved.",
+            "Branch availability and current operation remain unverified."
+          ],
+          "legalReviewFile": "evidence/twozzim-menu-evidence.json",
+          "reviewedAt": "2026-10-13T04:48:08.910056+00:00"
+        },
+        "prosePhotosLogosMenusBulk": {
+          "cleared": false,
+          "include": false
+        }
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only",
+        "reviewedAt": "2026-10-13T07:47:46.672646+00:00"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA0101202302A0075056:menu:1",
+          "name": "빨간찜닭",
+          "provenance": {
+            "kind": "official-brand-menu",
+            "sourceScope": "brand_common",
+            "branchMenuApplicability": null,
+            "brandName": "두찜",
+            "sourceUrl": "https://twozzim.com/bbs/content.php?co_id=menu",
+            "sourceRecordIds": {},
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-13T04:48:08.910056+00:00",
+            "licenseName": null,
+            "explicitOpenLicense": false,
+            "reuseBasis": "limited-individual-fact-review",
+            "originalName": "빨간찜닭",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      },
+      "aliasBindings": [],
+      "deduplication": {
+        "key": "두찜|경기도 광주시 고불로 128",
+        "sourceIds": [
+          "MA0101202302A0075056"
+        ],
+        "sourceRows": [
+          408451
+        ],
+        "allSourceRecords": [
+          {
+            "상가업소번호": "MA0101202302A0075056",
+            "상호명": "두마리찜닭두찜광주",
+            "지점명": "태전점",
+            "상권업종대분류코드": "I2",
+            "상권업종대분류명": "음식",
+            "상권업종중분류코드": "I201",
+            "상권업종중분류명": "한식",
+            "상권업종소분류코드": "I20110",
+            "상권업종소분류명": "닭/오리고기 구이/찜",
+            "표준산업분류코드": "I56111",
+            "표준산업분류명": "한식 일반 음식점업",
+            "시도코드": "41",
+            "시도명": "경기도",
+            "시군구코드": "41610",
+            "시군구명": "광주시",
+            "행정동코드": "41610560",
+            "행정동명": "광남1동",
+            "법정동코드": "4161011000",
+            "법정동명": "태전동",
+            "지번코드": "4161011000103700000",
+            "대지구분코드": "1",
+            "대지구분명": "대지",
+            "지번본번지": "370",
+            "지번부번지": "",
+            "지번주소": "경기도 광주시 태전동 370",
+            "도로명코드": "416103211002",
+            "도로명": "경기도 광주시 고불로",
+            "건물본번지": "128",
+            "건물부번지": "",
+            "건물관리번호": "4161011000103700000012497",
+            "건물명": "",
+            "도로명주소": "경기도 광주시 고불로 128",
+            "구우편번호": "464805",
+            "신우편번호": "12781",
+            "동정보": "",
+            "층정보": "1",
+            "호정보": "",
+            "경도": "127.224086122751",
+            "위도": "37.3936380750133"
+          }
+        ],
+        "method": "same brand/address, identical building/floor/unit/wing/coordinates, aliases preserved",
+        "provisional": false,
+        "missingUnitCaveat": null
+      },
+      "requiredPublicNotices": [
+        "브랜드 공통 메뉴 · 지점 판매 여부 미확인",
+        "공공 상가정보 기준 위치이며 현재 영업 여부는 확인되지 않았습니다.",
+        "매운 정도·고객 평가·가격은 확인되지 않았습니다."
+      ],
+      "independentReview": {
+        "packetFile": "outputs/hot-reviewed-backlog-priority-20261013/gwangju-records.json",
+        "packetSha256": "8115284be48c949ae270796701e43e966fb327b92a99a474c1f8c2019ec56ca4",
+        "originalRecordSha256": "5bf1b323d1172c246d859ef04b8df49fae91b6a4a8d1acfaae5b10aaa88ea0be",
+        "manifestFile": "outputs/hot-reviewed-backlog-priority-20261013/whole-city496-manifest.json",
+        "manifestSha256": "e1e952f412ae83f3034dd0b9cd7367a2ba4edd026d5afae2e70ae7c795276af5",
+        "brandEvidenceReuse": {
+          "method": "reuse_frozen_bounded_brand_common_fact_once_per_brand",
+          "newPerBranchMenuWebRetrieval": false,
+          "branchAffiliationConfirmed": false,
+          "sourceTemplateBatch": "seoul-gangnam-20261013-reviewed25"
+        },
+        "currentBranchOperationVerified": false,
+        "currentBranchMenuSaleVerified": false,
+        "updatedPublicationReview": {
+          "decisionFile": "outputs/hot-regional496-release-20261013/review/independent-candidates-publication-decision.json",
+          "decisionSha256": "85c2c3014e16607939a5ba50954f6a67c0a78a91f7d5283afca7474594be1708",
+          "assessment": "bounded_anonymous_single_brand_fact_with_documented_limits_not_blanket_license"
+        }
+      }
+    }
+  },
+  {
+    "id": "f1979d56-56c5-5d13-a7ea-da638daa3f37",
+    "slug": "hot-gwangju-ma0101202406a0021932",
+    "name": "스텔라떡볶이경기광주문형점",
+    "address": "경기도 광주시 봉골길 81",
+    "lat": 37.3521613891045,
+    "lon": 127.20565570835,
+    "source_ref": "data-go-kr-15083033-MA0101202406A0021932",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+      "sourceRecordId": "MA0101202406A0021932",
+      "nativeBusinessName": "스텔라떡볶이경기광주문형점",
+      "nativeBranchName": null,
+      "displayNameBasis": "Exact licensed SBIZ native business and branch strings joined with one space; no inferred shortening or current franchise affiliation",
+      "district": "광주시",
+      "districtCode": "41610",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+          "nativeRecordId": "MA0101202406A0021932"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+          "nativeRecordId": "MA0101202406A0021932"
+        }
+      },
+      "identityLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA0101202406A0021932",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 463873,
+        "rowNumberDefinition": "1-based data row excluding CSV header",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+        "sha256": "6f7b3c855ee8f51060e7b5100b1f23e5f1a854b6115665fe6bc3d397b1e68645",
+        "rawFile": "/workspace/scratch/1b6177ac5314/outputs/gyeonggi-spicy-batch-20261013/raw/sbiz-gyeonggi-202606.csv",
+        "rawRecord": {
+          "상가업소번호": "MA0101202406A0021932",
+          "상호명": "스텔라떡볶이경기광주문형점",
+          "지점명": "",
+          "상권업종대분류코드": "I2",
+          "상권업종대분류명": "음식",
+          "상권업종중분류코드": "I210",
+          "상권업종중분류명": "기타 간이",
+          "상권업종소분류코드": "I21007",
+          "상권업종소분류명": "김밥/만두/분식",
+          "표준산업분류코드": "I56194",
+          "표준산업분류명": "김밥 및 기타 간이 음식점업",
+          "시도코드": "41",
+          "시도명": "경기도",
+          "시군구코드": "41610",
+          "시군구명": "광주시",
+          "행정동코드": "41610580",
+          "행정동명": "오포1동",
+          "법정동코드": "4161011700",
+          "법정동명": "문형동",
+          "지번코드": "4161011700101330000",
+          "대지구분코드": "1",
+          "대지구분명": "대지",
+          "지번본번지": "133",
+          "지번부번지": "",
+          "지번주소": "경기도 광주시 문형동 133",
+          "도로명코드": "416104433234",
+          "도로명": "경기도 광주시 봉골길",
+          "건물본번지": "81",
+          "건물부번지": "",
+          "건물관리번호": "4161025024101330000245521",
+          "건물명": "",
+          "도로명주소": "경기도 광주시 봉골길 81",
+          "구우편번호": "464891",
+          "신우편번호": "12774",
+          "동정보": "",
+          "층정보": "",
+          "호정보": "",
+          "경도": "127.20565570835",
+          "위도": "37.3521613891045"
+        },
+        "licenseName": "이용허락범위 제한 없음",
+        "licenseEvidenceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+        "licenseCheckedAt": "2026-10-13T06:50:32.272820+00:00"
+      },
+      "coordinateLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA0101202406A0021932",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 463873,
+        "sha256": "6f7b3c855ee8f51060e7b5100b1f23e5f1a854b6115665fe6bc3d397b1e68645",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+        "rawLongitude": "127.20565570835",
+        "rawLatitude": "37.3521613891045",
+        "coordinateSystem": {
+          "name": "WGS84",
+          "epsg": 4326,
+          "axisOrderInSource": [
+            "경도",
+            "위도"
+          ],
+          "units": "decimal_degrees",
+          "transformation": "none; source numeric strings preserved alongside parsed numbers",
+          "evidenceType": "same-provider same-dataset API coordinate specification; the CSV itself does not encode an EPSG label",
+          "guideUrl": "https://www.data.go.kr/data/15012005/openapi.do",
+          "guideDownloadUrl": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000003706124&fileDetailSn=3",
+          "guideSha256": "4ed2112e2a90e49e88243fa7963ae7d19628aed247b6492bcbae6a947534970e",
+          "guideVersion": "260805",
+          "guideExtract": "raw/sbiz-api-guide-extracted.txt",
+          "evidence": "상가업소 lon/lat response fields are described as WGS84 coordinates in the provider guide. The longitude description repeats 위도, a provider wording typo; the lon/lat field labels and sample values distinguish axes."
+        },
+        "accuracy": "building_level; no survey/entrance accuracy claimed",
+        "matchMethod": "Exact licensed SBIZ row, district text/code and broad Gyeonggi coordinate plausibility checked; no point-in-polygon or current-operation assertion.",
+        "matchedName": "스텔라떡볶이경기광주문형점",
+        "matchedBranchName": null,
+        "matchedAddress": "경기도 광주시 봉골길 81",
+        "buildingManagementNumber": "4161025024101330000245521",
+        "licenseName": "이용허락범위 제한 없음",
+        "rights": {
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false
+        }
+      },
+      "fieldRights": {
+        "nameAddress": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "coordinates": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "evidence/brand-menu-evidence.json#stella",
+          "residualUncertainty": [
+            "No website open licence or general legal guarantee is claimed.",
+            "Branch availability and current operation remain unverified."
+          ],
+          "legalReviewFile": "evidence/brand-menu-evidence.json",
+          "reviewedAt": "2026-10-13T02:42:18.238025+00:00"
+        },
+        "prosePhotosLogosMenusBulk": {
+          "cleared": false,
+          "include": false
+        }
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only",
+        "reviewedAt": "2026-10-13T07:47:46.672646+00:00"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA0101202406A0021932:menu:1",
+          "name": "스텔라떡볶이",
+          "provenance": {
+            "kind": "official-brand-menu",
+            "sourceScope": "brand_common",
+            "branchMenuApplicability": null,
+            "brandName": "스텔라떡볶이",
+            "sourceUrl": "https://stellapick.com/21?sca=%EB%96%A1%EB%B3%B6%EC%9D%B4",
+            "sourceRecordIds": {},
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-12T23:51:41.729766+00:00",
+            "licenseName": null,
+            "explicitOpenLicense": false,
+            "reuseBasis": "limited-individual-fact-review",
+            "originalName": "스텔라떡볶이",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      },
+      "aliasBindings": [],
+      "deduplication": {
+        "key": "스텔라떡볶이|경기도 광주시 봉골길 81",
+        "sourceIds": [
+          "MA0101202406A0021932"
+        ],
+        "sourceRows": [
+          463873
+        ],
+        "allSourceRecords": [
+          {
+            "상가업소번호": "MA0101202406A0021932",
+            "상호명": "스텔라떡볶이경기광주문형점",
+            "지점명": "",
+            "상권업종대분류코드": "I2",
+            "상권업종대분류명": "음식",
+            "상권업종중분류코드": "I210",
+            "상권업종중분류명": "기타 간이",
+            "상권업종소분류코드": "I21007",
+            "상권업종소분류명": "김밥/만두/분식",
+            "표준산업분류코드": "I56194",
+            "표준산업분류명": "김밥 및 기타 간이 음식점업",
+            "시도코드": "41",
+            "시도명": "경기도",
+            "시군구코드": "41610",
+            "시군구명": "광주시",
+            "행정동코드": "41610580",
+            "행정동명": "오포1동",
+            "법정동코드": "4161011700",
+            "법정동명": "문형동",
+            "지번코드": "4161011700101330000",
+            "대지구분코드": "1",
+            "대지구분명": "대지",
+            "지번본번지": "133",
+            "지번부번지": "",
+            "지번주소": "경기도 광주시 문형동 133",
+            "도로명코드": "416104433234",
+            "도로명": "경기도 광주시 봉골길",
+            "건물본번지": "81",
+            "건물부번지": "",
+            "건물관리번호": "4161025024101330000245521",
+            "건물명": "",
+            "도로명주소": "경기도 광주시 봉골길 81",
+            "구우편번호": "464891",
+            "신우편번호": "12774",
+            "동정보": "",
+            "층정보": "",
+            "호정보": "",
+            "경도": "127.20565570835",
+            "위도": "37.3521613891045"
+          }
+        ],
+        "method": "same brand/address, identical building/floor/unit/wing/coordinates, aliases preserved",
+        "provisional": false,
+        "missingUnitCaveat": null
+      },
+      "requiredPublicNotices": [
+        "브랜드 공통 메뉴 · 지점 판매 여부 미확인",
+        "공공 상가정보 기준 위치이며 현재 영업 여부는 확인되지 않았습니다.",
+        "매운 정도·고객 평가·가격은 확인되지 않았습니다."
+      ],
+      "independentReview": {
+        "packetFile": "outputs/hot-reviewed-backlog-priority-20261013/gwangju-records.json",
+        "packetSha256": "8115284be48c949ae270796701e43e966fb327b92a99a474c1f8c2019ec56ca4",
+        "originalRecordSha256": "5fd5f48088fa2155d11172772e140dd211e38b240cea88ee143f3af99aa4541d",
+        "manifestFile": "outputs/hot-reviewed-backlog-priority-20261013/whole-city496-manifest.json",
+        "manifestSha256": "e1e952f412ae83f3034dd0b9cd7367a2ba4edd026d5afae2e70ae7c795276af5",
+        "brandEvidenceReuse": {
+          "method": "reuse_frozen_bounded_brand_common_fact_once_per_brand",
+          "newPerBranchMenuWebRetrieval": false,
+          "branchAffiliationConfirmed": false,
+          "sourceTemplateBatch": "seoul-gangnam-20261013-reviewed25"
+        },
+        "currentBranchOperationVerified": false,
+        "currentBranchMenuSaleVerified": false,
+        "updatedPublicationReview": {
+          "decisionFile": "outputs/hot-regional496-release-20261013/review/independent-candidates-publication-decision.json",
+          "decisionSha256": "85c2c3014e16607939a5ba50954f6a67c0a78a91f7d5283afca7474594be1708",
+          "assessment": "bounded_anonymous_single_brand_fact_with_documented_limits_not_blanket_license"
+        }
+      }
+    }
+  },
+  {
+    "id": "401437d3-459e-53d5-a199-20d20ec209b8",
+    "slug": "hot-gwangju-ma010120220812923388",
+    "name": "두마리찜닭두찜광주 경안점",
+    "address": "경기도 광주시 중앙로 148",
+    "lat": 37.41272630327,
+    "lon": 127.257217081465,
+    "source_ref": "data-go-kr-15083033-MA010120220812923388",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+      "sourceRecordId": "MA010120220812923388",
+      "nativeBusinessName": "두마리찜닭두찜광주",
+      "nativeBranchName": "경안점",
+      "displayNameBasis": "Exact licensed SBIZ native business and branch strings joined with one space; no inferred shortening or current franchise affiliation",
+      "district": "광주시",
+      "districtCode": "41610",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+          "nativeRecordId": "MA010120220812923388"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+          "nativeRecordId": "MA010120220812923388"
+        }
+      },
+      "identityLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA010120220812923388",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 36124,
+        "rowNumberDefinition": "1-based data row excluding CSV header",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+        "sha256": "6f7b3c855ee8f51060e7b5100b1f23e5f1a854b6115665fe6bc3d397b1e68645",
+        "rawFile": "/workspace/scratch/1b6177ac5314/outputs/gyeonggi-spicy-batch-20261013/raw/sbiz-gyeonggi-202606.csv",
+        "rawRecord": {
+          "상가업소번호": "MA010120220812923388",
+          "상호명": "두마리찜닭두찜광주",
+          "지점명": "경안점",
+          "상권업종대분류코드": "I2",
+          "상권업종대분류명": "음식",
+          "상권업종중분류코드": "I201",
+          "상권업종중분류명": "한식",
+          "상권업종소분류코드": "I20110",
+          "상권업종소분류명": "닭/오리고기 구이/찜",
+          "표준산업분류코드": "I56111",
+          "표준산업분류명": "한식 일반 음식점업",
+          "시도코드": "41",
+          "시도명": "경기도",
+          "시군구코드": "41610",
+          "시군구명": "광주시",
+          "행정동코드": "41610510",
+          "행정동명": "경안동",
+          "법정동코드": "4161010100",
+          "법정동명": "경안동",
+          "지번코드": "4161010100100740020",
+          "대지구분코드": "1",
+          "대지구분명": "대지",
+          "지번본번지": "74",
+          "지번부번지": "20",
+          "지번주소": "경기도 광주시 경안동 74-20",
+          "도로명코드": "416103211038",
+          "도로명": "경기도 광주시 중앙로",
+          "건물본번지": "148",
+          "건물부번지": "",
+          "건물관리번호": "4161010100100740020001727",
+          "건물명": "",
+          "도로명주소": "경기도 광주시 중앙로 148",
+          "구우편번호": "464801",
+          "신우편번호": "12756",
+          "동정보": "",
+          "층정보": "1",
+          "호정보": "",
+          "경도": "127.257217081465",
+          "위도": "37.41272630327"
+        },
+        "licenseName": "이용허락범위 제한 없음",
+        "licenseEvidenceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+        "licenseCheckedAt": "2026-10-13T06:50:32.272820+00:00"
+      },
+      "coordinateLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA010120220812923388",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 36124,
+        "sha256": "6f7b3c855ee8f51060e7b5100b1f23e5f1a854b6115665fe6bc3d397b1e68645",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+        "rawLongitude": "127.257217081465",
+        "rawLatitude": "37.41272630327",
+        "coordinateSystem": {
+          "name": "WGS84",
+          "epsg": 4326,
+          "axisOrderInSource": [
+            "경도",
+            "위도"
+          ],
+          "units": "decimal_degrees",
+          "transformation": "none; source numeric strings preserved alongside parsed numbers",
+          "evidenceType": "same-provider same-dataset API coordinate specification; the CSV itself does not encode an EPSG label",
+          "guideUrl": "https://www.data.go.kr/data/15012005/openapi.do",
+          "guideDownloadUrl": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000003706124&fileDetailSn=3",
+          "guideSha256": "4ed2112e2a90e49e88243fa7963ae7d19628aed247b6492bcbae6a947534970e",
+          "guideVersion": "260805",
+          "guideExtract": "raw/sbiz-api-guide-extracted.txt",
+          "evidence": "상가업소 lon/lat response fields are described as WGS84 coordinates in the provider guide. The longitude description repeats 위도, a provider wording typo; the lon/lat field labels and sample values distinguish axes."
+        },
+        "accuracy": "building_level; no survey/entrance accuracy claimed",
+        "matchMethod": "Exact licensed SBIZ row, district text/code and broad Gyeonggi coordinate plausibility checked; no point-in-polygon or current-operation assertion.",
+        "matchedName": "두마리찜닭두찜광주",
+        "matchedBranchName": "경안점",
+        "matchedAddress": "경기도 광주시 중앙로 148",
+        "buildingManagementNumber": "4161010100100740020001727",
+        "licenseName": "이용허락범위 제한 없음",
+        "rights": {
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false
+        }
+      },
+      "fieldRights": {
+        "nameAddress": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "coordinates": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "evidence/twozzim-menu-evidence.json#twozzim",
+          "residualUncertainty": [
+            "No website open licence or general legal guarantee is claimed.",
+            "Separate site-use terms were not located; privacy text refers to terms whose contents remain unresolved.",
+            "Branch availability and current operation remain unverified."
+          ],
+          "legalReviewFile": "evidence/twozzim-menu-evidence.json",
+          "reviewedAt": "2026-10-13T04:48:08.910056+00:00"
+        },
+        "prosePhotosLogosMenusBulk": {
+          "cleared": false,
+          "include": false
+        }
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only",
+        "reviewedAt": "2026-10-13T07:47:46.672646+00:00"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA010120220812923388:menu:1",
+          "name": "빨간찜닭",
+          "provenance": {
+            "kind": "official-brand-menu",
+            "sourceScope": "brand_common",
+            "branchMenuApplicability": null,
+            "brandName": "두찜",
+            "sourceUrl": "https://twozzim.com/bbs/content.php?co_id=menu",
+            "sourceRecordIds": {},
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-13T04:48:08.910056+00:00",
+            "licenseName": null,
+            "explicitOpenLicense": false,
+            "reuseBasis": "limited-individual-fact-review",
+            "originalName": "빨간찜닭",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      },
+      "aliasBindings": [],
+      "deduplication": {
+        "key": "두찜|경기도 광주시 중앙로 148",
+        "sourceIds": [
+          "MA010120220812923388"
+        ],
+        "sourceRows": [
+          36124
+        ],
+        "allSourceRecords": [
+          {
+            "상가업소번호": "MA010120220812923388",
+            "상호명": "두마리찜닭두찜광주",
+            "지점명": "경안점",
+            "상권업종대분류코드": "I2",
+            "상권업종대분류명": "음식",
+            "상권업종중분류코드": "I201",
+            "상권업종중분류명": "한식",
+            "상권업종소분류코드": "I20110",
+            "상권업종소분류명": "닭/오리고기 구이/찜",
+            "표준산업분류코드": "I56111",
+            "표준산업분류명": "한식 일반 음식점업",
+            "시도코드": "41",
+            "시도명": "경기도",
+            "시군구코드": "41610",
+            "시군구명": "광주시",
+            "행정동코드": "41610510",
+            "행정동명": "경안동",
+            "법정동코드": "4161010100",
+            "법정동명": "경안동",
+            "지번코드": "4161010100100740020",
+            "대지구분코드": "1",
+            "대지구분명": "대지",
+            "지번본번지": "74",
+            "지번부번지": "20",
+            "지번주소": "경기도 광주시 경안동 74-20",
+            "도로명코드": "416103211038",
+            "도로명": "경기도 광주시 중앙로",
+            "건물본번지": "148",
+            "건물부번지": "",
+            "건물관리번호": "4161010100100740020001727",
+            "건물명": "",
+            "도로명주소": "경기도 광주시 중앙로 148",
+            "구우편번호": "464801",
+            "신우편번호": "12756",
+            "동정보": "",
+            "층정보": "1",
+            "호정보": "",
+            "경도": "127.257217081465",
+            "위도": "37.41272630327"
+          }
+        ],
+        "method": "same brand/address, identical building/floor/unit/wing/coordinates, aliases preserved",
+        "provisional": false,
+        "missingUnitCaveat": null
+      },
+      "requiredPublicNotices": [
+        "브랜드 공통 메뉴 · 지점 판매 여부 미확인",
+        "공공 상가정보 기준 위치이며 현재 영업 여부는 확인되지 않았습니다.",
+        "매운 정도·고객 평가·가격은 확인되지 않았습니다."
+      ],
+      "independentReview": {
+        "packetFile": "outputs/hot-reviewed-backlog-priority-20261013/gwangju-records.json",
+        "packetSha256": "8115284be48c949ae270796701e43e966fb327b92a99a474c1f8c2019ec56ca4",
+        "originalRecordSha256": "2af979f08d1ca29548a926cdf2690b959d11dcfc9594aefdf61c0d40a97e60be",
+        "manifestFile": "outputs/hot-reviewed-backlog-priority-20261013/whole-city496-manifest.json",
+        "manifestSha256": "e1e952f412ae83f3034dd0b9cd7367a2ba4edd026d5afae2e70ae7c795276af5",
+        "brandEvidenceReuse": {
+          "method": "reuse_frozen_bounded_brand_common_fact_once_per_brand",
+          "newPerBranchMenuWebRetrieval": false,
+          "branchAffiliationConfirmed": false,
+          "sourceTemplateBatch": "seoul-gangnam-20261013-reviewed25"
+        },
+        "currentBranchOperationVerified": false,
+        "currentBranchMenuSaleVerified": false,
+        "updatedPublicationReview": {
+          "decisionFile": "outputs/hot-regional496-release-20261013/review/independent-candidates-publication-decision.json",
+          "decisionSha256": "85c2c3014e16607939a5ba50954f6a67c0a78a91f7d5283afca7474594be1708",
+          "assessment": "bounded_anonymous_single_brand_fact_with_documented_limits_not_blanket_license"
+        }
+      }
+    }
+  },
+  {
+    "id": "98955600-9f7f-5c5c-b299-b93b56aa9410",
+    "slug": "hot-gwangju-ma0101202311a0067507",
+    "name": "두찜광주 초월점",
+    "address": "경기도 광주시 초월읍 경충대로1127번길 55",
+    "lat": 37.3768240696725,
+    "lon": 127.290751132678,
+    "source_ref": "data-go-kr-15083033-MA0101202311A0067507",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+      "sourceRecordId": "MA0101202311A0067507",
+      "nativeBusinessName": "두찜광주",
+      "nativeBranchName": "초월점",
+      "displayNameBasis": "Exact licensed SBIZ native business and branch strings joined with one space; no inferred shortening or current franchise affiliation",
+      "district": "광주시",
+      "districtCode": "41610",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+          "nativeRecordId": "MA0101202311A0067507"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+          "nativeRecordId": "MA0101202311A0067507"
+        }
+      },
+      "identityLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA0101202311A0067507",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 460131,
+        "rowNumberDefinition": "1-based data row excluding CSV header",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+        "sha256": "6f7b3c855ee8f51060e7b5100b1f23e5f1a854b6115665fe6bc3d397b1e68645",
+        "rawFile": "/workspace/scratch/1b6177ac5314/outputs/gyeonggi-spicy-batch-20261013/raw/sbiz-gyeonggi-202606.csv",
+        "rawRecord": {
+          "상가업소번호": "MA0101202311A0067507",
+          "상호명": "두찜광주",
+          "지점명": "초월점",
+          "상권업종대분류코드": "I2",
+          "상권업종대분류명": "음식",
+          "상권업종중분류코드": "I201",
+          "상권업종중분류명": "한식",
+          "상권업종소분류코드": "I20101",
+          "상권업종소분류명": "백반/한정식",
+          "표준산업분류코드": "I56111",
+          "표준산업분류명": "한식 일반 음식점업",
+          "시도코드": "41",
+          "시도명": "경기도",
+          "시군구코드": "41610",
+          "시군구명": "광주시",
+          "행정동코드": "41610253",
+          "행정동명": "초월읍",
+          "법정동코드": "4161025322",
+          "법정동명": "초월읍",
+          "지번코드": "4161025322103930000",
+          "대지구분코드": "1",
+          "대지구분명": "대지",
+          "지번본번지": "393",
+          "지번부번지": "",
+          "지번주소": "경기도 광주시 초월읍 쌍동리 393",
+          "도로명코드": "416104433031",
+          "도로명": "경기도 광주시 초월읍 경충대로1127번길",
+          "건물본번지": "55",
+          "건물부번지": "",
+          "건물관리번호": "4161025322103930000249078",
+          "건물명": "초월E편한세상1차",
+          "도로명주소": "경기도 광주시 초월읍 경충대로1127번길 55",
+          "구우편번호": "464789",
+          "신우편번호": "12736",
+          "동정보": "",
+          "층정보": "1",
+          "호정보": "",
+          "경도": "127.290751132678",
+          "위도": "37.3768240696725"
+        },
+        "licenseName": "이용허락범위 제한 없음",
+        "licenseEvidenceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+        "licenseCheckedAt": "2026-10-13T06:50:32.272820+00:00"
+      },
+      "coordinateLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA0101202311A0067507",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 460131,
+        "sha256": "6f7b3c855ee8f51060e7b5100b1f23e5f1a854b6115665fe6bc3d397b1e68645",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+        "rawLongitude": "127.290751132678",
+        "rawLatitude": "37.3768240696725",
+        "coordinateSystem": {
+          "name": "WGS84",
+          "epsg": 4326,
+          "axisOrderInSource": [
+            "경도",
+            "위도"
+          ],
+          "units": "decimal_degrees",
+          "transformation": "none; source numeric strings preserved alongside parsed numbers",
+          "evidenceType": "same-provider same-dataset API coordinate specification; the CSV itself does not encode an EPSG label",
+          "guideUrl": "https://www.data.go.kr/data/15012005/openapi.do",
+          "guideDownloadUrl": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000003706124&fileDetailSn=3",
+          "guideSha256": "4ed2112e2a90e49e88243fa7963ae7d19628aed247b6492bcbae6a947534970e",
+          "guideVersion": "260805",
+          "guideExtract": "raw/sbiz-api-guide-extracted.txt",
+          "evidence": "상가업소 lon/lat response fields are described as WGS84 coordinates in the provider guide. The longitude description repeats 위도, a provider wording typo; the lon/lat field labels and sample values distinguish axes."
+        },
+        "accuracy": "building_level; no survey/entrance accuracy claimed",
+        "matchMethod": "Exact licensed SBIZ row, district text/code and broad Gyeonggi coordinate plausibility checked; no point-in-polygon or current-operation assertion.",
+        "matchedName": "두찜광주",
+        "matchedBranchName": "초월점",
+        "matchedAddress": "경기도 광주시 초월읍 경충대로1127번길 55",
+        "buildingManagementNumber": "4161025322103930000249078",
+        "licenseName": "이용허락범위 제한 없음",
+        "rights": {
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false
+        }
+      },
+      "fieldRights": {
+        "nameAddress": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "coordinates": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "evidence/twozzim-menu-evidence.json#twozzim",
+          "residualUncertainty": [
+            "No website open licence or general legal guarantee is claimed.",
+            "Separate site-use terms were not located; privacy text refers to terms whose contents remain unresolved.",
+            "Branch availability and current operation remain unverified."
+          ],
+          "legalReviewFile": "evidence/twozzim-menu-evidence.json",
+          "reviewedAt": "2026-10-13T04:48:08.910056+00:00"
+        },
+        "prosePhotosLogosMenusBulk": {
+          "cleared": false,
+          "include": false
+        }
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only",
+        "reviewedAt": "2026-10-13T07:47:46.672646+00:00"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA0101202311A0067507:menu:1",
+          "name": "빨간찜닭",
+          "provenance": {
+            "kind": "official-brand-menu",
+            "sourceScope": "brand_common",
+            "branchMenuApplicability": null,
+            "brandName": "두찜",
+            "sourceUrl": "https://twozzim.com/bbs/content.php?co_id=menu",
+            "sourceRecordIds": {},
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-13T04:48:08.910056+00:00",
+            "licenseName": null,
+            "explicitOpenLicense": false,
+            "reuseBasis": "limited-individual-fact-review",
+            "originalName": "빨간찜닭",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      },
+      "aliasBindings": [],
+      "deduplication": {
+        "key": "두찜|경기도 광주시 초월읍 경충대로1127번길 55",
+        "sourceIds": [
+          "MA0101202311A0067507"
+        ],
+        "sourceRows": [
+          460131
+        ],
+        "allSourceRecords": [
+          {
+            "상가업소번호": "MA0101202311A0067507",
+            "상호명": "두찜광주",
+            "지점명": "초월점",
+            "상권업종대분류코드": "I2",
+            "상권업종대분류명": "음식",
+            "상권업종중분류코드": "I201",
+            "상권업종중분류명": "한식",
+            "상권업종소분류코드": "I20101",
+            "상권업종소분류명": "백반/한정식",
+            "표준산업분류코드": "I56111",
+            "표준산업분류명": "한식 일반 음식점업",
+            "시도코드": "41",
+            "시도명": "경기도",
+            "시군구코드": "41610",
+            "시군구명": "광주시",
+            "행정동코드": "41610253",
+            "행정동명": "초월읍",
+            "법정동코드": "4161025322",
+            "법정동명": "초월읍",
+            "지번코드": "4161025322103930000",
+            "대지구분코드": "1",
+            "대지구분명": "대지",
+            "지번본번지": "393",
+            "지번부번지": "",
+            "지번주소": "경기도 광주시 초월읍 쌍동리 393",
+            "도로명코드": "416104433031",
+            "도로명": "경기도 광주시 초월읍 경충대로1127번길",
+            "건물본번지": "55",
+            "건물부번지": "",
+            "건물관리번호": "4161025322103930000249078",
+            "건물명": "초월E편한세상1차",
+            "도로명주소": "경기도 광주시 초월읍 경충대로1127번길 55",
+            "구우편번호": "464789",
+            "신우편번호": "12736",
+            "동정보": "",
+            "층정보": "1",
+            "호정보": "",
+            "경도": "127.290751132678",
+            "위도": "37.3768240696725"
+          }
+        ],
+        "method": "same brand/address, identical building/floor/unit/wing/coordinates, aliases preserved",
+        "provisional": false,
+        "missingUnitCaveat": null
+      },
+      "requiredPublicNotices": [
+        "브랜드 공통 메뉴 · 지점 판매 여부 미확인",
+        "공공 상가정보 기준 위치이며 현재 영업 여부는 확인되지 않았습니다.",
+        "매운 정도·고객 평가·가격은 확인되지 않았습니다."
+      ],
+      "independentReview": {
+        "packetFile": "outputs/hot-reviewed-backlog-priority-20261013/gwangju-records.json",
+        "packetSha256": "8115284be48c949ae270796701e43e966fb327b92a99a474c1f8c2019ec56ca4",
+        "originalRecordSha256": "092942ce3132ec8e0f40355a2697661c9fc85324e0865ffdb4b644e95265ea34",
+        "manifestFile": "outputs/hot-reviewed-backlog-priority-20261013/whole-city496-manifest.json",
+        "manifestSha256": "e1e952f412ae83f3034dd0b9cd7367a2ba4edd026d5afae2e70ae7c795276af5",
+        "brandEvidenceReuse": {
+          "method": "reuse_frozen_bounded_brand_common_fact_once_per_brand",
+          "newPerBranchMenuWebRetrieval": false,
+          "branchAffiliationConfirmed": false,
+          "sourceTemplateBatch": "seoul-gangnam-20261013-reviewed25"
+        },
+        "currentBranchOperationVerified": false,
+        "currentBranchMenuSaleVerified": false,
+        "updatedPublicationReview": {
+          "decisionFile": "outputs/hot-regional496-release-20261013/review/independent-candidates-publication-decision.json",
+          "decisionSha256": "85c2c3014e16607939a5ba50954f6a67c0a78a91f7d5283afca7474594be1708",
+          "assessment": "bounded_anonymous_single_brand_fact_with_documented_limits_not_blanket_license"
+        }
+      }
+    }
+  }
+]

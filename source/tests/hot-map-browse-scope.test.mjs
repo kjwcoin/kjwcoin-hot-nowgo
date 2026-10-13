@@ -18,8 +18,8 @@ const reports=[hdd,{...hdd,id:'hdd-report-b',placeId:'reported-hdd-b'}];
 const draw=(menus,stores,bounds=country,level=12)=>clusterStorePoints(positionedStoreGroups(mapStoreGroups(menus,stores,stores)),{bounds,level,project:p=>({x:(p.lng-124)*50,y:(p.lat-33)*50})});
 const filters={query:'',heat:0,flavor:'전체',category:'전체',budget:0};
 
-test('location does not limit HOT discovery for current seven or candidate 591 sources; SWEET/RICH keep 15 km',()=>{
- assert.equal(seven.length,7);assert.equal(sources.length,591);
+test('location does not limit HOT discovery for current seven or candidate 948 sources; SWEET/RICH keep 15 km',()=>{
+ assert.equal(seven.length,7);assert.equal(sources.length,948);
  for(const stores of [seven,sources])for(const variant of ['hot','sweet','rich']){
   const origin=mapBrowseOrigin(variant,cheongna),params=new URLSearchParams({q:'청라',heat:'3',page:'2'});
   appendMapBrowseLocation(params,variant,cheongna);
@@ -34,7 +34,7 @@ test('location does not limit HOT discovery for current seven or candidate 591 s
  }
 });
 
-for(const [name,stores] of [['current seven',seven],['candidate 591',sources]])test(`actual main HOT component: ${name} and HDD remain available after location and query reset`,()=>{
+for(const [name,stores] of [['current seven',seven],['candidate 948',sources]])test(`actual main HOT component: ${name} and HDD remain available after location and query reset`,()=>{
  const h=hookHarness(),ui=sourceUi({react:h.react,stores,menus:reports});
  const render=()=>elements(h.render(()=>ui.Explorer({variant:'hot'})));
  let nodes=render();nodes.find(n=>n.type===ui.Map).props.onLocation(cheongna);nodes=render();
@@ -52,7 +52,7 @@ for(const [name,stores] of [['current seven',seven],['candidate 591',sources]])t
  }
 });
 
-for(const [name,stores] of [['current seven',seven],['candidate 591',sources]])test(`actual embedded HOT component: ${name}, location-present menu request and pins have no hidden radius`,async()=>{
+for(const [name,stores] of [['current seven',seven],['candidate 948',sources]])test(`actual embedded HOT component: ${name}, location-present menu request and pins have no hidden radius`,async()=>{
  const h=hookHarness(),calls=[],timers=[];
  const globals={AbortController,setTimeout:fn=>{timers.push(fn);return timers.length},clearTimeout(){},setInterval(){return 1},clearInterval(){},window:{parent:{},addEventListener(){},removeEventListener(){}},document:{visibilityState:'visible',addEventListener(){},removeEventListener(){}}};
  const ui=sourceUi({react:h.react,stores,globals,client:{track(){},api:async url=>{calls.push(url);return {menus:reports,hasMore:true}}}});
@@ -68,7 +68,7 @@ test('rendered count matches identical pin/cluster population, bounding, canonic
  for(const stores of [seven,sources])for(const level of [4,12]){
   const displays=draw(reports,stores,country,level);assert.equal(loadedMapStoreCount(displays,country),stores.length+1);
   assert.equal(displays.reduce((n,d)=>n+(d.kind==='cluster'?d.count:1),0),stores.length+1);
-  assert.equal(loadedMapStoreCount(draw(reports,stores,busan,level),busan),stores===seven?5:6);
+  assert.equal(loadedMapStoreCount(draw(reports,stores,busan,level),busan),stores===seven?5:116);
  }
  const anchor=seven[0],alias={...hdd,id:'source-alias',placeId:'nowgo-'+anchor.id,shop:'alternate',area:'alternate',lat:anchor.coordinates.lat,lng:anchor.coordinates.lon};
  assert.equal(loadedMapStoreCount(draw([...reports,alias],seven),country),8);

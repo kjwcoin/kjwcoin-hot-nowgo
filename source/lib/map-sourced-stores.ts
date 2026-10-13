@@ -1,12 +1,14 @@
+import {sourcedStoreSearchAliases} from './source-search-aliases.ts';
 import {menuStoreGroups,type MenuStoreGroup} from './menu-store-groups.ts';
 import {distanceKm,MAP_RADIUS_KM,type GeoPoint} from './nearby-demo.ts';
 import type {Menu} from './menus';
 import type {PublicSourcedStore} from './sourced-store';
+const searchText=(value:string)=>value.normalize('NFKC').replace(/[^\p{L}\p{N}]/gu,'').toLocaleLowerCase('ko-KR');
 export type SourceFilters={query:string;heat:number;flavor:string;category:string;budget?:number};
 export function sourcedStoreMatches(store:PublicSourcedStore,filters:SourceFilters):boolean{
  if(filters.heat||filters.budget||(filters.flavor&&filters.flavor!=='전체')||(filters.category&&filters.category!=='전체'))return false;
- const query=filters.query.replace(/[^\p{L}\p{N}\s]/gu,'').trim().slice(0,60).toLocaleLowerCase('ko-KR');
- return !query||[store.name,store.address,...store.menus.map(menu=>menu.name)].some(text=>text.toLocaleLowerCase('ko-KR').includes(query));
+ const query=searchText(filters.query.replace(/[^\p{L}\p{N}\s]/gu,'').trim().slice(0,60));
+ return !query||[store.name,store.address,...store.menus.map(menu=>menu.name),...sourcedStoreSearchAliases(store)].some(text=>searchText(text).includes(query));
 }
 export function sourcedStoresNearby(stores:readonly PublicSourcedStore[],origin:GeoPoint|null):PublicSourcedStore[]{
  // No guessed coordinates. Address-only stores remain available in the unlocated list.

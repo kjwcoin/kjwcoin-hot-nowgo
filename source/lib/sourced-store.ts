@@ -9,17 +9,26 @@ export type SourceFieldProvenance = {
   identity?:SourceFieldAttribution & {nativeRecordId:string};
   coordinates:SourceFieldAttribution & {nativeRecordId:string};
 };
-/** A bounded individual fact assessment is not an open licence for a tourism website. */
-export type MenuFactProvenance = {
-  kind:'official-tourism-place-menu'|'official-brand-menu';sourceUrl:string;sourceRecordIds:Record<string,string>;
-  sourceScope?:'brand_common'|'specific_restaurant_official_tourism_record';
+/** The discriminated licence branch describes only exact registry-approved facts. */
+type MenuFactProvenanceCommon = {
+  sourceUrl:string;sourceRecordIds:Record<string,string>;
   branchMenuApplicability?:null|'source_record_specific_restaurant_not_current_sale';brandName?:string;
-  /** Optional exact-reviewed brand caveat, bound to this menu by the release registry. */
+  /** Optional exact-reviewed caveat, bound to this menu by the release registry. */
   preparationNotice?:string;
-  sourceAsOf:string|null;checkedAt:string;licenseName:null;explicitOpenLicense:false;
-  reuseBasis:'limited-individual-fact-review';originalName:string;
+  sourceAsOf:string|null;checkedAt:string;originalName:string;
   nameRepresentation:'original'|'ja-transliteration';currentAvailability:null;priceAsOf:null;
 };
+/** A bounded individual fact assessment is not an open licence for a tourism website. */
+export type MenuFactProvenance = MenuFactProvenanceCommon & ({
+  kind:'official-tourism-place-menu'|'official-brand-menu';
+  sourceScope?:'brand_common'|'specific_restaurant_official_tourism_record';
+  licenseName:null;explicitOpenLicense:false;reuseBasis:'limited-individual-fact-review';
+} | {
+  kind:'licensed-public-dataset-menu';
+  sourceScope:'specific_restaurant_licensed_public_dataset_record';
+  licenseName:'공공누리 제1유형 (출처표시)';explicitOpenLicense:true;
+  reuseBasis:'kogl-type-1-licensed-dataset-fact';attribution:string;
+});
 export type SourcedMenu = { id: string; name: string; price: null; heat: null; image: null; sourceTaste?:SourceTaste|null;provenance?:MenuFactProvenance };
 export type PublicSourcedStore = {
   id: string; slug: string; sourceRef: string; name: string; address: string;
@@ -49,7 +58,7 @@ const REGISTRATION_URL='https://www.data.go.kr/data/15047498/fileData.do';
 const COORDINATE_URL='https://www.data.go.kr/data/15083033/fileData.do';
 // Only the reviewed release's compact public facts enter the client bundle. Raw CSV
 // locators and legal review records stay in the server-only listing manifest.
-type ReviewedSource={id:string;slug:string;name:string;address:string;lat:number;lon:number;fieldProvenance:SourceFieldProvenance;menuKey:string};
+type ReviewedSource={id:string;slug:string;name:string;address:string;lat:number;lon:number;fieldProvenance:SourceFieldProvenance;menuKey:string|null};
 type ReviewedMenu={name:string;provenance:MenuFactProvenance};
 const RELEASE_RECORDS=reviewedRegistry.records as unknown as Record<string,ReviewedSource>;
 const RELEASE_MENUS=reviewedRegistry.menus as unknown as Record<string,ReviewedMenu>;
@@ -59,7 +68,7 @@ function sameReviewedFact(actual:unknown,expected:unknown):boolean{
  return Boolean(a&&b&&Object.keys(a).length===Object.keys(b).length&&Object.keys(b).every(key=>Object.hasOwn(a,key)&&sameReviewedFact(a[key],b[key])));
 }
 function releaseMenu(sourceRef:string):ReviewedMenu|undefined{
- const expected=RELEASE_RECORDS[sourceRef];return expected?RELEASE_MENUS[expected.menuKey]:undefined;
+ const expected=RELEASE_RECORDS[sourceRef];return expected?.menuKey?RELEASE_MENUS[expected.menuKey]:undefined;
 }
 export const BRAND_COMMON_MENU_NOTICE='브랜드 공통 메뉴 · 지점 판매 여부 미확인';
 export function isBrandCommonMenu(menu:Pick<SourcedMenu,'provenance'>):boolean{return menu.provenance?.sourceScope==='brand_common';}
@@ -122,8 +131,8 @@ export function publicSourcedStore(row: SourcedStoreRow): PublicSourcedStore | n
     !Array.isArray(meta.menus)) return null;
   const fieldProvenance=parseFieldProvenance(meta.fieldProvenance,row.source_ref,meta.sourceUrl,meta.sourceAsOf,meta.checkedAt);
   const isMixedRights=/^data-go-kr-15083033-MA/.test(row.source_ref);
-  if(fieldProvenance===undefined||isMixedRights!==Boolean(fieldProvenance)||isMixedRights&&(!(REVIEWED_MENU_FACTS[row.source_ref]||RELEASE_RECORDS[row.source_ref])||rights.scope!=='identity-location-only'||meta.licenseName!=='이용허락범위 제한 없음'||meta.menus.length!==1))return null;
   const approved=RELEASE_RECORDS[row.source_ref];
+  if(fieldProvenance===undefined||isMixedRights!==Boolean(fieldProvenance)||isMixedRights&&(!(REVIEWED_MENU_FACTS[row.source_ref]||approved)||rights.scope!=='identity-location-only'||meta.licenseName!=='이용허락범위 제한 없음'||meta.menus.length!==1))return null;
   if(approved&&(['id','slug','name','address','lat','lon'] as const).some(key=>row[key]!==approved[key]))return null;
   if(approved&&record(meta.reporting)?.state!=='pending')return null;
   const menus: SourcedMenu[] = [], ids = new Set<string>();

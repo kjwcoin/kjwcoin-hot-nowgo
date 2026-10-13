@@ -3,17 +3,17 @@ import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
 import React from 'react';
 import {renderToStaticMarkup} from 'react-dom/server';
-import records,{reviewed588Records} from '../lib/readonly-source-records.ts';
+import {reviewed591Records as records,reviewed588Records} from '../lib/readonly-source-records.ts';
 import additions from '../data/hot-source-individual-menu-20261013.json' with {type:'json'};
 import * as contracts from '../lib/source-feed-contract.ts';
 import * as sourced from '../lib/sourced-store.ts';
 import {readonlySourceStoreFeed,isReadonlySourceStoreId,isReadonlySourceReportBinding} from '../lib/readonly-source-listings.ts';
 import {sourceUi,moduleAt} from './helpers/source-ui-components.mjs';
 const hash=x=>createHash('sha256').update(JSON.stringify(x)).digest('hex');
-const current=readonlySourceStoreFeed(),old=readonlySourceStoreFeed('hot-source-588-v1'),legacy=readonlySourceStoreFeed('hot-source-130-v1'),newStores=current.stores.slice(588);
-test('frozen130/588 bodies remain exact; new contract appends reviewed individuals',()=>{
- assert.equal(hash(legacy.stores),'46c15c3117147264d70a35a35ce8a1f0f9abe62510150f4fc402b78bdbd222ab');assert.equal(hash(old.stores),'de8ac7b8687275ba72ae90849190b5c5c43cefdd63e3faa793d8f5e3d855366d');assert.equal(hash(reviewed588Records),'2143b51c0161e86ec66e624441bd5af546addec4ae4c9010210d51843f2225a8');
- assert.deepEqual(current.stores.slice(0,588),old.stores);assert.equal(current.stores.length,591);assert.equal(additions.length,3);assert.equal(records.length,591);assert.equal(contracts.resolveSourceFeedContract('hot-source-588-v1'),'hot-source-588-v1');assert.equal(contracts.resolveSourceFeedContract(null),'hot-source-130-v1');assert.equal(contracts.CURRENT_SOURCE_FEED_CONTRACT,'hot-source-591-v1');for(const key of ['id','slug','sourceRef'])assert.equal(new Set(current.stores.map(s=>s[key])).size,591);
+const current=readonlySourceStoreFeed('hot-source-591-v2'),old=readonlySourceStoreFeed('hot-source-588-v1'),legacy=readonlySourceStoreFeed('hot-source-130-v1'),newStores=current.stores.slice(588);
+test('legacy remainders remain exact; current contract retains591 identities and reviewed individuals',()=>{
+ assert.equal(hash(legacy.stores),'4c7d561b7b03f24b87ed55266fc19839b0710dedb9d1e4c98cb5bad3c4f2b8e4');assert.equal(hash(old.stores),'09a1f160909a34e0fc12d55850a97d446be83407a61c3ed6f99351863a500cc2');assert.equal(hash(reviewed588Records),'87626794c8c7a426c67412b50e6fe58cef09f3c9f66cf7bbeca52e8d3c0aedd9');
+ assert.deepEqual(current.stores.slice(0,588).filter(s=>s.menus.length),old.stores);assert.equal(legacy.stores.length,99);assert.equal(old.stores.length,414);assert.equal(current.stores.length,591);assert.equal(additions.length,3);assert.equal(records.length,591);assert.equal(contracts.resolveSourceFeedContract('hot-source-588-v1'),'hot-source-588-v1');assert.equal(contracts.resolveSourceFeedContract(null),'hot-source-130-v1');assert.equal(contracts.MENU_WITHDRAWAL_SOURCE_FEED_CONTRACT,'hot-source-591-v2');for(const key of ['id','slug','sourceRef'])assert.equal(new Set(current.stores.map(s=>s[key])).size,591);
 });
 test('individual menus have bounded text facts with no numeric heat, price, photo, ownership or current sale',()=>{
  assert.deepEqual(newStores.map(s=>s.name),['깃대봉냉면','낙산냉면','매떡']);assert.deepEqual(newStores.map(s=>s.menus[0].name),['비빔냉면','냉면','매운 떡볶이']);

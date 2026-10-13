@@ -18,14 +18,14 @@ const records=allRecords.slice(0,105),originalRefs=new Set(records.map(row=>row.
 const reviewedRecords=Object.fromEntries(Object.entries(allRegistry.records).filter(([ref])=>originalRefs.has(ref)));
 const reviewedMenuKeys=new Set(Object.values(reviewedRecords).map(row=>row.menuKey));
 const registry={...allRegistry,records:reviewedRecords,menus:Object.fromEntries(Object.entries(allRegistry.menus).filter(([key])=>reviewedMenuKeys.has(key)))};
-const completeFeed=readonlySourceStoreFeed(),feed={...completeFeed,stores:completeFeed.stores.slice(0,105)},added=feed.stores.slice(7),brands=added.filter(store=>sourced.isBrandCommonMenu(store.menus[0])),individuals=added.filter(store=>!sourced.isBrandCommonMenu(store.menus[0]));
+const completeFeed=readonlySourceStoreFeed(),feed={...completeFeed,stores:completeFeed.stores.slice(0,105)},added=feed.stores.slice(7),brands=added.filter(store=>store.menus.length&&sourced.isBrandCommonMenu(store.menus[0])),individuals=added.filter(store=>store.menus.length&&!sourced.isBrandCommonMenu(store.menus[0])),suppressed=added.filter(store=>!store.menus.length);
 const clone=value=>JSON.parse(JSON.stringify(value));
 const sourceRow=row=>({...row,owner_id:null,archived_at:null,trust_disabled_at:null,owner_penalty_points:0,publication_state:'DISCOVERED'});
 const discovery=moduleAt('lib/store-discovery.ts',{'./sourced-store.ts':sourced,'./social-preview':{socialMetadata:()=>({openGraph:{},twitter:{}})}});
 const reject=(mutate,original=brands[0])=>{const store=clone(original);mutate(store);assert.throws(()=>sourced.parseSourcedStoreFeed({...feed,stores:[store]}),/invalid_source_store|conflicting_source_store/)};
 
 test('exactly 100 Incheon + 5 Busan source-only cards, with seven original public DTOs byte-equivalent',()=>{
- assert.equal(records.length,105);assert.equal(feed.stores.length,105);assert.equal(added.length,98);assert.equal(brands.length,93);assert.equal(individuals.length,5);
+ assert.equal(records.length,105);assert.equal(feed.stores.length,105);assert.equal(added.length,98);assert.equal(brands.length,71);assert.equal(individuals.length,5);assert.equal(suppressed.length,22);
  assert.equal(feed.stores.filter(store=>store.address.startsWith('인천광역시')).length,100);
  assert.equal(feed.stores.filter(store=>store.address.startsWith('부산광역시')).length,5);
  assert.equal(createHash('sha256').update(JSON.stringify(feed.stores.slice(0,7))).digest('hex'),'c4956cfb3655333780192be9fd5991511222bb704408f99804c2df1800c82af1');
@@ -33,7 +33,7 @@ test('exactly 100 Incheon + 5 Busan source-only cards, with seven original publi
  for(const field of ['id','slug','sourceRef'])assert.equal(new Set(feed.stores.map(store=>store[field])).size,105);
  assert.equal(records.filter(row=>row.source_metadata.deduplication?.allSourceRows?.length===1).length,22);
  for(const row of records.slice(7))assert.equal(row.source_metadata.deduplication?.unitFloorAssessment,undefined);
- assert.equal(Object.keys(registry.records).length,98);assert.equal(Object.keys(registry.menus).length,11);
+ assert.equal(Object.keys(registry.records).length,98);assert.equal(Object.keys(registry.menus).length,10);
 });
 
 test('exact uppercase alphanumeric native identities and canonical UUIDv5 survive without fabricated registrations',()=>{
@@ -48,6 +48,7 @@ test('exact uppercase alphanumeric native identities and canonical UUIDv5 surviv
   assert.equal(Number(meta.coordinateLocator.rawLatitude),store.coordinates.lat);assert.equal(Number(meta.coordinateLocator.rawLongitude),store.coordinates.lon);
   assert.equal(typeof meta.coordinateLocator.rawLatitude,'string');assert.equal(typeof meta.coordinateLocator.rawLongitude,'string');
   assert.equal(store.registrationState,'source-only');assert.equal(store.ownership,'unclaimed');assert.equal(store.ownerClaimVerified,false);assert.equal(store.operatingStatus,null);assert.equal(store.currentMenuAvailability,null);assert.equal(store.reportingState,'pending');
+  if(!store.menus.length){assert.deepEqual(meta.revokedMenuIds,[store.sourceRef+':menu:1']);continue;}
   const menu=store.menus[0];for(const key of ['price','heat','image','sourceTaste'])assert.equal(menu[key],null);assert.equal(menu.provenance.currentAvailability,null);assert.equal(menu.provenance.priceAsOf,null);assert.equal(menu.provenance.explicitOpenLicense,false);assert.equal(menu.provenance.licenseName,null);
   assert.equal(menu.id,store.sourceRef+':menu:1');
  }
@@ -61,10 +62,10 @@ test('two duplicate groups reserve their alias IDs and receipts but publish only
    assert.equal(alias.id,sourceUuid(alias.sourceRef));assert.equal(isReadonlySourceStoreId(alias.id),true);assert.equal(isReadonlySourceStoreId('{'+alias.id.toUpperCase()+'}'),true);
    for(const binding of [{nowgo_store_id:alias.id},{place_id:'NOWGO-'+alias.id.toUpperCase()},{menu_id:alias.menuId,nowgo_store_id:'unrelated'}])assert.equal(isReadonlySourceReportBinding(binding),true);
    assert.equal(feed.stores.some(store=>store.sourceRef===alias.sourceRef||store.id===alias.id),false);
-   const original=feed.stores.find(store=>store.id===row.id);reject(store=>{store.id=alias.id;store.sourceRef=alias.sourceRef;store.menus[0].id=alias.menuId;},original);
+   const original=feed.stores.find(store=>store.id===row.id);reject(store=>{store.id=alias.id;store.sourceRef=alias.sourceRef;if(store.menus.length)store.menus[0].id=alias.menuId;},original);
   }
  }
- for(const store of added){assert.equal(isReadonlySourceStoreId(store.id),true);assert.equal(isReadonlySourceReportBinding({menu_id:store.menus[0].id}),true);}
+ for(const store of added){assert.equal(isReadonlySourceStoreId(store.id),true);assert.equal(isReadonlySourceReportBinding({menu_id:store.sourceRef+':menu:1'}),true);}
  assert.equal(isReadonlySourceStoreId('22222222-2222-4222-8222-222222222222'),false);assert.equal(isReadonlySourceReportBinding({menu_id:'unrelated'}),false);
 });
 
@@ -92,8 +93,8 @@ test('SEO, public provenance and observations stay scoped without raw audits, li
  for(const store of added){
   const menu=store.menus[0],notice=discovery.sourceFactsNotice(store),metadata=discovery.sourcedStoreMetadata(store,'hot.nowgo.space');
   assert.equal(metadata.alternates.canonical,'https://hot.nowgo.space/p/'+store.slug);assert.equal(metadata.robots.index,true);assert.equal(discovery.sourcedStoreMetadata(store,'sweet.nowgo.space').robots.index,false);
-  assert.ok(notice.includes('상호·주소 자료 기준일 2026-06-30'));assert.ok(notice.includes('메뉴 출처 확인일 '+new Date(menu.provenance.checkedAt).toISOString().slice(0,10)+' (UTC)'));assert.ok(notice.includes('영업·메뉴 현황 확인일이 아닙니다'));
-  if(sourced.isBrandCommonMenu(menu)){assert.ok(metadata.description.includes(sourced.BRAND_COMMON_MENU_NOTICE));assert.ok(notice.includes(sourced.BRAND_COMMON_MENU_NOTICE));assert.equal(menu.provenance.branchMenuApplicability,null);}
+  assert.ok(notice.includes('상호·주소 자료 기준일 2026-06-30'));if(menu)assert.ok(notice.includes('메뉴 출처 확인일 '+new Date(menu.provenance.checkedAt).toISOString().slice(0,10)+' (UTC)'));else assert.doesNotMatch(notice,/브랜드 공통 메뉴|관광자료 기재 메뉴|메뉴 출처 확인일/);assert.ok(notice.includes(menu?'영업·메뉴 현황 확인일이 아닙니다':'영업 현황 확인일이 아닙니다'));
+  if(menu&&sourced.isBrandCommonMenu(menu)){assert.ok(metadata.description.includes(sourced.BRAND_COMMON_MENU_NOTICE));assert.ok(notice.includes(sourced.BRAND_COMMON_MENU_NOTICE));assert.equal(menu.provenance.branchMenuApplicability,null);}
   const schema=JSON.stringify(discovery.sourcedStoreJsonLd(store));assert.doesNotMatch(schema,/aggregateRating|reviewCount|ratingValue|openingHours|priceRange|offers|hasMenu|"image"|dateModified|datePublished/);
  }
  const privateKeys=/rawRecord|rawLatitude|rawLongitude|dataRowNumber|sha256|termsReview|residualUncertainty|publicDisplayAssessment|sourcePremises|duplicateSourceRows|factualUseReview/;
