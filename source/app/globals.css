@@ -422,3 +422,8 @@ body[data-theme="hot"] .map-anchor.map-anchor--reported .map-anchor-pin {
 .map-store-cluster--large{width:62px;height:62px;font-size:16px}
 .map-store-cluster:hover{background:#f0f1f3;box-shadow:0 0 0 2px #68737d,0 3px 9px #17213c29}
 .map-store-cluster:focus-visible{outline:3px solid #a52b21;outline-offset:4px}
+
+/* HOT clusters show store quantity, independently of heat and ownership. */
+body[data-theme="hot"] .map-store-cluster{background:var(--brand-ink);color:#fff}
+body[data-theme="hot"] .map-store-cluster:hover,
+body[data-theme="hot"] .map-store-cluster:focus-visible{background:var(--brand-deep);color:#fff}

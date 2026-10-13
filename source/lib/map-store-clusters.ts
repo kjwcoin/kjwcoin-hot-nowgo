@@ -70,7 +70,7 @@ export function clusterStorePoints(points:readonly StoreMapPoint[],options:{leve
 
 export function clusterZoomLevel(currentLevel:number):number{return Math.max(1,currentLevel-2)}
 
-/** Native button supports Enter/Space. Neutral gray conveys quantity, never heat/claim. */
+/** Native button supports Enter/Space. Brand styling conveys quantity, never heat/claim. */
 export function storeClusterButton(count:number,onZoom:(keyboard:boolean)=>void,dom:Pick<Document,'createElement'>=document):HTMLButtonElement{
  const button=dom.createElement('button');button.type='button';
  button.className='map-store-cluster'+(count>=1000?' map-store-cluster--large':'');
