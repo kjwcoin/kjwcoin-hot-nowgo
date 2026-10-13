@@ -1,0 +1,2341 @@
+[
+  {
+    "id": "207e8a82-a8a5-5b72-9d51-e0d66399a74c",
+    "slug": "hot-icheon-ma0101202507a0002025",
+    "name": "삼첩분식",
+    "address": "경기도 이천시 대월면 대산로208번길 93-12",
+    "lat": 37.2421142310398,
+    "lon": 127.482796289899,
+    "source_ref": "data-go-kr-15083033-MA0101202507A0002025",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+      "sourceRecordId": "MA0101202507A0002025",
+      "nativeBusinessName": "삼첩분식",
+      "nativeBranchName": null,
+      "displayNameBasis": "Exact licensed SBIZ native business and branch strings joined with one space; no inferred shortening or current franchise affiliation",
+      "district": "이천시",
+      "districtCode": "41500",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+          "nativeRecordId": "MA0101202507A0002025"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+          "nativeRecordId": "MA0101202507A0002025"
+        }
+      },
+      "identityLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA0101202507A0002025",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 598563,
+        "rowNumberDefinition": "1-based data row excluding CSV header",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+        "sha256": "6f7b3c855ee8f51060e7b5100b1f23e5f1a854b6115665fe6bc3d397b1e68645",
+        "rawFile": "/workspace/scratch/1b6177ac5314/outputs/gyeonggi-spicy-batch-20261013/raw/sbiz-gyeonggi-202606.csv",
+        "rawRecord": {
+          "상가업소번호": "MA0101202507A0002025",
+          "상호명": "삼첩분식",
+          "지점명": "",
+          "상권업종대분류코드": "I2",
+          "상권업종대분류명": "음식",
+          "상권업종중분류코드": "I210",
+          "상권업종중분류명": "기타 간이",
+          "상권업종소분류코드": "I21007",
+          "상권업종소분류명": "김밥/만두/분식",
+          "표준산업분류코드": "I56111",
+          "표준산업분류명": "한식 일반 음식점업",
+          "시도코드": "41",
+          "시도명": "경기도",
+          "시군구코드": "41500",
+          "시군구명": "이천시",
+          "행정동코드": "41500350",
+          "행정동명": "대월면",
+          "법정동코드": "4150035026",
+          "법정동명": "대월면",
+          "지번코드": "4150035026105290000",
+          "대지구분코드": "1",
+          "대지구분명": "대지",
+          "지번본번지": "529",
+          "지번부번지": "",
+          "지번주소": "경기도 이천시 대월면 사동리 529",
+          "도로명코드": "415004421169",
+          "도로명": "경기도 이천시 대월면 대산로208번길",
+          "건물본번지": "93",
+          "건물부번지": "12",
+          "건물관리번호": "4150035026104450000000003",
+          "건물명": "휴먼빌에듀파크시티",
+          "도로명주소": "경기도 이천시 대월면 대산로208번길 93-12",
+          "구우편번호": "467854",
+          "신우편번호": "17338",
+          "동정보": "",
+          "층정보": "1",
+          "호정보": "",
+          "경도": "127.482796289899",
+          "위도": "37.2421142310398"
+        },
+        "licenseName": "이용허락범위 제한 없음",
+        "licenseEvidenceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+        "licenseCheckedAt": "2026-10-13T06:50:32.272820+00:00"
+      },
+      "coordinateLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA0101202507A0002025",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 598563,
+        "sha256": "6f7b3c855ee8f51060e7b5100b1f23e5f1a854b6115665fe6bc3d397b1e68645",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+        "rawLongitude": "127.482796289899",
+        "rawLatitude": "37.2421142310398",
+        "coordinateSystem": {
+          "name": "WGS84",
+          "epsg": 4326,
+          "axisOrderInSource": [
+            "경도",
+            "위도"
+          ],
+          "units": "decimal_degrees",
+          "transformation": "none; source numeric strings preserved alongside parsed numbers",
+          "evidenceType": "same-provider same-dataset API coordinate specification; the CSV itself does not encode an EPSG label",
+          "guideUrl": "https://www.data.go.kr/data/15012005/openapi.do",
+          "guideDownloadUrl": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000003706124&fileDetailSn=3",
+          "guideSha256": "4ed2112e2a90e49e88243fa7963ae7d19628aed247b6492bcbae6a947534970e",
+          "guideVersion": "260805",
+          "guideExtract": "raw/sbiz-api-guide-extracted.txt",
+          "evidence": "상가업소 lon/lat response fields are described as WGS84 coordinates in the provider guide. The longitude description repeats 위도, a provider wording typo; the lon/lat field labels and sample values distinguish axes."
+        },
+        "accuracy": "building_level; no survey/entrance accuracy claimed",
+        "matchMethod": "Exact licensed SBIZ row, district text/code and broad Gyeonggi coordinate plausibility checked; no point-in-polygon or current-operation assertion.",
+        "matchedName": "삼첩분식",
+        "matchedBranchName": null,
+        "matchedAddress": "경기도 이천시 대월면 대산로208번길 93-12",
+        "buildingManagementNumber": "4150035026104450000000003",
+        "licenseName": "이용허락범위 제한 없음",
+        "rights": {
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false
+        }
+      },
+      "fieldRights": {
+        "nameAddress": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "coordinates": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "evidence/brand-menu-evidence.json#samcheop",
+          "residualUncertainty": [
+            "No website open licence or general legal guarantee is claimed.",
+            "Branch availability and current operation remain unverified."
+          ],
+          "legalReviewFile": "evidence/brand-menu-evidence.json",
+          "reviewedAt": "2026-10-13T02:42:18.238025+00:00"
+        },
+        "prosePhotosLogosMenusBulk": {
+          "cleared": false,
+          "include": false
+        }
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only",
+        "reviewedAt": "2026-10-13T07:47:46.672646+00:00"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA0101202507A0002025:menu:1",
+          "name": "매콤튀김어묵",
+          "provenance": {
+            "kind": "official-brand-menu",
+            "sourceScope": "brand_common",
+            "branchMenuApplicability": null,
+            "brandName": "삼첩분식",
+            "sourceUrl": "https://samcheop.com/bbs/content.php?co_id=menu&tab=2",
+            "sourceRecordIds": {},
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-12T23:51:41.729766+00:00",
+            "licenseName": null,
+            "explicitOpenLicense": false,
+            "reuseBasis": "limited-individual-fact-review",
+            "originalName": "매콤튀김어묵",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      },
+      "aliasBindings": [],
+      "deduplication": {
+        "key": "삼첩분식|경기도 이천시 대월면 대산로208번길 93-12",
+        "sourceIds": [
+          "MA0101202507A0002025"
+        ],
+        "sourceRows": [
+          598563
+        ],
+        "allSourceRecords": [
+          {
+            "상가업소번호": "MA0101202507A0002025",
+            "상호명": "삼첩분식",
+            "지점명": "",
+            "상권업종대분류코드": "I2",
+            "상권업종대분류명": "음식",
+            "상권업종중분류코드": "I210",
+            "상권업종중분류명": "기타 간이",
+            "상권업종소분류코드": "I21007",
+            "상권업종소분류명": "김밥/만두/분식",
+            "표준산업분류코드": "I56111",
+            "표준산업분류명": "한식 일반 음식점업",
+            "시도코드": "41",
+            "시도명": "경기도",
+            "시군구코드": "41500",
+            "시군구명": "이천시",
+            "행정동코드": "41500350",
+            "행정동명": "대월면",
+            "법정동코드": "4150035026",
+            "법정동명": "대월면",
+            "지번코드": "4150035026105290000",
+            "대지구분코드": "1",
+            "대지구분명": "대지",
+            "지번본번지": "529",
+            "지번부번지": "",
+            "지번주소": "경기도 이천시 대월면 사동리 529",
+            "도로명코드": "415004421169",
+            "도로명": "경기도 이천시 대월면 대산로208번길",
+            "건물본번지": "93",
+            "건물부번지": "12",
+            "건물관리번호": "4150035026104450000000003",
+            "건물명": "휴먼빌에듀파크시티",
+            "도로명주소": "경기도 이천시 대월면 대산로208번길 93-12",
+            "구우편번호": "467854",
+            "신우편번호": "17338",
+            "동정보": "",
+            "층정보": "1",
+            "호정보": "",
+            "경도": "127.482796289899",
+            "위도": "37.2421142310398"
+          }
+        ],
+        "method": "same brand/address, identical building/floor/unit/wing/coordinates, aliases preserved",
+        "provisional": false,
+        "missingUnitCaveat": null
+      },
+      "requiredPublicNotices": [
+        "브랜드 공통 메뉴 · 지점 판매 여부 미확인",
+        "공공 상가정보 기준 위치이며 현재 영업 여부는 확인되지 않았습니다.",
+        "매운 정도·고객 평가·가격은 확인되지 않았습니다."
+      ],
+      "independentReview": {
+        "packetFile": "outputs/hot-reviewed-backlog-priority-20261013/icheon-records.json",
+        "packetSha256": "be632abe29218bf131348b293e618ce5f48c81228a33feb1862affc2ad49fff7",
+        "originalRecordSha256": "316273e160c838a1df21bb0399f89df7afc2a20b7485faf7dc2ee99053e0c749",
+        "manifestFile": "outputs/hot-reviewed-backlog-priority-20261013/whole-city496-manifest.json",
+        "manifestSha256": "e1e952f412ae83f3034dd0b9cd7367a2ba4edd026d5afae2e70ae7c795276af5",
+        "brandEvidenceReuse": {
+          "method": "reuse_frozen_bounded_brand_common_fact_once_per_brand",
+          "newPerBranchMenuWebRetrieval": false,
+          "branchAffiliationConfirmed": false,
+          "sourceTemplateBatch": "seoul-gangnam-20261013-reviewed25"
+        },
+        "currentBranchOperationVerified": false,
+        "currentBranchMenuSaleVerified": false,
+        "updatedPublicationReview": {
+          "decisionFile": "outputs/hot-regional496-release-20261013/review/independent-candidates-publication-decision.json",
+          "decisionSha256": "85c2c3014e16607939a5ba50954f6a67c0a78a91f7d5283afca7474594be1708",
+          "assessment": "bounded_anonymous_single_brand_fact_with_documented_limits_not_blanket_license"
+        }
+      }
+    }
+  },
+  {
+    "id": "18253323-5102-5a19-b7ce-b49f683860bd",
+    "slug": "hot-icheon-ma010120220808188263",
+    "name": "청년다방이천 하이닉스점",
+    "address": "경기도 이천시 부발읍 경충대로2092번길 23",
+    "lat": 37.25250566733,
+    "lon": 127.490955710176,
+    "source_ref": "data-go-kr-15083033-MA010120220808188263",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+      "sourceRecordId": "MA010120220808188263",
+      "nativeBusinessName": "청년다방이천",
+      "nativeBranchName": "하이닉스점",
+      "displayNameBasis": "Exact licensed SBIZ native business and branch strings joined with one space; no inferred shortening or current franchise affiliation",
+      "district": "이천시",
+      "districtCode": "41500",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+          "nativeRecordId": "MA010120220808188263"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+          "nativeRecordId": "MA010120220808188263"
+        }
+      },
+      "identityLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA010120220808188263",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 222362,
+        "rowNumberDefinition": "1-based data row excluding CSV header",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+        "sha256": "6f7b3c855ee8f51060e7b5100b1f23e5f1a854b6115665fe6bc3d397b1e68645",
+        "rawFile": "/workspace/scratch/1b6177ac5314/outputs/gyeonggi-spicy-batch-20261013/raw/sbiz-gyeonggi-202606.csv",
+        "rawRecord": {
+          "상가업소번호": "MA010120220808188263",
+          "상호명": "청년다방이천",
+          "지점명": "하이닉스점",
+          "상권업종대분류코드": "I2",
+          "상권업종대분류명": "음식",
+          "상권업종중분류코드": "I210",
+          "상권업종중분류명": "기타 간이",
+          "상권업종소분류코드": "I21007",
+          "상권업종소분류명": "김밥/만두/분식",
+          "표준산업분류코드": "I56221",
+          "표준산업분류명": "커피 전문점",
+          "시도코드": "41",
+          "시도명": "경기도",
+          "시군구코드": "41500",
+          "시군구명": "이천시",
+          "행정동코드": "41500253",
+          "행정동명": "부발읍",
+          "법정동코드": "4150025330",
+          "법정동명": "부발읍",
+          "지번코드": "4150025330106700003",
+          "대지구분코드": "1",
+          "대지구분명": "대지",
+          "지번본번지": "670",
+          "지번부번지": "3",
+          "지번주소": "경기도 이천시 부발읍 아미리 670-3",
+          "도로명코드": "415004421027",
+          "도로명": "경기도 이천시 부발읍 경충대로2092번길",
+          "건물본번지": "23",
+          "건물부번지": "",
+          "건물관리번호": "4150025330106700003000001",
+          "건물명": "",
+          "도로명주소": "경기도 이천시 부발읍 경충대로2092번길 23",
+          "구우편번호": "467866",
+          "신우편번호": "17332",
+          "동정보": "",
+          "층정보": "",
+          "호정보": "",
+          "경도": "127.490955710176",
+          "위도": "37.25250566733"
+        },
+        "licenseName": "이용허락범위 제한 없음",
+        "licenseEvidenceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+        "licenseCheckedAt": "2026-10-13T06:50:32.272820+00:00"
+      },
+      "coordinateLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA010120220808188263",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 222362,
+        "sha256": "6f7b3c855ee8f51060e7b5100b1f23e5f1a854b6115665fe6bc3d397b1e68645",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+        "rawLongitude": "127.490955710176",
+        "rawLatitude": "37.25250566733",
+        "coordinateSystem": {
+          "name": "WGS84",
+          "epsg": 4326,
+          "axisOrderInSource": [
+            "경도",
+            "위도"
+          ],
+          "units": "decimal_degrees",
+          "transformation": "none; source numeric strings preserved alongside parsed numbers",
+          "evidenceType": "same-provider same-dataset API coordinate specification; the CSV itself does not encode an EPSG label",
+          "guideUrl": "https://www.data.go.kr/data/15012005/openapi.do",
+          "guideDownloadUrl": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000003706124&fileDetailSn=3",
+          "guideSha256": "4ed2112e2a90e49e88243fa7963ae7d19628aed247b6492bcbae6a947534970e",
+          "guideVersion": "260805",
+          "guideExtract": "raw/sbiz-api-guide-extracted.txt",
+          "evidence": "상가업소 lon/lat response fields are described as WGS84 coordinates in the provider guide. The longitude description repeats 위도, a provider wording typo; the lon/lat field labels and sample values distinguish axes."
+        },
+        "accuracy": "building_level; no survey/entrance accuracy claimed",
+        "matchMethod": "Exact licensed SBIZ row, district text/code and broad Gyeonggi coordinate plausibility checked; no point-in-polygon or current-operation assertion.",
+        "matchedName": "청년다방이천",
+        "matchedBranchName": "하이닉스점",
+        "matchedAddress": "경기도 이천시 부발읍 경충대로2092번길 23",
+        "buildingManagementNumber": "4150025330106700003000001",
+        "licenseName": "이용허락범위 제한 없음",
+        "rights": {
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false
+        }
+      },
+      "fieldRights": {
+        "nameAddress": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "coordinates": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "evidence/brand-menu-evidence.json#youngdabang",
+          "residualUncertainty": [
+            "No website open licence or general legal guarantee is claimed.",
+            "Branch availability and current operation remain unverified."
+          ],
+          "legalReviewFile": "evidence/brand-menu-evidence.json",
+          "reviewedAt": "2026-10-13T02:42:18.238025+00:00"
+        },
+        "prosePhotosLogosMenusBulk": {
+          "cleared": false,
+          "include": false
+        }
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only",
+        "reviewedAt": "2026-10-13T07:47:46.672646+00:00"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA010120220808188263:menu:1",
+          "name": "크림차돌떡볶이",
+          "provenance": {
+            "kind": "official-brand-menu",
+            "sourceScope": "brand_common",
+            "branchMenuApplicability": null,
+            "brandName": "청년다방",
+            "sourceUrl": "https://youngdabang.com/board/index.php?board=notice_01&idx=88&type=view",
+            "sourceRecordIds": {},
+            "sourceAsOf": "2025-11-06",
+            "checkedAt": "2026-10-12T23:51:41.729766+00:00",
+            "licenseName": null,
+            "explicitOpenLicense": false,
+            "reuseBasis": "limited-individual-fact-review",
+            "originalName": "크림차돌떡볶이",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      },
+      "aliasBindings": [],
+      "deduplication": {
+        "key": "청년다방|경기도 이천시 부발읍 경충대로2092번길 23",
+        "sourceIds": [
+          "MA010120220808188263"
+        ],
+        "sourceRows": [
+          222362
+        ],
+        "allSourceRecords": [
+          {
+            "상가업소번호": "MA010120220808188263",
+            "상호명": "청년다방이천",
+            "지점명": "하이닉스점",
+            "상권업종대분류코드": "I2",
+            "상권업종대분류명": "음식",
+            "상권업종중분류코드": "I210",
+            "상권업종중분류명": "기타 간이",
+            "상권업종소분류코드": "I21007",
+            "상권업종소분류명": "김밥/만두/분식",
+            "표준산업분류코드": "I56221",
+            "표준산업분류명": "커피 전문점",
+            "시도코드": "41",
+            "시도명": "경기도",
+            "시군구코드": "41500",
+            "시군구명": "이천시",
+            "행정동코드": "41500253",
+            "행정동명": "부발읍",
+            "법정동코드": "4150025330",
+            "법정동명": "부발읍",
+            "지번코드": "4150025330106700003",
+            "대지구분코드": "1",
+            "대지구분명": "대지",
+            "지번본번지": "670",
+            "지번부번지": "3",
+            "지번주소": "경기도 이천시 부발읍 아미리 670-3",
+            "도로명코드": "415004421027",
+            "도로명": "경기도 이천시 부발읍 경충대로2092번길",
+            "건물본번지": "23",
+            "건물부번지": "",
+            "건물관리번호": "4150025330106700003000001",
+            "건물명": "",
+            "도로명주소": "경기도 이천시 부발읍 경충대로2092번길 23",
+            "구우편번호": "467866",
+            "신우편번호": "17332",
+            "동정보": "",
+            "층정보": "",
+            "호정보": "",
+            "경도": "127.490955710176",
+            "위도": "37.25250566733"
+          }
+        ],
+        "method": "same brand/address, identical building/floor/unit/wing/coordinates, aliases preserved",
+        "provisional": false,
+        "missingUnitCaveat": null
+      },
+      "requiredPublicNotices": [
+        "브랜드 공통 메뉴 · 지점 판매 여부 미확인",
+        "공공 상가정보 기준 위치이며 현재 영업 여부는 확인되지 않았습니다.",
+        "매운 정도·고객 평가·가격은 확인되지 않았습니다."
+      ],
+      "independentReview": {
+        "packetFile": "outputs/hot-reviewed-backlog-priority-20261013/icheon-records.json",
+        "packetSha256": "be632abe29218bf131348b293e618ce5f48c81228a33feb1862affc2ad49fff7",
+        "originalRecordSha256": "be3e5e74ddc1b3371d38d4af4337d59cbdee974e8a7886309f67d2266950e328",
+        "manifestFile": "outputs/hot-reviewed-backlog-priority-20261013/whole-city496-manifest.json",
+        "manifestSha256": "e1e952f412ae83f3034dd0b9cd7367a2ba4edd026d5afae2e70ae7c795276af5",
+        "brandEvidenceReuse": {
+          "method": "reuse_frozen_bounded_brand_common_fact_once_per_brand",
+          "newPerBranchMenuWebRetrieval": false,
+          "branchAffiliationConfirmed": false,
+          "sourceTemplateBatch": "seoul-gangnam-20261013-reviewed25"
+        },
+        "currentBranchOperationVerified": false,
+        "currentBranchMenuSaleVerified": false,
+        "updatedPublicationReview": {
+          "decisionFile": "outputs/hot-regional496-release-20261013/review/independent-candidates-publication-decision.json",
+          "decisionSha256": "85c2c3014e16607939a5ba50954f6a67c0a78a91f7d5283afca7474594be1708",
+          "assessment": "bounded_anonymous_single_brand_fact_with_documented_limits_not_blanket_license"
+        }
+      }
+    }
+  },
+  {
+    "id": "f19ec39a-2c63-597a-b7d5-630718fa065f",
+    "slug": "hot-icheon-ma010120220813215381",
+    "name": "두찜이천 하이닉스점",
+    "address": "경기도 이천시 부발읍 경충대로2092번길 39-33",
+    "lat": 37.254037899477,
+    "lon": 127.490841661272,
+    "source_ref": "data-go-kr-15083033-MA010120220813215381",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+      "sourceRecordId": "MA010120220813215381",
+      "nativeBusinessName": "두찜이천",
+      "nativeBranchName": "하이닉스점",
+      "displayNameBasis": "Exact licensed SBIZ native business and branch strings joined with one space; no inferred shortening or current franchise affiliation",
+      "district": "이천시",
+      "districtCode": "41500",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+          "nativeRecordId": "MA010120220813215381"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+          "nativeRecordId": "MA010120220813215381"
+        }
+      },
+      "identityLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA010120220813215381",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 394572,
+        "rowNumberDefinition": "1-based data row excluding CSV header",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+        "sha256": "6f7b3c855ee8f51060e7b5100b1f23e5f1a854b6115665fe6bc3d397b1e68645",
+        "rawFile": "/workspace/scratch/1b6177ac5314/outputs/gyeonggi-spicy-batch-20261013/raw/sbiz-gyeonggi-202606.csv",
+        "rawRecord": {
+          "상가업소번호": "MA010120220813215381",
+          "상호명": "두찜이천",
+          "지점명": "하이닉스점",
+          "상권업종대분류코드": "I2",
+          "상권업종대분류명": "음식",
+          "상권업종중분류코드": "I210",
+          "상권업종중분류명": "기타 간이",
+          "상권업종소분류코드": "I21006",
+          "상권업종소분류명": "치킨",
+          "표준산업분류코드": "I56193",
+          "표준산업분류명": "치킨 전문점",
+          "시도코드": "41",
+          "시도명": "경기도",
+          "시군구코드": "41500",
+          "시군구명": "이천시",
+          "행정동코드": "41500253",
+          "행정동명": "부발읍",
+          "법정동코드": "4150025330",
+          "법정동명": "부발읍",
+          "지번코드": "4150025330107300000",
+          "대지구분코드": "1",
+          "대지구분명": "대지",
+          "지번본번지": "730",
+          "지번부번지": "",
+          "지번주소": "경기도 이천시 부발읍 아미리 730",
+          "도로명코드": "415004421027",
+          "도로명": "경기도 이천시 부발읍 경충대로2092번길",
+          "건물본번지": "39",
+          "건물부번지": "33",
+          "건물관리번호": "4150025330107300000000001",
+          "건물명": "이천신일해피트리트리빌1단지",
+          "도로명주소": "경기도 이천시 부발읍 경충대로2092번길 39-33",
+          "구우편번호": "467866",
+          "신우편번호": "17332",
+          "동정보": "",
+          "층정보": "",
+          "호정보": "",
+          "경도": "127.490841661272",
+          "위도": "37.254037899477"
+        },
+        "licenseName": "이용허락범위 제한 없음",
+        "licenseEvidenceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+        "licenseCheckedAt": "2026-10-13T06:50:32.272820+00:00"
+      },
+      "coordinateLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA010120220813215381",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 394572,
+        "sha256": "6f7b3c855ee8f51060e7b5100b1f23e5f1a854b6115665fe6bc3d397b1e68645",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+        "rawLongitude": "127.490841661272",
+        "rawLatitude": "37.254037899477",
+        "coordinateSystem": {
+          "name": "WGS84",
+          "epsg": 4326,
+          "axisOrderInSource": [
+            "경도",
+            "위도"
+          ],
+          "units": "decimal_degrees",
+          "transformation": "none; source numeric strings preserved alongside parsed numbers",
+          "evidenceType": "same-provider same-dataset API coordinate specification; the CSV itself does not encode an EPSG label",
+          "guideUrl": "https://www.data.go.kr/data/15012005/openapi.do",
+          "guideDownloadUrl": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000003706124&fileDetailSn=3",
+          "guideSha256": "4ed2112e2a90e49e88243fa7963ae7d19628aed247b6492bcbae6a947534970e",
+          "guideVersion": "260805",
+          "guideExtract": "raw/sbiz-api-guide-extracted.txt",
+          "evidence": "상가업소 lon/lat response fields are described as WGS84 coordinates in the provider guide. The longitude description repeats 위도, a provider wording typo; the lon/lat field labels and sample values distinguish axes."
+        },
+        "accuracy": "building_level; no survey/entrance accuracy claimed",
+        "matchMethod": "Exact licensed SBIZ row, district text/code and broad Gyeonggi coordinate plausibility checked; no point-in-polygon or current-operation assertion.",
+        "matchedName": "두찜이천",
+        "matchedBranchName": "하이닉스점",
+        "matchedAddress": "경기도 이천시 부발읍 경충대로2092번길 39-33",
+        "buildingManagementNumber": "4150025330107300000000001",
+        "licenseName": "이용허락범위 제한 없음",
+        "rights": {
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false
+        }
+      },
+      "fieldRights": {
+        "nameAddress": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "coordinates": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "evidence/twozzim-menu-evidence.json#twozzim",
+          "residualUncertainty": [
+            "No website open licence or general legal guarantee is claimed.",
+            "Separate site-use terms were not located; privacy text refers to terms whose contents remain unresolved.",
+            "Branch availability and current operation remain unverified."
+          ],
+          "legalReviewFile": "evidence/twozzim-menu-evidence.json",
+          "reviewedAt": "2026-10-13T04:48:08.910056+00:00"
+        },
+        "prosePhotosLogosMenusBulk": {
+          "cleared": false,
+          "include": false
+        }
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only",
+        "reviewedAt": "2026-10-13T07:47:46.672646+00:00"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA010120220813215381:menu:1",
+          "name": "빨간찜닭",
+          "provenance": {
+            "kind": "official-brand-menu",
+            "sourceScope": "brand_common",
+            "branchMenuApplicability": null,
+            "brandName": "두찜",
+            "sourceUrl": "https://twozzim.com/bbs/content.php?co_id=menu",
+            "sourceRecordIds": {},
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-13T04:48:08.910056+00:00",
+            "licenseName": null,
+            "explicitOpenLicense": false,
+            "reuseBasis": "limited-individual-fact-review",
+            "originalName": "빨간찜닭",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      },
+      "aliasBindings": [],
+      "deduplication": {
+        "key": "두찜|경기도 이천시 부발읍 경충대로2092번길 39-33",
+        "sourceIds": [
+          "MA010120220813215381"
+        ],
+        "sourceRows": [
+          394572
+        ],
+        "allSourceRecords": [
+          {
+            "상가업소번호": "MA010120220813215381",
+            "상호명": "두찜이천",
+            "지점명": "하이닉스점",
+            "상권업종대분류코드": "I2",
+            "상권업종대분류명": "음식",
+            "상권업종중분류코드": "I210",
+            "상권업종중분류명": "기타 간이",
+            "상권업종소분류코드": "I21006",
+            "상권업종소분류명": "치킨",
+            "표준산업분류코드": "I56193",
+            "표준산업분류명": "치킨 전문점",
+            "시도코드": "41",
+            "시도명": "경기도",
+            "시군구코드": "41500",
+            "시군구명": "이천시",
+            "행정동코드": "41500253",
+            "행정동명": "부발읍",
+            "법정동코드": "4150025330",
+            "법정동명": "부발읍",
+            "지번코드": "4150025330107300000",
+            "대지구분코드": "1",
+            "대지구분명": "대지",
+            "지번본번지": "730",
+            "지번부번지": "",
+            "지번주소": "경기도 이천시 부발읍 아미리 730",
+            "도로명코드": "415004421027",
+            "도로명": "경기도 이천시 부발읍 경충대로2092번길",
+            "건물본번지": "39",
+            "건물부번지": "33",
+            "건물관리번호": "4150025330107300000000001",
+            "건물명": "이천신일해피트리트리빌1단지",
+            "도로명주소": "경기도 이천시 부발읍 경충대로2092번길 39-33",
+            "구우편번호": "467866",
+            "신우편번호": "17332",
+            "동정보": "",
+            "층정보": "",
+            "호정보": "",
+            "경도": "127.490841661272",
+            "위도": "37.254037899477"
+          }
+        ],
+        "method": "same brand/address, identical building/floor/unit/wing/coordinates, aliases preserved",
+        "provisional": false,
+        "missingUnitCaveat": null
+      },
+      "requiredPublicNotices": [
+        "브랜드 공통 메뉴 · 지점 판매 여부 미확인",
+        "공공 상가정보 기준 위치이며 현재 영업 여부는 확인되지 않았습니다.",
+        "매운 정도·고객 평가·가격은 확인되지 않았습니다."
+      ],
+      "independentReview": {
+        "packetFile": "outputs/hot-reviewed-backlog-priority-20261013/icheon-records.json",
+        "packetSha256": "be632abe29218bf131348b293e618ce5f48c81228a33feb1862affc2ad49fff7",
+        "originalRecordSha256": "db99a2f80cf949cfe232a33c209f5adb6dbdb83a8e6f2f0d64c8fa382a6a0024",
+        "manifestFile": "outputs/hot-reviewed-backlog-priority-20261013/whole-city496-manifest.json",
+        "manifestSha256": "e1e952f412ae83f3034dd0b9cd7367a2ba4edd026d5afae2e70ae7c795276af5",
+        "brandEvidenceReuse": {
+          "method": "reuse_frozen_bounded_brand_common_fact_once_per_brand",
+          "newPerBranchMenuWebRetrieval": false,
+          "branchAffiliationConfirmed": false,
+          "sourceTemplateBatch": "seoul-gangnam-20261013-reviewed25"
+        },
+        "currentBranchOperationVerified": false,
+        "currentBranchMenuSaleVerified": false,
+        "updatedPublicationReview": {
+          "decisionFile": "outputs/hot-regional496-release-20261013/review/independent-candidates-publication-decision.json",
+          "decisionSha256": "85c2c3014e16607939a5ba50954f6a67c0a78a91f7d5283afca7474594be1708",
+          "assessment": "bounded_anonymous_single_brand_fact_with_documented_limits_not_blanket_license"
+        }
+      }
+    }
+  },
+  {
+    "id": "6b35e87b-cdb0-595b-94b6-c63f7558cf32",
+    "slug": "hot-icheon-ma010120220803673687",
+    "name": "청년다방이천창전점",
+    "address": "경기도 이천시 어재연로 41",
+    "lat": 37.2800763960106,
+    "lon": 127.445625311712,
+    "source_ref": "data-go-kr-15083033-MA010120220803673687",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+      "sourceRecordId": "MA010120220803673687",
+      "nativeBusinessName": "청년다방이천창전점",
+      "nativeBranchName": null,
+      "displayNameBasis": "Exact licensed SBIZ native business and branch strings joined with one space; no inferred shortening or current franchise affiliation",
+      "district": "이천시",
+      "districtCode": "41500",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+          "nativeRecordId": "MA010120220803673687"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+          "nativeRecordId": "MA010120220803673687"
+        }
+      },
+      "identityLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA010120220803673687",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 271877,
+        "rowNumberDefinition": "1-based data row excluding CSV header",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+        "sha256": "6f7b3c855ee8f51060e7b5100b1f23e5f1a854b6115665fe6bc3d397b1e68645",
+        "rawFile": "/workspace/scratch/1b6177ac5314/outputs/gyeonggi-spicy-batch-20261013/raw/sbiz-gyeonggi-202606.csv",
+        "rawRecord": {
+          "상가업소번호": "MA010120220803673687",
+          "상호명": "청년다방이천창전점",
+          "지점명": "",
+          "상권업종대분류코드": "I2",
+          "상권업종대분류명": "음식",
+          "상권업종중분류코드": "I210",
+          "상권업종중분류명": "기타 간이",
+          "상권업종소분류코드": "I21007",
+          "상권업종소분류명": "김밥/만두/분식",
+          "표준산업분류코드": "I56194",
+          "표준산업분류명": "김밥 및 기타 간이 음식점업",
+          "시도코드": "41",
+          "시도명": "경기도",
+          "시군구코드": "41500",
+          "시군구명": "이천시",
+          "행정동코드": "41500510",
+          "행정동명": "창전동",
+          "법정동코드": "4150010100",
+          "법정동명": "창전동",
+          "지번코드": "4150010100101610010",
+          "대지구분코드": "1",
+          "대지구분명": "대지",
+          "지번본번지": "161",
+          "지번부번지": "10",
+          "지번주소": "경기도 이천시 창전동 161-10",
+          "도로명코드": "415003207040",
+          "도로명": "경기도 이천시 어재연로",
+          "건물본번지": "41",
+          "건물부번지": "",
+          "건물관리번호": "4150010100101610010009730",
+          "건물명": "",
+          "도로명주소": "경기도 이천시 어재연로 41",
+          "구우편번호": "467804",
+          "신우편번호": "17369",
+          "동정보": "",
+          "층정보": "",
+          "호정보": "",
+          "경도": "127.445625311712",
+          "위도": "37.2800763960106"
+        },
+        "licenseName": "이용허락범위 제한 없음",
+        "licenseEvidenceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+        "licenseCheckedAt": "2026-10-13T06:50:32.272820+00:00"
+      },
+      "coordinateLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA010120220803673687",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 271877,
+        "sha256": "6f7b3c855ee8f51060e7b5100b1f23e5f1a854b6115665fe6bc3d397b1e68645",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+        "rawLongitude": "127.445625311712",
+        "rawLatitude": "37.2800763960106",
+        "coordinateSystem": {
+          "name": "WGS84",
+          "epsg": 4326,
+          "axisOrderInSource": [
+            "경도",
+            "위도"
+          ],
+          "units": "decimal_degrees",
+          "transformation": "none; source numeric strings preserved alongside parsed numbers",
+          "evidenceType": "same-provider same-dataset API coordinate specification; the CSV itself does not encode an EPSG label",
+          "guideUrl": "https://www.data.go.kr/data/15012005/openapi.do",
+          "guideDownloadUrl": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000003706124&fileDetailSn=3",
+          "guideSha256": "4ed2112e2a90e49e88243fa7963ae7d19628aed247b6492bcbae6a947534970e",
+          "guideVersion": "260805",
+          "guideExtract": "raw/sbiz-api-guide-extracted.txt",
+          "evidence": "상가업소 lon/lat response fields are described as WGS84 coordinates in the provider guide. The longitude description repeats 위도, a provider wording typo; the lon/lat field labels and sample values distinguish axes."
+        },
+        "accuracy": "building_level; no survey/entrance accuracy claimed",
+        "matchMethod": "Exact licensed SBIZ row, district text/code and broad Gyeonggi coordinate plausibility checked; no point-in-polygon or current-operation assertion.",
+        "matchedName": "청년다방이천창전점",
+        "matchedBranchName": null,
+        "matchedAddress": "경기도 이천시 어재연로 41",
+        "buildingManagementNumber": "4150010100101610010009730",
+        "licenseName": "이용허락범위 제한 없음",
+        "rights": {
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false
+        }
+      },
+      "fieldRights": {
+        "nameAddress": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "coordinates": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "evidence/brand-menu-evidence.json#youngdabang",
+          "residualUncertainty": [
+            "No website open licence or general legal guarantee is claimed.",
+            "Branch availability and current operation remain unverified."
+          ],
+          "legalReviewFile": "evidence/brand-menu-evidence.json",
+          "reviewedAt": "2026-10-13T02:42:18.238025+00:00"
+        },
+        "prosePhotosLogosMenusBulk": {
+          "cleared": false,
+          "include": false
+        }
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only",
+        "reviewedAt": "2026-10-13T07:47:46.672646+00:00"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA010120220803673687:menu:1",
+          "name": "크림차돌떡볶이",
+          "provenance": {
+            "kind": "official-brand-menu",
+            "sourceScope": "brand_common",
+            "branchMenuApplicability": null,
+            "brandName": "청년다방",
+            "sourceUrl": "https://youngdabang.com/board/index.php?board=notice_01&idx=88&type=view",
+            "sourceRecordIds": {},
+            "sourceAsOf": "2025-11-06",
+            "checkedAt": "2026-10-12T23:51:41.729766+00:00",
+            "licenseName": null,
+            "explicitOpenLicense": false,
+            "reuseBasis": "limited-individual-fact-review",
+            "originalName": "크림차돌떡볶이",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      },
+      "aliasBindings": [],
+      "deduplication": {
+        "key": "청년다방|경기도 이천시 어재연로 41",
+        "sourceIds": [
+          "MA010120220803673687"
+        ],
+        "sourceRows": [
+          271877
+        ],
+        "allSourceRecords": [
+          {
+            "상가업소번호": "MA010120220803673687",
+            "상호명": "청년다방이천창전점",
+            "지점명": "",
+            "상권업종대분류코드": "I2",
+            "상권업종대분류명": "음식",
+            "상권업종중분류코드": "I210",
+            "상권업종중분류명": "기타 간이",
+            "상권업종소분류코드": "I21007",
+            "상권업종소분류명": "김밥/만두/분식",
+            "표준산업분류코드": "I56194",
+            "표준산업분류명": "김밥 및 기타 간이 음식점업",
+            "시도코드": "41",
+            "시도명": "경기도",
+            "시군구코드": "41500",
+            "시군구명": "이천시",
+            "행정동코드": "41500510",
+            "행정동명": "창전동",
+            "법정동코드": "4150010100",
+            "법정동명": "창전동",
+            "지번코드": "4150010100101610010",
+            "대지구분코드": "1",
+            "대지구분명": "대지",
+            "지번본번지": "161",
+            "지번부번지": "10",
+            "지번주소": "경기도 이천시 창전동 161-10",
+            "도로명코드": "415003207040",
+            "도로명": "경기도 이천시 어재연로",
+            "건물본번지": "41",
+            "건물부번지": "",
+            "건물관리번호": "4150010100101610010009730",
+            "건물명": "",
+            "도로명주소": "경기도 이천시 어재연로 41",
+            "구우편번호": "467804",
+            "신우편번호": "17369",
+            "동정보": "",
+            "층정보": "",
+            "호정보": "",
+            "경도": "127.445625311712",
+            "위도": "37.2800763960106"
+          }
+        ],
+        "method": "same brand/address, identical building/floor/unit/wing/coordinates, aliases preserved",
+        "provisional": false,
+        "missingUnitCaveat": null
+      },
+      "requiredPublicNotices": [
+        "브랜드 공통 메뉴 · 지점 판매 여부 미확인",
+        "공공 상가정보 기준 위치이며 현재 영업 여부는 확인되지 않았습니다.",
+        "매운 정도·고객 평가·가격은 확인되지 않았습니다."
+      ],
+      "independentReview": {
+        "packetFile": "outputs/hot-reviewed-backlog-priority-20261013/icheon-records.json",
+        "packetSha256": "be632abe29218bf131348b293e618ce5f48c81228a33feb1862affc2ad49fff7",
+        "originalRecordSha256": "78d35c464216171ef1971199832cc6ae4f8df5a82a3e4a6a3b5d8db1fadc2a9d",
+        "manifestFile": "outputs/hot-reviewed-backlog-priority-20261013/whole-city496-manifest.json",
+        "manifestSha256": "e1e952f412ae83f3034dd0b9cd7367a2ba4edd026d5afae2e70ae7c795276af5",
+        "brandEvidenceReuse": {
+          "method": "reuse_frozen_bounded_brand_common_fact_once_per_brand",
+          "newPerBranchMenuWebRetrieval": false,
+          "branchAffiliationConfirmed": false,
+          "sourceTemplateBatch": "seoul-gangnam-20261013-reviewed25"
+        },
+        "currentBranchOperationVerified": false,
+        "currentBranchMenuSaleVerified": false,
+        "updatedPublicationReview": {
+          "decisionFile": "outputs/hot-regional496-release-20261013/review/independent-candidates-publication-decision.json",
+          "decisionSha256": "85c2c3014e16607939a5ba50954f6a67c0a78a91f7d5283afca7474594be1708",
+          "assessment": "bounded_anonymous_single_brand_fact_with_documented_limits_not_blanket_license"
+        }
+      }
+    }
+  },
+  {
+    "id": "90e32940-041d-553d-83d8-742e16271355",
+    "slug": "hot-icheon-ma0101202601a0014992",
+    "name": "두찜장호원감곡점",
+    "address": "경기도 이천시 장호원읍 장감로 73-1",
+    "lat": 37.1173273830296,
+    "lon": 127.630738297627,
+    "source_ref": "data-go-kr-15083033-MA0101202601A0014992",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+      "sourceRecordId": "MA0101202601A0014992",
+      "nativeBusinessName": "두찜장호원감곡점",
+      "nativeBranchName": null,
+      "displayNameBasis": "Exact licensed SBIZ native business and branch strings joined with one space; no inferred shortening or current franchise affiliation",
+      "district": "이천시",
+      "districtCode": "41500",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+          "nativeRecordId": "MA0101202601A0014992"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+          "nativeRecordId": "MA0101202601A0014992"
+        }
+      },
+      "identityLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA0101202601A0014992",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 665800,
+        "rowNumberDefinition": "1-based data row excluding CSV header",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+        "sha256": "6f7b3c855ee8f51060e7b5100b1f23e5f1a854b6115665fe6bc3d397b1e68645",
+        "rawFile": "/workspace/scratch/1b6177ac5314/outputs/gyeonggi-spicy-batch-20261013/raw/sbiz-gyeonggi-202606.csv",
+        "rawRecord": {
+          "상가업소번호": "MA0101202601A0014992",
+          "상호명": "두찜장호원감곡점",
+          "지점명": "",
+          "상권업종대분류코드": "I2",
+          "상권업종대분류명": "음식",
+          "상권업종중분류코드": "I201",
+          "상권업종중분류명": "한식",
+          "상권업종소분류코드": "I20101",
+          "상권업종소분류명": "백반/한정식",
+          "표준산업분류코드": "I56111",
+          "표준산업분류명": "한식 일반 음식점업",
+          "시도코드": "41",
+          "시도명": "경기도",
+          "시군구코드": "41500",
+          "시군구명": "이천시",
+          "행정동코드": "41500250",
+          "행정동명": "장호원읍",
+          "법정동코드": "4150025021",
+          "법정동명": "장호원읍",
+          "지번코드": "4150025021101140009",
+          "대지구분코드": "1",
+          "대지구분명": "대지",
+          "지번본번지": "114",
+          "지번부번지": "9",
+          "지번주소": "경기도 이천시 장호원읍 장호원리 114-9",
+          "도로명코드": "415003000128",
+          "도로명": "경기도 이천시 장호원읍 장감로",
+          "건물본번지": "73",
+          "건물부번지": "1",
+          "건물관리번호": "4150025021101140008028455",
+          "건물명": "",
+          "도로명주소": "경기도 이천시 장호원읍 장감로 73-1",
+          "구우편번호": "467902",
+          "신우편번호": "17418",
+          "동정보": "",
+          "층정보": "2",
+          "호정보": "",
+          "경도": "127.630738297627",
+          "위도": "37.1173273830296"
+        },
+        "licenseName": "이용허락범위 제한 없음",
+        "licenseEvidenceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+        "licenseCheckedAt": "2026-10-13T06:50:32.272820+00:00"
+      },
+      "coordinateLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA0101202601A0014992",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 665800,
+        "sha256": "6f7b3c855ee8f51060e7b5100b1f23e5f1a854b6115665fe6bc3d397b1e68645",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+        "rawLongitude": "127.630738297627",
+        "rawLatitude": "37.1173273830296",
+        "coordinateSystem": {
+          "name": "WGS84",
+          "epsg": 4326,
+          "axisOrderInSource": [
+            "경도",
+            "위도"
+          ],
+          "units": "decimal_degrees",
+          "transformation": "none; source numeric strings preserved alongside parsed numbers",
+          "evidenceType": "same-provider same-dataset API coordinate specification; the CSV itself does not encode an EPSG label",
+          "guideUrl": "https://www.data.go.kr/data/15012005/openapi.do",
+          "guideDownloadUrl": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000003706124&fileDetailSn=3",
+          "guideSha256": "4ed2112e2a90e49e88243fa7963ae7d19628aed247b6492bcbae6a947534970e",
+          "guideVersion": "260805",
+          "guideExtract": "raw/sbiz-api-guide-extracted.txt",
+          "evidence": "상가업소 lon/lat response fields are described as WGS84 coordinates in the provider guide. The longitude description repeats 위도, a provider wording typo; the lon/lat field labels and sample values distinguish axes."
+        },
+        "accuracy": "building_level; no survey/entrance accuracy claimed",
+        "matchMethod": "Exact licensed SBIZ row, district text/code and broad Gyeonggi coordinate plausibility checked; no point-in-polygon or current-operation assertion.",
+        "matchedName": "두찜장호원감곡점",
+        "matchedBranchName": null,
+        "matchedAddress": "경기도 이천시 장호원읍 장감로 73-1",
+        "buildingManagementNumber": "4150025021101140008028455",
+        "licenseName": "이용허락범위 제한 없음",
+        "rights": {
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false
+        }
+      },
+      "fieldRights": {
+        "nameAddress": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "coordinates": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "evidence/twozzim-menu-evidence.json#twozzim",
+          "residualUncertainty": [
+            "No website open licence or general legal guarantee is claimed.",
+            "Separate site-use terms were not located; privacy text refers to terms whose contents remain unresolved.",
+            "Branch availability and current operation remain unverified."
+          ],
+          "legalReviewFile": "evidence/twozzim-menu-evidence.json",
+          "reviewedAt": "2026-10-13T04:48:08.910056+00:00"
+        },
+        "prosePhotosLogosMenusBulk": {
+          "cleared": false,
+          "include": false
+        }
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only",
+        "reviewedAt": "2026-10-13T07:47:46.672646+00:00"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA0101202601A0014992:menu:1",
+          "name": "빨간찜닭",
+          "provenance": {
+            "kind": "official-brand-menu",
+            "sourceScope": "brand_common",
+            "branchMenuApplicability": null,
+            "brandName": "두찜",
+            "sourceUrl": "https://twozzim.com/bbs/content.php?co_id=menu",
+            "sourceRecordIds": {},
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-13T04:48:08.910056+00:00",
+            "licenseName": null,
+            "explicitOpenLicense": false,
+            "reuseBasis": "limited-individual-fact-review",
+            "originalName": "빨간찜닭",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      },
+      "aliasBindings": [],
+      "deduplication": {
+        "key": "두찜|경기도 이천시 장호원읍 장감로 73-1",
+        "sourceIds": [
+          "MA0101202601A0014992"
+        ],
+        "sourceRows": [
+          665800
+        ],
+        "allSourceRecords": [
+          {
+            "상가업소번호": "MA0101202601A0014992",
+            "상호명": "두찜장호원감곡점",
+            "지점명": "",
+            "상권업종대분류코드": "I2",
+            "상권업종대분류명": "음식",
+            "상권업종중분류코드": "I201",
+            "상권업종중분류명": "한식",
+            "상권업종소분류코드": "I20101",
+            "상권업종소분류명": "백반/한정식",
+            "표준산업분류코드": "I56111",
+            "표준산업분류명": "한식 일반 음식점업",
+            "시도코드": "41",
+            "시도명": "경기도",
+            "시군구코드": "41500",
+            "시군구명": "이천시",
+            "행정동코드": "41500250",
+            "행정동명": "장호원읍",
+            "법정동코드": "4150025021",
+            "법정동명": "장호원읍",
+            "지번코드": "4150025021101140009",
+            "대지구분코드": "1",
+            "대지구분명": "대지",
+            "지번본번지": "114",
+            "지번부번지": "9",
+            "지번주소": "경기도 이천시 장호원읍 장호원리 114-9",
+            "도로명코드": "415003000128",
+            "도로명": "경기도 이천시 장호원읍 장감로",
+            "건물본번지": "73",
+            "건물부번지": "1",
+            "건물관리번호": "4150025021101140008028455",
+            "건물명": "",
+            "도로명주소": "경기도 이천시 장호원읍 장감로 73-1",
+            "구우편번호": "467902",
+            "신우편번호": "17418",
+            "동정보": "",
+            "층정보": "2",
+            "호정보": "",
+            "경도": "127.630738297627",
+            "위도": "37.1173273830296"
+          }
+        ],
+        "method": "same brand/address, identical building/floor/unit/wing/coordinates, aliases preserved",
+        "provisional": false,
+        "missingUnitCaveat": null
+      },
+      "requiredPublicNotices": [
+        "브랜드 공통 메뉴 · 지점 판매 여부 미확인",
+        "공공 상가정보 기준 위치이며 현재 영업 여부는 확인되지 않았습니다.",
+        "매운 정도·고객 평가·가격은 확인되지 않았습니다."
+      ],
+      "independentReview": {
+        "packetFile": "outputs/hot-reviewed-backlog-priority-20261013/icheon-records.json",
+        "packetSha256": "be632abe29218bf131348b293e618ce5f48c81228a33feb1862affc2ad49fff7",
+        "originalRecordSha256": "758607d88b9ac4ff58ffd64d6779484dba1fa96713ab494680e7db8edf43518f",
+        "manifestFile": "outputs/hot-reviewed-backlog-priority-20261013/whole-city496-manifest.json",
+        "manifestSha256": "e1e952f412ae83f3034dd0b9cd7367a2ba4edd026d5afae2e70ae7c795276af5",
+        "brandEvidenceReuse": {
+          "method": "reuse_frozen_bounded_brand_common_fact_once_per_brand",
+          "newPerBranchMenuWebRetrieval": false,
+          "branchAffiliationConfirmed": false,
+          "sourceTemplateBatch": "seoul-gangnam-20261013-reviewed25"
+        },
+        "currentBranchOperationVerified": false,
+        "currentBranchMenuSaleVerified": false,
+        "updatedPublicationReview": {
+          "decisionFile": "outputs/hot-regional496-release-20261013/review/independent-candidates-publication-decision.json",
+          "decisionSha256": "85c2c3014e16607939a5ba50954f6a67c0a78a91f7d5283afca7474594be1708",
+          "assessment": "bounded_anonymous_single_brand_fact_with_documented_limits_not_blanket_license"
+        }
+      }
+    }
+  },
+  {
+    "id": "6ef699d2-92dd-5b0b-b781-399d06e69459",
+    "slug": "hot-icheon-ma0101202406a0025430",
+    "name": "홍콩반점0410이천 로데오점",
+    "address": "경기도 이천시 중리천로 59",
+    "lat": 37.280107708113,
+    "lon": 127.444486631641,
+    "source_ref": "data-go-kr-15083033-MA0101202406A0025430",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+      "sourceRecordId": "MA0101202406A0025430",
+      "nativeBusinessName": "홍콩반점0410이천",
+      "nativeBranchName": "로데오점",
+      "displayNameBasis": "Exact licensed SBIZ native business and branch strings joined with one space; no inferred shortening or current franchise affiliation",
+      "district": "이천시",
+      "districtCode": "41500",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+          "nativeRecordId": "MA0101202406A0025430"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+          "nativeRecordId": "MA0101202406A0025430"
+        }
+      },
+      "identityLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA0101202406A0025430",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 480617,
+        "rowNumberDefinition": "1-based data row excluding CSV header",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+        "sha256": "6f7b3c855ee8f51060e7b5100b1f23e5f1a854b6115665fe6bc3d397b1e68645",
+        "rawFile": "/workspace/scratch/1b6177ac5314/outputs/gyeonggi-spicy-batch-20261013/raw/sbiz-gyeonggi-202606.csv",
+        "rawRecord": {
+          "상가업소번호": "MA0101202406A0025430",
+          "상호명": "홍콩반점0410이천",
+          "지점명": "로데오점",
+          "상권업종대분류코드": "I2",
+          "상권업종대분류명": "음식",
+          "상권업종중분류코드": "I202",
+          "상권업종중분류명": "중식",
+          "상권업종소분류코드": "I20201",
+          "상권업종소분류명": "중국집",
+          "표준산업분류코드": "I56121",
+          "표준산업분류명": "중식 음식점업",
+          "시도코드": "41",
+          "시도명": "경기도",
+          "시군구코드": "41500",
+          "시군구명": "이천시",
+          "행정동코드": "41500510",
+          "행정동명": "창전동",
+          "법정동코드": "4150010100",
+          "법정동명": "창전동",
+          "지번코드": "4150010100101600010",
+          "대지구분코드": "1",
+          "대지구분명": "대지",
+          "지번본번지": "160",
+          "지번부번지": "10",
+          "지번주소": "경기도 이천시 창전동 160-10",
+          "도로명코드": "415003207052",
+          "도로명": "경기도 이천시 중리천로",
+          "건물본번지": "59",
+          "건물부번지": "",
+          "건물관리번호": "4150010100101600010010027",
+          "건물명": "",
+          "도로명주소": "경기도 이천시 중리천로 59",
+          "구우편번호": "467804",
+          "신우편번호": "17369",
+          "동정보": "",
+          "층정보": "2",
+          "호정보": "",
+          "경도": "127.444486631641",
+          "위도": "37.280107708113"
+        },
+        "licenseName": "이용허락범위 제한 없음",
+        "licenseEvidenceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+        "licenseCheckedAt": "2026-10-13T06:50:32.272820+00:00"
+      },
+      "coordinateLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA0101202406A0025430",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 480617,
+        "sha256": "6f7b3c855ee8f51060e7b5100b1f23e5f1a854b6115665fe6bc3d397b1e68645",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+        "rawLongitude": "127.444486631641",
+        "rawLatitude": "37.280107708113",
+        "coordinateSystem": {
+          "name": "WGS84",
+          "epsg": 4326,
+          "axisOrderInSource": [
+            "경도",
+            "위도"
+          ],
+          "units": "decimal_degrees",
+          "transformation": "none; source numeric strings preserved alongside parsed numbers",
+          "evidenceType": "same-provider same-dataset API coordinate specification; the CSV itself does not encode an EPSG label",
+          "guideUrl": "https://www.data.go.kr/data/15012005/openapi.do",
+          "guideDownloadUrl": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000003706124&fileDetailSn=3",
+          "guideSha256": "4ed2112e2a90e49e88243fa7963ae7d19628aed247b6492bcbae6a947534970e",
+          "guideVersion": "260805",
+          "guideExtract": "raw/sbiz-api-guide-extracted.txt",
+          "evidence": "상가업소 lon/lat response fields are described as WGS84 coordinates in the provider guide. The longitude description repeats 위도, a provider wording typo; the lon/lat field labels and sample values distinguish axes."
+        },
+        "accuracy": "building_level; no survey/entrance accuracy claimed",
+        "matchMethod": "Exact licensed SBIZ row, district text/code and broad Gyeonggi coordinate plausibility checked; no point-in-polygon or current-operation assertion.",
+        "matchedName": "홍콩반점0410이천",
+        "matchedBranchName": "로데오점",
+        "matchedAddress": "경기도 이천시 중리천로 59",
+        "buildingManagementNumber": "4150010100101600010010027",
+        "licenseName": "이용허락범위 제한 없음",
+        "rights": {
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false
+        }
+      },
+      "fieldRights": {
+        "nameAddress": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "coordinates": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "evidence/brand-menu-evidence.json#hongkongbanjeom",
+          "residualUncertainty": [
+            "No website open licence or general legal guarantee is claimed.",
+            "Branch availability and current operation remain unverified."
+          ],
+          "legalReviewFile": "evidence/brand-menu-evidence.json",
+          "reviewedAt": "2026-10-13T02:42:18.238025+00:00"
+        },
+        "prosePhotosLogosMenusBulk": {
+          "cleared": false,
+          "include": false
+        }
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only",
+        "reviewedAt": "2026-10-13T07:47:46.672646+00:00"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA0101202406A0025430:menu:1",
+          "name": "고추짬뽕",
+          "provenance": {
+            "kind": "official-brand-menu",
+            "sourceScope": "brand_common",
+            "branchMenuApplicability": null,
+            "brandName": "홍콩반점",
+            "sourceUrl": "https://www.theborn.co.kr/theborn_brand/%ED%99%8D%EC%BD%A9%EB%B0%98%EC%A0%902/",
+            "sourceRecordIds": {},
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-13T02:42:18.238025+00:00",
+            "licenseName": null,
+            "explicitOpenLicense": false,
+            "reuseBasis": "limited-individual-fact-review",
+            "originalName": "고추짬뽕",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      },
+      "aliasBindings": [],
+      "deduplication": {
+        "key": "홍콩반점|경기도 이천시 중리천로 59",
+        "sourceIds": [
+          "MA0101202406A0025430"
+        ],
+        "sourceRows": [
+          480617
+        ],
+        "allSourceRecords": [
+          {
+            "상가업소번호": "MA0101202406A0025430",
+            "상호명": "홍콩반점0410이천",
+            "지점명": "로데오점",
+            "상권업종대분류코드": "I2",
+            "상권업종대분류명": "음식",
+            "상권업종중분류코드": "I202",
+            "상권업종중분류명": "중식",
+            "상권업종소분류코드": "I20201",
+            "상권업종소분류명": "중국집",
+            "표준산업분류코드": "I56121",
+            "표준산업분류명": "중식 음식점업",
+            "시도코드": "41",
+            "시도명": "경기도",
+            "시군구코드": "41500",
+            "시군구명": "이천시",
+            "행정동코드": "41500510",
+            "행정동명": "창전동",
+            "법정동코드": "4150010100",
+            "법정동명": "창전동",
+            "지번코드": "4150010100101600010",
+            "대지구분코드": "1",
+            "대지구분명": "대지",
+            "지번본번지": "160",
+            "지번부번지": "10",
+            "지번주소": "경기도 이천시 창전동 160-10",
+            "도로명코드": "415003207052",
+            "도로명": "경기도 이천시 중리천로",
+            "건물본번지": "59",
+            "건물부번지": "",
+            "건물관리번호": "4150010100101600010010027",
+            "건물명": "",
+            "도로명주소": "경기도 이천시 중리천로 59",
+            "구우편번호": "467804",
+            "신우편번호": "17369",
+            "동정보": "",
+            "층정보": "2",
+            "호정보": "",
+            "경도": "127.444486631641",
+            "위도": "37.280107708113"
+          }
+        ],
+        "method": "same brand/address, identical building/floor/unit/wing/coordinates, aliases preserved",
+        "provisional": false,
+        "missingUnitCaveat": null
+      },
+      "requiredPublicNotices": [
+        "브랜드 공통 메뉴 · 지점 판매 여부 미확인",
+        "공공 상가정보 기준 위치이며 현재 영업 여부는 확인되지 않았습니다.",
+        "매운 정도·고객 평가·가격은 확인되지 않았습니다."
+      ],
+      "independentReview": {
+        "packetFile": "outputs/hot-reviewed-backlog-priority-20261013/icheon-records.json",
+        "packetSha256": "be632abe29218bf131348b293e618ce5f48c81228a33feb1862affc2ad49fff7",
+        "originalRecordSha256": "db52153a8afda5507ee7c1be7b340232999bd5dd0e1cf1d0cf9af256dd94c1fa",
+        "manifestFile": "outputs/hot-reviewed-backlog-priority-20261013/whole-city496-manifest.json",
+        "manifestSha256": "e1e952f412ae83f3034dd0b9cd7367a2ba4edd026d5afae2e70ae7c795276af5",
+        "brandEvidenceReuse": {
+          "method": "reuse_frozen_bounded_brand_common_fact_once_per_brand",
+          "newPerBranchMenuWebRetrieval": false,
+          "branchAffiliationConfirmed": false,
+          "sourceTemplateBatch": "seoul-gangnam-20261013-reviewed25"
+        },
+        "currentBranchOperationVerified": false,
+        "currentBranchMenuSaleVerified": false,
+        "updatedPublicationReview": {
+          "decisionFile": "outputs/hot-regional496-release-20261013/review/independent-candidates-publication-decision.json",
+          "decisionSha256": "85c2c3014e16607939a5ba50954f6a67c0a78a91f7d5283afca7474594be1708",
+          "assessment": "bounded_anonymous_single_brand_fact_with_documented_limits_not_blanket_license"
+        }
+      }
+    }
+  },
+  {
+    "id": "3c6fc745-82f8-5161-9815-258ac7dfb1da",
+    "slug": "hot-icheon-ma010120220800104635",
+    "name": "두찜이천 증포점",
+    "address": "경기도 이천시 증신로 39",
+    "lat": 37.2816335099366,
+    "lon": 127.460191953206,
+    "source_ref": "data-go-kr-15083033-MA010120220800104635",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+      "sourceRecordId": "MA010120220800104635",
+      "nativeBusinessName": "두찜이천",
+      "nativeBranchName": "증포점",
+      "displayNameBasis": "Exact licensed SBIZ native business and branch strings joined with one space; no inferred shortening or current franchise affiliation",
+      "district": "이천시",
+      "districtCode": "41500",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+          "nativeRecordId": "MA010120220800104635"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+          "nativeRecordId": "MA010120220800104635"
+        }
+      },
+      "identityLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA010120220800104635",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 84533,
+        "rowNumberDefinition": "1-based data row excluding CSV header",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+        "sha256": "6f7b3c855ee8f51060e7b5100b1f23e5f1a854b6115665fe6bc3d397b1e68645",
+        "rawFile": "/workspace/scratch/1b6177ac5314/outputs/gyeonggi-spicy-batch-20261013/raw/sbiz-gyeonggi-202606.csv",
+        "rawRecord": {
+          "상가업소번호": "MA010120220800104635",
+          "상호명": "두찜이천",
+          "지점명": "증포점",
+          "상권업종대분류코드": "I2",
+          "상권업종대분류명": "음식",
+          "상권업종중분류코드": "I201",
+          "상권업종중분류명": "한식",
+          "상권업종소분류코드": "I20101",
+          "상권업종소분류명": "백반/한정식",
+          "표준산업분류코드": "I56111",
+          "표준산업분류명": "한식 일반 음식점업",
+          "시도코드": "41",
+          "시도명": "경기도",
+          "시군구코드": "41500",
+          "시군구명": "이천시",
+          "행정동코드": "41500515",
+          "행정동명": "증포동",
+          "법정동코드": "4150010800",
+          "법정동명": "갈산동",
+          "지번코드": "4150010800107040003",
+          "대지구분코드": "1",
+          "대지구분명": "대지",
+          "지번본번지": "704",
+          "지번부번지": "3",
+          "지번주소": "경기도 이천시 갈산동 704-3",
+          "도로명코드": "415003207053",
+          "도로명": "경기도 이천시 증신로",
+          "건물본번지": "39",
+          "건물부번지": "",
+          "건물관리번호": "4150010800107040003013975",
+          "건물명": "",
+          "도로명주소": "경기도 이천시 증신로 39",
+          "구우편번호": "467110",
+          "신우편번호": "17361",
+          "동정보": "",
+          "층정보": "1",
+          "호정보": "",
+          "경도": "127.460191953206",
+          "위도": "37.2816335099366"
+        },
+        "licenseName": "이용허락범위 제한 없음",
+        "licenseEvidenceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+        "licenseCheckedAt": "2026-10-13T06:50:32.272820+00:00"
+      },
+      "coordinateLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA010120220800104635",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 84533,
+        "sha256": "6f7b3c855ee8f51060e7b5100b1f23e5f1a854b6115665fe6bc3d397b1e68645",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+        "rawLongitude": "127.460191953206",
+        "rawLatitude": "37.2816335099366",
+        "coordinateSystem": {
+          "name": "WGS84",
+          "epsg": 4326,
+          "axisOrderInSource": [
+            "경도",
+            "위도"
+          ],
+          "units": "decimal_degrees",
+          "transformation": "none; source numeric strings preserved alongside parsed numbers",
+          "evidenceType": "same-provider same-dataset API coordinate specification; the CSV itself does not encode an EPSG label",
+          "guideUrl": "https://www.data.go.kr/data/15012005/openapi.do",
+          "guideDownloadUrl": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000003706124&fileDetailSn=3",
+          "guideSha256": "4ed2112e2a90e49e88243fa7963ae7d19628aed247b6492bcbae6a947534970e",
+          "guideVersion": "260805",
+          "guideExtract": "raw/sbiz-api-guide-extracted.txt",
+          "evidence": "상가업소 lon/lat response fields are described as WGS84 coordinates in the provider guide. The longitude description repeats 위도, a provider wording typo; the lon/lat field labels and sample values distinguish axes."
+        },
+        "accuracy": "building_level; no survey/entrance accuracy claimed",
+        "matchMethod": "Exact licensed SBIZ row, district text/code and broad Gyeonggi coordinate plausibility checked; no point-in-polygon or current-operation assertion.",
+        "matchedName": "두찜이천",
+        "matchedBranchName": "증포점",
+        "matchedAddress": "경기도 이천시 증신로 39",
+        "buildingManagementNumber": "4150010800107040003013975",
+        "licenseName": "이용허락범위 제한 없음",
+        "rights": {
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false
+        }
+      },
+      "fieldRights": {
+        "nameAddress": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "coordinates": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "evidence/twozzim-menu-evidence.json#twozzim",
+          "residualUncertainty": [
+            "No website open licence or general legal guarantee is claimed.",
+            "Separate site-use terms were not located; privacy text refers to terms whose contents remain unresolved.",
+            "Branch availability and current operation remain unverified."
+          ],
+          "legalReviewFile": "evidence/twozzim-menu-evidence.json",
+          "reviewedAt": "2026-10-13T04:48:08.910056+00:00"
+        },
+        "prosePhotosLogosMenusBulk": {
+          "cleared": false,
+          "include": false
+        }
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only",
+        "reviewedAt": "2026-10-13T07:47:46.672646+00:00"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA010120220800104635:menu:1",
+          "name": "빨간찜닭",
+          "provenance": {
+            "kind": "official-brand-menu",
+            "sourceScope": "brand_common",
+            "branchMenuApplicability": null,
+            "brandName": "두찜",
+            "sourceUrl": "https://twozzim.com/bbs/content.php?co_id=menu",
+            "sourceRecordIds": {},
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-13T04:48:08.910056+00:00",
+            "licenseName": null,
+            "explicitOpenLicense": false,
+            "reuseBasis": "limited-individual-fact-review",
+            "originalName": "빨간찜닭",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      },
+      "aliasBindings": [],
+      "deduplication": {
+        "key": "두찜|경기도 이천시 증신로 39",
+        "sourceIds": [
+          "MA010120220800104635"
+        ],
+        "sourceRows": [
+          84533
+        ],
+        "allSourceRecords": [
+          {
+            "상가업소번호": "MA010120220800104635",
+            "상호명": "두찜이천",
+            "지점명": "증포점",
+            "상권업종대분류코드": "I2",
+            "상권업종대분류명": "음식",
+            "상권업종중분류코드": "I201",
+            "상권업종중분류명": "한식",
+            "상권업종소분류코드": "I20101",
+            "상권업종소분류명": "백반/한정식",
+            "표준산업분류코드": "I56111",
+            "표준산업분류명": "한식 일반 음식점업",
+            "시도코드": "41",
+            "시도명": "경기도",
+            "시군구코드": "41500",
+            "시군구명": "이천시",
+            "행정동코드": "41500515",
+            "행정동명": "증포동",
+            "법정동코드": "4150010800",
+            "법정동명": "갈산동",
+            "지번코드": "4150010800107040003",
+            "대지구분코드": "1",
+            "대지구분명": "대지",
+            "지번본번지": "704",
+            "지번부번지": "3",
+            "지번주소": "경기도 이천시 갈산동 704-3",
+            "도로명코드": "415003207053",
+            "도로명": "경기도 이천시 증신로",
+            "건물본번지": "39",
+            "건물부번지": "",
+            "건물관리번호": "4150010800107040003013975",
+            "건물명": "",
+            "도로명주소": "경기도 이천시 증신로 39",
+            "구우편번호": "467110",
+            "신우편번호": "17361",
+            "동정보": "",
+            "층정보": "1",
+            "호정보": "",
+            "경도": "127.460191953206",
+            "위도": "37.2816335099366"
+          }
+        ],
+        "method": "same brand/address, identical building/floor/unit/wing/coordinates, aliases preserved",
+        "provisional": false,
+        "missingUnitCaveat": null
+      },
+      "requiredPublicNotices": [
+        "브랜드 공통 메뉴 · 지점 판매 여부 미확인",
+        "공공 상가정보 기준 위치이며 현재 영업 여부는 확인되지 않았습니다.",
+        "매운 정도·고객 평가·가격은 확인되지 않았습니다."
+      ],
+      "independentReview": {
+        "packetFile": "outputs/hot-reviewed-backlog-priority-20261013/icheon-records.json",
+        "packetSha256": "be632abe29218bf131348b293e618ce5f48c81228a33feb1862affc2ad49fff7",
+        "originalRecordSha256": "f098c515d119b4286d0b97a53a64e88e20728565566b10904c4ee7d3e568eb79",
+        "manifestFile": "outputs/hot-reviewed-backlog-priority-20261013/whole-city496-manifest.json",
+        "manifestSha256": "e1e952f412ae83f3034dd0b9cd7367a2ba4edd026d5afae2e70ae7c795276af5",
+        "brandEvidenceReuse": {
+          "method": "reuse_frozen_bounded_brand_common_fact_once_per_brand",
+          "newPerBranchMenuWebRetrieval": false,
+          "branchAffiliationConfirmed": false,
+          "sourceTemplateBatch": "seoul-gangnam-20261013-reviewed25"
+        },
+        "currentBranchOperationVerified": false,
+        "currentBranchMenuSaleVerified": false,
+        "updatedPublicationReview": {
+          "decisionFile": "outputs/hot-regional496-release-20261013/review/independent-candidates-publication-decision.json",
+          "decisionSha256": "85c2c3014e16607939a5ba50954f6a67c0a78a91f7d5283afca7474594be1708",
+          "assessment": "bounded_anonymous_single_brand_fact_with_documented_limits_not_blanket_license"
+        }
+      }
+    }
+  },
+  {
+    "id": "b72c88f7-65f6-5d00-82dc-15a41583f1c9",
+    "slug": "hot-icheon-ma0101202406a0297325",
+    "name": "스텔라떡볶이경기 이천점",
+    "address": "경기도 이천시 향교로 94",
+    "lat": 37.2840957917741,
+    "lon": 127.447802819158,
+    "source_ref": "data-go-kr-15083033-MA0101202406A0297325",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+      "sourceRecordId": "MA0101202406A0297325",
+      "nativeBusinessName": "스텔라떡볶이경기",
+      "nativeBranchName": "이천점",
+      "displayNameBasis": "Exact licensed SBIZ native business and branch strings joined with one space; no inferred shortening or current franchise affiliation",
+      "district": "이천시",
+      "districtCode": "41500",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+          "nativeRecordId": "MA0101202406A0297325"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+          "nativeRecordId": "MA0101202406A0297325"
+        }
+      },
+      "identityLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA0101202406A0297325",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 478286,
+        "rowNumberDefinition": "1-based data row excluding CSV header",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+        "sha256": "6f7b3c855ee8f51060e7b5100b1f23e5f1a854b6115665fe6bc3d397b1e68645",
+        "rawFile": "/workspace/scratch/1b6177ac5314/outputs/gyeonggi-spicy-batch-20261013/raw/sbiz-gyeonggi-202606.csv",
+        "rawRecord": {
+          "상가업소번호": "MA0101202406A0297325",
+          "상호명": "스텔라떡볶이경기",
+          "지점명": "이천점",
+          "상권업종대분류코드": "I2",
+          "상권업종대분류명": "음식",
+          "상권업종중분류코드": "I210",
+          "상권업종중분류명": "기타 간이",
+          "상권업종소분류코드": "I21007",
+          "상권업종소분류명": "김밥/만두/분식",
+          "표준산업분류코드": "I56193",
+          "표준산업분류명": "치킨 전문점",
+          "시도코드": "41",
+          "시도명": "경기도",
+          "시군구코드": "41500",
+          "시군구명": "이천시",
+          "행정동코드": "41500510",
+          "행정동명": "창전동",
+          "법정동코드": "4150010100",
+          "법정동명": "창전동",
+          "지번코드": "4150010100104490006",
+          "대지구분코드": "1",
+          "대지구분명": "대지",
+          "지번본번지": "449",
+          "지번부번지": "6",
+          "지번주소": "경기도 이천시 창전동 449-6",
+          "도로명코드": "415003207076",
+          "도로명": "경기도 이천시 향교로",
+          "건물본번지": "94",
+          "건물부번지": "",
+          "건물관리번호": "4150010100104490005041598",
+          "건물명": "",
+          "도로명주소": "경기도 이천시 향교로 94",
+          "구우편번호": "467806",
+          "신우편번호": "17363",
+          "동정보": "",
+          "층정보": "1",
+          "호정보": "",
+          "경도": "127.447802819158",
+          "위도": "37.2840957917741"
+        },
+        "licenseName": "이용허락범위 제한 없음",
+        "licenseEvidenceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+        "licenseCheckedAt": "2026-10-13T06:50:32.272820+00:00"
+      },
+      "coordinateLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA0101202406A0297325",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 478286,
+        "sha256": "6f7b3c855ee8f51060e7b5100b1f23e5f1a854b6115665fe6bc3d397b1e68645",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T07:47:46.672646+00:00",
+        "rawLongitude": "127.447802819158",
+        "rawLatitude": "37.2840957917741",
+        "coordinateSystem": {
+          "name": "WGS84",
+          "epsg": 4326,
+          "axisOrderInSource": [
+            "경도",
+            "위도"
+          ],
+          "units": "decimal_degrees",
+          "transformation": "none; source numeric strings preserved alongside parsed numbers",
+          "evidenceType": "same-provider same-dataset API coordinate specification; the CSV itself does not encode an EPSG label",
+          "guideUrl": "https://www.data.go.kr/data/15012005/openapi.do",
+          "guideDownloadUrl": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000003706124&fileDetailSn=3",
+          "guideSha256": "4ed2112e2a90e49e88243fa7963ae7d19628aed247b6492bcbae6a947534970e",
+          "guideVersion": "260805",
+          "guideExtract": "raw/sbiz-api-guide-extracted.txt",
+          "evidence": "상가업소 lon/lat response fields are described as WGS84 coordinates in the provider guide. The longitude description repeats 위도, a provider wording typo; the lon/lat field labels and sample values distinguish axes."
+        },
+        "accuracy": "building_level; no survey/entrance accuracy claimed",
+        "matchMethod": "Exact licensed SBIZ row, district text/code and broad Gyeonggi coordinate plausibility checked; no point-in-polygon or current-operation assertion.",
+        "matchedName": "스텔라떡볶이경기",
+        "matchedBranchName": "이천점",
+        "matchedAddress": "경기도 이천시 향교로 94",
+        "buildingManagementNumber": "4150010100104490005041598",
+        "licenseName": "이용허락범위 제한 없음",
+        "rights": {
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false
+        }
+      },
+      "fieldRights": {
+        "nameAddress": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "coordinates": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "evidence/brand-menu-evidence.json#stella",
+          "residualUncertainty": [
+            "No website open licence or general legal guarantee is claimed.",
+            "Branch availability and current operation remain unverified."
+          ],
+          "legalReviewFile": "evidence/brand-menu-evidence.json",
+          "reviewedAt": "2026-10-13T02:42:18.238025+00:00"
+        },
+        "prosePhotosLogosMenusBulk": {
+          "cleared": false,
+          "include": false
+        }
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only",
+        "reviewedAt": "2026-10-13T07:47:46.672646+00:00"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA0101202406A0297325:menu:1",
+          "name": "스텔라떡볶이",
+          "provenance": {
+            "kind": "official-brand-menu",
+            "sourceScope": "brand_common",
+            "branchMenuApplicability": null,
+            "brandName": "스텔라떡볶이",
+            "sourceUrl": "https://stellapick.com/21?sca=%EB%96%A1%EB%B3%B6%EC%9D%B4",
+            "sourceRecordIds": {},
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-12T23:51:41.729766+00:00",
+            "licenseName": null,
+            "explicitOpenLicense": false,
+            "reuseBasis": "limited-individual-fact-review",
+            "originalName": "스텔라떡볶이",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      },
+      "aliasBindings": [],
+      "deduplication": {
+        "key": "스텔라떡볶이|경기도 이천시 향교로 94",
+        "sourceIds": [
+          "MA0101202406A0297325"
+        ],
+        "sourceRows": [
+          478286
+        ],
+        "allSourceRecords": [
+          {
+            "상가업소번호": "MA0101202406A0297325",
+            "상호명": "스텔라떡볶이경기",
+            "지점명": "이천점",
+            "상권업종대분류코드": "I2",
+            "상권업종대분류명": "음식",
+            "상권업종중분류코드": "I210",
+            "상권업종중분류명": "기타 간이",
+            "상권업종소분류코드": "I21007",
+            "상권업종소분류명": "김밥/만두/분식",
+            "표준산업분류코드": "I56193",
+            "표준산업분류명": "치킨 전문점",
+            "시도코드": "41",
+            "시도명": "경기도",
+            "시군구코드": "41500",
+            "시군구명": "이천시",
+            "행정동코드": "41500510",
+            "행정동명": "창전동",
+            "법정동코드": "4150010100",
+            "법정동명": "창전동",
+            "지번코드": "4150010100104490006",
+            "대지구분코드": "1",
+            "대지구분명": "대지",
+            "지번본번지": "449",
+            "지번부번지": "6",
+            "지번주소": "경기도 이천시 창전동 449-6",
+            "도로명코드": "415003207076",
+            "도로명": "경기도 이천시 향교로",
+            "건물본번지": "94",
+            "건물부번지": "",
+            "건물관리번호": "4150010100104490005041598",
+            "건물명": "",
+            "도로명주소": "경기도 이천시 향교로 94",
+            "구우편번호": "467806",
+            "신우편번호": "17363",
+            "동정보": "",
+            "층정보": "1",
+            "호정보": "",
+            "경도": "127.447802819158",
+            "위도": "37.2840957917741"
+          }
+        ],
+        "method": "same brand/address, identical building/floor/unit/wing/coordinates, aliases preserved",
+        "provisional": false,
+        "missingUnitCaveat": null
+      },
+      "requiredPublicNotices": [
+        "브랜드 공통 메뉴 · 지점 판매 여부 미확인",
+        "공공 상가정보 기준 위치이며 현재 영업 여부는 확인되지 않았습니다.",
+        "매운 정도·고객 평가·가격은 확인되지 않았습니다."
+      ],
+      "independentReview": {
+        "packetFile": "outputs/hot-reviewed-backlog-priority-20261013/icheon-records.json",
+        "packetSha256": "be632abe29218bf131348b293e618ce5f48c81228a33feb1862affc2ad49fff7",
+        "originalRecordSha256": "4135b3768ec748056ab8ce5e262b0212f2e79ae6ceabb568eaeaf06101d4ba0e",
+        "manifestFile": "outputs/hot-reviewed-backlog-priority-20261013/whole-city496-manifest.json",
+        "manifestSha256": "e1e952f412ae83f3034dd0b9cd7367a2ba4edd026d5afae2e70ae7c795276af5",
+        "brandEvidenceReuse": {
+          "method": "reuse_frozen_bounded_brand_common_fact_once_per_brand",
+          "newPerBranchMenuWebRetrieval": false,
+          "branchAffiliationConfirmed": false,
+          "sourceTemplateBatch": "seoul-gangnam-20261013-reviewed25"
+        },
+        "currentBranchOperationVerified": false,
+        "currentBranchMenuSaleVerified": false,
+        "updatedPublicationReview": {
+          "decisionFile": "outputs/hot-regional496-release-20261013/review/independent-candidates-publication-decision.json",
+          "decisionSha256": "85c2c3014e16607939a5ba50954f6a67c0a78a91f7d5283afca7474594be1708",
+          "assessment": "bounded_anonymous_single_brand_fact_with_documented_limits_not_blanket_license"
+        }
+      }
+    }
+  }
+]

@@ -17,15 +17,15 @@ const completeFeed=readonlySourceStoreFeed(),feed={...completeFeed,stores:comple
 const hash=value=>createHash('sha256').update(JSON.stringify(value)).digest('hex');
 const clone=value=>JSON.parse(JSON.stringify(value));
 const discovery=moduleAt('lib/store-discovery.ts',{'./sourced-store.ts':sourced,'./social-preview':{socialMetadata:()=>({openGraph:{},twitter:{}})}});
-test('append exactly25 Seoul to105 unchanged records/DTOs, never rebuild the original seven alone',()=>{
+test('retain exactly25 Seoul and105 prior records after restricted-menu suppression',()=>{
  assert.equal(records.slice(0,130).length,130);assert.equal(feed.stores.length,130);assert.equal(seoul.length,25);
- assert.equal(hash(records.slice(0,105)),'94b3c4b132cce0570769d1047864fc6a23b61252d79f42dcf521e872122a130f');
- assert.equal(hash(feed.stores.slice(0,105)),'ca061db71a0cd7c91cc4a45ef9fdce78e3f9442ea3c7481b09cbb6794ac654e5');
+ assert.equal(hash(records.slice(0,105)),'935288c6ac32e479e586fc82d4ace2ae5a512152086ccec9e862954d60bbee1e');
+ assert.equal(hash(feed.stores.slice(0,105)),'95f0d867753b7004168069a8dfe77b876db326bcd63db259bfbd431a8d33d32e');
  for(const [prefix,count] of [['서울특별시 강남구 ',25],['인천광역시',100],['부산광역시',5]])assert.equal(feed.stores.filter(s=>s.address.startsWith(prefix)).length,count);
  for(const key of ['id','slug','sourceRef'])assert.equal(new Set(feed.stores.map(s=>s[key])).size,130);
  assert.deepEqual(sourced.parseSourcedStoreFeed(feed),feed);assert.equal(feed.stores.filter(store=>registry.records[store.sourceRef]).length,123);
- assert.equal(seoul.filter(s=>sourced.isBrandCommonMenu(s.menus[0])).length,24);
- assert.equal(feed.stores.filter(s=>sourced.isBrandCommonMenu(s.menus[0])).length,117);
+ assert.equal(seoul.filter(s=>s.menus.length&&sourced.isBrandCommonMenu(s.menus[0])).length,15);
+ assert.equal(feed.stores.filter(s=>s.menus.length&&sourced.isBrandCommonMenu(s.menus[0])).length,86);assert.equal(seoul.filter(s=>!s.menus.length).length,9);assert.equal(feed.stores.filter(s=>!s.menus.length).length,31);
 });
 test('Seoul native IDs, source rows, raw coordinates and unknowns remain exact and source-only',()=>{
  for(const [i,store] of seoul.entries()){
@@ -35,8 +35,10 @@ test('Seoul native IDs, source rows, raw coordinates and unknowns remain exact a
   assert.equal(meta.coordinateLocator.sha256,'08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152');assert.equal(meta.coordinateLocator.coordinateSystem.epsg,4326);
   assert.equal(meta.coordinateLocator.rawLatitude,raw['위도']);assert.equal(meta.coordinateLocator.rawLongitude,raw['경도']);assert.equal(store.coordinates.lat,Number(raw['위도']));assert.equal(store.coordinates.lon,Number(raw['경도']));
   assert.equal(meta.factualUseReview.frozenFileSha256,freezeSha);assert.equal(store.source.fieldProvenance.registration,null);assert.equal(store.reportingState,'pending');assert.equal(store.registrationState,'source-only');assert.equal(store.ownerClaimVerified,false);assert.equal(store.ownership,'unclaimed');assert.equal(store.pinStatus,'gray');
+  assert.equal(store.operatingStatus,null);assert.equal(store.currentMenuAvailability,null);
+  if(!store.menus.length){assert.deepEqual(meta.revokedMenuIds,[store.sourceRef+':menu:1']);continue;}
   for(const key of ['price','heat','image','sourceTaste'])assert.equal(store.menus[0][key],null);
-  assert.equal(store.operatingStatus,null);assert.equal(store.currentMenuAvailability,null);assert.equal(store.menus[0].provenance.currentAvailability,null);assert.equal(store.menus[0].provenance.explicitOpenLicense,false);
+  assert.equal(store.menus[0].provenance.currentAvailability,null);assert.equal(store.menus[0].provenance.explicitOpenLicense,false);
  }
 });
 test('one Seoul alias reserves original case-sensitive identity without creating a second card',()=>{
@@ -46,15 +48,16 @@ test('one Seoul alias reserves original case-sensitive identity without creating
  assert.equal(feed.stores.some(s=>s.id===alias.id||s.sourceRef===alias.sourceRef),false);
  for(const id of [alias.id,alias.id.toUpperCase(),'{'+alias.id+'}',alias.id.replaceAll('-','')])assert.equal(isReadonlySourceStoreId(id),true);
  assert.equal(isReadonlySourceReportBinding({menu_id:alias.menuId}),true);assert.equal(isReadonlySourceReportBinding({place_id:'nowgo-'+alias.id}),true);
- for(const store of seoul){assert.equal(isReadonlySourceStoreId(store.id),true);assert.equal(isReadonlySourceReportBinding({nowgo_store_id:store.id}),true);assert.equal(isReadonlySourceReportBinding({menu_id:store.menus[0].id}),true);}
+ for(const store of seoul){assert.equal(isReadonlySourceStoreId(store.id),true);assert.equal(isReadonlySourceReportBinding({nowgo_store_id:store.id}),true);assert.equal(isReadonlySourceReportBinding({menu_id:store.sourceRef+':menu:1'}),true);}
 });
 test('every new pairing rejects changed identity/provenance and fabricated verified, writable or heat claims',()=>{
- const changes=[s=>s.id='22222222-2222-4222-8222-222222222222',s=>s.slug+='-wrong',s=>s.address+=' changed',s=>s.coordinates.lat+=.001,s=>s.sourceRef=s.sourceRef.toLowerCase(),s=>s.menus[0].name+=' other',s=>s.menus[0].provenance.sourceUrl='https://example.com/',s=>s.menus[0].provenance.explicitOpenLicense=true,s=>s.menus[0].heat=3,s=>s.menus[0].price=1000,s=>s.ownerClaimVerified=true,s=>s.registrationState='database',s=>s.reportingState='enabled'];
- for(const store of seoul)for(const mutate of changes){const bad=clone(store);mutate(bad);assert.throws(()=>sourced.parseSourcedStoreFeed({...feed,stores:[bad]}),/invalid_source_store/);}
+ const identityChanges=[s=>s.id='22222222-2222-4222-8222-222222222222',s=>s.slug+='-wrong',s=>s.address+=' changed',s=>s.coordinates.lat+=.001,s=>s.sourceRef=s.sourceRef.toLowerCase(),s=>s.ownerClaimVerified=true,s=>s.registrationState='database',s=>s.reportingState='enabled'];
+ const menuChanges=[s=>s.menus[0].name+=' other',s=>s.menus[0].provenance.sourceUrl='https://example.com/',s=>s.menus[0].provenance.explicitOpenLicense=true,s=>s.menus[0].heat=3,s=>s.menus[0].price=1000];
+ for(const store of seoul)for(const mutate of [...identityChanges,...(store.menus.length?menuChanges:[])]){const bad=clone(store);mutate(bad);assert.throws(()=>sourced.parseSourcedStoreFeed({...feed,stores:[bad]}),/invalid_source_store/);}
 });
-test('cards/details and canonical metadata distinguish24 brand-common from one tourism fact, never current sale or ratings',()=>{
- const ui=sourceUi();for(const store of seoul){const brand=sourced.isBrandCommonMenu(store.menus[0]);
-  for(const Component of [ui.Card,ui.Detail]){const html=renderToStaticMarkup(React.createElement(Component,{store,onBack(){}}));assert.equal(html.includes(sourced.BRAND_COMMON_MENU_NOTICE),brand);assert.match(html,/맵기 미확인/);assert.match(html,/가격 미확인/);assert.doesNotMatch(html,/준비중|준비 중/);}
+test('cards/details and metadata distinguish15 brand facts, one tourism fact and9 identity-only stores',()=>{
+ const ui=sourceUi();for(const store of seoul){const brand=!!store.menus.length&&sourced.isBrandCommonMenu(store.menus[0]);
+  for(const Component of [ui.Card,ui.Detail]){const html=renderToStaticMarkup(React.createElement(Component,{store,onBack(){}}));assert.equal(html.includes(sourced.BRAND_COMMON_MENU_NOTICE),brand);if(store.menus.length||Component===ui.Detail){assert.match(html,/맵기 미확인/);assert.match(html,/가격 미확인/);}else assert.match(html,/확인된 메뉴 정보가 없어요/);assert.doesNotMatch(html,/준비중|준비 중/);}
   const md=discovery.sourcedStoreMetadata(store,'hot.nowgo.space');assert.equal(md.alternates.canonical,'https://hot.nowgo.space/p/'+store.slug);assert.equal(md.robots.index,true);assert.equal(discovery.sourcedStoreMetadata(store,'sweet.nowgo.space').robots.index,false);
   assert.doesNotMatch(JSON.stringify(discovery.sourcedStoreJsonLd(store)),/aggregateRating|reviewCount|openingHours|offers|hasMenu|ratingValue|priceRange/);
  }

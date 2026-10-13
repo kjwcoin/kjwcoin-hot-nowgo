@@ -1,0 +1,318 @@
+[
+  {
+    "id": "65a5768f-5c9e-563e-a04f-cbb81835ec02",
+    "slug": "hot-seoul-ma010120220812168532",
+    "name": "온정돈까스",
+    "address": "서울특별시 관악구 조원로 60",
+    "lat": 37.4835475625018,
+    "lon": 126.909095895598,
+    "source_ref": "data-go-kr-15083033-MA010120220812168532",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T14:25:47.123670+00:00",
+      "sourceRecordId": "MA010120220812168532",
+      "nativeBusinessName": "온정돈까스",
+      "nativeBranchName": null,
+      "district": "관악구",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T14:25:47.123670+00:00",
+          "nativeRecordId": "MA010120220812168532"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T14:25:47.123670+00:00",
+          "nativeRecordId": "MA010120220812168532"
+        }
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only",
+        "reviewedAt": "2026-10-13T14:25:47.123670+00:00"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA010120220812168532:menu:1",
+          "name": "디진다 돈가스",
+          "provenance": {
+            "kind": "official-tourism-place-menu",
+            "sourceUrl": "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=c8d8d23d-9726-4f86-a3ee-dcc245d7fca4",
+            "sourceRecordIds": {
+              "cotid": "c8d8d23d-9726-4f86-a3ee-dcc245d7fca4"
+            },
+            "sourceScope": "specific_restaurant_official_tourism_record",
+            "branchMenuApplicability": "source_record_specific_restaurant_not_current_sale",
+            "preparationNotice": "공개 출처 기반 메뉴 정보. 현재 영업·메뉴 판매 미확인 · 고객 맵기 평가 없음.",
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-13T14:17:37.136475+00:00",
+            "licenseName": null,
+            "explicitOpenLicense": false,
+            "reuseBasis": "limited-individual-fact-review",
+            "originalName": "디진다 돈가스",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      },
+      "aliasBindings": [],
+      "nameAliases": [
+        "온정돈까스 본점"
+      ],
+      "independentReview": {
+        "packetFile": "outputs/requested-spicy-stores-20261013/named-two-ready-for-qa.json",
+        "packetSha256": "38ac9dec3fc183ec86337f937189879733ca8ab017a19eb48d8e37fe417b757e",
+        "qaFile": "outputs/requested-spicy-stores-20261013/named-two-independent-qa-final.json",
+        "qaSha256": "8067fab64144b044b54b4c92448baa1998bfd15eff11927a10366113aa9693ec",
+        "originalQaFile": "outputs/requested-spicy-stores-20261013/named-two-independent-qa.json",
+        "originalQaSha256": "1d3cdd695d388d83b616a9361b4c2279a77c940be52d9f47a57413c99604123b",
+        "coordinateSource": {
+          "datasetUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+          "sourceAsOf": "2026-06-30",
+          "file": "outputs/seoul-spicy-research-20261013/raw/sbiz-seoul-202606.csv",
+          "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+          "nativeID": "MA010120220812168532",
+          "csvLine": 231132,
+          "dataRowNumber": 231131,
+          "coordinateSystem": "WGS84",
+          "license": "이용허락범위 제한 없음",
+          "scope": "identity-location-only"
+        },
+        "menuSource": {
+          "url": "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=c8d8d23d-9726-4f86-a3ee-dcc245d7fca4",
+          "kind": "official-tourism-place-menu",
+          "minimalFacts": "디진다 돈가스; 강한 매운맛의 도전 메뉴",
+          "sourceDate": null,
+          "checkedAt": "2026-10-13T14:17:37.136475+00:00",
+          "explicitPageOpenLicense": false,
+          "reuseScope": "Only isolated noncreative factual names/options are restated. No review, prose, price, rating, image or whole database reproduction; not a blanket license assertion."
+        },
+        "identityLinkageEvidence": [
+          {
+            "url": "https://view.mk.co.kr/trip-food/article/260550/",
+            "kind": "editorial-branch-identity",
+            "minimalFacts": "신대방 온정돈까스 본점; 조원로60; 디진다 돈까스",
+            "sourceDate": "2026-08-13",
+            "checkedAt": "2026-10-13T14:17:37.136475+00:00",
+            "explicitPageOpenLicense": false,
+            "reuseScope": "Only isolated noncreative factual names/options are restated. No review, prose, price, rating, image or whole database reproduction; not a blanket license assertion."
+          }
+        ],
+        "addressDetail": "1층",
+        "notes": [
+          "신대방은 역세권 통칭이며 실제 행정구는 관악구 신림동/조원동. 부천 소재 동명 신생 프랜차이즈 본사와 합치지 않음.",
+          "도전 메뉴 사실만 저장. 수치 맵기, SHU, 고객평가, 도전 성공/실패 수치는 만들지 않음."
+        ],
+        "duplicateCheck": {
+          "reviewedIndexCount": 2396,
+          "preparedSourceCount": 946,
+          "exactNativeIDMatches": [],
+          "normalizedNameMatches": [],
+          "normalizedAddressMatches": [],
+          "preparedMatches": [],
+          "result": "none"
+        },
+        "doesNotEstablish": [
+          "current_operation",
+          "current_menu_sale",
+          "numeric_heat",
+          "consumer_rating",
+          "ownership"
+        ],
+        "scope": "Individual minimal menu names only; no source prose, photos, reviews, price, numeric heat, full native rows or blanket webpage license.",
+        "searchAliasEvidence": {
+          "url": "https://view.mk.co.kr/trip-food/article/260550/",
+          "minimalFacts": "신대방 온정돈까스 본점; 조원로60; 디진다돈까스",
+          "use": "Discovery aliases only, not administrative address or verified owner trade name",
+          "sourceDate": "2026-08-13"
+        }
+      },
+      "searchAliases": [
+        "신대방 온정돈까스",
+        "온정돈까스 본점",
+        "디진다돈까스",
+        "디진다 돈까스",
+        "디진다 돈가스"
+      ]
+    }
+  },
+  {
+    "id": "75260ccd-ec8e-5f2d-961d-766cd4979d32",
+    "slug": "hot-seoul-ma010120220800449731",
+    "name": "신길동매운짬뽕",
+    "address": "서울특별시 영등포구 영등포로62길 10-1",
+    "lat": 37.5153495355747,
+    "lon": 126.91651146517,
+    "source_ref": "data-go-kr-15083033-MA010120220800449731",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T14:25:47.123670+00:00",
+      "sourceRecordId": "MA010120220800449731",
+      "nativeBusinessName": "신길동별난아찌짬뽕",
+      "nativeBranchName": null,
+      "district": "영등포구",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T14:25:47.123670+00:00",
+          "nativeRecordId": "MA010120220800449731"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T14:25:47.123670+00:00",
+          "nativeRecordId": "MA010120220800449731"
+        }
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only",
+        "reviewedAt": "2026-10-13T14:25:47.123670+00:00"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA010120220800449731:menu:1",
+          "name": "홍합 매운 짬뽕",
+          "provenance": {
+            "kind": "official-tourism-place-menu",
+            "sourceUrl": "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=7cc157ee-b662-40a8-a629-25daa6582198",
+            "sourceRecordIds": {
+              "cotid": "7cc157ee-b662-40a8-a629-25daa6582198"
+            },
+            "sourceScope": "specific_restaurant_official_tourism_record",
+            "branchMenuApplicability": "source_record_specific_restaurant_not_current_sale",
+            "preparationNotice": "공개 출처 기반 메뉴 정보. 현재 영업·메뉴 판매 미확인 · 고객 맵기 평가 없음.",
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-13T14:17:37.136475+00:00",
+            "licenseName": null,
+            "explicitOpenLicense": false,
+            "reuseBasis": "limited-individual-fact-review",
+            "originalName": "홍합 매운 짬뽕",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      },
+      "aliasBindings": [],
+      "nameAliases": [
+        "신길동별난아찌짬뽕",
+        "신길동 별난아찌 짬뽕"
+      ],
+      "independentReview": {
+        "packetFile": "outputs/requested-spicy-stores-20261013/named-two-ready-for-qa.json",
+        "packetSha256": "38ac9dec3fc183ec86337f937189879733ca8ab017a19eb48d8e37fe417b757e",
+        "qaFile": "outputs/requested-spicy-stores-20261013/named-two-independent-qa-final.json",
+        "qaSha256": "8067fab64144b044b54b4c92448baa1998bfd15eff11927a10366113aa9693ec",
+        "originalQaFile": "outputs/requested-spicy-stores-20261013/named-two-independent-qa.json",
+        "originalQaSha256": "1d3cdd695d388d83b616a9361b4c2279a77c940be52d9f47a57413c99604123b",
+        "coordinateSource": {
+          "datasetUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+          "sourceAsOf": "2026-06-30",
+          "file": "outputs/seoul-spicy-research-20261013/raw/sbiz-seoul-202606.csv",
+          "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+          "nativeID": "MA010120220800449731",
+          "csvLine": 36920,
+          "dataRowNumber": 36919,
+          "coordinateSystem": "WGS84",
+          "license": "이용허락범위 제한 없음",
+          "scope": "identity-location-only"
+        },
+        "menuSource": {
+          "url": "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=7cc157ee-b662-40a8-a629-25daa6582198",
+          "kind": "official-tourism-place-menu",
+          "minimalFacts": "대표 메뉴 홍합 매운 짬뽕; 신길역1번출구 부근",
+          "sourceDate": null,
+          "checkedAt": "2026-10-13T14:17:37.136475+00:00",
+          "explicitPageOpenLicense": false,
+          "reuseScope": "Only isolated noncreative factual names/options are restated. No review, prose, price, rating, image or whole database reproduction; not a blanket license assertion."
+        },
+        "identityLinkageEvidence": [
+          {
+            "url": "https://www.tabling.co.kr/place/677cc78666de5f069874e313",
+            "kind": "secondary-identity-alias-menu",
+            "minimalFacts": "신길동 별난아찌 짬뽕; 영등포로62길10-1; 홍합매운짬뽕",
+            "sourceDate": null,
+            "checkedAt": "2026-10-13T14:17:37.136475+00:00",
+            "explicitPageOpenLicense": false,
+            "reuseScope": "Only isolated noncreative factual names/options are restated. No review, prose, price, rating, image or whole database reproduction; not a blanket license assertion.",
+            "readMode": "Search-index corroboration. Direct URL open returned 403 during independent QA.",
+            "directReadVerified": false,
+            "evidenceLimitation": "Not independent from Polle review integration; use directly read Polle for address."
+          },
+          {
+            "url": "https://drinkneat.tistory.com/69?category=1280843",
+            "kind": "dated-identity-alias-lead",
+            "minimalFacts": "신길동 별난아찌 매운짬뽕과 신길동 매운짬뽕의 동명이칭",
+            "sourceDate": "2025-03-18",
+            "checkedAt": "2026-10-13T14:17:37.136475+00:00",
+            "explicitPageOpenLicense": false,
+            "reuseScope": "Only isolated noncreative factual names/options are restated. No review, prose, price, rating, image or whole database reproduction; not a blanket license assertion."
+          },
+          {
+            "url": "https://polle.com/place/4rZFMb/%EC%8B%A0%EA%B8%B8%EB%8F%99%20%EB%B3%84%EB%82%9C%EC%95%84%EC%B0%8C%20%EC%A7%AC%EB%BD%95",
+            "kind": "secondary-direct-identity-address",
+            "readMode": "web.open page body by independent QA",
+            "directReadVerified": true,
+            "minimalFacts": "신길동 별난아찌 짬뽕; 영등포로62길10-1; 홍합매운짬뽕",
+            "checkedAt": "2026-10-13T14:24:24.575806+00:00",
+            "sourceDate": null,
+            "explicitPageOpenLicense": false,
+            "reuseScope": "Isolated business/menu/address facts only; no ratings, prices, review prose or photos."
+          }
+        ],
+        "addressDetail": null,
+        "notes": [
+          "SBIZ 상호와 공개명은 다르나 같은 도로주소/대표메뉴/신길역 위치와 별난아찌 별칭으로 연결됨. 다른 관악구/논현지점은 제외.",
+          "SBIZ 2층 표기는 최신 독립 출처 검증 전 상세주소에 반영하지 않음. 별칭 연결을 독립QA에서 재검토.",
+          "Page says 1층 while SBIZ says 2층. Keep public addressDetail null. Street address matches.",
+          "별난아찌 별칭 결합은 SBIZ + KTO 메뉴/역세권 + 직접 읽은 블로그의 별칭 + Polle 도로주소의 교차근거 추론이며 점주확인 아님.",
+          "KTO 본문은 정확한 도로주소/별난아찌 별칭을 표시하지 않았으므로 해당 사실을 KTO에 귀속하지 않음."
+        ],
+        "duplicateCheck": {
+          "reviewedIndexCount": 2396,
+          "preparedSourceCount": 946,
+          "exactNativeIDMatches": [],
+          "normalizedNameMatches": [],
+          "normalizedAddressMatches": [],
+          "preparedMatches": [],
+          "result": "none"
+        },
+        "doesNotEstablish": [
+          "current_operation",
+          "current_menu_sale",
+          "numeric_heat",
+          "consumer_rating",
+          "ownership"
+        ],
+        "scope": "Individual minimal menu names only; no source prose, photos, reviews, price, numeric heat, full native rows or blanket webpage license."
+      }
+    }
+  }
+]

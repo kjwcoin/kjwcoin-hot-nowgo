@@ -33,10 +33,10 @@ async function seed(h,body=fixture,etag=version(1)){
  const pending=h.render().refresh();h.reply(h.reads.length-1,response(body,etag));await pending;return h.render();
 }
 
-test('manifest envelope is byte-stable and its review watermark never rewrites individual source dates',()=>{
+test('manifest envelope is byte-stable and withdrawal review watermark never rewrites individual source dates',()=>{
  const first=readonlySourceStoreFeed(),second=readonlySourceStoreFeed();assert.equal(JSON.stringify(first),JSON.stringify(second));
  const dates=first.stores.flatMap(store=>[store.source.checkedAt,store.source.fieldProvenance?.registration?.checkedAt,store.source.fieldProvenance?.identity?.checkedAt,store.source.fieldProvenance?.coordinates.checkedAt,...store.menus.flatMap(menu=>[menu.sourceTaste?.checkedAt,menu.provenance?.checkedAt])]).filter(Boolean);
- assert.equal(first.asOf,new Date(Math.max(...dates.map(Date.parse))).toISOString());
+ assert.equal(first.asOf,new Date(Math.max(Date.parse('2026-10-13T13:31:00.000Z'),...dates.map(Date.parse))).toISOString());
  assert.notEqual(first.asOf,new Date().toISOString());assert.equal(first.stores[0].source.asOf,null);
 });
 

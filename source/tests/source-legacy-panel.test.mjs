@@ -113,6 +113,19 @@ test('Back restores the list scroll position and focuses the newly mounted sourc
  nodes.find(node=>node.type===state.Card).props.onSelect(store,store.menus[0].id);nodes=elements(render());harness.flushEffects();assert.equal(firstBody.scrollTop,0);
  nodes.find(node=>node.type===state.Detail).props.onBack();nodes=elements(render());
  const newRow={dataset:{sourceMenuId:store.menus[0].id},focus:options=>{focused=options}};
- const newBody={scrollTop:0,querySelectorAll:selector=>{assert.equal(selector,'[data-menu-id],[data-source-menu-id]');return [newRow]}};
+ const newBody={scrollTop:0,querySelectorAll:selector=>{assert.equal(selector,'[data-menu-id],[data-source-menu-id],[data-source-store-id]');return [newRow]}};
  nodes.find(node=>node.props?.id==='map-results').props.ref.current=newBody;harness.flushEffects();assert.equal(newBody.scrollTop,128);assert.equal(focused.preventScroll,true);
+});
+
+
+test('Back restores focus to an identity-only source card using the stable store ID',()=>{
+ const identityOnly={...store,menus:[]};
+ const harness=hookHarness(),state=sourceUi({react:harness.react});const render=()=>harness.render(()=>state.Explorer({previewStore:identityOnly}));
+ let nodes=elements(render()),focused=null;
+ const firstBody={scrollTop:144,querySelectorAll:()=>[]};nodes.find(node=>node.props?.id==='map-results').props.ref.current=firstBody;
+ nodes.find(node=>node.type===state.Card).props.onSelect(identityOnly);nodes=elements(render());harness.flushEffects();assert.equal(firstBody.scrollTop,0);
+ const detail=nodes.find(node=>node.type===state.Detail);assert.deepEqual(detail.props.store.menus,[]);detail.props.onBack();nodes=elements(render());
+ const newRow={dataset:{sourceStoreId:identityOnly.id},focus:options=>{focused=options}};
+ const newBody={scrollTop:0,querySelectorAll:selector=>{assert.equal(selector,'[data-menu-id],[data-source-menu-id],[data-source-store-id]');return [newRow]}};
+ nodes.find(node=>node.props?.id==='map-results').props.ref.current=newBody;harness.flushEffects();assert.equal(newBody.scrollTop,144);assert.equal(focused.preventScroll,true);
 });

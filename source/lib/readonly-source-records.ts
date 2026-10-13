@@ -1,7 +1,22 @@
+import requestedTwo from '../data/hot-source-requested-two-20261013.json' with {type:'json'};
+import licensedMenus from '../data/hot-source-licensed-menu-20261013.json' with {type:'json'};
+import regionalgwangmyeong from '../data/hot-source-regional348/gwangmyeong.json' with {type:'json'};
+import regionalsiheung from '../data/hot-source-regional348/siheung.json' with {type:'json'};
+import regionalbusan from '../data/hot-source-regional348/busan.json' with {type:'json'};
+import regionalicheon from '../data/hot-source-regional348/icheon.json' with {type:'json'};
+import regionalgwangju from '../data/hot-source-regional348/gwangju.json' with {type:'json'};
+import regionalgimpo from '../data/hot-source-regional348/gimpo.json' with {type:'json'};
+import regionalnamyangju from '../data/hot-source-regional348/namyangju.json' with {type:'json'};
+import regionalgoyang from '../data/hot-source-regional348/goyang.json' with {type:'json'};
+import regionalsuwon from '../data/hot-source-regional348/suwon.json' with {type:'json'};
+import regionalhwaseong from '../data/hot-source-regional348/hwaseong.json' with {type:'json'};
+import regionalyongin from '../data/hot-source-regional348/yongin.json' with {type:'json'};
+import regionalseongnam from '../data/hot-source-regional348/seongnam.json' with {type:'json'};
 import individualMenus from '../data/hot-source-individual-menu-20261013.json' with {type:'json'};
 /** Server-only evidence assembly. Never import this module into client components.
  * The public DTO is separately validated; raw CSV and rights reviews stay here.
- * District partitions preserve every frozen record and the exact reviewed ordering.
+ * District partitions preserve reviewed identities and ordering. Rights withdrawals
+ * also redact earlier contracts; historical menu bodies are not immutable promises.
  */
 import base from '../data/hot-source-listings.json' with {type:'json'};
 import index from '../data/hot-source-seoul-following/index.json' with {type:'json'};
@@ -30,12 +45,18 @@ import district11650 from '../data/hot-source-seoul-following/11650.json' with {
 import district11680 from '../data/hot-source-seoul-following/11680.json' with {type:'json'};
 import district11710 from '../data/hot-source-seoul-following/11710.json' with {type:'json'};
 import district11740 from '../data/hot-source-seoul-following/11740.json' with {type:'json'};
-export type ReadonlySourceRecord={id:string;slug:string;name:string;address:string;lat:number;lon:number;source_ref:string;source_metadata:{menus:{id:string;name:string}[];aliasBindings?:{sourceRef:string;id:string;menuId:string}[];[key:string]:unknown}};
+export type ReadonlySourceRecord={id:string;slug:string;name:string;address:string;lat:number;lon:number;source_ref:string;source_metadata:{menus:{id:string;name:string}[];revokedMenuIds?:string[];aliasBindings?:{sourceRef:string;id:string;menuId:string}[];[key:string]:unknown}};
 const additions=[...district11110,...district11140,...district11170,...district11200,...district11215,...district11230,...district11260,...district11290,...district11305,...district11320,...district11350,...district11380,...district11410,...district11440,...district11470,...district11500,...district11530,...district11545,...district11560,...district11590,...district11620,...district11650,...district11680,...district11710,...district11740] as ReadonlySourceRecord[];
 const byRef=new Map(additions.map(row=>[row.source_ref,row]));
-if(base.length!==130||additions.length!==458||byRef.size!==458||index.total!==458||index.orderedSourceRefs.length!==458||new Set(index.orderedSourceRefs).size!==458)throw Error('invalid_source_district_partition');
+if(base.length!==99||additions.length!==315||byRef.size!==315||index.total!==315||index.orderedSourceRefs.length!==315||new Set(index.orderedSourceRefs).size!==315)throw Error('invalid_source_district_partition');
 const ordered=index.orderedSourceRefs.map(ref=>{const row=byRef.get(ref);if(!row)throw Error('missing_source_partition_record');return row});
 export const reviewed588Records:ReadonlySourceRecord[]=[...base,...ordered];
-const records:ReadonlySourceRecord[]=[...reviewed588Records,...individualMenus];
+export const reviewed591Records:ReadonlySourceRecord[]=[...reviewed588Records,...individualMenus];
+const regionalRecords:ReadonlySourceRecord[]=[...regionalgwangmyeong,...regionalsiheung,...regionalbusan,...regionalicheon,...regionalgwangju,...regionalgimpo,...regionalnamyangju,...regionalgoyang,...regionalsuwon,...regionalhwaseong,...regionalyongin,...regionalseongnam];
+if(regionalRecords.length!==348||licensedMenus.length!==7)throw Error('invalid_new_source_partition');
+export const reviewed946Records:ReadonlySourceRecord[]=[...reviewed591Records,...regionalRecords,...licensedMenus];
+if(reviewed946Records.length!==772||requestedTwo.length!==2)throw Error('invalid_requested_source_partition');
+const records:ReadonlySourceRecord[]=[...reviewed946Records,...requestedTwo];
 if(new Set(records.map(row=>row.id)).size!==records.length||new Set(records.map(row=>row.source_ref)).size!==records.length)throw Error('duplicate_source_partition_identity');
+if(records.length!==774||records.some(row=>!row.source_metadata.menus.length))throw Error('invalid_menu_only_source_partition');
 export default records;

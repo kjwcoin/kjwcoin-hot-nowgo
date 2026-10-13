@@ -1,3 +1,5 @@
+import licensedAdditions from '../data/hot-source-licensed-menu-20261013.json' with {type:'json'};
+const licensedRefs=new Set(licensedAdditions.map(row=>row.source_ref));
 import test from 'node:test';
 import * as contracts from '../lib/source-feed-contract.ts';
 import assert from 'node:assert/strict';
@@ -15,9 +17,9 @@ function load({enabled=true,reader=readonlySourceStoreFeed}={}){
  vm.runInNewContext(ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText,{exports,process:{env:{NOWGO_UNCLAIMED_STORES_ENABLED:enabled?'true':'false'}},require:name=>{assert.ok(name in dependencies,name);return dependencies[name]}});
  return {...exports,calls};
 }
-test('first public feed contains exactly 591 scoped source-only listings and no held sixth',async()=>{
- const feed=await load().readSourcedStoreFeed();assert.equal(READONLY_SOURCE_PUBLICATION,true);assert.equal(feed.stores.length,591);assert.equal(feed.complete,true);
- for(const store of feed.stores){assert.equal(store.registrationState,'source-only');assert.equal(store.ownerClaimVerified,false);assert.equal(store.indexable,true);assert.equal(store.reportingState,'pending');assert.equal(isReadonlySourceStoreId(store.id),true);assert.equal(isReadonlySourceStoreId(store.id.toUpperCase()),true);assert.equal(isReadonlySourceStoreId('{'+store.id+'}'),true);assert.equal(isReadonlySourceStoreId(store.id.replaceAll('-','')),true);for(const menu of store.menus){assert.equal(menu.heat,null);assert.equal(menu.price,null);assert.equal(menu.image,null);if(menu.provenance){assert.equal(menu.sourceTaste,null);assert.equal(menu.provenance.explicitOpenLicense,false)}else{assert.ok(menu.sourceTaste.description);assert.equal(menu.sourceTaste.sourceUrl,store.source.url)}}}
+test('first public feed contains exactly 948 scoped source-only listings and no held sixth',async()=>{
+ const feed=await load().readSourcedStoreFeed();assert.equal(READONLY_SOURCE_PUBLICATION,true);assert.equal(feed.stores.length,948);assert.equal(feed.complete,true);
+ for(const store of feed.stores){assert.equal(store.registrationState,'source-only');assert.equal(store.ownerClaimVerified,false);assert.equal(store.indexable,true);assert.equal(store.reportingState,'pending');assert.equal(isReadonlySourceStoreId(store.id),true);assert.equal(isReadonlySourceStoreId(store.id.toUpperCase()),true);assert.equal(isReadonlySourceStoreId('{'+store.id+'}'),true);assert.equal(isReadonlySourceStoreId(store.id.replaceAll('-','')),true);for(const menu of store.menus){assert.equal(menu.heat,null);assert.equal(menu.price,null);assert.equal(menu.image,null);if(menu.provenance){assert.equal(menu.sourceTaste,null);assert.equal(menu.provenance.explicitOpenLicense,licensedRefs.has(store.sourceRef))}else{assert.ok(menu.sourceTaste.description);assert.equal(menu.sourceTaste.sourceUrl,store.source.url)}}}
  assert.ok(feed.stores.every(store=>!store.name.includes('전골그집')));assert.equal(isReadonlySourceStoreId('5c7fbc3f-8d90-58e6-9817-695de84a5efd'),false);assert.equal(isReadonlySourceStoreId(null),false);
  assert.doesNotMatch(source,/fetch\(|publicDb|service.role|\.from\(|authorization|nowgo\.space/i);
 });
