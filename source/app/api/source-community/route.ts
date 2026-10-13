@@ -1,3 +1,4 @@
+import sharp from 'sharp';
 import records from '@/lib/readonly-source-records';
 import {sourceTasteInput} from '@/lib/source-community';
 import {publicDb,verifiedUser} from '@/lib/supabase';
@@ -13,24 +14,38 @@ function rpcError(request:Request,error:{message:string}){
  if(error.message.includes('invalid_'))return reply(request,{error:'메뉴와 맛 정보를 확인해 주세요.'},400);
  return failure(request,error);
 }
+async function photos(client:ReturnType<typeof publicDb>,data:Record<string,unknown>){const menus=(data.menus||[]) as Record<string,unknown>[];return {...data,menus:await Promise.all(menus.map(async menu=>{if(typeof menu.photoPath!=='string')return menu;const {data:photo}=await client.storage.from('hot-source-menu-photos').createSignedUrl(menu.photoPath,3600);return {...menu,photoUrl:photo?.signedUrl||null}}))}}
 export async function GET(request:Request){
  if(variantForHost(request.headers.get('host'))!=='hot')return reply(request,{error:'HOT 지도를 이용해 주세요.'},404);
  const params=new URL(request.url).searchParams,id=store(params.get('storeId'));
  if(!id||params.getAll('storeId').length!==1)return reply(request,{error:'매장을 다시 선택해 주세요.'},400);
- try{const auth=await verifiedUser(request),client=auth?.client||publicDb();const [summary,status]=await Promise.all([client.rpc('ng_hot_source_community_state',{p_store:id}),client.rpc('ng_hot_source_status_state',{p_store:id})]);return summary.error||status.error?rpcError(request,(summary.error||status.error)!):reply(request,{...summary.data,statuses:status.data})}catch(error){return failure(request,error)}
+ try{const auth=await verifiedUser(request),client=auth?.client||publicDb();const [summary,status]=await Promise.all([client.rpc('ng_hot_source_community_state',{p_store:id}),client.rpc('ng_hot_source_status_state',{p_store:id})]);return summary.error||status.error?rpcError(request,(summary.error||status.error)!):reply(request,await photos(client,{...summary.data,statuses:status.data}))}catch(error){return failure(request,error)}
 }
 export async function POST(request:Request){
  if(!request.headers.get('origin')||!validOrigin(request))return reply(request,{error:'같은 지도에서 참여해 주세요.'},403);
  if(variantForHost(request.headers.get('host'))!=='hot')return reply(request,{error:'HOT 지도를 이용해 주세요.'},404);
  try{
   const auth=await verifiedUser(request);if(!auth)return reply(request,{error:'로그인 후 제보하거나 점주 가입을 요청해 주세요.',code:'login_required'},401);
+  if(request.headers.get('content-type')?.includes('multipart/form-data')){
+   const form=await request.formData(),id=store(form.get('storeId')),photo=form.get('photo');
+   let taste;try{taste=sourceTasteInput({menu:form.get('menu'),heat:Number(form.get('heat')),flavor:form.get('flavor'),note:'',consent:form.get('consent')==='true'})}catch{return reply(request,{error:'메뉴 이름·맵기·카테고리·사진 공개 동의를 확인해 주세요.'},400)}
+   const price=Number(form.get('price'));
+   if(!id||form.get('price')===null||form.get('price')===''||!Number.isSafeInteger(price)||price<0||price>10000000||!(photo instanceof File)||!photo.size||!['image/jpeg','image/png','image/webp'].includes(photo.type))return reply(request,{error:'메뉴 사진과 실제 가격을 확인해 주세요.'},400);
+   let bytes:Buffer;try{bytes=await sharp(await photo.arrayBuffer()).rotate().resize(1600,1600,{fit:'inside',withoutEnlargement:true}).webp({quality:82}).toBuffer()}catch{return reply(request,{error:'사진을 읽지 못했어요. 다른 사진으로 다시 시도해 주세요.'},400)}
+   const path=auth.user.id+'/'+id+'/'+crypto.randomUUID()+'.webp';
+   const upload=await auth.client.storage.from('hot-source-menu-photos').upload(path,bytes,{contentType:'image/webp',upsert:false});if(upload.error)return failure(request,upload.error);
+   const saved=await auth.client.rpc('ng_hot_source_menu_submit',{p_store:id,p_menu:taste.menu,p_heat:taste.heat,p_flavor:taste.flavor,p_price:price,p_photo:path,p_consent:true});
+   if(saved.error){await auth.client.storage.from('hot-source-menu-photos').remove([path]);return rpcError(request,saved.error)}
+   const status=await auth.client.rpc('ng_hot_source_status_state',{p_store:id});return status.error?rpcError(request,status.error):reply(request,await photos(auth.client,{...saved.data,statuses:status.data}));
+  }
   if(Number(request.headers.get('content-length')||0)>8192)return reply(request,{error:'입력 내용이 너무 길어요.'},413);
   let body:unknown;try{body=await request.json()}catch{return reply(request,{error:'입력 내용을 확인해 주세요.'},400)}
   const row=body&&typeof body==='object'&&!Array.isArray(body)?body as Record<string,unknown>:null,id=store(row?.storeId);
   if(!row||!id||!['taste','owner-request','status'].includes(String(row.action)))return reply(request,{error:'매장과 참여 종류를 확인해 주세요.'},400);
-  if(row.action==='status'){if(!['open','closed_for_day','regular_closed','permanent_closed','temporary_closed','ingredients_soldout'].includes(String(row.status))||row.observed!==true)return reply(request,{error:'직접 확인한 영업상태를 선택해 주세요.'},400);const status=await auth.client.rpc('ng_hot_source_status_submit',{p_store:id,p_status:row.status});if(status.error)return rpcError(request,status.error);const summary=await auth.client.rpc('ng_hot_source_community_state',{p_store:id});if(summary.error)return rpcError(request,summary.error);return reply(request,{...summary.data,...status.data})}
+  if(row.action==='status'){if(!['open','closed_for_day','regular_closed','permanent_closed','temporary_closed','ingredients_soldout'].includes(String(row.status))||row.observed!==true)return reply(request,{error:'직접 확인한 영업상태를 선택해 주세요.'},400);const status=await auth.client.rpc('ng_hot_source_status_submit',{p_store:id,p_status:row.status});if(status.error)return rpcError(request,status.error);const summary=await auth.client.rpc('ng_hot_source_community_state',{p_store:id});if(summary.error)return rpcError(request,summary.error);return reply(request,await photos(auth.client,{...summary.data,...status.data}))}
+  if(row.action==='taste')return reply(request,{error:'메뉴 이름·사진·가격을 올려 주세요. 새로고침 후 사진을 첨부해 주세요.'},400);
   let taste;try{taste=row.action==='taste'?sourceTasteInput(row):null}catch{return reply(request,{error:'메뉴·맛 단계·카테고리와 직접 먹어본 메뉴 동의를 확인해 주세요.'},400)}
   const {data,error}=await auth.client.rpc('ng_hot_source_community_submit',{p_store:id,p_action:row.action,p_menu:taste?.menu||'',p_heat:taste?.heat||null,p_flavor:taste?.flavor||'',p_note:taste?.note||'',p_consent:taste?.consent||false});
-  if(error)return rpcError(request,error);const status=await auth.client.rpc('ng_hot_source_status_state',{p_store:id});return status.error?rpcError(request,status.error):reply(request,{...data,statuses:status.data});
+  if(error)return rpcError(request,error);const status=await auth.client.rpc('ng_hot_source_status_state',{p_store:id});return status.error?rpcError(request,status.error):reply(request,await photos(auth.client,{...data,statuses:status.data}));
  }catch(error){return failure(request,error)}
 }
