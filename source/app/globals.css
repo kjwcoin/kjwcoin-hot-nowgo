@@ -408,14 +408,14 @@ body[data-theme="hot"] :is(
   outline-offset: 3px;
 }
 
-/* Light-gray unverified HOT icons retain a visible edge, without changing cards. */
+/* HOT pins share the brand red; ownership remains explicit in detail copy. */
 body[data-theme="hot"] .map-anchor--sourced:not(.map-anchor--sourced-verified) .map-source-pin {
-  background: #d9dde1;
-  border-color: #727c86;
+  background: var(--brand-ink,#bd3828);
+  border-color: #fff;
   box-shadow: 0 0 0 2px #fff, 0 2px 6px #0003;
 }
 body[data-theme="hot"] .map-anchor.map-anchor--reported .map-anchor-pin {
-  filter: grayscale(1) contrast(.2) brightness(1.7) drop-shadow(0 0 1px #606972);
+  filter: none;
 }
 /* Spatial quantity only: never a heat score or ownership indicator. */
 .map-store-cluster{display:grid;place-items:center;width:52px;height:52px;box-sizing:border-box;padding:0;border:3px solid #fff;border-radius:50%;background:#e5e7eb;color:#34383b;box-shadow:0 0 0 1px #929aa2,0 3px 9px #17213c29;font-size:17px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums;white-space:nowrap;cursor:pointer;touch-action:manipulation}
