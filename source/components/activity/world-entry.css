@@ -44,3 +44,5 @@
  .we-dialog .we-title{font-size:24px!important}
  .we-hero .aw-actions{margin-top:12px}
 }
+
+.we-dialog .we-challenge-copy{font-size:clamp(23px,2.7vw,36px);line-height:1.35;margin:16px 0 0;color:var(--planet);font-weight:800;letter-spacing:-.04em}.we-description-full,.we-description-compact{overflow-wrap:anywhere}@media(max-width:700px){.we-dialog .we-challenge-copy{font-size:22px;margin-top:12px}.we-hero .aw-actions>*{font-size:14px}.we-hero .aw-button svg{width:15px;flex-shrink:0}}

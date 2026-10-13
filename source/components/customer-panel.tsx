@@ -20,5 +20,5 @@ export default function CustomerPanel({variant='hot',worldEntryOpen=false,onWorl
  {regularHref&&state.signedIn&&state.owner===false&&<RegularHomeLink variant={variant} className={styles.mobileRegular}>내 단골 목록</RegularHomeLink>}
  {state.signedIn&&<Button className={styles.logout} variant="ghost" disabled={loggingOut} onClick={()=>void logout()}><LogOut size={18}/><span>{loggingOut?'로그아웃 중':'로그아웃'}</span></Button>}
  {logoutError&&<span className={styles.error} role="alert">{logoutError}</span>}
- </div><WorldEntry planet={planet} state={state} open={worldEntryOpen&&(state.owner===false||state.signedIn===false)} onClose={onWorldEntryClose} onActivity={(tab='info')=>{onWorldEntryClose();location.assign('/account?tab='+encodeURIComponent(tab))}}/></>;
+ </div><WorldEntry planet={planet} state={state} open={worldEntryOpen&&(planet==='hot'||state.owner===false||state.signedIn===false)} onClose={onWorldEntryClose} onActivity={(tab='info')=>{onWorldEntryClose();location.assign('/account?tab='+encodeURIComponent(tab))}}/></>;
 }
