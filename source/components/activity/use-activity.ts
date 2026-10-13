@@ -4,7 +4,7 @@ import {api} from '@/lib/client';
 import {browserDb} from '@/lib/supabase-browser';
 import type {ActivitySnapshot,Planet} from '@/lib/activity/model';
 
-export function useActivity(planet:Planet){
+export function useActivity(planet:Planet,includeOwners=false){
  const [data,setData]=useState<ActivitySnapshot|null>(null);
  const [error,setError]=useState('');
  const [signedIn,setSignedIn]=useState<boolean|null>(null);
@@ -29,14 +29,14 @@ export function useActivity(planet:Planet){
    if(run!==request.current)return;
    if(typeof role.existingOwner!=='boolean')throw new Error('계정을 확인하지 못했어요.');
    roleChecked=true;setOwner(role.existingOwner);
-   if(role.existingOwner){setData(null);setError('');return;}
+   if(role.existingOwner&&!includeOwners){setData(null);setError('');return;}
    const snapshot=await api<ActivitySnapshot>('/api/activity/snapshot');
    if(run!==request.current)return;
    setData(snapshot);setError('');
   }catch(e){
    if(run===request.current){if(!roleChecked)setOwner(null);setData(null);setError((e as Error).message);}
   }
- },[]);
+ },[includeOwners]);
  useEffect(()=>{
   let alive=true;
   let channel:ReturnType<ReturnType<typeof browserDb>['channel']>|null=null;

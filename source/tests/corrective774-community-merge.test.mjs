@@ -23,6 +23,6 @@ test('community route preserves backend-not-found, excluded-store and login gate
 });
 
  test('newest character progress and expanded mobile-list interactions are preserved',()=>{
- const detail=readFileSync(new URL('../components/sourced-store-detail.tsx',import.meta.url),'utf8');assert.match(detail,/<SourceAccountCharacter returnTo=\{path\}\/>/);assert.doesNotMatch(detail,/<SourceAccountCharacter returnTo=\{path\} readOnly/);
+ const detail=readFileSync(new URL('../components/sourced-store-detail.tsx',import.meta.url),'utf8');assert.doesNotMatch(detail,/<SourceAccountCharacter/);assert.doesNotMatch(detail,/<SourceAccountCharacter returnTo=\{path\} readOnly/);
  const explorer=readFileSync(new URL('../components/map-explorer.tsx',import.meta.url),'utf8');assert.match(explorer,/if\(expanded&&window\.matchMedia/);assert.match(explorer,/moveSheet\(0\);if\(searchRow\.current\)setMobileDetailTop/);assert.match(explorer,/data-source-store-id/);
  });

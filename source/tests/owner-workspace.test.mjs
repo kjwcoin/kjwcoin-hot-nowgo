@@ -57,16 +57,18 @@ function panel(variant,owner){
  return {nodes,regular};
 }
 for(const variant of ['hot','sweet','rich']){
- test(variant+' owner header replaces activity and favorites with store management',()=>{
+ test(variant+' owner header keeps a separate HOT dashboard entry',()=>{
   const {nodes,regular}=panel(variant,true);
-  const links=nodes.filter(n=>n.props.href==='/owner');
-  assert.equal(links.length,1);assert.equal(links[0].children[0],'내 매장관리');
+  const links=nodes.filter(n=>n.props.href==='/owner/dashboard');
+  assert.equal(links.length,1);assert.equal(links[0].children[0],'내 매장');
   assert.equal(nodes.some(n=>n.type===regular),false);
-  assert.equal(nodes.some(n=>n.props['aria-label']==='내 활동'),false);
+  assert.equal(nodes.some(n=>n.props['aria-label']==='내 계정'),true);
  });
- test(variant+' customer header keeps activity and favorites',()=>{
+ test(variant+' customer header exposes account, favorites and owner login',()=>{
   const {nodes,regular}=panel(variant,false);
-  assert.equal(nodes.some(n=>n.props['aria-label']==='내 활동'),true);
+  assert.equal(nodes.some(n=>n.props['aria-label']==='내 계정'),true);
   assert.equal(nodes.find(n=>n.type===regular).children[0],'내 단골 목록');
+  assert(nodes.some(n=>n.props.href==='/account/join?type=owner&returnTo=%2Fowner%2Fdashboard'));
+  assert(!nodes.some(n=>n.props['aria-label']==='내 계정 캐릭터'));
  });
 }

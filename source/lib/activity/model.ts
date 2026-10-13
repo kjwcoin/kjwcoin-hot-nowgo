@@ -18,7 +18,7 @@ export const BADGES = [
  {id:'my-regular',name:'나만의 단골',image:'award-5',rule:'미니홈피에서 단골 등록 또는 같은 매장 2일 이상 방문 인증'},
 ];
 export type ActivityEvent={id:string;kind:string;title:string;status:string;occurred_at:string;source_key:string};
-export type Visit={id:string;store_id:string|null;shop:string;menu:string;country:string;region:string;visited_on:string;status:string;note:string;taste:number|null;texture:number|null};
+export type Visit={id:string;store_id:string|null;shop:string;menu:string;country:string;region:string;visited_on:string;status:string;note:string;taste:number|null;texture:number|null;source_store_id?:string|null;challenge_title?:string;challenge_result?:string|null};
 export type Photo={id:string;visit_id:string;path:string;bucket?:string;url?:string;created_at:string};
 export type Award={id:string;badge_id:string;title:string;image:string;limited:boolean;earned_at:string;campaign_id:string|null};
 export type Notice={id:string;title:string;body:string;read_at:string|null;created_at:string};
