@@ -1,0 +1,212 @@
+[
+  {
+    "id": "48fef924-2450-5bdf-992d-33feac66faa1",
+    "slug": "hot-mokpo-pomi-pyeonghwa",
+    "name": "포미아구찜 평화광장점",
+    "address": "전라남도 목포시 평화로 53-3 1층",
+    "lat": 34.7961095,
+    "lon": 126.4305943,
+    "source_ref": "jeonnam-local-mokpo-pomi-pyeonghwa",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://findby.co.kr/details/58748-121103281086-st-6a4c292d67acb17848d2270f",
+      "sourceRecordId": "jeonnam-local-mokpo-pomi-pyeonghwa",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T08:35:40Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "jeonnam-local-mokpo-pomi-pyeonghwa:menu:1",
+          "name": "아구찜 매운맛",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "Findby 개별 건물주소 자료",
+        "attribution": "상호·메뉴: 한국관광공사·목포시 관광안내. 주소: 공개 매장정보. 위치: Findby 개별 건물주소 자료.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일:2026-10-14. 주소에 대응하는 자료 위치이며 매장 입구·층·호 위치는 미확인입니다. 현재 영업 및 메뉴 제공 여부는 미확인입니다. 확인일은 원자료 갱신일이 아니며 좌표 조사일·생성 방식은 미확인입니다. 개별 공개 사실의 제한적 이용이며 명시적 오픈 라이선스나 원제공자 이용허락의 승계를 주장하지 않습니다. 일부 메뉴·주소와 좌표 근거는 공개 검색 색인에서 확인했습니다. 지역명은 서비스의 전라남도 분류를 사용합니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "4b3a2c2b-0131-5ffb-af0b-f491713a2cf2",
+    "slug": "hot-suncheon-baekdusan",
+    "name": "백두산갈비",
+    "address": "전라남도 순천시 장자보1길 36-25",
+    "lat": 34.9445939024078,
+    "lon": 127.516627840942,
+    "source_ref": "jeonnam-local-suncheon-baekdusan",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://smi.purpleo.kr/article/53117",
+      "sourceRecordId": "jeonnam-local-suncheon-baekdusan",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T08:35:40Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "jeonnam-local-suncheon-baekdusan:menu:1",
+          "name": "묵은지매운갈비찜",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "smi.purpleo 개별 상가정보 자료",
+        "attribution": "상호·주소·메뉴: punch-aejung 공개 방문기(2023-03-29). 위치: smi.purpleo 개별 상가정보 자료.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일:2026-10-14. 주소에 대응하는 자료 위치이며 매장 입구·층·호 위치는 미확인입니다. 현재 영업 및 메뉴 제공 여부는 미확인입니다. 확인일은 원자료 갱신일이 아니며 좌표 조사일·생성 방식은 미확인입니다. 개별 공개 사실의 제한적 이용이며 명시적 오픈 라이선스나 원제공자 이용허락의 승계를 주장하지 않습니다. 일부 메뉴·주소와 좌표 근거는 공개 검색 색인에서 확인했습니다. 지역명은 서비스의 전라남도 분류를 사용합니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "a106e1e6-1871-5331-a510-6b0ae52c2014",
+    "slug": "hot-naju-taegwang-main",
+    "name": "태광갈비 본점",
+    "address": "전라남도 나주시 북망문길 36-15",
+    "lat": 35.0390717600326,
+    "lon": 126.717595119924,
+    "source_ref": "jeonnam-local-naju-taegwang-main",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://smi.purpleo.kr/article/52988",
+      "sourceRecordId": "jeonnam-local-naju-taegwang-main",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T08:38:50Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "jeonnam-local-naju-taegwang-main:menu:1",
+          "name": "나주식갈비 매운맛",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "smi.purpleo 개별 상가정보 자료",
+        "attribution": "상호·주소·메뉴: 남도음식명가DB. 위치: smi.purpleo 개별 상가정보 자료.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일:2026-10-14. 주소에 대응하는 자료 위치이며 매장 입구·층·호 위치는 미확인입니다. 현재 영업 및 메뉴 제공 여부는 미확인입니다. 확인일은 원자료 갱신일이 아니며 좌표 조사일·생성 방식은 미확인입니다. 개별 공개 사실의 제한적 이용이며 명시적 오픈 라이선스나 원제공자 이용허락의 승계를 주장하지 않습니다. 지역명은 서비스의 전라남도 분류를 사용합니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "c9126c98-b24e-55f0-b5ce-16690c31438f",
+    "slug": "hot-gwangyang-hanyang",
+    "name": "한양각",
+    "address": "전라남도 광양시 광포로 61",
+    "lat": 34.964034413134,
+    "lon": 127.721063368105,
+    "source_ref": "jeonnam-local-gwangyang-hanyang",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://triple.guide/restaurants/a75b3dbb-42f0-43fa-9d45-bf13bc00f69e",
+      "sourceRecordId": "jeonnam-local-gwangyang-hanyang",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T08:38:50Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "jeonnam-local-gwangyang-hanyang:menu:1",
+          "name": "청양고추짬뽕",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "트리플 개별 장소정보",
+        "attribution": "상호·주소: 공개 음식점 자료·트리플. 메뉴: eatjimmy 공개 방문기 메뉴판(2023-06-14). 위치: 트리플 개별 장소정보.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일:2026-10-14. 주소에 대응하는 자료 위치이며 매장 입구·층·호 위치는 미확인입니다. 현재 영업 및 메뉴 제공 여부는 미확인입니다. 확인일은 원자료 갱신일이 아니며 좌표 조사일·생성 방식은 미확인입니다. 개별 공개 사실의 제한적 이용이며 명시적 오픈 라이선스나 원제공자 이용허락의 승계를 주장하지 않습니다. 지역명은 서비스의 전라남도 분류를 사용합니다. 메뉴는2023-06-14 공개 방문기의 메뉴판에서 확인한 사실이며 현재 제공 여부는 미확인입니다. 위치는 트리플 장소정보 값이며 공공기관 측량좌표로 확인한 값이 아닙니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "58c9a877-42cc-56f4-a5e5-bb050ddc19cf",
+    "slug": "hot-yeosu-hankkune88",
+    "name": "한꾼에88",
+    "address": "전라남도 여수시 충무연등천길 2",
+    "lat": 34.74069760209914,
+    "lon": 127.72959615337295,
+    "source_ref": "jeonnam-local-yeosu-hankkune88",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://triple.guide/restaurants/c1c7679b-2f23-4385-94aa-dc15218dcff4",
+      "sourceRecordId": "jeonnam-local-yeosu-hankkune88",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T08:41:00Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "jeonnam-local-yeosu-hankkune88:menu:1",
+          "name": "매운 돼지갈비찜",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "트리플 개별 장소정보",
+        "attribution": "상호·주소·메뉴: yh323 공개 방문기(2025-04-01). 위치: 트리플 개별 장소정보.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일:2026-10-14. 주소에 대응하는 자료 위치이며 매장 입구·층·호 위치는 미확인입니다. 현재 영업 및 메뉴 제공 여부는 미확인입니다. 확인일은 원자료 갱신일이 아니며 좌표 조사일·생성 방식은 미확인입니다. 개별 공개 사실의 제한적 이용이며 명시적 오픈 라이선스나 원제공자 이용허락의 승계를 주장하지 않습니다. 지역명은 서비스의 전라남도 분류를 사용합니다. 위치는 충무연등천길2에 있는 해당 음식점의 트리플 자료점입니다. 여러 매장이 공유하는 시장 건물로 매장 출입구 위치는 미확인입니다. 인근2-3·2-4번지의 대체 좌표를 사용하지 않았으며 공공기관 측량좌표로 확인한 값이 아닙니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  }
+]

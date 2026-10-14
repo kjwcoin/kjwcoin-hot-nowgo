@@ -10,7 +10,8 @@ import route7BusanRows from '../data/hot-route7-busan2-records.json' with {type:
 import route7Busan8Rows from '../data/hot-route7-busan8-records.json' with {type:'json'};
 import route7UlsanRows from '../data/hot-route7-ulsan1-records.json' with {type:'json'};
 import gangwonRows from '../data/hot-gangwon7-records.json' with {type:'json'};
-const regionalRows=[...priorRegionalRows,...sejongRows,...nextSejongRows,...next64Rows,...next47Rows,...next38Rows,...busan23Rows,...final13Rows,...route7BusanRows,...route7Busan8Rows,...route7UlsanRows,...gangwonRows];
+import jeonnamRows from '../data/hot-jeonnam5-records.json' with {type:'json'};
+const regionalRows=[...priorRegionalRows,...sejongRows,...nextSejongRows,...next64Rows,...next47Rows,...next38Rows,...busan23Rows,...final13Rows,...route7BusanRows,...route7Busan8Rows,...route7UlsanRows,...gangwonRows,...jeonnamRows];
 import {appendRegionalSourceStores} from './regional-source.ts';
 import {publicSourcedStore,type SourcedStoreRow} from './sourced-store.ts';
 import reviewedEleven from '../data/hot-source-reviewed-eleven-20261014.json' with {type:'json'};
@@ -98,5 +99,6 @@ export const reviewed1014Records=[...reviewed1001Records,...activeRegionalRows.f
 export const reviewed1016Records=[...reviewed1014Records,...activeRegionalRows.filter(row=>["route7-bu-001","route7-bu-002"].includes(row.source_ref))];
 export const reviewed1024Records=[...reviewed1016Records,...activeRegionalRows.filter(row=>["route7-busan-next-004","route7-busan-next-005","route7-busan-next-007","route7-busan-next-002","route7-busan-next-003","route7-busan-next-008","route7-busan-next-009","route7-busan-next-010"].includes(row.source_ref))];
 export const reviewed1025Records=[...reviewed1024Records,...activeRegionalRows.filter(row=>["route7-bu-003"].includes(row.source_ref))];
+export const reviewed1032Records=[...reviewed1025Records,...activeRegionalRows.filter(row=>["route7-taebaek-first-001","route7-gangneung-first-001","route7-donghae-first-001","route7-goseong-first-001","route7-sokcho-first-001","route7-samcheok-first-001","route7-yangyang-first-001"].includes(row.source_ref))];
 const activeRecords=[...records,...activeRegionalRows];
 export default activeRecords;
