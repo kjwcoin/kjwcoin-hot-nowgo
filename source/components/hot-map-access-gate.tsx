@@ -21,7 +21,7 @@ export default function HotMapAccessGate({variant='hot'}:{variant?:SiteVariant})
  if(variant!=='hot'||access==='signed-in')return <MapExplorer variant={variant}/>;
  return <main className="hot-map-access">
   <div className="hot-map-access-backdrop" aria-hidden="true" inert>
-   <MapExplorer variant={variant}/>
+   <MapExplorer variant={variant} accessLocked/>
   </div>
   <div className="hot-map-access-overlay">
    <section className="hot-map-access-card" role="dialog" aria-modal="true" aria-labelledby="hot-access-title">
@@ -29,7 +29,7 @@ export default function HotMapAccessGate({variant='hot'}:{variant?:SiteVariant})
     <div className="hot-access-bubble" id="hot-access-title">통합로그인해야 볼 수 있어요</div>
     <p>가입하면 지도위에 핀들이 보여요</p>
     <a className="hot-access-login" href="/account/join?type=user&returnTo=%2F">통합로그인 / 회원가입</a>
-    <a className="hot-access-account" href="/account">내 계정</a>
+    <nav className="hot-access-account-links" aria-label="계정 메뉴"><a className="hot-access-account" href="/account">내 계정</a><a className="hot-access-account" href="/account/join?type=owner&returnTo=%2Fowner%2Fdashboard">내 매장</a></nav>
    </section>
   </div>
  </main>;

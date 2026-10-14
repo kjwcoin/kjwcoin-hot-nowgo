@@ -41,7 +41,7 @@ function DetailTastePrice({variant,level,price,isDemo,verifiedOwner}:{variant:Si
   <strong>{money(price)} <small>{priceNote}</small></strong>
  </div>;
 }
-export default function MapExplorer({variant='hot',previewStore,initialSourceStore}:{variant?:SiteVariant;previewStore?:PublicSourcedStore;initialSourceStore?:PublicSourcedStore}){
+export default function MapExplorer({variant='hot',previewStore,initialSourceStore,accessLocked=false}:{variant?:SiteVariant;previewStore?:PublicSourcedStore;initialSourceStore?:PublicSourcedStore;accessLocked?:boolean}){
  const theme=siteConfig(variant),MENUS=previewStore?[]:theme.menus,HEAT=theme.heat,FLAVORS=theme.flavors,CATEGORIES=['전체',...theme.categories],tasteLabel=variant==='hot'?'매운맛':variant==='rich'?'느끼함':'달콤함',categoryLabel=variant==='hot'?'매운맛 메뉴':variant==='rich'?'느끼한 메뉴':'달콤한 디저트';
  useEffect(()=>{if(previewStore)return;if(['#report','#owner','#photo-credits','#discover'].includes(location.hash))location.replace('/suggestion'+location.hash)},[previewStore]);
  const [reportedMenu,setReportedMenu]=useState<Menu|null>(null);
@@ -63,7 +63,7 @@ export default function MapExplorer({variant='hot',previewStore,initialSourceSto
  const sheetTouch=useRef<number|null>(null);
  useEffect(()=>{const row=searchRow.current;if(!row)return;const measure=()=>setMobileDetailTop(row.getBoundingClientRect().bottom);measure();const observer=new ResizeObserver(measure);observer.observe(row);window.addEventListener('resize',measure);return()=>{observer.disconnect();window.removeEventListener('resize',measure)}},[]);
  const listFocus=useRef<{kind:'menu'|'source';id:string}|null>(null);
- const [worldEntryOpen,setWorldEntryOpen]=useState(true);
+ const [worldEntryOpen,setWorldEntryOpen]=useState(!accessLocked);
  const locationControl=useRef<KakaoMapHandle>(null);
  const [locationState,setLocationState]=useState<LocationState>('idle');
  const locationBusy=locationState==='locating'||locationState==='retrying';
@@ -150,7 +150,7 @@ export default function MapExplorer({variant='hot',previewStore,initialSourceSto
    {!previewStore&&<a className="explorer-report explorer-report--floating" href="/suggestion#report"><Plus size={22}/><span>제보 및 등록</span><ArrowUpRight size={19}/></a>}
    {!previewStore&&<MapChat variant={variant}/>}
   </div>
-  {!previewStore&&!worldEntryOpen&&<FirstLoginTour taste={variant} page="map"/>}
+  {!previewStore&&!accessLocked&&!worldEntryOpen&&<FirstLoginTour taste={variant} page="map"/>}
  </main>
 }
 
