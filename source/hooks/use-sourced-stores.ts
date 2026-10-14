@@ -29,7 +29,12 @@ export function useSourcedStores(variant:SiteVariant,previewFeed?:PublicSourcedS
    let response=await fetch('/api/sourced-stores',{...options,headers});
    if(sequence!==request.current)return;
    if(response.status===304){
-    if(previous&&snapshot.current===previous&&previous.feed.complete&&isSourceOnlyFeed(previous.feed)&&response.headers?.get('etag')===previous.etag&&response.headers?.get(SOURCE_FEED_CONTRACT_HEADER)===CURRENT_SOURCE_FEED_CONTRACT){
+    const returnedContract=response.headers?.get(SOURCE_FEED_CONTRACT_HEADER);
+    // Some intermediaries omit extension headers on304. The exact validator
+    // came from a validated200 and binds origin/host, contract and complete body.
+    // Missing metadata may reuse that same scoped snapshot; conflicting metadata
+    // never may. Cold/mismatched validators still require authoritative200.
+    if(previous&&previous.scope===scope&&snapshot.current===previous&&previous.feed.complete&&isSourceOnlyFeed(previous.feed)&&response.headers?.get('etag')===previous.etag&&(returnedContract===null||returnedContract===CURRENT_SOURCE_FEED_CONTRACT)){
      // Same exact validated object keeps the selected panel stable on every poll.
      setState({status:'ready',feed:previous.feed,scope});return;
     }

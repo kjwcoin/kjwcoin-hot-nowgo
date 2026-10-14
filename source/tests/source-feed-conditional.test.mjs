@@ -10,8 +10,8 @@ import {hookHarness,moduleAt} from './helpers/source-ui-components.mjs';
 function feedModule({reader=readonlySourceStoreFeed,enabled=true}={}){
  return moduleAt('lib/sourced-store-feed.ts',{'node:crypto':{createHash},'./source-feed-contract.ts':contracts,'./sourced-store.ts':sourced,'./readonly-source-listings.ts':{readonlySourceStoreFeed:reader}},{process:{env:{NOWGO_UNCLAIMED_STORES_ENABLED:enabled?'true':'false'}}});
 }
-function routeModule(api){
- return moduleAt('app/api/sourced-stores/route.ts',{'@/lib/source-feed-contract':contracts,'@/lib/server':{reply:(_request,data,status=200)=>Response.json(data,{status,headers:{'Cache-Control':'no-store'}})},'@/lib/site-config':{variantForHost:host=>host.startsWith('sweet.')?'sweet':host.startsWith('rich.')?'rich':'hot'},'@/lib/sourced-store-feed':api},{Response,URL});
+function routeModule(api,hidden=()=>({data:[],error:null})){
+ return moduleAt('app/api/sourced-stores/route.ts',{'@/lib/supabase':{publicDb:()=>({rpc:async()=>hidden()})},'@/lib/source-feed-contract':contracts,'@/lib/server':{reply:(_request,data,status=200)=>Response.json(data,{status,headers:{'Cache-Control':'no-store'}})},'@/lib/site-config':{variantForHost:host=>host.startsWith('sweet.')?'sweet':host.startsWith('rich.')?'rich':'hot'},'@/lib/sourced-store-feed':api},{Response,URL});
 }
 function request({host='hot.nowgo.space',etag,headers={}}={}){
  return new Request('https://'+host+'/api/sourced-stores',{headers:{host,...(etag?{'If-None-Match':etag}:{}),...headers}});
@@ -174,4 +174,29 @@ test('the visible poll remains 30 seconds with focus, visibility and catalog/act
  h.document.visibilityState='hidden';h.intervals[0].callback();assert.equal(h.calls.length,0);
  h.document.visibilityState='visible';h.intervals[0].callback();assert.equal(h.calls.length,1);h.reply(0,response());await new Promise(resolve=>setImmediate(resolve));
  for(const event of ['focus','visibilitychange','nowgo:catalog-refresh','nowgo-activity-change'])assert.equal(typeof h.listeners.get(event),'function');
+});
+
+// Production304 intermediaries omit the extension contract header.
+test('matching304 without extension header retains exact validated scoped snapshot without refetch',async()=>{
+ const h=client();const first=await seed(h);const pending=first.refresh();
+ h.reply(1,{...response(null,version(1),304),headers:new Headers({etag:version(1)})});await pending;
+ assert.equal(h.calls.length,2);assert.equal(h.render().status,'ready');assert.strictEqual(h.render().feed,first.feed);
+});
+test('explicit conflicting304 contract and missing-header mismatched validators cannot retain facts',async()=>{
+ for(const headers of [new Headers({etag:version(1),[contracts.SOURCE_FEED_CONTRACT_HEADER]:'hot-source-1099-v1'}),new Headers({etag:version(2)}),new Headers()]){
+  const h=client();await seed(h);const pending=h.render().refresh();h.reply(1,{...response(null,version(1),304),headers});await new Promise(setImmediate);
+  assert.equal(h.render().feed,null);assert.equal(h.calls.length,3);h.reply(2,response(modified({stores:[]}),version(2)));await pending;assert.equal(h.render().feed.stores.length,0);
+ }
+});
+test('missing-header304 with no validated snapshot still clears and fetches authoritative200',async()=>{
+ const h=client({initialFeed:fixture});const pending=h.render().refresh();h.reply(0,{...response(null,version(1),304),headers:new Headers({etag:version(1)})});await new Promise(setImmediate);
+ assert.equal(h.render().feed,null);assert.equal(h.calls.length,2);h.reply(1,response());await pending;assert.equal(h.render().feed.stores.length,2);
+});
+
+test('hidden-store withdrawal and hidden RPC failure override a matching client validator',async()=>{
+ let result={data:[],error:null};const api=feedModule({reader:()=>fixture}),{GET}=routeModule(api,()=>result);
+ const initial=await GET(request());const etag=initial.headers.get('etag');
+ result={data:[fixture.stores[0].id],error:null};const withdrawn=await GET(request({etag}));
+ assert.equal(withdrawn.status,200);assert.equal(withdrawn.headers.get('etag'),null);assert.deepEqual((await withdrawn.json()).stores.map(x=>x.id),[fixture.stores[1].id]);
+ result={data:null,error:Error('unavailable')};const failed=await GET(request({etag}));assert.equal(failed.status,503);assert.equal((await failed.json()).complete,false);
 });

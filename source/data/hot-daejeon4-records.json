@@ -1,0 +1,170 @@
+[
+  {
+    "id": "0bfa64d3-a4af-59b6-9eb6-12ceb14a9e44",
+    "slug": "hot-national-daejeon-jung-first-001",
+    "name": "광천식당",
+    "address": "대전광역시 중구 대종로505번길 29",
+    "lat": 36.3285325346,
+    "lon": 127.4235574886,
+    "source_ref": "national-daejeon-jung-first-001",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://ktourmap.com/spotDetails.jsp?contentId=1807489",
+      "sourceRecordId": "national-daejeon-jung-first-001",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T10:36:12.414745+00:00",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "national-daejeon-jung-first-001:menu:1",
+          "name": "두부두루치기",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "KTourmap 관광 음식점정보",
+        "attribution": "메뉴·주소: 독립 방문 기록 및 관광 메뉴표. 위치: KTourmap 개별 음식점자료.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일:2026-10-14. 주소에 대응하는 음식점 자료점이며 정확한 출입구·층·호 위치는 미확인입니다. 현재 영업 및 메뉴 제공 여부는 미확인입니다. 확인일은 원자료 갱신일이 아니며 좌표 조사일·생성 방식은 미확인입니다. 개별 공개 사실의 제한적 이용이며 명시적 오픈 라이선스나 원제공자 이용허락의 승계를 주장하지 않습니다. 방문 근거는 2026-04-16 실제 주문 기록이며 게시일은 2026-05-02입니다. 수치 맵기나 최고 강도 주장은 없습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "781f5c4c-1d7b-56fa-b7a8-40519b23ef26",
+    "slug": "hot-national-daejeon-dong-first-001",
+    "name": "별난집",
+    "address": "대전광역시 동구 중앙로193번길 8 1층",
+    "lat": 36.3309350672526,
+    "lon": 127.430692041772,
+    "source_ref": "national-daejeon-dong-first-001",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://seoul-archive.tistory.com/50",
+      "sourceRecordId": "national-daejeon-dong-first-001",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T10:37:22Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "national-daejeon-dong-first-001:menu:1",
+          "name": "두부두루치기",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "소상공인시장진흥공단 상가정보 기반 개별 건물자료",
+        "attribution": "메뉴·주소: 독립 방문 기록. 위치: qeo.purpleo 동일주소 상가자료.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일:2026-10-14. 주소에 대응하는 음식점 자료점이며 정확한 출입구·층·호 위치는 미확인입니다. 현재 영업 및 메뉴 제공 여부는 미확인입니다. 확인일은 원자료 갱신일이 아니며 좌표 조사일·생성 방식은 미확인입니다. 개별 공개 사실의 제한적 이용이며 명시적 오픈 라이선스나 원제공자 이용허락의 승계를 주장하지 않습니다. 2024년 실제 방문자는 두부두루치기를 은은하게 매콤하고 덜 맵게 느꼈다고 기록했습니다. 위치는 중앙당구장의 동일 도로명주소 건물 자료를 공개 검색 색인으로 확인한 점이며 별난집 입구·승계 증거가 아닙니다. 원문 좌표 페이지는 직접 복구되지 않았습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "5429fb26-ba25-59c4-b09d-1dc1375a3cf6",
+    "slug": "hot-national-daejeon-yuseong-first-001",
+    "name": "노은칼국수",
+    "address": "대전광역시 유성구 은구비로 44 2층",
+    "lat": 36.3757290837356,
+    "lon": 127.319855778549,
+    "source_ref": "national-daejeon-yuseong-first-001",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://xju.purpleo.kr/article/11976",
+      "sourceRecordId": "national-daejeon-yuseong-first-001",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T10:39:06.235762+00:00",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "national-daejeon-yuseong-first-001:menu:1",
+          "name": "얼큰이 칼국수",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "소상공인시장진흥공단 상가정보 기반 개별 업소정보",
+        "attribution": "메뉴·주소: 독립 개인 방문 기록. 위치: 소상공인시장진흥공단 상가정보 기반 개별 업소정보.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일:2026-10-14. 주소에 대응하는 음식점 자료점이며 정확한 출입구·층·호 위치는 미확인입니다. 현재 영업 및 메뉴 제공 여부는 미확인입니다. 확인일은 원자료 갱신일이 아니며 좌표 조사일·생성 방식은 미확인입니다. 개별 공개 사실의 제한적 이용이며 명시적 오픈 라이선스나 원제공자 이용허락의 승계를 주장하지 않습니다. 실제 메뉴 주문 근거는2023년 방문 기록입니다. 동일 상호·주소 공개 상가자료점으로2층 출입구를 측량한 위치는 아닙니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "739e03e3-b821-509b-856b-2ea7a6707b7d",
+    "slug": "hot-national-daejeon-daedeok-first-001",
+    "name": "조기종의 향미각 본점",
+    "address": "대전광역시 대덕구 쌍청당로 14",
+    "lat": 36.3632732093,
+    "lon": 127.4353175865,
+    "source_ref": "national-daejeon-daedeok-first-001",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.ktourmap.com/spotDetails.jsp?contentId=2899748",
+      "sourceRecordId": "national-daejeon-daedeok-first-001",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T10:39:06.235762+00:00",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "national-daejeon-daedeok-first-001:menu:1",
+          "name": "꼬막짬뽕",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "KTourmap 관광 음식점정보",
+        "attribution": "메뉴·주소: 독립 개인 방문 기록. 위치: KTourmap 관광 음식점정보.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일:2026-10-14. 주소에 대응하는 음식점 자료점이며 정확한 출입구·층·호 위치는 미확인입니다. 현재 영업 및 메뉴 제공 여부는 미확인입니다. 확인일은 원자료 갱신일이 아니며 좌표 조사일·생성 방식은 미확인입니다. 개별 공개 사실의 제한적 이용이며 명시적 오픈 라이선스나 원제공자 이용허락의 승계를 주장하지 않습니다. 실제 메뉴 주문 근거는2020년 본점 방문 기록입니다. 현재 판매 여부는 별도 확인되지 않았으며 관광 음식점 자료점입니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  }
+]
