@@ -16,7 +16,7 @@ export function UsageTracker({ enabled }: { enabled: boolean }) {
     return startUsageMetrics(pathname ?? "/", "https://nowgo.space/api/nowgo/analytics/session", async () =>
       (await browserDb().auth.getSession()).data.session?.access_token ?? null);
   }, [enabled, pathname]);
-  if (!enabled || pathname?.startsWith("/app/") || pathname?.startsWith("/admin") || pathname?.startsWith("/auth")) return null;
+  if (!enabled || pathname?.startsWith("/admin") || pathname?.startsWith("/auth")) return null;
   function choose(value: "granted" | "denied") {
     try { localStorage.setItem("nowgo.analytics.v1", value); } catch { return; }
     window.dispatchEvent(new Event("nowgo:analytics-consent"));
