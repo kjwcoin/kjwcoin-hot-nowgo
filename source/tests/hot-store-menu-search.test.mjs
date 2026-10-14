@@ -25,7 +25,8 @@ import final13Rows from '../data/hot-sejong-final13-source-records.json' with {t
 import route7BusanRows from '../data/hot-route7-busan2-records.json' with {type:'json'};
 import route7Busan8Rows from '../data/hot-route7-busan8-records.json' with {type:'json'};
 import route7UlsanRows from '../data/hot-route7-ulsan1-records.json' with {type:'json'};
-const regionalRows=[...priorRegionalRows,...sejongRows,...nextSejongRows,...next64Rows,...next47Rows,...next38Rows,...busan23Rows,...final13Rows,...route7BusanRows,...route7Busan8Rows,...route7UlsanRows];
+import gangwonRows from '../data/hot-gangwon7-records.json' with {type:'json'};
+const regionalRows=[...priorRegionalRows,...sejongRows,...nextSejongRows,...next64Rows,...next47Rows,...next38Rows,...busan23Rows,...final13Rows,...route7BusanRows,...route7Busan8Rows,...route7UlsanRows,...gangwonRows];
 const expectedCount=785+regionalRows.length;
 const stores=readonlySourceStoreFeed().stores;
 const onjeong=stores.find(store=>store.id==='65a5768f-5c9e-563e-a04f-cbb81835ec02');

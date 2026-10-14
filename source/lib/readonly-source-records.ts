@@ -9,7 +9,8 @@ import final13Rows from '../data/hot-sejong-final13-source-records.json' with {t
 import route7BusanRows from '../data/hot-route7-busan2-records.json' with {type:'json'};
 import route7Busan8Rows from '../data/hot-route7-busan8-records.json' with {type:'json'};
 import route7UlsanRows from '../data/hot-route7-ulsan1-records.json' with {type:'json'};
-const regionalRows=[...priorRegionalRows,...sejongRows,...nextSejongRows,...next64Rows,...next47Rows,...next38Rows,...busan23Rows,...final13Rows,...route7BusanRows,...route7Busan8Rows,...route7UlsanRows];
+import gangwonRows from '../data/hot-gangwon7-records.json' with {type:'json'};
+const regionalRows=[...priorRegionalRows,...sejongRows,...nextSejongRows,...next64Rows,...next47Rows,...next38Rows,...busan23Rows,...final13Rows,...route7BusanRows,...route7Busan8Rows,...route7UlsanRows,...gangwonRows];
 import {appendRegionalSourceStores} from './regional-source.ts';
 import {publicSourcedStore,type SourcedStoreRow} from './sourced-store.ts';
 import reviewedEleven from '../data/hot-source-reviewed-eleven-20261014.json' with {type:'json'};
@@ -96,5 +97,6 @@ export const reviewed1001Records=[...reviewed978Records,...activeRegionalRows.fi
 export const reviewed1014Records=[...reviewed1001Records,...activeRegionalRows.filter(row=>["jusoga-building-3611011300113140000000001-dae2f248","jusoga-building-3611010700103610077000001-d7e1dbe0","jusoga-building-3611010300106280004000001-cd1aa404","jusoga-building-3611010900100070002000001-417758ce","jusoga-building-3611010700107370000000001-186badb8","jusoga-building-3611010300106280005000001-12c613b6","jusoga-building-3611011200201000000000004-4723b98d","jusoga-building-3611011300100980000000001-2cd0e074","jusoga-building-3611011300102520002000001-354ac57f","jusoga-building-3611011000101030021000001-b3540375","jusoga-building-3611011300200400000000001-1198b741","jusoga-building-3611010800200100000000001-24bc369b","jusoga-building-3611010300106160002000001-6396adba"].includes(row.source_ref))];
 export const reviewed1016Records=[...reviewed1014Records,...activeRegionalRows.filter(row=>["route7-bu-001","route7-bu-002"].includes(row.source_ref))];
 export const reviewed1024Records=[...reviewed1016Records,...activeRegionalRows.filter(row=>["route7-busan-next-004","route7-busan-next-005","route7-busan-next-007","route7-busan-next-002","route7-busan-next-003","route7-busan-next-008","route7-busan-next-009","route7-busan-next-010"].includes(row.source_ref))];
+export const reviewed1025Records=[...reviewed1024Records,...activeRegionalRows.filter(row=>["route7-bu-003"].includes(row.source_ref))];
 const activeRecords=[...records,...activeRegionalRows];
 export default activeRecords;
