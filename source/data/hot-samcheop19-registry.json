@@ -1,0 +1,857 @@
+[
+  {
+    "id": "fd55002d-855b-517f-b563-eac1384240f5",
+    "slug": "hot-official-samcheop-245",
+    "sourceRef": "official-samcheop-245",
+    "name": "삼첩분식 유성점",
+    "address": "대전광역시 유성구 유성대로654번길 112, 101동(구암동)",
+    "coordinates": {
+      "lat": 36.35066207663,
+      "lon": 127.334959874226
+    },
+    "menus": [
+      {
+        "id": "official-samcheop-245:menu:1",
+        "name": "매콤튀김어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://dokdokplace.kr/stores/i2/i210/i21007/daejeon/yuseong-gu/%EC%98%A8%EC%B2%9C1%EB%8F%99/",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T17:27:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "삼첩분식 공식 안내 및 똑똑장소찾기 공공자료 재표시",
+        "attribution": "상호·주소·메뉴: 삼첩분식 공식 매장·메뉴 안내. 위치: 똑똑장소찾기의 소상공인시장진흥공단 상가정보 기반 공개 행.",
+        "changes": "매장명·주소·메뉴명·위치 등 개별 사실만 정리. 사진·후기·가격·평점·수치 맵기를 전재하지 않았습니다.",
+        "scopeNotice": "본사 공통 메뉴이며 해당 지점의 현재 판매 및 영업 여부는 미확인입니다. 공식 지점 기록의 최초 게시일은 미확인이고 확인일은 2026-10-14입니다. 최근 블로그 게시일을 근거로 한 자료가 아닙니다. 위치는 주소에 대응하는 사이트 제공 값으로 원본 CSV 행·버전과 대조하지 않았습니다. 최초 좌표 생성 방법·조사일·정확도 및 입구·층·호 위치는 미확인입니다. 지도 표시 코드가 특정 지도업체의 좌표 생성 사실을 증명하지 않습니다. 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "0b123cfb-c627-59b8-8673-dda953566967",
+    "slug": "hot-official-samcheop-243",
+    "sourceRef": "official-samcheop-243",
+    "name": "삼첩분식 칠곡점",
+    "address": "대구광역시 북구 칠곡중앙대로80길 10, 1층(태전동)",
+    "coordinates": {
+      "lat": 35.9304165123774,
+      "lon": 128.549149682474
+    },
+    "menus": [
+      {
+        "id": "official-samcheop-243:menu:1",
+        "name": "매콤튀김어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://dokdokplace.kr/stores/i2/i210/i21007/daegu/buk-gu/%ED%83%9C%EC%A0%842%EB%8F%99/",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T17:27:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "삼첩분식 공식 안내 및 똑똑장소찾기 공공자료 재표시",
+        "attribution": "상호·주소·메뉴: 삼첩분식 공식 매장·메뉴 안내. 위치: 똑똑장소찾기의 소상공인시장진흥공단 상가정보 기반 공개 행.",
+        "changes": "매장명·주소·메뉴명·위치 등 개별 사실만 정리. 사진·후기·가격·평점·수치 맵기를 전재하지 않았습니다.",
+        "scopeNotice": "본사 공통 메뉴이며 해당 지점의 현재 판매 및 영업 여부는 미확인입니다. 공식 지점 기록의 최초 게시일은 미확인이고 확인일은 2026-10-14입니다. 최근 블로그 게시일을 근거로 한 자료가 아닙니다. 위치는 주소에 대응하는 사이트 제공 값으로 원본 CSV 행·버전과 대조하지 않았습니다. 최초 좌표 생성 방법·조사일·정확도 및 입구·층·호 위치는 미확인입니다. 지도 표시 코드가 특정 지도업체의 좌표 생성 사실을 증명하지 않습니다. 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "945be820-2f67-5cc4-b143-32adb9436d2e",
+    "slug": "hot-official-samcheop-60",
+    "sourceRef": "official-samcheop-60",
+    "name": "삼첩분식 대구 본점",
+    "address": "대구 북구 대학로 71 1층",
+    "coordinates": {
+      "lat": 35.8921783414934,
+      "lon": 128.608295466296
+    },
+    "menus": [
+      {
+        "id": "official-samcheop-60:menu:1",
+        "name": "매콤튀김어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://dokdokplace.kr/stores/i2/i210/i21007/daegu/buk-gu/%EC%82%B0%EA%B2%A93%EB%8F%99/",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T17:27:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "삼첩분식 공식 안내 및 똑똑장소찾기 공공자료 재표시",
+        "attribution": "상호·주소·메뉴: 삼첩분식 공식 매장·메뉴 안내. 위치: 똑똑장소찾기의 소상공인시장진흥공단 상가정보 기반 공개 행.",
+        "changes": "매장명·주소·메뉴명·위치 등 개별 사실만 정리. 사진·후기·가격·평점·수치 맵기를 전재하지 않았습니다.",
+        "scopeNotice": "본사 공통 메뉴이며 해당 지점의 현재 판매 및 영업 여부는 미확인입니다. 공식 지점 기록의 최초 게시일은 미확인이고 확인일은 2026-10-14입니다. 최근 블로그 게시일을 근거로 한 자료가 아닙니다. 위치는 주소에 대응하는 사이트 제공 값으로 원본 CSV 행·버전과 대조하지 않았습니다. 최초 좌표 생성 방법·조사일·정확도 및 입구·층·호 위치는 미확인입니다. 지도 표시 코드가 특정 지도업체의 좌표 생성 사실을 증명하지 않습니다. 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "39c721e9-a11d-5d2e-9005-00e1a3b38dc4",
+    "slug": "hot-official-samcheop-94",
+    "sourceRef": "official-samcheop-94",
+    "name": "삼첩분식 대구 본리점",
+    "address": "대구 달서구 구마로9길 45 1층 101호",
+    "coordinates": {
+      "lat": 35.8395483526393,
+      "lon": 128.532008117998
+    },
+    "menus": [
+      {
+        "id": "official-samcheop-94:menu:1",
+        "name": "매콤튀김어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://dokdokplace.kr/stores/i2/i210/i21007/daegu/dalseo-gu/%EB%B3%B8%EB%A6%AC%EB%8F%99/",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T17:27:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "삼첩분식 공식 안내 및 똑똑장소찾기 공공자료 재표시",
+        "attribution": "상호·주소·메뉴: 삼첩분식 공식 매장·메뉴 안내. 위치: 똑똑장소찾기의 소상공인시장진흥공단 상가정보 기반 공개 행.",
+        "changes": "매장명·주소·메뉴명·위치 등 개별 사실만 정리. 사진·후기·가격·평점·수치 맵기를 전재하지 않았습니다.",
+        "scopeNotice": "본사 공통 메뉴이며 해당 지점의 현재 판매 및 영업 여부는 미확인입니다. 공식 지점 기록의 최초 게시일은 미확인이고 확인일은 2026-10-14입니다. 최근 블로그 게시일을 근거로 한 자료가 아닙니다. 위치는 주소에 대응하는 사이트 제공 값으로 원본 CSV 행·버전과 대조하지 않았습니다. 최초 좌표 생성 방법·조사일·정확도 및 입구·층·호 위치는 미확인입니다. 지도 표시 코드가 특정 지도업체의 좌표 생성 사실을 증명하지 않습니다. 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "a8a1dd35-3d9a-560f-b051-cbfc787b34ed",
+    "slug": "hot-official-samcheop-139",
+    "sourceRef": "official-samcheop-139",
+    "name": "삼첩분식 울산대점",
+    "address": "울산 남구 신복로21번길 3",
+    "coordinates": {
+      "lat": 35.5479693940252,
+      "lon": 129.259847724247
+    },
+    "menus": [
+      {
+        "id": "official-samcheop-139:menu:1",
+        "name": "매콤튀김어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://dokdokplace.kr/stores/i2/i210/i21007/ulsan/nam-gu/%EB%AC%B4%EA%B1%B0%EB%8F%99/",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T17:27:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "삼첩분식 공식 안내 및 똑똑장소찾기 공공자료 재표시",
+        "attribution": "상호·주소·메뉴: 삼첩분식 공식 매장·메뉴 안내. 위치: 똑똑장소찾기의 소상공인시장진흥공단 상가정보 기반 공개 행.",
+        "changes": "매장명·주소·메뉴명·위치 등 개별 사실만 정리. 사진·후기·가격·평점·수치 맵기를 전재하지 않았습니다.",
+        "scopeNotice": "본사 공통 메뉴이며 해당 지점의 현재 판매 및 영업 여부는 미확인입니다. 공식 지점 기록의 최초 게시일은 미확인이고 확인일은 2026-10-14입니다. 최근 블로그 게시일을 근거로 한 자료가 아닙니다. 위치는 주소에 대응하는 사이트 제공 값으로 원본 CSV 행·버전과 대조하지 않았습니다. 최초 좌표 생성 방법·조사일·정확도 및 입구·층·호 위치는 미확인입니다. 지도 표시 코드가 특정 지도업체의 좌표 생성 사실을 증명하지 않습니다. 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "777bba69-5647-58be-aabc-eeb27f96476c",
+    "slug": "hot-official-samcheop-152",
+    "sourceRef": "official-samcheop-152",
+    "name": "삼첩분식 자양점",
+    "address": "대전 동구 동대전로 200 1층101호(자양동,예일크리닉빌딩)",
+    "coordinates": {
+      "lat": 36.3394015863677,
+      "lon": 127.449061920739
+    },
+    "menus": [
+      {
+        "id": "official-samcheop-152:menu:1",
+        "name": "매콤튀김어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://dokdokplace.kr/stores/i2/i210/i21007/daejeon/dong-gu/%EC%9E%90%EC%96%91%EB%8F%99/",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T17:27:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "삼첩분식 공식 안내 및 똑똑장소찾기 공공자료 재표시",
+        "attribution": "상호·주소·메뉴: 삼첩분식 공식 매장·메뉴 안내. 위치: 똑똑장소찾기의 소상공인시장진흥공단 상가정보 기반 공개 행.",
+        "changes": "매장명·주소·메뉴명·위치 등 개별 사실만 정리. 사진·후기·가격·평점·수치 맵기를 전재하지 않았습니다.",
+        "scopeNotice": "본사 공통 메뉴이며 해당 지점의 현재 판매 및 영업 여부는 미확인입니다. 공식 지점 기록의 최초 게시일은 미확인이고 확인일은 2026-10-14입니다. 최근 블로그 게시일을 근거로 한 자료가 아닙니다. 위치는 주소에 대응하는 사이트 제공 값으로 원본 CSV 행·버전과 대조하지 않았습니다. 최초 좌표 생성 방법·조사일·정확도 및 입구·층·호 위치는 미확인입니다. 지도 표시 코드가 특정 지도업체의 좌표 생성 사실을 증명하지 않습니다. 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "1bc5c580-942f-5da2-9301-36d2eb25912c",
+    "slug": "hot-official-samcheop-204",
+    "sourceRef": "official-samcheop-204",
+    "name": "삼첩분식 현풍점",
+    "address": "대구광역시 달성군 현풍읍 현풍중앙로 12길 39, 1층",
+    "coordinates": {
+      "lat": 35.6949750616036,
+      "lon": 128.446747033551
+    },
+    "menus": [
+      {
+        "id": "official-samcheop-204:menu:1",
+        "name": "매콤튀김어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://dokdokplace.kr/stores/i2/i210/i21007/daegu/dalseong-gun/%ED%98%84%ED%92%8D%EC%9D%8D/",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T17:27:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "삼첩분식 공식 안내 및 똑똑장소찾기 공공자료 재표시",
+        "attribution": "상호·주소·메뉴: 삼첩분식 공식 매장·메뉴 안내. 위치: 똑똑장소찾기의 소상공인시장진흥공단 상가정보 기반 공개 행.",
+        "changes": "매장명·주소·메뉴명·위치 등 개별 사실만 정리. 사진·후기·가격·평점·수치 맵기를 전재하지 않았습니다.",
+        "scopeNotice": "본사 공통 메뉴이며 해당 지점의 현재 판매 및 영업 여부는 미확인입니다. 공식 지점 기록의 최초 게시일은 미확인이고 확인일은 2026-10-14입니다. 최근 블로그 게시일을 근거로 한 자료가 아닙니다. 위치는 주소에 대응하는 사이트 제공 값으로 원본 CSV 행·버전과 대조하지 않았습니다. 최초 좌표 생성 방법·조사일·정확도 및 입구·층·호 위치는 미확인입니다. 지도 표시 코드가 특정 지도업체의 좌표 생성 사실을 증명하지 않습니다. 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "c09618f2-8510-5893-9426-63dd1a577a4a",
+    "slug": "hot-official-samcheop-223",
+    "sourceRef": "official-samcheop-223",
+    "name": "삼첩분식 상무점",
+    "address": "광주광역시 서구 상무대로916번길 39-1, 1층(쌍촌동)",
+    "coordinates": {
+      "lat": 35.1474423822499,
+      "lon": 126.863131776845
+    },
+    "menus": [
+      {
+        "id": "official-samcheop-223:menu:1",
+        "name": "매콤튀김어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://dokdokplace.kr/stores/i2/i210/i21007/jeonnam-gwangju/seo-gu/%EC%83%81%EB%AC%B42%EB%8F%99/",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T17:32:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "삼첩분식 공식 안내 및 똑똑장소찾기 공공자료 재표시",
+        "attribution": "상호·주소·메뉴: 삼첩분식 공식 매장·메뉴 안내. 위치: 똑똑장소찾기의 소상공인시장진흥공단 상가정보 기반 공개 행.",
+        "changes": "매장명·주소·메뉴명·위치 등 개별 사실만 정리. 사진·후기·가격·평점·수치 맵기를 전재하지 않았습니다.",
+        "scopeNotice": "본사 공통 메뉴이며 해당 지점의 현재 판매 및 영업 여부는 미확인입니다. 공식 지점 기록의 최초 게시일은 미확인이고 확인일은 2026-10-14입니다. 최근 블로그 게시일을 근거로 한 자료가 아닙니다. 위치는 주소에 대응하는 사이트 제공 값으로 원본 CSV 행·버전과 대조하지 않았습니다. 최초 좌표 생성 방법·조사일·정확도 및 입구·층·호 위치는 미확인입니다. 지도 표시 코드가 특정 지도업체의 좌표 생성 사실을 증명하지 않습니다. 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다. 공식 안내의 광역명 주소를 보존했으며 재표시 자료의 변경된 광역명은 별도 검증하지 않았습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "f7544cfe-35b0-5a19-ad66-e46458064bc5",
+    "slug": "hot-official-samcheop-253",
+    "sourceRef": "official-samcheop-253",
+    "name": "삼첩분식 신제주점",
+    "address": "제주특별자치도 제주시 수덕11길 1",
+    "coordinates": {
+      "lat": 33.4879963210717,
+      "lon": 126.475972023825
+    },
+    "menus": [
+      {
+        "id": "official-samcheop-253:menu:1",
+        "name": "매콤튀김어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://dokdokplace.kr/stores/i2/i210/i21007/jeju/jeju-si/%EB%85%B8%ED%98%95%EB%8F%99/",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T17:32:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "삼첩분식 공식 안내 및 똑똑장소찾기 공공자료 재표시",
+        "attribution": "상호·주소·메뉴: 삼첩분식 공식 매장·메뉴 안내. 위치: 똑똑장소찾기의 소상공인시장진흥공단 상가정보 기반 공개 행.",
+        "changes": "매장명·주소·메뉴명·위치 등 개별 사실만 정리. 사진·후기·가격·평점·수치 맵기를 전재하지 않았습니다.",
+        "scopeNotice": "본사 공통 메뉴이며 해당 지점의 현재 판매 및 영업 여부는 미확인입니다. 공식 지점 기록의 최초 게시일은 미확인이고 확인일은 2026-10-14입니다. 최근 블로그 게시일을 근거로 한 자료가 아닙니다. 위치는 주소에 대응하는 사이트 제공 값으로 원본 CSV 행·버전과 대조하지 않았습니다. 최초 좌표 생성 방법·조사일·정확도 및 입구·층·호 위치는 미확인입니다. 지도 표시 코드가 특정 지도업체의 좌표 생성 사실을 증명하지 않습니다. 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "5e22ccd2-44c5-5c05-b887-334c0f95cdba",
+    "slug": "hot-official-samcheop-19",
+    "sourceRef": "official-samcheop-19",
+    "name": "삼첩분식 창원 봉곡점",
+    "address": "경남 창원시 의창구 봉곡로115번길 2 1층 13호",
+    "coordinates": {
+      "lat": 35.2467098788009,
+      "lon": 128.671202918294
+    },
+    "menus": [
+      {
+        "id": "official-samcheop-19:menu:1",
+        "name": "매콤튀김어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://dokdokplace.kr/stores/i2/i210/i21007/gyeongsangnam-do/uichang-gu/%EB%B4%89%EB%A6%BC%EB%8F%99/",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T17:32:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "삼첩분식 공식 안내 및 똑똑장소찾기 공공자료 재표시",
+        "attribution": "상호·주소·메뉴: 삼첩분식 공식 매장·메뉴 안내. 위치: 똑똑장소찾기의 소상공인시장진흥공단 상가정보 기반 공개 행.",
+        "changes": "매장명·주소·메뉴명·위치 등 개별 사실만 정리. 사진·후기·가격·평점·수치 맵기를 전재하지 않았습니다.",
+        "scopeNotice": "본사 공통 메뉴이며 해당 지점의 현재 판매 및 영업 여부는 미확인입니다. 공식 지점 기록의 최초 게시일은 미확인이고 확인일은 2026-10-14입니다. 최근 블로그 게시일을 근거로 한 자료가 아닙니다. 위치는 주소에 대응하는 사이트 제공 값으로 원본 CSV 행·버전과 대조하지 않았습니다. 최초 좌표 생성 방법·조사일·정확도 및 입구·층·호 위치는 미확인입니다. 지도 표시 코드가 특정 지도업체의 좌표 생성 사실을 증명하지 않습니다. 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "f15aef2c-7330-5440-8d9d-823ee12989ea",
+    "slug": "hot-official-samcheop-20",
+    "sourceRef": "official-samcheop-20",
+    "name": "삼첩분식 청주 가경점",
+    "address": "충북 청주시 흥덕구 풍년로 77-1 101호",
+    "coordinates": {
+      "lat": 36.6201551452857,
+      "lon": 127.437135887531
+    },
+    "menus": [
+      {
+        "id": "official-samcheop-20:menu:1",
+        "name": "매콤튀김어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://dokdokplace.kr/stores/i2/i210/i21007/chungcheongbuk-do/heungdeok-gu/%EA%B0%80%EA%B2%BD%EB%8F%99/",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T17:32:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "삼첩분식 공식 안내 및 똑똑장소찾기 공공자료 재표시",
+        "attribution": "상호·주소·메뉴: 삼첩분식 공식 매장·메뉴 안내. 위치: 똑똑장소찾기의 소상공인시장진흥공단 상가정보 기반 공개 행.",
+        "changes": "매장명·주소·메뉴명·위치 등 개별 사실만 정리. 사진·후기·가격·평점·수치 맵기를 전재하지 않았습니다.",
+        "scopeNotice": "본사 공통 메뉴이며 해당 지점의 현재 판매 및 영업 여부는 미확인입니다. 공식 지점 기록의 최초 게시일은 미확인이고 확인일은 2026-10-14입니다. 최근 블로그 게시일을 근거로 한 자료가 아닙니다. 위치는 주소에 대응하는 사이트 제공 값으로 원본 CSV 행·버전과 대조하지 않았습니다. 최초 좌표 생성 방법·조사일·정확도 및 입구·층·호 위치는 미확인입니다. 지도 표시 코드가 특정 지도업체의 좌표 생성 사실을 증명하지 않습니다. 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "14907be9-3940-54f6-9c08-0476dd8f780b",
+    "slug": "hot-official-samcheop-23",
+    "sourceRef": "official-samcheop-23",
+    "name": "삼첩분식 창원 경남대점",
+    "address": "경남 창원시 마산합포구 월영동15길 9",
+    "coordinates": {
+      "lat": 35.1816560902533,
+      "lon": 128.563512144036
+    },
+    "menus": [
+      {
+        "id": "official-samcheop-23:menu:1",
+        "name": "매콤튀김어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://dokdokplace.kr/stores/i2/i210/i21007/gyeongsangnam-do/masanhappo-gu/%EC%9B%94%EC%98%81%EB%8F%99/",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T17:32:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "삼첩분식 공식 안내 및 똑똑장소찾기 공공자료 재표시",
+        "attribution": "상호·주소·메뉴: 삼첩분식 공식 매장·메뉴 안내. 위치: 똑똑장소찾기의 소상공인시장진흥공단 상가정보 기반 공개 행.",
+        "changes": "매장명·주소·메뉴명·위치 등 개별 사실만 정리. 사진·후기·가격·평점·수치 맵기를 전재하지 않았습니다.",
+        "scopeNotice": "본사 공통 메뉴이며 해당 지점의 현재 판매 및 영업 여부는 미확인입니다. 공식 지점 기록의 최초 게시일은 미확인이고 확인일은 2026-10-14입니다. 최근 블로그 게시일을 근거로 한 자료가 아닙니다. 위치는 주소에 대응하는 사이트 제공 값으로 원본 CSV 행·버전과 대조하지 않았습니다. 최초 좌표 생성 방법·조사일·정확도 및 입구·층·호 위치는 미확인입니다. 지도 표시 코드가 특정 지도업체의 좌표 생성 사실을 증명하지 않습니다. 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "c9a637a4-6afb-540b-a380-64230090a1d1",
+    "slug": "hot-official-samcheop-34",
+    "sourceRef": "official-samcheop-34",
+    "name": "삼첩분식 산남점",
+    "address": "충북 청주시 서원구 산남로 22 101호(산남동, 산남렉슬)",
+    "coordinates": {
+      "lat": 36.6118505237948,
+      "lon": 127.471583758143
+    },
+    "menus": [
+      {
+        "id": "official-samcheop-34:menu:1",
+        "name": "매콤튀김어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://dokdokplace.kr/stores/i2/i210/i21007/chungcheongbuk-do/seowon-gu/%EC%82%B0%EB%82%A8%EB%8F%99/",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T17:32:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "삼첩분식 공식 안내 및 똑똑장소찾기 공공자료 재표시",
+        "attribution": "상호·주소·메뉴: 삼첩분식 공식 매장·메뉴 안내. 위치: 똑똑장소찾기의 소상공인시장진흥공단 상가정보 기반 공개 행.",
+        "changes": "매장명·주소·메뉴명·위치 등 개별 사실만 정리. 사진·후기·가격·평점·수치 맵기를 전재하지 않았습니다.",
+        "scopeNotice": "본사 공통 메뉴이며 해당 지점의 현재 판매 및 영업 여부는 미확인입니다. 공식 지점 기록의 최초 게시일은 미확인이고 확인일은 2026-10-14입니다. 최근 블로그 게시일을 근거로 한 자료가 아닙니다. 위치는 주소에 대응하는 사이트 제공 값으로 원본 CSV 행·버전과 대조하지 않았습니다. 최초 좌표 생성 방법·조사일·정확도 및 입구·층·호 위치는 미확인입니다. 지도 표시 코드가 특정 지도업체의 좌표 생성 사실을 증명하지 않습니다. 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "65e7b233-a15e-5bea-ac69-e18ffba24c12",
+    "slug": "hot-official-samcheop-35",
+    "sourceRef": "official-samcheop-35",
+    "name": "삼첩분식 광주 삼각점",
+    "address": "광주 북구 설죽로 416 105호",
+    "coordinates": {
+      "lat": 35.1963143768354,
+      "lon": 126.900504692042
+    },
+    "menus": [
+      {
+        "id": "official-samcheop-35:menu:1",
+        "name": "매콤튀김어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://dokdokplace.kr/stores/i2/i210/i21007/jeonnam-gwangju/buk-gu/%EC%82%BC%EA%B0%81%EB%8F%99/",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T17:32:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "삼첩분식 공식 안내 및 똑똑장소찾기 공공자료 재표시",
+        "attribution": "상호·주소·메뉴: 삼첩분식 공식 매장·메뉴 안내. 위치: 똑똑장소찾기의 소상공인시장진흥공단 상가정보 기반 공개 행.",
+        "changes": "매장명·주소·메뉴명·위치 등 개별 사실만 정리. 사진·후기·가격·평점·수치 맵기를 전재하지 않았습니다.",
+        "scopeNotice": "본사 공통 메뉴이며 해당 지점의 현재 판매 및 영업 여부는 미확인입니다. 공식 지점 기록의 최초 게시일은 미확인이고 확인일은 2026-10-14입니다. 최근 블로그 게시일을 근거로 한 자료가 아닙니다. 위치는 주소에 대응하는 사이트 제공 값으로 원본 CSV 행·버전과 대조하지 않았습니다. 최초 좌표 생성 방법·조사일·정확도 및 입구·층·호 위치는 미확인입니다. 지도 표시 코드가 특정 지도업체의 좌표 생성 사실을 증명하지 않습니다. 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다. 공식 안내의 광역명 주소를 보존했으며 재표시 자료의 변경된 광역명은 별도 검증하지 않았습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "83f2ff0e-3c8c-5784-84cb-861e762ce3a6",
+    "slug": "hot-official-samcheop-58",
+    "sourceRef": "official-samcheop-58",
+    "name": "삼첩분식 상대점",
+    "address": "경북 포항시 남구 상공로134번길 13-2 1층",
+    "coordinates": {
+      "lat": 36.0186059304606,
+      "lon": 129.36337127225
+    },
+    "menus": [
+      {
+        "id": "official-samcheop-58:menu:1",
+        "name": "매콤튀김어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://dokdokplace.kr/stores/i2/i210/i21007/gyeongsangbuk-do/nam-gu/%EC%83%81%EB%8C%80%EB%8F%99/",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T17:32:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "삼첩분식 공식 안내 및 똑똑장소찾기 공공자료 재표시",
+        "attribution": "상호·주소·메뉴: 삼첩분식 공식 매장·메뉴 안내. 위치: 똑똑장소찾기의 소상공인시장진흥공단 상가정보 기반 공개 행.",
+        "changes": "매장명·주소·메뉴명·위치 등 개별 사실만 정리. 사진·후기·가격·평점·수치 맵기를 전재하지 않았습니다.",
+        "scopeNotice": "본사 공통 메뉴이며 해당 지점의 현재 판매 및 영업 여부는 미확인입니다. 공식 지점 기록의 최초 게시일은 미확인이고 확인일은 2026-10-14입니다. 최근 블로그 게시일을 근거로 한 자료가 아닙니다. 위치는 주소에 대응하는 사이트 제공 값으로 원본 CSV 행·버전과 대조하지 않았습니다. 최초 좌표 생성 방법·조사일·정확도 및 입구·층·호 위치는 미확인입니다. 지도 표시 코드가 특정 지도업체의 좌표 생성 사실을 증명하지 않습니다. 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "3dc24977-2ec1-5086-90f6-1a7ad382ade8",
+    "slug": "hot-official-samcheop-105",
+    "sourceRef": "official-samcheop-105",
+    "name": "삼첩분식 광주 수완점",
+    "address": "광주 광산구 하남산단5번로 120 나동 1층",
+    "coordinates": {
+      "lat": 35.1962125172886,
+      "lon": 126.808289856375
+    },
+    "menus": [
+      {
+        "id": "official-samcheop-105:menu:1",
+        "name": "매콤튀김어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://dokdokplace.kr/stores/i2/i210/i21007/jeonnam-gwangju/gwangsan-gu/%ED%95%98%EB%82%A8%EB%8F%99/",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T17:32:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "삼첩분식 공식 안내 및 똑똑장소찾기 공공자료 재표시",
+        "attribution": "상호·주소·메뉴: 삼첩분식 공식 매장·메뉴 안내. 위치: 똑똑장소찾기의 소상공인시장진흥공단 상가정보 기반 공개 행.",
+        "changes": "매장명·주소·메뉴명·위치 등 개별 사실만 정리. 사진·후기·가격·평점·수치 맵기를 전재하지 않았습니다.",
+        "scopeNotice": "본사 공통 메뉴이며 해당 지점의 현재 판매 및 영업 여부는 미확인입니다. 공식 지점 기록의 최초 게시일은 미확인이고 확인일은 2026-10-14입니다. 최근 블로그 게시일을 근거로 한 자료가 아닙니다. 위치는 주소에 대응하는 사이트 제공 값으로 원본 CSV 행·버전과 대조하지 않았습니다. 최초 좌표 생성 방법·조사일·정확도 및 입구·층·호 위치는 미확인입니다. 지도 표시 코드가 특정 지도업체의 좌표 생성 사실을 증명하지 않습니다. 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다. 공식 안내의 광역명 주소를 보존했으며 재표시 자료의 변경된 광역명은 별도 검증하지 않았습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "fefe8eee-df89-5908-aa86-c38fcaf9864a",
+    "slug": "hot-official-samcheop-124",
+    "sourceRef": "official-samcheop-124",
+    "name": "삼첩분식 우산점",
+    "address": "광주 북구 평교로 10 1층",
+    "coordinates": {
+      "lat": 35.1782055358357,
+      "lon": 126.924623849859
+    },
+    "menus": [
+      {
+        "id": "official-samcheop-124:menu:1",
+        "name": "매콤튀김어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://dokdokplace.kr/stores/i2/i210/i21007/jeonnam-gwangju/buk-gu/%EC%9A%B0%EC%82%B0%EB%8F%99/",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T17:32:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "삼첩분식 공식 안내 및 똑똑장소찾기 공공자료 재표시",
+        "attribution": "상호·주소·메뉴: 삼첩분식 공식 매장·메뉴 안내. 위치: 똑똑장소찾기의 소상공인시장진흥공단 상가정보 기반 공개 행.",
+        "changes": "매장명·주소·메뉴명·위치 등 개별 사실만 정리. 사진·후기·가격·평점·수치 맵기를 전재하지 않았습니다.",
+        "scopeNotice": "본사 공통 메뉴이며 해당 지점의 현재 판매 및 영업 여부는 미확인입니다. 공식 지점 기록의 최초 게시일은 미확인이고 확인일은 2026-10-14입니다. 최근 블로그 게시일을 근거로 한 자료가 아닙니다. 위치는 주소에 대응하는 사이트 제공 값으로 원본 CSV 행·버전과 대조하지 않았습니다. 최초 좌표 생성 방법·조사일·정확도 및 입구·층·호 위치는 미확인입니다. 지도 표시 코드가 특정 지도업체의 좌표 생성 사실을 증명하지 않습니다. 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다. 공식 안내의 광역명 주소를 보존했으며 재표시 자료의 변경된 광역명은 별도 검증하지 않았습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "5c6ce9a7-5a42-5342-9746-f6baa98c5190",
+    "slug": "hot-official-samcheop-127",
+    "sourceRef": "official-samcheop-127",
+    "name": "삼첩분식 우창점",
+    "address": "경북 포항시 북구 새천년대로1001번길 6-5",
+    "coordinates": {
+      "lat": 36.0588412845102,
+      "lon": 129.368990802875
+    },
+    "menus": [
+      {
+        "id": "official-samcheop-127:menu:1",
+        "name": "매콤튀김어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://dokdokplace.kr/stores/i2/i210/i21007/gyeongsangbuk-do/buk-gu/%EC%9A%B0%EC%B0%BD%EB%8F%99/",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T17:32:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "삼첩분식 공식 안내 및 똑똑장소찾기 공공자료 재표시",
+        "attribution": "상호·주소·메뉴: 삼첩분식 공식 매장·메뉴 안내. 위치: 똑똑장소찾기의 소상공인시장진흥공단 상가정보 기반 공개 행.",
+        "changes": "매장명·주소·메뉴명·위치 등 개별 사실만 정리. 사진·후기·가격·평점·수치 맵기를 전재하지 않았습니다.",
+        "scopeNotice": "본사 공통 메뉴이며 해당 지점의 현재 판매 및 영업 여부는 미확인입니다. 공식 지점 기록의 최초 게시일은 미확인이고 확인일은 2026-10-14입니다. 최근 블로그 게시일을 근거로 한 자료가 아닙니다. 위치는 주소에 대응하는 사이트 제공 값으로 원본 CSV 행·버전과 대조하지 않았습니다. 최초 좌표 생성 방법·조사일·정확도 및 입구·층·호 위치는 미확인입니다. 지도 표시 코드가 특정 지도업체의 좌표 생성 사실을 증명하지 않습니다. 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "7f160936-7534-5e5f-aa5d-41e04ec4e5fe",
+    "slug": "hot-official-samcheop-181",
+    "sourceRef": "official-samcheop-181",
+    "name": "삼첩분식 진해점",
+    "address": "경남 창원시 진해구 석동로 43 1층 일부호(석동)",
+    "coordinates": {
+      "lat": 35.1550196500788,
+      "lon": 128.703529461026
+    },
+    "menus": [
+      {
+        "id": "official-samcheop-181:menu:1",
+        "name": "매콤튀김어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://dokdokplace.kr/stores/i2/i210/i21007/gyeongsangnam-do/jinhae-gu/%EC%84%9D%EB%8F%99/",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T17:32:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "삼첩분식 공식 안내 및 똑똑장소찾기 공공자료 재표시",
+        "attribution": "상호·주소·메뉴: 삼첩분식 공식 매장·메뉴 안내. 위치: 똑똑장소찾기의 소상공인시장진흥공단 상가정보 기반 공개 행.",
+        "changes": "매장명·주소·메뉴명·위치 등 개별 사실만 정리. 사진·후기·가격·평점·수치 맵기를 전재하지 않았습니다.",
+        "scopeNotice": "본사 공통 메뉴이며 해당 지점의 현재 판매 및 영업 여부는 미확인입니다. 공식 지점 기록의 최초 게시일은 미확인이고 확인일은 2026-10-14입니다. 최근 블로그 게시일을 근거로 한 자료가 아닙니다. 위치는 주소에 대응하는 사이트 제공 값으로 원본 CSV 행·버전과 대조하지 않았습니다. 최초 좌표 생성 방법·조사일·정확도 및 입구·층·호 위치는 미확인입니다. 지도 표시 코드가 특정 지도업체의 좌표 생성 사실을 증명하지 않습니다. 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  }
+]
