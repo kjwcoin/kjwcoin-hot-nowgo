@@ -1,4 +1,6 @@
-import regionalRows from '../data/hot-regional-source-records.json' with {type:'json'};
+import priorRegionalRows from '../data/hot-regional-source-records.json' with {type:'json'};
+import sejongRows from '../data/hot-sejong-eight-source-records.json' with {type:'json'};
+const regionalRows=[...priorRegionalRows,...sejongRows];
 import {appendRegionalSourceStores} from './regional-source.ts';
 import {publicSourcedStore,type SourcedStoreRow} from './sourced-store.ts';
 import reviewedEleven from '../data/hot-source-reviewed-eleven-20261014.json' with {type:'json'};
@@ -75,5 +77,6 @@ export const rejectedRegionalSourceRefs=regional.rejected;
 const activeRegionalRows=regional.acceptedRows as ReadonlySourceRecord[];
 export const reviewed786Records=[...records,...activeRegionalRows.filter(row=>row.source_ref==='aks-gwangju-kokkiri-factpoint-54329')];
 export const reviewed787Records=[...reviewed786Records,...activeRegionalRows.filter(row=>row.source_ref==='purpleo-qbh-125717')];
+export const reviewed791Records=[...reviewed787Records,...activeRegionalRows.filter(row=>['purpleo-xnx-4796','purpleo-smi-36199','jusoga-building-2638010100103820008029687-f47620bd','jusoga-building-2653010400105350003006339-fe86e570'].includes(row.source_ref))];
 const activeRecords=[...records,...activeRegionalRows];
 export default activeRecords;

@@ -14,7 +14,9 @@ import * as catalog from '../lib/map-menu-catalog.ts';
 import * as korean from '../lib/korean-region.ts';
 import {hookHarness,elements,textOf} from './helpers/source-ui-components.mjs';
 
-import regionalRows from '../data/hot-regional-source-records.json' with {type:'json'};
+import priorRegionalRows from '../data/hot-regional-source-records.json' with {type:'json'};
+import sejongRows from '../data/hot-sejong-eight-source-records.json' with {type:'json'};
+const regionalRows=[...priorRegionalRows,...sejongRows];
 const expectedCount=785+regionalRows.length;
 const stores=readonlySourceStoreFeed().stores;
 const onjeong=stores.find(store=>store.id==='65a5768f-5c9e-563e-a04f-cbb81835ec02');

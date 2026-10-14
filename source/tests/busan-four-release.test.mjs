@@ -4,8 +4,8 @@ import registry from '../data/hot-regional-source-registry.json' with {type:'jso
 import {readonlySourceStoreFeed,isReadonlySourceStoreId} from '../lib/readonly-source-listings.ts';
 import {parseSourcedStoreFeed} from '../lib/sourced-store.ts';
 import {parseReviewedRegionalStore,appendRegionalSourceStores} from '../lib/regional-source.ts';
-import {REVIEWED787_SOURCE_FEED_CONTRACT} from '../lib/source-feed-contract.ts';
-const old=readonlySourceStoreFeed(REVIEWED787_SOURCE_FEED_CONTRACT),feed=readonlySourceStoreFeed(),additions=raw.slice(2),approvedIds=['06e0018d-393d-529a-98c0-c389fdafe9c3','a7b376a2-894d-550e-9491-dc9a7327448c','8b8da4a6-3932-564f-b8e0-977d4fabf770','7b51b57f-0146-5fd0-ae75-eec528cdff8f'];
+import {REVIEWED787_SOURCE_FEED_CONTRACT,REVIEWED791_SOURCE_FEED_CONTRACT} from '../lib/source-feed-contract.ts';
+const old=readonlySourceStoreFeed(REVIEWED787_SOURCE_FEED_CONTRACT),feed=readonlySourceStoreFeed(REVIEWED791_SOURCE_FEED_CONTRACT),additions=raw.slice(2,6),approvedIds=['06e0018d-393d-529a-98c0-c389fdafe9c3','a7b376a2-894d-550e-9491-dc9a7327448c','8b8da4a6-3932-564f-b8e0-977d4fabf770','7b51b57f-0146-5fd0-ae75-eec528cdff8f'];
 const row=r=>({...r,owner_id:null,archived_at:null,trust_disabled_at:null,owner_penalty_points:0,publication_state:'DISCOVERED'});
 test('Busan batch is exactly four additions; whole787 contract and all existing menu cards preserved',()=>{
  assert.equal(old.stores.length,787);assert.equal(createHash('sha256').update(JSON.stringify(old)).digest('hex'),'dce68e8b2cc05a0bf45043d40b7d87f8c883c2367ee920536df7fda15c990dbe');

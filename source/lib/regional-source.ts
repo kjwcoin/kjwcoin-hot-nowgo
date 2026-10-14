@@ -1,4 +1,6 @@
-import reviewed from '../data/hot-regional-source-registry.json' with {type:'json'};
+import priorReviewed from '../data/hot-regional-source-registry.json' with {type:'json'};
+import sejongReviewed from '../data/hot-sejong-eight-source-registry.json' with {type:'json'};
+const reviewed=[...priorReviewed,...sejongReviewed];
 import type {PublicSourcedStore,SourcedStoreRow} from './sourced-store.ts';
 /** Only public, release-reviewed facts belong here. Research packets are never imported. */
 export type RegionalSourceDisclosure={
@@ -29,8 +31,9 @@ function validReviewed(store:ReviewedRegionalStore):boolean{
  if(new Set(menus.map(m=>m.id)).size!==menus.length)return false;
  if(d.kind==='attributed-wiki-facts')return /^aks-gwangju-[a-z0-9-]+$/.test(store.sourceRef)&&source.url.startsWith('https://dh.aks.ac.kr/~gwangju/wiki/index.php/')&&source.licenseName==='CC BY-SA 4.0'&&d.licenseUrl==='https://creativecommons.org/licenses/by-sa/4.0/'&&d.historyUrl===source.url.replace('index.php/','index.php?title=')+'&action=history'&&typeof d.revisionUrl==='string'&&/^https:\/\/dh\.aks\.ac\.kr\/~gwangju\/wiki\/index\.php\?title=[^&]+&oldid=\d+$/.test(d.revisionUrl);
  const mirror=/^purpleo-(qbh|xnx|smi)-(\d+)$/.exec(store.sourceRef);
+ const fmr=/^purpleo-fmr-(\d+)$/.exec(store.sourceRef);
  const building=/^jusoga-building-(\d{25})-[a-f0-9]{8}$/.exec(store.sourceRef);
- const supportedFactUrl=mirror?source.url===`https://${mirror[1]}.purpleo.kr/article/${mirror[2]}`:Boolean(building&&source.url.startsWith(`https://jusoga.com/b/${building[1]}/`)&&!/[?#]/.test(source.url));
+ const supportedFactUrl=fmr?source.url===`https://fmr.purpleo.co.kr/view/${fmr[1]}`:mirror?source.url===`https://${mirror[1]}.purpleo.kr/article/${mirror[2]}`:Boolean(building&&source.url.startsWith(`https://jusoga.com/b/${building[1]}/`)&&!/[?#]/.test(source.url));
  return d.kind==='individual-public-facts'&&supportedFactUrl&&source.licenseName===null&&d.licenseUrl===null&&d.revisionUrl===null&&d.historyUrl===null;
 }
 /** Registry approval binds every displayed field, including point, licence and caveats. */

@@ -1,6 +1,6 @@
 import test from 'node:test';import assert from 'node:assert/strict';import {createHash} from 'node:crypto';
 import cases from './fixtures/regional-source-cases.json' with {type:'json'};
-import activeRegistry from '../data/hot-regional-source-registry.json' with {type:'json'};
+import {reviewedRegionalSources as activeRegistry} from '../lib/regional-source.ts';
 import {appendRegionalSourceStores,parseReviewedRegionalStore} from '../lib/regional-source.ts';
 import {readonlySourceStoreFeed,isReadonlySourceStoreId} from '../lib/readonly-source-listings.ts';
 import {parseSourcedStoreFeed,publicSourcedStore} from '../lib/sourced-store.ts';
