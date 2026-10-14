@@ -2,7 +2,8 @@ import priorReviewed from '../data/hot-regional-source-registry.json' with {type
 import sejongReviewed from '../data/hot-sejong-eight-source-registry.json' with {type:'json'};
 import nextSejongReviewed from '../data/hot-sejong-next30-source-registry.json' with {type:'json'};
 import next64Reviewed from '../data/hot-sejong-next64-source-registry.json' with {type:'json'};
-const reviewed=[...priorReviewed,...sejongReviewed,...nextSejongReviewed,...next64Reviewed];
+import next47Reviewed from '../data/hot-sejong-next47-source-registry.json' with {type:'json'};
+const reviewed=[...priorReviewed,...sejongReviewed,...nextSejongReviewed,...next64Reviewed,...next47Reviewed];
 import type {PublicSourcedStore,SourcedStoreRow} from './sourced-store.ts';
 /** Only public, release-reviewed facts belong here. Research packets are never imported. */
 export type RegionalSourceDisclosure={
@@ -24,6 +25,7 @@ export function sameRegionalFact(a:unknown,b:unknown):boolean{
  if(Array.isArray(a)&&Array.isArray(b))return a.length===b.length&&a.every((v,i)=>sameRegionalFact(v,b[i]));
  return object(a)&&object(b)&&Object.keys(a).length===Object.keys(b).length&&Object.keys(a).every(k=>Object.hasOwn(b,k)&&sameRegionalFact(a[k],b[k]));
 }
+const reviewedArchiveBuildingIds:Readonly<Record<string,string>>={"archive-sejong-95eab7c0b9fe50ede57c":"3611010800100850001000008","archive-sejong-21614eeb649bd8fa08ad":"4473031025101010009000001","archive-sejong-5b044f1fa40d22e1ffa7":"3611010400105660005000001","archive-sejong-6d1f210cd98d51480e97":"3611011000106570000000001","archive-sejong-ecb297ba1d7583e0ef83":"4415035021100510006016360","archive-sejong-31bbfc925520a92da351":"4473034035100410000027551","archive-sejong-1dcfdfe9098176411591":"3611033025107270000000001"};
 /** Exact supported origins, not arbitrary HTTPS/HTML. Attribution is plain text only. */
 function validReviewed(store:ReviewedRegionalStore):boolean{
  const {source,coordinates,menus}=store,d=source?.disclosure;
@@ -35,7 +37,8 @@ function validReviewed(store:ReviewedRegionalStore):boolean{
  const mirror=/^purpleo-(qbh|xnx|smi)-(\d+)$/.exec(store.sourceRef);
  const fmr=/^purpleo-fmr-(\d+)$/.exec(store.sourceRef);
  const building=/^jusoga-building-(\d{25})-[a-f0-9]{8}$/.exec(store.sourceRef);
- const supportedFactUrl=fmr?source.url===`https://fmr.purpleo.co.kr/view/${fmr[1]}`:mirror?source.url===`https://${mirror[1]}.purpleo.kr/article/${mirror[2]}`:Boolean(building&&source.url.startsWith(`https://jusoga.com/b/${building[1]}/`)&&!/[?#]/.test(source.url));
+ const archiveBuildingId=Object.hasOwn(reviewedArchiveBuildingIds,store.sourceRef)?reviewedArchiveBuildingIds[store.sourceRef]:undefined;
+ const supportedFactUrl=archiveBuildingId?source.url.startsWith(`https://jusoga.com/b/${archiveBuildingId}/`)&&!/[?#]/.test(source.url):fmr?source.url===`https://fmr.purpleo.co.kr/view/${fmr[1]}`:mirror?source.url===`https://${mirror[1]}.purpleo.kr/article/${mirror[2]}`:Boolean(building&&source.url.startsWith(`https://jusoga.com/b/${building[1]}/`)&&!/[?#]/.test(source.url));
  return d.kind==='individual-public-facts'&&supportedFactUrl&&source.licenseName===null&&d.licenseUrl===null&&d.revisionUrl===null&&d.historyUrl===null;
 }
 /** Registry approval binds every displayed field, including point, licence and caveats. */
