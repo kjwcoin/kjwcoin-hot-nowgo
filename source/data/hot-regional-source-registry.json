@@ -43,5 +43,50 @@
         "historyUrl": "https://dh.aks.ac.kr/~gwangju/wiki/index.php?title=코끼리아구찜&action=history"
       }
     }
+  },
+  {
+    "id": "b04a5089-1e56-54cb-98ac-40fb5c5bf750",
+    "slug": "hot-daejeon-cent-066",
+    "sourceRef": "purpleo-qbh-125717",
+    "name": "온유네닭매운탕",
+    "address": "대전광역시 서구 문정로170번길 50",
+    "coordinates": {
+      "lat": 36.3493679,
+      "lon": 127.3985766
+    },
+    "menus": [
+      {
+        "id": "purpleo-qbh-125717:menu:1",
+        "name": "닭매운탕",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://qbh.purpleo.kr/article/125717",
+      "licenseName": null,
+      "asOf": "2020",
+      "checkedAt": "2026-10-14T00:51:19.173658+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "퍼플오 공개 문화시설 자료",
+        "attribution": "온유네닭매운탕 · qbh:125717 · 자료 기준연도 2020",
+        "changes": "개별 공개 기록의 상호·주소·좌표와 별도 확인된 메뉴명만 정리했습니다. 가격·사진·평가·수치 맵기는 가져오지 않았습니다.",
+        "scopeNotice": "명시적 이용허락을 확인한 자료가 아닙니다. 최소한의 개별 사실 이용에 한정한 검토이며 원제공자의 라이선스를 승계한다고 주장하지 않습니다. 좌표는 2020년 기준의 2차 자료이고 원제공자 행은 대조하지 못했습니다. 최근 같은 주소의 자료로 보완했으나 현재 영업·메뉴 판매 여부를 보증하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
   }
 ]

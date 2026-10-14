@@ -73,5 +73,6 @@ const baselineFacts=records.map(row=>{
 const regional=appendRegionalSourceStores(baselineFacts,regionalRows as SourcedStoreRow[]);
 export const rejectedRegionalSourceRefs=regional.rejected;
 const activeRegionalRows=regional.acceptedRows as ReadonlySourceRecord[];
+export const reviewed786Records=[...records,...activeRegionalRows.filter(row=>row.source_ref==='aks-gwangju-kokkiri-factpoint-54329')];
 const activeRecords=[...records,...activeRegionalRows];
 export default activeRecords;

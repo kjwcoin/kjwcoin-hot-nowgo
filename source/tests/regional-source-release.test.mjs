@@ -4,7 +4,7 @@ import activeRegistry from '../data/hot-regional-source-registry.json' with {typ
 import {appendRegionalSourceStores,parseReviewedRegionalStore} from '../lib/regional-source.ts';
 import {readonlySourceStoreFeed,isReadonlySourceStoreId} from '../lib/readonly-source-listings.ts';
 import {parseSourcedStoreFeed,publicSourcedStore} from '../lib/sourced-store.ts';
-import {REVIEWED785_SOURCE_FEED_CONTRACT} from '../lib/source-feed-contract.ts';
+import {REVIEWED785_SOURCE_FEED_CONTRACT,REVIEWED786_SOURCE_FEED_CONTRACT} from '../lib/source-feed-contract.ts';
 
 const baseline=readonlySourceStoreFeed(REVIEWED785_SOURCE_FEED_CONTRACT),registry=cases.map(c=>c.store),fresh=readonlySourceStoreFeed();
 test('original785 stay byte-identical and the regional additions are exact, unscored and unclaimed',()=>{
@@ -50,3 +50,5 @@ test('real manifest assembly and feed survive malformed regional aliases, revoke
  `],{cwd:new URL('..',import.meta.url),encoding:'utf8'});
  assert.deepEqual(JSON.parse(result),{count:785+activeRegistry.length,complete:false,rejected:4});
 });
+
+test('Gwangju786 contract remains byte-equivalent after the Daejeon release',()=>{const previous=readonlySourceStoreFeed(REVIEWED786_SOURCE_FEED_CONTRACT);assert.equal(previous.stores.length,786);assert.equal(createHash('sha256').update(JSON.stringify(previous)).digest('hex'),'aee4827c7308eca364e09598769a5ff70fa38a8a1e2a8378f10072b3338179ea');});
