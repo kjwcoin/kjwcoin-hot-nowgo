@@ -1,0 +1,1712 @@
+[
+  {
+    "id": "f5198245-6611-5064-9f3e-556742a80f0d",
+    "slug": "hot-official-wehalmae-28",
+    "sourceRef": "official-wehalmae-28",
+    "name": "우리할매떡볶이 부천상동점",
+    "address": "경기도 부천시 길주로77번길 61",
+    "coordinates": {
+      "lat": 37.5074849409818,
+      "lon": 126.752384077221
+    },
+    "menus": [
+      {
+        "id": "official-wehalmae-28:menu:1",
+        "name": "매운어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://wehalmae.co.kr/bbs/content.php?co_id=shops",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:06:45.643427+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "우리할매떡볶이 본사 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 우리할매떡볶이 공식 매장안내. 메뉴: 우리할매떡볶이 공식 홈페이지의 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 매운어묵은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 본사 매장안내의 해당 지점에 연결된 저장 좌표이며 최초 생성 방법·현장 정확도·출입구 위치는 미확인입니다. 지도 API 응답이나 지도 이미지는 수집하지 않았습니다. 매장 행에 표시된 작성·수정일은 2024-01-03이며 현재 영업 확인일을 뜻하지 않습니다. 개별 사실만 제한적으로 정리했으며 공식 제휴나 명시적 오픈 라이선스를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "5a9cb8db-c0b3-5b72-b091-6021b897df2f",
+    "slug": "hot-official-wehalmae-52",
+    "sourceRef": "official-wehalmae-52",
+    "name": "우리할매떡볶이 무안남악점",
+    "address": "전남 무안군 삼향읍 남악3로 55 117호",
+    "coordinates": {
+      "lat": 34.8103680851452,
+      "lon": 126.459771529168
+    },
+    "menus": [
+      {
+        "id": "official-wehalmae-52:menu:1",
+        "name": "매운어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://wehalmae.co.kr/bbs/content.php?co_id=shops",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:06:45.643427+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "우리할매떡볶이 본사 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 우리할매떡볶이 공식 매장안내. 메뉴: 우리할매떡볶이 공식 홈페이지의 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 매운어묵은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 본사 매장안내의 해당 지점에 연결된 저장 좌표이며 최초 생성 방법·현장 정확도·출입구 위치는 미확인입니다. 지도 API 응답이나 지도 이미지는 수집하지 않았습니다. 매장 행에 표시된 작성·수정일은 2024-01-03이며 현재 영업 확인일을 뜻하지 않습니다. 개별 사실만 제한적으로 정리했으며 공식 제휴나 명시적 오픈 라이선스를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "059ba720-7a5d-503b-8418-37e0447c772b",
+    "slug": "hot-official-wehalmae-358",
+    "sourceRef": "official-wehalmae-358",
+    "name": "우리할매떡볶이 단양점",
+    "address": "충북 단양군 단양읍 군청로 21 , e편한세상 단양 리버비스타 110호",
+    "coordinates": {
+      "lat": 36.9807731169628,
+      "lon": 128.366227355966
+    },
+    "menus": [
+      {
+        "id": "official-wehalmae-358:menu:1",
+        "name": "매운어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://wehalmae.co.kr/bbs/content.php?co_id=shops",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:06:45.643427+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "우리할매떡볶이 본사 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 우리할매떡볶이 공식 매장안내. 메뉴: 우리할매떡볶이 공식 홈페이지의 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 매운어묵은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 본사 매장안내의 해당 지점에 연결된 저장 좌표이며 최초 생성 방법·현장 정확도·출입구 위치는 미확인입니다. 지도 API 응답이나 지도 이미지는 수집하지 않았습니다. 매장 행에 표시된 작성·수정일은 2026-02-23이며 현재 영업 확인일을 뜻하지 않습니다. 개별 사실만 제한적으로 정리했으며 공식 제휴나 명시적 오픈 라이선스를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "16cc9c7a-c789-55d4-8bed-41e6d892a00e",
+    "slug": "hot-official-wehalmae-74",
+    "sourceRef": "official-wehalmae-74",
+    "name": "우리할매떡볶이 원주무실점",
+    "address": "강원 원주시 능라동길 78",
+    "coordinates": {
+      "lat": 37.3331515427047,
+      "lon": 127.929551266871
+    },
+    "menus": [
+      {
+        "id": "official-wehalmae-74:menu:1",
+        "name": "매운어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://wehalmae.co.kr/bbs/content.php?co_id=shops",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:06:45.643427+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "우리할매떡볶이 본사 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 우리할매떡볶이 공식 매장안내. 메뉴: 우리할매떡볶이 공식 홈페이지의 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 매운어묵은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 본사 매장안내의 해당 지점에 연결된 저장 좌표이며 최초 생성 방법·현장 정확도·출입구 위치는 미확인입니다. 지도 API 응답이나 지도 이미지는 수집하지 않았습니다. 매장 행에 표시된 작성·수정일은 2024-01-03이며 현재 영업 확인일을 뜻하지 않습니다. 개별 사실만 제한적으로 정리했으며 공식 제휴나 명시적 오픈 라이선스를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "a3dc0ae7-01ef-509d-a4f7-6fa338d8d03c",
+    "slug": "hot-official-wehalmae-47",
+    "sourceRef": "official-wehalmae-47",
+    "name": "우리할매떡볶이 창원성산점",
+    "address": "경남 창원시 성산구 동산로 122 스카이웰빙파크 103-4호",
+    "coordinates": {
+      "lat": 35.2189963854301,
+      "lon": 128.690953952905
+    },
+    "menus": [
+      {
+        "id": "official-wehalmae-47:menu:1",
+        "name": "매운어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://wehalmae.co.kr/bbs/content.php?co_id=shops",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:06:45.643427+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "우리할매떡볶이 본사 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 우리할매떡볶이 공식 매장안내. 메뉴: 우리할매떡볶이 공식 홈페이지의 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 매운어묵은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 본사 매장안내의 해당 지점에 연결된 저장 좌표이며 최초 생성 방법·현장 정확도·출입구 위치는 미확인입니다. 지도 API 응답이나 지도 이미지는 수집하지 않았습니다. 매장 행에 표시된 작성·수정일은 2024-01-03이며 현재 영업 확인일을 뜻하지 않습니다. 개별 사실만 제한적으로 정리했으며 공식 제휴나 명시적 오픈 라이선스를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "e734d6aa-cd47-5ca6-a853-68e01c0c9b9d",
+    "slug": "hot-official-wehalmae-40",
+    "sourceRef": "official-wehalmae-40",
+    "name": "우리할매떡볶이 포항문덕점",
+    "address": "경북 포항시 남구 오천읍 남원로 85, 3동",
+    "coordinates": {
+      "lat": 35.9664376921254,
+      "lon": 129.400411409833
+    },
+    "menus": [
+      {
+        "id": "official-wehalmae-40:menu:1",
+        "name": "매운어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://wehalmae.co.kr/bbs/content.php?co_id=shops",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:06:45.643427+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "우리할매떡볶이 본사 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 우리할매떡볶이 공식 매장안내. 메뉴: 우리할매떡볶이 공식 홈페이지의 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 매운어묵은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 본사 매장안내의 해당 지점에 연결된 저장 좌표이며 최초 생성 방법·현장 정확도·출입구 위치는 미확인입니다. 지도 API 응답이나 지도 이미지는 수집하지 않았습니다. 매장 행에 표시된 작성·수정일은 2024-01-03이며 현재 영업 확인일을 뜻하지 않습니다. 개별 사실만 제한적으로 정리했으며 공식 제휴나 명시적 오픈 라이선스를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "809e662e-2bad-563b-ae68-f5b67400626e",
+    "slug": "hot-official-wehalmae-26",
+    "sourceRef": "official-wehalmae-26",
+    "name": "우리할매떡볶이 광주상무점",
+    "address": "광주 서구 치평로 112",
+    "coordinates": {
+      "lat": 35.1572894798083,
+      "lon": 126.847659134451
+    },
+    "menus": [
+      {
+        "id": "official-wehalmae-26:menu:1",
+        "name": "매운어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://wehalmae.co.kr/bbs/content.php?co_id=shops",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:06:45.643427+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "우리할매떡볶이 본사 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 우리할매떡볶이 공식 매장안내. 메뉴: 우리할매떡볶이 공식 홈페이지의 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 매운어묵은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 본사 매장안내의 해당 지점에 연결된 저장 좌표이며 최초 생성 방법·현장 정확도·출입구 위치는 미확인입니다. 지도 API 응답이나 지도 이미지는 수집하지 않았습니다. 매장 행에 표시된 작성·수정일은 2024-01-03이며 현재 영업 확인일을 뜻하지 않습니다. 개별 사실만 제한적으로 정리했으며 공식 제휴나 명시적 오픈 라이선스를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "d9dcf7aa-082e-5ba1-a280-2129b5d6f3bc",
+    "slug": "hot-official-wehalmae-163",
+    "sourceRef": "official-wehalmae-163",
+    "name": "우리할매떡볶이 대전 신탄진점",
+    "address": "대전 대덕구 신탄진로 831",
+    "coordinates": {
+      "lat": 36.4516138295488,
+      "lon": 127.428375013681
+    },
+    "menus": [
+      {
+        "id": "official-wehalmae-163:menu:1",
+        "name": "매운어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://wehalmae.co.kr/bbs/content.php?co_id=shops",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:06:45.643427+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "우리할매떡볶이 본사 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 우리할매떡볶이 공식 매장안내. 메뉴: 우리할매떡볶이 공식 홈페이지의 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 매운어묵은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 본사 매장안내의 해당 지점에 연결된 저장 좌표이며 최초 생성 방법·현장 정확도·출입구 위치는 미확인입니다. 지도 API 응답이나 지도 이미지는 수집하지 않았습니다. 매장 행에 표시된 작성·수정일은 2024-01-05이며 현재 영업 확인일을 뜻하지 않습니다. 개별 사실만 제한적으로 정리했으며 공식 제휴나 명시적 오픈 라이선스를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "0a937c68-5f90-53c0-aefe-d3fa1f4b699e",
+    "slug": "hot-official-wehalmae-54",
+    "sourceRef": "official-wehalmae-54",
+    "name": "우리할매떡볶이 원주혁신점",
+    "address": "강원특별자치도 원주시 양지로 20 128호",
+    "coordinates": {
+      "lat": 37.3245070786308,
+      "lon": 127.981027846205
+    },
+    "menus": [
+      {
+        "id": "official-wehalmae-54:menu:1",
+        "name": "매운어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://wehalmae.co.kr/bbs/content.php?co_id=shops",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:06:45.643427+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "우리할매떡볶이 본사 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 우리할매떡볶이 공식 매장안내. 메뉴: 우리할매떡볶이 공식 홈페이지의 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 매운어묵은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 본사 매장안내의 해당 지점에 연결된 저장 좌표이며 최초 생성 방법·현장 정확도·출입구 위치는 미확인입니다. 지도 API 응답이나 지도 이미지는 수집하지 않았습니다. 매장 행에 표시된 작성·수정일은 2024-01-03이며 현재 영업 확인일을 뜻하지 않습니다. 개별 사실만 제한적으로 정리했으며 공식 제휴나 명시적 오픈 라이선스를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "de371ff3-e0a1-570f-a7e9-15d6beec7755",
+    "slug": "hot-official-wehalmae-39",
+    "sourceRef": "official-wehalmae-39",
+    "name": "우리할매떡볶이 대전관저점",
+    "address": "대전 서구 구봉로131번길 14-17",
+    "coordinates": {
+      "lat": 36.2971489574648,
+      "lon": 127.338399310102
+    },
+    "menus": [
+      {
+        "id": "official-wehalmae-39:menu:1",
+        "name": "매운어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://wehalmae.co.kr/bbs/content.php?co_id=shops",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:06:45.643427+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "우리할매떡볶이 본사 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 우리할매떡볶이 공식 매장안내. 메뉴: 우리할매떡볶이 공식 홈페이지의 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 매운어묵은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 본사 매장안내의 해당 지점에 연결된 저장 좌표이며 최초 생성 방법·현장 정확도·출입구 위치는 미확인입니다. 지도 API 응답이나 지도 이미지는 수집하지 않았습니다. 매장 행에 표시된 작성·수정일은 2024-01-03이며 현재 영업 확인일을 뜻하지 않습니다. 개별 사실만 제한적으로 정리했으며 공식 제휴나 명시적 오픈 라이선스를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "aec20d49-f218-5ff1-9542-2a75567645aa",
+    "slug": "hot-official-wehalmae-44",
+    "sourceRef": "official-wehalmae-44",
+    "name": "우리할매떡볶이 나주혁신도시점",
+    "address": "전남 나주시 우정로 56",
+    "coordinates": {
+      "lat": 35.0236573414624,
+      "lon": 126.786300997302
+    },
+    "menus": [
+      {
+        "id": "official-wehalmae-44:menu:1",
+        "name": "매운어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://wehalmae.co.kr/bbs/content.php?co_id=shops",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:06:45.643427+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "우리할매떡볶이 본사 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 우리할매떡볶이 공식 매장안내. 메뉴: 우리할매떡볶이 공식 홈페이지의 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 매운어묵은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 본사 매장안내의 해당 지점에 연결된 저장 좌표이며 최초 생성 방법·현장 정확도·출입구 위치는 미확인입니다. 지도 API 응답이나 지도 이미지는 수집하지 않았습니다. 매장 행에 표시된 작성·수정일은 2024-01-03이며 현재 영업 확인일을 뜻하지 않습니다. 개별 사실만 제한적으로 정리했으며 공식 제휴나 명시적 오픈 라이선스를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "c095fa8f-fc0f-5047-84bc-dd19b974fb38",
+    "slug": "hot-official-wehalmae-59",
+    "sourceRef": "official-wehalmae-59",
+    "name": "우리할매떡볶이 목포용해점",
+    "address": "전남 목포시 포미로 10 1층",
+    "coordinates": {
+      "lat": 34.8169738171902,
+      "lon": 126.397905795579
+    },
+    "menus": [
+      {
+        "id": "official-wehalmae-59:menu:1",
+        "name": "매운어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://wehalmae.co.kr/bbs/content.php?co_id=shops",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:06:45.643427+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "우리할매떡볶이 본사 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 우리할매떡볶이 공식 매장안내. 메뉴: 우리할매떡볶이 공식 홈페이지의 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 매운어묵은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 본사 매장안내의 해당 지점에 연결된 저장 좌표이며 최초 생성 방법·현장 정확도·출입구 위치는 미확인입니다. 지도 API 응답이나 지도 이미지는 수집하지 않았습니다. 매장 행에 표시된 작성·수정일은 2024-01-03이며 현재 영업 확인일을 뜻하지 않습니다. 개별 사실만 제한적으로 정리했으며 공식 제휴나 명시적 오픈 라이선스를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "4e6c2a0a-befc-56b9-b938-e5c885a103a4",
+    "slug": "hot-official-wehalmae-23",
+    "sourceRef": "official-wehalmae-23",
+    "name": "우리할매떡볶이 여수여서점",
+    "address": "전남 여수시 여서로 86 1층",
+    "coordinates": {
+      "lat": 34.7479053570294,
+      "lon": 127.691247363909
+    },
+    "menus": [
+      {
+        "id": "official-wehalmae-23:menu:1",
+        "name": "매운어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://wehalmae.co.kr/bbs/content.php?co_id=shops",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:06:45.643427+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "우리할매떡볶이 본사 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 우리할매떡볶이 공식 매장안내. 메뉴: 우리할매떡볶이 공식 홈페이지의 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 매운어묵은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 본사 매장안내의 해당 지점에 연결된 저장 좌표이며 최초 생성 방법·현장 정확도·출입구 위치는 미확인입니다. 지도 API 응답이나 지도 이미지는 수집하지 않았습니다. 매장 행에 표시된 작성·수정일은 2024-01-03이며 현재 영업 확인일을 뜻하지 않습니다. 개별 사실만 제한적으로 정리했으며 공식 제휴나 명시적 오픈 라이선스를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "3cc37dae-2e21-569b-b4c3-56a7da0c2417",
+    "slug": "hot-official-wehalmae-60",
+    "sourceRef": "official-wehalmae-60",
+    "name": "우리할매떡볶이 군산점",
+    "address": "전북 군산시 하나운로 76",
+    "coordinates": {
+      "lat": 35.9649895468108,
+      "lon": 126.702552503228
+    },
+    "menus": [
+      {
+        "id": "official-wehalmae-60:menu:1",
+        "name": "매운어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://wehalmae.co.kr/bbs/content.php?co_id=shops",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:06:45.643427+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "우리할매떡볶이 본사 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 우리할매떡볶이 공식 매장안내. 메뉴: 우리할매떡볶이 공식 홈페이지의 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 매운어묵은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 본사 매장안내의 해당 지점에 연결된 저장 좌표이며 최초 생성 방법·현장 정확도·출입구 위치는 미확인입니다. 지도 API 응답이나 지도 이미지는 수집하지 않았습니다. 매장 행에 표시된 작성·수정일은 2024-01-03이며 현재 영업 확인일을 뜻하지 않습니다. 개별 사실만 제한적으로 정리했으며 공식 제휴나 명시적 오픈 라이선스를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "09fc103e-bd3b-5ed6-9846-9f636232ceae",
+    "slug": "hot-official-wehalmae-356",
+    "sourceRef": "official-wehalmae-356",
+    "name": "우리할매떡볶이 군산조촌점",
+    "address": "전북 군산시 궁포1로 24-3, 1층",
+    "coordinates": {
+      "lat": 35.9768375213431,
+      "lon": 126.740568877212
+    },
+    "menus": [
+      {
+        "id": "official-wehalmae-356:menu:1",
+        "name": "매운어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://wehalmae.co.kr/bbs/content.php?co_id=shops",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:06:45.643427+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "우리할매떡볶이 본사 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 우리할매떡볶이 공식 매장안내. 메뉴: 우리할매떡볶이 공식 홈페이지의 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 매운어묵은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 본사 매장안내의 해당 지점에 연결된 저장 좌표이며 최초 생성 방법·현장 정확도·출입구 위치는 미확인입니다. 지도 API 응답이나 지도 이미지는 수집하지 않았습니다. 매장 행에 표시된 작성·수정일은 2025-06-30이며 현재 영업 확인일을 뜻하지 않습니다. 개별 사실만 제한적으로 정리했으며 공식 제휴나 명시적 오픈 라이선스를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "996d652d-a6b3-50bf-b128-a872f93878fd",
+    "slug": "hot-official-wehalmae-38",
+    "sourceRef": "official-wehalmae-38",
+    "name": "우리할매떡볶이 전주삼천점",
+    "address": "전북 전주시 완산구 거마평로 36",
+    "coordinates": {
+      "lat": 35.7955722366654,
+      "lon": 127.11705539549
+    },
+    "menus": [
+      {
+        "id": "official-wehalmae-38:menu:1",
+        "name": "매운어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://wehalmae.co.kr/bbs/content.php?co_id=shops",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:06:45.643427+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "우리할매떡볶이 본사 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 우리할매떡볶이 공식 매장안내. 메뉴: 우리할매떡볶이 공식 홈페이지의 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 매운어묵은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 본사 매장안내의 해당 지점에 연결된 저장 좌표이며 최초 생성 방법·현장 정확도·출입구 위치는 미확인입니다. 지도 API 응답이나 지도 이미지는 수집하지 않았습니다. 매장 행에 표시된 작성·수정일은 2024-01-03이며 현재 영업 확인일을 뜻하지 않습니다. 개별 사실만 제한적으로 정리했으며 공식 제휴나 명시적 오픈 라이선스를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "d3f52dff-e9aa-5400-a0f2-7023980e6294",
+    "slug": "hot-official-wehalmae-29",
+    "sourceRef": "official-wehalmae-29",
+    "name": "우리할매떡볶이 전주서신점",
+    "address": "전북 전주시 완산구 당산로 27, 115동 104",
+    "coordinates": {
+      "lat": 35.8323377679003,
+      "lon": 127.111436252148
+    },
+    "menus": [
+      {
+        "id": "official-wehalmae-29:menu:1",
+        "name": "매운어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://wehalmae.co.kr/bbs/content.php?co_id=shops",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:06:45.643427+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "우리할매떡볶이 본사 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 우리할매떡볶이 공식 매장안내. 메뉴: 우리할매떡볶이 공식 홈페이지의 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 매운어묵은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 본사 매장안내의 해당 지점에 연결된 저장 좌표이며 최초 생성 방법·현장 정확도·출입구 위치는 미확인입니다. 지도 API 응답이나 지도 이미지는 수집하지 않았습니다. 매장 행에 표시된 작성·수정일은 2024-01-03이며 현재 영업 확인일을 뜻하지 않습니다. 개별 사실만 제한적으로 정리했으며 공식 제휴나 명시적 오픈 라이선스를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "30c8e65a-66d4-58df-a42b-ec8a8b0864fc",
+    "slug": "hot-official-wehalmae-17",
+    "sourceRef": "official-wehalmae-17",
+    "name": "우리할매떡볶이 전주송천점",
+    "address": "전북 전주시 덕진구 솔내로 148",
+    "coordinates": {
+      "lat": 35.8633496891296,
+      "lon": 127.12734031058
+    },
+    "menus": [
+      {
+        "id": "official-wehalmae-17:menu:1",
+        "name": "매운어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://wehalmae.co.kr/bbs/content.php?co_id=shops",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:06:45.643427+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "우리할매떡볶이 본사 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 우리할매떡볶이 공식 매장안내. 메뉴: 우리할매떡볶이 공식 홈페이지의 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 매운어묵은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 본사 매장안내의 해당 지점에 연결된 저장 좌표이며 최초 생성 방법·현장 정확도·출입구 위치는 미확인입니다. 지도 API 응답이나 지도 이미지는 수집하지 않았습니다. 매장 행에 표시된 작성·수정일은 2024-01-03이며 현재 영업 확인일을 뜻하지 않습니다. 개별 사실만 제한적으로 정리했으며 공식 제휴나 명시적 오픈 라이선스를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "b8072bf9-b41a-503c-abf3-b38652171e44",
+    "slug": "hot-official-wehalmae-45",
+    "sourceRef": "official-wehalmae-45",
+    "name": "우리할매떡볶이 전주혁신점",
+    "address": "전북 전주시 덕진구 오공로 43-17",
+    "coordinates": {
+      "lat": 35.8376994663352,
+      "lon": 127.05996264825
+    },
+    "menus": [
+      {
+        "id": "official-wehalmae-45:menu:1",
+        "name": "매운어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://wehalmae.co.kr/bbs/content.php?co_id=shops",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:06:45.643427+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "우리할매떡볶이 본사 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 우리할매떡볶이 공식 매장안내. 메뉴: 우리할매떡볶이 공식 홈페이지의 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 매운어묵은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 본사 매장안내의 해당 지점에 연결된 저장 좌표이며 최초 생성 방법·현장 정확도·출입구 위치는 미확인입니다. 지도 API 응답이나 지도 이미지는 수집하지 않았습니다. 매장 행에 표시된 작성·수정일은 2024-01-03이며 현재 영업 확인일을 뜻하지 않습니다. 개별 사실만 제한적으로 정리했으며 공식 제휴나 명시적 오픈 라이선스를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "71e7520f-63bb-5f3c-908d-36efb1446fe2",
+    "slug": "hot-official-wehalmae-48",
+    "sourceRef": "official-wehalmae-48",
+    "name": "우리할매떡볶이 전주효자점",
+    "address": "전북 전주시 완산구 호암로 67",
+    "coordinates": {
+      "lat": 35.8091147155887,
+      "lon": 127.102111975064
+    },
+    "menus": [
+      {
+        "id": "official-wehalmae-48:menu:1",
+        "name": "매운어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://wehalmae.co.kr/bbs/content.php?co_id=shops",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:06:45.643427+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "우리할매떡볶이 본사 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 우리할매떡볶이 공식 매장안내. 메뉴: 우리할매떡볶이 공식 홈페이지의 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 매운어묵은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 본사 매장안내의 해당 지점에 연결된 저장 좌표이며 최초 생성 방법·현장 정확도·출입구 위치는 미확인입니다. 지도 API 응답이나 지도 이미지는 수집하지 않았습니다. 매장 행에 표시된 작성·수정일은 2024-01-03이며 현재 영업 확인일을 뜻하지 않습니다. 개별 사실만 제한적으로 정리했으며 공식 제휴나 명시적 오픈 라이선스를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "32d73f17-9915-5a11-87a7-f845cf32621e",
+    "slug": "hot-official-wehalmae-50",
+    "sourceRef": "official-wehalmae-50",
+    "name": "우리할매떡볶이 배방탕정점",
+    "address": "충남 아산시 배방읍 모산로126번길 17-7",
+    "coordinates": {
+      "lat": 36.7733952254088,
+      "lon": 127.058334503264
+    },
+    "menus": [
+      {
+        "id": "official-wehalmae-50:menu:1",
+        "name": "매운어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://wehalmae.co.kr/bbs/content.php?co_id=shops",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:06:45.643427+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "우리할매떡볶이 본사 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 우리할매떡볶이 공식 매장안내. 메뉴: 우리할매떡볶이 공식 홈페이지의 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 매운어묵은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 본사 매장안내의 해당 지점에 연결된 저장 좌표이며 최초 생성 방법·현장 정확도·출입구 위치는 미확인입니다. 지도 API 응답이나 지도 이미지는 수집하지 않았습니다. 매장 행에 표시된 작성·수정일은 2024-01-03이며 현재 영업 확인일을 뜻하지 않습니다. 개별 사실만 제한적으로 정리했으며 공식 제휴나 명시적 오픈 라이선스를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "e585c814-638f-5843-bc33-fa761130edb7",
+    "slug": "hot-official-wehalmae-359",
+    "sourceRef": "official-wehalmae-359",
+    "name": "우리할매떡볶이 천안청수점",
+    "address": "충남 천안시 동남구 청수6로 107",
+    "coordinates": {
+      "lat": 36.7892805627701,
+      "lon": 127.154916165074
+    },
+    "menus": [
+      {
+        "id": "official-wehalmae-359:menu:1",
+        "name": "매운어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://wehalmae.co.kr/bbs/content.php?co_id=shops",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:06:45.643427+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "우리할매떡볶이 본사 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 우리할매떡볶이 공식 매장안내. 메뉴: 우리할매떡볶이 공식 홈페이지의 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 매운어묵은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 본사 매장안내의 해당 지점에 연결된 저장 좌표이며 최초 생성 방법·현장 정확도·출입구 위치는 미확인입니다. 지도 API 응답이나 지도 이미지는 수집하지 않았습니다. 매장 행에 표시된 작성·수정일은 2026-04-07이며 현재 영업 확인일을 뜻하지 않습니다. 개별 사실만 제한적으로 정리했으며 공식 제휴나 명시적 오픈 라이선스를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "69cedeb9-f456-547e-8787-c4eca81f7f1f",
+    "slug": "hot-official-wehalmae-81",
+    "sourceRef": "official-wehalmae-81",
+    "name": "우리할매떡볶이 청원내수점",
+    "address": "충북 청주시 청원구 내수읍 마산5길 16-1",
+    "coordinates": {
+      "lat": 36.7248267455953,
+      "lon": 127.535952732507
+    },
+    "menus": [
+      {
+        "id": "official-wehalmae-81:menu:1",
+        "name": "매운어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://wehalmae.co.kr/bbs/content.php?co_id=shops",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:06:45.643427+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "우리할매떡볶이 본사 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 우리할매떡볶이 공식 매장안내. 메뉴: 우리할매떡볶이 공식 홈페이지의 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 매운어묵은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 본사 매장안내의 해당 지점에 연결된 저장 좌표이며 최초 생성 방법·현장 정확도·출입구 위치는 미확인입니다. 지도 API 응답이나 지도 이미지는 수집하지 않았습니다. 매장 행에 표시된 작성·수정일은 2024-01-03이며 현재 영업 확인일을 뜻하지 않습니다. 개별 사실만 제한적으로 정리했으며 공식 제휴나 명시적 오픈 라이선스를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "7c134c01-25d4-5b6e-b509-c7b280ad7fab",
+    "slug": "hot-official-wehalmae-13",
+    "sourceRef": "official-wehalmae-13",
+    "name": "우리할매떡볶이 의정부민락점",
+    "address": "경기 의정부시 용민로 301",
+    "coordinates": {
+      "lat": 37.751631634178,
+      "lon": 127.102948929514
+    },
+    "menus": [
+      {
+        "id": "official-wehalmae-13:menu:1",
+        "name": "매운어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://wehalmae.co.kr/bbs/content.php?co_id=shops",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:06:45.643427+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "우리할매떡볶이 본사 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 우리할매떡볶이 공식 매장안내. 메뉴: 우리할매떡볶이 공식 홈페이지의 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 매운어묵은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 본사 매장안내의 해당 지점에 연결된 저장 좌표이며 최초 생성 방법·현장 정확도·출입구 위치는 미확인입니다. 지도 API 응답이나 지도 이미지는 수집하지 않았습니다. 매장 행에 표시된 작성·수정일은 2024-01-03이며 현재 영업 확인일을 뜻하지 않습니다. 개별 사실만 제한적으로 정리했으며 공식 제휴나 명시적 오픈 라이선스를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "5ddc1969-65c9-5676-bade-103d2dc8706b",
+    "slug": "hot-official-wehalmae-3",
+    "sourceRef": "official-wehalmae-3",
+    "name": "우리할매떡볶이 의정부점",
+    "address": "경기 의정부시 둔야로45번길 27",
+    "coordinates": {
+      "lat": 37.7398917294115,
+      "lon": 127.038058908025
+    },
+    "menus": [
+      {
+        "id": "official-wehalmae-3:menu:1",
+        "name": "매운어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://wehalmae.co.kr/bbs/content.php?co_id=shops",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:06:45.643427+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "우리할매떡볶이 본사 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 우리할매떡볶이 공식 매장안내. 메뉴: 우리할매떡볶이 공식 홈페이지의 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 매운어묵은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 본사 매장안내의 해당 지점에 연결된 저장 좌표이며 최초 생성 방법·현장 정확도·출입구 위치는 미확인입니다. 지도 API 응답이나 지도 이미지는 수집하지 않았습니다. 매장 행에 표시된 작성·수정일은 2024-01-03이며 현재 영업 확인일을 뜻하지 않습니다. 개별 사실만 제한적으로 정리했으며 공식 제휴나 명시적 오픈 라이선스를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "d60d5edd-e4b0-550e-a06f-7af6336477e9",
+    "slug": "hot-official-wehalmae-56",
+    "sourceRef": "official-wehalmae-56",
+    "name": "우리할매떡볶이 파주교하점",
+    "address": "경기 파주시 청석로 262",
+    "coordinates": {
+      "lat": 37.7251611154376,
+      "lon": 126.718306402942
+    },
+    "menus": [
+      {
+        "id": "official-wehalmae-56:menu:1",
+        "name": "매운어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://wehalmae.co.kr/bbs/content.php?co_id=shops",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:06:45.643427+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "우리할매떡볶이 본사 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 우리할매떡볶이 공식 매장안내. 메뉴: 우리할매떡볶이 공식 홈페이지의 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 매운어묵은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 본사 매장안내의 해당 지점에 연결된 저장 좌표이며 최초 생성 방법·현장 정확도·출입구 위치는 미확인입니다. 지도 API 응답이나 지도 이미지는 수집하지 않았습니다. 매장 행에 표시된 작성·수정일은 2024-01-03이며 현재 영업 확인일을 뜻하지 않습니다. 개별 사실만 제한적으로 정리했으며 공식 제휴나 명시적 오픈 라이선스를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "18670135-dbba-5bf8-91b3-6f9ca58dd756",
+    "slug": "hot-official-wehalmae-32",
+    "sourceRef": "official-wehalmae-32",
+    "name": "우리할매떡볶이 파주야당점",
+    "address": "경기 파주시 경의로 1074",
+    "coordinates": {
+      "lat": 37.7131570773604,
+      "lon": 126.759892016322
+    },
+    "menus": [
+      {
+        "id": "official-wehalmae-32:menu:1",
+        "name": "매운어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://wehalmae.co.kr/bbs/content.php?co_id=shops",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:06:45.643427+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "우리할매떡볶이 본사 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 우리할매떡볶이 공식 매장안내. 메뉴: 우리할매떡볶이 공식 홈페이지의 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 매운어묵은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 본사 매장안내의 해당 지점에 연결된 저장 좌표이며 최초 생성 방법·현장 정확도·출입구 위치는 미확인입니다. 지도 API 응답이나 지도 이미지는 수집하지 않았습니다. 매장 행에 표시된 작성·수정일은 2024-01-03이며 현재 영업 확인일을 뜻하지 않습니다. 개별 사실만 제한적으로 정리했으며 공식 제휴나 명시적 오픈 라이선스를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "2d582661-d7ae-5334-8deb-61a8049c1b43",
+    "slug": "hot-official-wehalmae-7",
+    "sourceRef": "official-wehalmae-7",
+    "name": "우리할매떡볶이 광주전남대점",
+    "address": "광주 북구 우치로 126번길 5",
+    "coordinates": {
+      "lat": 35.1788267752262,
+      "lon": 126.912463211205
+    },
+    "menus": [
+      {
+        "id": "official-wehalmae-7:menu:1",
+        "name": "매운어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://wehalmae.co.kr/bbs/content.php?co_id=shops",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:06:45.643427+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "우리할매떡볶이 본사 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 우리할매떡볶이 공식 매장안내. 메뉴: 우리할매떡볶이 공식 홈페이지의 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 매운어묵은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 본사 매장안내의 해당 지점에 연결된 저장 좌표이며 최초 생성 방법·현장 정확도·출입구 위치는 미확인입니다. 지도 API 응답이나 지도 이미지는 수집하지 않았습니다. 매장 행에 표시된 작성·수정일은 2024-01-03이며 현재 영업 확인일을 뜻하지 않습니다. 개별 사실만 제한적으로 정리했으며 공식 제휴나 명시적 오픈 라이선스를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "ce65b4d5-51a9-5885-bc37-ab0baad48c21",
+    "slug": "hot-official-wehalmae-72",
+    "sourceRef": "official-wehalmae-72",
+    "name": "우리할매떡볶이 광주태전점",
+    "address": "경기도 광주시 고불로 87, 119동 101호",
+    "coordinates": {
+      "lat": 37.3908567651564,
+      "lon": 127.229276808272
+    },
+    "menus": [
+      {
+        "id": "official-wehalmae-72:menu:1",
+        "name": "매운어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://wehalmae.co.kr/bbs/content.php?co_id=shops",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:06:45.643427+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "우리할매떡볶이 본사 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 우리할매떡볶이 공식 매장안내. 메뉴: 우리할매떡볶이 공식 홈페이지의 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 매운어묵은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 본사 매장안내의 해당 지점에 연결된 저장 좌표이며 최초 생성 방법·현장 정확도·출입구 위치는 미확인입니다. 지도 API 응답이나 지도 이미지는 수집하지 않았습니다. 매장 행에 표시된 작성·수정일은 2024-01-03이며 현재 영업 확인일을 뜻하지 않습니다. 개별 사실만 제한적으로 정리했으며 공식 제휴나 명시적 오픈 라이선스를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "41f97f82-7fc5-575b-a42e-61056e55fb81",
+    "slug": "hot-official-wehalmae-27",
+    "sourceRef": "official-wehalmae-27",
+    "name": "우리할매떡볶이 별내점",
+    "address": "경기 남양주시 별내중앙로 56",
+    "coordinates": {
+      "lat": 37.6475546107885,
+      "lon": 127.123737966215
+    },
+    "menus": [
+      {
+        "id": "official-wehalmae-27:menu:1",
+        "name": "매운어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://wehalmae.co.kr/bbs/content.php?co_id=shops",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:06:45.643427+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "우리할매떡볶이 본사 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 우리할매떡볶이 공식 매장안내. 메뉴: 우리할매떡볶이 공식 홈페이지의 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 매운어묵은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 본사 매장안내의 해당 지점에 연결된 저장 좌표이며 최초 생성 방법·현장 정확도·출입구 위치는 미확인입니다. 지도 API 응답이나 지도 이미지는 수집하지 않았습니다. 매장 행에 표시된 작성·수정일은 2024-01-03이며 현재 영업 확인일을 뜻하지 않습니다. 개별 사실만 제한적으로 정리했으며 공식 제휴나 명시적 오픈 라이선스를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "ab5b04c3-f853-57f4-b9a6-7178ca7c87c5",
+    "slug": "hot-official-wehalmae-51",
+    "sourceRef": "official-wehalmae-51",
+    "name": "우리할매떡볶이 평내호평점",
+    "address": "경기 남양주시 호평로67번길 11",
+    "coordinates": {
+      "lat": 37.6571091364601,
+      "lon": 127.246677371953
+    },
+    "menus": [
+      {
+        "id": "official-wehalmae-51:menu:1",
+        "name": "매운어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://wehalmae.co.kr/bbs/content.php?co_id=shops",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:06:45.643427+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "우리할매떡볶이 본사 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 우리할매떡볶이 공식 매장안내. 메뉴: 우리할매떡볶이 공식 홈페이지의 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 매운어묵은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 본사 매장안내의 해당 지점에 연결된 저장 좌표이며 최초 생성 방법·현장 정확도·출입구 위치는 미확인입니다. 지도 API 응답이나 지도 이미지는 수집하지 않았습니다. 매장 행에 표시된 작성·수정일은 2024-01-03이며 현재 영업 확인일을 뜻하지 않습니다. 개별 사실만 제한적으로 정리했으며 공식 제휴나 명시적 오픈 라이선스를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "1e12527b-6334-55e0-9560-4323fbcce3c5",
+    "slug": "hot-official-wehalmae-12",
+    "sourceRef": "official-wehalmae-12",
+    "name": "우리할매떡볶이 동탄점",
+    "address": "경기 화성시 동탄순환대로 697",
+    "coordinates": {
+      "lat": 37.2069155422172,
+      "lon": 127.110249408275
+    },
+    "menus": [
+      {
+        "id": "official-wehalmae-12:menu:1",
+        "name": "매운어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://wehalmae.co.kr/bbs/content.php?co_id=shops",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:06:45.643427+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "우리할매떡볶이 본사 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 우리할매떡볶이 공식 매장안내. 메뉴: 우리할매떡볶이 공식 홈페이지의 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 매운어묵은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 본사 매장안내의 해당 지점에 연결된 저장 좌표이며 최초 생성 방법·현장 정확도·출입구 위치는 미확인입니다. 지도 API 응답이나 지도 이미지는 수집하지 않았습니다. 매장 행에 표시된 작성·수정일은 2024-01-03이며 현재 영업 확인일을 뜻하지 않습니다. 개별 사실만 제한적으로 정리했으며 공식 제휴나 명시적 오픈 라이선스를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "19b38844-0f60-5354-b853-e8abcc31a9f8",
+    "slug": "hot-official-wehalmae-37",
+    "sourceRef": "official-wehalmae-37",
+    "name": "우리할매떡볶이 화성비봉점",
+    "address": "경기 화성시 비봉면 양노로 78-5",
+    "coordinates": {
+      "lat": 37.2356100626387,
+      "lon": 126.870611567772
+    },
+    "menus": [
+      {
+        "id": "official-wehalmae-37:menu:1",
+        "name": "매운어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://wehalmae.co.kr/bbs/content.php?co_id=shops",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:06:45.643427+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "우리할매떡볶이 본사 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 우리할매떡볶이 공식 매장안내. 메뉴: 우리할매떡볶이 공식 홈페이지의 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 매운어묵은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 본사 매장안내의 해당 지점에 연결된 저장 좌표이며 최초 생성 방법·현장 정확도·출입구 위치는 미확인입니다. 지도 API 응답이나 지도 이미지는 수집하지 않았습니다. 매장 행에 표시된 작성·수정일은 2024-01-03이며 현재 영업 확인일을 뜻하지 않습니다. 개별 사실만 제한적으로 정리했으며 공식 제휴나 명시적 오픈 라이선스를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "8271b5ca-31e7-599f-a52e-36718d8a39ee",
+    "slug": "hot-official-wehalmae-41",
+    "sourceRef": "official-wehalmae-41",
+    "name": "우리할매떡볶이 고양신원점",
+    "address": "경기도 고양시 덕양구 신원로 32",
+    "coordinates": {
+      "lat": 37.6635412317073,
+      "lon": 126.88889345417
+    },
+    "menus": [
+      {
+        "id": "official-wehalmae-41:menu:1",
+        "name": "매운어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://wehalmae.co.kr/bbs/content.php?co_id=shops",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:06:45.643427+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "우리할매떡볶이 본사 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 우리할매떡볶이 공식 매장안내. 메뉴: 우리할매떡볶이 공식 홈페이지의 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 매운어묵은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 본사 매장안내의 해당 지점에 연결된 저장 좌표이며 최초 생성 방법·현장 정확도·출입구 위치는 미확인입니다. 지도 API 응답이나 지도 이미지는 수집하지 않았습니다. 매장 행에 표시된 작성·수정일은 2024-01-03이며 현재 영업 확인일을 뜻하지 않습니다. 개별 사실만 제한적으로 정리했으며 공식 제휴나 명시적 오픈 라이선스를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "c1e5a829-ea15-5814-8177-4d195c859b54",
+    "slug": "hot-official-wehalmae-6",
+    "sourceRef": "official-wehalmae-6",
+    "name": "우리할매떡볶이 도래울점",
+    "address": "경기 고양시 덕양구 도래울로42-11",
+    "coordinates": {
+      "lat": 37.6288879074472,
+      "lon": 126.869880175367
+    },
+    "menus": [
+      {
+        "id": "official-wehalmae-6:menu:1",
+        "name": "매운어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://wehalmae.co.kr/bbs/content.php?co_id=shops",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:06:45.643427+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "우리할매떡볶이 본사 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 우리할매떡볶이 공식 매장안내. 메뉴: 우리할매떡볶이 공식 홈페이지의 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 매운어묵은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 본사 매장안내의 해당 지점에 연결된 저장 좌표이며 최초 생성 방법·현장 정확도·출입구 위치는 미확인입니다. 지도 API 응답이나 지도 이미지는 수집하지 않았습니다. 매장 행에 표시된 작성·수정일은 2024-01-03이며 현재 영업 확인일을 뜻하지 않습니다. 개별 사실만 제한적으로 정리했으며 공식 제휴나 명시적 오픈 라이선스를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "53b698ed-7ad7-5e18-a3a1-e6f35a420a11",
+    "slug": "hot-official-wehalmae-69",
+    "sourceRef": "official-wehalmae-69",
+    "name": "우리할매떡볶이 일산풍동점",
+    "address": "경기 고양시 일산동구 숲속마을로 44",
+    "coordinates": {
+      "lat": 37.6674121977686,
+      "lon": 126.798258700292
+    },
+    "menus": [
+      {
+        "id": "official-wehalmae-69:menu:1",
+        "name": "매운어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://wehalmae.co.kr/bbs/content.php?co_id=shops",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:06:45.643427+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "우리할매떡볶이 본사 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 우리할매떡볶이 공식 매장안내. 메뉴: 우리할매떡볶이 공식 홈페이지의 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 매운어묵은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 본사 매장안내의 해당 지점에 연결된 저장 좌표이며 최초 생성 방법·현장 정확도·출입구 위치는 미확인입니다. 지도 API 응답이나 지도 이미지는 수집하지 않았습니다. 매장 행에 표시된 작성·수정일은 2024-01-03이며 현재 영업 확인일을 뜻하지 않습니다. 개별 사실만 제한적으로 정리했으며 공식 제휴나 명시적 오픈 라이선스를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "3fa277ac-ddda-5361-864f-e367f2d3f3b0",
+    "slug": "hot-official-wehalmae-25",
+    "sourceRef": "official-wehalmae-25",
+    "name": "우리할매떡볶이 향동점",
+    "address": "경기 고양시 덕양구 꽃마을로 45",
+    "coordinates": {
+      "lat": 37.6017314011713,
+      "lon": 126.891628314753
+    },
+    "menus": [
+      {
+        "id": "official-wehalmae-25:menu:1",
+        "name": "매운어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://wehalmae.co.kr/bbs/content.php?co_id=shops",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:06:45.643427+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "우리할매떡볶이 본사 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 우리할매떡볶이 공식 매장안내. 메뉴: 우리할매떡볶이 공식 홈페이지의 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 매운어묵은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 본사 매장안내의 해당 지점에 연결된 저장 좌표이며 최초 생성 방법·현장 정확도·출입구 위치는 미확인입니다. 지도 API 응답이나 지도 이미지는 수집하지 않았습니다. 매장 행에 표시된 작성·수정일은 2024-01-03이며 현재 영업 확인일을 뜻하지 않습니다. 개별 사실만 제한적으로 정리했으며 공식 제휴나 명시적 오픈 라이선스를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "73a14685-7590-5d9e-8b88-eb445439f762",
+    "slug": "hot-official-wehalmae-53",
+    "sourceRef": "official-wehalmae-53",
+    "name": "우리할매떡볶이 화정점",
+    "address": "경기 고양시 덕양구 어울림로 14",
+    "coordinates": {
+      "lat": 37.6481153390833,
+      "lon": 126.832249938229
+    },
+    "menus": [
+      {
+        "id": "official-wehalmae-53:menu:1",
+        "name": "매운어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://wehalmae.co.kr/bbs/content.php?co_id=shops",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:06:45.643427+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "우리할매떡볶이 본사 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 우리할매떡볶이 공식 매장안내. 메뉴: 우리할매떡볶이 공식 홈페이지의 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 매운어묵은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 본사 매장안내의 해당 지점에 연결된 저장 좌표이며 최초 생성 방법·현장 정확도·출입구 위치는 미확인입니다. 지도 API 응답이나 지도 이미지는 수집하지 않았습니다. 매장 행에 표시된 작성·수정일은 2024-01-03이며 현재 영업 확인일을 뜻하지 않습니다. 개별 사실만 제한적으로 정리했으며 공식 제휴나 명시적 오픈 라이선스를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  }
+]
