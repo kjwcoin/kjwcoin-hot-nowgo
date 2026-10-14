@@ -1,0 +1,44 @@
+[
+  {
+    "id": "210482ec-f90c-5972-8520-e763b1788e80",
+    "slug": "hot-pizza-national-craft-20261014",
+    "name": "크래프트피피",
+    "address": "대전광역시 서구 대덕대로175번길 60 메르하우젠 1층",
+    "lat": 36.3507439086934,
+    "lon": 127.374196767848,
+    "source_ref": "pizza-national-craft-20261014",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://irc.purpleo.kr/article/8767",
+      "sourceRecordId": "pizza-national-craft-20261014",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T16:07:40Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "pizza-national-craft-20261014:menu:1",
+          "name": "아이엠 넘버포 피자 (스파이시 치즈 구성)",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "공공데이터 상가정보 재표시 및 독립 블로그 확인",
+        "attribution": "상호·주소·위치: irc.purpleo의 소상공인시장진흥공단 상가정보 재표시 행. 메뉴·최근 게시 기록: 경송이 블로그(2026-06-01).",
+        "changes": "개별 사실만 정리. 후기 문장·사진·가격·평점·수치 맵기를 전재하지 않음.",
+        "scopeNotice": "블로그 게시일은 2026-06-01이며 방문일 확정값이 아닙니다. 스파이시 치즈는 아이엠 넘버포 피자의 구성 맛으로, 단독 주문 가능 여부를 주장하지 않습니다. 현재 영업·판매 여부 미확인. 위치는 주소에 대응하는 공공자료 재표시 값이며 원본 CSV 행·버전, 최초 좌표 생성 방법·시점·정확도와 출입구 위치는 미확인입니다. 사이트 갱신일은 좌표 조사일이 아닙니다. 표현·사진의 이용허락이나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  }
+]
