@@ -15,7 +15,8 @@ import inlandRows from '../data/hot-gangwon-inland8-records.json' with {type:'js
 import countiesRows from '../data/hot-jeonnam-counties3-records.json' with {type:'json'};
 import nextCountiesRows from '../data/hot-jeonnam-nextcounties5-records.json' with {type:'json'};
 import chungbukRows from '../data/hot-chungbuk9-records.json' with {type:'json'};
-const regionalRows=[...priorRegionalRows,...sejongRows,...nextSejongRows,...next64Rows,...next47Rows,...next38Rows,...busan23Rows,...final13Rows,...route7BusanRows,...route7Busan8Rows,...route7UlsanRows,...gangwonRows,...jeonnamRows,...inlandRows,...countiesRows,...nextCountiesRows,...chungbukRows];
+import gwmRows from '../data/hot-jeonnam-gwm3-records.json' with {type:'json'};
+const regionalRows=[...priorRegionalRows,...sejongRows,...nextSejongRows,...next64Rows,...next47Rows,...next38Rows,...busan23Rows,...final13Rows,...route7BusanRows,...route7Busan8Rows,...route7UlsanRows,...gangwonRows,...jeonnamRows,...inlandRows,...countiesRows,...nextCountiesRows,...chungbukRows,...gwmRows];
 import {appendRegionalSourceStores} from './regional-source.ts';
 import {publicSourcedStore,type SourcedStoreRow} from './sourced-store.ts';
 import reviewedEleven from '../data/hot-source-reviewed-eleven-20261014.json' with {type:'json'};
@@ -108,5 +109,6 @@ export const reviewed1037Records=[...reviewed1032Records,...activeRegionalRows.f
 export const reviewed1045Records=[...reviewed1037Records,...activeRegionalRows.filter(row=>["gangwon-pyeongchang-first-001","gangwon-jeongseon-first-001","gangwon-wonju-first-001","gangwon-hongcheon-first-001","gangwon-yanggu-first-001","gangwon-hoengseong-first-001","gangwon-inje-first-001","gangwon-cheorwon-first-001"].includes(row.source_ref))];
 export const reviewed1048Records=[...reviewed1045Records,...activeRegionalRows.filter(row=>["jeonnam-local-damyang-ssangkyo-main","jeonnam-local-gangjin-gapjin","jeonnam-local-jangheung-sakgeum"].includes(row.source_ref))];
 export const reviewed1053Records=[...reviewed1048Records,...activeRegionalRows.filter(row=>["jeonnam-local-yeongam-cheongha","jeonnam-local-yeonggwang-minsokchon","jeonnam-local-jangseong-haeundae","jeonnam-local-haenam-jungang-dakgalbi","jeonnam-local-sinan-cheonsa-agujjim"].includes(row.source_ref))];
+export const reviewed1062Records=[...reviewed1053Records,...activeRegionalRows.filter(row=>["chungbuk-jecheon-first-001","chungbuk-cheongju-first-001","chungbuk-chungju-first-001","chungbuk-boeun-first-001","chungbuk-goesan-first-001","chungbuk-danyang-first-001","chungbuk-okcheon-first-001","chungbuk-yeongdong-first-001","chungbuk-jeungpyeong-first-001"].includes(row.source_ref))];
 const activeRecords=[...records,...activeRegionalRows];
 export default activeRecords;
