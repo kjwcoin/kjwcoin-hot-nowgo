@@ -19,10 +19,10 @@ const onjeong=stores.find(store=>store.id==='65a5768f-5c9e-563e-a04f-cbb81835ec0
 const filters={query:'',heat:0,flavor:'전체',category:'전체',budget:0};
 const matches=(store,query)=>groups.sourcedStoreMatches(store,{...filters,query});
 
-test('store/menu search retains exactly 774 existing menu-bearing source identities',()=>{
- assert.equal(stores.length,774);assert.equal(new Set(stores.map(s=>s.id)).size,774);
+test('store/menu search retains exactly 785 existing menu-bearing source identities',()=>{
+ assert.equal(stores.length,785);assert.equal(new Set(stores.map(s=>s.id)).size,785);
  assert.ok(stores.every(store=>store.menus.length));
- for(const query of ['', '   ', '  ·  '])assert.equal(stores.filter(s=>matches(s,query)).length,774);
+ for(const query of ['', '   ', '  ·  '])assert.equal(stores.filter(s=>matches(s,query)).length,785);
 });
 
 test('approved store aliases, menu variants, spacing and cross-field words match in either order',()=>{
@@ -42,8 +42,8 @@ test('withdrawn menu aliases and unverified heat/price/category never become sea
  assert.equal(matches({...onjeong,sourceRef:'different-source',name:'다른매장',menus:[]},'온정돈까스'),false);
  for(const condition of [{heat:3},{budget:10000},{flavor:'칼칼한'},{category:'분식'}])assert.equal(groups.sourcedStoreMatches(onjeong,{...filters,...condition,query:'온정돈까스'}),false);
  const point={lat:37.5364745896207,lng:126.643696685757};
- assert.equal(groups.sourcedStoresNearby(stores,scope.mapBrowseOrigin('hot',point)).length,774);
- assert.ok(groups.sourcedStoresNearby(stores,scope.mapBrowseOrigin('sweet',point)).length<774);
+ assert.equal(groups.sourcedStoresNearby(stores,scope.mapBrowseOrigin('hot',point)).length,785);
+ assert.ok(groups.sourcedStoresNearby(stores,scope.mapBrowseOrigin('sweet',point)).length<785);
  const params=new URLSearchParams();scope.appendMapBrowseLocation(params,'sweet',point);assert.equal(params.get('radiusKm'),'15');
 });
 
@@ -72,10 +72,10 @@ function ui(h){
  return {Explorer:compile('map-explorer.tsx'),App:compile('app-map.tsx'),Map,Detail};
 }
 function explorer(h,components,props={}){return elements(h.render(()=>components.Explorer({variant:'hot',...props})));}
-const search=nodes=>nodes.find(node=>node.props?.['aria-label']==='HOT 메뉴 검색');
+const search=nodes=>nodes.find(node=>node.props?.['aria-label']==='지역명·상호명·매운 메뉴 검색');
 const sheet=nodes=>nodes.find(node=>node.type==='aside'&&node.props?.['aria-label']==='검색된 메뉴');
 
-test('typing opens actual main results, editing leaves detail, clearing restores all 774 without GPS',()=>{
+test('typing opens actual main results, editing leaves detail, clearing restores all 785 without GPS',()=>{
  const h=hookHarness(),components=ui(h);let nodes=explorer(h,components);
  assert.match(sheet(nodes).props.className,/collapsed/);
  search(nodes).props.onChange({target:{value:'온정돈까스 디진다'}});nodes=explorer(h,components);
@@ -88,7 +88,7 @@ test('typing opens actual main results, editing leaves detail, clearing restores
  assert.ok(!nodes.some(node=>node.type===components.Detail));
  assert.equal(nodes.find(node=>node.type===components.Map).props.selectedSourceId,undefined);
  nodes.find(node=>node.props?.['aria-label']==='검색어 지우기').props.onClick();nodes=explorer(h,components);
- assert.equal(nodes.find(node=>node.type===components.Map).props.sourcedStores.length,774);
+ assert.equal(nodes.find(node=>node.type===components.Map).props.sourcedStores.length,785);
  assert.match(sheet(nodes).props.className,/expanded/);
 });
 
@@ -106,7 +106,7 @@ test('main sheet can stay closed with an unchanged query; whitespace/clearing do
 
 test('actual embedded search opens results and honors explicit close until a new nonempty edit',()=>{
  const h=hookHarness(),components=ui(h),render=()=>elements(h.render(()=>components.App({variant:'hot'})));
- let nodes=render();const input=()=>nodes.find(node=>node.props?.['aria-label']==='매장·메뉴 검색');
+ let nodes=render();const input=()=>nodes.find(node=>node.props?.['aria-label']==='지역명·상호명·매운 메뉴 검색');
  const toggle=()=>nodes.find(node=>node.props?.['aria-controls']==='app-map-results-list');
  assert.equal(toggle().props['aria-expanded'],false);
  input().props.onChange({target:{value:'온정돈까스 디진다 돈까스'}});nodes=render();
@@ -115,7 +115,7 @@ test('actual embedded search opens results and honors explicit close until a new
  toggle().props.onClick();nodes=render();assert.equal(toggle().props['aria-expanded'],false);
  nodes=render();assert.equal(toggle().props['aria-expanded'],false);
  input().props.onChange({target:{value:''}});nodes=render();assert.equal(toggle().props['aria-expanded'],false);
- assert.equal(nodes.find(node=>node.type===components.Map).props.sourcedStores.length,774);
+ assert.equal(nodes.find(node=>node.type===components.Map).props.sourcedStores.length,785);
  input().props.onChange({target:{value:'디진다'}});nodes=render();assert.equal(toggle().props['aria-expanded'],true);
 });
 

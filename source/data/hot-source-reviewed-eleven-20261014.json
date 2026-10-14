@@ -1,0 +1,933 @@
+[
+  {
+    "id": "f2a085e0-8290-5da4-95f7-fe7cb5083ee3",
+    "slug": "hot-daegu-15052602-20200114-110",
+    "name": "월성찜갈비",
+    "address": "대구 중구 동덕로36길 9-5",
+    "lat": 35.8707754,
+    "lon": 128.6048346,
+    "source_ref": "data-go-kr-15052602-20200114000110",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15052602/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2020-01-14",
+      "checkedAt": "2026-10-13T23:33:40Z",
+      "sourceRecordId": "snapshot-20200114-row-110",
+      "nativeBusinessName": "월성찜갈비",
+      "nativeBranchName": null,
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "licensed-dataset-bare-facts",
+        "reviewedAt": "2026-10-13T23:33:40Z"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15052602-20200114000110:menu:1",
+          "name": "찜갈비"
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      },
+      "independentReview": {
+        "candidateId": "south-002",
+        "identifierPolicy": {
+          "uuidSeed": "dataset URL + dated snapshot + normalized native venue name and building address",
+          "sourceRef": "dataset ID + 20200114 snapshot + six-digit data-row locator; row locator is never treated as a cross-snapshot venue ID"
+        },
+        "coordinateDataset": {
+          "url": "https://www.data.go.kr/data/15052602/fileData.do",
+          "asOf": "2020-01-14",
+          "sha256": "e6a52e798ab15ee557d69d507643699fa32c752cdfd279470eb054b829461d59",
+          "dataRowNumber": 110,
+          "providerLatitude": 35.8707754,
+          "providerLongitude": 128.6048346,
+          "coordinateSystem": "Provider geographic latitude/longitude; no explicit CRS tag asserted",
+          "retrieval": "Existing public CSV artifact from 2026-10-12; exact hash rechecked 2026-10-13; current catalogue license rechecked"
+        },
+        "identityLinkage": {
+          "method": "Exact normalized road building address plus exact/prefix venue name; no alias inferred from proximity alone",
+          "datasetName": "월성찜갈비",
+          "datasetAddress": "대구광역시 중구 동덕로36길 9-5(동인동1가)",
+          "currentCorroborationUrl": "https://www.junggufood.com/taste/road.asp"
+        },
+        "menuScope": "Minimal exact menu name present in the licensed CSV; historical price and creative text omitted",
+        "spicyMenuCorroboration": {
+          "url": "https://www.junggufood.com/taste/road.asp",
+          "menu": "찜갈비",
+          "checkedAt": "2026-10-13T23:33:40Z"
+        },
+        "discoveryUrls": [
+          "https://meokja.tistory.com/1271"
+        ],
+        "doesNotEstablish": [
+          "current_operation",
+          "current_menu_sale",
+          "numeric_heat",
+          "consumer_rating",
+          "ownership"
+        ],
+        "publicationState": "research_prepared_only",
+        "coordinateAgeNotice": "Provider coordinates dated 2020-01-14; venue name/address independently corroborated by current publicly accessible municipal page, not a fresh geocoding.",
+        "dedup": {
+          "baselineCommit": "57906b0765d0303eeef9d845cf9410a8f8f9b130",
+          "baselineCount": 991,
+          "matches": [],
+          "method": "Name/address/native ID plus nearby-name alerts against minimal 774 baseline",
+          "scope": "Static exact-commit774 reviewed records +217 blog source records. Not a current live hidden-filter count. Names, normalized building addresses, provider IDs and coordinates compared.",
+          "checkedAt": "2026-10-14T00:04:46Z"
+        }
+      }
+    }
+  },
+  {
+    "id": "15e580eb-5f7e-5ac7-8307-356c115a9ae2",
+    "slug": "hot-daegu-15052602-20200114-113",
+    "name": "유진찜갈비",
+    "address": "대구 중구 동덕로36길 9-13",
+    "lat": 35.8711067,
+    "lon": 128.6049069,
+    "source_ref": "data-go-kr-15052602-20200114000113",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15052602/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2020-01-14",
+      "checkedAt": "2026-10-13T23:33:40Z",
+      "sourceRecordId": "snapshot-20200114-row-113",
+      "nativeBusinessName": "유진찜갈비",
+      "nativeBranchName": null,
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "licensed-dataset-bare-facts",
+        "reviewedAt": "2026-10-13T23:33:40Z"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15052602-20200114000113:menu:1",
+          "name": "찜갈비"
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      },
+      "independentReview": {
+        "candidateId": "south-003",
+        "identifierPolicy": {
+          "uuidSeed": "dataset URL + dated snapshot + normalized native venue name and building address",
+          "sourceRef": "dataset ID + 20200114 snapshot + six-digit data-row locator; row locator is never treated as a cross-snapshot venue ID"
+        },
+        "coordinateDataset": {
+          "url": "https://www.data.go.kr/data/15052602/fileData.do",
+          "asOf": "2020-01-14",
+          "sha256": "e6a52e798ab15ee557d69d507643699fa32c752cdfd279470eb054b829461d59",
+          "dataRowNumber": 113,
+          "providerLatitude": 35.8711067,
+          "providerLongitude": 128.6049069,
+          "coordinateSystem": "Provider geographic latitude/longitude; no explicit CRS tag asserted",
+          "retrieval": "Existing public CSV artifact from 2026-10-12; exact hash rechecked 2026-10-13; current catalogue license rechecked"
+        },
+        "identityLinkage": {
+          "method": "Exact normalized road building address plus exact/prefix venue name; no alias inferred from proximity alone",
+          "datasetName": "유진찜갈비",
+          "datasetAddress": "대구광역시 중구 동덕로36길 9-13(동인동1가)",
+          "currentCorroborationUrl": "https://www.junggufood.com/taste/road.asp"
+        },
+        "menuScope": "Minimal exact menu name present in the licensed CSV; historical price and creative text omitted",
+        "spicyMenuCorroboration": {
+          "url": "https://www.junggufood.com/taste/road.asp",
+          "menu": "찜갈비",
+          "checkedAt": "2026-10-13T23:33:40Z"
+        },
+        "discoveryUrls": [
+          "https://cklee88.tistory.com/1115"
+        ],
+        "doesNotEstablish": [
+          "current_operation",
+          "current_menu_sale",
+          "numeric_heat",
+          "consumer_rating",
+          "ownership"
+        ],
+        "publicationState": "research_prepared_only",
+        "coordinateAgeNotice": "Provider coordinates dated 2020-01-14; venue name/address independently corroborated by current publicly accessible municipal page, not a fresh geocoding.",
+        "dedup": {
+          "baselineCommit": "57906b0765d0303eeef9d845cf9410a8f8f9b130",
+          "baselineCount": 991,
+          "matches": [],
+          "method": "Name/address/native ID plus nearby-name alerts against minimal 774 baseline",
+          "scope": "Static exact-commit774 reviewed records +217 blog source records. Not a current live hidden-filter count. Names, normalized building addresses, provider IDs and coordinates compared.",
+          "checkedAt": "2026-10-14T00:04:46Z"
+        }
+      }
+    }
+  },
+  {
+    "id": "9ba1c647-c574-5b28-aa7d-88e1d5170757",
+    "slug": "hot-daegu-15052602-20200114-88",
+    "name": "수복찜갈비",
+    "address": "대구 중구 동덕로38길 15",
+    "lat": 35.8715051,
+    "lon": 128.6054425,
+    "source_ref": "data-go-kr-15052602-20200114000088",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15052602/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2020-01-14",
+      "checkedAt": "2026-10-13T23:33:40Z",
+      "sourceRecordId": "snapshot-20200114-row-88",
+      "nativeBusinessName": "수복찜갈비",
+      "nativeBranchName": null,
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "licensed-dataset-bare-facts",
+        "reviewedAt": "2026-10-13T23:33:40Z"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15052602-20200114000088:menu:1",
+          "name": "찜갈비"
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      },
+      "independentReview": {
+        "candidateId": "south-004",
+        "identifierPolicy": {
+          "uuidSeed": "dataset URL + dated snapshot + normalized native venue name and building address",
+          "sourceRef": "dataset ID + 20200114 snapshot + six-digit data-row locator; row locator is never treated as a cross-snapshot venue ID"
+        },
+        "coordinateDataset": {
+          "url": "https://www.data.go.kr/data/15052602/fileData.do",
+          "asOf": "2020-01-14",
+          "sha256": "e6a52e798ab15ee557d69d507643699fa32c752cdfd279470eb054b829461d59",
+          "dataRowNumber": 88,
+          "providerLatitude": 35.8715051,
+          "providerLongitude": 128.6054425,
+          "coordinateSystem": "Provider geographic latitude/longitude; no explicit CRS tag asserted",
+          "retrieval": "Existing public CSV artifact from 2026-10-12; exact hash rechecked 2026-10-13; current catalogue license rechecked"
+        },
+        "identityLinkage": {
+          "method": "Exact normalized road building address plus exact/prefix venue name; no alias inferred from proximity alone",
+          "datasetName": "수복찜갈비",
+          "datasetAddress": "대구광역시 중구 동덕로38길 15, 1층(동인동1가)",
+          "currentCorroborationUrl": "https://www.junggufood.com/taste/road.asp"
+        },
+        "menuScope": "Minimal exact menu name present in the licensed CSV; historical price and creative text omitted",
+        "spicyMenuCorroboration": {
+          "url": "https://www.junggufood.com/taste/road.asp",
+          "menu": "찜갈비",
+          "checkedAt": "2026-10-13T23:33:40Z"
+        },
+        "discoveryUrls": [
+          "https://fire8blog.tistory.com/6131"
+        ],
+        "doesNotEstablish": [
+          "current_operation",
+          "current_menu_sale",
+          "numeric_heat",
+          "consumer_rating",
+          "ownership"
+        ],
+        "publicationState": "research_prepared_only",
+        "coordinateAgeNotice": "Provider coordinates dated 2020-01-14; venue name/address independently corroborated by current publicly accessible municipal page, not a fresh geocoding.",
+        "dedup": {
+          "baselineCommit": "57906b0765d0303eeef9d845cf9410a8f8f9b130",
+          "baselineCount": 991,
+          "matches": [],
+          "method": "Name/address/native ID plus nearby-name alerts against minimal 774 baseline",
+          "scope": "Static exact-commit774 reviewed records +217 blog source records. Not a current live hidden-filter count. Names, normalized building addresses, provider IDs and coordinates compared.",
+          "checkedAt": "2026-10-14T00:04:46Z"
+        }
+      }
+    }
+  },
+  {
+    "id": "6331d062-4579-5028-bca8-c03097ac52fe",
+    "slug": "hot-daegu-15052602-20200114-67",
+    "name": "벙글벙글찜갈비",
+    "address": "대구 중구 동덕로36길 9-12",
+    "lat": 35.8710018,
+    "lon": 128.6051652,
+    "source_ref": "data-go-kr-15052602-20200114000067",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15052602/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2020-01-14",
+      "checkedAt": "2026-10-13T23:33:40Z",
+      "sourceRecordId": "snapshot-20200114-row-67",
+      "nativeBusinessName": "벙글벙글",
+      "nativeBranchName": null,
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "licensed-dataset-bare-facts",
+        "reviewedAt": "2026-10-13T23:33:40Z"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15052602-20200114000067:menu:1",
+          "name": "찜갈비"
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      },
+      "independentReview": {
+        "candidateId": "south-005",
+        "identifierPolicy": {
+          "uuidSeed": "dataset URL + dated snapshot + normalized native venue name and building address",
+          "sourceRef": "dataset ID + 20200114 snapshot + six-digit data-row locator; row locator is never treated as a cross-snapshot venue ID"
+        },
+        "coordinateDataset": {
+          "url": "https://www.data.go.kr/data/15052602/fileData.do",
+          "asOf": "2020-01-14",
+          "sha256": "e6a52e798ab15ee557d69d507643699fa32c752cdfd279470eb054b829461d59",
+          "dataRowNumber": 67,
+          "providerLatitude": 35.8710018,
+          "providerLongitude": 128.6051652,
+          "coordinateSystem": "Provider geographic latitude/longitude; no explicit CRS tag asserted",
+          "retrieval": "Existing public CSV artifact from 2026-10-12; exact hash rechecked 2026-10-13; current catalogue license rechecked"
+        },
+        "identityLinkage": {
+          "method": "Exact normalized road building address plus exact/prefix venue name; no alias inferred from proximity alone",
+          "datasetName": "벙글벙글",
+          "datasetAddress": "대구광역시 중구 동덕로36길 9-12(동인동1가)",
+          "currentCorroborationUrl": "https://www.junggufood.com/taste/road.asp"
+        },
+        "menuScope": "Minimal exact menu name present in the licensed CSV; historical price and creative text omitted",
+        "spicyMenuCorroboration": {
+          "url": "https://www.junggufood.com/taste/road.asp",
+          "menu": "찜갈비",
+          "checkedAt": "2026-10-13T23:33:40Z"
+        },
+        "discoveryUrls": [
+          "https://starroom20.tistory.com/571"
+        ],
+        "doesNotEstablish": [
+          "current_operation",
+          "current_menu_sale",
+          "numeric_heat",
+          "consumer_rating",
+          "ownership"
+        ],
+        "publicationState": "research_prepared_only",
+        "coordinateAgeNotice": "Provider coordinates dated 2020-01-14; venue name/address independently corroborated by current publicly accessible municipal page, not a fresh geocoding.",
+        "dedup": {
+          "baselineCommit": "57906b0765d0303eeef9d845cf9410a8f8f9b130",
+          "baselineCount": 991,
+          "matches": [],
+          "method": "Name/address/native ID plus nearby-name alerts against minimal 774 baseline",
+          "scope": "Static exact-commit774 reviewed records +217 blog source records. Not a current live hidden-filter count. Names, normalized building addresses, provider IDs and coordinates compared.",
+          "checkedAt": "2026-10-14T00:04:46Z"
+        }
+      }
+    }
+  },
+  {
+    "id": "794a9ed8-0043-5b53-9ba7-4091bd36b0e1",
+    "slug": "hot-daegu-15052602-20200114-42",
+    "name": "동원찜갈비",
+    "address": "대구 중구 동덕로36길 9-4",
+    "lat": 35.8705962,
+    "lon": 128.6051721,
+    "source_ref": "data-go-kr-15052602-20200114000042",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15052602/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2020-01-14",
+      "checkedAt": "2026-10-13T23:33:40Z",
+      "sourceRecordId": "snapshot-20200114-row-42",
+      "nativeBusinessName": "동원찜갈비",
+      "nativeBranchName": null,
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "licensed-dataset-bare-facts",
+        "reviewedAt": "2026-10-13T23:33:40Z"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15052602-20200114000042:menu:1",
+          "name": "찜갈비"
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      },
+      "independentReview": {
+        "candidateId": "south-006",
+        "identifierPolicy": {
+          "uuidSeed": "dataset URL + dated snapshot + normalized native venue name and building address",
+          "sourceRef": "dataset ID + 20200114 snapshot + six-digit data-row locator; row locator is never treated as a cross-snapshot venue ID"
+        },
+        "coordinateDataset": {
+          "url": "https://www.data.go.kr/data/15052602/fileData.do",
+          "asOf": "2020-01-14",
+          "sha256": "e6a52e798ab15ee557d69d507643699fa32c752cdfd279470eb054b829461d59",
+          "dataRowNumber": 42,
+          "providerLatitude": 35.8705962,
+          "providerLongitude": 128.6051721,
+          "coordinateSystem": "Provider geographic latitude/longitude; no explicit CRS tag asserted",
+          "retrieval": "Existing public CSV artifact from 2026-10-12; exact hash rechecked 2026-10-13; current catalogue license rechecked"
+        },
+        "identityLinkage": {
+          "method": "Exact normalized road building address plus exact/prefix venue name; no alias inferred from proximity alone",
+          "datasetName": "동원찜갈비",
+          "datasetAddress": "대구광역시 중구 동덕로36길 9-4(동인동1가)",
+          "currentCorroborationUrl": "https://www.junggufood.com/taste/road.asp"
+        },
+        "menuScope": "Minimal exact menu name present in the licensed CSV; historical price and creative text omitted",
+        "spicyMenuCorroboration": {
+          "url": "https://www.junggufood.com/taste/road.asp",
+          "menu": "찜갈비",
+          "checkedAt": "2026-10-13T23:33:40Z"
+        },
+        "discoveryUrls": [
+          "https://shinbarksa.tistory.com/3653"
+        ],
+        "doesNotEstablish": [
+          "current_operation",
+          "current_menu_sale",
+          "numeric_heat",
+          "consumer_rating",
+          "ownership"
+        ],
+        "publicationState": "research_prepared_only",
+        "coordinateAgeNotice": "Provider coordinates dated 2020-01-14; venue name/address independently corroborated by current publicly accessible municipal page, not a fresh geocoding.",
+        "dedup": {
+          "baselineCommit": "57906b0765d0303eeef9d845cf9410a8f8f9b130",
+          "baselineCount": 991,
+          "matches": [],
+          "method": "Name/address/native ID plus nearby-name alerts against minimal 774 baseline",
+          "scope": "Static exact-commit774 reviewed records +217 blog source records. Not a current live hidden-filter count. Names, normalized building addresses, provider IDs and coordinates compared.",
+          "checkedAt": "2026-10-14T00:04:46Z"
+        }
+      }
+    }
+  },
+  {
+    "id": "27eaef96-4213-50db-aadb-fa7439405aa7",
+    "slug": "hot-daegu-15052602-20200114-25",
+    "name": "낙영찜갈비",
+    "address": "대구 중구 동덕로36길 9-17",
+    "lat": 35.8712706,
+    "lon": 128.6049424,
+    "source_ref": "data-go-kr-15052602-20200114000025",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15052602/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2020-01-14",
+      "checkedAt": "2026-10-13T23:33:40Z",
+      "sourceRecordId": "snapshot-20200114-row-25",
+      "nativeBusinessName": "낙영찜갈비",
+      "nativeBranchName": null,
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "licensed-dataset-bare-facts",
+        "reviewedAt": "2026-10-13T23:33:40Z"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15052602-20200114000025:menu:1",
+          "name": "찜갈비"
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      },
+      "independentReview": {
+        "candidateId": "south-007",
+        "identifierPolicy": {
+          "uuidSeed": "dataset URL + dated snapshot + normalized native venue name and building address",
+          "sourceRef": "dataset ID + 20200114 snapshot + six-digit data-row locator; row locator is never treated as a cross-snapshot venue ID"
+        },
+        "coordinateDataset": {
+          "url": "https://www.data.go.kr/data/15052602/fileData.do",
+          "asOf": "2020-01-14",
+          "sha256": "e6a52e798ab15ee557d69d507643699fa32c752cdfd279470eb054b829461d59",
+          "dataRowNumber": 25,
+          "providerLatitude": 35.8712706,
+          "providerLongitude": 128.6049424,
+          "coordinateSystem": "Provider geographic latitude/longitude; no explicit CRS tag asserted",
+          "retrieval": "Existing public CSV artifact from 2026-10-12; exact hash rechecked 2026-10-13; current catalogue license rechecked"
+        },
+        "identityLinkage": {
+          "method": "Exact normalized road building address plus exact/prefix venue name; no alias inferred from proximity alone",
+          "datasetName": "낙영찜갈비",
+          "datasetAddress": "대구광역시 중구 동덕로36길 9-17(동인동1가)",
+          "currentCorroborationUrl": "https://www.junggufood.com/taste/road.asp"
+        },
+        "menuScope": "Minimal exact menu name present in the licensed CSV; historical price and creative text omitted",
+        "spicyMenuCorroboration": {
+          "url": "https://www.junggufood.com/taste/road.asp",
+          "menu": "찜갈비",
+          "checkedAt": "2026-10-13T23:33:40Z"
+        },
+        "discoveryUrls": [
+          "https://padmapadme.tistory.com/1481"
+        ],
+        "doesNotEstablish": [
+          "current_operation",
+          "current_menu_sale",
+          "numeric_heat",
+          "consumer_rating",
+          "ownership"
+        ],
+        "publicationState": "research_prepared_only",
+        "coordinateAgeNotice": "Provider coordinates dated 2020-01-14; venue name/address independently corroborated by current publicly accessible municipal page, not a fresh geocoding.",
+        "dedup": {
+          "baselineCommit": "57906b0765d0303eeef9d845cf9410a8f8f9b130",
+          "baselineCount": 991,
+          "matches": [],
+          "method": "Name/address/native ID plus nearby-name alerts against minimal 774 baseline",
+          "scope": "Static exact-commit774 reviewed records +217 blog source records. Not a current live hidden-filter count. Names, normalized building addresses, provider IDs and coordinates compared.",
+          "checkedAt": "2026-10-14T00:04:46Z"
+        }
+      }
+    }
+  },
+  {
+    "id": "1900b7c4-e331-53ad-898a-4c12aa77f474",
+    "slug": "hot-daegu-15052602-20200114-11",
+    "name": "거창식당",
+    "address": "대구 중구 서성로 25-7",
+    "lat": 35.86899006,
+    "lon": 128.5865919,
+    "source_ref": "data-go-kr-15052602-20200114000011",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15052602/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2020-01-14",
+      "checkedAt": "2026-10-13T23:33:40Z",
+      "sourceRecordId": "snapshot-20200114-row-11",
+      "nativeBusinessName": "거창식당",
+      "nativeBranchName": null,
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "licensed-dataset-bare-facts",
+        "reviewedAt": "2026-10-13T23:33:40Z"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15052602-20200114000011:menu:1",
+          "name": "불고기"
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      },
+      "independentReview": {
+        "candidateId": "south-022",
+        "identifierPolicy": {
+          "uuidSeed": "dataset URL + dated snapshot + normalized native venue name and building address",
+          "sourceRef": "dataset ID + 20200114 snapshot + six-digit data-row locator; row locator is never treated as a cross-snapshot venue ID"
+        },
+        "coordinateDataset": {
+          "url": "https://www.data.go.kr/data/15052602/fileData.do",
+          "asOf": "2020-01-14",
+          "sha256": "e6a52e798ab15ee557d69d507643699fa32c752cdfd279470eb054b829461d59",
+          "dataRowNumber": 11,
+          "providerLatitude": 35.86899006,
+          "providerLongitude": 128.5865919,
+          "coordinateSystem": "Provider geographic latitude/longitude; no explicit CRS tag asserted",
+          "retrieval": "Existing public CSV artifact from 2026-10-12; exact hash rechecked 2026-10-13; current catalogue license rechecked"
+        },
+        "identityLinkage": {
+          "method": "Exact normalized road building address plus exact/prefix venue name; no alias inferred from proximity alone",
+          "datasetName": "거창식당",
+          "datasetAddress": "대구광역시 중구 서성로 25-7(계산동1가)",
+          "currentCorroborationUrl": "https://www.daegufood.go.kr/kor/food/food_10mi.asp?gotoPage=1&idx=1412&snm=23&tmi=M2-117"
+        },
+        "menuScope": "Minimal exact menu name present in the licensed CSV; historical price and creative text omitted",
+        "spicyMenuCorroboration": {
+          "url": "https://www.daegufood.go.kr/kor/food/food_10mi.asp?gotoPage=1&idx=1412&snm=23&tmi=M2-117",
+          "menu": "복어불고기",
+          "checkedAt": "2026-10-13T23:33:40Z"
+        },
+        "discoveryUrls": [
+          "https://nhpak2000.tistory.com/1513"
+        ],
+        "doesNotEstablish": [
+          "current_operation",
+          "current_menu_sale",
+          "numeric_heat",
+          "consumer_rating",
+          "ownership"
+        ],
+        "publicationState": "research_prepared_only",
+        "coordinateAgeNotice": "Provider coordinates dated 2020-01-14; venue name/address independently corroborated by current publicly accessible municipal page, not a fresh geocoding.",
+        "dedup": {
+          "baselineCommit": "57906b0765d0303eeef9d845cf9410a8f8f9b130",
+          "baselineCount": 991,
+          "matches": [],
+          "method": "Name/address/native ID plus nearby-name alerts against minimal 774 baseline",
+          "scope": "Static exact-commit774 reviewed records +217 blog source records. Not a current live hidden-filter count. Names, normalized building addresses, provider IDs and coordinates compared.",
+          "checkedAt": "2026-10-14T00:04:46Z"
+        }
+      }
+    }
+  },
+  {
+    "id": "9169e8b6-25ec-5a6e-a9e7-772e572064e1",
+    "slug": "hot-busan-15084242-564",
+    "name": "김유순대구뽈찜",
+    "address": "부산 남구 진남로15",
+    "lat": 35.136368,
+    "lon": 129.09152,
+    "source_ref": "data-go-kr-15084242-564",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15084242/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-13T23:44:04Z",
+      "sourceRecordId": "564",
+      "nativeBusinessName": "김유순대구뽈찜",
+      "nativeBranchName": null,
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "licensed-dataset-bare-facts",
+        "reviewedAt": "2026-10-13T23:44:04Z"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15084242-564:menu:1",
+          "name": "대구뽈찜"
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      },
+      "independentReview": {
+        "candidateId": "south-046",
+        "coordinateDataset": {
+          "url": "https://www.data.go.kr/data/15084242/fileData.do",
+          "asOf": null,
+          "sha256": "8e8659dc857553c16b169c102109c1d3ba4f38a750c7757baf695703ce9b979f",
+          "nativeRecordId": "564",
+          "dbfDataRow": 48,
+          "providerLatitude": 35.136368,
+          "providerLongitude": 129.09152,
+          "shapeCoordinatesAgree": true,
+          "coordinateSystem": "WGS 84 (provider .prj)",
+          "zipMemberTimestamp": "2023-09-21T09:51:48 (timezone unspecified; not a record observation date)",
+          "catalogueLabel": "20260910; not asserted as source freshness"
+        },
+        "identifierPolicy": "Provider uc_seq ID namespaced by dataset, with UUID seed also binding native venue name and building address",
+        "identityLinkage": {
+          "method": "Exact name and road building address across licensed dataset and current public individual listing",
+          "datasetAddress": "남구 진남로15",
+          "currentCorroborationUrl": "https://www.diningcode.com/profile.php?rid=3ROizR1FtlY4",
+          "currentCorroborationScope": "Bare business name/address/menu only; no reviews, ratings or media"
+        },
+        "creatorDiscovery": {
+          "url": "https://summertrees.tistory.com/433",
+          "access": "opened_body",
+          "publishedAt": "2026-06-03",
+          "historicalSections": [
+            "2026-06",
+            "2023-08"
+          ],
+          "reuse": "Link/discovery only; article and images are CC BY-NC-ND and not reproduced"
+        },
+        "spicyQualification": "Creator coverage explicitly discusses spicy sauce; no numeric heat, comparative rank, or fresh menu guarantee inferred.",
+        "menuScope": "Exact minimal menu name from unrestricted licensed municipal data; no creative description or price",
+        "doesNotEstablish": [
+          "current_operation",
+          "current_menu_sale",
+          "numeric_heat",
+          "consumer_rating",
+          "ownership"
+        ],
+        "publicationState": "research_prepared_only",
+        "coordinateAgeNotice": "Underlying ZIP members date 2023-09-21; no per-row observation date available. Name/address/menu independently corroborated in a currently public listing, not fresh geocoding.",
+        "dedup": {
+          "baselineCommit": "57906b0765d0303eeef9d845cf9410a8f8f9b130",
+          "baselineCount": 991,
+          "matches": [],
+          "scope": "Static exact-commit774 reviewed records +217 blog source records. Not a current live hidden-filter count. Names, normalized building addresses, provider IDs and coordinates compared.",
+          "checkedAt": "2026-10-14T00:04:46Z"
+        }
+      }
+    }
+  },
+  {
+    "id": "796e7c72-577c-575d-bab7-81c445244e57",
+    "slug": "hot-busan-15084242-107",
+    "name": "김해식당",
+    "address": "부산 중구 자갈치로 51-2",
+    "lat": 35.09748,
+    "lon": 129.02994,
+    "source_ref": "data-go-kr-15084242-107",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15084242/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-13T23:48:32Z",
+      "sourceRecordId": "107",
+      "nativeBusinessName": "김해식당",
+      "nativeBranchName": null,
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "licensed-dataset-bare-facts",
+        "reviewedAt": "2026-10-13T23:48:32Z"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15084242-107:menu:1",
+          "name": "아구찜"
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      },
+      "independentReview": {
+        "candidateId": "south-072",
+        "coordinateDataset": {
+          "url": "https://www.data.go.kr/data/15084242/fileData.do",
+          "asOf": null,
+          "sha256": "8e8659dc857553c16b169c102109c1d3ba4f38a750c7757baf695703ce9b979f",
+          "nativeRecordId": "107",
+          "dbfDataRow": 10,
+          "providerLatitude": 35.09748,
+          "providerLongitude": 129.02994,
+          "shapeCoordinatesAgree": true,
+          "coordinateSystem": "WGS 84 (provider .prj)",
+          "zipMemberTimestamp": "2023-09-21T09:51:48 (timezone unspecified; not a record observation date)",
+          "catalogueLabel": "20260910; not asserted as source freshness"
+        },
+        "identifierPolicy": "Provider uc_seq ID namespaced by dataset, with UUID seed also binding native venue name and building address",
+        "identityLinkage": {
+          "method": "Exact name and road building address across licensed dataset and current public individual listing",
+          "datasetAddress": "중구 자갈치로 51-2",
+          "currentCorroborationUrl": "https://www.diningcode.com/profile.php?rid=rPERqyfxr2lc",
+          "currentCorroborationScope": "Bare business name/address/menu only; no reviews, ratings or media"
+        },
+        "creatorDiscovery": {
+          "url": "https://matdori-and-food.tistory.com/entry/부산여행-돼지국밥-밀면-아닌-이색음식을-찾는다면-이곳으로-남포동-아귀탕-아귀수육-김해식당",
+          "access": "opened_body",
+          "publishedAt": "2022-12-17",
+          "reuse": "No copied article text or media."
+        },
+        "spicyQualification": "Creator visited the exact venue and describes the spicy braised dish, but personally ordered a different non-spicy soup. No endorsement of eating the spicy dish is claimed.",
+        "menuScope": "Exact minimal menu name from unrestricted licensed municipal data; no creative description or price",
+        "doesNotEstablish": [
+          "current_operation",
+          "current_menu_sale",
+          "numeric_heat",
+          "consumer_rating",
+          "ownership"
+        ],
+        "publicationState": "research_prepared_only",
+        "coordinateAgeNotice": "Underlying ZIP members date 2023-09-21; no per-row observation date available. Name/address/menu independently corroborated in a currently public listing, not fresh geocoding.",
+        "dedup": {
+          "baselineCommit": "57906b0765d0303eeef9d845cf9410a8f8f9b130",
+          "baselineCount": 991,
+          "matches": [],
+          "scope": "Static exact-commit774 reviewed records +217 blog source records. Not a current live hidden-filter count. Names, normalized building addresses, provider IDs and coordinates compared.",
+          "checkedAt": "2026-10-14T00:04:46Z"
+        }
+      }
+    }
+  },
+  {
+    "id": "02368e87-73a6-5308-b5ca-1a19280b96c5",
+    "slug": "hot-busan-15084242-1092",
+    "name": "광명집",
+    "address": "부산 남구 신선로 458",
+    "lat": 35.125664,
+    "lon": 129.10095,
+    "source_ref": "data-go-kr-15084242-1092",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15084242/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-13T23:48:32Z",
+      "sourceRecordId": "1092",
+      "nativeBusinessName": "광명집",
+      "nativeBranchName": null,
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "licensed-dataset-bare-facts",
+        "reviewedAt": "2026-10-13T23:48:32Z"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15084242-1092:menu:1",
+          "name": "아구찜"
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      },
+      "independentReview": {
+        "candidateId": "south-073",
+        "coordinateDataset": {
+          "url": "https://www.data.go.kr/data/15084242/fileData.do",
+          "asOf": null,
+          "sha256": "8e8659dc857553c16b169c102109c1d3ba4f38a750c7757baf695703ce9b979f",
+          "nativeRecordId": "1092",
+          "dbfDataRow": 86,
+          "providerLatitude": 35.125664,
+          "providerLongitude": 129.10095,
+          "shapeCoordinatesAgree": true,
+          "coordinateSystem": "WGS 84 (provider .prj)",
+          "zipMemberTimestamp": "2023-09-21T09:51:48 (timezone unspecified; not a record observation date)",
+          "catalogueLabel": "20260910; not asserted as source freshness"
+        },
+        "identifierPolicy": "Provider uc_seq ID namespaced by dataset, with UUID seed also binding native venue name and building address",
+        "identityLinkage": {
+          "method": "Exact name and road building address across licensed dataset and current public individual listing",
+          "datasetAddress": "남구 신선로 458",
+          "currentCorroborationUrl": "https://www.diningcode.com/profile.php?rid=NXA9TxxOtjsD",
+          "currentCorroborationScope": "Bare business name/address/menu only; no reviews, ratings or media"
+        },
+        "creatorDiscovery": {
+          "url": "https://zenuis.tistory.com/459",
+          "access": "opened_body",
+          "publishedAt": "2022-04-25",
+          "reuse": "Article CC BY-NC; URL-only discovery, no article text/media reproduction."
+        },
+        "spicyQualification": "Creator personally ordered braised monkfish with reduced heat; spicy preparation is explicitly discussed. No numeric heat inferred.",
+        "menuScope": "Exact minimal menu name from unrestricted licensed municipal data; no creative description or price",
+        "doesNotEstablish": [
+          "current_operation",
+          "current_menu_sale",
+          "numeric_heat",
+          "consumer_rating",
+          "ownership"
+        ],
+        "publicationState": "research_prepared_only",
+        "coordinateAgeNotice": "Underlying ZIP members date 2023-09-21; no per-row observation date available. Name/address/menu independently corroborated in a currently public listing, not fresh geocoding.",
+        "dedup": {
+          "baselineCommit": "57906b0765d0303eeef9d845cf9410a8f8f9b130",
+          "baselineCount": 991,
+          "matches": [],
+          "scope": "Static exact-commit774 reviewed records +217 blog source records. Not a current live hidden-filter count. Names, normalized building addresses, provider IDs and coordinates compared.",
+          "checkedAt": "2026-10-14T00:04:46Z"
+        }
+      }
+    }
+  },
+  {
+    "id": "060ec841-fcf2-59de-8253-a9f9489105b3",
+    "slug": "hot-busan-15084242-1483",
+    "name": "복성반점",
+    "address": "부산 사하구 하신중앙로 289",
+    "lat": 35.103638,
+    "lon": 128.96245,
+    "source_ref": "data-go-kr-15084242-1483",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15084242/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-13T23:48:32Z",
+      "sourceRecordId": "1483",
+      "nativeBusinessName": "복성반점",
+      "nativeBranchName": null,
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "licensed-dataset-bare-facts",
+        "reviewedAt": "2026-10-13T23:48:32Z"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15084242-1483:menu:1",
+          "name": "짬뽕"
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      },
+      "independentReview": {
+        "candidateId": "south-074",
+        "coordinateDataset": {
+          "url": "https://www.data.go.kr/data/15084242/fileData.do",
+          "asOf": null,
+          "sha256": "8e8659dc857553c16b169c102109c1d3ba4f38a750c7757baf695703ce9b979f",
+          "nativeRecordId": "1483",
+          "dbfDataRow": 216,
+          "providerLatitude": 35.103638,
+          "providerLongitude": 128.96245,
+          "shapeCoordinatesAgree": true,
+          "coordinateSystem": "WGS 84 (provider .prj)",
+          "zipMemberTimestamp": "2023-09-21T09:51:48 (timezone unspecified; not a record observation date)",
+          "catalogueLabel": "20260910; not asserted as source freshness"
+        },
+        "identifierPolicy": "Provider uc_seq ID namespaced by dataset, with UUID seed also binding native venue name and building address",
+        "identityLinkage": {
+          "method": "Exact name and road building address across licensed dataset and current public individual listing",
+          "datasetAddress": "사하구 하신중앙로 289",
+          "currentCorroborationUrl": "https://www.diningcode.com/profile.php?rid=m7HAPtwKeoQU",
+          "currentCorroborationScope": "Bare business name/address/menu only; no reviews, ratings or media"
+        },
+        "creatorDiscovery": {
+          "url": "https://sldkqm7.tistory.com/v/148",
+          "access": "opened_body",
+          "publishedAt": "2025-11-04",
+          "reuse": "Article CC BY-SA; URL-only discovery, no article text/media reproduction."
+        },
+        "spicyQualification": "Creator personally ordered the spicy variant at the exact address. Public menu retains the licensed generic name; no heat qualifier is fabricated into that dataset field.",
+        "menuScope": "Exact minimal menu name from unrestricted licensed municipal data; no creative description or price",
+        "doesNotEstablish": [
+          "current_operation",
+          "current_menu_sale",
+          "numeric_heat",
+          "consumer_rating",
+          "ownership"
+        ],
+        "publicationState": "research_prepared_only",
+        "coordinateAgeNotice": "Underlying ZIP members date 2023-09-21; no per-row observation date available. Name/address/menu independently corroborated in a currently public listing, not fresh geocoding.",
+        "dedup": {
+          "baselineCommit": "57906b0765d0303eeef9d845cf9410a8f8f9b130",
+          "baselineCount": 991,
+          "matches": [],
+          "scope": "Static exact-commit774 reviewed records +217 blog source records. Not a current live hidden-filter count. Names, normalized building addresses, provider IDs and coordinates compared.",
+          "checkedAt": "2026-10-14T00:04:46Z"
+        }
+      }
+    }
+  }
+]

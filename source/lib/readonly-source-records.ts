@@ -1,3 +1,4 @@
+import reviewedEleven from '../data/hot-source-reviewed-eleven-20261014.json' with {type:'json'};
 import requestedTwo from '../data/hot-source-requested-two-20261013.json' with {type:'json'};
 import licensedMenus from '../data/hot-source-licensed-menu-20261013.json' with {type:'json'};
 import regionalgwangmyeong from '../data/hot-source-regional348/gwangmyeong.json' with {type:'json'};
@@ -56,7 +57,9 @@ const regionalRecords:ReadonlySourceRecord[]=[...regionalgwangmyeong,...regional
 if(regionalRecords.length!==348||licensedMenus.length!==7)throw Error('invalid_new_source_partition');
 export const reviewed946Records:ReadonlySourceRecord[]=[...reviewed591Records,...regionalRecords,...licensedMenus];
 if(reviewed946Records.length!==772||requestedTwo.length!==2)throw Error('invalid_requested_source_partition');
-const records:ReadonlySourceRecord[]=[...reviewed946Records,...requestedTwo];
+export const reviewed774Records:ReadonlySourceRecord[]=[...reviewed946Records,...requestedTwo];
+if(reviewed774Records.length!==774||reviewedEleven.length!==11)throw Error('invalid_reviewed_eleven_partition');
+const records:ReadonlySourceRecord[]=[...reviewed774Records,...reviewedEleven];
 if(new Set(records.map(row=>row.id)).size!==records.length||new Set(records.map(row=>row.source_ref)).size!==records.length)throw Error('duplicate_source_partition_identity');
-if(records.length!==774||records.some(row=>!row.source_metadata.menus.length))throw Error('invalid_menu_only_source_partition');
+if(records.length!==785||records.some(row=>!row.source_metadata.menus.length))throw Error('invalid_menu_only_source_partition');
 export default records;
