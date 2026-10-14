@@ -51,7 +51,7 @@ function harness(options={}){
   focus(options){stats.focus.push({element:this,options,connected:this.isConnected});if(this.isConnected)dom.activeElement=this}
  }
  dom.body=dom.createElement('body');dom.body.isConnected=true;dom.activeElement=dom.body;
- const canvas=dom.createElement('div');canvas.isConnected=true;canvas.tabIndex=-1;
+ const canvas=dom.createElement('div');canvas.isConnected=true;canvas.tabIndex=-1;canvas.clientWidth=1100;canvas.clientHeight=560;
  const outside=dom.createElement('button');outside.isConnected=true;
  const state={level:options.level??8,bounds:{...initialBounds}};
  function emit(name){for(const callback of [...listeners.get(name)||[]])callback()}
@@ -356,9 +356,9 @@ test('SDK/DOM mock: coincident HOT stores expand as independent pins and collaps
  assert.equal(h.nodes().length,1);assert.equal(toggle().textContent,'3');assert.equal(toggle().getAttribute('aria-expanded'),'false');
  h.click(toggle());assert.equal(pins().length,3);assert.equal(toggle().getAttribute('aria-expanded'),'true');
  for(const [index,pin] of pins().entries()){h.click(pin);assert.strictEqual(h.stats.sourceSelected.at(-1),sources[index])}
- h.emit('bounds_changed');h.flush();assert.equal(pins().length,0);
- h.click(toggle());h.emit('zoom_changed');h.flush();assert.equal(pins().length,0);
- h.click(toggle());h.observers[0].callback();h.flush();assert.equal(pins().length,0);
+ h.state.bounds={...h.state.bounds,west:h.state.bounds.west+.001};h.emit('bounds_changed');h.flush();assert.equal(pins().length,0);
+ h.click(toggle());h.map.setLevel(3);h.flush();assert.equal(pins().length,0);
+ h.click(toggle());h.canvas.clientWidth=1000;h.observers[0].callback();h.flush();assert.equal(pins().length,0);
  h.click(toggle());h.update({sourcedStores:[],sourceIdentityStores:[]});assert.equal(h.nodes().length,0);
  h.update({sourcedStores:sources,sourceIdentityStores:sources});assert.equal(toggle().getAttribute('aria-expanded'),'false');
  assert.equal(JSON.stringify(sources),before);h.unmount();assert.equal(h.live.size,0);assert.equal(h.listeners.size,0);
@@ -380,4 +380,20 @@ test('SDK/DOM mock: unchanged selection on background refresh preserves open ove
  const moved=sources.map((source,i)=>i===1?{...source,coordinates:{lat:37.56,lon:126.99}}:source);
  h.update({sourcedStores:moved,sourceIdentityStores:moved});h.runSelection();h.flush();assert.equal(h.stats.pans.at(-1).lat,37.56);
  h.replaceMap();h.runSelection();h.flush();assert.equal(h.stats.pans.length,pans+4,'Replacement map needs a fresh center');h.unmount();
+});
+
+test('SDK/DOM mock: unchanged viewport notifications keep petals open, real pan/zoom/resize and unreadable state close',()=>{
+ const sources=[1,2,3].map(n=>sourceStore(n,{coordinates:{lat:37.55,lon:126.98}}));
+ const h=harness({level:4,sources}),root=()=>h.nodes().find(node=>node.className==='map-store-overlap'),expanded=()=>root().children[0].getAttribute('aria-expanded');
+ h.click(root().children[0]);
+ for(const event of ['bounds_changed','zoom_changed','idle','bounds_changed']){h.emit(event);h.flush();assert.equal(expanded(),'true','No-op '+event)}
+ h.observers[0].callback();h.flush();assert.equal(expanded(),'true','Unchanged canvas size is not a resize');
+ h.update({sourcedStores:structuredClone(sources),menus:[]});h.emit('bounds_changed');h.flush();assert.equal(expanded(),'true','Equivalent polling stays open');
+ h.state.bounds={...h.state.bounds,west:h.state.bounds.west+.001};h.emit('bounds_changed');h.flush();assert.equal(expanded(),'false');
+ h.click(root().children[0]);h.map.setLevel(3);h.flush();assert.equal(expanded(),'false');
+ h.click(root().children[0]);h.canvas.clientWidth-=100;h.observers[0].callback();h.flush();assert.equal(expanded(),'false');
+ h.click(root().children[0]);const getBounds=h.map.getBounds;h.map.getBounds=()=>null;h.emit('bounds_changed');h.flush();assert.equal(root(),undefined,'Unreadable viewport fails closed to individual pins');
+ h.map.getBounds=getBounds;h.emit('idle');h.flush();assert.equal(expanded(),'false','Recovery cannot resurrect abandoned expansion');
+ h.click(root().children[0]);h.canvas.clientHeight=0;h.observers[0].callback();h.flush();assert.equal(expanded(),'false','Hidden canvas state fails closed');
+ h.unmount();assert.equal(h.live.size,0);assert.equal(h.listeners.size,0);
 });

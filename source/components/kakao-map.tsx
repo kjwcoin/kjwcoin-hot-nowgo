@@ -215,6 +215,14 @@ export default function KakaoMap({menus,sourcedStores=EMPTY_SOURCES,sourceIdenti
   let keyboardMembers:Set<string>|null=null;
   let keyboardOrigin:HTMLElement|null=null;
   let expandedKey:string|null=null;
+  let expandedViewport:string|null=null;
+  const viewportSignature=():string|null=>{
+   try{
+    const level=map.getLevel(),bounds=readViewportBounds(map.getBounds()),canvas=canvasRef.current;
+    if(!Number.isFinite(level)||!bounds||!canvas||!Number.isFinite(canvas.clientWidth)||!Number.isFinite(canvas.clientHeight)||canvas.clientWidth<=0||canvas.clientHeight<=0)return null;
+    return JSON.stringify([level,bounds.south,bounds.north,bounds.west,bounds.east,canvas.clientWidth,canvas.clientHeight]);
+   }catch{return null}
+  };
   const createPin=(point:(typeof points)[number])=>{
    const {selectedId,selectedSourceId,sourceSelectionEnabled,variant,sourcePreview,previewSourceHeat}=overlayInputsRef.current;
    const group=point.group;
@@ -256,7 +264,7 @@ export default function KakaoMap({menus,sourcedStores=EMPTY_SOURCES,sourceIdenti
     const content=storeOverlapContent({members:display.members,expanded,createPin,
      viewport:(()=>{try{const p=map.getProjection().containerPointFromCoords(position),canvas=canvasRef.current;return canvas&&canvas.clientWidth?{width:canvas.clientWidth,height:canvas.clientHeight,x:p.x,y:p.y}:undefined}catch{return undefined}})(),
      anchorDelta:point=>{try{const projection=map.getProjection(),origin=projection.containerPointFromCoords(position),target=projection.containerPointFromCoords(new k.maps.LatLng(point.lat,point.lng));return{x:target.x-origin.x,y:target.y-origin.y}}catch{return{x:0,y:0}}},
-     onToggle:keyboard=>{if(disposed||!display.members.every(point=>pointByKey.has(point.key)))return;expandedKey=expanded?null:display.key;draw();if(keyboard)contentByKey.get(display.key)?.querySelector<HTMLElement>(expanded?'button':'.map-overlap-item a, .map-overlap-item button')?.focus({preventScroll:true})},
+     onToggle:keyboard=>{if(disposed||!display.members.every(point=>pointByKey.has(point.key)))return;expandedKey=expanded?null:display.key;expandedViewport=expanded?null:viewportSignature();draw();if(keyboard)contentByKey.get(display.key)?.querySelector<HTMLElement>(expanded?'button':'.map-overlap-item a, .map-overlap-item button')?.focus({preventScroll:true})},
     });
     contentByKey.set(display.key,content);
     return new k.maps.CustomOverlay({map,position,content,xAnchor:.5,yAnchor:.5,clickable:true,zIndex:expanded?20:2});
@@ -285,7 +293,7 @@ export default function KakaoMap({menus,sourcedStores=EMPTY_SOURCES,sourceIdenti
      });
     }catch{/* Keep existing individual pins if a transient SDK projection/bounds read fails. */}
    }
-   if(expandedKey&&!displays.some(display=>display.kind==='overlap'&&display.key===expandedKey))expandedKey=null;
+   if(expandedKey&&!displays.some(display=>display.kind==='overlap'&&display.key===expandedKey)){expandedKey=null;expandedViewport=null}
    const focusedKey=[...contentByKey].find(([,content])=>(content===document.activeElement||content.contains?.(document.activeElement)))?.[0];
    const keyboardFocus=keyboardMembers&&document.activeElement===keyboardOrigin;
    overlaysRef.current=layer.update(displays);
@@ -302,7 +310,7 @@ export default function KakaoMap({menus,sourcedStores=EMPTY_SOURCES,sourceIdenti
     (target?.querySelector?.<HTMLElement>('button')??target??canvasRef.current)?.focus({preventScroll:true});
    }
   };
-  const closeOverlap=()=>{if(expandedKey){expandedKey=null;draw()}};
+  const closeOverlap=()=>{if(expandedKey){expandedKey=null;expandedViewport=null;draw()}};
   const outside=(event:Event)=>{if(expandedKey&&!contentByKey.get(expandedKey)?.contains(event.target as Node))closeOverlap()};
   const escape=(event:KeyboardEvent)=>{if(event.key==='Escape'&&expandedKey){event.preventDefault();closeOverlap()}};
   const refresh=()=>{if(!disposed&&!frame)frame=requestAnimationFrame(draw)};
@@ -316,7 +324,12 @@ export default function KakaoMap({menus,sourcedStores=EMPTY_SOURCES,sourceIdenti
   const dispose=()=>{disposed=true;layer.dispose();contentByKey.clear();pointByKey.clear();overlaysRef.current=[];if(refreshOverlaysRef.current===update)refreshOverlaysRef.current=null};
   refreshOverlaysRef.current=update;map.relayout();update();
   if(!clusteringEnabled)return dispose;
-  const moved=()=>{closeOverlap();refresh()};
+  const moved=()=>{
+   // SDK relayout/refresh notifications can repeat without movement. Only an
+   // actual viewport change dismisses petals; unreadable state remains fail-closed.
+   if(expandedKey){const current=viewportSignature();if(current===null||expandedViewport===null||current!==expandedViewport)closeOverlap()}
+   refresh();
+  };
   document.addEventListener?.('pointerdown',outside);document.addEventListener?.('keydown',escape);
   k.maps.event.addListener(map,'idle',refresh);
   k.maps.event.addListener(map,'bounds_changed',moved);
