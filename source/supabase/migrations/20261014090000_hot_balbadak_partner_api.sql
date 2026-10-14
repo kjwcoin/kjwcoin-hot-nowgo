@@ -20,7 +20,7 @@ create table if not exists public.hot_partner_reports (
   check (report_type <> 'operating_status' or status_signal is not null)
 );
 create index if not exists hot_partner_reports_store_time_idx
-  on public.hot_partner_reports (hot_store_id, reported_at desc);
+  on public.hot_partner_reports (source_store_id, reported_at desc);
 create index if not exists hot_partner_reports_pending_idx
   on public.hot_partner_reports (received_at desc) where review_status = 'pending';
 alter table public.hot_partner_reports enable row level security;
