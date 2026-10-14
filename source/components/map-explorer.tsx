@@ -98,7 +98,12 @@ export default function MapExplorer({variant='hot',previewStore,initialSourceSto
  const hasSelection=!!(current||currentSource);
  useEffect(()=>{const body=resultsBody.current;if(!body)return;body.scrollTop=hasSelection?0:listScrollTop.current;const target=listFocus.current;if(!hasSelection&&expanded&&target){const row=Array.from(body.querySelectorAll<HTMLButtonElement>('[data-menu-id],[data-source-menu-id],[data-source-store-id]')).find(node=>(target.kind==='source'?(node.dataset.sourceMenuId||node.dataset.sourceStoreId):node.dataset.menuId)===target.id);row?.focus({preventScroll:true})}},[current?.id,currentSource?.id,selectedSourceMenuId,hasSelection,expanded]);
  const count=Number(!!heat)+Number(flavor!=='전체')+Number(category!=='전체')+Number(!!budget);
- function updateQuery(value:string){setReportedMenu(null);setQuery(value);setSelected(null);setSelectedSource(null);setSelectedSourceMenuId(null);listScrollTop.current=0;listFocus.current=null;if(value.trim()){moveSheet(0);setExpanded(true)}}
+ function updateQuery(value:string){
+  setReportedMenu(null);setQuery(value);setSelected(null);setSelectedSource(null);setSelectedSourceMenuId(null);listScrollTop.current=0;listFocus.current=null;
+  // A direct place/area search must not be silently blocked by stale taste or
+  // budget filters. Source listings do not invent those unverified values.
+  if(value.trim()){setHeat(0);setFlavor('전체');setCategory('전체');setBudget(0);moveSheet(0);setExpanded(true)}
+ }
  function reset(){setReportedMenu(null);setQuery('');setHeat(0);setFlavor('전체');setCategory('전체');setBudget(0);setSelected(null);setSelectedSource(null);listScrollTop.current=0}
  useEffect(()=>{if(!previewStore)track('map_open','map')},[previewStore]);
  function rememberList(target:{kind:'menu'|'source';id:string}){if(!hasSelection){listScrollTop.current=resultsBody.current?.scrollTop||0;listFocus.current=target}}

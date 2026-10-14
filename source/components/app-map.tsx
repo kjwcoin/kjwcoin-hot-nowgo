@@ -44,7 +44,7 @@ export default function AppMap({variant}:{variant:SiteVariant}){
  const pins=useMemo(()=>storeGroups.map(store=>storePinMenu(store)).filter(menu=>isKoreanCoordinate(menu.lat,menu.lng)),[storeGroups]);
  const selectedStore=storeGroups.find(store=>store.menus.some(menu=>menu.placeId===selectedPlace));
  const visibleStores=selectedStore?[selectedStore]:listOpen?storeGroups:[];
- function updateQuery(value:string){setQuery(value);setSelectedPlace(null);if(value.trim())setListOpen(true)}
+ function updateQuery(value:string){setQuery(value);setSelectedPlace(null);if(value.trim()){setHeat(0);setFlavor('전체');setCategory('전체');setListOpen(true)}}
  function select(menu:Menu){setSelectedPlace(menu.placeId);setListOpen(false)}
  function openDetail(menu:Menu){const fields=['id','placeId','name','shop','price','image','area','ownerRegistered','lat','lng'] as const;const item=Object.fromEntries(fields.map(key=>[key,menu[key]]));postAppEvent({type:'nowgo:menu-selected',brand:variant,menu:item})}
  return <main className="nowgo-app-map" data-app-map data-flavor={variant}>
