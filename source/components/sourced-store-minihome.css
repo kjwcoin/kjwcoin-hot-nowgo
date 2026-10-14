@@ -64,3 +64,10 @@
 .source-public-taste ul{padding-left:18px;margin:8px 0;list-style:disc}
 .source-public-taste small{display:block;margin-top:6px;font-size:11px;color:var(--flavor-muted,#756e63)}
 .source-store-detail[data-registration-state=source-only] .source-taste-unknown{background:var(--card,#fffefa);border-color:#e7d7d0;color:var(--brand-ink,#bd3828)}
+.source-store-detail--simple .explorer-detail-content{display:grid;gap:18px}
+.source-store-detail--simple .explorer-detail-content h1{margin:0;color:#332b26}
+.source-simple-fact{padding:16px;border:1px solid #eadfd8;border-radius:12px;background:#fff}
+.source-simple-fact h2{margin:0 0 8px;color:#bd3828;font-size:13px;letter-spacing:-.2px}
+.source-store-detail--simple .source-simple-fact p{margin:0;color:#332b26;font-size:15px;line-height:1.55}
+.source-simple-fact ul{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.source-simple-fact li{color:#332b26;font-size:17px;font-weight:800;line-height:1.4}
