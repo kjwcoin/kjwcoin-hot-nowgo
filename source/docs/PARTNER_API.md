@@ -66,7 +66,19 @@
 }
 ```
 
-## 2. 발자국 매장 등록/수정 webhook
+## 2. 발바닥 매장 화면용 가입 링크 생성
+
+`POST https://hot.nowgo.space/api/partner/v1/balbadak/referral-links`
+
+발자국 상세의 "이 매장 사장님이신가요?" 버튼에 넣을 signed HOT owner link를 발자국 ID별로 생성합니다. 매장 데이터 전체를 전달할 필요 없이 클릭 대상 ID 하나만 보냅니다.
+
+```json
+{"source_store_id":"footprint-7788"}
+```
+
+응답에는 `member_signup_url`, `owner_signup_url`, `expires_in_seconds`가 옵니다. 점주 링크는 30일 만료, HMAC 서명된 HOT 경유 URL이며 가입 후 30일 attribution cookie로 귀속합니다. API key는 발바닥 서버에서만 호출합니다.
+
+## 3. 발자국 매장 등록/수정 webhook
 
 `POST https://hot.nowgo.space/api/partner/v1/balbadak/stores`
 
@@ -86,7 +98,7 @@
 
 응답은 `202`와 `match_status: unmatched`입니다. `hot_partner_stores`에 저장해 HOT 매장 기준과 분리합니다. 이름+좌표 근접성은 중복 후보 판별 기준으로만 사용하고 자동 병합하지 않습니다.
 
-## 3. 일별 관심 지표
+## 4. 일별 관심 지표
 
 `POST https://hot.nowgo.space/api/partner/v1/balbadak/metrics`
 
@@ -104,7 +116,7 @@
 
 좋아요/저장 수는 일별 값, `unique_interest_count`는 같은 사용자를 중복 제외한 발바닥 집계값입니다. 조회수는 신규 개발 후 제공 가능할 때만 숫자로 보냅니다. 사용자별 기록은 받지 않습니다. 동일 발자국 ID와 날짜는 최신 `updated_at` 집계로 갱신합니다.
 
-## 4. 상태 제보
+## 5. 상태 제보
 
 `POST https://hot.nowgo.space/api/partner/v1/balbadak/reports`
 
@@ -121,7 +133,7 @@
 
 `status_signal` 허용값은 `open`, `closed`, `sold_out`입니다. 이벤트 중복은 `event_id`로 차단합니다. 응답 `201`은 신규 등록, `200`은 중복 재전송입니다. HOT에는 검토 대기 상태로 등록되며 회원 제보·포인트·공개 상태를 자동 변경하지 않습니다. `source_store_id`는 HOT `store_id`와 별도 ID입니다.
 
-## 5. 월별 점주 정산
+## 6. 월별 점주 정산
 
 `GET https://hot.nowgo.space/api/partner/v1/balbadak/settlements?month=2026-11`
 
