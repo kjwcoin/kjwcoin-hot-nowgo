@@ -3,7 +3,8 @@ import sejongReviewed from '../data/hot-sejong-eight-source-registry.json' with 
 import nextSejongReviewed from '../data/hot-sejong-next30-source-registry.json' with {type:'json'};
 import next64Reviewed from '../data/hot-sejong-next64-source-registry.json' with {type:'json'};
 import next47Reviewed from '../data/hot-sejong-next47-source-registry.json' with {type:'json'};
-const reviewed=[...priorReviewed,...sejongReviewed,...nextSejongReviewed,...next64Reviewed,...next47Reviewed];
+import next38Reviewed from '../data/hot-sejong-next38-source-registry.json' with {type:'json'};
+const reviewed=[...priorReviewed,...sejongReviewed,...nextSejongReviewed,...next64Reviewed,...next47Reviewed,...next38Reviewed];
 import type {PublicSourcedStore,SourcedStoreRow} from './sourced-store.ts';
 /** Only public, release-reviewed facts belong here. Research packets are never imported. */
 export type RegionalSourceDisclosure={
