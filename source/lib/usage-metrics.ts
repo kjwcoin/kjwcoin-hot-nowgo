@@ -19,6 +19,13 @@ export function acquisitionSource(location: Pick<Location, "search" | "hostname"
   return { source, campaign: /^[a-z0-9_-]{1,64}$/i.test(campaign) ? campaign : "" };
 }
 
+export function classifyUsageDevice(userAgent: string, nativeApp = false) {
+  if (nativeApp || /NOWGOApp/i.test(userAgent)) return "app";
+  if (/ipad|tablet/i.test(userAgent)) return "tablet";
+  if (/mobi|android|iphone|ipod/i.test(userAgent)) return "mobile";
+  return "desktop";
+}
+
 function allowed() {
   try { return localStorage.getItem(CONSENT_KEY) === "granted" && navigator.doNotTrack !== "1"; } catch { return false; }
 }
@@ -35,7 +42,7 @@ function getSession(): Session | null {
     }
     let visitor = localStorage.getItem(VISITOR_KEY) ?? "";
     if (!uuid.test(visitor)) { visitor = crypto.randomUUID(); localStorage.setItem(VISITOR_KEY, visitor); }
-    const device = /ipad|tablet/i.test(navigator.userAgent) ? "tablet" : /mobi|android/i.test(navigator.userAgent) ? "mobile" : "desktop";
+    const device = classifyUsageDevice(navigator.userAgent, Boolean((window as Window & { __NOWGO_APP__?: boolean }).__NOWGO_APP__));
     return { id: crypto.randomUUID(), visitor, lastSeen: now, created: now, engaged: 0, views: 0, device, ...acquisitionSource(window.location, document.referrer) };
   } catch { return null; }
 }
