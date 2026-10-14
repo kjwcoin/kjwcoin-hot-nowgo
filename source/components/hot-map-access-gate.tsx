@@ -19,6 +19,18 @@ export default function HotMapAccessGate({variant='hot'}:{variant?:SiteVariant})
   return()=>{active=false;subscription.unsubscribe()};
  },[variant]);
  if(variant!=='hot'||access==='signed-in')return <MapExplorer variant={variant}/>;
- if(access==='checking')return <main className="hot-access-checking" aria-live="polite">통합회원 연결을 확인하고 있어요.</main>;
- return <main className="hot-access-wall"><section className="hot-access-card" role="dialog" aria-modal="true" aria-labelledby="hot-access-title"><span className="hot-access-mark" aria-hidden="true">H</span><div className="hot-access-bubble" id="hot-access-title">통합로그인해야 볼 수 있어요</div><p>HOT 지도를 이용하려면 NOWGO 통합회원으로 로그인해 주세요.</p><a className="hot-access-login" href="/account/join?type=user&returnTo=%2F">통합로그인 / 회원가입</a><a className="hot-access-account" href="/account">내 계정</a></section></main>;
+ return <main className="hot-map-access">
+  <div className="hot-map-access-backdrop" aria-hidden="true" inert>
+   <MapExplorer variant={variant}/>
+  </div>
+  <div className="hot-map-access-overlay">
+   <section className="hot-map-access-card" role="dialog" aria-modal="true" aria-labelledby="hot-access-title">
+    <span className="hot-access-mark" aria-hidden="true">H</span>
+    <div className="hot-access-bubble" id="hot-access-title">통합로그인해야 볼 수 있어요</div>
+    <p>가입하면 지도위에 핀들이 보여요</p>
+    <a className="hot-access-login" href="/account/join?type=user&returnTo=%2F">통합로그인 / 회원가입</a>
+    <a className="hot-access-account" href="/account">내 계정</a>
+   </section>
+  </div>
+ </main>;
 }

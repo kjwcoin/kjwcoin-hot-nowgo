@@ -29,3 +29,7 @@ body[data-theme] .activity-world.activity-world .aw-toast{background:#fff!import
 .aw-account-links,.aw-account-links a{color:#332b26}
 .aw-footprint-photo{display:grid;gap:12px;margin-top:14px}.aw-footprint-photo form{display:grid;gap:8px}.aw-footprint-pictures{display:flex;flex-wrap:wrap;gap:8px}.aw-footprint-pictures img{width:140px;height:110px;object-fit:cover;border-radius:8px}.aw-footprint-photo button{min-height:44px;padding:9px 14px;border:1px solid #c9bcb3;border-radius:8px;background:#fff}.aw-footprint-photo a{width:fit-content}
 body[data-theme] .activity-world.activity-world :is(.aw-eyebrow,.aw-pill.is-earned,.we-xp,.aw-exp-caption b){color:#bd3828!important}
+
+/* HOT quest actions use the requested red button with white text. */
+.activity-world[data-planet="hot"] .aw-quests button{background:#c93421;color:#fff}
+.activity-world[data-planet="hot"] .aw-quests button:hover{background:#a9281a;color:#fff}

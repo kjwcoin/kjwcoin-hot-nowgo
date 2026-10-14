@@ -466,3 +466,11 @@ body[data-theme="hot"] .map-store-cluster:focus-visible{background:var(--brand-d
 .hot-access-account{display:inline-flex;margin-top:18px;padding:8px 12px;color:#5e5a52;font-size:14px;font-weight:700;text-decoration:underline;text-underline-offset:3px}
 @media(max-width:480px){.hot-access-card{padding:28px 22px;border-radius:20px}.hot-access-card p{font-size:14px}}
 .aw-account-links .aw-account-withdraw{color:#ff7468;font-weight:800;text-decoration:underline;text-underline-offset:3px}
+
+/* Logged-out HOT: keep the map visible but blurred and immovable beneath the signup popup. */
+.hot-map-access{min-height:100svh}
+.hot-map-access-backdrop{filter:blur(6px);pointer-events:none;user-select:none}
+.hot-map-access-overlay{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;padding:24px;background:#f8f5ed38;pointer-events:none}
+.hot-map-access-card{width:min(100%,420px);padding:clamp(25px,5vw,40px);border:1px solid #e3ddd1;border-radius:22px;background:#fff;box-shadow:0 18px 60px #3b2c1933;text-align:center;pointer-events:auto}
+.hot-map-access-card p{margin:2px auto 22px;color:#66645d;font-size:15px;line-height:1.7}
+@media(max-width:480px){.hot-map-access-overlay{padding:18px}.hot-map-access-card{padding:25px 21px;border-radius:19px}}
