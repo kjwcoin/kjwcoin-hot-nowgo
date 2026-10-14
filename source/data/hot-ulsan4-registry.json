@@ -1,0 +1,182 @@
+[
+  {
+    "id": "6a041ff8-aa0f-5dd8-a88e-d706eb574084",
+    "slug": "hot-route7-ulsan-next-001",
+    "sourceRef": "route7-ulsan-next-001",
+    "name": "저수지휴게실",
+    "address": "울산광역시 울주군 청량읍 상보두현길 53",
+    "coordinates": {
+      "lat": 35.52607857696,
+      "lon": 129.251498612508
+    },
+    "menus": [
+      {
+        "id": "route7-ulsan-next-001:menu:1",
+        "name": "매운 수제비",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://www.ktourmap.com/spotDetails.jsp?contentId=2788431",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T08:24:43.298472+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "KTourmap 관광 음식점정보",
+        "attribution": "메뉴·주소·위치: KTourmap 개별 관광 음식점자료.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일:2026-10-14. 주소에 대응하는 음식점 자료점이며 정확한 출입구·층·호 위치는 미확인입니다. 현재 영업 및 메뉴 제공 여부는 미확인입니다. 확인일은 원자료 갱신일이 아니며 좌표 조사일·생성 방식은 미확인입니다. 개별 공개 사실의 제한적 이용이며 명시적 오픈 라이선스나 원제공자 이용허락의 승계를 주장하지 않습니다. 관광 메뉴표의 매운 수제비를 확인했습니다. 자료점이며 현재 영업이나 현장 정확도는 미확인입니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "1db2f815-9e1c-5f0e-a1d5-955f40064367",
+    "slug": "hot-national-ulsan-nam-first-001",
+    "sourceRef": "national-ulsan-nam-first-001",
+    "name": "정칼국수",
+    "address": "울산광역시 남구 왕생로62번길 11",
+    "coordinates": {
+      "lat": 35.5393822383833,
+      "lon": 129.333129921868
+    },
+    "menus": [
+      {
+        "id": "national-ulsan-nam-first-001:menu:1",
+        "name": "매운칼국수",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://access.visitkorea.or.kr/food/detail.do?cotId=67872337-5138-4f54-8b35-028dd6203c26",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T10:27:44.857919+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "한국관광공사 열린관광 개별 음식점정보",
+        "attribution": "메뉴: 독립 개인 방문 기록. 주소·위치: 한국관광공사 열린관광 정칼국수 항목.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일:2026-10-14. 주소에 대응하는 음식점 자료점이며 정확한 출입구·층·호 위치는 미확인입니다. 현재 영업 및 메뉴 제공 여부는 미확인입니다. 확인일은 원자료 갱신일이 아니며 좌표 조사일·생성 방식은 미확인입니다. 개별 공개 사실의 제한적 이용이며 명시적 오픈 라이선스나 원제공자 이용허락의 승계를 주장하지 않습니다. 메뉴 근거는 2023년 매운칼국수 방문 기록입니다. 공식 음식점의 이름별 길안내·마커 자료점이며 출입구 실측점은 아닙니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "1d06bdf8-3c4f-5320-9e76-0feb11d51c2a",
+    "slug": "hot-national-ulsan-buk-first-001",
+    "sourceRef": "national-ulsan-buk-first-001",
+    "name": "양포항 명촌점",
+    "address": "울산광역시 북구 명촌14길 5",
+    "coordinates": {
+      "lat": 35.5565104350877,
+      "lon": 129.356349728571
+    },
+    "menus": [
+      {
+        "id": "national-ulsan-buk-first-001:menu:1",
+        "name": "아구불고기",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://bpa.purpleo.kr/article/3669",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T10:30:10Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "소상공인시장진흥공단 상가정보 기반 개별 건물자료",
+        "attribution": "메뉴·지점: 양포항 공식 안내와 독립 방문글 공개 색인. 위치: bpa.purpleo 동일 주소 상가자료.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일:2026-10-14. 주소에 대응하는 음식점 자료점이며 정확한 출입구·층·호 위치는 미확인입니다. 현재 영업 및 메뉴 제공 여부는 미확인입니다. 확인일은 원자료 갱신일이 아니며 좌표 조사일·생성 방식은 미확인입니다. 개별 공개 사실의 제한적 이용이며 명시적 오픈 라이선스나 원제공자 이용허락의 승계를 주장하지 않습니다. 메뉴는 실제 아구불고기 제공 사실만 확인했으며 강한 매운맛이나 매운 단계는 확인하지 않았습니다. 좌표는 다른 점포 비단궁체형관리의 명촌14길5·진장동808-2 동일 건물 자료점입니다. 출입구·업소 승계 증거가 아닙니다. 메뉴 방문 및 좌표 자료는 공개 검색 색인으로 확인했고 원문 좌표 페이지는 직접 복구되지 않았습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "c6638de2-94d9-515f-b713-314127686e64",
+    "slug": "hot-national-ulsan-dong-first-001",
+    "sourceRef": "national-ulsan-dong-first-001",
+    "name": "용궁해물탕",
+    "address": "울산광역시 동구 대송로 26",
+    "coordinates": {
+      "lat": 35.5043854854721,
+      "lon": 129.426658225176
+    },
+    "menus": [
+      {
+        "id": "national-ulsan-dong-first-001:menu:1",
+        "name": "해물찜",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://fmr.purpleo.co.kr/view/11306",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T10:38:17Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "지방행정인허가 기반 개별 주소자료",
+        "attribution": "메뉴: 독립 방문 기록. 주소: 공개 음식점 현황 목록. 위치: fmr.purpleo 동일주소 등록업소 자료.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일:2026-10-14. 주소에 대응하는 음식점 자료점이며 정확한 출입구·층·호 위치는 미확인입니다. 현재 영업 및 메뉴 제공 여부는 미확인입니다. 확인일은 원자료 갱신일이 아니며 좌표 조사일·생성 방식은 미확인입니다. 개별 공개 사실의 제한적 이용이며 명시적 오픈 라이선스나 원제공자 이용허락의 승계를 주장하지 않습니다. 위치는2021년 자료의 가마솥돼지국밥 대송로26·일산동453-9 동일 건물점이며 용궁해물탕의 출입구나 업소 승계 증거가 아닙니다. 메뉴 근거는2025년 실제 해물찜 주문입니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  }
+]
