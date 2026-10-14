@@ -1,6 +1,7 @@
 import priorRegionalRows from '../data/hot-regional-source-records.json' with {type:'json'};
 import sejongRows from '../data/hot-sejong-eight-source-records.json' with {type:'json'};
-const regionalRows=[...priorRegionalRows,...sejongRows];
+import nextSejongRows from '../data/hot-sejong-next30-source-records.json' with {type:'json'};
+const regionalRows=[...priorRegionalRows,...sejongRows,...nextSejongRows];
 import {appendRegionalSourceStores} from './regional-source.ts';
 import {publicSourcedStore,type SourcedStoreRow} from './sourced-store.ts';
 import reviewedEleven from '../data/hot-source-reviewed-eleven-20261014.json' with {type:'json'};
@@ -78,5 +79,6 @@ const activeRegionalRows=regional.acceptedRows as ReadonlySourceRecord[];
 export const reviewed786Records=[...records,...activeRegionalRows.filter(row=>row.source_ref==='aks-gwangju-kokkiri-factpoint-54329')];
 export const reviewed787Records=[...reviewed786Records,...activeRegionalRows.filter(row=>row.source_ref==='purpleo-qbh-125717')];
 export const reviewed791Records=[...reviewed787Records,...activeRegionalRows.filter(row=>['purpleo-xnx-4796','purpleo-smi-36199','jusoga-building-2638010100103820008029687-f47620bd','jusoga-building-2653010400105350003006339-fe86e570'].includes(row.source_ref))];
+export const reviewed799Records=[...reviewed791Records,...activeRegionalRows.filter(row=>["purpleo-fmr-28641","purpleo-fmr-28711","purpleo-fmr-28685","purpleo-fmr-28691","jusoga-building-3611010700103610034000001-06ed015f","jusoga-building-3611010700103610039000001-25e7abe7","jusoga-building-3611011300100980000000001-3bd84b56","jusoga-building-3611010800103410092000001-d0225e4c"].includes(row.source_ref))];
 const activeRecords=[...records,...activeRegionalRows];
 export default activeRecords;

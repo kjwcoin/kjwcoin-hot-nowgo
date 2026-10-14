@@ -16,7 +16,8 @@ import {hookHarness,elements,textOf} from './helpers/source-ui-components.mjs';
 
 import priorRegionalRows from '../data/hot-regional-source-records.json' with {type:'json'};
 import sejongRows from '../data/hot-sejong-eight-source-records.json' with {type:'json'};
-const regionalRows=[...priorRegionalRows,...sejongRows];
+import nextSejongRows from '../data/hot-sejong-next30-source-records.json' with {type:'json'};
+const regionalRows=[...priorRegionalRows,...sejongRows,...nextSejongRows];
 const expectedCount=785+regionalRows.length;
 const stores=readonlySourceStoreFeed().stores;
 const onjeong=stores.find(store=>store.id==='65a5768f-5c9e-563e-a04f-cbb81835ec02');
