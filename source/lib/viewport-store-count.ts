@@ -1,3 +1,4 @@
+import {catalogMenuSearchFilter,menuSearchError,normalizedMenuQuery} from './menu-search.ts';
 import {publicDb,publicConfig} from './supabase';
 import {siteConfig,type SiteVariant} from './site-config';
 import {storeIdentity,canonicalStoreKey,identityAnchors,resolvedStoreKey} from './store-identity.ts';
@@ -45,7 +46,8 @@ export function parseViewportCountParams(params:URLSearchParams,variant:SiteVari
  };
  const rawQuery=one('q')||'';if(rawQuery.length>120)invalid();
  // Match communityMenus' keyword normalization; no raw PostgREST syntax is interpolated.
- const query=rawQuery.replace(/[^\p{L}\p{N}\s]/gu,'').trim().slice(0,60);
+ if(menuSearchError(rawQuery))invalid();
+ const query=normalizedMenuQuery(rawQuery);
  const theme=siteConfig(variant);
  const choice=(name:string,choices:readonly string[])=>{
   const value=one(name)||'';if(!value||value==='전체')return '';
@@ -143,6 +145,7 @@ export async function scanViewportStoreCount(readPage:ReadPage,bounds:ViewportBo
 }
 
 export async function viewportStoreCount(input:ViewportCountQuery,variant:SiteVariant='hot',signal?:AbortSignal):Promise<ViewportStoreCountResult>{
+ if(menuSearchError(input.query))invalid();
  if(!publicConfig().ready)throw new ViewportCountUnavailable('Public catalog is not configured.');
  const key=JSON.stringify([variant,input]),cached=cache.get(key);
  if(cached&&cached.expires>Date.now()&&!signal?.aborted)return {...cached.result};
@@ -157,7 +160,8 @@ export async function viewportStoreCount(input:ViewportCountQuery,variant:SiteVa
  const [catalog,feed]=await Promise.all([bounds?scanViewportStoreCount(async({afterId,limit,signal:pageSignal})=>{
   let request=db.from(siteConfig(variant).tables.menus).select(VIEWPORT_COUNT_FIELDS)
    .gte('lat',bounds.south).lte('lat',bounds.north).gte('lng',bounds.west).lte('lng',bounds.east);
-  if(input.query)request=request.or(`menu.ilike.%${input.query}%,shop.ilike.%${input.query}%,address.ilike.%${input.query}%`);
+  const searchFilter=catalogMenuSearchFilter(input.query);
+  if(searchFilter)request=request.or(searchFilter);
   if(input.heat)request=request.eq('heat',input.heat);
   if(input.flavor)request=request.eq('flavor',input.flavor);
   if(input.category)request=request.eq('category',input.category);

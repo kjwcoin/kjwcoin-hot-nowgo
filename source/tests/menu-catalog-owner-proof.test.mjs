@@ -1,3 +1,4 @@
+import * as menuSearch from '../lib/menu-search.ts';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -6,7 +7,7 @@ import ts from 'typescript';
 const id='12345678-1234-4234-8234-123456789abc';
 const base={id,place_id:'reported-a',menu:'매운맛 메뉴',shop:'실제 가게',price:10000,heat:3,flavor:'칼칼한',category:'닭발',lat:37.56,lng:126.97,address:'서울특별시 중구 길 1',observed_at:'2026-10-12',verified_owner:false,nowgo_slug:null,owner_store_id:null,soldout:false,map_menu_photo:false,photo_path:null};
 function catalog(row,matches=[],matchError=null){
- const exports={},calls=[];const dependencies={
+ const exports={},calls=[];const dependencies={'./menu-search.ts':menuSearch,
   './supabase':{publicConfig(){return {ready:true,url:'https://test.example'}},publicDb(){return {from(){return {select(){return this},eq(){return this},async maybeSingle(){return {data:row,error:null}}}},async rpc(name,args){calls.push({name,args});return {data:matches,error:matchError}}}}},'./site-config':{siteConfig(){return {tables:{menus:'ng_map_hot_menu_catalog'}}}},'./nearby-demo':{distanceKm(){return 0},MAP_RADIUS_KM:15},
  };
  vm.runInNewContext(ts.transpileModule(fs.readFileSync(new URL('../lib/menu-catalog.ts',import.meta.url),'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText,{exports,process:{env:{}},require(name){assert.ok(name in dependencies,'Unexpected import: '+name);return dependencies[name]}});return {...exports,calls};

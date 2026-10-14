@@ -1,3 +1,4 @@
+import * as menuSearch from '../lib/menu-search.ts';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -18,7 +19,7 @@ const count=display=>display.reduce((sum,item)=>sum+(item.kind==='cluster'?item.
 
 function viewportCount(rows,sources=[],complete=true){
  const exports={},source=fs.readFileSync(new URL('../lib/viewport-store-count.ts',import.meta.url),'utf8');
- const dependencies={'./store-identity.ts':identities,'./map-sourced-stores.ts':mapSources,'./korean-region.ts':{isKoreanCoordinate},'./supabase':{},'./site-config':{},'./sourced-store-feed.ts':{}};
+ const dependencies={'./menu-search.ts':menuSearch,'./store-identity.ts':identities,'./map-sourced-stores.ts':mapSources,'./korean-region.ts':{isKoreanCoordinate},'./supabase':{},'./site-config':{},'./sourced-store-feed.ts':{}};
  vm.runInNewContext(ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText,{exports,require(name){assert.ok(name in dependencies);return dependencies[name]}});
  return exports.countViewportStores(rows,bounds,complete,sources);
 }
