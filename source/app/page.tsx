@@ -2,6 +2,7 @@ import "@/components/sourced-store-minihome.css";
 import {sourcePreviewEnabled,sourcePreviewStore} from '@/lib/source-store-preview';
 import {flavorPageMetadata,flavorWebsite} from '@/lib/seo';
 import MapExplorer from '@/components/map-explorer';
+import HotMapAccessGate from '@/components/hot-map-access-gate';
 import {redirect} from 'next/navigation';
 import {headers} from 'next/headers';
 import {variantForHost} from '@/lib/site-config';
@@ -14,5 +15,5 @@ export default async function Page({searchParams}:{searchParams:Promise<{menu?:s
  // Previously shared promotion links used the root URL.
  if(typeof menu==='string'&&/^[a-zA-Z0-9_-]{1,100}$/.test(menu))redirect(`/suggestion?menu=${encodeURIComponent(menu)}`);
  const variant=variantForHost((await headers()).get('host'));
- return <><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(flavorWebsite(variant)).replace(/</g,'\\u003c')}}/><MapExplorer variant={variant}/></>;
+ return <><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(flavorWebsite(variant)).replace(/</g,'\\u003c')}}/>{variant==='hot'?<HotMapAccessGate variant={variant}/>:<MapExplorer variant={variant}/>}</>;
 }

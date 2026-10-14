@@ -451,3 +451,18 @@ body[data-theme="hot"] .map-store-cluster:focus-visible{background:var(--brand-d
 .map-overlap-list{position:absolute;top:60px;left:50%;transform:translateX(-50%);width:min(290px,75vw);max-height:280px;overflow:auto;overscroll-behavior:contain;display:grid;gap:8px;padding:10px;background:#fff;border:1px solid #d6b7b4;border-radius:14px;box-shadow:0 4px 16px #25191930;z-index:4}
 .map-overlap-list p{margin:0;font-size:13px;font-weight:700;color:#5a211c}
 .map-overlap-item :focus-visible{outline:3px solid #b92820;outline-offset:3px}
+
+
+/* HOT map requires an authenticated NOWGO unified account. */
+.hot-access-wall,.hot-access-checking{min-height:100svh;display:grid;place-items:center;padding:24px;background:#f8f5ed;color:#20211e}
+.hot-access-checking{font-size:14px;color:#68665f}
+.hot-access-card{width:min(100%,460px);padding:clamp(26px,6vw,46px);border:1px solid #e3ddd1;border-radius:24px;background:#fff;box-shadow:0 22px 70px #3b2c1914;text-align:center}
+.hot-access-mark{display:grid;place-items:center;width:52px;height:52px;margin:0 auto 20px;border-radius:16px;background:#c93421;color:#fff;font-size:26px;font-weight:800}
+.hot-access-bubble{position:relative;width:fit-content;max-width:100%;margin:0 auto 22px;padding:15px 22px;border-radius:16px;background:#c93421;color:#fff;font-size:clamp(18px,4vw,22px);font-weight:800;line-height:1.4}
+.hot-access-bubble::after{position:absolute;left:50%;bottom:-9px;width:18px;height:18px;content:"";background:#c93421;transform:translateX(-50%) rotate(45deg);border-radius:3px}
+.hot-access-card p{margin:0 auto 24px;color:#66645d;font-size:15px;line-height:1.7}
+.hot-access-login{display:flex;min-height:50px;align-items:center;justify-content:center;border-radius:12px;background:#c93421;color:#fff;font-weight:800}
+.hot-access-login:focus-visible,.hot-access-account:focus-visible{outline:3px solid #20211e;outline-offset:4px}
+.hot-access-account{display:inline-flex;margin-top:18px;padding:8px 12px;color:#5e5a52;font-size:14px;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:480px){.hot-access-card{padding:28px 22px;border-radius:20px}.hot-access-card p{font-size:14px}}
+.aw-account-links .aw-account-withdraw{color:#ff7468;font-weight:800;text-decoration:underline;text-underline-offset:3px}
