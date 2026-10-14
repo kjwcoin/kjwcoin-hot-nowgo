@@ -7,7 +7,6 @@ import KakaoMap from '@/components/kakao-map';
 import {api,ApiError} from '@/lib/client';
 import {browserDb} from '@/lib/supabase-browser';
 import {siteConfig,type SiteVariant} from '@/lib/site-config';
-import OwnerPlan from './owner-plan';
 import MenuFields from './menu-fields';
 import styles from './owner-pages.module.css';
 type Point={address:string;lat:number;lng:number};
@@ -18,7 +17,7 @@ export default function OwnerSignup({variant,initialStore}:{variant:SiteVariant;
  useEffect(()=>{mounted.current=true;const initial=setTimeout(()=>void load(),0);const {data}=browserDb().auth.onAuthStateChange(()=>{setTimeout(()=>{if(mounted.current&&!saving.current)void load()},0)});return()=>{mounted.current=false;request.current++;clearTimeout(initial);data.subscription.unsubscribe()}},[load]);
  async function submit(event:FormEvent<HTMLFormElement>){event.preventDefault();if(saving.current)return;setError('');if(!store&&!point){setError('주소 검색으로 지도에서 매장 위치를 확인해 주세요.');return}const form=new FormData(event.currentTarget);if(store)form.set('storeId',store);if(resume){form.set('storeId',resume);form.set('resume','yes')}if(point){form.set('lat',String(point.lat));form.set('lng',String(point.lng));form.set('address',point.address)}saving.current=true;setBusy(true);try{const result=await api<{managementUrl:string}>('/api/owner/signup',{method:'POST',body:form});const url=new URL(result.managementUrl);if(url.origin!=='https://'+variant+'.nowgo.space'||!/^\/owner\/dashboard\/[0-9a-f-]{36}$/.test(url.pathname))throw Error('관리 주소를 확인하지 못했습니다. 가입을 다시 확인해 주세요.');router.push(url.pathname)}catch(e){if(e instanceof ApiError&&e.details?.partial&&typeof e.details.storeId==='string')setResume(e.details.storeId);setError(e instanceof Error?e.message:'가입을 완료하지 못했어요. 입력한 내용은 유지됩니다.')}finally{saving.current=false;if(mounted.current)setBusy(false)}}
  function located(next:Point){setPoint(next);setAddress(next.address);setLocationNote('매장 위치를 확인했습니다. 지도에서 위치를 확인해 주세요.')}
- return <main className={styles.shell} style={{'--owner-accent':theme.accent} as CSSProperties}><header className={styles.hero}><p className={styles.eyebrow}>{theme.name} · FOR STORE OWNERS</p><h1>{theme.name} 지도 점주 가입</h1><p>메뉴 사진 한 장부터 시작하세요.<br/>매장을 확인한 뒤 월 8,000원 구독으로 오늘의 영업과 메뉴를 관리합니다. 가입 후 발급되는 전용 웹앱 주소에서 매일 영업현황을 갱신해 주세요.</p></header><div className={styles.layout}><div className={styles.card}>
+ return <main className={styles.shell} style={{'--owner-accent':theme.accent} as CSSProperties}><header className={styles.hero}><p className={styles.eyebrow}>{theme.name} · FOR STORE OWNERS</p><h1>사장님의 매운맛을 보여주세요</h1><p>전국의 도전자들이 찾아와 도전할 수 있도록 대표 메뉴를 등록해 주세요.<br/>가입 후 발급되는 전용 웹앱에서 오늘의 영업현황과 메뉴를 직접 관리할 수 있어요.</p></header><div className={styles.layout}><div className={styles.card}>
  {loggedIn===null?<p role="status">계정을 확인하고 있습니다.</p>:!loggedIn?<><h2>점주 계정으로 시작하기</h2><p>매장을 등록하면 본인 매장관리 전용 고유 URL이 발급됩니다.</p><OAuthButtons flavor={variant} accountType="owner" returnTo={initialStore?'/owner/signup?sourceStore='+encodeURIComponent(initialStore.id):'/owner/signup'}/><p className={styles.hint}>세 지도와 나우고의 통합계정으로 로그인합니다.</p></>:<><h2>매장과 연락처 등록</h2><p>사업자 확인에 사용할 대표자 연락처를 입력해 주세요.</p><form ref={formRef} className={styles.form} onSubmit={submit}>
  <fieldset disabled={busy} style={{border:0,padding:0,margin:0,minWidth:0,display:'grid',gap:20}}>
  {stores.length>0&&!resume&&<label>등록할 매장<select value={store} onChange={e=>{setStore(e.target.value);setError('')}}><option value="">새 매장 등록</option>{stores.map(s=><option value={s.id} key={s.id}>{s.name}</option>)}</select></label>}
@@ -30,5 +29,5 @@ export default function OwnerSignup({variant,initialStore}:{variant:SiteVariant;
  <button className={styles.primary} type="submit">{busy?'매장 확인·등록 중':resume?'등록 이어서 완료하기':'등록하고 전용 대시보드로'}</button>
  </fieldset></form></>}
  {error&&<div className={`${styles.message} ${styles.error}`} role="alert">{error}</div>}<div className={styles.links}><Link href="/owner/subscribe">이미 등록했다면 구독 확인</Link><Link href="/">메뉴 지도로 돌아가기</Link></div>
- </div><div><OwnerPlan variant={variant}/><section className={styles.card}><h2>NOWGO SPACE와 동일한 신뢰 정책</h2><p>신뢰 30점 · 레벨 5에서 시작합니다. 서로 다른 로그인 고객 3명 이상의 일치 제보로 영업·품절 정보가 정정되면 건당 신뢰 5점 차감 · 패널티 5점 누적됩니다. 신뢰 0점이면 매장·미니홈피 공개 노출이 중지되며 기존 데이터는 보존됩니다.</p></section></div></div></main>;
+ </div><div><section className={styles.card}><h2>도전할 매운 메뉴를 알려주세요</h2><p>대표 메뉴의 이름·가격·사진과 매운맛 단계를 등록하면 도전자들이 지역명·상호명·메뉴명으로 매장을 찾을 수 있어요.</p></section><section className={styles.card}><h2>NOWGO SPACE와 동일한 신뢰 정책</h2><p>신뢰 30점 · 레벨 5에서 시작합니다. 서로 다른 로그인 고객 3명 이상의 일치 제보로 영업·품절 정보가 정정되면 건당 신뢰 5점 차감 · 패널티 5점 누적됩니다. 신뢰 0점이면 매장·미니홈피 공개 노출이 중지되며 기존 데이터는 보존됩니다.</p></section></div></div></main>;
 }

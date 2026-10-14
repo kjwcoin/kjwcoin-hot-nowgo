@@ -44,8 +44,8 @@ export default function SourceCommunity({store,menuId,initialReport}:{store:Publ
    {ownerOpen&&<div className={styles.ownerBody}><button type="button" className={styles.button} disabled={busy||data?.requested||!data} onClick={()=>void save('owner-request')}>{data?.requested?'✓ 점주 회원가입 요청 완료':'점주 회원가입 요청'}</button><small>회원 1명당 이 매장에 1회만 누적됩니다.</small></div>}
    <div className={styles.count}><strong>점주 가입 요청 누적</strong><b>{count===undefined?'확인 중':count.toLocaleString('ko-KR')+'명'}</b></div>
    {count!==undefined&&<div role="img" aria-label={`점주 회원가입 누적 요청 ${count}명. 가로 막대 축 0부터 ${axis}명.`}><div className={styles.bar}><span style={{width:count/axis*100+'%'}}/></div><div className={styles.axis}><span>0명</span><span>{axis}명</span></div></div>}
-   <a className={styles.ownerLink} href={'/owner/signup?sourceStore='+encodeURIComponent(store.id)}>이 매장의 점주이신가요? 통합회원 점주 가입 ↗</a>
-   <small>월 8,000원 · 가입 시 대표메뉴 변경 가능</small>
+   <a className={styles.ownerLink} href={'/owner/signup?sourceStore='+encodeURIComponent(store.id)}>사장님의 매운맛을 보여주세요 ↗</a>
+   <small>도전자들이 찾아올 수 있도록 대표메뉴를 등록해 주세요. 대표메뉴는 가입할 때 변경할 수 있어요.</small>
   </section>
   <a className={styles.ownerLink} href="/exp-policy">EXP·레벨 정책 전체 보기 ↗</a>
   {message&&<p className={styles.message} role="status">{message}</p>}
