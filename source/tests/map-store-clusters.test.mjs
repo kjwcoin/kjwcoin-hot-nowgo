@@ -147,5 +147,5 @@ test('component gates clusters to HOT and removes listeners, animation frames an
  assert.match(ui,/map\.setCenter\(position\);map\.setLevel\(clusterZoomLevel\(map\.getLevel\(\)\)\)/);
  for(const [event,handler] of [['idle','refresh'],['zoom_changed','moved']]){assert.ok(ui.includes(`addListener(map,'${event}',${handler})`));assert.ok(ui.includes(`removeListener(map,'${event}',${handler})`))}
  assert.match(ui,/disposed=true;cancelAnimationFrame\(frame\);resize\.disconnect\(\)/);
- assert.match(ui,/source=sourceIdentityStores\.find\(store=>store\.id===selectedSourceId\)/);assert.match(ui,/mapRef\.current\.setLevel\(4\)/);
+ assert.match(ui,/source=sourceIdentityStores\.find\(store=>store\.id===selectedSourceId\)/);assert.match(ui,/map\.setLevel\(4\)/);
 });

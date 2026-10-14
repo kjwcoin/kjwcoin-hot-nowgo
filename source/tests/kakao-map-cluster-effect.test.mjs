@@ -78,7 +78,7 @@ function harness(options={}){
  }};
  const sources=options.sources??[sourceStore(1),sourceStore(2)];
  const context={
-  exports:{},mapState:'ready',mapRevision:1,mapRef:{current:map},kakaoRef:{current:k},overlaysRef:{current:[]},rootRef:{current:{}},canvasRef:{current:canvas},overlayInputsRef:{current:null},refreshOverlaysRef:{current:null},
+  exports:{},selectionTargetRef:{current:null},mapState:'ready',mapRevision:1,mapRef:{current:map},kakaoRef:{current:k},overlaysRef:{current:[]},rootRef:{current:{}},canvasRef:{current:canvas},overlayInputsRef:{current:null},refreshOverlaysRef:{current:null},
   menus:options.menus??[],sourcedStores:sources,sourceIdentityStores:options.identitySources??sources,
   appLocationBridge:false,selectedId:undefined,selectedSourceId:undefined,sourceSelectionEnabled:options.sourceSelectionEnabled??true,
   sourcePreview:options.sourcePreview??false,previewSourceHeat:undefined,variant:options.variant??'hot',
@@ -362,4 +362,22 @@ test('SDK/DOM mock: coincident HOT stores expand as independent pins and collaps
  h.click(toggle());h.update({sourcedStores:[],sourceIdentityStores:[]});assert.equal(h.nodes().length,0);
  h.update({sourcedStores:sources,sourceIdentityStores:sources});assert.equal(toggle().getAttribute('aria-expanded'),'false');
  assert.equal(JSON.stringify(sources),before);h.unmount();assert.equal(h.live.size,0);assert.equal(h.listeners.size,0);
+});
+
+test('SDK/DOM mock: unchanged selection on background refresh preserves open overlap; changed targets still recenter',()=>{
+ const sources=[1,2,3].map(n=>sourceStore(n,{coordinates:{lat:37.55,lon:126.98}}));
+ const h=harness({level:4,sources});h.update({selectedSourceId:sources[0].id});h.runSelection();h.flush();
+ const root=()=>h.nodes().find(node=>node.className==='map-store-overlap');
+ h.click(root().children[0]);assert.equal(root().children[0].getAttribute('aria-expanded'),'true');
+ const pans=h.stats.pans.length,levels=h.stats.levels.length;
+ h.update({menus:[]});h.runSelection();h.flush();
+ assert.equal(h.stats.pans.length,pans,'A refreshed menu array is not a new selection');
+ assert.equal(h.stats.levels.length,levels);assert.equal(root().children[0].getAttribute('aria-expanded'),'true');
+ h.update({sourcedStores:structuredClone(sources),sourceIdentityStores:structuredClone(sources)});h.runSelection();h.flush();
+ assert.equal(h.stats.pans.length,pans);assert.equal(root().children[0].getAttribute('aria-expanded'),'true');
+ h.update({selectedSourceId:sources[1].id});h.runSelection();h.flush();assert.equal(h.stats.pans.length,pans+1);
+ h.update({selectedSourceId:undefined});h.runSelection();h.update({selectedSourceId:sources[1].id});h.runSelection();h.flush();assert.equal(h.stats.pans.length,pans+2,'Reselecting after dismissal is intentional');
+ const moved=sources.map((source,i)=>i===1?{...source,coordinates:{lat:37.56,lon:126.99}}:source);
+ h.update({sourcedStores:moved,sourceIdentityStores:moved});h.runSelection();h.flush();assert.equal(h.stats.pans.at(-1).lat,37.56);
+ h.replaceMap();h.runSelection();h.flush();assert.equal(h.stats.pans.length,pans+4,'Replacement map needs a fresh center');h.unmount();
 });

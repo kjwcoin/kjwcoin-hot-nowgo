@@ -83,6 +83,7 @@ export default function KakaoMap({menus,sourcedStores=EMPTY_SOURCES,sourceIdenti
  const overlaysRef=useRef<any[]>([]);
  const overlayInputsRef=useRef({menus,sourcedStores,sourceIdentityStores,selectedId,selectedSourceId,sourceSelectionEnabled,variant,appLocationBridge,sourcePreview,previewSourceHeat});
  const refreshOverlaysRef=useRef<(()=>void)|null>(null);
+ const selectionTargetRef=useRef<{map:any;key:string}|null>(null);
  const userMarkerRef=useRef<any>(null);
  const addressMarkerRef=useRef<any>(null);
  const userPointRef=useRef<GeoPoint|null>(null);
@@ -340,10 +341,18 @@ export default function KakaoMap({menus,sourcedStores=EMPTY_SOURCES,sourceIdenti
  useEffect(()=>{
   if(mapState!=='ready'||!mapRef.current||!kakaoRef.current)return;
   const source=sourceIdentityStores.find(store=>store.id===selectedSourceId);
-  if(source?.coordinates){mapRef.current.setLevel(4);mapRef.current.panTo(new kakaoRef.current.maps.LatLng(source.coordinates.lat,source.coordinates.lon));return}
   const menu=menus.find(item=>item.id===selectedId);
-  if(menu&&menu.lat!==null&&menu.lng!==null){mapRef.current.setLevel(4);mapRef.current.panTo(new kakaoRef.current.maps.LatLng(menu.lat,menu.lng))}
- },[mapState,menus,selectedId,sourceIdentityStores,selectedSourceId]);
+  const target=source?.coordinates?{key:'source:'+source.id,lat:source.coordinates.lat,lng:source.coordinates.lon}:
+   menu&&menu.lat!==null&&menu.lng!==null?{key:'menu:'+menu.id,lat:menu.lat,lng:menu.lng}:null;
+  if(!target){selectionTargetRef.current=null;return}
+  const map=mapRef.current,key=JSON.stringify([target.key,target.lat,target.lng]);
+  // Feed/menu polling is not a new selection: avoid synthetic map movement
+  // collapsing an open overlap when the selected identity and anchor are unchanged.
+  const previous=selectionTargetRef.current;
+  if(previous&&previous.map===map&&previous.key===key)return;
+  selectionTargetRef.current={map,key};
+  map.setLevel(4);map.panTo(new kakaoRef.current.maps.LatLng(target.lat,target.lng));
+ },[mapState,mapRevision,menus,selectedId,sourceIdentityStores,selectedSourceId]);
 
  useEffect(()=>{
   if(mapState!=='ready'||!mapRef.current||!kakaoRef.current)return;

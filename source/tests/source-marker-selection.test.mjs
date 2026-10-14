@@ -30,6 +30,7 @@ test('Kakao source overlays connect the source selection callback, separate from
 test('selecting a sourced store pans to its licensed coordinates, without inventing a position',()=>{
  const source=fs.readFileSync(new URL('../components/kakao-map.tsx',import.meta.url),'utf8');
  assert.match(source,/const source=sourceIdentityStores\.find\(store=>store\.id===selectedSourceId\)/);
- assert.match(source,/if\(source\?\.coordinates\)\{mapRef\.current\.setLevel\(4\);mapRef\.current\.panTo\(new kakaoRef\.current\.maps\.LatLng\(source\.coordinates\.lat,source\.coordinates\.lon\)\);return\}/);
- assert.match(source,/\[mapState,menus,selectedId,sourceIdentityStores,selectedSourceId\]/);
+ assert.match(source,/lat:source\.coordinates\.lat,lng:source\.coordinates\.lon/);
+ assert.match(source,/map\.setLevel\(4\);map\.panTo\(new kakaoRef\.current\.maps\.LatLng\(target\.lat,target\.lng\)\)/);
+ assert.match(source,/\[mapState,mapRevision,menus,selectedId,sourceIdentityStores,selectedSourceId\]/);
 });
