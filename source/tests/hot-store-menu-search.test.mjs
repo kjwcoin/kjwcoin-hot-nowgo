@@ -37,7 +37,8 @@ import chungnamRows from '../data/hot-chungnam7-records.json' with {type:'json'}
 import finalJeonnamRows from '../data/hot-jeonnam-final6-records.json' with {type:'json'};
 import jeonbukRows from '../data/hot-jeonbuk9-records.json' with {type:'json'};
 import gyeongbukRows from '../data/hot-gyeongbuk12-records.json' with {type:'json'};
-const regionalRows=applyReviewedCorrections([...priorRegionalRows,...sejongRows,...nextSejongRows,...next64Rows,...next47Rows,...next38Rows,...busan23Rows,...final13Rows,...route7BusanRows,...route7Busan8Rows,...route7UlsanRows,...gangwonRows,...jeonnamRows,...inlandRows,...countiesRows,...nextCountiesRows,...chungbukRows,...gwmRows,...chungnamRows,...finalJeonnamRows,...jeonbukRows,...gyeongbukRows],correctedRows);
+import gyeongnamRows from '../data/hot-gyeongnam6-records.json' with {type:'json'};
+const regionalRows=applyReviewedCorrections([...priorRegionalRows,...sejongRows,...nextSejongRows,...next64Rows,...next47Rows,...next38Rows,...busan23Rows,...final13Rows,...route7BusanRows,...route7Busan8Rows,...route7UlsanRows,...gangwonRows,...jeonnamRows,...inlandRows,...countiesRows,...nextCountiesRows,...chungbukRows,...gwmRows,...chungnamRows,...finalJeonnamRows,...jeonbukRows,...gyeongbukRows,...gyeongnamRows],correctedRows);
 const expectedCount=785+regionalRows.length;
 const stores=readonlySourceStoreFeed().stores;
 const onjeong=stores.find(store=>store.id==='65a5768f-5c9e-563e-a04f-cbb81835ec02');
