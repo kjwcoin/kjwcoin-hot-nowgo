@@ -14,7 +14,7 @@ async function recordPartnerConversion(request:Request,hotStoreId:string){
  const config=publicConfig(),serviceKey=process.env.SUPABASE_SERVICE_ROLE_KEY;
  if(!config.ready||!serviceKey)throw Error('partner_conversion_storage_unavailable');
  const db=createClient(config.url,serviceKey,{auth:{persistSession:false,autoRefreshToken:false}});
- const {error}=await db.from('hot_partner_conversions').upsert({source:'balbadak',source_store_id:sourceStoreId,hot_store_id:hotStoreId,status:'approved'},{onConflict:'source,hot_store_id',ignoreDuplicates:true});
+ const {error}=await db.from('hot_partner_conversions').upsert({source:'balbadak',referral_store_id:sourceStoreId,hot_store_id:hotStoreId,status:'approved'},{onConflict:'source,hot_store_id',ignoreDuplicates:true});
  if(error)throw error;
 }
 function successReply(request:Request,data:unknown){
@@ -42,7 +42,7 @@ export async function POST(request:Request){try{
   if(get('resume')==='yes'){
    const existing=await auth.client.from('ng_map_owned_menu_catalog').select('id').eq('owner_store_id',storeId).eq('planet',variant).limit(1);
    if(existing.error)throw existing.error;
-   if(existing.data?.length){const contact=await auth.client.rpc('ng_map_register_contact',{p_phone:phone,p_planet:variant,p_store:storeId});if(contact.error)throw contact.error;return reply(request,{ok:true,storeId,...contact.data})}
+   if(existing.data?.length){const contact=await auth.client.rpc('ng_map_register_contact',{p_phone:phone,p_planet:variant,p_store:storeId});if(contact.error)throw contact.error;await recordPartnerConversion(request,storeId);return successReply(request,{ok:true,storeId,...contact.data})}
   }
   const location=await auth.client.rpc('ng_map_confirm_signup_location',{p_store:storeId,p_lat:lat,p_lng:lng});if(location.error)throw location.error;
   const upload=new FormData();upload.set('storeId',storeId);upload.set('menuItemId','');upload.set('name',name);upload.set('price',String(price));upload.set('planet',variant);upload.set('level',String(level));upload.set('photo',new File([new Uint8Array(photo)],'menu.webp',{type:'image/webp'}));
