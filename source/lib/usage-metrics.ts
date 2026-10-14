@@ -40,7 +40,7 @@ function getSession(): Session | null {
     const iosWebView = /iphone|ipad|ipod/i.test(ua) && /applewebkit/i.test(ua) && !/(safari|crios|fxios|edgios)/i.test(ua);
     const isApp = window.location.pathname.startsWith("/app/") || window.parent !== window ||
       Boolean(appWindow.webkit?.messageHandlers?.nowgo || appWindow.ReactNativeWebView || appWindow.Android) ||
-      /;\\s*wv\\)|\\bwebview\\b/i.test(ua) || iosWebView;
+      /;\s*wv\)|\bwebview\b/i.test(ua) || iosWebView;
     const device = isApp ? "app" : /ipad|tablet/i.test(ua) ? "tablet" : /mobi|android/i.test(ua) ? "mobile" : "desktop";
     return { id: crypto.randomUUID(), visitor, lastSeen: now, created: now, engaged: 0, views: 0, device, ...acquisitionSource(window.location, document.referrer) };
   } catch { return null; }
