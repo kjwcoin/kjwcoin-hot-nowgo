@@ -74,5 +74,6 @@ const regional=appendRegionalSourceStores(baselineFacts,regionalRows as SourcedS
 export const rejectedRegionalSourceRefs=regional.rejected;
 const activeRegionalRows=regional.acceptedRows as ReadonlySourceRecord[];
 export const reviewed786Records=[...records,...activeRegionalRows.filter(row=>row.source_ref==='aks-gwangju-kokkiri-factpoint-54329')];
+export const reviewed787Records=[...reviewed786Records,...activeRegionalRows.filter(row=>row.source_ref==='purpleo-qbh-125717')];
 const activeRecords=[...records,...activeRegionalRows];
 export default activeRecords;

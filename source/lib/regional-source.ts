@@ -28,7 +28,10 @@ function validReviewed(store:ReviewedRegionalStore):boolean{
  if(menus.some(m=>!text(m.id,120)||!m.id.startsWith(store.sourceRef+':menu:')||!text(m.name,100)||m.price!==null||m.heat!==null||m.image!==null||m.sourceTaste!==null||m.provenance!==undefined))return false;
  if(new Set(menus.map(m=>m.id)).size!==menus.length)return false;
  if(d.kind==='attributed-wiki-facts')return /^aks-gwangju-[a-z0-9-]+$/.test(store.sourceRef)&&source.url.startsWith('https://dh.aks.ac.kr/~gwangju/wiki/index.php/')&&source.licenseName==='CC BY-SA 4.0'&&d.licenseUrl==='https://creativecommons.org/licenses/by-sa/4.0/'&&d.historyUrl===source.url.replace('index.php/','index.php?title=')+'&action=history'&&typeof d.revisionUrl==='string'&&/^https:\/\/dh\.aks\.ac\.kr\/~gwangju\/wiki\/index\.php\?title=[^&]+&oldid=\d+$/.test(d.revisionUrl);
- return d.kind==='individual-public-facts'&&/^purpleo-qbh-\d+$/.test(store.sourceRef)&&/^https:\/\/qbh\.purpleo\.kr\/article\/\d+$/.test(source.url)&&source.licenseName===null&&d.licenseUrl===null&&d.revisionUrl===null&&d.historyUrl===null;
+ const mirror=/^purpleo-(qbh|xnx|smi)-(\d+)$/.exec(store.sourceRef);
+ const building=/^jusoga-building-(\d{25})-[a-f0-9]{8}$/.exec(store.sourceRef);
+ const supportedFactUrl=mirror?source.url===`https://${mirror[1]}.purpleo.kr/article/${mirror[2]}`:Boolean(building&&source.url.startsWith(`https://jusoga.com/b/${building[1]}/`)&&!/[?#]/.test(source.url));
+ return d.kind==='individual-public-facts'&&supportedFactUrl&&source.licenseName===null&&d.licenseUrl===null&&d.revisionUrl===null&&d.historyUrl===null;
 }
 /** Registry approval binds every displayed field, including point, licence and caveats. */
 export function parseReviewedRegionalStore(row:SourcedStoreRow,registry:readonly ReviewedRegionalStore[]=reviewedRegionalSources):ReviewedRegionalStore|null{

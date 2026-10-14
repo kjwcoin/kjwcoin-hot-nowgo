@@ -12,7 +12,7 @@ test('original785 stay byte-identical and the regional additions are exact, unsc
  assert.equal(createHash('sha256').update(JSON.stringify(baseline)).digest('hex'),'15badf9da8b1a6525ff07f7877df1aa08bdfb03762492c443317770b6bb4058e');
  assert.equal(fresh.stores.length,785+activeRegistry.length);assert.deepEqual(fresh.stores.slice(785).map(s=>s.id),activeRegistry.map(s=>s.id));
  assert.deepEqual(fresh.stores.slice(0,785),baseline.stores);assert.equal(fresh.complete,true);
- for(const store of fresh.stores.slice(785)){assert.deepEqual(store,registry.find(s=>s.id===store.id));assert.equal(isReadonlySourceStoreId(store.id),true);assert.equal(store.ownerClaimVerified,false);assert.equal(store.menus[0].price,null);assert.equal(store.menus[0].heat,null);assert.equal(store.menus[0].image,null)}
+ for(const store of fresh.stores.slice(785)){assert.deepEqual(store,activeRegistry.find(s=>s.id===store.id));assert.equal(isReadonlySourceStoreId(store.id),true);assert.equal(store.ownerClaimVerified,false);assert.equal(store.menus[0].price,null);assert.equal(store.menus[0].heat,null);assert.equal(store.menus[0].image,null)}
  assert.deepEqual(parseSourcedStoreFeed(fresh),fresh);
 });
 test('both narrowly supported source kinds preserve exact facts and attribution without invented licences',()=>{

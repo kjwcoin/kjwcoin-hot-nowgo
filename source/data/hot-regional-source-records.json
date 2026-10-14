@@ -434,5 +434,707 @@
         "historyUrl": null
       }
     }
+  },
+  {
+    "id": "06e0018d-393d-529a-98c0-c389fdafe9c3",
+    "slug": "hot-busan-naesarang-jokbal",
+    "name": "내사랑족발",
+    "address": "부산광역시 연제구 신촌로 34-1",
+    "lat": 35.1838436480273,
+    "lon": 129.075249079555,
+    "source_ref": "purpleo-xnx-4796",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://xnx.purpleo.kr/article/4796",
+      "sourceRecordId": "MA010120220810782036",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T03:44:12.898402+00:00",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "scope": "reviewed-individual-public-bare-facts-only",
+        "expressLicenseGrant": false,
+        "mediaCleared": false,
+        "assessmentOnly": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "purpleo-xnx-4796:menu:1",
+          "name": "앞다리 불족발",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "publicationAuthorized": true,
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "퍼플오 전국 족발·보쌈 개별 자료",
+        "attribution": "위치: xnx:4796. 주소·메뉴: 다이닝코드 개별 매장 정보. 매운맛 참고: 부산남자 맛동민, 2022-10-09 개인 방문 후기.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "강한 매운맛 평가는 2022-10-09 개인 방문 후기 기준이며 현재 강도 또는 단계 확인이 아니다. 현재 영업 여부와 불족발 제공 여부는 확인되지 않았다. 주소와 메뉴는 공개 개별 사실 자료로 교차 확인했다. 좌표 자료의 원 조사일과 원 제공 좌표 생성 방식은 확인되지 않았다. 2026-10-10은 사이트 갱신일이다. 명시적 오픈 라이선스를 확인한 자료가 아닙니다. 최소한의 개별 공개 사실 이용에 한정한 검토이며 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      },
+      "independentReview": {
+        "candidate_id": "south-058",
+        "city": "부산",
+        "name": "내사랑족발",
+        "address": "부산광역시 연제구 신촌로 34-1",
+        "menu": "앞다리 불족발",
+        "eligible_for_minimum_factual_release": true,
+        "publication_executed": false,
+        "current_operation": "unknown_not_contact_confirmed",
+        "current_menu_availability": "unknown; listing evidence is not service guarantee",
+        "coordinates": {
+          "lat": 35.1838436480273,
+          "lon": 129.075249079555,
+          "status": "exact_public_point_independently_address_anchored",
+          "source_url": "https://xnx.purpleo.kr/article/4796",
+          "source_record_id": "MA010120220810782036",
+          "source_row_date": null,
+          "site_refresh_date": "2026-10-10",
+          "extraction": "Normal anonymous HTTP 200; only page factual longitude/latitude and exact identity fields read. No map API calls, map tiles, geocoder output or source prose stored.",
+          "source_claim": "Page lists 소상공인시장진흥공단_상가(상권)정보 among source providers; exact upstream row and original coordinate survey not retrieved. Site also names NAVER map rendering; rendering does not establish point origin.",
+          "independent_anchor": [
+            "https://www.diningcode.com/profile.php?rid=Ve0kz49FCx4q",
+            "https://tastedongmin.tistory.com/312",
+            "https://www.saramin.co.kr/zf_user/company-info/view/csn/Wk1vcmh3V0gycWNZSm1JMkZMbkNzZz09/company_nm/%EB%82%B4%EC%82%AC%EB%9E%91%EC%A1%B1%EB%B0%9C"
+          ],
+          "independent_anchor_method": "Exact road and jibun identity agree with opened firsthand and standalone listing, recent dated employer listing agrees road address. No second independently surveyed point established; no rounding or geocoding applied."
+        },
+        "evidence": [
+          {
+            "url": "https://tastedongmin.tistory.com/312",
+            "kind": "self_paid_firsthand_creator",
+            "source_date": "2022-10-09",
+            "access": "opened_public_web_body",
+            "checked_at": "2026-10-14",
+            "minimal_fact_observation": "Exact 신촌로34-1 / 연산동1499-16 and 불족발. Reviewer found the served dish strongly hot enough to need a cooling side. This is a historical individual observation, not calibrated or current heat."
+          },
+          {
+            "url": "https://www.diningcode.com/profile.php?rid=Ve0kz49FCx4q",
+            "kind": "independent_individual_listing",
+            "source_date": null,
+            "access": "opened_public_web_body",
+            "checked_at": "2026-10-14",
+            "minimal_fact_observation": "Opened exact road/jibun address and 앞다리 불족발 menu. Menu update date unstated; cached today/open labels ignored."
+          },
+          {
+            "url": "https://www.saramin.co.kr/zf_user/company-info/view/csn/Wk1vcmh3V0gycWNZSm1JMkZMbkNzZz09/company_nm/%EB%82%B4%EC%82%AC%EB%9E%91%EC%A1%B1%EB%B0%9C",
+            "kind": "dated_business_address_corroboration",
+            "source_date": "2026-07-10",
+            "access": "search_indexed_public_page; direct web open failed",
+            "checked_at": "2026-10-14",
+            "minimal_fact_observation": "Same name and 신촌로34-1, 1·2층; displayed update 2026-07-10. Employer/business listing can lag and does not verify present serving."
+          },
+          {
+            "url": "https://www.daangn.com/kr/local-profile/내사랑족발-rtxasvcwux8v/",
+            "kind": "operator_managed_profile_index_supplement",
+            "source_date": null,
+            "access": "search_indexed_public_page; direct open HTTP403, not retried",
+            "checked_at": "2026-10-14",
+            "minimal_fact_observation": "Exact road address and 족발+불족. Menu note says chili-based sauce can be less spicy but not non-spicy. Profile creation 2022-04, menu-note date unknown. Not used as a current strong-heat guarantee."
+          },
+          {
+            "url": "https://xnx.purpleo.kr/article/4796",
+            "kind": "individual_public_factual_coordinate_record",
+            "source_date": null,
+            "access": "direct_anonymous_HTTP_200",
+            "checked_at": "2026-10-14",
+            "minimal_fact_observation": "Exact name, road/jibun and displayed coordinate fields; site refresh is not row survey date."
+          }
+        ],
+        "hold_reasons": [],
+        "required_caveats": [
+          "강한 매운맛 평가는 2022-10-09 개인 방문 후기 기준이며 현재 강도 또는 단계 확인이 아니다.",
+          "현재 영업 여부와 불족발 제공 여부는 확인되지 않았다.",
+          "주소와 메뉴는 공개 개별 사실 자료로 교차 확인했다.",
+          "좌표 자료의 원 조사일과 원 제공 좌표 생성 방식은 확인되지 않았다. 2026-10-10은 사이트 갱신일이다."
+        ],
+        "reuse_scope": "Names, individual menu name, exact address/point where verified, source URL/date and independently written qualification caveats only. No expressive article text, review prose, full menu, prices, ratings, images or video.",
+        "heat_level": null,
+        "user_heat_median": null,
+        "price_krw": null,
+        "photo_url": null,
+        "prior_duplicate_screen": {
+          "status": "no_match_in_774",
+          "baseline_matches": [],
+          "cross_batch_matches": [],
+          "scope": "774 snapshot records; names/addresses/provider IDs and coordinates when available; Current public774 count/contract verified by PR55 reviewer; cached774 name/menu/address/coordinates/source_ref fields exactly equal original83bd baseline. Full current-live body not independently downloaded by assembler."
+        },
+        "chain_status": "local_venue; franchise_status_unverified",
+        "status": "ELIGIBLE_MINIMUM_FACTS_WITH_HISTORIC_HEAT_CAVEAT",
+        "jibun_address": "부산광역시 연제구 연산동 1499-16",
+        "heat_evidence_date": "2022-10-09",
+        "strong_spice_status": "historical_explicit_firsthand_strong_heat_observation",
+        "source_label": "2022년 개인 방문 후기의 강한 매운맛 언급",
+        "source_use_flags": {
+          "narrow_individual_facts_only": true,
+          "express_open_license_asserted": false,
+          "creative_text_reuse": false,
+          "media_reuse": false,
+          "consumer_rating_reuse": false,
+          "naver_api_called": false,
+          "naver_api_storage": false,
+          "bulk_database_extraction": false,
+          "source_condition_reviewed": true,
+          "terms_url": "https://xnx.purpleo.kr/terms",
+          "policy_url": "https://xnx.purpleo.kr/data-policy",
+          "creator_notice": "CC BY-NC-ND; used only as a source link and factual qualification, no licensed prose/media adapted.",
+          "basis": "Narrow, individually observed bare facts with independent name/address/menu anchors. No blanket commercial license or legal clearance claimed."
+        },
+        "suggested_public_attribution": "위치: 전국 족발/보쌈 지도(개별 좌표 사실, 원 조사일 미상). 주소·메뉴: 다이닝코드 개별 매장 정보. 매운맛 참고: 부산남자 맛동민, 2022-10-09 방문 후기. 현재 영업·메뉴·매운맛은 확인이 필요합니다.",
+        "dedup": {
+          "candidate_id": "south-058",
+          "name": "내사랑족발",
+          "exact_or_normalized_matches": [],
+          "nearby_200m_alerts": [],
+          "native_identifiers_checked": [
+            "MA010120220810782036"
+          ],
+          "result": "no_duplicate_in_fresh_live787"
+        },
+        "normalized_public_unknowns": {
+          "heatLevel": null,
+          "userHeatMedian": null,
+          "userHeatVotes": 0,
+          "priceKrw": null,
+          "image": null,
+          "sourceTaste": null,
+          "operatingStatus": null,
+          "currentMenuAvailability": null,
+          "ownership": "unclaimed",
+          "ownerClaimVerified": false,
+          "registrationState": "source-only",
+          "reportingState": "pending",
+          "pinStatus": "gray"
+        }
+      }
+    }
+  },
+  {
+    "id": "a7b376a2-894d-550e-9491-dc9a7327448c",
+    "slug": "hot-busan-jjokjjok-seomyeon",
+    "name": "부산쪽쪽갈비 서면",
+    "address": "부산 부산진구 중앙대로691번가길 32 1층",
+    "lat": 35.1557020679121,
+    "lon": 129.055605924178,
+    "source_ref": "purpleo-smi-36199",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://smi.purpleo.kr/article/36199",
+      "sourceRecordId": "MA010120220810621769",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T03:44:12.898402+00:00",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "scope": "reviewed-individual-public-bare-facts-only",
+        "expressLicenseGrant": false,
+        "mediaCleared": false,
+        "assessmentOnly": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "purpleo-smi-36199:menu:1",
+          "name": "쪽갈비 양념 바베큐(매운맛)",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "publicationAuthorized": true,
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "퍼플오 개별 음식점 자료",
+        "attribution": "위치: smi:36199, 주소가 건물주소 대조. 메뉴: HUMHAM(2020-03-07)·ME:LOG(2026-03-20) 방문 기록. 서면 표기는 지점 구분을 위해 보완했습니다.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "2020년 방문 기록의 매운맛 경험과 2026년 메뉴·주소 자료를 함께 확인했습니다. 현재 영업·메뉴 판매와 수치 맵기는 미확인입니다. 좌표는 개별 공개자료이며 원제공자 행을 직접 대조하지 못했습니다. 2020년 후기는 서면 롯데 뒤 같은 이름 매장으로 확인되며 당시 도로명주소는 기재되지 않았습니다. 명시적 오픈 라이선스를 확인한 자료가 아닙니다. 최소한의 개별 공개 사실 이용에 한정한 검토이며 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      },
+      "independentReview": {
+        "candidate_id": "south-062",
+        "city": "부산",
+        "name": "부산쪽쪽갈비 서면",
+        "address": "부산 부산진구 중앙대로691번가길 32 1층",
+        "parcel_address": "부산 부산진구 부전동 516-68",
+        "menu": "쪽갈비 양념 바베큐(매운맛)",
+        "eligible_for_minimum_factual_release": true,
+        "eligibility_basis": "Specific hottest named variant plus explicit first-person strong-heat account; exact 2026 address/menu corroboration. Historical heat experience is not current measured intensity.",
+        "heat_evidence_asof": "2020-03-07",
+        "current_operation": null,
+        "current_menu_availability": null,
+        "price": null,
+        "heat": null,
+        "media": null,
+        "independence_status": "Local brand with same-name branches; franchise/legal ownership unverified. 서면 is disambiguation, not asserted official branch title.",
+        "coordinates": {
+          "lat": 35.1557020679121,
+          "lon": 129.055605924178,
+          "source_url": "https://smi.purpleo.kr/article/36199",
+          "native_record_id": "MA010120220810621769",
+          "building_id": "2623010300105160068034638",
+          "point_scope": "Individual exact venue record; original provider row not separately downloaded.",
+          "source_asof": null,
+          "site_refresh_date": "2026-10-10",
+          "independent_building_point": {
+            "lat": 35.155691368249,
+            "lon": 129.05560461406,
+            "source_url": "https://jusoga.com/b/2623010300105160068034638/부산광역시-부산진구-중앙대로691번가길-32-부전동",
+            "note": "Same road and parcel; independently sourced building point about1.2m from venue point; underlying provider independence not established."
+          },
+          "indexed_coordinate_observation": {
+            "lat": 35.1557112618604,
+            "lon": 129.055595182786,
+            "note": "Search-indexed source value differs from fresh anonymous HTTP point by about1.4m. Retain fresh table+GeoCoordinates-consistent point; not a relocation."
+          }
+        },
+        "evidence": [
+          {
+            "url": "https://humham.tistory.com/364",
+            "kind": "creator_firsthand",
+            "source_date": "2020-03-07",
+            "checked_at": "2026-10-14",
+            "minimal_fact_observation": "Reviewer separately ordered middle and hot barbecue; reports hot variant intense enough to interrupt meal. No quotation/photos reused."
+          },
+          {
+            "url": "https://melogkorea.tistory.com/5",
+            "kind": "creator_visit",
+            "source_date": "2026-03-20",
+            "checked_at": "2026-10-14",
+            "minimal_fact_observation": "2026-02-19 visit, published2026-03-20; exact address and three named spice choices confirmed, not a direct current hottest-variant tasting."
+          },
+          {
+            "url": "https://smi.purpleo.kr/article/36199",
+            "kind": "individual_public_venue_record",
+            "source_date": null,
+            "checked_at": "2026-10-14",
+            "minimal_fact_observation": "Fresh anonymous HTTP HTML read in memory, only name/address/native ID/lat/lon retained; table and schema point agree."
+          },
+          {
+            "url": "https://jusoga.com/b/2623010300105160068034638/부산광역시-부산진구-중앙대로691번가길-32-부전동",
+            "kind": "independent_address_point",
+            "source_date": null,
+            "checked_at": "2026-10-14",
+            "minimal_fact_observation": "Search-indexed exact road/parcel and building point."
+          }
+        ],
+        "source_use_review": {
+          "basis": "Narrow individual public facts, separately reviewed exact source. Not a general scraping licence. No NAVER API called, no full articles/photos/reviews/ratings/menu-price collection saved.",
+          "terms_url": "https://smi.purpleo.kr/terms",
+          "policy_url": "https://smi.purpleo.kr/data-policy",
+          "terms_observed": "Information is reference material; honor displayed per-data licence and check original provider terms for unmarked data. No blanket isolated-fact prohibition observed.",
+          "upstream_reference": "https://www.data.go.kr/data/15012005/openapi.do",
+          "upstream_licence_observed": "이용허락범위 제한 없음",
+          "upstream_limit": "Source identifies SEMAS among providers and exact native ID resembles SEMAS, but original row not fetched. Do not label this copied secondary point as independently licensed primary data.",
+          "blog_rights": "Discovery/qualification URLs only; no creative prose or images republished.",
+          "attribution": "부산쪽쪽갈비 · 퍼플오 개별 공개자료(smi:36199), 주소가 건물주소 대조, HUMHAM(2020-03-07)·ME:LOG(2026-03-20) 메뉴 확인",
+          "public_caveat": "2020년 방문 기록의 매운맛 경험과 2026년 메뉴·주소 자료를 함께 확인했습니다. 현재 영업·메뉴 판매와 수치 맵기는 미확인입니다. 좌표는 개별 공개자료이며 원제공자 행을 직접 대조하지 못했습니다. 2020년 후기는 서면 롯데 뒤 같은 이름 매장으로 확인되며 당시 도로명주소는 기재되지 않았습니다.",
+          "historical_branch_caveat": "2020 firsthand post places venue behind Lotte in Seomyeon but does not print a street address; continuity with exact2026 address is inferred from same name and district/landmark, not historical street-address proof."
+        },
+        "remaining_blockers": [],
+        "dedup": {
+          "candidate_id": "south-062",
+          "name": "부산쪽쪽갈비 서면",
+          "exact_or_normalized_matches": [],
+          "nearby_200m_alerts": [
+            {
+              "id": "6d627293-1650-5df1-bda9-c65c732016a7",
+              "name": "홍콩반점서면 롯데점",
+              "address": "부산광역시 부산진구 가야대로784번길 27",
+              "distance_m": 170.67,
+              "decision": "different_name_and_building_address_not_duplicate"
+            }
+          ],
+          "native_identifiers_checked": [
+            "MA010120220810621769",
+            "2623010300105160068034638"
+          ],
+          "result": "no_duplicate_in_fresh_live787"
+        },
+        "publication_executed": false,
+        "normalized_public_unknowns": {
+          "heatLevel": null,
+          "userHeatMedian": null,
+          "userHeatVotes": 0,
+          "priceKrw": null,
+          "image": null,
+          "sourceTaste": null,
+          "operatingStatus": null,
+          "currentMenuAvailability": null,
+          "ownership": "unclaimed",
+          "ownerClaimVerified": false,
+          "registrationState": "source-only",
+          "reportingState": "pending",
+          "pinStatus": "gray"
+        }
+      }
+    }
+  },
+  {
+    "id": "8b8da4a6-3932-564f-b8e0-977d4fabf770",
+    "slug": "hot-busan-oduri-goejeong",
+    "name": "오두리할매 셋째딸 연탄쭈꾸미 괴정점",
+    "address": "부산광역시 사하구 사리로8번길 2, 1층",
+    "lat": 35.100582821872,
+    "lon": 128.99979567549,
+    "source_ref": "jusoga-building-2638010100103820008029687-f47620bd",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://jusoga.com/b/2638010100103820008029687/부산광역시-사하구-사리로8번길-2괴정동",
+      "sourceRecordId": "2638010100103820008029687",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T03:44:12.898402+00:00",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "scope": "reviewed-individual-public-bare-facts-only",
+        "expressLicenseGrant": false,
+        "mediaCleared": false,
+        "assessmentOnly": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "jusoga-building-2638010100103820008029687-f47620bd:menu:1",
+          "name": "쭈꾸미 양념구이 (매운맛)",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "publicationAuthorized": true,
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "주소가 건물주소 자료",
+        "attribution": "위치: 주소가 사리로8번길 2 건물주소 자료. 메뉴·주소: 아니모(Tistory, 2026-08-19 게시), 다이닝코드 개별 매장 정보. 과거 선택지: 내가 관심있는 모든 것(Tistory, 2021-02-05).",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "매운맛은 공개 메뉴의 선택지이며 수치 맵기나 직접 측정값이 아닙니다. 2021년 작성자는 보통맛을 먹었고 가장 매운맛 평가는 전해 들은 내용입니다. 2026-08-19는 글 게시일이며 실제 방문일은 별도로 확인되지 않았습니다. 좌표는 같은 도로명·지번의 건물 위치이며 출입구와 원 제공자·조사일은 확인되지 않았습니다. 현재 영업·메뉴 판매 여부는 보장하지 않습니다. 명시적 오픈 라이선스를 확인한 자료가 아닙니다. 최소한의 개별 공개 사실 이용에 한정한 검토이며 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      },
+      "independentReview": {
+        "candidate_id": "blog-delta-01",
+        "city": "부산",
+        "name": "오두리할매 셋째딸 연탄쭈꾸미 괴정점",
+        "address": "부산광역시 사하구 사리로8번길 2, 1층",
+        "parcel_address": "부산광역시 사하구 괴정동 382-8",
+        "phone": "051-403-4737",
+        "menu": "쭈꾸미 양념구이 (매운맛)",
+        "heat_options": [
+          "순한맛",
+          "보통맛",
+          "매운맛"
+        ],
+        "heat_score": null,
+        "current_price": null,
+        "heat_status": "explicit_highest_named_option_not_measured",
+        "strong_heat_evidence": "2021-02-05 author actually ate middle and found it slightly above Shin Ramyun. Claim that hottest is intensely spicy is hearsay, not firsthand tasting. 2026-08-19 publication confirms branch/menu but not a dated high-setting tasting.",
+        "operation_status": "recent_public_visit_supported_not_owner_contacted",
+        "current_evidence_date": "2026-08-19",
+        "owner_or_authority_current_confirmation": false,
+        "coordinates": {
+          "lat": 35.100582821872,
+          "lng": 128.99979567549,
+          "precision": "exact_address_building_point_not_verified_entrance",
+          "source_url": "https://jusoga.com/b/2638010100103820008029687/부산광역시-사하구-사리로8번길-2괴정동",
+          "source_native_id": "2638010100103820008029687",
+          "source_label": "주소가 (Jusoga), 사리로8번길 2 address table",
+          "coordinate_source_date": null,
+          "verified_road_and_parcel_match": true,
+          "upstream_coordinate_provider": null,
+          "reuse_basis": "Individual public address-table bare fact extraction; no creative content, photos, map tiles, or full source HTML retained. No express reuse license or upstream coordinate provenance was located. Requires acceptance of the explicitly caveated narrow-fact basis; do not label open-licensed.",
+          "lon": 128.99979567549
+        },
+        "sources": [
+          {
+            "url": "https://uiqnsubin.tistory.com/60",
+            "attribution": "아니모, 쥔장은 ANIIMO (Tistory)",
+            "publication_date": "2026-08-19",
+            "source_type": "firsthand_visit_blog",
+            "supports": [
+              "branch",
+              "road_address",
+              "floor",
+              "phone",
+              "seasoned_grilled_octopus"
+            ],
+            "reuse": "Discovery/corroboration link and bare facts only; no article text or photos republished"
+          },
+          {
+            "url": "https://www.diningcode.com/profile.php?rid=NIoeiWgf4WJN",
+            "attribution": "다이닝코드, 오두리할매 셋째딸 연탄쭈꾸미 individual listing",
+            "publication_date": null,
+            "source_type": "public_directory_not_verified_owner_managed",
+            "supports": [
+              "road_address",
+              "parcel_address",
+              "phone",
+              "three_heat_options",
+              "menu"
+            ],
+            "recency_note": "Retrieved/search-reviewed 2026-10-14; result cache reported last month, not a live owner confirmation"
+          },
+          {
+            "url": "https://enfp7276.tistory.com/80",
+            "attribution": "내가 관심있는 모든 것 (Tistory)",
+            "publication_date": "2021-02-05",
+            "publication_year": 2021,
+            "source_type": "firsthand_visit_blog",
+            "supports": [
+              "historical_three_heat_options",
+              "historical_strong_heat_description"
+            ],
+            "reuse": "Historical discovery/corroboration only; no prose or photos retained"
+          },
+          {
+            "url": "https://opengo.kr/57aaebca262982255c00de88",
+            "attribution": "오픈고, 일반음식점 인허가-derived listing",
+            "publication_date": null,
+            "source_type": "secondary_public_record_directory_search_only",
+            "supports": [
+              "road_address",
+              "floor",
+              "parcel_address"
+            ],
+            "limitations": "Opening returned cache miss; indexed record lists permit date 2015-11-06, not current operating status"
+          }
+        ],
+        "ownership_classification": "local_brand_branch_uncertain_not_independent_verified",
+        "recommendation": "propose_named_heat_option_discovery_with_hearsay_caveat",
+        "publishable": false,
+        "remaining_gates": [
+          "Parent must explicitly accept Jusoga narrow factual-use basis with unknown upstream coordinate provenance, or replace with licensed point",
+          "Deduplicate against latest live branch/address inventory",
+          "Do not call this independently owned or claim a numeric heat level"
+        ],
+        "current_evidence_date_kind": "publication_date_not_proven_visit_date",
+        "eligible_for_minimum_factual_release": true,
+        "current_operation": null,
+        "current_menu_availability": null,
+        "source_use_flags": {
+          "narrow_individual_facts_only": true,
+          "express_open_license_asserted": false,
+          "creative_text_reuse": false,
+          "media_reuse": false,
+          "naver_api_called": false,
+          "basis": "Individual public address-table bare fact extraction; no creative content, photos, map tiles, or full source HTML retained. No express reuse license or upstream coordinate provenance was located. Requires acceptance of the explicitly caveated narrow-fact basis; do not label open-licensed."
+        },
+        "required_caveats": [
+          "매운맛은 공개 메뉴의 선택지이며 수치 맵기나 직접 측정값이 아닙니다.",
+          "2021년 작성자는 보통맛을 먹었고 가장 매운맛 평가는 전해 들은 내용입니다.",
+          "2026-08-19는 글 게시일이며 실제 방문일은 별도로 확인되지 않았습니다.",
+          "좌표는 같은 도로명·지번의 건물 위치이며 출입구와 원 제공자·조사일은 확인되지 않았습니다.",
+          "현재 영업·메뉴 판매 여부는 보장하지 않습니다."
+        ],
+        "dedup": {
+          "candidate_id": "blog-delta-01",
+          "name": "오두리할매 셋째딸 연탄쭈꾸미 괴정점",
+          "exact_or_normalized_matches": [],
+          "nearby_200m_alerts": [],
+          "native_identifiers_checked": [
+            "2638010100103820008029687"
+          ],
+          "result": "no_duplicate_in_fresh_live787"
+        },
+        "publication_executed": false,
+        "normalized_public_unknowns": {
+          "heatLevel": null,
+          "userHeatMedian": null,
+          "userHeatVotes": 0,
+          "priceKrw": null,
+          "image": null,
+          "sourceTaste": null,
+          "operatingStatus": null,
+          "currentMenuAvailability": null,
+          "ownership": "unclaimed",
+          "ownerClaimVerified": false,
+          "registrationState": "source-only",
+          "reportingState": "pending",
+          "pinStatus": "gray"
+        }
+      }
+    }
+  },
+  {
+    "id": "7b51b57f-0146-5fd0-ae75-eec528cdff8f",
+    "slug": "hot-busan-yunsangok-sasang",
+    "name": "윤상옥신쭈꾸미 사상직영본점",
+    "address": "부산광역시 사상구 광장로81번길 37, LA게임랜드 1층",
+    "lat": 35.164078551423,
+    "lon": 128.98453555861,
+    "source_ref": "jusoga-building-2653010400105350003006339-fe86e570",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://jusoga.com/b/2653010400105350003006339/부산광역시-사상구-광장로81번길-37괘법동",
+      "sourceRecordId": "2653010400105350003006339",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T03:44:12.898402+00:00",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "scope": "reviewed-individual-public-bare-facts-only",
+        "expressLicenseGrant": false,
+        "mediaCleared": false,
+        "assessmentOnly": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "jusoga-building-2653010400105350003006339-fe86e570:menu:1",
+          "name": "신쭈꾸미(매운맛)",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "publicationAuthorized": true,
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "주소가 건물주소 자료",
+        "attribution": "위치: 주소가 광장로81번길 37 건물주소 자료. 메뉴·주소: 다이닝코드 개별 매장 정보와 연결된 방문후기 요약. 지점명·주소: 링크투플레이스 개별 매장 정보.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "공개 매장 정보에 연결된 별개 방문후기 요약 두 건에서 보통맛·매운맛을 확인했습니다. 원문과 작성연도는 확인되지 않았습니다. 실제 강한 매운맛이나 수치 맵기는 확인되지 않았습니다. 좌표는 같은 주소의 건물 위치이며 원 제공자·조사일과 출입구는 확인되지 않았습니다. 현재 영업·메뉴 판매 여부는 보장하지 않습니다. 명시적 오픈 라이선스를 확인한 자료가 아닙니다. 최소한의 개별 공개 사실 이용에 한정한 검토이며 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      },
+      "independentReview": {
+        "candidate_id": "blog-delta-03",
+        "city": "부산",
+        "name": "윤상옥신쭈꾸미 사상직영본점",
+        "address": "부산광역시 사상구 광장로81번길 37, LA게임랜드 1층",
+        "parcel_address": "부산광역시 사상구 괘법동 535-3",
+        "phone": "051-322-0700",
+        "menu": "신쭈꾸미(매운맛)",
+        "heat_options": [
+          "보통맛",
+          "매운맛"
+        ],
+        "heat_score": null,
+        "current_price": null,
+        "heat_status": "named_spicy_option_directory_linked_reports_not_measured",
+        "strong_heat_evidence": "Two separately linked visit-report summaries in exact-branch Diningcode corroborate 보통맛/매운맛. Original report pages not opened; exact publication years/dates unknown. This qualifies named-option discovery only; actual strong intensity unverified.",
+        "operation_status": "recent_directory_and_dining_reports_not_owner_contacted",
+        "current_evidence_date": null,
+        "owner_or_authority_current_confirmation": false,
+        "coordinates": {
+          "lat": 35.164078551423,
+          "lng": 128.98453555861,
+          "precision": "exact_address_building_point_not_verified_entrance",
+          "source_url": "https://jusoga.com/b/2653010400105350003006339/부산광역시-사상구-광장로81번길-37괘법동",
+          "source_native_id": "2653010400105350003006339",
+          "source_label": "주소가 (Jusoga), LA게임랜드 address table",
+          "coordinate_source_date": null,
+          "verified_road_and_parcel_match": true,
+          "upstream_coordinate_provider": null,
+          "reuse_basis": "Same narrow individual address-fact basis and unknown original-provider caveat as blog-delta-01; no blanket/open license established",
+          "lon": 128.98453555861
+        },
+        "sources": [
+          {
+            "url": "https://www.diningcode.com/profile.php?rid=O5voXXXojI6R",
+            "attribution": "다이닝코드, 윤상옥신쭈꾸미 individual listing; linked visit report by baneulbom",
+            "publication_date": null,
+            "displayed_visit_report_date": "9월 17일 (year not shown)",
+            "source_type": "public_directory_and_linked_blog_summary_not_owner_verified",
+            "supports": [
+              "road_address",
+              "parcel_address",
+              "phone",
+              "menu",
+              "normal_and_hot_variants",
+              "recent_visit_reports"
+            ],
+            "recency_note": "Result retrieved/crawled 2026-10-14; displayed short dates are not claimed as exact publication dates"
+          },
+          {
+            "url": "https://www.linktoplace.com/place/61178",
+            "attribution": "링크투플레이스, 윤상옥신쭈꾸미 사상직영본점",
+            "publication_date": null,
+            "source_type": "secondary_directory_search_only",
+            "supports": [
+              "full_branch_name",
+              "road_address",
+              "parcel_address",
+              "building",
+              "first_floor",
+              "phone"
+            ],
+            "limitations": "Opening returned cache miss; indexed individual listing reviewed"
+          },
+          {
+            "url": "https://hellobongbong.tistory.com/196",
+            "attribution": "hellobongbong (Tistory)",
+            "publication_date": null,
+            "source_type": "historical_blog_search_only",
+            "supports": [
+              "historical_dish_and_normal_heat_report"
+            ],
+            "limitations": "Open returned internal error; not relied on for current strong variant"
+          }
+        ],
+        "ownership_classification": "direct_main_branch_name_reported_independent_ownership_unverified",
+        "recommendation": "propose_named_heat_option_discovery_with_secondary_report_caveats",
+        "publishable": false,
+        "remaining_gates": [
+          "Retain explicit directory-linked evidence limitation and null numeric heat; do not merge variant into 쭈꾸미삼겹살 without separate proof."
+        ],
+        "eligible_for_minimum_factual_release": true,
+        "current_operation": null,
+        "current_menu_availability": null,
+        "required_caveats": [
+          "공개 매장 정보에 연결된 별개 방문후기 요약 두 건에서 보통맛·매운맛을 확인했습니다. 원문과 작성연도는 확인되지 않았습니다.",
+          "실제 강한 매운맛이나 수치 맵기는 확인되지 않았습니다.",
+          "좌표는 같은 주소의 건물 위치이며 원 제공자·조사일과 출입구는 확인되지 않았습니다.",
+          "현재 영업·메뉴 판매 여부는 보장하지 않습니다."
+        ],
+        "dedup": {
+          "candidate_id": "blog-delta-03",
+          "name": "윤상옥신쭈꾸미 사상직영본점",
+          "exact_or_normalized_matches": [],
+          "nearby_200m_alerts": [],
+          "native_identifiers_checked": [
+            "2653010400105350003006339"
+          ],
+          "result": "no_duplicate_in_fresh_live787"
+        },
+        "publication_executed": false,
+        "normalized_public_unknowns": {
+          "heatLevel": null,
+          "userHeatMedian": null,
+          "userHeatVotes": 0,
+          "priceKrw": null,
+          "image": null,
+          "sourceTaste": null,
+          "operatingStatus": null,
+          "currentMenuAvailability": null,
+          "ownership": "unclaimed",
+          "ownerClaimVerified": false,
+          "registrationState": "source-only",
+          "reportingState": "pending",
+          "pinStatus": "gray"
+        }
+      }
+    }
   }
 ]
