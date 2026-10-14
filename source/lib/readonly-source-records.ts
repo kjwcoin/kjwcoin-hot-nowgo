@@ -33,7 +33,8 @@ import sungwangRows from '../data/hot-sungwang1-records.json' with {type:'json'}
 import craftRows from '../data/hot-craft1-records.json' with {type:'json'};
 import reviewed3Rows from '../data/hot-reviewed3-records.json' with {type:'json'};
 import pork3Rows from '../data/hot-pork3-records.json' with {type:'json'};
-const regionalRows=applyReviewedCorrections([...priorRegionalRows,...sejongRows,...nextSejongRows,...next64Rows,...next47Rows,...next38Rows,...busan23Rows,...final13Rows,...route7BusanRows,...route7Busan8Rows,...route7UlsanRows,...gangwonRows,...jeonnamRows,...inlandRows,...countiesRows,...nextCountiesRows,...chungbukRows,...gwmRows,...chungnamRows,...finalJeonnamRows,...jeonbukRows,...gyeongbukRows,...gyeongnamRows,...daejeonRows,...ulsanRows,...wehalmaeRows,...nextWehalmaeRows,...youngRows,...nextYoungRows,...zipsinRows,...sungwangRows,...craftRows,...reviewed3Rows,...pork3Rows],correctedRows);
+import franchise22Rows from '../data/hot-franchise22-records.json' with {type:'json'};
+const regionalRows=applyReviewedCorrections([...priorRegionalRows,...sejongRows,...nextSejongRows,...next64Rows,...next47Rows,...next38Rows,...busan23Rows,...final13Rows,...route7BusanRows,...route7Busan8Rows,...route7UlsanRows,...gangwonRows,...jeonnamRows,...inlandRows,...countiesRows,...nextCountiesRows,...chungbukRows,...gwmRows,...chungnamRows,...finalJeonnamRows,...jeonbukRows,...gyeongbukRows,...gyeongnamRows,...daejeonRows,...ulsanRows,...wehalmaeRows,...nextWehalmaeRows,...youngRows,...nextYoungRows,...zipsinRows,...sungwangRows,...craftRows,...reviewed3Rows,...pork3Rows,...franchise22Rows],correctedRows);
 import {appendRegionalSourceStores} from './regional-source.ts';
 import {publicSourcedStore,type SourcedStoreRow} from './sourced-store.ts';
 import reviewedEleven from '../data/hot-source-reviewed-eleven-20261014.json' with {type:'json'};
@@ -143,5 +144,6 @@ export const reviewed1319Records=[...reviewed1311Records,...activeRegionalRows.f
 export const reviewed1320Records=[...reviewed1319Records,...activeRegionalRows.filter(row=>["octopus-jeonnam-sungwang-20261014"].includes(row.source_ref))];
 export const reviewed1321Records=[...reviewed1320Records,...activeRegionalRows.filter(row=>["pizza-national-craft-20261014"].includes(row.source_ref))];
 export const reviewed1324Records=[...reviewed1321Records,...activeRegionalRows.filter(row=>["official-samcheop-63","recent-golmokanchae-20261014","recent-sansi-20261014"].includes(row.source_ref))];
+export const reviewed1327Records=[...reviewed1324Records,...activeRegionalRows.filter(row=>["recent-pork-jejok-20261014","recent-pork-gwangyeok-20261014","recent-pork-seoksu-20261014"].includes(row.source_ref))];
 const activeRecords=[...records,...activeRegionalRows];
 export default activeRecords;
