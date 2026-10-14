@@ -1,0 +1,1178 @@
+[
+  {
+    "id": "e5d4915c-5455-5225-83de-95d49236fb0e",
+    "slug": "hot-official-zipsin-101",
+    "name": "짚신매운갈비찜 아주대점",
+    "address": "경기 수원시 영통구 아주로 14-5 1층",
+    "lat": 37.2762364626361,
+    "lon": 127.04423576835,
+    "source_ref": "official-zipsin-101",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.zipsinfood.co.kr/board/index.php?board=map_01&sca=all",
+      "sourceRecordId": "official-zipsin-101",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T17:13:05.405343+00:00",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "official-zipsin-101:menu:1",
+          "name": "짚신 매운 돼지갈비찜",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "짚신매운갈비찜 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 짚신매운갈비찜 공식 매장안내의 지점별 저장 정보. 메뉴: 본사 공식 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 짚신 매운 돼지갈비찜은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 공식 매장안내가 사용하는 본사 도메인의 지점별 좌표이며 최초 생성자·방법·서버 내부 생성 방식·현장 정확도·출입구 위치는 미확인입니다. 지도 제공자 API 응답이나 지도 이미지는 수집하지 않았습니다. 게시·갱신일은 미표시이며 확인일은 영업 확인일을 뜻하지 않습니다. 개별 사실만 정리하며 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "211e1c84-5162-5466-ba0a-acc47c2630ae",
+    "slug": "hot-official-zipsin-99",
+    "name": "짚신매운갈비찜 향남점",
+    "address": "경기 화성시 향남읍 발안양감로 193  104호",
+    "lat": 37.116162276507,
+    "lon": 126.911540776535,
+    "source_ref": "official-zipsin-99",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.zipsinfood.co.kr/board/index.php?board=map_01&sca=all",
+      "sourceRecordId": "official-zipsin-99",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T17:13:09.417858+00:00",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "official-zipsin-99:menu:1",
+          "name": "짚신 매운 돼지갈비찜",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "짚신매운갈비찜 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 짚신매운갈비찜 공식 매장안내의 지점별 저장 정보. 메뉴: 본사 공식 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 짚신 매운 돼지갈비찜은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 공식 매장안내가 사용하는 본사 도메인의 지점별 좌표이며 최초 생성자·방법·서버 내부 생성 방식·현장 정확도·출입구 위치는 미확인입니다. 지도 제공자 API 응답이나 지도 이미지는 수집하지 않았습니다. 게시·갱신일은 미표시이며 확인일은 영업 확인일을 뜻하지 않습니다. 개별 사실만 정리하며 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "095748d0-b8f8-5894-b2ed-d7e6bc357d16",
+    "slug": "hot-official-zipsin-93",
+    "name": "짚신매운갈비찜 동성로점",
+    "address": "대구 중구 동성로3길 63",
+    "lat": 35.8681563346886,
+    "lon": 128.597848077131,
+    "source_ref": "official-zipsin-93",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.zipsinfood.co.kr/board/index.php?board=map_01&sca=all",
+      "sourceRecordId": "official-zipsin-93",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T17:13:13.671789+00:00",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "official-zipsin-93:menu:1",
+          "name": "짚신 매운 돼지갈비찜",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "짚신매운갈비찜 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 짚신매운갈비찜 공식 매장안내의 지점별 저장 정보. 메뉴: 본사 공식 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 짚신 매운 돼지갈비찜은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 공식 매장안내가 사용하는 본사 도메인의 지점별 좌표이며 최초 생성자·방법·서버 내부 생성 방식·현장 정확도·출입구 위치는 미확인입니다. 지도 제공자 API 응답이나 지도 이미지는 수집하지 않았습니다. 게시·갱신일은 미표시이며 확인일은 영업 확인일을 뜻하지 않습니다. 개별 사실만 정리하며 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "4043d34b-0fcb-5ced-b7cc-c50eb111fe3d",
+    "slug": "hot-official-zipsin-91",
+    "name": "짚신매운갈비찜 광주유스퀘어점",
+    "address": "광주광역시 서구 무진대로 904",
+    "lat": 35.1605756425809,
+    "lon": 126.879873116288,
+    "source_ref": "official-zipsin-91",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.zipsinfood.co.kr/board/index.php?board=map_01&sca=all",
+      "sourceRecordId": "official-zipsin-91",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T17:13:17.849961+00:00",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "official-zipsin-91:menu:1",
+          "name": "짚신 매운 돼지갈비찜",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "짚신매운갈비찜 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 짚신매운갈비찜 공식 매장안내의 지점별 저장 정보. 메뉴: 본사 공식 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 짚신 매운 돼지갈비찜은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 공식 매장안내가 사용하는 본사 도메인의 지점별 좌표이며 최초 생성자·방법·서버 내부 생성 방식·현장 정확도·출입구 위치는 미확인입니다. 지도 제공자 API 응답이나 지도 이미지는 수집하지 않았습니다. 게시·갱신일은 미표시이며 확인일은 영업 확인일을 뜻하지 않습니다. 개별 사실만 정리하며 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "4e32d534-ba87-584a-bcf3-7693a3cc7b9b",
+    "slug": "hot-official-zipsin-82",
+    "name": "짚신매운갈비찜 울산구영리점",
+    "address": "울산 울주군 범서읍 점촌2길 16",
+    "lat": 35.5755638808205,
+    "lon": 129.239274154787,
+    "source_ref": "official-zipsin-82",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.zipsinfood.co.kr/board/index.php?board=map_01&sca=all",
+      "sourceRecordId": "official-zipsin-82",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T17:13:38.095918+00:00",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "official-zipsin-82:menu:1",
+          "name": "짚신 매운 돼지갈비찜",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "짚신매운갈비찜 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 짚신매운갈비찜 공식 매장안내의 지점별 저장 정보. 메뉴: 본사 공식 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 짚신 매운 돼지갈비찜은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 공식 매장안내가 사용하는 본사 도메인의 지점별 좌표이며 최초 생성자·방법·서버 내부 생성 방식·현장 정확도·출입구 위치는 미확인입니다. 지도 제공자 API 응답이나 지도 이미지는 수집하지 않았습니다. 게시·갱신일은 미표시이며 확인일은 영업 확인일을 뜻하지 않습니다. 개별 사실만 정리하며 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "aa00be07-d164-50eb-82bb-b85faa45cb26",
+    "slug": "hot-official-zipsin-76",
+    "name": "짚신매운갈비찜 경북대점",
+    "address": "대구 북구 대학로23길 30",
+    "lat": 35.893439726075,
+    "lon": 128.609192118571,
+    "source_ref": "official-zipsin-76",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.zipsinfood.co.kr/board/index.php?board=map_01&sca=all",
+      "sourceRecordId": "official-zipsin-76",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T17:13:52.165047+00:00",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "official-zipsin-76:menu:1",
+          "name": "짚신 매운 돼지갈비찜",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "짚신매운갈비찜 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 짚신매운갈비찜 공식 매장안내의 지점별 저장 정보. 메뉴: 본사 공식 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 짚신 매운 돼지갈비찜은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 공식 매장안내가 사용하는 본사 도메인의 지점별 좌표이며 최초 생성자·방법·서버 내부 생성 방식·현장 정확도·출입구 위치는 미확인입니다. 지도 제공자 API 응답이나 지도 이미지는 수집하지 않았습니다. 게시·갱신일은 미표시이며 확인일은 영업 확인일을 뜻하지 않습니다. 개별 사실만 정리하며 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "1f1607bf-4662-5891-a74d-2cf793accf7f",
+    "slug": "hot-official-zipsin-69",
+    "name": "짚신매운갈비찜 울산대점",
+    "address": "울산 남구 대학로94번길 5-15",
+    "lat": 35.5437632309075,
+    "lon": 129.26075343577,
+    "source_ref": "official-zipsin-69",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.zipsinfood.co.kr/board/index.php?board=map_01&sca=all",
+      "sourceRecordId": "official-zipsin-69",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T17:13:56.324833+00:00",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "official-zipsin-69:menu:1",
+          "name": "짚신 매운 돼지갈비찜",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "짚신매운갈비찜 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 짚신매운갈비찜 공식 매장안내의 지점별 저장 정보. 메뉴: 본사 공식 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 짚신 매운 돼지갈비찜은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 공식 매장안내가 사용하는 본사 도메인의 지점별 좌표이며 최초 생성자·방법·서버 내부 생성 방식·현장 정확도·출입구 위치는 미확인입니다. 지도 제공자 API 응답이나 지도 이미지는 수집하지 않았습니다. 게시·갱신일은 미표시이며 확인일은 영업 확인일을 뜻하지 않습니다. 개별 사실만 정리하며 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "91d631ca-e836-5ea6-8135-e610c5011412",
+    "slug": "hot-official-zipsin-67",
+    "name": "짚신매운갈비찜 울산삼산점",
+    "address": "울산 남구 삼산중로48번길 9",
+    "lat": 35.5381688890072,
+    "lon": 129.33681294484,
+    "source_ref": "official-zipsin-67",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.zipsinfood.co.kr/board/index.php?board=map_01&sca=all",
+      "sourceRecordId": "official-zipsin-67",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T17:14:02.416353+00:00",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "official-zipsin-67:menu:1",
+          "name": "짚신 매운 돼지갈비찜",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "짚신매운갈비찜 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 짚신매운갈비찜 공식 매장안내의 지점별 저장 정보. 메뉴: 본사 공식 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 짚신 매운 돼지갈비찜은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 공식 매장안내가 사용하는 본사 도메인의 지점별 좌표이며 최초 생성자·방법·서버 내부 생성 방식·현장 정확도·출입구 위치는 미확인입니다. 지도 제공자 API 응답이나 지도 이미지는 수집하지 않았습니다. 게시·갱신일은 미표시이며 확인일은 영업 확인일을 뜻하지 않습니다. 개별 사실만 정리하며 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "657d171d-664c-5344-934d-f2e6e69d1cb8",
+    "slug": "hot-official-zipsin-48",
+    "name": "짚신매운갈비찜 천안 신부점",
+    "address": "충남 천안시 동남구 먹거리10길 13",
+    "lat": 36.8179811136426,
+    "lon": 127.155211479975,
+    "source_ref": "official-zipsin-48",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.zipsinfood.co.kr/board/index.php?board=map_01&sca=all",
+      "sourceRecordId": "official-zipsin-48",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T17:14:07.124456+00:00",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "official-zipsin-48:menu:1",
+          "name": "짚신 매운 돼지갈비찜",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "짚신매운갈비찜 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 짚신매운갈비찜 공식 매장안내의 지점별 저장 정보. 메뉴: 본사 공식 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 짚신 매운 돼지갈비찜은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 공식 매장안내가 사용하는 본사 도메인의 지점별 좌표이며 최초 생성자·방법·서버 내부 생성 방식·현장 정확도·출입구 위치는 미확인입니다. 지도 제공자 API 응답이나 지도 이미지는 수집하지 않았습니다. 게시·갱신일은 미표시이며 확인일은 영업 확인일을 뜻하지 않습니다. 개별 사실만 정리하며 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "39991448-ccf3-5172-8b52-5b605781579f",
+    "slug": "hot-official-zipsin-46",
+    "name": "짚신매운갈비찜 다산점",
+    "address": "경기 남양주시 다산중앙로123번길 7-14  2층 204호 (다산동, 퍼스트타워)",
+    "lat": 37.6230299862367,
+    "lon": 127.152520860366,
+    "source_ref": "official-zipsin-46",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.zipsinfood.co.kr/board/index.php?board=map_01&sca=all",
+      "sourceRecordId": "official-zipsin-46",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T17:14:14.562985+00:00",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "official-zipsin-46:menu:1",
+          "name": "짚신 매운 돼지갈비찜",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "짚신매운갈비찜 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 짚신매운갈비찜 공식 매장안내의 지점별 저장 정보. 메뉴: 본사 공식 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 짚신 매운 돼지갈비찜은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 공식 매장안내가 사용하는 본사 도메인의 지점별 좌표이며 최초 생성자·방법·서버 내부 생성 방식·현장 정확도·출입구 위치는 미확인입니다. 지도 제공자 API 응답이나 지도 이미지는 수집하지 않았습니다. 게시·갱신일은 미표시이며 확인일은 영업 확인일을 뜻하지 않습니다. 개별 사실만 정리하며 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "9969fcd2-0358-5d56-a72f-1b39c3fa4f15",
+    "slug": "hot-official-zipsin-6",
+    "name": "짚신매운갈비찜 라페스타점",
+    "address": "경기 고양시 일산동구 고봉로 26-14 A동 110호",
+    "lat": 37.6640122617915,
+    "lon": 126.765379433951,
+    "source_ref": "official-zipsin-6",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.zipsinfood.co.kr/board/index.php?board=map_01&sca=all",
+      "sourceRecordId": "official-zipsin-6",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T17:14:18.143310+00:00",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "official-zipsin-6:menu:1",
+          "name": "짚신 매운 돼지갈비찜",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "짚신매운갈비찜 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 짚신매운갈비찜 공식 매장안내의 지점별 저장 정보. 메뉴: 본사 공식 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 짚신 매운 돼지갈비찜은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 공식 매장안내가 사용하는 본사 도메인의 지점별 좌표이며 최초 생성자·방법·서버 내부 생성 방식·현장 정확도·출입구 위치는 미확인입니다. 지도 제공자 API 응답이나 지도 이미지는 수집하지 않았습니다. 게시·갱신일은 미표시이며 확인일은 영업 확인일을 뜻하지 않습니다. 개별 사실만 정리하며 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "14404111-8bff-5e4d-b9e6-c3949e8aa623",
+    "slug": "hot-official-samcheop-16",
+    "name": "삼첩분식 고현점",
+    "address": "경남 거제시 고현로4길 48 1층",
+    "lat": 34.8824848307195,
+    "lon": 128.6244422708,
+    "source_ref": "official-samcheop-16",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://dokdokplace.kr/stores/i2/i210/i21007/gyeongsangnam-do/geoje-si/%EA%B3%A0%ED%98%84%EB%8F%99/",
+      "sourceRecordId": "official-samcheop-16",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T17:13:45Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "official-samcheop-16:menu:1",
+          "name": "매콤튀김어묵",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "삼첩분식 공식 안내 및 똑똑장소찾기 공공자료 재표시",
+        "attribution": "상호·주소·메뉴: 삼첩분식 공식 매장·메뉴 안내. 위치: 똑똑장소찾기의 소상공인시장진흥공단 상가정보 기반 공개 행.",
+        "changes": "매장명·주소·메뉴명·위치 등 개별 사실만 정리. 사진·후기·가격·평점·수치 맵기를 전재하지 않았습니다.",
+        "scopeNotice": "본사 공통 메뉴이며 해당 지점의 현재 판매 및 영업 여부는 미확인입니다. 공식 지점 기록의 최초 게시일은 미확인이고 확인일은 2026-10-14입니다. 최근 블로그 게시일을 근거로 한 자료가 아닙니다. 위치는 주소에 대응하는 사이트 제공 값으로 원본 CSV 행·버전과 대조하지 않았습니다. 최초 좌표 생성 방법·조사일·정확도 및 입구·층·호 위치는 미확인입니다. 지도 표시 코드가 특정 지도업체의 좌표 생성 사실을 증명하지 않습니다. 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "b0057a6b-8238-5b6f-893d-3de2e364391e",
+    "slug": "hot-official-samcheop-17",
+    "name": "삼첩분식 충남 공주대점",
+    "address": "충남 공주시 번영2로 68-10 2층",
+    "lat": 36.4722071390935,
+    "lon": 127.136371041261,
+    "source_ref": "official-samcheop-17",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://dokdokplace.kr/stores/i2/i210/i21007/chungcheongnam-do/gongju-si/%EC%8B%A0%EA%B4%80%EB%8F%99/",
+      "sourceRecordId": "official-samcheop-17",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T17:13:45Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "official-samcheop-17:menu:1",
+          "name": "매콤튀김어묵",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "삼첩분식 공식 안내 및 똑똑장소찾기 공공자료 재표시",
+        "attribution": "상호·주소·메뉴: 삼첩분식 공식 매장·메뉴 안내. 위치: 똑똑장소찾기의 소상공인시장진흥공단 상가정보 기반 공개 행.",
+        "changes": "매장명·주소·메뉴명·위치 등 개별 사실만 정리. 사진·후기·가격·평점·수치 맵기를 전재하지 않았습니다.",
+        "scopeNotice": "본사 공통 메뉴이며 해당 지점의 현재 판매 및 영업 여부는 미확인입니다. 공식 지점 기록의 최초 게시일은 미확인이고 확인일은 2026-10-14입니다. 최근 블로그 게시일을 근거로 한 자료가 아닙니다. 위치는 주소에 대응하는 사이트 제공 값으로 원본 CSV 행·버전과 대조하지 않았습니다. 최초 좌표 생성 방법·조사일·정확도 및 입구·층·호 위치는 미확인입니다. 지도 표시 코드가 특정 지도업체의 좌표 생성 사실을 증명하지 않습니다. 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "cccfad0f-1283-5ea2-8c87-15f17302ce4b",
+    "slug": "hot-official-samcheop-130",
+    "name": "삼첩분식 영주점",
+    "address": "경북 영주시 지천로 109",
+    "lat": 36.8100571148379,
+    "lon": 128.618954740445,
+    "source_ref": "official-samcheop-130",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://dokdokplace.kr/stores/i2/i210/i21007/gyeongsangbuk-do/yeongju-si/%ED%9C%B4%EC%B2%9C2%EB%8F%99/",
+      "sourceRecordId": "official-samcheop-130",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T17:13:45Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "official-samcheop-130:menu:1",
+          "name": "매콤튀김어묵",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "삼첩분식 공식 안내 및 똑똑장소찾기 공공자료 재표시",
+        "attribution": "상호·주소·메뉴: 삼첩분식 공식 매장·메뉴 안내. 위치: 똑똑장소찾기의 소상공인시장진흥공단 상가정보 기반 공개 행.",
+        "changes": "매장명·주소·메뉴명·위치 등 개별 사실만 정리. 사진·후기·가격·평점·수치 맵기를 전재하지 않았습니다.",
+        "scopeNotice": "본사 공통 메뉴이며 해당 지점의 현재 판매 및 영업 여부는 미확인입니다. 공식 지점 기록의 최초 게시일은 미확인이고 확인일은 2026-10-14입니다. 최근 블로그 게시일을 근거로 한 자료가 아닙니다. 위치는 주소에 대응하는 사이트 제공 값으로 원본 CSV 행·버전과 대조하지 않았습니다. 최초 좌표 생성 방법·조사일·정확도 및 입구·층·호 위치는 미확인입니다. 지도 표시 코드가 특정 지도업체의 좌표 생성 사실을 증명하지 않습니다. 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "ec82ba0c-e12f-57e8-9492-7a6887fdd3cf",
+    "slug": "hot-official-samcheop-221",
+    "name": "삼첩분식 군산점",
+    "address": "전북특별자치도 군산시 나운안길 36, 2동 104호(나운동)",
+    "lat": 35.964236970306,
+    "lon": 126.703773110643,
+    "source_ref": "official-samcheop-221",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://dokdokplace.kr/stores/i2/i210/i21007/jeonbuk-state/gunsan-si/%EB%82%98%EC%9A%B42%EB%8F%99/",
+      "sourceRecordId": "official-samcheop-221",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T17:21:00Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "official-samcheop-221:menu:1",
+          "name": "매콤튀김어묵",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "삼첩분식 공식 안내 및 똑똑장소찾기 공공자료 재표시",
+        "attribution": "상호·주소·메뉴: 삼첩분식 공식 매장·메뉴 안내. 위치: 똑똑장소찾기의 소상공인시장진흥공단 상가정보 기반 공개 행.",
+        "changes": "매장명·주소·메뉴명·위치 등 개별 사실만 정리. 사진·후기·가격·평점·수치 맵기를 전재하지 않았습니다.",
+        "scopeNotice": "본사 공통 메뉴이며 해당 지점의 현재 판매 및 영업 여부는 미확인입니다. 공식 지점 기록의 최초 게시일은 미확인이고 확인일은 2026-10-14입니다. 최근 블로그 게시일을 근거로 한 자료가 아닙니다. 위치는 주소에 대응하는 사이트 제공 값으로 원본 CSV 행·버전과 대조하지 않았습니다. 최초 좌표 생성 방법·조사일·정확도 및 입구·층·호 위치는 미확인입니다. 지도 표시 코드가 특정 지도업체의 좌표 생성 사실을 증명하지 않습니다. 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "a6699dc4-6ec6-51dc-94da-a06d5b514f49",
+    "slug": "hot-official-samcheop-39",
+    "name": "삼첩분식 군포점",
+    "address": "경기 군포시 산본천로 99 디퍼아울렛타운 1층 137호",
+    "lat": 37.363439626645,
+    "lon": 126.932585461598,
+    "source_ref": "official-samcheop-39",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://dokdokplace.kr/stores/i2/i210/i21007/gyeonggi-do/gunpo-si/%EC%82%B0%EB%B3%B82%EB%8F%99/",
+      "sourceRecordId": "official-samcheop-39",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T17:21:00Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "official-samcheop-39:menu:1",
+          "name": "매콤튀김어묵",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "삼첩분식 공식 안내 및 똑똑장소찾기 공공자료 재표시",
+        "attribution": "상호·주소·메뉴: 삼첩분식 공식 매장·메뉴 안내. 위치: 똑똑장소찾기의 소상공인시장진흥공단 상가정보 기반 공개 행.",
+        "changes": "매장명·주소·메뉴명·위치 등 개별 사실만 정리. 사진·후기·가격·평점·수치 맵기를 전재하지 않았습니다.",
+        "scopeNotice": "본사 공통 메뉴이며 해당 지점의 현재 판매 및 영업 여부는 미확인입니다. 공식 지점 기록의 최초 게시일은 미확인이고 확인일은 2026-10-14입니다. 최근 블로그 게시일을 근거로 한 자료가 아닙니다. 위치는 주소에 대응하는 사이트 제공 값으로 원본 CSV 행·버전과 대조하지 않았습니다. 최초 좌표 생성 방법·조사일·정확도 및 입구·층·호 위치는 미확인입니다. 지도 표시 코드가 특정 지도업체의 좌표 생성 사실을 증명하지 않습니다. 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "eba66125-bb81-58b5-8461-c2b8a1865152",
+    "slug": "hot-official-samcheop-79",
+    "name": "삼첩분식 양산 물금점",
+    "address": "경남 양산시 물금읍 범구로 28 311동 B317호",
+    "lat": 35.3255753910252,
+    "lon": 129.012946896223,
+    "source_ref": "official-samcheop-79",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://dokdokplace.kr/stores/i2/i210/i21007/gyeongsangnam-do/yangsan-si/%EB%AC%BC%EA%B8%88%EC%9D%8D/",
+      "sourceRecordId": "official-samcheop-79",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T17:21:00Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "official-samcheop-79:menu:1",
+          "name": "매콤튀김어묵",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "삼첩분식 공식 안내 및 똑똑장소찾기 공공자료 재표시",
+        "attribution": "상호·주소·메뉴: 삼첩분식 공식 매장·메뉴 안내. 위치: 똑똑장소찾기의 소상공인시장진흥공단 상가정보 기반 공개 행.",
+        "changes": "매장명·주소·메뉴명·위치 등 개별 사실만 정리. 사진·후기·가격·평점·수치 맵기를 전재하지 않았습니다.",
+        "scopeNotice": "본사 공통 메뉴이며 해당 지점의 현재 판매 및 영업 여부는 미확인입니다. 공식 지점 기록의 최초 게시일은 미확인이고 확인일은 2026-10-14입니다. 최근 블로그 게시일을 근거로 한 자료가 아닙니다. 위치는 주소에 대응하는 사이트 제공 값으로 원본 CSV 행·버전과 대조하지 않았습니다. 최초 좌표 생성 방법·조사일·정확도 및 입구·층·호 위치는 미확인입니다. 지도 표시 코드가 특정 지도업체의 좌표 생성 사실을 증명하지 않습니다. 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "78cea2d1-b672-53fe-8b16-fbddb07dec5c",
+    "slug": "hot-official-samcheop-81",
+    "name": "삼첩분식 미평점",
+    "address": "전남 여수시 양지3길 10-1 미평동",
+    "lat": 34.7713272153913,
+    "lon": 127.70388288667,
+    "source_ref": "official-samcheop-81",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://dokdokplace.kr/stores/i2/i210/i21007/jeonnam-gwangju/yeosu-si/%EB%AF%B8%ED%8F%89%EB%8F%99/",
+      "sourceRecordId": "official-samcheop-81",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T17:21:00Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "official-samcheop-81:menu:1",
+          "name": "매콤튀김어묵",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "삼첩분식 공식 안내 및 똑똑장소찾기 공공자료 재표시",
+        "attribution": "상호·주소·메뉴: 삼첩분식 공식 매장·메뉴 안내. 위치: 똑똑장소찾기의 소상공인시장진흥공단 상가정보 기반 공개 행.",
+        "changes": "매장명·주소·메뉴명·위치 등 개별 사실만 정리. 사진·후기·가격·평점·수치 맵기를 전재하지 않았습니다.",
+        "scopeNotice": "본사 공통 메뉴이며 해당 지점의 현재 판매 및 영업 여부는 미확인입니다. 공식 지점 기록의 최초 게시일은 미확인이고 확인일은 2026-10-14입니다. 최근 블로그 게시일을 근거로 한 자료가 아닙니다. 위치는 주소에 대응하는 사이트 제공 값으로 원본 CSV 행·버전과 대조하지 않았습니다. 최초 좌표 생성 방법·조사일·정확도 및 입구·층·호 위치는 미확인입니다. 지도 표시 코드가 특정 지도업체의 좌표 생성 사실을 증명하지 않습니다. 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다. 공식 안내의 전남 주소를 보존했으며 재표시 자료의 변경된 광역명은 별도 검증하지 않았습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "09619c5f-a429-5646-bf81-de248b9d49cc",
+    "slug": "hot-official-samcheop-122",
+    "name": "삼첩분식 안중점",
+    "address": "경기 평택시 안중읍 안현로서3길 72",
+    "lat": 36.987748183524,
+    "lon": 126.923707645428,
+    "source_ref": "official-samcheop-122",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://dokdokplace.kr/stores/i2/i210/i21007/gyeonggi-do/pyeongtaek-si/%EC%95%88%EC%A4%91%EC%9D%8D/",
+      "sourceRecordId": "official-samcheop-122",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T17:21:00Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "official-samcheop-122:menu:1",
+          "name": "매콤튀김어묵",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "삼첩분식 공식 안내 및 똑똑장소찾기 공공자료 재표시",
+        "attribution": "상호·주소·메뉴: 삼첩분식 공식 매장·메뉴 안내. 위치: 똑똑장소찾기의 소상공인시장진흥공단 상가정보 기반 공개 행.",
+        "changes": "매장명·주소·메뉴명·위치 등 개별 사실만 정리. 사진·후기·가격·평점·수치 맵기를 전재하지 않았습니다.",
+        "scopeNotice": "본사 공통 메뉴이며 해당 지점의 현재 판매 및 영업 여부는 미확인입니다. 공식 지점 기록의 최초 게시일은 미확인이고 확인일은 2026-10-14입니다. 최근 블로그 게시일을 근거로 한 자료가 아닙니다. 위치는 주소에 대응하는 사이트 제공 값으로 원본 CSV 행·버전과 대조하지 않았습니다. 최초 좌표 생성 방법·조사일·정확도 및 입구·층·호 위치는 미확인입니다. 지도 표시 코드가 특정 지도업체의 좌표 생성 사실을 증명하지 않습니다. 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "2c53e4fe-9882-5fb2-9b64-9f1165eac488",
+    "slug": "hot-official-samcheop-142",
+    "name": "삼첩분식 원광대점",
+    "address": "전북 익산시 인북로62길 39 1층",
+    "lat": 35.9576490217671,
+    "lon": 126.965370412006,
+    "source_ref": "official-samcheop-142",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://dokdokplace.kr/stores/i2/i210/i21007/jeonbuk-state/iksan-si/%EC%8B%A0%EB%8F%99/",
+      "sourceRecordId": "official-samcheop-142",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T17:21:00Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "official-samcheop-142:menu:1",
+          "name": "매콤튀김어묵",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "삼첩분식 공식 안내 및 똑똑장소찾기 공공자료 재표시",
+        "attribution": "상호·주소·메뉴: 삼첩분식 공식 매장·메뉴 안내. 위치: 똑똑장소찾기의 소상공인시장진흥공단 상가정보 기반 공개 행.",
+        "changes": "매장명·주소·메뉴명·위치 등 개별 사실만 정리. 사진·후기·가격·평점·수치 맵기를 전재하지 않았습니다.",
+        "scopeNotice": "본사 공통 메뉴이며 해당 지점의 현재 판매 및 영업 여부는 미확인입니다. 공식 지점 기록의 최초 게시일은 미확인이고 확인일은 2026-10-14입니다. 최근 블로그 게시일을 근거로 한 자료가 아닙니다. 위치는 주소에 대응하는 사이트 제공 값으로 원본 CSV 행·버전과 대조하지 않았습니다. 최초 좌표 생성 방법·조사일·정확도 및 입구·층·호 위치는 미확인입니다. 지도 표시 코드가 특정 지도업체의 좌표 생성 사실을 증명하지 않습니다. 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "09a29e66-c7fb-5e5d-9916-e732e478fa5c",
+    "slug": "hot-official-samcheop-188",
+    "name": "삼첩분식 초전점",
+    "address": "경남 진주시 초전북로61번길 16-4 1층101호(초전동)",
+    "lat": 35.209789730825,
+    "lon": 128.113912753192,
+    "source_ref": "official-samcheop-188",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://dokdokplace.kr/stores/i2/i210/i21007/gyeongsangnam-do/jinju-si/%EC%B4%88%EC%9E%A5%EB%8F%99/",
+      "sourceRecordId": "official-samcheop-188",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T17:21:00Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "official-samcheop-188:menu:1",
+          "name": "매콤튀김어묵",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "삼첩분식 공식 안내 및 똑똑장소찾기 공공자료 재표시",
+        "attribution": "상호·주소·메뉴: 삼첩분식 공식 매장·메뉴 안내. 위치: 똑똑장소찾기의 소상공인시장진흥공단 상가정보 기반 공개 행.",
+        "changes": "매장명·주소·메뉴명·위치 등 개별 사실만 정리. 사진·후기·가격·평점·수치 맵기를 전재하지 않았습니다.",
+        "scopeNotice": "본사 공통 메뉴이며 해당 지점의 현재 판매 및 영업 여부는 미확인입니다. 공식 지점 기록의 최초 게시일은 미확인이고 확인일은 2026-10-14입니다. 최근 블로그 게시일을 근거로 한 자료가 아닙니다. 위치는 주소에 대응하는 사이트 제공 값으로 원본 CSV 행·버전과 대조하지 않았습니다. 최초 좌표 생성 방법·조사일·정확도 및 입구·층·호 위치는 미확인입니다. 지도 표시 코드가 특정 지도업체의 좌표 생성 사실을 증명하지 않습니다. 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "edf7731e-2685-5936-a07f-ef258f350afa",
+    "slug": "hot-official-samcheop-197",
+    "name": "삼첩분식 하당점",
+    "address": "전남 목포시 하당로 145 1층",
+    "lat": 34.8042075824681,
+    "lon": 126.41480111194,
+    "source_ref": "official-samcheop-197",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://dokdokplace.kr/stores/i2/i210/i21007/jeonnam-gwangju/mokpo-si/%ED%95%98%EB%8B%B9%EB%8F%99/",
+      "sourceRecordId": "official-samcheop-197",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T17:21:00Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "official-samcheop-197:menu:1",
+          "name": "매콤튀김어묵",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "삼첩분식 공식 안내 및 똑똑장소찾기 공공자료 재표시",
+        "attribution": "상호·주소·메뉴: 삼첩분식 공식 매장·메뉴 안내. 위치: 똑똑장소찾기의 소상공인시장진흥공단 상가정보 기반 공개 행.",
+        "changes": "매장명·주소·메뉴명·위치 등 개별 사실만 정리. 사진·후기·가격·평점·수치 맵기를 전재하지 않았습니다.",
+        "scopeNotice": "본사 공통 메뉴이며 해당 지점의 현재 판매 및 영업 여부는 미확인입니다. 공식 지점 기록의 최초 게시일은 미확인이고 확인일은 2026-10-14입니다. 최근 블로그 게시일을 근거로 한 자료가 아닙니다. 위치는 주소에 대응하는 사이트 제공 값으로 원본 CSV 행·버전과 대조하지 않았습니다. 최초 좌표 생성 방법·조사일·정확도 및 입구·층·호 위치는 미확인입니다. 지도 표시 코드가 특정 지도업체의 좌표 생성 사실을 증명하지 않습니다. 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다. 공식 안내의 전남 주소를 보존했으며 재표시 자료의 변경된 광역명은 별도 검증하지 않았습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "8e44f625-8bc1-573e-ac4e-4f8146c988f9",
+    "slug": "hot-official-samcheop-162",
+    "name": "삼첩분식 춘천 우두점",
+    "address": "강원 춘천시 새청말길 23 1층 102호",
+    "lat": 37.8980604463824,
+    "lon": 127.736619461509,
+    "source_ref": "official-samcheop-162",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://dokdokplace.kr/stores/i2/i210/i21007/gangwon-do/chuncheon-si/%EC%8B%A0%EC%82%AC%EC%9A%B0%EB%8F%99/",
+      "sourceRecordId": "official-samcheop-162",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T17:25:00Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "official-samcheop-162:menu:1",
+          "name": "매콤튀김어묵",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "삼첩분식 공식 안내 및 똑똑장소찾기 공공자료 재표시",
+        "attribution": "상호·주소·메뉴: 삼첩분식 공식 매장·메뉴 안내. 위치: 똑똑장소찾기의 소상공인시장진흥공단 상가정보 기반 공개 행.",
+        "changes": "매장명·주소·메뉴명·위치 등 개별 사실만 정리. 사진·후기·가격·평점·수치 맵기를 전재하지 않았습니다.",
+        "scopeNotice": "본사 공통 메뉴이며 해당 지점의 현재 판매 및 영업 여부는 미확인입니다. 공식 지점 기록의 최초 게시일은 미확인이고 확인일은 2026-10-14입니다. 최근 블로그 게시일을 근거로 한 자료가 아닙니다. 위치는 주소에 대응하는 사이트 제공 값으로 원본 CSV 행·버전과 대조하지 않았습니다. 최초 좌표 생성 방법·조사일·정확도 및 입구·층·호 위치는 미확인입니다. 지도 표시 코드가 특정 지도업체의 좌표 생성 사실을 증명하지 않습니다. 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "15ad61c6-e3ce-5aee-ac54-b2be7a0c8938",
+    "slug": "hot-official-samcheop-68",
+    "name": "삼첩분식 구미 도량점",
+    "address": "경북 구미시 문장로12길 5-4",
+    "lat": 36.1404477290398,
+    "lon": 128.333021677795,
+    "source_ref": "official-samcheop-68",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://dokdokplace.kr/stores/i2/i210/i21007/gyeongsangbuk-do/gumi-si/%EB%8F%84%EB%9F%89%EB%8F%99/",
+      "sourceRecordId": "official-samcheop-68",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T17:25:00Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "official-samcheop-68:menu:1",
+          "name": "매콤튀김어묵",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "삼첩분식 공식 안내 및 똑똑장소찾기 공공자료 재표시",
+        "attribution": "상호·주소·메뉴: 삼첩분식 공식 매장·메뉴 안내. 위치: 똑똑장소찾기의 소상공인시장진흥공단 상가정보 기반 공개 행.",
+        "changes": "매장명·주소·메뉴명·위치 등 개별 사실만 정리. 사진·후기·가격·평점·수치 맵기를 전재하지 않았습니다.",
+        "scopeNotice": "본사 공통 메뉴이며 해당 지점의 현재 판매 및 영업 여부는 미확인입니다. 공식 지점 기록의 최초 게시일은 미확인이고 확인일은 2026-10-14입니다. 최근 블로그 게시일을 근거로 한 자료가 아닙니다. 위치는 주소에 대응하는 사이트 제공 값으로 원본 CSV 행·버전과 대조하지 않았습니다. 최초 좌표 생성 방법·조사일·정확도 및 입구·층·호 위치는 미확인입니다. 지도 표시 코드가 특정 지도업체의 좌표 생성 사실을 증명하지 않습니다. 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "5d633507-84fb-5d91-9851-39c5b337c023",
+    "slug": "hot-official-samcheop-125",
+    "name": "삼첩분식 여수 신기점",
+    "address": "전남 여수시 신기남1길 29 1층",
+    "lat": 34.7593289936195,
+    "lon": 127.668819201052,
+    "source_ref": "official-samcheop-125",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://dokdokplace.kr/stores/i2/i210/i21007/jeonnam-gwangju/yeosu-si/%EC%8B%9C%EC%A0%84%EB%8F%99/",
+      "sourceRecordId": "official-samcheop-125",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T17:25:00Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "official-samcheop-125:menu:1",
+          "name": "매콤튀김어묵",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "삼첩분식 공식 안내 및 똑똑장소찾기 공공자료 재표시",
+        "attribution": "상호·주소·메뉴: 삼첩분식 공식 매장·메뉴 안내. 위치: 똑똑장소찾기의 소상공인시장진흥공단 상가정보 기반 공개 행.",
+        "changes": "매장명·주소·메뉴명·위치 등 개별 사실만 정리. 사진·후기·가격·평점·수치 맵기를 전재하지 않았습니다.",
+        "scopeNotice": "본사 공통 메뉴이며 해당 지점의 현재 판매 및 영업 여부는 미확인입니다. 공식 지점 기록의 최초 게시일은 미확인이고 확인일은 2026-10-14입니다. 최근 블로그 게시일을 근거로 한 자료가 아닙니다. 위치는 주소에 대응하는 사이트 제공 값으로 원본 CSV 행·버전과 대조하지 않았습니다. 최초 좌표 생성 방법·조사일·정확도 및 입구·층·호 위치는 미확인입니다. 지도 표시 코드가 특정 지도업체의 좌표 생성 사실을 증명하지 않습니다. 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다. 공식 안내의 전남 주소를 보존했으며 재표시 자료의 변경된 광역명은 별도 검증하지 않았습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "1a1ba9b3-40af-5883-824f-6743f7dd32f1",
+    "slug": "hot-official-samcheop-82",
+    "name": "삼첩분식 의정부 민락점",
+    "address": "경기 의정부시 충의로57번길 48 지상 1층",
+    "lat": 37.7360903169957,
+    "lon": 127.084813546475,
+    "source_ref": "official-samcheop-82",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://dokdokplace.kr/stores/i2/i210/i21007/gyeonggi-do/uijeongbu-si/%EC%86%A1%EC%82%B01%EB%8F%99/",
+      "sourceRecordId": "official-samcheop-82",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T17:25:00Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "official-samcheop-82:menu:1",
+          "name": "매콤튀김어묵",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "삼첩분식 공식 안내 및 똑똑장소찾기 공공자료 재표시",
+        "attribution": "상호·주소·메뉴: 삼첩분식 공식 매장·메뉴 안내. 위치: 똑똑장소찾기의 소상공인시장진흥공단 상가정보 기반 공개 행.",
+        "changes": "매장명·주소·메뉴명·위치 등 개별 사실만 정리. 사진·후기·가격·평점·수치 맵기를 전재하지 않았습니다.",
+        "scopeNotice": "본사 공통 메뉴이며 해당 지점의 현재 판매 및 영업 여부는 미확인입니다. 공식 지점 기록의 최초 게시일은 미확인이고 확인일은 2026-10-14입니다. 최근 블로그 게시일을 근거로 한 자료가 아닙니다. 위치는 주소에 대응하는 사이트 제공 값으로 원본 CSV 행·버전과 대조하지 않았습니다. 최초 좌표 생성 방법·조사일·정확도 및 입구·층·호 위치는 미확인입니다. 지도 표시 코드가 특정 지도업체의 좌표 생성 사실을 증명하지 않습니다. 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "4fb8cf2b-f255-5943-a938-2200f02e8274",
+    "slug": "hot-official-samcheop-141",
+    "name": "삼첩분식 웅상점",
+    "address": "경남 양산시 평산2길 11 1층 102-2호",
+    "lat": 35.3806670782495,
+    "lon": 129.153724368134,
+    "source_ref": "official-samcheop-141",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://dokdokplace.kr/stores/i2/i210/i21007/gyeongsangnam-do/yangsan-si/%ED%8F%89%EC%82%B0%EB%8F%99/",
+      "sourceRecordId": "official-samcheop-141",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T17:25:00Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "official-samcheop-141:menu:1",
+          "name": "매콤튀김어묵",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "삼첩분식 공식 안내 및 똑똑장소찾기 공공자료 재표시",
+        "attribution": "상호·주소·메뉴: 삼첩분식 공식 매장·메뉴 안내. 위치: 똑똑장소찾기의 소상공인시장진흥공단 상가정보 기반 공개 행.",
+        "changes": "매장명·주소·메뉴명·위치 등 개별 사실만 정리. 사진·후기·가격·평점·수치 맵기를 전재하지 않았습니다.",
+        "scopeNotice": "본사 공통 메뉴이며 해당 지점의 현재 판매 및 영업 여부는 미확인입니다. 공식 지점 기록의 최초 게시일은 미확인이고 확인일은 2026-10-14입니다. 최근 블로그 게시일을 근거로 한 자료가 아닙니다. 위치는 주소에 대응하는 사이트 제공 값으로 원본 CSV 행·버전과 대조하지 않았습니다. 최초 좌표 생성 방법·조사일·정확도 및 입구·층·호 위치는 미확인입니다. 지도 표시 코드가 특정 지도업체의 좌표 생성 사실을 증명하지 않습니다. 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "c26342c0-b777-54bd-8435-8b917d8fe3fc",
+    "slug": "hot-official-samcheop-138",
+    "name": "삼첩분식 온양점",
+    "address": "충청남도 아산시 삼동로70번길 9-7, 1층",
+    "lat": 36.7867006262241,
+    "lon": 127.013085414093,
+    "source_ref": "official-samcheop-138",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://dokdokplace.kr/stores/i2/i210/i21007/chungcheongnam-do/asan-si/%EC%98%A8%EC%96%913%EB%8F%99/",
+      "sourceRecordId": "official-samcheop-138",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T17:25:00Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "official-samcheop-138:menu:1",
+          "name": "매콤튀김어묵",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "삼첩분식 공식 안내 및 똑똑장소찾기 공공자료 재표시",
+        "attribution": "상호·주소·메뉴: 삼첩분식 공식 매장·메뉴 안내. 위치: 똑똑장소찾기의 소상공인시장진흥공단 상가정보 기반 공개 행.",
+        "changes": "매장명·주소·메뉴명·위치 등 개별 사실만 정리. 사진·후기·가격·평점·수치 맵기를 전재하지 않았습니다.",
+        "scopeNotice": "본사 공통 메뉴이며 해당 지점의 현재 판매 및 영업 여부는 미확인입니다. 공식 지점 기록의 최초 게시일은 미확인이고 확인일은 2026-10-14입니다. 최근 블로그 게시일을 근거로 한 자료가 아닙니다. 위치는 주소에 대응하는 사이트 제공 값으로 원본 CSV 행·버전과 대조하지 않았습니다. 최초 좌표 생성 방법·조사일·정확도 및 입구·층·호 위치는 미확인입니다. 지도 표시 코드가 특정 지도업체의 좌표 생성 사실을 증명하지 않습니다. 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  }
+]
