@@ -32,7 +32,8 @@ import countiesRows from '../data/hot-jeonnam-counties3-records.json' with {type
 import nextCountiesRows from '../data/hot-jeonnam-nextcounties5-records.json' with {type:'json'};
 import chungbukRows from '../data/hot-chungbuk9-records.json' with {type:'json'};
 import gwmRows from '../data/hot-jeonnam-gwm3-records.json' with {type:'json'};
-const regionalRows=[...priorRegionalRows,...sejongRows,...nextSejongRows,...next64Rows,...next47Rows,...next38Rows,...busan23Rows,...final13Rows,...route7BusanRows,...route7Busan8Rows,...route7UlsanRows,...gangwonRows,...jeonnamRows,...inlandRows,...countiesRows,...nextCountiesRows,...chungbukRows,...gwmRows];
+import chungnamRows from '../data/hot-chungnam7-records.json' with {type:'json'};
+const regionalRows=[...priorRegionalRows,...sejongRows,...nextSejongRows,...next64Rows,...next47Rows,...next38Rows,...busan23Rows,...final13Rows,...route7BusanRows,...route7Busan8Rows,...route7UlsanRows,...gangwonRows,...jeonnamRows,...inlandRows,...countiesRows,...nextCountiesRows,...chungbukRows,...gwmRows,...chungnamRows];
 const expectedCount=785+regionalRows.length;
 const stores=readonlySourceStoreFeed().stores;
 const onjeong=stores.find(store=>store.id==='65a5768f-5c9e-563e-a04f-cbb81835ec02');
