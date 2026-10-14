@@ -60,7 +60,7 @@ export async function GET(request: Request) {
     const start = (page - 1) * limit;
     const { data, error } = await publicDb()
       .from('hot_public_menus')
-      .select('place_id,shop,menu,heat,created_at')
+      .select('id,place_id,shop,menu,heat,created_at')
       .not('place_id', 'is', null)
       .order('created_at', { ascending: false })
       .order('id', { ascending: true })
