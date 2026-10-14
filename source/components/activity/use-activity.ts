@@ -12,8 +12,11 @@ export function useActivity(planet:Planet,includeOwners=false){
  const [owner,setOwner]=useState<boolean|null>(null);
  const [connected,setConnected]=useState(false);
  const request=useRef(0),account=useRef<string|null>(null);
+ const pending=useRef<Promise<void>|null>(null);
  const refresh=useCallback(async(session?:Session|null)=>{
+  if(pending.current)return pending.current;
   const run=++request.current;
+  const load=(async()=>{
   let roleChecked=false;
   try{
    const auth=session===undefined?(await browserDb().auth.getSession()).data:{session};
@@ -30,26 +33,48 @@ export function useActivity(planet:Planet,includeOwners=false){
    const activity=await api<ActivitySnapshot>('/api/activity/snapshot');
    if(run!==request.current)return;
    setData(activity);setError('');
-  }catch(e){if(run===request.current){if(!roleChecked)setOwner(null);setData(null);setError((e as Error).message);}}
+  }catch(e){if(run===request.current){if(!roleChecked)setOwner(null);setError((e as Error).message);}}
+ })();
+  pending.current=load;
+  try{await load;}finally{if(pending.current===load)pending.current=null;}
  },[includeOwners]);
  useEffect(()=>{
-  let alive=true;
+  let alive=true,channelUser:string|null=null;
+  let changeTimer:ReturnType<typeof setTimeout>|undefined;
   let channel:ReturnType<ReturnType<typeof browserDb>['channel']>|null=null;
   const client=browserDb();
-  const connect=async()=>{
-   const {data}=await client.auth.getSession();
+  const connect=async(session?:Session|null)=>{
+   const data=session===undefined?(await client.auth.getSession()).data:{session};
    if(!alive)return;
+   const userId=data.session&&!data.session.user.is_anonymous?data.session.user.id:null;
+   if(userId===channelUser&&channel){void refresh(data.session);return;}
    if(channel)void client.removeChannel(channel);
-   channel=null;setConnected(false);
-   if(data.session&&!data.session.user.is_anonymous){channel=client.channel('planet:'+planet+':'+data.session.user.id);for(const table of ['ng_planet_events','ng_planet_visits','ng_planet_photos','ng_planet_awards','ng_planet_notifications','ng_planet_profiles'])channel.on('postgres_changes',{event:'*',schema:'public',table,filter:'user_id=eq.'+data.session.user.id},()=>void refresh());channel.subscribe(status=>{if(!alive)return;setConnected(status==='SUBSCRIBED');});}
+   channel=null;channelUser=userId;setConnected(false);
+   if(data.session&&!data.session.user.is_anonymous){channel=client.channel('planet:'+planet+':'+data.session.user.id);for(const table of ['ng_planet_events','ng_planet_visits','ng_planet_photos','ng_planet_awards','ng_planet_notifications','ng_planet_profiles'])channel.on('postgres_changes',{event:'*',schema:'public',table,filter:'user_id=eq.'+data.session.user.id},changed);channel.subscribe(status=>{if(!alive)return;setConnected(status==='SUBSCRIBED');});}
    void refresh(data.session);
   };
   void connect();
-  const {data:authListener}=client.auth.onAuthStateChange((_event,session)=>{if(alive){request.current++;if(account.current!==session?.user?.id){account.current=session?.user?.id??null;setOwner(null);setData(null);}setSignedIn(Boolean(session?.user&&!session.user.is_anonymous));if(!session||session.user.is_anonymous){setOwner(null);setData(null);setError('');}}setTimeout(()=>{if(alive)void connect();},0);});
-  const changed=()=>{if(!document.hidden)void refresh();};
+  const {data:authListener}=client.auth.onAuthStateChange((event,session)=>{
+   if(!alive)return;
+   const userId=session&&!session.user.is_anonymous?session.user.id:null;
+   if(account.current!==userId){request.current++;pending.current=null;account.current=userId;setOwner(null);setData(null);setError('');}
+   setSignedIn(Boolean(userId));
+   if(!userId){setOwner(null);setData(null);setError('');}
+   // Keep Supabase calls outside the auth callback lock, and preserve connections on token refresh.
+   if(['INITIAL_SESSION','SIGNED_IN','SIGNED_OUT','USER_UPDATED'].includes(event))setTimeout(()=>{if(alive)void connect(session);},0);
+  });
+  function changed(){
+   if(document.hidden||!alive)return;
+   clearTimeout(changeTimer);
+   changeTimer=setTimeout(()=>{
+    const current=pending.current;
+    if(current)void current.then(()=>{if(alive)void refresh();});
+    else void refresh();
+   },80);
+  }
   window.addEventListener('nowgo-activity-change',changed);window.addEventListener('hot-customer-change',changed);window.addEventListener('focus',changed);document.addEventListener('visibilitychange',changed);
   const interval=setInterval(changed,30000);
-  return()=>{alive=false;request.current++;clearInterval(interval);authListener.subscription.unsubscribe();if(channel)void client.removeChannel(channel);window.removeEventListener('nowgo-activity-change',changed);window.removeEventListener('hot-customer-change',changed);window.removeEventListener('focus',changed);document.removeEventListener('visibilitychange',changed);};
+  return()=>{alive=false;request.current++;pending.current=null;clearTimeout(changeTimer);clearInterval(interval);authListener.subscription.unsubscribe();if(channel)void client.removeChannel(channel);window.removeEventListener('nowgo-activity-change',changed);window.removeEventListener('hot-customer-change',changed);window.removeEventListener('focus',changed);document.removeEventListener('visibilitychange',changed);};
  },[planet,refresh]);
  return {data,error,signedIn,owner,connected,refresh};
 }
