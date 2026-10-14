@@ -1,3 +1,6 @@
+import regionalRows from '../data/hot-regional-source-records.json' with {type:'json'};
+import {appendRegionalSourceStores} from './regional-source.ts';
+import {publicSourcedStore,type SourcedStoreRow} from './sourced-store.ts';
 import reviewedEleven from '../data/hot-source-reviewed-eleven-20261014.json' with {type:'json'};
 import requestedTwo from '../data/hot-source-requested-two-20261013.json' with {type:'json'};
 import licensedMenus from '../data/hot-source-licensed-menu-20261013.json' with {type:'json'};
@@ -62,4 +65,13 @@ if(reviewed774Records.length!==774||reviewedEleven.length!==11)throw Error('inva
 const records:ReadonlySourceRecord[]=[...reviewed774Records,...reviewedEleven];
 if(new Set(records.map(row=>row.id)).size!==records.length||new Set(records.map(row=>row.source_ref)).size!==records.length)throw Error('duplicate_source_partition_identity');
 if(records.length!==785||records.some(row=>!row.source_metadata.menus.length))throw Error('invalid_menu_only_source_partition');
-export default records;
+export const reviewed785Records=records;
+const baselineFacts=records.map(row=>{
+ const facts=publicSourcedStore({...row,owner_id:null,archived_at:null,trust_disabled_at:null,owner_penalty_points:0,publication_state:'DISCOVERED'});
+ if(!facts)throw Error('invalid_reviewed_baseline');return facts;
+});
+const regional=appendRegionalSourceStores(baselineFacts,regionalRows as SourcedStoreRow[]);
+export const rejectedRegionalSourceRefs=regional.rejected;
+const activeRegionalRows=regional.acceptedRows as ReadonlySourceRecord[];
+const activeRecords=[...records,...activeRegionalRows];
+export default activeRecords;

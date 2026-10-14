@@ -1,0 +1,214 @@
+[
+  {
+    "id": "f6a80ab1-ee20-5ab2-a4da-a5a4cd430da9",
+    "slug": "hot-gwangju-kokkiri-main",
+    "name": "코끼리아구찜 본점",
+    "address": "광주광역시 서구 금화로73번길 2-1",
+    "lat": 35.13257,
+    "lon": 126.8569,
+    "source_ref": "aks-gwangju-kokkiri-factpoint-54329",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://dh.aks.ac.kr/~gwangju/wiki/index.php/코끼리아구찜",
+      "licenseName": "CC BY-SA 4.0",
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T00:49:36Z",
+      "sourceRecordId": "코끼리아구찜",
+      "nativeBusinessName": "코끼리아구찜",
+      "nativeBranchName": null,
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "one-branch-labelled-wiki-factual-record-CC-BY-SA-4.0-with-attribution",
+        "reviewedAt": "2026-10-14T00:49:36Z",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attributionRequired": true,
+        "shareAlikeRequiredForAdaptedLicensedMaterial": true,
+        "licenseDoesNotProveUnderlyingCoordinateOrigin": true
+      },
+      "menus": [
+        {
+          "id": "aks-gwangju-kokkiri-factpoint-54329:menu:1",
+          "name": "섞어찜",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      },
+      "independentReview": {
+        "candidateId": "CENT-044",
+        "publicationState": "reviewed_regional_release",
+        "coordinateEvidence": {
+          "lat": 35.13257,
+          "lon": 126.8569,
+          "source_url": "https://dh.aks.ac.kr/~gwangju/wiki/index.php/코끼리아구찜",
+          "native_record_id": "코끼리아구찜",
+          "observed_at": "2026-10-14T00:47:58Z",
+          "retrieval": "Normal public HTML200 checked this pass. Numeric fact table explicitly pairs venue, latitude, longitude and exact building address. Source page last edited2025-09-27; no live operation inferred.",
+          "source_point_exact": true,
+          "independently_surveyed": false,
+          "address_geocoded_or_map_pixel_inferred": false,
+          "crs": "Source geographic latitude/longitude; no EPSG label asserted",
+          "native_fields": {
+            "latitude": "기본 정보 → 위도(latitude)",
+            "longitude": "기본 정보 → 경도(longitude)",
+            "venue": "기본 정보 → 이름",
+            "address": "기본 정보 → 소재지"
+          },
+          "point_variation": {
+            "visible_table": [
+              35.13257,
+              126.8569
+            ],
+            "own_map_iframe_parameters": [
+              35.13257,
+              126.856959
+            ],
+            "distance_m": 5.37,
+            "selection": "Visible table point retained unchanged; iframe not fetched; difference compatible with longitude truncation but derivation unknown."
+          },
+          "provenance_caveat": "Page cites the same2023 creator article used for spicy-menu discovery; that citation is not independent heat evidence. Own GoogleMapSpot iframe receives a slightly more precise longitude; it does not document the origin of the coordinates or establish Google as their source.",
+          "source_revision_url": "https://dh.aks.ac.kr/~gwangju/wiki/index.php?title=코끼리아구찜&oldid=54329"
+        },
+        "identityLinkage": {
+          "method": "Exact venue/alias plus building address; business phone match where available; never proximity alone",
+          "researchCity": "광주",
+          "nativeBusinessName": "코끼리아구찜",
+          "nativeBranchName": null,
+          "branchDisplayQualification": "본점 added from independent branch evidence at 금화로73번길2-1; wiki native name is 코끼리아구찜."
+        },
+        "sourceHeatLabels": [
+          {
+            "label": "제일 매운맛",
+            "kind": "creator_ordered_highest_available_setting",
+            "source_key": "gj_kokkiri"
+          }
+        ],
+        "menuCorroboration": "Source-labelled highest-setting 섞어찜 order is one firsthand creator observation dated2023-07-16. Separate creator2025-06-04 and a currently accessible Diningcode dish listing corroborate 섞어찜 and the exact branch, not the strongest current setting.",
+        "userHeatMedian": null,
+        "userHeatCount": 0,
+        "numericHeat": null,
+        "priceKrw": null,
+        "currentOperation": "unknown_not_live_verified",
+        "currentMenuSale": "not_live_verified",
+        "ownerVerified": false,
+        "sourceEvidenceKeys": [
+          "gj_kokkiri",
+          "gj_kokkiri_2025",
+          "gj_kokkiri_district",
+          "gj_kokkiri_geo"
+        ],
+        "discoveryUrls": [
+          "https://heukchan45.tistory.com/entry/%EA%B4%91%EC%A3%BC-%EC%84%9C%EA%B5%AC-%EA%B8%88%ED%98%B8%EB%8F%99-%ED%95%B4%EB%AC%BC%EC%B0%9C-%EC%95%84%EA%B5%AC%EC%B0%9C-%EB%A7%9B%EC%A7%91-%EC%BD%94%EB%81%BC%EB%A6%AC-%EC%95%84%EA%B5%AC%EC%B0%9C-%EB%A6%AC%EB%B7%B0-%EC%99%84%EC%A0%84-%EA%B0%95%EC%B6%94",
+          "https://violet63.tistory.com/entry/광주-금호동-맛집-코끼리아구찜-본점-내돈내산-후기"
+        ],
+        "dedup": {
+          "baselineCommit": "83bd019ed6389bc64620f8cec0551f2ef31b1fbe",
+          "baselineCount": 774,
+          "alsoCheckedApprovedFrozen11": true,
+          "matches": {
+            "cached_live774": [],
+            "historical991": [],
+            "approved_frozen11": []
+          },
+          "publicCountMayBecome785": "Frozen11 publisher is separate; this pass does not assert current live deployment count."
+        },
+        "doesNotEstablish": [
+          "current_operation",
+          "current_menu_sale",
+          "numeric_or_population_heat",
+          "review_rating",
+          "owner_registration",
+          "independently_surveyed_coordinate",
+          "blanket_content_reuse_permission"
+        ],
+        "noMarkerStyleDecision": true,
+        "releaseReview": {
+          "candidateId": "CENT-044",
+          "productionEligible": true,
+          "name": "코끼리아구찜 본점",
+          "coordinate": {
+            "lat": 35.13257,
+            "lon": 126.8569,
+            "sourceExact": true,
+            "sourceUrl": "https://dh.aks.ac.kr/~gwangju/wiki/index.php?title=코끼리아구찜&oldid=54329",
+            "revision": "54329",
+            "revisionDate": "2025-09-27 07:47 (wiki displayed time; timezone not asserted)",
+            "contributors": [
+              "Proofreaderhong",
+              "박종평"
+            ],
+            "historyUrl": "https://dh.aks.ac.kr/~gwangju/wiki/index.php?title=코끼리아구찜&action=history",
+            "method": "Normal anonymous HTTP of history, revision HTML, and action=raw confirmed coordinate and exact building address in revision itself.",
+            "originCaveat": "Underlying survey or provider origin is undocumented. Google map rendering is not evidence that Google originated the point."
+          },
+          "rights": {
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "verified": "Explicit HTML rel=license and page footer link",
+            "requiredAttribution": "코끼리아구찜 — 광주문화예술인문스토리플랫폼, Proofreaderhong·박종평 및 기여자, 판 54329 (2025-09-27), CC BY-SA 4.0. 일부 사실 항목 발췌; 본점 표기는 별도 지점 자료로 보완; 표의 좌표는 변경하지 않음.",
+            "linkTargets": [
+              "revisionUrl",
+              "historyUrl",
+              "licenseUrl"
+            ],
+            "shareAlikeScope": "Any adaptation of protected licensed material must retain compatible share-alike treatment; do not assert this requires licensing unrelated app code or independently sourced whole dataset. Keep no extra restrictions on licensed material.",
+            "factsOnly": "No wiki image, creative prose, or blog photo/text reuse. Independent corroboration is not imported under the wiki license."
+          },
+          "corroboration": [
+            {
+              "url": "https://www.diningcode.com/profile.php?rid=TBjpv0VIMQl4",
+              "supports": [
+                "exact address",
+                "섞어찜 menu",
+                "062-383-1421 phone"
+              ],
+              "asOf": "Current accessible listing; menu last-updated date not stated. Do not treat relative today/open labels in cached page as live."
+            },
+            {
+              "url": "https://violet63.tistory.com/entry/광주-금호동-맛집-코끼리아구찜-본점-내돈내산-후기",
+              "date": "2025-06-04",
+              "supports": [
+                "exact address",
+                "본점 identity",
+                "섞어찜 menu"
+              ],
+              "rightsNote": "Article has CC BY-NC-ND notice. Used only to corroborate individual bare facts, not copy prose/photos or adapt article."
+            },
+            {
+              "url": "https://www.saramin.co.kr/zf_user/company-info/view/csn/Wjc2NmtvZmtoNENiTllOa2JMMWZQQT09/company_nm/%EC%BD%94%EB%81%BC%EB%A6%AC%EC%95%84%EA%B5%AC%EC%B0%9C%28%EC%A3%BC%29",
+              "date": "2026-08-06 update displayed",
+              "supports": [
+                "same name and exact address"
+              ],
+              "limitation": "Business-data listing can lag; not current serving confirmation."
+            }
+          ],
+          "heatDecision": "Keep existing source-specific historic highest-setting finding dated 2023; no current strongest-level guarantee, numeric heat, votes, median or rating."
+        }
+      },
+      "attribution": {
+        "text": "코끼리아구찜, 광주문화예술인문스토리플랫폼 contributors, revision54329 (2025-09-27), CC BY-SA4.0. Selected factual fields only; display name adds 본점 from independent branch evidence; original numeric table point is unchanged.",
+        "sourceUrl": "https://dh.aks.ac.kr/~gwangju/wiki/index.php/코끼리아구찜",
+        "revisionUrl": "https://dh.aks.ac.kr/~gwangju/wiki/index.php?title=코끼리아구찜&oldid=54329",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "changes": "Only selected factual fields extracted; branch display name disambiguated. Table coordinates unchanged."
+      },
+      "publicationAuthorized": true,
+      "disclosure": {
+        "kind": "attributed-wiki-facts",
+        "publisher": "광주문화예술인문스토리플랫폼",
+        "attribution": "코끼리아구찜 · Proofreaderhong·박종평 및 기여자 · 판 54329 (2025-09-27)",
+        "changes": "상호·주소·메뉴 등 일부 사실 항목만 발췌. 본점 표기는 별도 자료로 보완했으며 표의 좌표는 변경하지 않았습니다.",
+        "scopeNotice": "이 위키에서 사용한 자료에는 CC BY-SA 4.0 조건이 적용됩니다. 원자료의 보호되는 내용을 수정·배포할 때는 동일조건변경허락을 유지해야 합니다. 좌표의 최초 측정·제공자는 확인되지 않았습니다. 블로그의 글·사진은 가져오지 않았으며 현재 영업·판매 여부와 수치 맵기는 미확인입니다.",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "revisionUrl": "https://dh.aks.ac.kr/~gwangju/wiki/index.php?title=코끼리아구찜&oldid=54329",
+        "historyUrl": "https://dh.aks.ac.kr/~gwangju/wiki/index.php?title=코끼리아구찜&action=history"
+      }
+    }
+  }
+]

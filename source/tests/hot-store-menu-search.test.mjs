@@ -14,15 +14,17 @@ import * as catalog from '../lib/map-menu-catalog.ts';
 import * as korean from '../lib/korean-region.ts';
 import {hookHarness,elements,textOf} from './helpers/source-ui-components.mjs';
 
+import regionalRows from '../data/hot-regional-source-records.json' with {type:'json'};
+const expectedCount=785+regionalRows.length;
 const stores=readonlySourceStoreFeed().stores;
 const onjeong=stores.find(store=>store.id==='65a5768f-5c9e-563e-a04f-cbb81835ec02');
 const filters={query:'',heat:0,flavor:'전체',category:'전체',budget:0};
 const matches=(store,query)=>groups.sourcedStoreMatches(store,{...filters,query});
 
-test('store/menu search retains exactly 785 existing menu-bearing source identities',()=>{
- assert.equal(stores.length,785);assert.equal(new Set(stores.map(s=>s.id)).size,785);
+test('store/menu search retains all reviewed menu-bearing source identities',()=>{
+ assert.equal(stores.length,expectedCount);assert.equal(new Set(stores.map(s=>s.id)).size,expectedCount);
  assert.ok(stores.every(store=>store.menus.length));
- for(const query of ['', '   ', '  ·  '])assert.equal(stores.filter(s=>matches(s,query)).length,785);
+ for(const query of ['', '   ', '  ·  '])assert.equal(stores.filter(s=>matches(s,query)).length,expectedCount);
 });
 
 test('approved store aliases, menu variants, spacing and cross-field words match in either order',()=>{
@@ -42,8 +44,8 @@ test('withdrawn menu aliases and unverified heat/price/category never become sea
  assert.equal(matches({...onjeong,sourceRef:'different-source',name:'다른매장',menus:[]},'온정돈까스'),false);
  for(const condition of [{heat:3},{budget:10000},{flavor:'칼칼한'},{category:'분식'}])assert.equal(groups.sourcedStoreMatches(onjeong,{...filters,...condition,query:'온정돈까스'}),false);
  const point={lat:37.5364745896207,lng:126.643696685757};
- assert.equal(groups.sourcedStoresNearby(stores,scope.mapBrowseOrigin('hot',point)).length,785);
- assert.ok(groups.sourcedStoresNearby(stores,scope.mapBrowseOrigin('sweet',point)).length<785);
+ assert.equal(groups.sourcedStoresNearby(stores,scope.mapBrowseOrigin('hot',point)).length,expectedCount);
+ assert.ok(groups.sourcedStoresNearby(stores,scope.mapBrowseOrigin('sweet',point)).length<expectedCount);
  const params=new URLSearchParams();scope.appendMapBrowseLocation(params,'sweet',point);assert.equal(params.get('radiusKm'),'15');
 });
 
@@ -75,7 +77,7 @@ function explorer(h,components,props={}){return elements(h.render(()=>components
 const search=nodes=>nodes.find(node=>node.props?.['aria-label']==='지역명·상호명·매운 메뉴 검색');
 const sheet=nodes=>nodes.find(node=>node.type==='aside'&&node.props?.['aria-label']==='검색된 메뉴');
 
-test('typing opens actual main results, editing leaves detail, clearing restores all 785 without GPS',()=>{
+test('typing opens actual main results, editing leaves detail, clearing restores all reviewed stores without GPS',()=>{
  const h=hookHarness(),components=ui(h);let nodes=explorer(h,components);
  assert.match(sheet(nodes).props.className,/collapsed/);
  search(nodes).props.onChange({target:{value:'온정돈까스 디진다'}});nodes=explorer(h,components);
@@ -88,7 +90,7 @@ test('typing opens actual main results, editing leaves detail, clearing restores
  assert.ok(!nodes.some(node=>node.type===components.Detail));
  assert.equal(nodes.find(node=>node.type===components.Map).props.selectedSourceId,undefined);
  nodes.find(node=>node.props?.['aria-label']==='검색어 지우기').props.onClick();nodes=explorer(h,components);
- assert.equal(nodes.find(node=>node.type===components.Map).props.sourcedStores.length,785);
+ assert.equal(nodes.find(node=>node.type===components.Map).props.sourcedStores.length,expectedCount);
  assert.match(sheet(nodes).props.className,/expanded/);
 });
 
@@ -115,7 +117,7 @@ test('actual embedded search opens results and honors explicit close until a new
  toggle().props.onClick();nodes=render();assert.equal(toggle().props['aria-expanded'],false);
  nodes=render();assert.equal(toggle().props['aria-expanded'],false);
  input().props.onChange({target:{value:''}});nodes=render();assert.equal(toggle().props['aria-expanded'],false);
- assert.equal(nodes.find(node=>node.type===components.Map).props.sourcedStores.length,785);
+ assert.equal(nodes.find(node=>node.type===components.Map).props.sourcedStores.length,expectedCount);
  input().props.onChange({target:{value:'디진다'}});nodes=render();assert.equal(toggle().props['aria-expanded'],true);
 });
 
@@ -126,3 +128,5 @@ test('main results explain excessive meaningful query terms instead of showing b
   assert.equal(nodes.find(node=>node.type===components.Map).props.sourcedStores.length,0);assert.ok(nodes.map(textOf).join(' ').includes(message));
  }
 });
+
+test('new regional names and menus participate in the existing full search path',()=>{for(const row of regionalRows){const store=stores.find(s=>s.id===row.id);assert.ok(store);for(const query of [row.name,row.source_metadata.menus[0].name])assert.ok(matches(store,query));for(const condition of [{heat:3},{budget:10000}])assert.equal(groups.sourcedStoreMatches(store,{...filters,...condition}),false)}});
