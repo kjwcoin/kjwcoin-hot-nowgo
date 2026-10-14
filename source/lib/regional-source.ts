@@ -1,3 +1,4 @@
+import {applyReviewedCorrections,correctedStores,correctedRegionalFactUrl} from './reviewed-source-corrections.ts';
 import priorReviewed from '../data/hot-regional-source-registry.json' with {type:'json'};
 import sejongReviewed from '../data/hot-sejong-eight-source-registry.json' with {type:'json'};
 import nextSejongReviewed from '../data/hot-sejong-next30-source-registry.json' with {type:'json'};
@@ -20,7 +21,7 @@ import chungnamReviewed from '../data/hot-chungnam7-registry.json' with {type:'j
 import finalJeonnamReviewed from '../data/hot-jeonnam-final6-registry.json' with {type:'json'};
 import jeonbukReviewed from '../data/hot-jeonbuk9-registry.json' with {type:'json'};
 import gyeongbukReviewed from '../data/hot-gyeongbuk12-registry.json' with {type:'json'};
-const reviewed=[...priorReviewed,...sejongReviewed,...nextSejongReviewed,...next64Reviewed,...next47Reviewed,...next38Reviewed,...busan23Reviewed,...final13Reviewed,...route7BusanReviewed,...route7Busan8Reviewed,...route7UlsanReviewed,...gangwonReviewed,...jeonnamReviewed,...inlandReviewed,...countiesReviewed,...nextCountiesReviewed,...chungbukReviewed,...gwmReviewed,...chungnamReviewed,...finalJeonnamReviewed,...jeonbukReviewed,...gyeongbukReviewed];
+const reviewed=applyReviewedCorrections([...priorReviewed,...sejongReviewed,...nextSejongReviewed,...next64Reviewed,...next47Reviewed,...next38Reviewed,...busan23Reviewed,...final13Reviewed,...route7BusanReviewed,...route7Busan8Reviewed,...route7UlsanReviewed,...gangwonReviewed,...jeonnamReviewed,...inlandReviewed,...countiesReviewed,...nextCountiesReviewed,...chungbukReviewed,...gwmReviewed,...chungnamReviewed,...finalJeonnamReviewed,...jeonbukReviewed,...gyeongbukReviewed],correctedStores);
 import type {PublicSourcedStore,SourcedStoreRow} from './sourced-store.ts';
 /** Only public, release-reviewed facts belong here. Research packets are never imported. */
 export type RegionalSourceDisclosure={
@@ -56,7 +57,7 @@ function validReviewed(store:ReviewedRegionalStore):boolean{
  const fmr=/^purpleo-fmr-(\d+)$/.exec(store.sourceRef);
  const building=/^jusoga-building-(\d{25})-[a-f0-9]{8}$/.exec(store.sourceRef);
  const archiveBuildingId=Object.hasOwn(reviewedArchiveBuildingIds,store.sourceRef)?reviewedArchiveBuildingIds[store.sourceRef]:undefined;
- const route7Url=Object.hasOwn(reviewedRoute7FactUrls,store.sourceRef)?reviewedRoute7FactUrls[store.sourceRef]:undefined;
+ const route7Url=correctedRegionalFactUrl(store.sourceRef)??(Object.hasOwn(reviewedRoute7FactUrls,store.sourceRef)?reviewedRoute7FactUrls[store.sourceRef]:undefined);
  const supportedFactUrl=route7Url?source.url===route7Url:archiveBuildingId?source.url.startsWith(`https://jusoga.com/b/${archiveBuildingId}/`)&&!/[?#]/.test(source.url):fmr?source.url===`https://fmr.purpleo.co.kr/view/${fmr[1]}`:mirror?source.url===`https://${mirror[1]}.purpleo.kr/article/${mirror[2]}`:Boolean(building&&source.url.startsWith(`https://jusoga.com/b/${building[1]}/`)&&!/[?#]/.test(source.url));
  return d.kind==='individual-public-facts'&&supportedFactUrl&&source.licenseName===null&&d.licenseUrl===null&&d.revisionUrl===null&&d.historyUrl===null;
 }

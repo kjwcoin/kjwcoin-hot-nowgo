@@ -14,7 +14,8 @@ type SourceAliasBinding={sourceRef:string;id:string;menuId:string};
 const aliasBindings=records.flatMap(row=>('aliasBindings' in row.source_metadata?row.source_metadata.aliasBindings:[]) as SourceAliasBinding[]);
 const reservedIds=new Set([...excludedSourceStoreIds,...records.map(row=>row.id),...aliasBindings.map(alias=>alias.id)].map(id=>id.replace(/-/g,'').toLowerCase()));
 // Withdrawing public menu facts never makes a historical source binding writable.
-const reservedMenuIds=new Set([...excludedSourceMenuIds,...records.flatMap(row=>[...row.source_metadata.menus.map(menu=>menu.id),...(row.source_metadata.revokedMenuIds||[])]),...aliasBindings.map(alias=>alias.menuId)]);
+// Withdrawn source-menu identity stays reserved; customer menu-name reports are never relabeled.
+const reservedMenuIds=new Set(['chungnam-cheonan-first-001:menu:1',...excludedSourceMenuIds,...records.flatMap(row=>[...row.source_metadata.menus.map(menu=>menu.id),...(row.source_metadata.revokedMenuIds||[])]),...aliasBindings.map(alias=>alias.menuId)]);
 /** Match the equivalent UUID text forms PostgreSQL accepts, before any side effect. */
 export function isReadonlySourceStoreId(id:unknown):boolean{
  if(typeof id!=='string')return false;

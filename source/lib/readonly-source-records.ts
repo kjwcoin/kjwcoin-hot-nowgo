@@ -1,3 +1,4 @@
+import {applyReviewedCorrections,correctedRows} from './reviewed-source-corrections.ts';
 import priorRegionalRows from '../data/hot-regional-source-records.json' with {type:'json'};
 import sejongRows from '../data/hot-sejong-eight-source-records.json' with {type:'json'};
 import nextSejongRows from '../data/hot-sejong-next30-source-records.json' with {type:'json'};
@@ -20,7 +21,7 @@ import chungnamRows from '../data/hot-chungnam7-records.json' with {type:'json'}
 import finalJeonnamRows from '../data/hot-jeonnam-final6-records.json' with {type:'json'};
 import jeonbukRows from '../data/hot-jeonbuk9-records.json' with {type:'json'};
 import gyeongbukRows from '../data/hot-gyeongbuk12-records.json' with {type:'json'};
-const regionalRows=[...priorRegionalRows,...sejongRows,...nextSejongRows,...next64Rows,...next47Rows,...next38Rows,...busan23Rows,...final13Rows,...route7BusanRows,...route7Busan8Rows,...route7UlsanRows,...gangwonRows,...jeonnamRows,...inlandRows,...countiesRows,...nextCountiesRows,...chungbukRows,...gwmRows,...chungnamRows,...finalJeonnamRows,...jeonbukRows,...gyeongbukRows];
+const regionalRows=applyReviewedCorrections([...priorRegionalRows,...sejongRows,...nextSejongRows,...next64Rows,...next47Rows,...next38Rows,...busan23Rows,...final13Rows,...route7BusanRows,...route7Busan8Rows,...route7UlsanRows,...gangwonRows,...jeonnamRows,...inlandRows,...countiesRows,...nextCountiesRows,...chungbukRows,...gwmRows,...chungnamRows,...finalJeonnamRows,...jeonbukRows,...gyeongbukRows],correctedRows);
 import {appendRegionalSourceStores} from './regional-source.ts';
 import {publicSourcedStore,type SourcedStoreRow} from './sourced-store.ts';
 import reviewedEleven from '../data/hot-source-reviewed-eleven-20261014.json' with {type:'json'};
