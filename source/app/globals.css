@@ -435,3 +435,19 @@ body[data-theme="hot"] .map-store-cluster:focus-visible{background:var(--brand-d
  .explorer-results.expanded .explorer-results-header::before{content:"";position:absolute;top:5px;left:calc(50% - 20px);width:40px;height:4px;border-radius:999px;background:#bbb}
  .explorer-results.expanded .explorer-results-body{overflow-y:auto;overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch;padding-bottom:env(safe-area-inset-bottom,0px)}
 }
+
+/* Overlap expansion changes screen layout only, never a store's map coordinates. */
+.map-store-overlap{position:relative;width:52px;height:52px}
+.map-store-overlap .map-store-overlap-toggle{position:relative;z-index:3;background:#b92820;color:#fff}
+.map-overlap-petals{position:absolute;left:26px;top:26px;width:0;height:0}
+.map-overlap-lines{position:absolute;left:-180px;top:-180px;width:360px;height:360px;overflow:visible;pointer-events:none}
+.map-overlap-lines line{stroke:#b92820;stroke-width:2;stroke-dasharray:4 3}
+.map-overlap-petals .map-overlap-item{position:absolute;transform:translate(-50%,-50%);width:140px;z-index:2}
+.map-overlap-item{display:flex;flex-direction:column;align-items:center;gap:4px;padding:5px;background:#fff;border:1px solid #e8cbc7;border-radius:12px;box-shadow:0 3px 10px #25191926;white-space:normal}
+.map-overlap-item .map-anchor{position:relative;margin:0;max-width:100%}
+.map-overlap-item .map-source-label{max-width:130px;overflow:hidden;text-overflow:ellipsis}
+.map-overlap-address{display:block;max-width:100%;font:11px/1.35 sans-serif;color:#514844;overflow-wrap:anywhere;text-align:center}
+.map-overlap-item a,.map-overlap-item button{min-height:44px;min-width:44px}
+.map-overlap-list{position:absolute;top:60px;left:50%;transform:translateX(-50%);width:min(290px,75vw);max-height:280px;overflow:auto;overscroll-behavior:contain;display:grid;gap:8px;padding:10px;background:#fff;border:1px solid #d6b7b4;border-radius:14px;box-shadow:0 4px 16px #25191930;z-index:4}
+.map-overlap-list p{margin:0;font-size:13px;font-weight:700;color:#5a211c}
+.map-overlap-item :focus-visible{outline:3px solid #b92820;outline-offset:3px}

@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
 import ts from 'typescript';
+import {storeOverlapContent} from '../lib/map-store-overlap.ts';
 import * as clustering from '../lib/map-store-clusters.ts';
 import {mapStoreGroups,sourceIsPrimaryPin} from '../lib/map-sourced-stores.ts';
 import {storePinMenu,hasVerifiedOwner} from '../lib/menu-store-groups.ts';
@@ -84,6 +85,7 @@ function harness(options={}){
   callbacksRef:{current:{onSelect:menu=>stats.selected.push(menu),onSourceSelect:store=>stats.sourceSelected.push(store)}},
   loadedMapStoreCount,setLoadedVisibleCount:count=>{stats.visibleCount=count},...clustering,mapStoreGroups,sourceIsPrimaryPin,storePinMenu,hasVerifiedOwner,isKoreanCoordinate,readViewportBounds,money,menuHeatAttribution,
   document:dom,
+  storeOverlapContent:options=>storeOverlapContent({...options,dom}),
   sourcedStoreMarker:store=>sourcedStoreMarker(store,dom),bindSourceMarkerSelection,
   appendPreviewMarkerHeat:(link,store,summary)=>appendPreviewMarkerHeat(link,store,summary,dom),
   storeClusterButton:(count,onZoom)=>clustering.storeClusterButton(count,onZoom,dom),
@@ -276,7 +278,7 @@ test('SDK/DOM mock: refreshed cluster seed coordinates and membership use the cu
  const position=[...h.live][0].options.position;assert.equal(position.lat,moved[0].coordinates.lat);assert.equal(position.lng,moved[0].coordinates.lon);
  h.click(changed,1);assert.equal(h.stats.centers.at(-1).lat,moved[0].coordinates.lat);h.flush();
  const extra=sourceStore(3,{coordinates:{lat:moved[0].coordinates.lat,lon:moved[0].coordinates.lon}});h.update({sourcedStores:[...moved,extra]});assert.equal(h.clusters()[0].textContent,'3');
- h.map.setLevel(4);h.flush();h.click(h.singles()[0]);assert.ok([...moved,extra].includes(h.stats.sourceSelected.at(-1)));h.unmount();
+ h.map.setLevel(4);h.flush();h.click(h.singles().find(node=>node.className!=='map-store-overlap'));assert.ok([...moved,extra].includes(h.stats.sourceSelected.at(-1)));h.unmount();
 });
 
 test('SDK/DOM mock: fresh data and pending keyboard redraws never steal focus from an outside control',()=>{
@@ -343,4 +345,21 @@ test('SDK/DOM mock: primary loaded count follows the same mounted clusters acros
  h.state.bounds={...initialBounds};h.emit('bounds_changed');h.flush();assert.equal(h.stats.visibleCount,2);assert.equal(h.clusters().length,1);
  const original=h.map.getBounds;h.map.getBounds=()=>null;h.emit('bounds_changed');h.flush();assert.equal(h.stats.visibleCount,null);assert.equal(h.singles().length,2);
  h.map.getBounds=original;h.emit('bounds_changed');h.flush();assert.equal(h.stats.visibleCount,2);h.unmount();assert.equal(h.listeners.size,0);
+});
+
+test('SDK/DOM mock: coincident HOT stores expand as independent pins and collapse on movement, zoom and empty input',()=>{
+ const sources=[1,2,3].map(n=>sourceStore(n,{coordinates:{lat:37.55,lon:126.98},address:'서울특별시 중구 자료길 1 '+n+'호'})),before=JSON.stringify(sources);
+ const h=harness({level:4,sources});
+ const root=()=>h.nodes().find(node=>node.className==='map-store-overlap');
+ const toggle=()=>root().children[0];
+ const pins=()=>root().children[1]?.children.filter(node=>node.className==='map-overlap-item').map(node=>node.children[0])||[];
+ assert.equal(h.nodes().length,1);assert.equal(toggle().textContent,'3');assert.equal(toggle().getAttribute('aria-expanded'),'false');
+ h.click(toggle());assert.equal(pins().length,3);assert.equal(toggle().getAttribute('aria-expanded'),'true');
+ for(const [index,pin] of pins().entries()){h.click(pin);assert.strictEqual(h.stats.sourceSelected.at(-1),sources[index])}
+ h.emit('bounds_changed');h.flush();assert.equal(pins().length,0);
+ h.click(toggle());h.emit('zoom_changed');h.flush();assert.equal(pins().length,0);
+ h.click(toggle());h.observers[0].callback();h.flush();assert.equal(pins().length,0);
+ h.click(toggle());h.update({sourcedStores:[],sourceIdentityStores:[]});assert.equal(h.nodes().length,0);
+ h.update({sourcedStores:sources,sourceIdentityStores:sources});assert.equal(toggle().getAttribute('aria-expanded'),'false');
+ assert.equal(JSON.stringify(sources),before);h.unmount();assert.equal(h.live.size,0);assert.equal(h.listeners.size,0);
 });

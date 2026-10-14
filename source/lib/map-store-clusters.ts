@@ -1,3 +1,4 @@
+import {OVERLAP_DISTANCE_PX} from './map-store-overlap.ts';
 import {sourceIsPrimaryPin,type MapStoreGroup} from './map-sourced-stores.ts';
 import {storePinMenu} from './menu-store-groups.ts';
 import {isKoreanCoordinate} from './korean-region.ts';
@@ -7,7 +8,8 @@ export const STORE_CLUSTER_GRID_PX=80;
 export type StoreMapPoint={key:string;group:MapStoreGroup;lat:number;lng:number;isDemo:boolean};
 export type StoreMapDisplay=
  | {kind:'store';key:string;point:StoreMapPoint}
- | {kind:'cluster';key:string;members:readonly StoreMapPoint[];lat:number;lng:number;count:number};
+ | {kind:'cluster';key:string;members:readonly StoreMapPoint[];lat:number;lng:number;count:number}
+ | {kind:'overlap';key:string;members:readonly StoreMapPoint[];lat:number;lng:number;count:number};
 type Bounds={south:number;north:number;west:number;east:number};
 type Pixel={x:number;y:number};
 
@@ -34,7 +36,9 @@ export function positionedStoreGroups(groups:readonly MapStoreGroup[],selectedId
 export function clusterStorePoints(points:readonly StoreMapPoint[],options:{level:number;project:(point:StoreMapPoint)=>Pixel;bounds:Bounds|null;enabled?:boolean}):StoreMapDisplay[]{
  type CellCluster={anchor:Pixel;members:StoreMapPoint[]};
  const singles:StoreMapDisplay[]=[],cells=new Map<string,CellCluster[]>(),clusters:CellCluster[]=[],seen=new Set<string>();
- const clustering=options.enabled!==false&&options.level>=STORE_CLUSTER_MIN_LEVEL;
+ const clustering=options.enabled!==false;
+ const overlap=options.level<STORE_CLUSTER_MIN_LEVEL;
+ const grid=overlap?OVERLAP_DISTANCE_PX:STORE_CLUSTER_GRID_PX;
  const ordered=clustering?[...points].sort((a,b)=>a.key<b.key?-1:a.key>b.key?1:0):points;
  for(const point of ordered){
   if(seen.has(point.key))continue;
@@ -45,8 +49,8 @@ export function clusterStorePoints(points:readonly StoreMapPoint[],options:{leve
   if(!clustering||point.isDemo){single();continue}
   const pixel=options.project(point);
   if(!Number.isFinite(pixel.x)||!Number.isFinite(pixel.y)){single();continue}
-  const x=Math.floor(pixel.x/STORE_CLUSTER_GRID_PX),y=Math.floor(pixel.y/STORE_CLUSTER_GRID_PX);
-  let nearest:CellCluster|undefined,distance=STORE_CLUSTER_GRID_PX**2;
+  const x=Math.floor(pixel.x/grid),y=Math.floor(pixel.y/grid);
+  let nearest:CellCluster|undefined,distance=grid**2;
   for(let dx=-1;dx<=1;dx++)for(let dy=-1;dy<=1;dy++)for(const cluster of cells.get(`${x+dx}:${y+dy}`)||[]){
    const squared=(pixel.x-cluster.anchor.x)**2+(pixel.y-cluster.anchor.y)**2;
    if(squared<=distance){nearest=cluster;distance=squared}
@@ -63,7 +67,7 @@ export function clusterStorePoints(points:readonly StoreMapPoint[],options:{leve
   // Render at the separated seed, not the centroid: dense groups can otherwise
   // pull neighboring centroids together and make two numbered circles overlap.
   const {lat,lng}=members[0];
-  singles.push({kind:'cluster',key,members,lat,lng,count:members.length});
+  singles.push({kind:overlap?'overlap':'cluster',key:(overlap?'overlap:':'')+key,members,lat,lng,count:members.length});
  }
  return singles;
 }

@@ -15,7 +15,7 @@ import {sourceStore} from './fixtures/sourced-stores.mjs';
 const report={id:'report-a',placeId:'reported-a',shop:'진짜 식당',area:'서울 중구 길 12',name:'매운 닭발',price:12000,heat:2,flavor:'칼칼한',category:'닭발',image:'/photo',lat:37.56,lng:126.98,isDemo:false,description:'회원 제보',verifiedOwner:false,ownerRegistered:false};
 const bounds={south:37,north:38,west:126,east:128};
 const plan=(menus=[],sources=[],options={})=>clusterStorePoints(positionedStoreGroups(mapStoreGroups(menus,sources)),{level:8,bounds,project:()=>({x:20,y:20}),...options});
-const count=display=>display.reduce((sum,item)=>sum+(item.kind==='cluster'?item.count:item.point.isDemo?0:1),0);
+const count=display=>display.reduce((sum,item)=>sum+(item.kind!=='store'?item.count:item.point.isDemo?0:1),0);
 
 function viewportCount(rows,sources=[],complete=true){
  const exports={},source=fs.readFileSync(new URL('../lib/viewport-store-count.ts',import.meta.url),'utf8');
@@ -70,10 +70,11 @@ test('dense neighboring groups render at separated seeds instead of colliding ce
  assert.equal(count(display),202);
 });
 
-test('near zoom restores individual existing pins; disabled variants do not cluster',()=>{
+test('near zoom uses overlap circles only for colliding pins; disabled variants do not cluster',()=>{
  const sources=[sourceStore(1),sourceStore(2)];
  assert.equal(plan([],sources,{level:STORE_CLUSTER_MIN_LEVEL})[0].kind,'cluster');
- for(const options of [{level:STORE_CLUSTER_MIN_LEVEL-1},{enabled:false}]){
+ assert.equal(plan([],sources,{level:STORE_CLUSTER_MIN_LEVEL-1})[0].kind,'overlap');
+ for(const options of [{level:STORE_CLUSTER_MIN_LEVEL-1,project:point=>({x:point.lat*100000,y:0})},{enabled:false}]){
   const display=plan([],sources,options);assert.equal(display.length,2);assert.ok(display.every(item=>item.kind==='store'));
  }
  assert.equal(clusterZoomLevel(8),6);assert.equal(clusterZoomLevel(6),4);assert.equal(clusterZoomLevel(1),1);
@@ -134,7 +135,7 @@ test('zoom, filtering, pan-out, and disposal remove obsolete overlays without ch
  const sources=[sourceStore(1),sourceStore(2)],points=positionedStoreGroups(mapStoreGroups([],sources));let created=0,removed=0;
  const layer=createStoreOverlayReconciler(()=>{created++;return {setMap(){removed++}}});
  layer.update(plan([],sources));assert.equal(created,1);
- layer.update(plan([],sources,{level:4}));assert.equal(created,3);assert.equal(removed,1);
+ layer.update(plan([],sources,{level:4,project:point=>({x:point.lat*100000,y:0})}));assert.equal(created,3);assert.equal(removed,1);
  layer.update(plan([],sources.slice(0,1),{level:4}));assert.equal(created,3);assert.equal(removed,2);
  layer.update(clusterStorePoints(points,{level:8,bounds:{south:35,north:36,west:126,east:128},project:()=>({x:0,y:0})}));assert.equal(removed,3);
  layer.dispose();layer.dispose();assert.equal(removed,3);assert.equal(sources.length,2);
@@ -144,7 +145,7 @@ test('component gates clusters to HOT and removes listeners, animation frames an
  const ui=fs.readFileSync(new URL('../components/kakao-map.tsx',import.meta.url),'utf8');
  assert.match(ui,/clusteringEnabled=variant==='hot'&&!sourcePreview/);assert.match(ui,/clickable:true/);
  assert.match(ui,/map\.setCenter\(position\);map\.setLevel\(clusterZoomLevel\(map\.getLevel\(\)\)\)/);
- for(const event of ['idle','zoom_changed']){assert.ok(ui.includes(`addListener(map,'${event}',refresh)`));assert.ok(ui.includes(`removeListener(map,'${event}',refresh)`))}
+ for(const [event,handler] of [['idle','refresh'],['zoom_changed','moved']]){assert.ok(ui.includes(`addListener(map,'${event}',${handler})`));assert.ok(ui.includes(`removeListener(map,'${event}',${handler})`))}
  assert.match(ui,/disposed=true;cancelAnimationFrame\(frame\);resize\.disconnect\(\)/);
  assert.match(ui,/source=sourceIdentityStores\.find\(store=>store\.id===selectedSourceId\)/);assert.match(ui,/mapRef\.current\.setLevel\(4\)/);
 });

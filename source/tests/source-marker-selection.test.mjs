@@ -23,7 +23,7 @@ test('callers without source-panel support retain the canonical source link with
 test('Kakao source overlays connect the source selection callback, separate from legacy menu identity',()=>{
  const source=fs.readFileSync(new URL('../components/kakao-map.tsx',import.meta.url),'utf8');
  assert.match(source,/onSourceSelect\?:\(store:PublicSourcedStore\)=>void/);assert.match(source,/selectedSourceId\?:string/);
- assert.match(source,/bindSourceMarkerSelection\(link,store,sourceSelectionEnabled\?\(\)=>\{const current=pointByKey\.get\(display\.point\.key\)\?\.group\.source;if\(current\)callbacksRef\.current\.onSourceSelect\?\.\(current\)\}:undefined,selectedSourceId===store\.id\)/);
+ assert.match(source,/bindSourceMarkerSelection\(link,store,sourceSelectionEnabled\?\(\)=>\{const current=pointByKey\.get\(point\.key\)\?\.group\.source;if\(current\)callbacksRef\.current\.onSourceSelect\?\.\(current\)\}:undefined,selectedSourceId===store\.id\)/);
 });
 
 // Browser/SDK movement still requires live verification; this locks the real effect wiring.

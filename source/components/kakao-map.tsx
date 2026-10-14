@@ -15,6 +15,7 @@ import {type PublicSourcedStore} from '@/lib/sourced-store';
 import {sourcedStoreMarker,bindSourceMarkerSelection,appendPreviewMarkerHeat} from '@/lib/source-map-marker';
 import type {PreviewMenuHeat} from '@/lib/preview-menu-heat';
 import {createViewportCounter,readViewportBounds,type ViewportCountState} from '@/lib/viewport-count-client';
+import {storeOverlapContent} from '@/lib/map-store-overlap';
 import {positionedStoreGroups,clusterStorePoints,storeClusterButton,clusterZoomLevel,createStoreOverlayReconciler} from '@/lib/map-store-clusters';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -212,22 +213,16 @@ export default function KakaoMap({menus,sourcedStores=EMPTY_SOURCES,sourceIdenti
   const contentByKey=new Map<string,HTMLElement>();
   let keyboardMembers:Set<string>|null=null;
   let keyboardOrigin:HTMLElement|null=null;
-  const layer=createStoreOverlayReconciler(display=>{
+  let expandedKey:string|null=null;
+  const createPin=(point:(typeof points)[number])=>{
    const {selectedId,selectedSourceId,sourceSelectionEnabled,variant,sourcePreview,previewSourceHeat}=overlayInputsRef.current;
-   if(display.kind==='cluster'){
-    const position=new k.maps.LatLng(display.lat,display.lng);
-    const button=storeClusterButton(display.count,keyboard=>{keyboardMembers=keyboard?new Set(display.members.map(point=>point.key)):null;keyboardOrigin=keyboard?button:null;map.setCenter(position);map.setLevel(clusterZoomLevel(map.getLevel()))});
-    contentByKey.set(display.key,button);
-    return new k.maps.CustomOverlay({map,position,content:button,xAnchor:.5,yAnchor:.5,clickable:true,zIndex:1});
-   }
-   const group=display.point.group;
+   const group=point.group;
    if(sourceIsPrimaryPin(group)&&group.source?.coordinates){
     const store=group.source,link=sourcedStoreMarker(store);
     if(sourcePreview){link.href='/p/'+encodeURIComponent(store.slug)+'?preview=source';link.removeAttribute('target')}
-    bindSourceMarkerSelection(link,store,sourceSelectionEnabled?()=>{const current=pointByKey.get(display.point.key)?.group.source;if(current)callbacksRef.current.onSourceSelect?.(current)}:undefined,selectedSourceId===store.id);
+    bindSourceMarkerSelection(link,store,sourceSelectionEnabled?()=>{const current=pointByKey.get(point.key)?.group.source;if(current)callbacksRef.current.onSourceSelect?.(current)}:undefined,selectedSourceId===store.id);
     if(sourcePreview)appendPreviewMarkerHeat(link,store,previewSourceHeat);
-    contentByKey.set(display.key,link);
-    return new k.maps.CustomOverlay({map,position:new k.maps.LatLng(store.coordinates!.lat,store.coordinates!.lon),content:link,yAnchor:1.2});
+    return link;
    }
    if(!group.catalog)return null;
    const menu=storePinMenu(group.catalog,selectedId),button=document.createElement('button');
@@ -245,14 +240,34 @@ export default function KakaoMap({menus,sourcedStores=EMPTY_SOURCES,sourceIdenti
    price.textContent=money(menu.price);
    if(variant==='hot'){const note=document.createElement('small');note.className='map-anchor-heat-kind';note.textContent=menu.isDemo?'예시 맵기':menu.verifiedOwner?'점주 안내 맵기':'개별 제보 맵기';price.append(note)}
    button.append(pin,price);
-   button.onclick=()=>{const current=pointByKey.get(display.point.key)?.group.catalog;if(current)callbacksRef.current.onSelect(storePinMenu(current,overlayInputsRef.current.selectedId))};
-   contentByKey.set(display.key,button);
-   return new k.maps.CustomOverlay({map,position:new k.maps.LatLng(menu.lat,menu.lng),content:button,yAnchor:1.2});
+   button.onclick=()=>{const current=pointByKey.get(point.key)?.group.catalog;if(current)callbacksRef.current.onSelect(storePinMenu(current,overlayInputsRef.current.selectedId))};
+   return button;
+  };
+  const layer=createStoreOverlayReconciler(display=>{
+   if(display.kind==='cluster'){
+    const position=new k.maps.LatLng(display.lat,display.lng);
+    const button=storeClusterButton(display.count,keyboard=>{keyboardMembers=keyboard?new Set(display.members.map(point=>point.key)):null;keyboardOrigin=keyboard?button:null;map.setCenter(position);map.setLevel(clusterZoomLevel(map.getLevel()))});
+    contentByKey.set(display.key,button);
+    return new k.maps.CustomOverlay({map,position,content:button,xAnchor:.5,yAnchor:.5,clickable:true,zIndex:1});
+   }
+   if(display.kind==='overlap'){
+    const expanded=expandedKey===display.key,position=new k.maps.LatLng(display.lat,display.lng);
+    const content=storeOverlapContent({members:display.members,expanded,createPin,
+     viewport:(()=>{try{const p=map.getProjection().containerPointFromCoords(position),canvas=canvasRef.current;return canvas&&canvas.clientWidth?{width:canvas.clientWidth,height:canvas.clientHeight,x:p.x,y:p.y}:undefined}catch{return undefined}})(),
+     anchorDelta:point=>{try{const projection=map.getProjection(),origin=projection.containerPointFromCoords(position),target=projection.containerPointFromCoords(new k.maps.LatLng(point.lat,point.lng));return{x:target.x-origin.x,y:target.y-origin.y}}catch{return{x:0,y:0}}},
+     onToggle:keyboard=>{if(disposed||!display.members.every(point=>pointByKey.has(point.key)))return;expandedKey=expanded?null:display.key;draw();if(keyboard)contentByKey.get(display.key)?.querySelector<HTMLElement>(expanded?'button':'.map-overlap-item a, .map-overlap-item button')?.focus({preventScroll:true})},
+    });
+    contentByKey.set(display.key,content);
+    return new k.maps.CustomOverlay({map,position,content,xAnchor:.5,yAnchor:.5,clickable:true,zIndex:expanded?20:2});
+   }
+   const content=createPin(display.point);if(!content)return null;
+   contentByKey.set(display.key,content);
+   return new k.maps.CustomOverlay({map,position:new k.maps.LatLng(display.point.lat,display.point.lng),content,yAnchor:1.2});
   },display=>{
    // Keep real DOM focus on equivalent feed refreshes. Any changed pin data,
    // ownership, selection, or preview state must replace its old representation.
-   if(display.kind==='cluster')return JSON.stringify([display.lat,display.lng,display.count]);
    const {selectedId,selectedSourceId,sourceSelectionEnabled,variant,sourcePreview,previewSourceHeat}=overlayInputsRef.current;
+   if(display.kind!=='store')return JSON.stringify([display.lat,display.lng,display.count,display.kind==='overlap'&&expandedKey===display.key,display.kind==='overlap'?[display.members,selectedId,selectedSourceId,sourceSelectionEnabled,variant,sourcePreview,previewSourceHeat]:undefined]);
    return JSON.stringify([display.point,selectedId,selectedSourceId,sourceSelectionEnabled,variant,sourcePreview,previewSourceHeat]);
   });
   let frame=0,disposed=false;
@@ -269,20 +284,26 @@ export default function KakaoMap({menus,sourcedStores=EMPTY_SOURCES,sourceIdenti
      });
     }catch{/* Keep existing individual pins if a transient SDK projection/bounds read fails. */}
    }
-   const focusedKey=[...contentByKey].find(([,content])=>content===document.activeElement)?.[0];
+   if(expandedKey&&!displays.some(display=>display.kind==='overlap'&&display.key===expandedKey))expandedKey=null;
+   const focusedKey=[...contentByKey].find(([,content])=>(content===document.activeElement||content.contains?.(document.activeElement)))?.[0];
    const keyboardFocus=keyboardMembers&&document.activeElement===keyboardOrigin;
    overlaysRef.current=layer.update(displays);
    const active=new Set(displays.map(display=>display.key));for(const key of contentByKey.keys())if(!active.has(key))contentByKey.delete(key);
    if(keyboardMembers){
     const members=keyboardMembers;keyboardMembers=null;keyboardOrigin=null;
     const target=displays.find(display=>display.kind==='store'?members.has(display.point.key):display.members.some(point=>members.has(point.key)));
-    if(keyboardFocus)(target?contentByKey.get(target.key):canvasRef.current)?.focus({preventScroll:true});
+    const content=target?contentByKey.get(target.key):canvasRef.current;
+    if(keyboardFocus)(content?.querySelector?.<HTMLElement>('.map-store-overlap-toggle')??content)?.focus({preventScroll:true});
    }
    if(focusedKey&&document.activeElement===document.body){
     // Only replace focus lost by this draw; never take it from another control.
-    (contentByKey.get(focusedKey)??canvasRef.current)?.focus({preventScroll:true});
+    const target=contentByKey.get(focusedKey);
+    (target?.querySelector?.<HTMLElement>('button')??target??canvasRef.current)?.focus({preventScroll:true});
    }
   };
+  const closeOverlap=()=>{if(expandedKey){expandedKey=null;draw()}};
+  const outside=(event:Event)=>{if(expandedKey&&!contentByKey.get(expandedKey)?.contains(event.target as Node))closeOverlap()};
+  const escape=(event:KeyboardEvent)=>{if(event.key==='Escape'&&expandedKey){event.preventDefault();closeOverlap()}};
   const refresh=()=>{if(!disposed&&!frame)frame=requestAnimationFrame(draw)};
   const update=()=>{
    if(disposed||mapRef.current!==map)return;
@@ -294,11 +315,13 @@ export default function KakaoMap({menus,sourcedStores=EMPTY_SOURCES,sourceIdenti
   const dispose=()=>{disposed=true;layer.dispose();contentByKey.clear();pointByKey.clear();overlaysRef.current=[];if(refreshOverlaysRef.current===update)refreshOverlaysRef.current=null};
   refreshOverlaysRef.current=update;map.relayout();update();
   if(!clusteringEnabled)return dispose;
+  const moved=()=>{closeOverlap();refresh()};
+  document.addEventListener?.('pointerdown',outside);document.addEventListener?.('keydown',escape);
   k.maps.event.addListener(map,'idle',refresh);
-  k.maps.event.addListener(map,'bounds_changed',refresh);
-  k.maps.event.addListener(map,'zoom_changed',refresh);
-  const resize=new ResizeObserver(refresh);if(rootRef.current)resize.observe(rootRef.current);
-  return()=>{disposed=true;cancelAnimationFrame(frame);resize.disconnect();k.maps.event.removeListener(map,'idle',refresh);k.maps.event.removeListener(map,'bounds_changed',refresh);k.maps.event.removeListener(map,'zoom_changed',refresh);dispose()};
+  k.maps.event.addListener(map,'bounds_changed',moved);
+  k.maps.event.addListener(map,'zoom_changed',moved);
+  const resize=new ResizeObserver(moved);if(rootRef.current)resize.observe(rootRef.current);
+  return()=>{disposed=true;cancelAnimationFrame(frame);resize.disconnect();k.maps.event.removeListener(map,'idle',refresh);k.maps.event.removeListener(map,'bounds_changed',moved);k.maps.event.removeListener(map,'zoom_changed',moved);document.removeEventListener?.('pointerdown',outside);document.removeEventListener?.('keydown',escape);dispose()};
  },[mapState,clusteringEnabled,mapRevision]);
 
  useEffect(()=>{

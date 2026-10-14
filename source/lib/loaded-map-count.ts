@@ -8,7 +8,7 @@ export function loadedMapStoreCount(displays:readonly StoreMapDisplay[],bounds:V
  const {south,north,west,east}=bounds;
  if(![south,north,west,east].every(Number.isFinite)||south>=north||west>=east)return null;
  const keys=new Set<string>();
- for(const display of displays)for(const point of display.kind==='cluster'?display.members:[display.point]){
+ for(const display of displays)for(const point of display.kind!=='store'?display.members:[display.point]){
   if(point.isDemo||!Number.isFinite(point.lat)||!Number.isFinite(point.lng))continue;
   if(point.lat>=south&&point.lat<=north&&point.lng>=west&&point.lng<=east)keys.add(point.key);
  }
