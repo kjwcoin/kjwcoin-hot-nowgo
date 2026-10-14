@@ -1,0 +1,47 @@
+[
+  {
+    "id": "6e9f9d73-f036-5996-bb70-89cf9ac44701",
+    "slug": "hot-official-youngdabang-539",
+    "sourceRef": "official-youngdabang-539",
+    "name": "청년다방 전북장수점",
+    "address": "전북특별자치도 장수군 장수읍 군청길 28",
+    "coordinates": {
+      "lat": 35.6464315755315,
+      "lon": 127.520116110563
+    },
+    "menus": [
+      {
+        "id": "official-youngdabang-539:menu:1",
+        "name": "크림차돌떡볶이",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://youngdabang.com/board/index.php?board=map_01&sca=all&type=view&select=&search=&idx=539",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:32:50.247094+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "청년다방 공식 매장 상세 및 메뉴",
+        "attribution": "상호·주소·위치: 청년다방 전북장수점 공식 상세. 메뉴: 청년다방 공식 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 크림차돌떡볶이는 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 공식 메뉴에 매콤한 국물로 소개되지만 수치 맵기나 개인 시식은 주장하지 않습니다. 위치는 본사 지점 상세의 저장 좌표이며 최초 생성 방법·현장 정확도·출입구 위치는 미확인입니다. 지도 API 응답이나 지도 이미지는 수집하지 않았습니다. 게시·갱신일은 미표시이며 확인일은 영업 확인일을 뜻하지 않습니다. 주소 끝의 중복 상호는 생략했습니다. 개별 사실만 정리하며 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  }
+]
