@@ -1,0 +1,362 @@
+[
+  {
+    "id": "2d74621c-c77b-5d9e-a7aa-c69e022c5bfb",
+    "slug": "hot-official-zipsin-79",
+    "sourceRef": "official-zipsin-79",
+    "name": "짚신매운갈비찜 함안점",
+    "address": "경남 함안군 가야읍 성내남길 7-4",
+    "coordinates": {
+      "lat": 35.2747148791984,
+      "lon": 128.39931118716
+    },
+    "menus": [
+      {
+        "id": "official-zipsin-79:menu:1",
+        "name": "짚신 매운 돼지갈비찜",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://www.zipsinfood.co.kr/board/index.php?board=map_01&sca=all",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:49:09.999084+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "짚신매운갈비찜 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 짚신매운갈비찜 공식 매장안내의 지점별 저장 정보. 메뉴: 본사 공식 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 짚신 매운 돼지갈비찜은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 공식 매장안내가 사용하는 본사 도메인의 지점별 좌표이며 최초 생성자·방법·서버 내부 생성 방식·현장 정확도·출입구 위치는 미확인입니다. 지도 제공자 API 응답이나 지도 이미지는 수집하지 않았습니다. 게시·갱신일은 미표시이며 확인일은 영업 확인일을 뜻하지 않습니다. 개별 사실만 정리하며 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "d110e4f4-6140-54e5-8c8e-b8dbec7f6a11",
+    "slug": "hot-official-zipsin-119",
+    "sourceRef": "official-zipsin-119",
+    "name": "짚신매운갈비찜 충북혁신도시점",
+    "address": "충북 음성군 맹동면 대하로 212 103호",
+    "coordinates": {
+      "lat": 36.9067339252406,
+      "lon": 127.54127189592
+    },
+    "menus": [
+      {
+        "id": "official-zipsin-119:menu:1",
+        "name": "짚신 매운 돼지갈비찜",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://www.zipsinfood.co.kr/board/index.php?board=map_01&sca=all",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:50:01.699533+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "짚신매운갈비찜 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 짚신매운갈비찜 공식 매장안내의 지점별 저장 정보. 메뉴: 본사 공식 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 짚신 매운 돼지갈비찜은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 공식 매장안내가 사용하는 본사 도메인의 지점별 좌표이며 최초 생성자·방법·서버 내부 생성 방식·현장 정확도·출입구 위치는 미확인입니다. 지도 제공자 API 응답이나 지도 이미지는 수집하지 않았습니다. 게시·갱신일은 미표시이며 확인일은 영업 확인일을 뜻하지 않습니다. 개별 사실만 정리하며 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "f673dca2-3e5b-5258-8dab-b4812fa0d9a4",
+    "slug": "hot-official-zipsin-38",
+    "sourceRef": "official-zipsin-38",
+    "name": "짚신매운갈비찜 전곡점",
+    "address": "경기 연천군 전곡읍 전곡로 153-1 1층",
+    "coordinates": {
+      "lat": 38.0258470654885,
+      "lon": 127.068123678727
+    },
+    "menus": [
+      {
+        "id": "official-zipsin-38:menu:1",
+        "name": "짚신 매운 돼지갈비찜",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://www.zipsinfood.co.kr/board/index.php?board=map_01&sca=all",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:50:06.703974+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "짚신매운갈비찜 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 짚신매운갈비찜 공식 매장안내의 지점별 저장 정보. 메뉴: 본사 공식 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 짚신 매운 돼지갈비찜은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 공식 매장안내가 사용하는 본사 도메인의 지점별 좌표이며 최초 생성자·방법·서버 내부 생성 방식·현장 정확도·출입구 위치는 미확인입니다. 지도 제공자 API 응답이나 지도 이미지는 수집하지 않았습니다. 게시·갱신일은 미표시이며 확인일은 영업 확인일을 뜻하지 않습니다. 개별 사실만 정리하며 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "36e57623-4267-59d6-86ca-2e4711ee20e4",
+    "slug": "hot-official-zipsin-12",
+    "sourceRef": "official-zipsin-12",
+    "name": "짚신매운갈비찜 지행점",
+    "address": "경기 동두천시 중앙로 110-23",
+    "coordinates": {
+      "lat": 37.8916277876572,
+      "lon": 127.05336626517
+    },
+    "menus": [
+      {
+        "id": "official-zipsin-12:menu:1",
+        "name": "짚신 매운 돼지갈비찜",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://www.zipsinfood.co.kr/board/index.php?board=map_01&sca=all",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:50:12.547251+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "짚신매운갈비찜 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 짚신매운갈비찜 공식 매장안내의 지점별 저장 정보. 메뉴: 본사 공식 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 짚신 매운 돼지갈비찜은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 공식 매장안내가 사용하는 본사 도메인의 지점별 좌표이며 최초 생성자·방법·서버 내부 생성 방식·현장 정확도·출입구 위치는 미확인입니다. 지도 제공자 API 응답이나 지도 이미지는 수집하지 않았습니다. 게시·갱신일은 미표시이며 확인일은 영업 확인일을 뜻하지 않습니다. 개별 사실만 정리하며 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "3714268a-75ae-5e3a-9a69-29f09c4e73a6",
+    "slug": "hot-official-zipsin-81",
+    "sourceRef": "official-zipsin-81",
+    "name": "짚신매운갈비찜 진주계동점",
+    "address": "경남 진주시 비봉로 48",
+    "coordinates": {
+      "lat": 35.1949741916173,
+      "lon": 128.080556876721
+    },
+    "menus": [
+      {
+        "id": "official-zipsin-81:menu:1",
+        "name": "짚신 매운 돼지갈비찜",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://www.zipsinfood.co.kr/board/index.php?board=map_01&sca=all",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:50:19.796440+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "짚신매운갈비찜 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 짚신매운갈비찜 공식 매장안내의 지점별 저장 정보. 메뉴: 본사 공식 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 짚신 매운 돼지갈비찜은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 공식 매장안내가 사용하는 본사 도메인의 지점별 좌표이며 최초 생성자·방법·서버 내부 생성 방식·현장 정확도·출입구 위치는 미확인입니다. 지도 제공자 API 응답이나 지도 이미지는 수집하지 않았습니다. 게시·갱신일은 미표시이며 확인일은 영업 확인일을 뜻하지 않습니다. 개별 사실만 정리하며 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "46b4ceda-ffdb-56cb-8002-102c2a4596b7",
+    "slug": "hot-official-zipsin-68",
+    "sourceRef": "official-zipsin-68",
+    "name": "짚신매운갈비찜 장유점",
+    "address": "경남 김해시 율하카페길 31-17",
+    "coordinates": {
+      "lat": 35.1769809195187,
+      "lon": 128.80929102788
+    },
+    "menus": [
+      {
+        "id": "official-zipsin-68:menu:1",
+        "name": "짚신 매운 돼지갈비찜",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://www.zipsinfood.co.kr/board/index.php?board=map_01&sca=all",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:50:24.550835+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "짚신매운갈비찜 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 짚신매운갈비찜 공식 매장안내의 지점별 저장 정보. 메뉴: 본사 공식 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 짚신 매운 돼지갈비찜은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 공식 매장안내가 사용하는 본사 도메인의 지점별 좌표이며 최초 생성자·방법·서버 내부 생성 방식·현장 정확도·출입구 위치는 미확인입니다. 지도 제공자 API 응답이나 지도 이미지는 수집하지 않았습니다. 게시·갱신일은 미표시이며 확인일은 영업 확인일을 뜻하지 않습니다. 개별 사실만 정리하며 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "f73d0dca-fc0b-5992-83cc-c4358827cf14",
+    "slug": "hot-official-zipsin-109",
+    "sourceRef": "official-zipsin-109",
+    "name": "짚신매운갈비찜 홈딜링 경남사천점",
+    "address": "경남 사천시 사천읍 정의1길 17",
+    "coordinates": {
+      "lat": 35.0843177307087,
+      "lon": 128.089408580154
+    },
+    "menus": [
+      {
+        "id": "official-zipsin-109:menu:1",
+        "name": "짚신 매운 돼지갈비찜",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://www.zipsinfood.co.kr/board/index.php?board=map_01&sca=all",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:50:29.216592+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "짚신매운갈비찜 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 짚신매운갈비찜 공식 매장안내의 지점별 저장 정보. 메뉴: 본사 공식 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 짚신 매운 돼지갈비찜은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 공식 매장안내가 사용하는 본사 도메인의 지점별 좌표이며 최초 생성자·방법·서버 내부 생성 방식·현장 정확도·출입구 위치는 미확인입니다. 지도 제공자 API 응답이나 지도 이미지는 수집하지 않았습니다. 게시·갱신일은 미표시이며 확인일은 영업 확인일을 뜻하지 않습니다. 개별 사실만 정리하며 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다. 공식 지점명에 홈딜링이 표기되어 있으며 매장 내 식사 가능 여부는 확인되지 않았습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "d4756163-967d-5959-87f3-c3fe21b205eb",
+    "slug": "hot-official-zipsin-120",
+    "sourceRef": "official-zipsin-120",
+    "name": "짚신매운갈비찜 홈딜링 안성점",
+    "address": "경기 안성시 아양로 61-19",
+    "coordinates": {
+      "lat": 37.003481478855,
+      "lon": 127.261048429098
+    },
+    "menus": [
+      {
+        "id": "official-zipsin-120:menu:1",
+        "name": "짚신 매운 돼지갈비찜",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://www.zipsinfood.co.kr/board/index.php?board=map_01&sca=all",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T14:50:34.195629+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "짚신매운갈비찜 공식 매장안내 및 메뉴",
+        "attribution": "상호·주소·위치: 짚신매운갈비찜 공식 매장안내의 지점별 저장 정보. 메뉴: 본사 공식 공통 메뉴.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 짚신 매운 돼지갈비찜은 본사 공통 메뉴이며 해당 지점의 현재 판매 여부와 현재 영업 여부는 확인되지 않았습니다. 위치는 공식 매장안내가 사용하는 본사 도메인의 지점별 좌표이며 최초 생성자·방법·서버 내부 생성 방식·현장 정확도·출입구 위치는 미확인입니다. 지도 제공자 API 응답이나 지도 이미지는 수집하지 않았습니다. 게시·갱신일은 미표시이며 확인일은 영업 확인일을 뜻하지 않습니다. 개별 사실만 정리하며 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다. 공식 지점명에 홈딜링이 표기되어 있으며 매장 내 식사 가능 여부는 확인되지 않았습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  }
+]
