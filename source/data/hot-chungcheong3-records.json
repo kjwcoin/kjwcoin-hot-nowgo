@@ -1,0 +1,128 @@
+[
+  {
+    "id": "b4e5dbd7-72fa-5492-9f00-ae21a1e41b0e",
+    "slug": "hot-individual-daejeon-jinrojip",
+    "name": "진로집",
+    "address": "대전광역시 중구 중교로 45-5",
+    "lat": 36.3258521836792,
+    "lon": 127.42471699518315,
+    "source_ref": "individual-daejeon-jinrojip",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://lifesummary.tistory.com/142",
+      "sourceRecordId": "individual-daejeon-jinrojip",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-15T05:16:00Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "individual-daejeon-jinrojip:menu:1",
+          "name": "두부두루치기",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "오늘도 정리 · 언젠간 날고 말거야 · 브릭스 · 대전광역시",
+        "attribution": "메뉴·최근 식사 기록: 오늘도 정리 https://lifesummary.tistory.com/142 주소: 대전광역시 https://www.daejeon.go.kr/fod/fodTraditionList.do?menuSeq=165 위치: 언젠간 날고 말거야 https://bezzera.tistory.com/1774 가족 운영의 과거 기록: 브릭스 https://v.daum.net/v/qgZHQUHEbu",
+        "changes": "상호·주소·메뉴명·위치 한 건과 최근 게시된 직접 식사 사실만 정리했습니다. 후기 문장·사진·가격·평점·지도 이미지는 전재하지 않았습니다.",
+        "scopeNotice": "2026-09-04 게시된 직접 방문기에서 두부두루치기 주문·식사와 맵기 조절 요청이 확인됩니다. 실제 방문일은 기재되어 있지 않습니다. 해당 후기는 두부의 맛과 재방문 의사를 긍정적으로 적었지만 좌석·사리 등에는 아쉬움도 남겼습니다. 맵기 조절은 개별 주문 경험이며 인쇄된 정식 단계나 수치 맵기를 뜻하지 않습니다. 2024년 직접 인터뷰에서 가족 운영이 소개됩니다. 현재 법적 소유주·사업자 형태·분점 유무는 확인하지 않았습니다. 현재 영업·현재 판매 여부는 확인하지 않았습니다. 위치는 2018년 방문기 HTML의 상호·지번주소가 붙은 개별 표식을 문서화된 좌표계로 환산한 값이며 지도 중심점이 아닙니다. 대전시 주소 및 최근 식사 기록의 동일 식당 여부를 대조했습니다. 실측 입구 위치와 정확도는 확인되지 않았습니다. 원문·사진·지도·데이터베이스 전체의 상업적 재사용 허가를 뜻하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "97b601c1-e5b0-5871-bfa8-559098f8276f",
+    "slug": "hot-individual-daejeon-sonamujip",
+    "name": "소나무집",
+    "address": "대전광역시 중구 대종로460번길 59",
+    "lat": 36.3269328520066,
+    "lon": 127.430545752511,
+    "source_ref": "individual-daejeon-sonamujip",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://kimalmeng.tistory.com/1848",
+      "sourceRecordId": "individual-daejeon-sonamujip",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-15T05:16:00Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "individual-daejeon-sonamujip:menu:1",
+          "name": "오징어찌개",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "김알멩의 다양한 체험기 · 먹으면 살이 와요 · 한국관광공사 · 대전광역시",
+        "attribution": "메뉴·최근 식사 기록: 김알멩의 다양한 체험기 https://kimalmeng.tistory.com/1848 매운맛의 별도 식사 기록: 먹으면 살이 와요 https://damgu.tistory.com/767 주소·위치: 한국관광공사 https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=c272b93b-805c-4122-863d-03aa7e70a8fa 자료 이용 안내: 한국관광공사 https://contest.visitkorea.or.kr/kor/helpDesk/copyrightGuide.kto 가족 운영의 과거 소개: 대전광역시 https://www.daejeon.go.kr/its/ItsdjNormalboardView.do?boardGubun=itsdj01&boardSeq=2078",
+        "changes": "상호·주소·메뉴명·위치 한 건과 최근 게시된 직접 식사 사실만 정리했습니다. 후기 문장·사진·가격·평점·지도 이미지는 전재하지 않았습니다.",
+        "scopeNotice": "2026-08-25 게시된 직접 방문기에서 오징어찌개 주문·식사와 포장 후 식사가 확인됩니다. 실제 방문일은 기재되어 있지 않습니다. 2026-01-18 게시된 별도 방문기는 2025년 식사를 회고하며 오징어찌개의 칼칼한 맛을 언급합니다. 이 회고는 최근 방문일을 입증하는 자료로 사용하지 않았습니다. 정식 맵기 선택 단계나 수치 맵기는 확인하지 않았습니다. 2022년 대전시 소개에서 창업자의 딸과 며느리가 이어 운영하는 식당으로 소개됩니다. 현재 법적 소유주·사업자 형태·분점 유무는 확인하지 않았습니다. 현재 영업·현재 판매 여부는 확인하지 않았습니다. 위치는 한국관광공사 여행지 상세정보의 동일 상호·도로명주소에 연결된 좌표 한 건입니다. 실측 입구 위치와 정확도는 확인되지 않았습니다. 원문·사진·지도·데이터베이스 전체의 상업적 재사용 허가를 뜻하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "af1bfab3-eb81-5c98-b266-2a439c771c06",
+    "slug": "hot-individual-chungbuk-cheongju-somunnan-bubu-tteokbokki",
+    "name": "소문난부부떡볶이",
+    "address": "충청북도 청주시 상당구 상당로55번길 40-1",
+    "lat": 36.6331234,
+    "lon": 127.4884167,
+    "source_ref": "individual-chungbuk-cheongju-somunnan-bubu-tteokbokki",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://noljabubu.tistory.com/entry/결국-마법-가루-청주-소부떡-후기-소문난-부부-떡볶이-맛집-성안길-철당간-중앙공원-추천",
+      "sourceRecordId": "individual-chungbuk-cheongju-somunnan-bubu-tteokbokki",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-15T05:13:04.275834Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "individual-chungbuk-cheongju-somunnan-bubu-tteokbokki:menu:1",
+          "name": "소부떡 시그니처 중간맛",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "일상의 행복, 놀자부부 · 충북대신문 · KBS 시청자상담실 · 청주여기",
+        "attribution": "메뉴·최근 식사 기록: 일상의 행복, 놀자부부 https://noljabubu.tistory.com/entry/결국-마법-가루-청주-소부떡-후기-소문난-부부-떡볶이-맛집-성안길-철당간-중앙공원-추천 방문 교차확인: 충북대신문 https://press.chungbuk.ac.kr/ktimes/m_view.php?mode=view&no=5050&section=101 부부 운영 과거 기록: KBS 시청자상담실 https://iaudience.kbs.co.kr/broadcast/8534 주소·위치: 청주여기 https://skweb.cjsmarttour.kr/home/sub.do?code2=166&menukey=6003&mode=viewApi&no=282&page=26",
+        "changes": "상호·주소·메뉴명·위치 한 건과 최근 게시된 직접 식사 사실만 정리했습니다. 후기 문장·사진·가격·평점·지도 이미지는 전재하지 않았습니다.",
+        "scopeNotice": "2026-06-26 게시된 직접 방문기에서 소부떡 시그니처 중간맛 주문·식사와 매운맛이 확인됩니다. 실제 방문일은 기재되어 있지 않습니다. 중간맛은 출처에 등장하는 메뉴 선택명이며 수치 맵기를 뜻하지 않습니다. 2018년 KBS 자료에서 부부가 운영하는 식당으로 소개됩니다. 현재 법적 소유주·사업자 형태·분점 유무는 확인하지 않았습니다. 현재 영업·현재 판매 여부는 확인하지 않았습니다. 위치는 청주여기 상세페이지의 상호·도로명주소와 연결된 해당 식당 목적지·마커 좌표이며 청주시청 출발점이나 지도 중심점을 대신 사용하지 않았습니다. 실측 입구 위치와 정확도는 확인되지 않았습니다. 원문·사진·지도·데이터베이스 전체의 상업적 재사용 허가를 뜻하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  }
+]
