@@ -14,7 +14,7 @@ export default function WorldEntry({planet,state,open,onClose,onActivity}:{plane
  const [detailsOpen,setDetailsOpen]=useState(false);
  const brief=planet==='hot'?'내 취향에 맞는 매운 한 접시를 찾아요.':planet==='sweet'?'내 취향에 맞는 달콤한 디저트를 찾아요.':'맛과 식감이 마음에 드는 한 접시를 찾아요.';
  return <Dialog open={open} onOpenChange={value=>{if(!value)onClose()}}><DialogContent className="we-dialog activity-world" showCloseButton={false} style={{'--planet':w.accent} as CSSProperties} onCloseAutoFocus={event=>event.preventDefault()}>
-  <div className="we-top"><Brand/><span>{w.name}의 세계</span><button onClick={onClose} aria-label="세계관 팝업 닫고 지도 이용하기"><span className="we-close-full">닫고 지도 이용하기</span><span className="we-close-compact">닫기</span><X size={23}/></button></div>
+  <div className="we-top"><Brand/><span>{planet==='sweet'?'SWEET · 선결제 픽업 안내':`${w.name}의 세계`}</span><button onClick={onClose} aria-label="세계관 팝업 닫고 지도 이용하기"><span className="we-close-full">닫고 지도 이용하기</span><span className="we-close-compact">닫기</span><X size={23}/></button></div>
   <div className="we-content">
    {planet==='sweet' ? <section className="sweet-entry" aria-labelledby="sweet-entry-title">
     <div className="sweet-entry-hero">
