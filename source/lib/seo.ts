@@ -4,7 +4,7 @@ import { type SiteVariant, variantForHost } from './site-config';
 
 export const flavorOrigins = { hot: 'https://hot.nowgo.space', sweet: 'https://sweet.nowgo.space', rich: 'https://rich.nowgo.space' } as const;
 export const flavorSearch = {
- hot: { title: '나우고 HOT | 지역별 매운맛 메뉴·맛집 지도', description: '지역과 상호로 매운맛 메뉴를 찾아보세요. 떡볶이·닭발·얼큰한 음식의 맵기와 가격, 점주·고객 제보를 지도에서 확인하고 매장 미니홈피로 연결합니다.' },
+ hot: { title: '내 주변 매운 맛집 · 지역별 매운 메뉴 지도 | 나우고 HOT', description: '내 주변 매운 맛집을 지역·주소·상호·매운 메뉴로 찾아보세요. 떡볶이·닭발·얼큰한 음식의 맵기와 가격, 점주·고객 제보를 지도에서 확인하고 매장 미니홈피로 연결합니다.' },
  sweet: { title: '나우고 SWEET | 지역별 디저트·카페 지도', description: '지역과 상호로 달콤한 디저트와 카페를 찾아보세요. 케이크·베이커리·아이스크림의 단맛과 가격, 점주·고객 제보를 지도에서 확인하고 매장 미니홈피로 연결합니다.' },
  rich: { title: '나우고 RICH | 지역별 크림·치즈·버터 메뉴 지도', description: '지역과 상호로 진하고 고소한 메뉴를 찾아보세요. 크림 파스타·치즈·버터 메뉴의 취향과 가격, 점주·고객 제보를 지도에서 확인하고 매장 미니홈피로 연결합니다.' },
 } as const;

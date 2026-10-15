@@ -451,3 +451,5 @@ body[data-theme="hot"] .map-store-cluster:focus-visible{background:var(--brand-d
 .map-overlap-list{position:absolute;top:60px;left:50%;transform:translateX(-50%);width:min(290px,75vw);max-height:280px;overflow:auto;overscroll-behavior:contain;display:grid;gap:8px;padding:10px;background:#fff;border:1px solid #d6b7b4;border-radius:14px;box-shadow:0 4px 16px #25191930;z-index:4}
 .map-overlap-list p{margin:0;font-size:13px;font-weight:700;color:#5a211c}
 .map-overlap-item :focus-visible{outline:3px solid #b92820;outline-offset:3px}
+
+.explorer-search-directory{color:#b92e26;font-size:13px;font-weight:700;white-space:nowrap;text-decoration:underline}.source-store-public-link{display:block;padding:10px 14px;color:#b92e26;font-size:13px;text-decoration:underline}@media(max-width:700px){.explorer-search-directory{display:none}}

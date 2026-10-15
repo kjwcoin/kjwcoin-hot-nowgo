@@ -5,7 +5,8 @@ import { variantForHost } from '@/lib/site-config';
 import { flavorOrigins, publicFlavorHost } from '@/lib/seo';
 import { readLegacyPlaceIds } from '@/lib/store-discovery-catalog';
 import { legacyStoreUrl, STORE_DISCOVERY_INDEXING_READY } from '@/lib/store-discovery';
-import { readSourcedStoreFeed } from '@/lib/sourced-store-feed';
+import {readHotSearchStores} from '@/lib/hot-search-directory';
+import {nearbyPath,storeLocality} from '@/lib/hot-search';
 import { sourcedStoreUrl } from '@/lib/sourced-store';
 
 export const dynamic = 'force-dynamic';
@@ -18,9 +19,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   if (variant === 'hot') {
     if (STORE_DISCOVERY_INDEXING_READY) for (const id of await readLegacyPlaceIds(variant)) urls.add(legacyStoreUrl(id, variant));
     if (process.env.NOWGO_UNCLAIMED_STORES_ENABLED === 'true') {
-      const feed = await readSourcedStoreFeed();
-      if (!feed.complete) throw Error('discovery_source_feed_incomplete');
-      for (const store of feed.stores) if(store.indexable===true) urls.add(sourcedStoreUrl(store));
+      const stores=await readHotSearchStores();
+      urls.add(origin+'/nearby');
+      for(const store of stores){urls.add(sourcedStoreUrl(store));urls.add(origin+nearbyPath(storeLocality(store.address)));}
     }
   }
   // 4,000+ records fit a request-time sitemap. Never silently cut an oversized catalog.

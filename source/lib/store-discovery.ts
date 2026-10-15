@@ -44,10 +44,11 @@ function pageMetadata(title: string, description: string, url: string, index: bo
 }
 
 export function sourcedStoreMetadata(store: PublicSourcedStore, host: string | null = null): Metadata {
-  const title = `${store.name} · ${store.address} | 나우고 HOT`;
+  const locality=store.address.trim().split(/\s+/).slice(0,2).join(' ');
+  const title = `${store.name} · ${locality} 매운 맛집·메뉴 | 나우고 HOT`;
   const menuScope=store.menus.some(isBrandCommonMenu)?`${BRAND_COMMON_MENU_NOTICE}:`:'공개자료에 기재된 메뉴:';
   const menuDescription=store.menus.length?`${menuScope} ${store.menus.slice(0, 3).map(menu => menu.name).join(', ')}.`:'확인된 메뉴 정보가 없습니다.';
-  const description = `${store.address}의 ${store.name}. ${menuDescription} ${store.menus[0]?.provenance?.preparationNotice?store.menus[0].provenance.preparationNotice+' ':''}${store.ownerClaimVerified ? '점주 권한 확인 매장.' : '점주 미확인 매장.'} 현재 영업·가격·메뉴 판매 여부는 방문 전에 확인하세요.`;
+  const description = `${store.address}의 ${store.name}. 내 주변 매운 맛집을 주소와 메뉴로 찾아보세요. ${menuDescription} ${store.menus[0]?.provenance?.preparationNotice?store.menus[0].provenance.preparationNotice+' ':''}${store.ownerClaimVerified ? '점주 권한 확인 매장.' : '점주 미확인 매장.'} 현재 영업·가격·메뉴 판매 여부는 방문 전에 확인하세요.`;
   return pageMetadata(title, description, sourcedStoreUrl(store), store.indexable===true && publicHotHost(host));
 }
 
