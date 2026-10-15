@@ -1,0 +1,137 @@
+[
+  {
+    "id": "1b322672-68eb-50c8-aeaa-3f668010d5da",
+    "slug": "hot-individual-yeongwol-eomga-kiminsu-sundubu",
+    "sourceRef": "individual-yeongwol-eomga-kiminsu-sundubu",
+    "name": "영월엄가 김인수할머니순두부",
+    "address": "강원특별자치도 영월군 영월읍 단종로16번길 41",
+    "coordinates": {
+      "lat": 37.1851147322854,
+      "lon": 128.470685015578
+    },
+    "menus": [
+      {
+        "id": "individual-yeongwol-eomga-kiminsu-sundubu:menu:1",
+        "name": "엄가 매콤 순두부",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://ggumosi.tistory.com/1959",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-15T06:44:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "직접 식사 방문기 · 청년후계농업신문 · 똑똑장소찾기(공공데이터 미러)",
+        "attribution": "상호·주소·메뉴·식사: https://ggumosi.tistory.com/1959 추가 방문 기록: https://vong-e.tistory.com/entry/영월-블루리본-맛집-영월엄가-김인수할머니순두부 가족 전통 배경: https://www.chunghyup.com/ko-kr/articles/836 위치: https://dokdokplace.kr/stores/i2/i201/i20101/gangwonstate/yeongwol-gun/%EC%98%81%EC%9B%94%EC%9D%8D/ 자료 이용 안내: https://dokdokplace.kr/terms-of-service.html",
+        "changes": "상호·주소·메뉴명·좌표 한 건과 출처 확인 범위만 정리했습니다. 원문 문장·사진·가격·평점·지도 이미지는 전재하지 않았습니다.",
+        "scopeNotice": "2026-05-22 및 2026-08-16 게시된 직접 식사 기록에서 엄가 매콤 순두부 주문·식사와 매운맛이 확인됩니다. 두 날짜는 게시일이며 정확한 방문일은 확인되지 않았습니다. 2026년 직접 방문기의 매장 내 3대 전통 안내와 가족의 두부 조리·접객 배경을 다룬 인터뷰를 함께 근거로 지역 가족 식당으로 추정했습니다. 법적 소유관계나 현재 운영자·단일점 여부를 확인한 것은 아닙니다. 2026-10-08 인터뷰는 식품기업 미트하이의 가족 전통 배경을 소개하며 이 매장의 현재 운영자를 확인하지 않습니다. 현재 영업·현재 판매 여부, 맵기 선택·수치 맵기·현재 가격은 확인하지 않았습니다. 위치는 상호·주소가 일치하는 똑똑장소찾기 공공데이터 미러의 개별 영업장 연결 좌표입니다. 미러의 2026-07-01 갱신 표시는 해당 원자료 행의 확인일이나 영업 확인일이 아닙니다. 원자료 행과 실측 입구는 대조하지 않았습니다. 원문·사진·지도·데이터베이스 전체의 재사용 허가를 뜻하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "b5807ef0-b27f-5f6d-b1ba-94ce874e2c96",
+    "slug": "hot-individual-gangwon-taebaek-suwolgak",
+    "sourceRef": "individual-gangwon-taebaek-suwolgak",
+    "name": "수월각",
+    "address": "강원특별자치도 태백시 황연1길 6",
+    "coordinates": {
+      "lat": 37.1778657922909,
+      "lon": 128.986549681253
+    },
+    "menus": [
+      {
+        "id": "individual-gangwon-taebaek-suwolgak:menu:1",
+        "name": "짬뽕",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jun-slife.tistory.com/entry/taebaek-suwolgak-jjamppong-tangsuyuk",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-15T06:44:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "직접 식사 방문기 · 태백시 · 똑똑장소찾기(공공데이터 미러)",
+        "attribution": "메뉴·식사: https://jun-slife.tistory.com/entry/taebaek-suwolgak-jjamppong-tangsuyuk 상호·주소 안내: https://tour.taebaek.go.kr/tour/story/taste/happy_etc_restaurant/normal 위치: https://dokdokplace.kr/stores/i2/i202/i20201/gangwonstate/taebaek-si/%ED%99%A9%EC%97%B0%EB%8F%99/ 자료 이용 안내: https://dokdokplace.kr/terms-of-service.html",
+        "changes": "상호·주소·메뉴명·좌표 한 건과 출처 확인 범위만 정리했습니다. 원문 문장·사진·가격·평점·지도 이미지는 전재하지 않았습니다.",
+        "scopeNotice": "2026-02-24 게시된 직접 방문기는 실제 방문일을 2026-02-08로 밝히며 짬뽕 주문·식사와 매운맛을 기록합니다. 직접 방문기에 나온 동네 중식당의 조리·사장님 응대·배달 모습과 같은 상호·주소의 태백시 음식점 안내를 근거로 개인 운영 식당으로 추정했습니다. 법적 소유관계나 현재 단일점 여부를 확인한 것은 아닙니다. 현재 영업·현재 판매 여부, 맵기 선택·수치 맵기·현재 가격은 확인하지 않았습니다. 위치는 상호·주소가 일치하는 똑똑장소찾기 공공데이터 미러의 개별 영업장 연결 좌표입니다. 미러의 2026-07-01 갱신 표시는 해당 원자료 행의 확인일이나 영업 확인일이 아닙니다. 원자료 행과 실측 입구는 대조하지 않았습니다. 원문·사진·지도·데이터베이스 전체의 재사용 허가를 뜻하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "f7d389cd-e8d4-568c-a115-405aa5ebe7ec",
+    "slug": "hot-individual-jeonnam-hampyeong-cheonji-myeonok",
+    "sourceRef": "individual-jeonnam-hampyeong-cheonji-myeonok",
+    "name": "천지면옥",
+    "address": "전라남도 함평군 함평읍 함장로 1119",
+    "coordinates": {
+      "lat": 35.0585617,
+      "lon": 126.5178985
+    },
+    "menus": [
+      {
+        "id": "individual-jeonnam-hampyeong-cheonji-myeonok:menu:1",
+        "name": "회냉면",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://perfume700.tistory.com/6567",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-15T06:50:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "아이리스 · OpenStreetMap contributors",
+        "attribution": "메뉴·주소·방문 기록: 아이리스 https://perfume700.tistory.com/6567 위치: © OpenStreetMap contributors https://www.openstreetmap.org/node/8515708101 (ODbL 1.0 https://opendatacommons.org/licenses/odbl/1-0/)",
+        "changes": "상호·주소·메뉴명과 날짜가 확인된 방문 사실을 정리하고, 같은 상호와 전체 주소가 붙은 공개 식당 좌표를 연결했습니다. 후기 문장·사진·가격·평점·지도 이미지는 전재하지 않았습니다.",
+        "scopeNotice": "2026-05-16 방문 후 2026-06-13 게시된 직접 식사 원문에서 회냉면 주문·식사와 매운 양념이 확인됩니다. 2026-06-22는 글 수정일이며 방문일이 아닙니다. 직접 방문기에 나온 독립된 점포 간판·매장 메뉴와 같은 상호·전체 주소가 붙은 식당 자료를 근거로 지역 개인 식당으로 추정했습니다. 법적 소유관계나 현재 운영자·단일점 여부를 확인한 것은 아닙니다. 현재 영업·현재 판매 여부, 맵기 선택·수치 맵기·현재 가격은 확인하지 않았습니다. 위치는 상호와 전체 주소가 일치하는 OpenStreetMap 식당 노드8515708101의 좌표입니다. 2025-01-16은 노드 수정일이며 방문일·영업 확인일이 아닙니다. 실측 입구 위치와 정확도는 확인되지 않았습니다. 위치 데이터에 ODbL1.0이 적용되며 원문·사진·지도·다른 데이터의 상업적 재사용 허가를 뜻하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  }
+]
