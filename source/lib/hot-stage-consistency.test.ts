@@ -10,7 +10,7 @@ import {isSpiceLevel} from './hot-spice.ts';
 test('HOT visible labels, owner input and community ratings share one scale',()=>{
  const ownerMaximum=ownerTasteMax('hot');
  assert.equal(HEAT.length,ownerMaximum,
-  'HOT labels and owner range disagree. Confirm 7 vs 8 with product and DB first.');
+  'HOT labels and owner range disagree. Required HOT product scale is 1 through 8; migrate development DB separately.');
  assert.equal(isSpiceLevel(ownerMaximum),true,
   'Community rating max must include the owner max.');
  assert.equal(isSpiceLevel(ownerMaximum+1),false,
