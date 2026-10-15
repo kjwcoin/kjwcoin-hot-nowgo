@@ -23,11 +23,14 @@ import {money,type Menu} from '@/lib/menus';
 import {siteConfig,type SiteVariant} from '@/lib/site-config';
 import {api,track} from '@/lib/client';
 function DetailTastePrice({variant,level,price,isDemo,verifiedOwner}:{variant:SiteVariant;level:number;price:number;isDemo:boolean;verifiedOwner?:boolean}){
- const stage=Math.min(5,Math.max(1,Math.trunc(level)||1));
+ const stage=Math.min(siteConfig(variant).heat.length,Math.max(1,Math.trunc(level)||1));
+ // The existing taste sprite has five cells. Preserve its layout while
+ // exposing the actual HOT 6-8 stage in the accessible label.
+ const spriteStage=Math.min(5,stage);
  const row=variant==='sweet'?50:variant==='rich'?100:0;
  const priceNote=isDemo?'예시':verifiedOwner?'공식 점주 제보 가격':'고객 제보 가격';
  return <div className="explorer-taste-price" aria-label={`${variant.toUpperCase()} ${stage}단계, ${money(price)}, ${priceNote}`}>
-  <span className="explorer-taste-icon" aria-hidden="true" style={{backgroundPosition:`${(stage-1)*25}% ${row}%`}}/>
+  <span className="explorer-taste-icon" aria-hidden="true" style={{backgroundPosition:`${(spriteStage-1)*25}% ${row}%`}}/>
   <strong>{money(price)} <small>{priceNote}</small></strong>
  </div>;
 }
