@@ -1,0 +1,44 @@
+[
+  {
+    "id": "e56b91f7-e1de-5b0a-8f30-6aebc7b59c11",
+    "slug": "hot-individual-daegu-jinheung-banjeom",
+    "name": "진흥반점",
+    "address": "대구광역시 남구 이천로28길 43-2",
+    "lat": 35.8548384618,
+    "lon": 128.6005265373,
+    "source_ref": "individual-daegu-jinheung-banjeom",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=5bd27a77-7016-4da4-9a1f-82f6c4fa2f4e",
+      "sourceRecordId": "individual-daegu-jinheung-banjeom",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-15T04:08:00Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "individual-daegu-jinheung-banjeom:menu:1",
+          "name": "짬뽕",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "한국관광공사 · 검은늑대다락방 · K-TRIP TIPS",
+        "attribution": "상호·메뉴·가업 운영 소개: 한국관광공사 https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=5bd27a77-7016-4da4-9a1f-82f6c4fa2f4e 매운맛 방문기: 검은늑대다락방 https://bwolf08.tistory.com/2635 주소·위치: K-TRIP TIPS https://www.ktriptips.com/kor/food/2766763",
+        "changes": "상호·주소·메뉴명·좌표 한 건과 출처에서 확인되는 맛·운영 안내만 정리했습니다. 설명문·후기·사진·가격·평점·지도 이미지는 전재하지 않았습니다.",
+        "scopeNotice": "한국관광공사는 대를 이어 운영하는 지역 식당으로 소개합니다. 2026-04-08 게시된 직접 식사 후기에서 짬뽕의 칼칼한 맛이 확인됩니다. 이 날짜는 게시일이며 실제 방문일은 확인되지 않았습니다. 현재 영업·현재 판매 여부는 확인하지 않았습니다. 법적 사업자 형태·분점 유무를 단정하지 않으며 맵기 선택·수치 맵기도 확인하지 않았습니다. 위치는 상호와 주소가 일치하는 K-TRIP TIPS 개별 페이지가 지정한 좌표입니다. 한국관광공사 원자료 좌표와 대조하지 않았으며 실측 입구 위치와 정확도는 확인되지 않았습니다. 출처 글·사진·지도·데이터베이스 전체의 재사용 허가를 뜻하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  }
+]
