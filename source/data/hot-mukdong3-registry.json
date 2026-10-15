@@ -1,0 +1,137 @@
+[
+  {
+    "id": "847afd7a-e03b-54af-9ea7-6720a7026c22",
+    "slug": "hot-individual-seoul-jungnang-jjomae-naengmyeon",
+    "sourceRef": "individual-seoul-jungnang-jjomae-naengmyeon",
+    "name": "쪼매매운냉면",
+    "address": "서울특별시 중랑구 동일로157길 20",
+    "coordinates": {
+      "lat": 37.6099137284511,
+      "lon": 127.076662871873
+    },
+    "menus": [
+      {
+        "id": "individual-seoul-jungnang-jjomae-naengmyeon:menu:1",
+        "name": "물냉면",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://leemukbang.tistory.com/entry/%EC%98%A4%EB%8A%98-%EC%86%8C%EA%B0%9C%ED%95%A0-%EB%A7%9B%EC%A7%91%EC%9D%80%EC%9A%94-%EC%84%9C%EC%9A%B8-%EC%A4%91%EB%9E%91%EA%B5%AC-%EB%AC%B5%EB%8F%99-%EC%AA%BC%EB%A7%A4%EB%A7%A4%EC%9A%B4%EB%83%89%EB%A9%B4%EC%97%90%EC%84%9C-%EC%A0%80%EB%85%81%EC%9D%84-%EB%A8%B9%EC%97%88%EC%8A%B5%EB%8B%88%EB%8B%A4",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-15T05:58:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "직접 식사 방문기 · 똑똑장소찾기(소상공인시장진흥공단 자료 미러)",
+        "attribution": "메뉴·최근 식사 기록: https://leemukbang.tistory.com/entry/%EC%98%A4%EB%8A%98-%EC%86%8C%EA%B0%9C%ED%95%A0-%EB%A7%9B%EC%A7%91%EC%9D%80%EC%9A%94-%EC%84%9C%EC%9A%B8-%EC%A4%91%EB%9E%91%EA%B5%AC-%EB%AC%B5%EB%8F%99-%EC%AA%BC%EB%A7%A4%EB%A7%A4%EC%9A%B4%EB%83%89%EB%A9%B4%EC%97%90%EC%84%9C-%EC%A0%80%EB%85%81%EC%9D%84-%EB%A8%B9%EC%97%88%EC%8A%B5%EB%8B%88%EB%8B%A4 상호·주소·위치: 똑똑장소찾기(소상공인시장진흥공단 상가정보 미러) https://dokdokplace.kr/stores/i2/i201/i20106/seoul/jungnang-gu/%EB%AC%B52%EB%8F%99/ 자료 이용 안내: https://dokdokplace.kr/terms-of-service.html",
+        "changes": "상호·주소·메뉴명·위치 한 건과 게시된 직접 식사 사실만 정리했습니다. 후기 문장·사진·가격·평점·지도 이미지는 전재하지 않았습니다.",
+        "scopeNotice": "2026-07-05 게시된 직접 방문기에서 물냉면 주문·식사와 양념 다대기 추가, 매운맛 요청 가능 안내가 확인됩니다. 실제 방문일은 기재되어 있지 않습니다. 매운맛 요청은 해당 방문기의 안내이며 현재 제공 여부나 정식 수치 맵기를 뜻하지 않습니다. 같은 방문기에서 소규모 동네 식당의 조리·응대가 소개되어 개인 운영 식당으로 추정했습니다. 이는 법적 소유관계나 현재 단일점 운영의 확인을 뜻하지 않습니다. 현재 법적 소유주·사업자 형태·분점 유무는 확인하지 않았습니다. 현재 영업·현재 판매 여부는 확인하지 않았습니다. 위치는 소상공인시장진흥공단 상가정보를 출처로 밝힌 똑똑장소찾기의 동일 상호·주소에 연결된 좌표 한 건입니다. 미러의 2026-07-01 갱신 표시는 원자료 행의 갱신일이나 현재 영업 확인일이 아닙니다. 원자료 행은 별도로 대조하지 않았습니다. 개별 영업장에 연결된 자료 위치이며 입구 실측점은 아닙니다. 실측 입구 위치와 정확도는 확인되지 않았습니다. 원문·사진·지도·데이터베이스 전체의 상업적 재사용 허가를 뜻하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "9fa9684b-fe3f-5afb-a551-7ce051982acd",
+    "slug": "hot-individual-seoul-jungnang-meokgol-wangjjamppong",
+    "sourceRef": "individual-seoul-jungnang-meokgol-wangjjamppong",
+    "name": "먹골왕짬뽕",
+    "address": "서울특별시 중랑구 공릉로4길 4",
+    "coordinates": {
+      "lat": 37.6131922698796,
+      "lon": 127.078274540524
+    },
+    "menus": [
+      {
+        "id": "individual-seoul-jungnang-meokgol-wangjjamppong:menu:1",
+        "name": "짬뽕",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://whrhd85.tistory.com/856",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-15T06:01:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "직접 식사 방문기 · 똑똑장소찾기(소상공인시장진흥공단 자료 미러)",
+        "attribution": "메뉴·최근 식사 기록: https://whrhd85.tistory.com/856 상호·주소·위치: 똑똑장소찾기(소상공인시장진흥공단 상가정보 미러) https://dokdokplace.kr/stores/i2/i202/i20201/seoul/jungnang-gu/%EB%AC%B51%EB%8F%99/ 자료 이용 안내: https://dokdokplace.kr/terms-of-service.html",
+        "changes": "상호·주소·메뉴명·위치 한 건과 게시된 직접 식사 사실만 정리했습니다. 후기 문장·사진·가격·평점·지도 이미지는 전재하지 않았습니다.",
+        "scopeNotice": "2026-05-01 게시된 직접 방문기에서 짬뽕 주문·식사와 매운 국물이 확인됩니다. 실제 방문일은 기재되어 있지 않습니다. 수치 맵기는 확인하지 않았습니다. 같은 방문기의 동네 중식당 운영·조리 모습과 동일 상호·주소 자료를 근거로 개인 운영 식당으로 추정했습니다. 이는 법적 소유관계나 현재 단일점 운영의 확인을 뜻하지 않습니다. 현재 법적 소유주·사업자 형태·분점 유무는 확인하지 않았습니다. 현재 영업·현재 판매 여부는 확인하지 않았습니다. 위치는 소상공인시장진흥공단 상가정보를 출처로 밝힌 똑똑장소찾기의 동일 상호·주소에 연결된 좌표 한 건입니다. 미러의 2026-07-01 갱신 표시는 원자료 행의 갱신일이나 현재 영업 확인일이 아닙니다. 원자료 행은 별도로 대조하지 않았습니다. 다른 상호와 동일한 상가 건물 대표 좌표이므로 호실 전용 위치나 입구 위치를 뜻하지 않습니다. 실측 입구 위치와 정확도는 확인되지 않았습니다. 원문·사진·지도·데이터베이스 전체의 상업적 재사용 허가를 뜻하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "1dbc3dcf-8f9c-5aa6-bdea-da697583a34d",
+    "slug": "hot-individual-seoul-jungnang-taereung-seolleongtang",
+    "sourceRef": "individual-seoul-jungnang-taereung-seolleongtang",
+    "name": "태릉설렁탕 본점",
+    "address": "서울특별시 중랑구 공릉로 65, 1층",
+    "coordinates": {
+      "lat": 37.6164621594618,
+      "lon": 127.079320012961
+    },
+    "menus": [
+      {
+        "id": "individual-seoul-jungnang-taereung-seolleongtang:menu:1",
+        "name": "매운갈비찜",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://first.useful2know.com/entry/%EC%84%9C%EC%9A%B8-000%EC%97%AD-%EB%A7%9B%EC%A7%91-%ED%83%9C%EB%A6%89%EC%84%A4%EB%A0%81%ED%83%95-%EB%A9%94%EB%89%B4-%EB%B0%8F-%ED%9B%84%EA%B8%B0",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-15T06:03:39.345811+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "직접 식사 방문기 · 똑똑장소찾기(소상공인시장진흥공단 자료 미러)",
+        "attribution": "방문기의 메뉴 안내: https://first.useful2know.com/entry/%EC%84%9C%EC%9A%B8-000%EC%97%AD-%EB%A7%9B%EC%A7%91-%ED%83%9C%EB%A6%89%EC%84%A4%EB%A0%81%ED%83%95-%EB%A9%94%EB%89%B4-%EB%B0%8F-%ED%9B%84%EA%B8%B0 원문 이용조건 CC BY 4.0: https://creativecommons.org/licenses/by/4.0/deed.ko 과거 지역 운영 보도: https://www.taxwatch.co.kr/article/tax/2024/03/11/0003 상호·주소·위치: 똑똑장소찾기(소상공인시장진흥공단 상가정보 미러) https://dokdokplace.kr/stores/i2/i201/i20102/seoul/jungnang-gu/%EB%AC%B51%EB%8F%99/ 자료 이용 안내: https://dokdokplace.kr/terms-of-service.html",
+        "changes": "상호·주소·메뉴명·위치 한 건과 게시된 직접 식사 사실만 정리했습니다. 후기 문장·사진·가격·평점·지도 이미지는 전재하지 않았습니다.",
+        "scopeNotice": "2025-10-31 처음 게시된 직접 방문기의 메뉴 안내에서 매운갈비찜이 확인됩니다. 글쓴이가 먹은 음식은 설렁탕이며 매운갈비찜의 시식 평가는 아닙니다. 실제 방문일은 기재되어 있지 않습니다. 2026-02-14는 글 수정일로 새 방문일을 뜻하지 않습니다. 메뉴명의 매운맛 표현만 확인되었으며 수치 맵기는 확인하지 않았습니다. 2024년 보도의 장기간 지역 식당 운영 기록과 해당 방문기를 근거로 개인 운영 식당으로 추정했습니다. 본점이라는 명칭만으로 단일점이나 가맹 관계를 단정하지 않았습니다. 현재 법적 소유주·사업자 형태·분점 유무는 확인하지 않았습니다. 현재 영업·현재 판매 여부는 확인하지 않았습니다. 위치는 소상공인시장진흥공단 상가정보를 출처로 밝힌 똑똑장소찾기의 동일 상호·주소에 연결된 좌표 한 건입니다. 미러의 2026-07-01 갱신 표시는 원자료 행의 갱신일이나 현재 영업 확인일이 아닙니다. 원자료 행은 별도로 대조하지 않았습니다. 자료의 태능설렁탕 표기를 같은 공릉로 65 식당과 대조했습니다. 개별 영업장에 연결된 자료 위치이며 입구 실측점은 아닙니다. 실측 입구 위치와 정확도는 확인되지 않았습니다. 원문·사진·지도·데이터베이스 전체의 상업적 재사용 허가를 뜻하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  }
+]
