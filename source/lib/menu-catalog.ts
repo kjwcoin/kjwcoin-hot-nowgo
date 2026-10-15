@@ -1,6 +1,7 @@
 import {publicDb,publicConfig} from './supabase';
 import {type Menu} from './menus';
 import {siteConfig,type SiteVariant} from './site-config';
+import {ownerTasteMax} from './owner-taste-level';
 import {distanceKm,MAP_RADIUS_KM} from './nearby-demo';
 
 const fields='id,place_id,menu,shop,price,heat,flavor,category,lat,lng,address,observed_at,verified_owner,nowgo_slug,owner_store_id,soldout,map_menu_photo,photo_path';
@@ -26,9 +27,9 @@ export async function communityMenus(filters:MenuSearch={},variant:SiteVariant='
  let request=publicDb().from(siteConfig(variant).tables.menus).select(fields);
  const keyword=(filters.query||'').replace(/[^\p{L}\p{N}\s]/gu,'').trim().slice(0,60);
  if(keyword)request=request.or(`menu.ilike.%${keyword}%,shop.ilike.%${keyword}%,address.ilike.%${keyword}%`);
- const heat=filters.heat??0,maxHeat=filters.maxHeat??0,budget=filters.budget??0;
- if(Number.isInteger(heat)&&heat>=1&&heat<=5)request=request.eq('heat',heat);
- if(Number.isInteger(maxHeat)&&maxHeat>=1&&maxHeat<=5)request=request.lte('heat',maxHeat);
+ const heat=filters.heat??0,maxHeat=filters.maxHeat??0,budget=filters.budget??0,limit=ownerTasteMax(variant);
+ if(Number.isInteger(heat)&&heat>=1&&heat<=limit)request=request.eq('heat',heat);
+ if(Number.isInteger(maxHeat)&&maxHeat>=1&&maxHeat<=limit)request=request.lte('heat',maxHeat);
  if(filters.flavor&&filters.flavor!=='전체')request=request.eq('flavor',filters.flavor);
  if(filters.category&&filters.category!=='전체')request=request.eq('category',filters.category);
  if(Number.isInteger(budget)&&budget>=100&&budget<=1000000)request=request.lte('price',budget);
