@@ -3,24 +3,47 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
 import ts from 'typescript';
-import * as retention from '../lib/naver-result-retention.ts';
-class ApiError extends Error{constructor(message,status){super(message);this.status=status}}
-function harness(api){
- let stateIndex=0,refIndex=0,effectIndex=0,now=1000,timerId=0;const values=[],refs=[],effects=[],timers=new Map(),listeners=new Map();
+
+const source=fs.readFileSync(new URL('../components/naver-reference-search.tsx',import.meta.url),'utf8');
+function harness(){
+ const exports={},imports=[],counts={fetches:0};
  const React={createElement(type,props,...children){return {type,props:props||{},children}}};
- const eventTarget={addEventListener(name,handler){listeners.set(name,handler)},removeEventListener(name,handler){if(listeners.get(name)===handler)listeners.delete(name)}};
- const deps={react:{useState(value){const index=stateIndex++;if(!(index in values))values[index]=value;return [values[index],value=>{values[index]=value}]},useRef(value){const index=refIndex++;return refs[index]??(refs[index]={current:value})},useEffect(callback,dependencies){const index=effectIndex++,old=effects[index];if(old&&old.dependencies.length===dependencies.length&&dependencies.every((item,i)=>item===old.dependencies[i]))return;old?.cleanup?.();effects[index]={dependencies,callback}}},'next/link':{default:'Link'},'@/lib/client':{api,ApiError},'./naver-reference-search.module.css':{default:{}},'@/lib/naver-result-retention':{...retention,naverResultsExpired(expiry){return retention.naverResultsExpired(expiry,now)}}};
- const exports={};vm.runInNewContext(ts.transpileModule(fs.readFileSync(new URL('../components/naver-reference-search.tsx',import.meta.url),'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,jsx:ts.JsxEmit.React,target:ts.ScriptTarget.ES2022}}).outputText,{exports,React,AbortController,URLSearchParams,Date:class extends Date{static now(){return now}},setTimeout(callback,delay){const id=++timerId;timers.set(id,{callback,delay});return id},clearTimeout(id){timers.delete(id)},document:eventTarget,window:eventTarget,require(name){assert.ok(name in deps,'Unexpected import: '+name);return deps[name]}});
+ const dependencies={'next/link':{default:'Link'},'./naver-reference-search.module.css':{default:{page:'page',notice:'notice'}}};
+ vm.runInNewContext(ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.CommonJS,jsx:ts.JsxEmit.React,target:ts.ScriptTarget.ES2022}}).outputText,{
+  exports,React,
+  fetch(){counts.fetches++;throw Error('Network must not be used')},
+  require(name){imports.push(name);assert.ok(name in dependencies,'Unexpected active client dependency: '+name);return dependencies[name]},
+ });
  const walk=value=>!value?[]:Array.isArray(value)?value.flatMap(walk):typeof value==='object'?[value,...walk(value.children)]:[];
- const render=()=>{stateIndex=refIndex=effectIndex=0;const tree=exports.default();for(const effect of effects)if(effect.callback){effect.cleanup=effect.callback();effect.callback=null}return walk(tree)};
- const find=type=>render().find(node=>node.type===type);
- return {render,find,timers,listeners,setTime(value){now=value},text(value){return exports.NaverText({value})},change(query){find('input').props.onChange({target:{value:query}})},kind(kind){find('select').props.onChange({target:{value:kind}})},submit(){return find('form').props.onSubmit({preventDefault(){}})}};
+ return {render:()=>walk(exports.default()),imports,counts};
 }
-async function flush(){for(let i=0;i<20;i++)await Promise.resolve()}
-const result=(kind='local')=>({kind,provider:'NAVER API HUB',items:[{title:'원문 제목',description:'원문 설명',link:'https://example.org/record'}],total:1});
-test('search is explicit and repeat clicks produce only one request',async()=>{let resolve,count=0;const app=harness(()=>{count++;return new Promise(done=>resolve=done)});app.render();assert.equal(count,0);assert.equal(app.find('button').props.disabled,true);app.change('서울 메뉴');app.submit();app.submit();assert.equal(count,1);resolve(result());await flush();assert.equal(app.render().filter(node=>node.type==='li').length,1)});
-test('changing query or kind clears results, aborts stale requests, and does not automatically search',async()=>{let resolve,count=0,signal;const app=harness((path,options)=>{count++;signal=options.signal;return new Promise(done=>resolve=done)});app.change('서울 메뉴');app.submit();app.change('부산 메뉴');assert.equal(signal.aborted,true);resolve(result());await flush();assert.equal(app.render().filter(node=>node.type==='li').length,0);app.kind('blog');assert.equal(count,1)});
-test('results expire in long-lived tabs and are cleared on a resumed page',async()=>{const app=harness(async()=>result());app.change('서울 메뉴');app.submit();await flush();app.render();assert.equal(app.timers.size,1);const [timer]=app.timers.values();assert.ok(timer.delay<=retention.NAVER_RESULT_LIFETIME_MS);app.setTime(1000+retention.NAVER_RESULT_LIFETIME_MS);app.listeners.get('pageshow')();assert.equal(app.render().filter(node=>node.type==='li').length,0);assert.equal(app.timers.size,0)});
-test('an expired timeout clears results without a new user query',async()=>{const app=harness(async()=>result());app.change('서울 메뉴');app.submit();await flush();app.render();app.setTime(1000+retention.NAVER_RESULT_LIFETIME_MS);[...app.timers.values()][0].callback();assert.equal(app.render().filter(node=>node.type==='li').length,0)});
-test('login-needed response stays local and never redirects automatically',async()=>{const app=harness(async()=>{throw new ApiError('로그인이 필요해요.',401)});app.change('서울 메뉴');app.submit();await flush();assert.ok(app.render().some(node=>node.props.href==='/account/join?type=user&returnTo=%2Fnaver-search'))});
-test('provider highlights use text nodes; arbitrary HTML has no executable markup path',()=>{const app=harness(async()=>result());const tree=app.text('<b>매운맛</b><script>alert(1)</script>');assert.ok(JSON.stringify(tree).includes('<script>alert(1)</script>'));assert.equal(JSON.stringify(tree).includes('dangerouslySetInnerHTML'),false)});
+test('legacy search page renders a stopped-service notice and return-to-HOT link',()=>{
+ const app=harness(),nodes=app.render();
+ assert.ok(nodes.some(node=>node.type==='h1'&&node.children.includes('네이버 검색 기능 중단')));
+ assert.ok(nodes.some(node=>node.type==='Link'&&node.props.href==='/'));
+ assert.match(JSON.stringify(nodes),/HOT 지도에서 등록된 매장과 메뉴를 검색/);
+ assert.deepEqual(app.counts,{fetches:0});
+});
+test('no input, submit, login prompt, result list, or interaction handler can trigger search',()=>{
+ const app=harness();
+ for(let render=0;render<3;render++)for(const node of app.render()){
+  assert.equal(['form','input','select','button','ol','li'].includes(node.type),false);
+  assert.ok(Object.keys(node.props).every(key=>!/^on[A-Z]/.test(key)));
+  if(node.props.href)assert.equal(node.props.href,'/');
+ }
+ assert.deepEqual(app.imports,['next/link','./naver-reference-search.module.css']);
+ assert.deepEqual(app.counts,{fetches:0});
+ assert.doesNotMatch(source,/use client|useEffect|useState|setTimeout|addEventListener|\/api\/naver-search/);
+});
+test('HOT empty-result state keeps reset controls without the discontinued search link',()=>{
+ const explorer=fs.readFileSync(new URL('../components/map-explorer.tsx',import.meta.url),'utf8');
+ assert.doesNotMatch(explorer,/naver-search|NAVER 검색 참고자료/);
+ assert.match(explorer,/조건에 맞는 메뉴가 없어요/);
+ assert.match(explorer,/<Button variant="outline" onClick=\{reset\}>조건 초기화<\/Button>/);
+});
+test('legacy page metadata announces the stop while retaining the shared header and noindex',()=>{
+ const page=fs.readFileSync(new URL('../app/naver-search/page.tsx',import.meta.url),'utf8');
+ assert.match(page,/title:'네이버 검색 기능 중단 \| NOWGO HOT'/);
+ assert.match(page,/robots:\{index:false,follow:true\}/);
+ assert.match(page,/<FlavorHeader\/><NaverReferenceSearch\/>/);
+});
