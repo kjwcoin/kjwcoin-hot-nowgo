@@ -1,0 +1,44 @@
+[
+  {
+    "id": "dfb8a3ff-7eee-58f1-b9f9-0aed29c900e0",
+    "slug": "hot-individual-daegu-jungang-tteokbokki",
+    "name": "중앙떡볶이",
+    "address": "대구광역시 중구 동성로2길 81",
+    "lat": 35.86954085147303,
+    "lon": 128.59696821638656,
+    "source_ref": "individual-daegu-jungang-tteokbokki",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.daegufood.go.kr/kor/food/food.asp?gotoPage=1&idx=1688&snm=9",
+      "sourceRecordId": "individual-daegu-jungang-tteokbokki",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-15T03:39:17Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "individual-daegu-jungang-tteokbokki:menu:1",
+          "name": "쌀떡볶이",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "대구광역시 대구푸드 · 리치보테의 방문기 · 진한서랍의 위치표",
+        "attribution": "상호·주소·메뉴·본점 단독 운영 안내: 대구푸드 https://www.daegufood.go.kr/kor/food/food.asp?gotoPage=1&idx=1688&snm=9 매운맛 방문기: 힐링 & 파워 라이프 https://richvothe.tistory.com/145 좌표: 진한서랍의 대구 맛집 표 https://rainbo.tistory.com/15883310",
+        "changes": "상호·주소·메뉴명·좌표 한 건과 출처에서 확인되는 맛·매장 운영 안내만 정리했습니다. 표 전체·설명문·후기·사진·가격·평점은 전재하지 않았습니다.",
+        "scopeNotice": "공식 소개에 본점만 운영한다고 안내되어 있습니다. 2026-08-23 게시된 방문기는 직접 포장 구매한 쌀떡볶이를 매콤한 맛으로 소개합니다. 이 날짜는 게시일이며 실제 방문일은 확인되지 않았습니다. 법적 사업자 형태·현재 영업·현재 판매 여부·맵기 선택·수치 맵기는 확인하지 않았습니다. 위치는 개인 블로그 표에서 상호·주소가 일치하는 한 행의 좌표로, 공식 원자료 행과 대조하지 않았으며 입구·정확도는 미확인입니다. 좌표 게시물의 CC BY-NC-ND 표기와 별개로 개별 위치 사실 한 건만 정리했으며, 표·글·사진의 상업적 재사용 허가나 공식 좌표를 뜻하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  }
+]

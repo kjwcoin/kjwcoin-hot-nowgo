@@ -41,7 +41,8 @@ import samcheop2Rows from '../data/hot-samcheop2-records.json' with {type:'json'
 import xiaomala1Rows from '../data/hot-xiaomala1-records.json' with {type:'json'};
 import cheongna3Rows from '../data/hot-cheongna3-records.json' with {type:'json'};
 import ttottot1Rows from '../data/hot-ttottot1-records.json' with {type:'json'};
-const regionalRows=applyReviewedCorrections([...priorRegionalRows,...sejongRows,...nextSejongRows,...next64Rows,...next47Rows,...next38Rows,...busan23Rows,...final13Rows,...route7BusanRows,...route7Busan8Rows,...route7UlsanRows,...gangwonRows,...jeonnamRows,...inlandRows,...countiesRows,...nextCountiesRows,...chungbukRows,...gwmRows,...chungnamRows,...finalJeonnamRows,...jeonbukRows,...gyeongbukRows,...gyeongnamRows,...daejeonRows,...ulsanRows,...wehalmaeRows,...nextWehalmaeRows,...youngRows,...nextYoungRows,...zipsinRows,...sungwangRows,...craftRows,...reviewed3Rows,...pork3Rows,...franchise22Rows,...zipsin18Rows,...mixed28Rows,...samcheop19Rows,...samcheop2Rows,...xiaomala1Rows,...cheongna3Rows,...ttottot1Rows],correctedRows);
+import jungang1Rows from '../data/hot-jungang1-records.json' with {type:'json'};
+const regionalRows=applyReviewedCorrections([...priorRegionalRows,...sejongRows,...nextSejongRows,...next64Rows,...next47Rows,...next38Rows,...busan23Rows,...final13Rows,...route7BusanRows,...route7Busan8Rows,...route7UlsanRows,...gangwonRows,...jeonnamRows,...inlandRows,...countiesRows,...nextCountiesRows,...chungbukRows,...gwmRows,...chungnamRows,...finalJeonnamRows,...jeonbukRows,...gyeongbukRows,...gyeongnamRows,...daejeonRows,...ulsanRows,...wehalmaeRows,...nextWehalmaeRows,...youngRows,...nextYoungRows,...zipsinRows,...sungwangRows,...craftRows,...reviewed3Rows,...pork3Rows,...franchise22Rows,...zipsin18Rows,...mixed28Rows,...samcheop19Rows,...samcheop2Rows,...xiaomala1Rows,...cheongna3Rows,...ttottot1Rows,...jungang1Rows],correctedRows);
 import {appendRegionalSourceStores} from './regional-source.ts';
 import {publicSourcedStore,type SourcedStoreRow} from './sourced-store.ts';
 import reviewedEleven from '../data/hot-source-reviewed-eleven-20261014.json' with {type:'json'};
@@ -159,5 +160,6 @@ export const reviewed1414Records=[...reviewed1395Records,...activeRegionalRows.f
 export const reviewed1416Records=[...reviewed1414Records,...activeRegionalRows.filter(row=>["official-samcheop-201","official-samcheop-205"].includes(row.source_ref))];
 export const reviewed1417Records=[...reviewed1416Records,...activeRegionalRows.filter(row=>["individual-xiaomala-changwon"].includes(row.source_ref))];
 export const reviewed1420Records=[...reviewed1417Records,...activeRegionalRows.filter(row=>["individual-cheongna-jjukkumi","individual-palsongjeong-cheongna","individual-jagang-cheongna"].includes(row.source_ref))];
+export const reviewed1421Records=[...reviewed1420Records,...activeRegionalRows.filter(row=>["individual-geumak-ttottot"].includes(row.source_ref))];
 const activeRecords=[...records,...activeRegionalRows];
 export default activeRecords;
