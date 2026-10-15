@@ -1,0 +1,140 @@
+[
+  {
+    "id": "7f2738b1-5b56-5653-8bc9-cf1e804cd6a1",
+    "slug": "hot-individual-cheongna-jjukkumi",
+    "name": "청라쭈꾸미",
+    "address": "인천광역시 서해구 청라대로 127",
+    "lat": 37.533363892802,
+    "lon": 126.631220896384,
+    "source_ref": "individual-cheongna-jjukkumi",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://dokdokplace.kr/stores/i2/i201/i20112/incheon/seohae-gu/%EC%B2%AD%EB%9D%BC3%EB%8F%99/",
+      "sourceRecordId": "individual-cheongna-jjukkumi",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-15T01:04:57.898719+00:00",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "individual-cheongna-jjukkumi:menu:1",
+          "name": "청라쭈꾸미",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "똑똑장소찾기 공공자료 재표시 및 다이닝코드 공개 메뉴 정보",
+        "attribution": "상호·도로명 주소·위치: 똑똑장소찾기의 소상공인시장진흥공단 상가정보 기반 개별 행. 메뉴명: 이미 확인된 다이닝코드 공개 정보. 메뉴 출처: https://www.diningcode.com/profile.php?rid=UPph5jSItrPb 매운맛 선택 과거 참고: https://foodiegolfer.tistory.com/81?category=848568",
+        "changes": "매장명·주소·메뉴명·위치 등 개별 사실만 정리. 사진·후기·가격·평점·수치 맵기를 전재하지 않았습니다.",
+        "scopeNotice": "출처에서 확인한 메뉴명만 정리했으며 해당 매장의 현재 판매 및 영업 여부와 실제 맵기는 미확인입니다. 최근 1년 이내 원문 블로그 검증 자료가 아닙니다. 매장 자체 맵기 단계를 HOT 맵기 점수로 환산하지 않았습니다. 매운맛 선택에 관한 독립 참고 글은 2022-06-08 자료로 현재 선택 단계와 조리법을 보증하지 않습니다. 똑똑장소찾기의 2026-07-01 표시는 자료 취합일이며 개별 원자료 조사일이 아닙니다. 위치는 같은 이름·주소 행에 대응하는 사이트 제공 값으로 원본 CSV 행·버전과 대조하지 않았습니다. 최초 좌표 생성 방법·조사일·정확도 및 입구·층·호 위치는 미확인입니다. 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "8ae3de0f-01df-5b8b-a287-b36d880ec7e6",
+    "slug": "hot-individual-palsongjeong-cheongna",
+    "name": "팔송정칼국수",
+    "address": "인천광역시 서해구 청라한내로72번길 7-25",
+    "lat": 37.5325415585701,
+    "lon": 126.630444292391,
+    "source_ref": "individual-palsongjeong-cheongna",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://dokdokplace.kr/stores/i2/i201/i20105/incheon/seohae-gu/%EC%B2%AD%EB%9D%BC3%EB%8F%99/",
+      "sourceRecordId": "individual-palsongjeong-cheongna",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-15T01:04:57.898719+00:00",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "individual-palsongjeong-cheongna:menu:1",
+          "name": "왕새우 칼국수(매운맛)",
+          "priceKrw": null,
+          "heatLevel": null
+        },
+        {
+          "id": "individual-palsongjeong-cheongna:menu:2",
+          "name": "바지락 칼국수(매운맛)",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "똑똑장소찾기 공공자료 재표시 및 다이닝코드 공개 메뉴 정보",
+        "attribution": "상호·도로명 주소·위치: 똑똑장소찾기의 소상공인시장진흥공단 상가정보 기반 개별 행. 메뉴명: 이미 확인된 다이닝코드 공개 정보. 메뉴 출처: https://www.diningcode.com/profile.php?rid=jNNrr97Vwk46",
+        "changes": "매장명·주소·메뉴명·위치 등 개별 사실만 정리. 사진·후기·가격·평점·수치 맵기를 전재하지 않았습니다.",
+        "scopeNotice": "출처에서 확인한 메뉴명만 정리했으며 해당 매장의 현재 판매 및 영업 여부와 실제 맵기는 미확인입니다. 최근 1년 이내 원문 블로그 검증 자료가 아닙니다. 매장 자체 맵기 단계를 HOT 맵기 점수로 환산하지 않았습니다. 똑똑장소찾기의 2026-07-01 표시는 자료 취합일이며 개별 원자료 조사일이 아닙니다. 위치는 같은 이름·주소 행에 대응하는 사이트 제공 값으로 원본 CSV 행·버전과 대조하지 않았습니다. 최초 좌표 생성 방법·조사일·정확도 및 입구·층·호 위치는 미확인입니다. 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "e569318e-04ab-5f5d-9732-37779316cc97",
+    "slug": "hot-individual-jagang-cheongna",
+    "name": "자강",
+    "address": "인천광역시 서해구 청라한내로 96 , 2층",
+    "lat": 37.5338399892134,
+    "lon": 126.62789223359,
+    "source_ref": "individual-jagang-cheongna",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://dokdokplace.kr/stores/i2/i202/i20201/incheon/seohae-gu/%EC%B2%AD%EB%9D%BC3%EB%8F%99/",
+      "sourceRecordId": "individual-jagang-cheongna",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-15T01:04:57.898719+00:00",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "individual-jagang-cheongna:menu:1",
+          "name": "고추간짜장",
+          "priceKrw": null,
+          "heatLevel": null
+        },
+        {
+          "id": "individual-jagang-cheongna:menu:2",
+          "name": "고추짬뽕",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "똑똑장소찾기 공공자료 재표시 및 다이닝코드 공개 메뉴 정보",
+        "attribution": "상호·도로명 주소·위치: 똑똑장소찾기의 소상공인시장진흥공단 상가정보 기반 개별 행. 메뉴명: 이미 확인된 다이닝코드 공개 정보. 메뉴 출처: https://www.diningcode.com/profile.php?rid=vd6ramu54qup",
+        "changes": "매장명·주소·메뉴명·위치 등 개별 사실만 정리. 사진·후기·가격·평점·수치 맵기를 전재하지 않았습니다.",
+        "scopeNotice": "출처에서 확인한 메뉴명만 정리했으며 해당 매장의 현재 판매 및 영업 여부와 실제 맵기는 미확인입니다. 최근 1년 이내 원문 블로그 검증 자료가 아닙니다. 매장 자체 맵기 단계를 HOT 맵기 점수로 환산하지 않았습니다. 똑똑장소찾기의 2026-07-01 표시는 자료 취합일이며 개별 원자료 조사일이 아닙니다. 위치는 같은 이름·주소 행에 대응하는 사이트 제공 값으로 원본 CSV 행·버전과 대조하지 않았습니다. 최초 좌표 생성 방법·조사일·정확도 및 입구·층·호 위치는 미확인입니다. 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  }
+]
