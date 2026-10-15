@@ -1,0 +1,44 @@
+[
+  {
+    "id": "ddff3730-ae89-5893-8062-ff59f13b9e76",
+    "slug": "hot-individual-jeonnam-damyang-myeongseonggak",
+    "name": "명성각",
+    "address": "전라남도 담양군 담양읍 객사8길 20",
+    "lat": 35.3217949359358,
+    "lon": 126.98924879498752,
+    "source_ref": "individual-jeonnam-damyang-myeongseonggak",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://fernweh88.tistory.com/15",
+      "sourceRecordId": "individual-jeonnam-damyang-myeongseonggak",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-15T08:22:00Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "individual-jeonnam-damyang-myeongseonggak:menu:1",
+          "name": "왕짬뽕",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "체험단 직접 식사 방문기",
+        "attribution": "메뉴·식사·주소·위치: https://fernweh88.tistory.com/15",
+        "changes": "상호·주소·메뉴명·개별 장소 좌표와 출처 확인 범위만 정리했습니다. 원문 문장·사진·가격·평점·지도 이미지는 전재하지 않았습니다. 원문에 포함된 이름 붙은 좌표를 로컬 계산으로 위경도로 변환했습니다.",
+        "scopeNotice": "2025-11-05 게시된 원문은 체험단 방문임을 밝히며 왕짬뽕 주문·식사와 얼큰한 국물을 기록합니다. 게시일과 실제 방문일은 구분하며 정확한 방문일·수정일은 확인되지 않았습니다. 특정 매장에서의 주문·식사 기록과 일치하는 상호·주소, 확인한 자료에서 체인 운영 단서가 발견되지 않은 점을 근거로 지역 개인 식당으로 추정했습니다. 법적 소유관계나 현재 운영자·단일점 여부를 확인한 것은 아닙니다. 현재 영업·현재 판매 여부, 맵기 선택·수치 맵기·현재 가격은 확인하지 않았습니다. 위치는 원문 본문의 명성각 상호와 지번주소가 연결된 개별 장소 좌표를 변환한 값이며 지도 화면 중심은 사용하지 않았습니다. 현장 실측 입구나 위치 정확도를 확인한 것은 아닙니다. 원문·사진·지도·데이터베이스 전체의 재사용 허가를 뜻하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  }
+]

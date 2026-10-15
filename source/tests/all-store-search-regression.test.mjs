@@ -44,8 +44,8 @@ function harness({menus=[],sources=stores}={}){
  return {MapView,Detail,Card,calls,render({app=false,variant='hot',effects:runEffects=false}={}){cursor=0;const nodes=elements((app?App:Explorer)({variant}));if(runEffects){for(const effect of effects.splice(0))effect()}else effects.length=0;return nodes},runTimers(){const jobs=[...timers.values()];timers.clear();for(const job of jobs)job()},dispose(){for(const cell of cells)cell?.cleanup?.()}};
 }
 
-test('all 1434 registered franchise and independent names match exact, partial and whitespace-normalized queries',()=>{
- assert.equal(stores.length,1434);assert.equal(new Set(stores.map(s=>s.id)).size,1434);
+test('all 1435 registered franchise and independent names match exact, partial and whitespace-normalized queries',()=>{
+ assert.equal(stores.length,1435);assert.equal(new Set(stores.map(s=>s.id)).size,1435);
  const snapshot=JSON.stringify(stores);
  for(const store of stores){
   const compact=store.name.replace(/\s+/gu,''),partial=Array.from(compact).slice(0,Math.max(1,Math.floor(Array.from(compact).length/2))).join('');
@@ -64,7 +64,7 @@ test('actual main and embedded views find far franchise branches and independent
   for(const query of queries){input(nodes).props.onChange({target:{value:query}});nodes=h.render({app});const visible=nodes.find(n=>n.type===h.MapView).props.sourcedStores;
    assert.ok(visible.length,query);assert.deepEqual(visible.map(s=>s.id),matching(query).map(s=>s.id));assert.equal(new Set(visible.map(s=>s.id)).size,visible.length);
   }
-  input(nodes).props.onChange({target:{value:''}});nodes=h.render({app});assert.equal(nodes.find(n=>n.type===h.MapView).props.sourcedStores.length,1434);
+  input(nodes).props.onChange({target:{value:''}});nodes=h.render({app});assert.equal(nodes.find(n=>n.type===h.MapView).props.sourcedStores.length,1435);
  }
  assert.equal(scope.mapBrowseOrigin('hot',origin),null);
  for(const variant of ['sweet','rich']){assert.strictEqual(scope.mapBrowseOrigin(variant,origin),origin);const params=new URLSearchParams();scope.appendMapBrowseLocation(params,variant,origin);assert.equal(params.get('radiusKm'),'15')}
