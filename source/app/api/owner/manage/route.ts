@@ -2,6 +2,7 @@ import {verifiedUser} from '@/lib/supabase';
 import {reply,validOrigin} from '@/lib/server';
 import {siteConfig,variantForHost} from '@/lib/site-config';
 import {readOwnerForm,prepareOwnerPhoto,ownerError} from '@/lib/map-owner-api';
+import {validOwnerTaste} from '@/lib/owner-taste-level';
 export const dynamic='force-dynamic';
 export async function GET(request:Request){try{
  const auth=await verifiedUser(request);if(!auth)return reply(request,{error:'점주 계정으로 로그인해 주세요.'},401);
@@ -21,7 +22,7 @@ export async function POST(request:Request){try{
  const variant=variantForHost(new URL(request.url).hostname),theme=siteConfig(variant);
  if(request.headers.get('content-type')?.startsWith('multipart/form-data')){
   const form=await readOwnerForm(request),storeId=String(form.get('storeId')||''),name=String(form.get('name')||'').trim(),price=Number(form.get('price')),level=Number(form.get('level')),flavor=String(form.get('flavor')||''),category=String(form.get('category')||'');
-  if(!/^[0-9a-f-]{36}$/i.test(storeId)||name.length<1||name.length>100||!Number.isInteger(price)||price<100||price>1000000||!Number.isInteger(level)||level<1||level>5||!theme.flavors.slice(1).some(f=>f===flavor)||!theme.categories.some(c=>c===category))return reply(request,{error:'메뉴 이름·가격·맛 단계와 결을 확인해 주세요.'},400);
+  if(!/^[0-9a-f-]{36}$/i.test(storeId)||name.length<1||name.length>100||!Number.isInteger(price)||price<100||price>1000000||!validOwnerTaste(variant,level)||!theme.flavors.slice(1).some(f=>f===flavor)||!theme.categories.some(c=>c===category))return reply(request,{error:'메뉴 이름·가격·맛 단계와 결을 확인해 주세요.'},400);
   const permitted=await auth.client.rpc('ng_map_can_publish',{p_store:storeId,p_planet:variant});
   if(permitted.error)throw permitted.error;if(!permitted.data)return reply(request,{error:'이 지도의 구독과 매장 권한 확인이 필요합니다.',code:'map_subscription_required'},402);
   const bytes=await prepareOwnerPhoto(form.get('photo')),path=auth.user.id+'/'+storeId+'/'+variant+'/'+crypto.randomUUID()+'.webp';
@@ -36,7 +37,7 @@ export async function POST(request:Request){try{
  let result;
  if(body.action==='status'&&typeof body.value==='string')result=await auth.client.rpc('ng_map_set_status',{p_store:storeId,p_planet:variant,p_value:body.value});
  else if(body.action==='soldout'&&typeof body.menuId==='string'&&typeof body.soldout==='boolean')result=await auth.client.rpc('ng_map_set_menu_soldout',{p_store:storeId,p_planet:variant,p_menu:body.menuId,p_soldout:body.soldout});
- else if(body.action==='taste'&&typeof body.menuId==='string'&&Number.isInteger(body.level)&&typeof body.flavor==='string'&&typeof body.category==='string')result=await auth.client.rpc('ng_map_set_menu_taste',{p_store:storeId,p_planet:variant,p_menu:body.menuId,p_level:body.level,p_flavor:body.flavor,p_category:body.category});
+ else if(body.action==='taste'&&typeof body.menuId==='string'&&validOwnerTaste(variant,body.level)&&typeof body.flavor==='string'&&typeof body.category==='string')result=await auth.client.rpc('ng_map_set_menu_taste',{p_store:storeId,p_planet:variant,p_menu:body.menuId,p_level:body.level,p_flavor:body.flavor,p_category:body.category});
  else return reply(request,{error:'지원하지 않는 관리 기능입니다.'},400);
  if(result.error)throw result.error;return reply(request,{ok:true,message:'저장했습니다. 지도에 반영됩니다.'});
 }catch(error){return ownerError(request,error)}}
