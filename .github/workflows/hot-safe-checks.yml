@@ -1,0 +1,28 @@
+name: HOT safe PR checks
+on:
+  pull_request:
+    paths:
+      - 'source/lib/hot-spice.ts'
+      - 'source/lib/hot-spice.test.ts'
+      - 'source/lib/naver-spicy-menu.ts'
+      - 'source/lib/naver-spicy-menu.test.ts'
+      - 'source/components/hot-spice-rating.tsx'
+      - 'source/app/api/spice-ratings/route.ts'
+      - '.github/workflows/hot-safe-checks.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  spice-and-evidence-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.13.1'
+      - name: Run 1-8 spice median and licensed-menu evidence unit tests
+        working-directory: source
+        run: node --experimental-strip-types --test lib/hot-spice.test.ts lib/naver-spicy-menu.test.ts
