@@ -1,5 +1,9 @@
 name: HOT safe PR checks
 on:
+  # Run on branch commits even while this workflow is absent from main.
+  push:
+    branches:
+      - 'feature/hot-spice-median-v1'
   pull_request:
     paths:
       - 'source/lib/hot-spice.ts'
