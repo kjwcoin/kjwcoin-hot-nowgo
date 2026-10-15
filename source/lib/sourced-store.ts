@@ -1,4 +1,4 @@
-import {parseReviewedRegionalStore,reviewedRegionalSources,type RegionalSourceDisclosure} from './regional-source.ts';
+import {parseReviewedRegionalStore,reviewedRegionalSources,reviewedRegionalSourceRecordId,type RegionalSourceDisclosure} from './regional-source.ts';
 import reviewedRegistry from '../data/hot-reviewed-source-registry.json' with {type:'json'};
 import {sourceReportingState,type HotReportingState} from './hot-reporting-phase.ts';
 /** Public, non-owner facts only. Never convert this into a consumer Report/Menu. */
@@ -117,7 +117,7 @@ export function parseSourceTaste(value:unknown,sourceUrl:string,licenseName:stri
  return{description:row.description,preparationTraits:row.preparationTraits as string[],choiceOffered:row.choiceOffered,sourceUrl,sourceAsOf:row.sourceAsOf as string|null,checkedAt:row.checkedAt,licenseName,publicDisplayAllowed:true};
 }
 export function publicSourcedStore(row: SourcedStoreRow): PublicSourcedStore | null {
-  if(typeof row.source_ref==='string'&&!row.source_ref.startsWith('data-go-kr-'))return parseReviewedRegionalStore(row);
+  if(typeof row.source_ref==='string'&&(!row.source_ref.startsWith('data-go-kr-')||reviewedRegionalSourceRecordId(row.source_ref)!==undefined))return parseReviewedRegionalStore(row);
   const meta = record(row.source_metadata), rights = record(meta?.rights);
   if (!meta || !rights || rights.publicDisplay !== true || rights.factsStorage !== true ||
     meta.planet !== 'hot' || row.owner_id !== null || row.archived_at !== null || row.trust_disabled_at !== null ||
@@ -194,7 +194,7 @@ export function parseSourcedStoreFeed(value:unknown):PublicSourcedStoreFeed{
   const facts=publicSourcedStore({id:item.id,slug:item.slug,name:item.name,address:item.address,owner_id:null,
    lat:coordinates?.lat??null,lon:coordinates?.lon??null,archived_at:null,trust_disabled_at:null,owner_penalty_points:0,
    publication_state:'DISCOVERED',source_ref:item.sourceRef,source_metadata:{planet:'hot',rights:{publicDisplay:true,factsStorage:true,...(source.fieldProvenance?{scope:'identity-location-only'}:{})},
-    reporting:{state:item.reportingState},licenseName:source.licenseName,sourceUrl:source.url,sourceAsOf:source.asOf,checkedAt:source.checkedAt,fieldProvenance:source.fieldProvenance,disclosure:source.disclosure,menus:item.menus}});
+    reporting:{state:item.reportingState},sourceRecordId:reviewedRegionalSourceRecordId(item.sourceRef),licenseName:source.licenseName,sourceUrl:source.url,sourceAsOf:source.asOf,checkedAt:source.checkedAt,fieldProvenance:source.fieldProvenance,disclosure:source.disclosure,menus:item.menus}});
   if(!facts)throw Error('invalid_source_store');
   const store:PublicSourcedStore={...facts,indexable:item.indexable===true,...(item.registrationState==='source-only'?{registrationState:'source-only' as const}:{}),ownership:item.ownership as PublicSourcedStore['ownership'],ownerClaimVerified:item.ownerClaimVerified as boolean,pinStatus:item.pinStatus as PublicSourcedStore['pinStatus']};
   const previous=stores.get(store.id);

@@ -1,0 +1,44 @@
+[
+  {
+    "id": "9ad417ff-fd90-5b77-a8e6-07839762dea2",
+    "slug": "hot-data-go-kr-15052602-20200114000121",
+    "name": "중화반점",
+    "address": "대구광역시 중구 중앙대로 406-12",
+    "lat": 35.8693,
+    "lon": 128.594407,
+    "source_ref": "data-go-kr-15052602-20200114000121",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15052602/fileData.do",
+      "sourceRecordId": "snapshot-20200114-row-121",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-15T11:44:00Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15052602-20200114000121:menu:1",
+          "name": "야끼우동",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "공공데이터포털·대구푸드·직접 식사 방문기",
+        "attribution": "상호·주소·위치: https://www.data.go.kr/data/15052602/fileData.do (대구광역시 중구, 2020-01-14 기준). 매장·메뉴·가족 운영: https://www.daegufood.go.kr/kor/food/food.asp?idx=219&snm=9. 최근 식사·주소·매운 메뉴: https://landeast.tistory.com/179",
+        "changes": "상호·주소·메뉴명·개별 좌표와 확인 범위만 정리했습니다. 공공데이터의 과거 메뉴 표기 특미야끼우동은 현 매장정보와 방문기의 야끼우동 표기로 확인했습니다. 원문 문장·사진·지도·가격·평점·개인 이름은 전재하지 않았습니다.",
+        "scopeNotice": "2026-07-26 게시된 직접 방문기에서 같은 주소의 야끼우동 주문·식사와 매운맛을 확인했습니다. 게시·수정 시각은 같으며 정확한 방문일은 확인되지 않았습니다. 이 기록은 최근 영업·메뉴의 근거이며 실시간 영업이나 현재 판매를 보증하지 않습니다. 지자체 매장정보도 동일 상호·주소·메뉴를 확인합니다. 매운맛은 해당 메뉴의 출처 확인 내용이고 이용자 평가·수치 맵기·매운맛 선택 단계가 아닙니다. 좌표는 2020-01-14 기준 공공데이터 15052602의 동일 상호·도로명주소 행에서 가져온 과거 제공값입니다. 최근 방문기의 같은 주소와 대조했으며 새로 측량하거나 입구 위치를 검증한 값은 아닙니다. 해당 데이터셋의 이용허락범위는 제한 없음으로 표시되어 있으나 방문기·지자체 설명문·사진의 라이선스나 결합 자료의 재판매 권한으로 확대하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  }
+]
