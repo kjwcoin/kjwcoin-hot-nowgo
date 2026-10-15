@@ -1,0 +1,44 @@
+[
+  {
+    "id": "9e3e770e-9661-5fbf-b319-3df90753300a",
+    "slug": "hot-individual-geumak-ttottot",
+    "name": "금악 똣똣라면",
+    "address": "제주특별자치도 제주시 한림읍 금악로 18",
+    "lat": 33.3586497416868,
+    "lon": 126.296615084425,
+    "source_ref": "individual-geumak-ttottot",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=4ac89ef3-52b0-4eb0-b6dd-b6f1b6dafd03",
+      "sourceRecordId": "individual-geumak-ttottot",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-15T01:28:28Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "individual-geumak-ttottot:menu:1",
+          "name": "똣똣라면",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "한국관광공사 공개 안내 및 퍼플오의 소상공인시장진흥공단 상권자료 재표시",
+        "attribution": "메뉴명·얼큰한 조리 특성: 한국관광공사 대한민국 구석구석. 상호·도로명주소·위치: 퍼플오의 소상공인시장진흥공단 상권정보 원본정보 표시. 메뉴 출처: https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=4ac89ef3-52b0-4eb0-b6dd-b6f1b6dafd03 위치 출처: https://ykm.purpleo.kr/article/44079",
+        "changes": "상호·주소·메뉴명·위치와 출처의 얼큰함 소개 여부 등 개별 사실만 정리. 설명문·사진·후기·가격·평점·수치 맵기를 전재하지 않았습니다.",
+        "scopeNotice": "공식 관광 안내에서 얼큰한 라면으로 소개. 엄청매운맛 또는 별도 맵기 선택 여부는 이 기록에서 확인하지 않았습니다. 현재 영업 및 판매 여부, 실제 맵기와 조리법은 미확인입니다. 위치는 동일 상호·주소의 공개 상권자료 재표시 값으로 원본 CSV 행과 대조하지 않았으며 입구·층·호 및 좌표 생성 방법·정확도는 미확인입니다. 관광공사 HTML의 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  }
+]
