@@ -1,0 +1,182 @@
+[
+  {
+    "id": "11b21775-b073-5d56-8e32-bb4b07f83eba",
+    "slug": "hot-individual-gangwon-gangneung-dongboseong",
+    "sourceRef": "individual-gangwon-gangneung-dongboseong",
+    "name": "동보성",
+    "address": "강원특별자치도 강릉시 포남동 1210-6 1층",
+    "coordinates": {
+      "lat": 37.78038807982371,
+      "lon": 128.9181481606514
+    },
+    "menus": [
+      {
+        "id": "individual-gangwon-gangneung-dongboseong:menu:1",
+        "name": "매운짬뽕",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://juan-life.tistory.com/234",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-15T09:16:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "직접 식사 방문기",
+        "attribution": "메뉴·식사·주소·위치: https://juan-life.tistory.com/234",
+        "changes": "상호·주소·메뉴명·개별 장소 좌표와 출처 확인 범위만 정리했습니다. 원문 문장·사진·가격·평점·지도 이미지는 전재하지 않았습니다. 원문의 이름 붙은 좌표를 로컬 계산으로 위경도로 변환했습니다.",
+        "scopeNotice": "2026-01-06 게시된 직접 방문기는 매운짬뽕을 주문해 먹은 기록입니다. 게시일과 실제 방문일은 구분하며 정확한 방문일은 확인되지 않았습니다. 원문 본문에서 협찬 표시를 찾지 못했으나 자비 방문 여부를 검증한 것은 아닙니다. 특정 매장의 직접 식사·주인 응대 기록, 주택가 소규모 매장 사진과 강릉 내 이전 기록을 근거로 지역 개인 식당으로 추정했습니다. 동명 음식점이 다른 지역에도 있으나 이 강릉 매장과의 체인 관계는 확인한 자료에서 발견되지 않았습니다. 법적 소유관계·현재 운영자·단일점 여부는 미확인입니다. 현재 영업·현재 판매 여부, 맵기 선택·수치 맵기·현재 가격은 확인하지 않았습니다. 위치는 원문 본문의 상호·지번주소가 연결된 개별 장소 좌표를 로컬 변환한 값이며 지도 화면 중심은 사용하지 않았습니다. 현장 실측 입구나 위치 정확도를 확인한 것은 아닙니다. 원문·사진·지도·데이터베이스 전체의 재사용 허가를 뜻하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "f4e6e697-e7b6-5037-a36a-cd4975bf3ba1",
+    "slug": "hot-individual-gangwon-gangneung-hwanggung-jjamppong",
+    "sourceRef": "individual-gangwon-gangneung-hwanggung-jjamppong",
+    "name": "황궁짬뽕",
+    "address": "강원특별자치도 강릉시 포남동 1167-6 1층",
+    "coordinates": {
+      "lat": 37.768585177446695,
+      "lon": 128.90895073012595
+    },
+    "menus": [
+      {
+        "id": "individual-gangwon-gangneung-hwanggung-jjamppong:menu:1",
+        "name": "해물짬뽕",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://yuchoiday2.tistory.com/480",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-15T09:16:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "직접 식사 방문기",
+        "attribution": "메뉴·식사·주소·위치: https://yuchoiday2.tistory.com/480",
+        "changes": "상호·주소·메뉴명·개별 장소 좌표와 출처 확인 범위만 정리했습니다. 원문 문장·사진·가격·평점·지도 이미지는 전재하지 않았습니다. 원문의 이름 붙은 좌표를 로컬 계산으로 위경도로 변환했습니다.",
+        "scopeNotice": "2026-04-11 게시된 방문기는 짬뽕밥을 주문했지만 면 짬뽕을 제공받아 실제 먹은 상황과 매콤한 국물을 기록합니다. 사진 메뉴판의 해당 메뉴명은 해물짬뽕입니다. 게시일과 실제 방문일은 구분하며 정확한 방문일은 확인되지 않았습니다. 원문 본문에서 협찬 표시를 찾지 못했으나 자비 방문 여부를 검증한 것은 아닙니다. 특정 매장의 직접 식사 기록과 주인 조리 모습, 가족 운영으로 보았다는 방문자 관찰을 근거로 지역 개인 식당으로 추정했습니다. 다른 지역의 동명·유사 상호와 이 강릉 매장의 체인 관계는 확인한 자료에서 발견되지 않았습니다. 가족 운영은 방문자의 추정이며 법적 소유관계·현재 운영자·단일점 여부는 미확인입니다. 현재 영업·현재 판매 여부, 맵기 선택·수치 맵기·현재 가격은 확인하지 않았습니다. 위치는 원문 본문의 상호·지번주소가 연결된 개별 장소 좌표를 로컬 변환한 값이며 지도 화면 중심은 사용하지 않았습니다. 현장 실측 입구나 위치 정확도를 확인한 것은 아닙니다. 원문·사진·지도·데이터베이스 전체의 재사용 허가를 뜻하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "36a63b58-f842-50b6-8d4d-c061494b60b6",
+    "slug": "hot-individual-jeonbuk-gunsan-wangsan-junghwayori",
+    "sourceRef": "individual-jeonbuk-gunsan-wangsan-junghwayori",
+    "name": "왕산중화요리",
+    "address": "전북특별자치도 군산시 대학로 209",
+    "coordinates": {
+      "lat": 35.97345895704118,
+      "lon": 126.7010888235146
+    },
+    "menus": [
+      {
+        "id": "individual-jeonbuk-gunsan-wangsan-junghwayori:menu:1",
+        "name": "콩나물짬뽕",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://blog.naver.com/kkj12486/224378768062",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-15T09:22:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "원필름 직접 식사 방문기",
+        "attribution": "원문 식사·메뉴: https://blog.naver.com/kkj12486/224378768062 | 동일 저자 재게시·이름 붙은 위치 링크: https://kkj12486.tistory.com/99",
+        "changes": "상호·주소·메뉴명·개별 장소 좌표와 출처 확인 범위만 정리했습니다. 원문 문장·사진·가격·평점·지도 이미지는 전재하지 않았습니다. 재게시 본문의 이름 붙은 장소 링크에 포함된 경도·위도 값을 필드 순서에 맞게 정리했습니다.",
+        "scopeNotice": "원문 게시일은 2026-08-30, 같은 저자의 재게시·재게시 페이지 수정일은 2026-09-09입니다. 원문 수정일과 실제 방문일은 확인되지 않았습니다. 방문자는 콩나물짬뽕을 직접 주문해 먹고 주관적으로 중간 정도의 매운맛이라고 설명했습니다. 매운짬뽕은 다음에 먹을 메뉴로 언급되어 그 메뉴를 먹었다고 보지 않았습니다. 렌더링된 글에서 협찬 고지는 확인되지 않았으나 비협찬 여부를 별도로 인증한 것은 아닙니다. 특정 매장에서의 직접 주문·식사 기록과 일치하는 상호·주소, 오래된 지역 운영자 소개 및 단일 주소의 상점 안내를 근거로 지역 개인 식당으로 추정했습니다. 확인한 자료에서 체인 운영 단서가 발견되지 않았지만 법적 소유관계나 현재 운영자·단일점 여부를 확인한 것은 아닙니다. 현재 영업·현재 판매 여부, 맵기 선택·수치 맵기·현재 가격은 확인하지 않았습니다. 위치는 재게시 본문의 이름·주소·장소 식별자가 연결된 개별 장소 링크에 포함된 위경도이며 지도 화면 중심이 아닙니다. 현장 실측 입구나 위치 정확도를 확인한 것은 아닙니다. 이 묶음은 같은 저자의 원문 2건과 그 재게시 2건을 합산하여 상호 2개·주소 2개·좌표 2쌍·실제 먹은 메뉴명 2개·출처 날짜와 확인 범위만 정리했습니다. 4건의 독립 방문후기로 세지 않았습니다. 표시된 CC BY-NC-ND는 상업적 재사용 허락의 근거로 사용하지 않습니다. 원문 문장·사진·지도 이미지·평점·전체 메뉴표는 전재하지 않으며, 원문이나 지도 데이터베이스 전체의 재사용 허가를 뜻하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "c7f0c5d5-2dbd-553c-a760-71c8fb3ca42b",
+    "slug": "hot-individual-jeonnam-yeonggwang-eochon-agu",
+    "sourceRef": "individual-jeonnam-yeonggwang-eochon-agu",
+    "name": "어촌아구",
+    "address": "전남 영광군 영광읍 대하길2길 11",
+    "coordinates": {
+      "lat": 35.27412039115119,
+      "lon": 126.49844298045834
+    },
+    "menus": [
+      {
+        "id": "individual-jeonnam-yeonggwang-eochon-agu:menu:1",
+        "name": "아구찜",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://blog.naver.com/kkj12486/224423857846",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-15T09:22:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "원필름 직접 식사 방문기",
+        "attribution": "원문 식사·메뉴: https://blog.naver.com/kkj12486/224423857846 | 동일 저자 재게시·이름 붙은 위치 링크: https://kkj12486.tistory.com/135",
+        "changes": "상호·주소·메뉴명·개별 장소 좌표와 출처 확인 범위만 정리했습니다. 원문 문장·사진·가격·평점·지도 이미지는 전재하지 않았습니다. 재게시 본문의 이름 붙은 장소 링크에 포함된 경도·위도 값을 필드 순서에 맞게 정리했습니다.",
+        "scopeNotice": "원문 게시일은 2026-10-05, 같은 저자의 재게시·재게시 페이지 수정일은 2026-10-15입니다. 원문 수정일은 확인되지 않았습니다. 글은 추석 다음 날 방문했다고 설명하지만 방문 연도·날짜를 명시하지 않아 실제 방문일을 확정하지 않았습니다. 방문자는 아구찜과 아구탕을 직접 먹었으며 아구찜만 약간 매콤하다고 설명했습니다. 아구탕에 같은 매운맛 설명을 붙이지 않았습니다. 렌더링된 글에 협찬 고지는 없고 가족의 계산 장면이 있으나 비협찬·결제 여부를 별도로 인증한 것은 아닙니다. 주소는 본문 표기인 전남을 사용했습니다. 이름 붙은 지도 링크는 같은 군·읍·도로명·번지를 가리키지만 더 긴 광역행정구역 표기를 사용하며 행정구역 개편 여부는 판단하지 않았습니다. 같은 주소의 지역 식당에 여러 번 방문한 기록, 일치하는 상호·주소와 지역 상점 안내를 근거로 지역 개인 식당으로 추정했습니다. 확인한 자료에서 체인 운영 단서가 발견되지 않았지만 법적 소유관계나 현재 운영자·단일점 여부를 확인한 것은 아닙니다. 현재 영업·현재 판매 여부, 맵기 선택·수치 맵기·현재 가격은 확인하지 않았습니다. 위치는 재게시 본문의 이름·주소·장소 식별자가 연결된 개별 장소 링크에 포함된 위경도이며 지도 화면 중심이 아닙니다. 현장 실측 입구나 위치 정확도를 확인한 것은 아닙니다. 이 묶음은 같은 저자의 원문 2건과 그 재게시 2건을 합산하여 상호 2개·주소 2개·좌표 2쌍·실제 먹은 메뉴명 2개·출처 날짜와 확인 범위만 정리했습니다. 4건의 독립 방문후기로 세지 않았습니다. 표시된 CC BY-NC-ND는 상업적 재사용 허락의 근거로 사용하지 않습니다. 원문 문장·사진·지도 이미지·평점·전체 메뉴표는 전재하지 않으며, 원문이나 지도 데이터베이스 전체의 재사용 허가를 뜻하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  }
+]
