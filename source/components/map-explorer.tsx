@@ -1,5 +1,5 @@
 'use client';
-import {matchesMenuSearch,menuSearchError} from '@/lib/menu-search';
+import {matchesMenuSearch,menuSearchError,normalizedMenuQuery} from '@/lib/menu-search';
 import type {PublicSourcedStore} from '@/lib/sourced-store';
 import {menuHeatAttribution} from '@/lib/menu-heat-attribution';
 import {previewMenuHeat,replacePreviewHeat,type PreviewHeatVotes} from '@/lib/preview-menu-heat';
@@ -70,13 +70,20 @@ export default function MapExplorer({variant='hot',previewStore,initialSourceSto
  const locationFailed=!['idle','locating','retrying','located'].includes(locationState);
  const requestLocation=()=>locationControl.current?.requestLocation();
  const [catalog,setCatalog]=useState<Menu[]>(MENUS),[page,setPage]=useState(0),[hasMore,setHasMore]=useState(false);
+ const catalogGeneration=useRef(0);
  const [query,setQuery]=useState(''),[heat,setHeat]=useState(0),[flavor,setFlavor]=useState('전체'),[category,setCategory]=useState('전체'),[budget,setBudget]=useState(0),[selected,setSelected]=useState<Menu|null>(null),[expanded,setExpanded]=useState(!!initialSourceStore||!!previewStore),[userLocation,setUserLocation]=useState<GeoPoint|null>(null);
  useEffect(()=>{if(previewStore)return;let cancelled=false;const reveal=(id:string)=>{if(!id)return;void api<{menu:Menu}>(`/api/menu?id=${encodeURIComponent(id)}`).then(d=>{if(!cancelled){setReportedMenu(d.menu);setSelectedSource(null);setSelected(d.menu);setExpanded(true)}}).catch(()=>{})};reveal(new URLSearchParams(location.search).get('report')||'');const channel=typeof BroadcastChannel!=='undefined'?new BroadcastChannel('nowgo-catalog'):null;if(channel)channel.onmessage=event=>{if(event.data?.brand===variant&&typeof event.data?.menuId==='string')reveal(event.data.menuId)};return()=>{cancelled=true;channel?.close()}},[variant,previewStore]);
  // HOT location centers the map; it never silently narrows discovery.
  const browseOrigin=mapBrowseOrigin(variant,userLocation);
  const parameters=(nextPage:number)=>{const p=new URLSearchParams({page:String(nextPage)});if(query)p.set('q',query);if(heat)p.set('heat',String(heat));if(flavor!=='전체')p.set('flavor',flavor);if(category!=='전체')p.set('category',category);if(budget)p.set('budget',String(budget));appendMapBrowseLocation(p,variant,userLocation);return p};
- const load=(nextPage:number)=>api<{menus:Menu[];hasMore:boolean;myReportMenuIds?:string[]}>(`/api/menus?${parameters(nextPage)}`).then(d=>{setCatalog(old=>nextPage?[...old,...d.menus]:[...MENUS,...d.menus]);setMyReportMenuIds(old=>nextPage?Array.from(new Set([...old,...(d.myReportMenuIds||[])])):d.myReportMenuIds||[]);setPage(nextPage);setHasMore(d.hasMore)});
- useEffect(()=>{if(previewStore)return;let cancelled=false;const p=parameters(0);const refresh=()=>api<{menus:Menu[];hasMore:boolean;myReportMenuIds?:string[]}>(`/api/menus?${p}`).then(d=>{if(!cancelled){setCatalog([...MENUS,...d.menus]);setMyReportMenuIds(d.myReportMenuIds||[]);setPage(0);setHasMore(d.hasMore)}}).catch(()=>{});const timer=setTimeout(refresh,query?250:0);window.addEventListener('focus',refresh);const visible=()=>{if(document.visibilityState==='visible')void refresh()};const interval=setInterval(visible,30_000);document.addEventListener('visibilitychange',visible);window.addEventListener('nowgo-activity-change',refresh);window.addEventListener('hot-customer-change',refresh);const channel=typeof BroadcastChannel!=='undefined'?new BroadcastChannel('nowgo-catalog'):null;if(channel)channel.onmessage=event=>{if(event.data?.brand===variant)void refresh()};return()=>{cancelled=true;clearTimeout(timer);clearInterval(interval);document.removeEventListener('visibilitychange',visible);window.removeEventListener('nowgo-activity-change',refresh);window.removeEventListener('hot-customer-change',refresh);channel?.close();window.removeEventListener('focus',refresh)}},[query,heat,flavor,category,budget,browseOrigin,variant,previewStore]);
+ const load=(nextPage:number)=>{
+  const generation=catalogGeneration.current;
+  return api<{menus:Menu[];hasMore:boolean;myReportMenuIds?:string[]}>(`/api/menus?${parameters(nextPage)}`).then(d=>{
+   if(generation!==catalogGeneration.current)return;
+   setCatalog(old=>nextPage?Array.from(new Map([...old,...d.menus].map(menu=>[menu.id,menu])).values()):[...MENUS,...d.menus]);setMyReportMenuIds(old=>nextPage?Array.from(new Set([...old,...(d.myReportMenuIds||[])])):d.myReportMenuIds||[]);setPage(nextPage);setHasMore(d.hasMore);
+  });
+ };
+ useEffect(()=>{if(previewStore)return;let cancelled=false;const pending=catalogGeneration,generation=++pending.current,p=parameters(0);const refresh=()=>api<{menus:Menu[];hasMore:boolean;myReportMenuIds?:string[]}>(`/api/menus?${p}`).then(d=>{if(!cancelled&&generation===catalogGeneration.current){setCatalog([...MENUS,...d.menus]);setMyReportMenuIds(d.myReportMenuIds||[]);setPage(0);setHasMore(d.hasMore)}}).catch(()=>{});const timer=setTimeout(refresh,query?250:0);window.addEventListener('focus',refresh);const visible=()=>{if(document.visibilityState==='visible')void refresh()};const interval=setInterval(visible,30_000);document.addEventListener('visibilitychange',visible);window.addEventListener('nowgo-activity-change',refresh);window.addEventListener('hot-customer-change',refresh);const channel=typeof BroadcastChannel!=='undefined'?new BroadcastChannel('nowgo-catalog'):null;if(channel)channel.onmessage=event=>{if(event.data?.brand===variant)void refresh()};return()=>{cancelled=true;pending.current++;clearTimeout(timer);clearInterval(interval);document.removeEventListener('visibilitychange',visible);window.removeEventListener('nowgo-activity-change',refresh);window.removeEventListener('hot-customer-change',refresh);channel?.close();window.removeEventListener('focus',refresh)}},[query,heat,flavor,category,budget,browseOrigin,variant,previewStore]);
  const previewFeed=useMemo(()=>previewStore?{stores:[previewStore],complete:true,asOf:previewStore.source.checkedAt}:undefined,[previewStore]);
  // Seed SSR without enabling the preview bypass for a live direct-link route.
  const initialSourceFeed=useMemo(()=>initialSourceStore?{stores:[initialSourceStore],complete:false,asOf:initialSourceStore.source.checkedAt}:undefined,[initialSourceStore]);
@@ -84,7 +91,14 @@ export default function MapExplorer({variant='hot',previewStore,initialSourceSto
  const sourceStores=useMemo(()=>sourceState.feed?.stores||[],[sourceState.feed]);
  const matchingSources=useMemo(()=>sourcedStoresNearby(sourceStores,browseOrigin).filter(store=>sourcedStoreMatches(store,{query,heat,flavor,category,budget:budget})),[sourceStores,browseOrigin,query,heat,flavor,category,budget]);
  const viewportCountQuery=useMemo(()=>new URLSearchParams({variant,q:query,heat:String(heat),flavor,category,budget:String(budget)}).toString(),[variant,query,heat,flavor,category,budget]);
- const locatedCatalog=useMemo(()=>mapMenuCatalog(catalog,browseOrigin),[catalog,browseOrigin]);
+ // A textual HOT search can list an existing address-only report. KakaoMap still
+ // requires real coordinates for a pin; ordinary map browsing is unchanged.
+ const locatedCatalog=useMemo(()=>{
+  const located=mapMenuCatalog(catalog,browseOrigin);
+  if(variant!=='hot'||!normalizedMenuQuery(query))return located;
+  const positioned=new Set(located);
+  return catalog.filter(menu=>positioned.has(menu)||!menu.isDemo&&(menu.lat===null||menu.lng===null));
+ },[catalog,browseOrigin,variant,query]);
  const matching=useMemo(()=>locatedCatalog.filter(m=>(!heat||m.heat===heat)&&(flavor==='전체'||m.flavor===flavor)&&(category==='전체'||m.category===category)&&(!budget||m.price<=budget)&&matchesMenuSearch([m.name,m.shop,m.area],query)),[locatedCatalog,query,heat,flavor,category,budget]);
  const filtered=useMemo(()=>reportedMenu?[reportedMenu,...matching.filter(m=>m.id!==reportedMenu.id)]:matching,[reportedMenu,matching]);
  const combinedStores=useMemo(()=>mapStoreGroups(filtered.filter(menu=>menu.id!==reportedMenu?.id&&!myReportMenuIds.includes(menu.id)),matchingSources,sourceStores),[filtered,matchingSources,sourceStores,myReportMenuIds,reportedMenu]);
@@ -99,12 +113,13 @@ export default function MapExplorer({variant='hot',previewStore,initialSourceSto
  useEffect(()=>{const body=resultsBody.current;if(!body)return;body.scrollTop=hasSelection?0:listScrollTop.current;const target=listFocus.current;if(!hasSelection&&expanded&&target){const row=Array.from(body.querySelectorAll<HTMLButtonElement>('[data-menu-id],[data-source-menu-id],[data-source-store-id]')).find(node=>(target.kind==='source'?(node.dataset.sourceMenuId||node.dataset.sourceStoreId):node.dataset.menuId)===target.id);row?.focus({preventScroll:true})}},[current?.id,currentSource?.id,selectedSourceMenuId,hasSelection,expanded]);
  const count=Number(!!heat)+Number(flavor!=='전체')+Number(category!=='전체')+Number(!!budget);
  function updateQuery(value:string){
+  if(value!==query)catalogGeneration.current++;
   setReportedMenu(null);setQuery(value);setSelected(null);setSelectedSource(null);setSelectedSourceMenuId(null);listScrollTop.current=0;listFocus.current=null;
   // A direct place/area search must not be silently blocked by stale taste or
   // budget filters. Source listings do not invent those unverified values.
   if(value.trim()){setHeat(0);setFlavor('전체');setCategory('전체');setBudget(0);moveSheet(0);setExpanded(true)}
  }
- function reset(){setReportedMenu(null);setQuery('');setHeat(0);setFlavor('전체');setCategory('전체');setBudget(0);setSelected(null);setSelectedSource(null);listScrollTop.current=0}
+ function reset(){if(query||heat||flavor!=='전체'||category!=='전체'||budget)catalogGeneration.current++;setReportedMenu(null);setQuery('');setHeat(0);setFlavor('전체');setCategory('전체');setBudget(0);setSelected(null);setSelectedSource(null);listScrollTop.current=0}
  useEffect(()=>{if(!previewStore)track('map_open','map')},[previewStore]);
  function rememberList(target:{kind:'menu'|'source';id:string}){if(!hasSelection){listScrollTop.current=resultsBody.current?.scrollTop||0;listFocus.current=target}}
  function select(m:Menu){rememberList({kind:'menu',id:m.id});setSelectedSource(null);setSelected(m);setExpanded(true);if(!previewStore)track('menu_detail_open',m.id)}
