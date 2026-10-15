@@ -14,8 +14,26 @@ export default function WorldEntry({planet,state,open,onClose,onActivity}:{plane
  const [detailsOpen,setDetailsOpen]=useState(false);
  const brief=planet==='hot'?'내 취향에 맞는 매운 한 접시를 찾아요.':planet==='sweet'?'내 취향에 맞는 달콤한 디저트를 찾아요.':'맛과 식감이 마음에 드는 한 접시를 찾아요.';
  return <Dialog open={open} onOpenChange={value=>{if(!value)onClose()}}><DialogContent className="we-dialog activity-world" showCloseButton={false} style={{'--planet':w.accent} as CSSProperties} onCloseAutoFocus={event=>event.preventDefault()}>
-  <div className="we-top"><Brand/><span>{w.name}의 세계</span><button onClick={onClose} aria-label="세계관 팝업 닫고 지도 이용하기"><span className="we-close-full">닫고 지도 이용하기</span><span className="we-close-compact">닫기</span><X size={23}/></button></div>
+  <div className="we-top"><Brand/><span>{planet==='sweet'?'SWEET · 선결제 픽업 안내':`${w.name}의 세계`}</span><button onClick={onClose} aria-label="세계관 팝업 닫고 지도 이용하기"><span className="we-close-full">닫고 지도 이용하기</span><span className="we-close-compact">닫기</span><X size={23}/></button></div>
   <div className="we-content">
+   {planet==='sweet' ? <section className="sweet-entry" aria-labelledby="sweet-entry-title">
+    <div className="sweet-entry-hero">
+     <img className="we-planet" src="/activity/planet-sweet.webp" alt="민트색 SWEET 행성"/>
+     <span className="sweet-entry-kicker">NOWGO SWEET · 메뉴 재고 확인과 매장 픽업</span>
+     <DialogTitle id="sweet-entry-title" className="sweet-entry-title">메뉴를 확인하고, 미리 결제한 뒤 픽업하세요</DialogTitle>
+     <DialogDescription className="sweet-entry-description">민트 핀을 눌러 매장 미니 홈페이지를 열고, 품목별 남은 수량과 품절 여부를 확인하세요. 구매 가능한 메뉴는 픽업 시간을 정해 선결제할 수 있어요.</DialogDescription>
+     <div className="sweet-entry-actions">
+      <button className="sweet-entry-primary" onClick={onClose}>픽업 매장 찾기<ArrowUpRight size={17}/></button>
+      <a className="sweet-entry-secondary" href="/owner/signup">점주 입점 신청</a>
+     </div>
+    </div>
+    <ol className="sweet-entry-steps">
+     <li><span>01</span><div><strong>민트 핀에서 매장 미니 홈페이지 열기</strong><p>매장별 메뉴, 가격, 픽업 정보를 한 곳에서 확인해요.</p></div></li>
+     <li><span>02</span><div><strong>품목별 수량과 품절 여부 확인</strong><p>재고가 확인된 메뉴만 주문할 수 있어요. 품절 메뉴는 바로 구분돼요.</p></div></li>
+     <li><span>03</span><div><strong>선결제하고 매장에서 픽업</strong><p>원하는 시간을 선택하고 결제한 뒤, 준비된 상품을 직접 받아가요.</p></div></li>
+    </ol>
+    <p className="sweet-entry-owner-note">점주는 월 구독으로 메뉴·재고와 주문을 관리하고, 오프라인 매장 픽업 주문을 받아요.</p>
+   </section> : <>
    <section className="we-hero"><div><span className="aw-eyebrow">내 취향이 나의 전적이 되는 곳</span><DialogTitle className="we-title">{w.motto}</DialogTitle><DialogDescription className="we-description"><span className="we-description-full">{w.story}</span><span className="we-description-compact">{brief}</span></DialogDescription><div className="aw-actions"><button className="aw-button" onClick={onClose}>탐험하기<ArrowUpRight size={17}/></button><a className="we-ghost" href="/suggestion#report">제보하기</a></div></div><img className="we-planet" src={`/activity/planet-${planet}.webp`} alt={`${w.name} 2D 행성`}/></section>
    <button className="we-details-toggle" type="button" aria-expanded={detailsOpen} aria-controls="world-entry-details" onClick={()=>setDetailsOpen(value=>!value)}>레벨·퀘스트·휘장 안내<ChevronDown size={18}/></button>
    <div id="world-entry-details" className={`we-details${detailsOpen?' is-expanded':''}`}>
@@ -29,6 +47,7 @@ export default function WorldEntry({planet,state,open,onClose,onActivity}:{plane
    <section className="aw-panel aw-limited"><span className="aw-limited-banner">LIMITED EDITION</span><strong className="aw-only">ONLY AT THAT MOMENT</strong><h2>그 순간의 휘장</h2><p>이벤트·프로모션·콜라보 때만 얻을 수 있는 휘장. 기간이 지나도 나의 소장함에 남아요.</p>{d?.campaigns.length?d.campaigns.map(c=><article key={c.id}><h3>{c.title}</h3><p>{c.brand}</p></article>):<p className="aw-help">현재 진행 중인 한정판 휘장 이벤트가 없어요.</p>}</section>
    <section className="we-final"><h2>오늘도, 내 취향대로</h2><p>세계관을 닫고 지도에서 다음 한 접시를 찾아요.</p><div className="aw-actions"><button className="aw-button" onClick={onClose}>탐험하기<ArrowUpRight size={17}/></button><a className="we-ghost" href="/suggestion#report">제보하기</a></div></section>
    </div>
+   </>}
   </div>
  </DialogContent></Dialog>;
 }
