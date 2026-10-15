@@ -9,7 +9,7 @@ function elapsed(iso:string|null,now:number){
  if(!Number.isFinite(minutes)||minutes<0)return null;
  return minutes===0?'방금 전':`${Math.min(minutes,99)}분 전`;
 }
-export default function StoreStatus({menuId,isDemo,ownerRegistered=false}:{menuId:string;isDemo:boolean;ownerRegistered?:boolean}){
+export default function StoreStatus({menuId,isDemo,ownerRegistered=false,variant}:{menuId:string;isDemo:boolean;ownerRegistered?:boolean;variant?:'hot'|'sweet'|'rich'}){
  const router=useRouter();
  useEffect(()=>{if(isDemo)return;let alive=true;const refresh=async()=>{try{const {menu}=await api<{menu:{ownerRegistered:boolean}}>('/api/menu?id='+encodeURIComponent(menuId));if(alive&&menu.ownerRegistered!==ownerRegistered){window.dispatchEvent(new Event('nowgo:catalog-refresh'));window.dispatchEvent(new Event('nowgo-activity-change'));router.refresh()}}catch{}};const tick=()=>{if(!document.hidden)void refresh()};const timer=setInterval(tick,30_000);window.addEventListener('focus',tick);return()=>{alive=false;clearInterval(timer);window.removeEventListener('focus',tick)}},[menuId,isDemo,ownerRegistered,router]);
  const canShowStatus=ownerRegistered&&!isDemo;
@@ -20,5 +20,7 @@ export default function StoreStatus({menuId,isDemo,ownerRegistered=false}:{menuI
  if(!canShowStatus)return <section className="store-status" aria-label={isDemo?'가매장 영업현황':'제보자 등록매장 영업현황'}><strong>{isDemo?'가매장':'제보자 등록매장'}</strong><p>영업현황 확인불가<br/>점주 가입 시, 실시간 영업현황 보기 가능</p></section>;
  const displayState=state?.validUntil&&Date.parse(state.validUntil)<=now?null:state;
  const updated=elapsed(displayState?.checkedAt||null,now);
- return <section className="store-status" aria-label="NOWGO 매장 상태"><dl><div><dt>실시간 영업</dt><dd className={displayState?.fresh?'fresh-status':''}>{displayState?.open||'확인 필요'}</dd></div><div><dt>혼잡도</dt><dd>{displayState?.crowding||'확인 필요'}</dd></div><div><dt>이 메뉴</dt><dd>{displayState?.menu||'확인 필요'}</dd></div></dl><p>{displayState?.source||'NOWGO 매장 연결 준비 중'}{updated&&<><br/>점주 설정 · {updated} 갱신</>}</p></section>
+ const statusSource=displayState?.source;
+ const sourceLabel=variant==='hot'&&(!statusSource||statusSource==='NOWGO 매장 연결 준비 중')?'NOWGO 매장 연결 미확인':statusSource||'NOWGO 매장 연결 준비 중';
+ return <section className="store-status" aria-label="NOWGO 매장 상태"><dl><div><dt>실시간 영업</dt><dd className={displayState?.fresh?'fresh-status':''}>{displayState?.open||'확인 필요'}</dd></div><div><dt>혼잡도</dt><dd>{displayState?.crowding||'확인 필요'}</dd></div><div><dt>이 메뉴</dt><dd>{displayState?.menu||'확인 필요'}</dd></div></dl><p>{sourceLabel}{updated&&<><br/>점주 설정 · {updated} 갱신</>}</p></section>
 }

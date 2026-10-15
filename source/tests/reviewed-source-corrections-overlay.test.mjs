@@ -1,0 +1,4 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {applyReviewedCorrections} from '../lib/reviewed-source-corrections.ts';
+test('overlay replaces only existing matching identities and preserves order',()=>{const a={id:'a',source_ref:'r-a',name:'old'},b={id:'b',source_ref:'r-b'};const replacement={...a,name:'new'};assert.deepEqual(applyReviewedCorrections([a,b],[replacement,{id:'new',source_ref:'new'}]),[replacement,b]);assert.equal(a.name,'old')});
+test('null/malformed rows and conflicting or duplicate corrections cannot break baseline assembly',()=>{const a={id:'a',source_ref:'r-a'};assert.deepEqual(applyReviewedCorrections([null,a],[null,{id:'a',source_ref:'wrong'}]),[null,a]);assert.deepEqual(applyReviewedCorrections([a],[{...a,name:'first'},{...a,name:'second'}]),[a]);assert.deepEqual(applyReviewedCorrections([a],[null]),[a])});

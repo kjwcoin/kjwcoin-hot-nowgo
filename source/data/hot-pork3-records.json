@@ -1,0 +1,128 @@
+[
+  {
+    "id": "ff2b5ef3-f6e0-588b-bb4c-2a42d72d1544",
+    "slug": "hot-recent-pork-jejok-20261014",
+    "name": "제족족발 (군포 당동)",
+    "address": "경기도 군포시 군포로456번길 13, 1층",
+    "lat": 37.3467770157798,
+    "lon": 126.944969751559,
+    "source_ref": "recent-pork-jejok-20261014",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://xnx.purpleo.kr/article/1909",
+      "sourceRecordId": "recent-pork-jejok-20261014",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T16:48:00Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "recent-pork-jejok-20261014:menu:1",
+          "name": "불족발",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "공공자료 재표시 및 블로그 개별 사실 확인",
+        "attribution": "상호·주소·위치: xnx.purpleo의 소상공인시장진흥공단 상가정보 재표시. 메뉴·게시일: https://lulusreviews.tistory.com/14326 (2026-04-25).",
+        "changes": "개별 사실만 정리. 후기 문장·사진·가격·평점·수치 맵기를 전재하지 않음.",
+        "scopeNotice": "블로그 게시일은 2026-04-25이며 방문일 확정값이 아닙니다. 방송 소개를 정리한 글이며 작성자의 직접 방문 후기가 아닙니다. 방송 영상으로 별도 검증하지 않았습니다. 원문의 비영리·변경금지 표현과 방송 사진은 재사용하지 않았습니다. 현재 영업·판매 여부 미확인. 위치는 해당 상호·주소에 묶인 공공자료 재표시 값입니다. 원본 CSV 행·버전 대조, 최초 좌표 생성 방법·시점·정확도와 출입구 위치는 미확인입니다. 사이트 갱신일은 좌표 조사일이 아닙니다. 후기 문장·사진·가격·평점·수치 맵기를 전재하지 않았으며 원문 이용허락이나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "cee9ea22-0f03-5b50-868a-71f25362b171",
+    "slug": "hot-recent-pork-gwangyeok-20261014",
+    "name": "족발광역시 (울산 신정동)",
+    "address": "울산 남구 팔등로 39-1 1층",
+    "lat": 35.5449725032317,
+    "lon": 129.310975052034,
+    "source_ref": "recent-pork-gwangyeok-20261014",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://xnx.purpleo.kr/article/6610",
+      "sourceRecordId": "recent-pork-gwangyeok-20261014",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T16:48:00Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "recent-pork-gwangyeok-20261014:menu:1",
+          "name": "직화불족발",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "공공자료 재표시 및 블로그 개별 사실 확인",
+        "attribution": "상호·주소·위치: xnx.purpleo의 소상공인시장진흥공단 상가정보 재표시. 메뉴·게시일: https://shykyung.tistory.com/entry/%EC%9A%B8%EC%82%B0-%EC%8B%A0%EC%A0%95%EB%8F%99-%EC%A1%B1%EB%B0%9C-%EB%A7%9B%EC%A7%91-%EC%A1%B1%EB%B0%9C%EA%B4%91%EC%97%AD%EC%8B%9C-%EA%B0%80%EB%A7%88%EC%86%A5-%EC%A1%B1%EB%B0%9C%EA%B3%BC-%EB%B6%88%EC%A1%B1%EB%B0%9C-%EB%B0%98%EB%B0%98%EC%84%B8%ED%8A%B8-%EC%86%94%EC%A7%81-%ED%9B%84%EA%B8%B0 (2026-05-31).",
+        "changes": "개별 사실만 정리. 후기 문장·사진·가격·평점·수치 맵기를 전재하지 않음.",
+        "scopeNotice": "블로그 게시일은 2026-05-31이며 방문일 확정값이 아닙니다. 작성자는 방문 후기에서 리뷰 행사로 막국수를 받았다고 밝혔습니다. 블로그는 신정3동 팔등로까지 식별하며 건물번호는 공공자료 원본정보의 도로명·본번·부번에서 확인했습니다. 상단 한글 도로명주소 항목은 지번을 반복하는 오류가 있습니다. 현재 영업·판매 여부 미확인. 위치는 해당 상호·주소에 묶인 공공자료 재표시 값입니다. 원본 CSV 행·버전 대조, 최초 좌표 생성 방법·시점·정확도와 출입구 위치는 미확인입니다. 사이트 갱신일은 좌표 조사일이 아닙니다. 후기 문장·사진·가격·평점·수치 맵기를 전재하지 않았으며 원문 이용허락이나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "adea6db0-7edd-57b8-99de-fbaea7f7bcbe",
+    "slug": "hot-recent-pork-seoksu-20261014",
+    "name": "대단히 만족하는 족발 석수점",
+    "address": "경기도 안양시 만안구 석천로 168",
+    "lat": 37.4117988668473,
+    "lon": 126.907849778015,
+    "source_ref": "recent-pork-seoksu-20261014",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://xnx.purpleo.kr/article/2512",
+      "sourceRecordId": "recent-pork-seoksu-20261014",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T16:48:00Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "recent-pork-seoksu-20261014:menu:1",
+          "name": "불족발(매운맛)",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "공공자료 재표시 및 블로그 개별 사실 확인",
+        "attribution": "상호·주소·위치: xnx.purpleo의 소상공인시장진흥공단 상가정보 재표시. 메뉴·게시일: https://margarita-room.tistory.com/entry/%EC%84%9D%EC%88%98%EB%8F%99%EC%A1%B1%EB%B0%9C%E2%94%82%EC%88%9C%EB%8C%80%EA%B5%AD%EC%9D%84-%EB%AC%B4%ED%95%9C%EB%A6%AC%ED%95%84%EB%A1%9C-%EC%A3%BC%EB%8A%94-%EC%95%88%EC%96%91%EC%A1%B1%EB%B0%9C-%EB%B6%88%EC%A1%B1%EB%A7%9B%EC%A7%91-%EB%8C%80%EB%8B%A8%ED%9E%88%EB%A7%8C%EC%A1%B1%ED%95%98%EB%8A%94%EC%A1%B1%EB%B0%9C-%EC%84%9D%EC%88%98%EC%A0%90 (2026-01-08).",
+        "changes": "개별 사실만 정리. 후기 문장·사진·가격·평점·수치 맵기를 전재하지 않음.",
+        "scopeNotice": "블로그 게시일은 2026-01-08이며 방문일 확정값이 아닙니다. 원문의 비영리·변경금지 표현은 재사용하지 않고 개별 메뉴명만 기록했습니다. 현재 영업·판매 여부 미확인. 위치는 해당 상호·주소에 묶인 공공자료 재표시 값입니다. 원본 CSV 행·버전 대조, 최초 좌표 생성 방법·시점·정확도와 출입구 위치는 미확인입니다. 사이트 갱신일은 좌표 조사일이 아닙니다. 후기 문장·사진·가격·평점·수치 맵기를 전재하지 않았으며 원문 이용허락이나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  }
+]

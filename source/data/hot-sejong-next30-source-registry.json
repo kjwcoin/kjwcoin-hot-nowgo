@@ -1,0 +1,1352 @@
+[
+  {
+    "id": "cc5223c4-4b6a-5135-91ed-dce3f41c88f4",
+    "slug": "hot-sejong-026bc72c",
+    "sourceRef": "jusoga-building-3611010800100960000000001-026bc72c",
+    "name": "탕화쿵푸마라탕 나성점",
+    "address": "세종특별자치시 한누리대로 287 1층 101, 102호",
+    "coordinates": {
+      "lat": 36.489860950459,
+      "lon": 127.25628337714
+    },
+    "menus": [
+      {
+        "id": "jusoga-building-3611010800100960000000001-026bc72c:menu:1",
+        "name": "마라탕 (매운맛 선택)",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/3611010800100960000000001/%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C-%ED%95%9C%EB%88%84%EB%A6%AC%EB%8C%80%EB%A1%9C-287-%EB%82%98%EC%84%B1%EB%8F%99",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T04:38:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "주소가 건물주소 자료",
+        "attribution": "위치: 주소가 개별 건물주소 자료. 지점·주소·메뉴: 공개 매장정보 및 연결된 방문기 또는 브랜드 공식 메뉴.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 건물 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치; 입구·층·호 위치 미확인. 메뉴와 매운맛 또는 매운맛 선택은 개별 지점정보·방문기 또는 공식 메뉴에서 확인했습니다. 현재 영업 여부와 해당 메뉴의 현재 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스를 확인한 자료가 아니며 최소한의 개별 공개 사실 이용에 한정한 검토입니다. 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "cfde4569-4949-566d-ba3c-e40bbfab284e",
+    "slug": "hot-sejong-a28080ba",
+    "sourceRef": "jusoga-building-3611010300106160002000002-a28080ba",
+    "name": "허사또쭈꾸미",
+    "address": "세종특별자치시 시청대로 219 4층",
+    "coordinates": {
+      "lat": 36.483971031928,
+      "lon": 127.29398364441
+    },
+    "menus": [
+      {
+        "id": "jusoga-building-3611010300106160002000002-a28080ba:menu:1",
+        "name": "쭈꾸미볶음",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/3611010300106160002000002/%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C-%EC%8B%9C%EC%B2%AD%EB%8C%80%EB%A1%9C-219-%EB%B3%B4%EB%9E%8C%EB%8F%99",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T04:38:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "주소가 건물주소 자료",
+        "attribution": "위치: 주소가 개별 건물주소 자료. 지점·주소·메뉴: 공개 매장정보 및 연결된 방문기 또는 브랜드 공식 메뉴.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 건물 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치; 입구·층·호 위치 미확인. 메뉴와 매운맛 또는 매운맛 선택은 개별 지점정보·방문기 또는 공식 메뉴에서 확인했습니다. 현재 영업 여부와 해당 메뉴의 현재 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스를 확인한 자료가 아니며 최소한의 개별 공개 사실 이용에 한정한 검토입니다. 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "988714ed-fe20-568b-a0c5-5e2ba55ca535",
+    "slug": "hot-sejong-780e6553",
+    "sourceRef": "jusoga-building-4371038021004080008030216-780e6553",
+    "name": "부촌쭈꾸미",
+    "address": "세종특별자치시 부강면 부강1길 7",
+    "coordinates": {
+      "lat": 36.530857650419,
+      "lon": 127.36565493049
+    },
+    "menus": [
+      {
+        "id": "jusoga-building-4371038021004080008030216-780e6553:menu:1",
+        "name": "쭈꾸미볶음 (매운맛 선택)",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/4371038021004080008030216/%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C-%EB%B6%80%EA%B0%95%EB%A9%B4-%EB%B6%80%EA%B0%951%EA%B8%B8-7",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T04:38:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "주소가 건물주소 자료",
+        "attribution": "위치: 주소가 개별 건물주소 자료. 지점·주소·메뉴: 공개 매장정보 및 연결된 방문기 또는 브랜드 공식 메뉴.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 건물 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치; 입구·층·호 위치 미확인. 메뉴와 매운맛 또는 매운맛 선택은 개별 지점정보·방문기 또는 공식 메뉴에서 확인했습니다. 일부 메뉴·방문 근거는 공개 검색 색인에서 확인했습니다. 현재 영업 여부와 해당 메뉴의 현재 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스를 확인한 자료가 아니며 최소한의 개별 공개 사실 이용에 한정한 검토입니다. 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "2e3cab3f-5eaf-593e-b9bc-9ddb16d0bfa7",
+    "slug": "hot-sejong-709eed44",
+    "sourceRef": "jusoga-building-3611025034102990010000001-709eed44",
+    "name": "윤지네양푼이",
+    "address": "세종특별자치시 조치원읍 돌마루3길 2 1층",
+    "coordinates": {
+      "lat": 36.606414602283,
+      "lon": 127.29308837009
+    },
+    "menus": [
+      {
+        "id": "jusoga-building-3611025034102990010000001-709eed44:menu:1",
+        "name": "매운갈비찜",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/3611025034102990010000001/%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C-%EC%A1%B0%EC%B9%98%EC%9B%90%EC%9D%8D-%EB%8F%8C%EB%A7%88%EB%A3%A83%EA%B8%B8-2",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T04:38:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "주소가 건물주소 자료",
+        "attribution": "위치: 주소가 개별 건물주소 자료. 지점·주소·메뉴: 공개 매장정보 및 연결된 방문기 또는 브랜드 공식 메뉴.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 건물 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치; 입구·층·호 위치 미확인. 메뉴와 매운맛 또는 매운맛 선택은 개별 지점정보·방문기 또는 공식 메뉴에서 확인했습니다. 일부 메뉴·방문 근거는 공개 검색 색인에서 확인했습니다. 현재 영업 여부와 해당 메뉴의 현재 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스를 확인한 자료가 아니며 최소한의 개별 공개 사실 이용에 한정한 검토입니다. 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "f85d8c72-293b-541a-bb8f-8e9fdd54d247",
+    "slug": "hot-sejong-b9e55332",
+    "sourceRef": "jusoga-building-3611032023101020000000001-b9e55332",
+    "name": "용댕이매운탕",
+    "address": "세종특별자치시 연동면 태산로 163-6",
+    "coordinates": {
+      "lat": 36.520742811495,
+      "lon": 127.3553873822
+    },
+    "menus": [
+      {
+        "id": "jusoga-building-3611032023101020000000001-b9e55332:menu:1",
+        "name": "메기매운탕",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/3611032023101020000000001/%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C-%EC%97%B0%EB%8F%99%EB%A9%B4-%ED%83%9C%EC%82%B0%EB%A1%9C-163-6",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T04:38:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "주소가 건물주소 자료",
+        "attribution": "위치: 주소가 개별 건물주소 자료. 지점·주소·메뉴: 공개 매장정보 및 연결된 방문기 또는 브랜드 공식 메뉴.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 건물 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치; 입구·층·호 위치 미확인. 메뉴와 매운맛 또는 매운맛 선택은 개별 지점정보·방문기 또는 공식 메뉴에서 확인했습니다. 현재 영업 여부와 해당 메뉴의 현재 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스를 확인한 자료가 아니며 최소한의 개별 공개 사실 이용에 한정한 검토입니다. 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "7858a1ca-69ae-59f0-8a0d-b4523a4b8e73",
+    "slug": "hot-sejong-8b499230",
+    "sourceRef": "jusoga-building-4473032025102040006019816-8b499230",
+    "name": "도가네매운탕",
+    "address": "세종특별자치시 연서면 도신고복로 585",
+    "coordinates": {
+      "lat": 36.599934807056,
+      "lon": 127.22702543708
+    },
+    "menus": [
+      {
+        "id": "jusoga-building-4473032025102040006019816-8b499230:menu:1",
+        "name": "메기매운탕",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/4473032025102040006019816/%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C-%EC%97%B0%EC%84%9C%EB%A9%B4-%EB%8F%84%EC%8B%A0%EA%B3%A0%EB%B3%B5%EB%A1%9C-585",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T04:38:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "주소가 건물주소 자료",
+        "attribution": "위치: 주소가 개별 건물주소 자료. 지점·주소·메뉴: 공개 매장정보 및 연결된 방문기 또는 브랜드 공식 메뉴.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 건물 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치; 입구·층·호 위치 미확인. 메뉴와 매운맛 또는 매운맛 선택은 개별 지점정보·방문기 또는 공식 메뉴에서 확인했습니다. 방문기에서는 많이 맵지 않은 정도로 표현되어 강한 맵기를 뜻하지 않습니다. 현재 영업 여부와 해당 메뉴의 현재 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스를 확인한 자료가 아니며 최소한의 개별 공개 사실 이용에 한정한 검토입니다. 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "4bdef11f-1bdb-5518-b7c9-59893505a64e",
+    "slug": "hot-sejong-f1b01274",
+    "sourceRef": "jusoga-building-3611011400102570000000001-f1b01274",
+    "name": "진성아구찜 도담점",
+    "address": "세종특별자치시 한누리대로 583 도담센트럴프라자 2층 206호",
+    "coordinates": {
+      "lat": 36.515306736293,
+      "lon": 127.25869326131
+    },
+    "menus": [
+      {
+        "id": "jusoga-building-3611011400102570000000001-f1b01274:menu:1",
+        "name": "아낙찜",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/3611011400102570000000001/%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C-%ED%95%9C%EB%88%84%EB%A6%AC%EB%8C%80%EB%A1%9C-583%EB%8F%84%EB%8B%B4%EB%8F%99",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T04:38:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "주소가 건물주소 자료",
+        "attribution": "위치: 주소가 개별 건물주소 자료. 지점·주소·메뉴: 공개 매장정보 및 연결된 방문기 또는 브랜드 공식 메뉴.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 건물 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치; 입구·층·호 위치 미확인. 메뉴와 매운맛 또는 매운맛 선택은 개별 지점정보·방문기 또는 공식 메뉴에서 확인했습니다. 현재 영업 여부와 해당 메뉴의 현재 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스를 확인한 자료가 아니며 최소한의 개별 공개 사실 이용에 한정한 검토입니다. 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "953fb3af-37a8-5a24-8577-e60877ae4d1a",
+    "slug": "hot-sejong-0defde36",
+    "sourceRef": "jusoga-building-3611011100100970002000001-0defde36",
+    "name": "야미마라탕",
+    "address": "세종특별자치시 달빛로47 종촌파크프라자1층107호",
+    "coordinates": {
+      "lat": 36.503083332339,
+      "lon": 127.2500399722
+    },
+    "menus": [
+      {
+        "id": "jusoga-building-3611011100100970002000001-0defde36:menu:1",
+        "name": "마라탕 (매운맛 선택)",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/3611011100100970002000001/%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C-%EB%8B%AC%EB%B9%9B%EB%A1%9C-47%EC%A2%85%EC%B4%8C%EB%8F%99",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T04:38:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "주소가 건물주소 자료",
+        "attribution": "위치: 주소가 개별 건물주소 자료. 지점·주소·메뉴: 공개 매장정보 및 연결된 방문기 또는 브랜드 공식 메뉴.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 건물 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치; 입구·층·호 위치 미확인. 메뉴와 매운맛 또는 매운맛 선택은 개별 지점정보·방문기 또는 공식 메뉴에서 확인했습니다. 일부 메뉴·방문 근거는 공개 검색 색인에서 확인했습니다. 현재 영업 여부와 해당 메뉴의 현재 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스를 확인한 자료가 아니며 최소한의 개별 공개 사실 이용에 한정한 검토입니다. 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "4416941b-e665-5bfc-8720-67fb723353a5",
+    "slug": "hot-sejong-9e101e92",
+    "sourceRef": "jusoga-building-3611011300200390000000001-9e101e92",
+    "name": "춘리마라탕 세종아름점",
+    "address": "세종특별자치시 보듬3로 92 2층",
+    "coordinates": {
+      "lat": 36.511784294829,
+      "lon": 127.24950990763
+    },
+    "menus": [
+      {
+        "id": "jusoga-building-3611011300200390000000001-9e101e92:menu:1",
+        "name": "마라탕 (매운맛 선택)",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/3611011300200390000000001/%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C-%EB%B3%B4%EB%93%AC3%EB%A1%9C-92%EC%95%84%EB%A6%84%EB%8F%99",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T04:38:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "주소가 건물주소 자료",
+        "attribution": "위치: 주소가 개별 건물주소 자료. 지점·주소·메뉴: 공개 매장정보 및 연결된 방문기 또는 브랜드 공식 메뉴.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 건물 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치; 입구·층·호 위치 미확인. 메뉴와 매운맛 또는 매운맛 선택은 개별 지점정보·방문기 또는 공식 메뉴에서 확인했습니다. 일부 메뉴·방문 근거는 공개 검색 색인에서 확인했습니다. 현재 영업 여부와 해당 메뉴의 현재 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스를 확인한 자료가 아니며 최소한의 개별 공개 사실 이용에 한정한 검토입니다. 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "0db454de-fa09-5be5-b816-6924dfaa96be",
+    "slug": "hot-sejong-51a9e620",
+    "sourceRef": "jusoga-building-4473025028102630010041796-51a9e620",
+    "name": "춘리마라탕 조치원점",
+    "address": "세종특별자치시 조치원읍 행복2길 13",
+    "coordinates": {
+      "lat": 36.603771178211,
+      "lon": 127.29142052984
+    },
+    "menus": [
+      {
+        "id": "jusoga-building-4473025028102630010041796-51a9e620:menu:1",
+        "name": "마라탕 (매운맛 선택)",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/4473025028102630010041796/%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C-%EC%A1%B0%EC%B9%98%EC%9B%90%EC%9D%8D-%ED%96%89%EB%B3%B52%EA%B8%B8-13",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T04:38:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "주소가 건물주소 자료",
+        "attribution": "위치: 주소가 개별 건물주소 자료. 지점·주소·메뉴: 공개 매장정보 및 연결된 방문기 또는 브랜드 공식 메뉴.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 건물 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치; 입구·층·호 위치 미확인. 메뉴와 매운맛 또는 매운맛 선택은 개별 지점정보·방문기 또는 공식 메뉴에서 확인했습니다. 일부 메뉴·방문 근거는 공개 검색 색인에서 확인했습니다. 현재 영업 여부와 해당 메뉴의 현재 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스를 확인한 자료가 아니며 최소한의 개별 공개 사실 이용에 한정한 검토입니다. 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "e4116aea-ba83-5175-b81b-1f7d7880bff2",
+    "slug": "hot-sejong-ff67ab17",
+    "sourceRef": "jusoga-building-3611010900100070002000001-ff67ab17",
+    "name": "신참떡볶이 세종다정점",
+    "address": "세종특별자치시 다정중앙로 52 페스티발2 103호",
+    "coordinates": {
+      "lat": 36.495111689616,
+      "lon": 127.24913568347
+    },
+    "menus": [
+      {
+        "id": "jusoga-building-3611010900100070002000001-ff67ab17:menu:1",
+        "name": "떡볶이 (신참 매운맛)",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/3611010900100070002000001/%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C-%EB%8B%A4%EC%A0%95%EC%A4%91%EC%95%99%EB%A1%9C-52-%EB%8B%A4%EC%A0%95%EB%8F%99",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T04:38:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "주소가 건물주소 자료",
+        "attribution": "위치: 주소가 개별 건물주소 자료. 지점·주소·메뉴: 공개 매장정보 및 연결된 방문기 또는 브랜드 공식 메뉴.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 건물 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치; 입구·층·호 위치 미확인. 메뉴와 매운맛 또는 매운맛 선택은 개별 지점정보·방문기 또는 공식 메뉴에서 확인했습니다. 현재 영업 여부와 해당 메뉴의 현재 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스를 확인한 자료가 아니며 최소한의 개별 공개 사실 이용에 한정한 검토입니다. 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "bd0e7208-188c-5c2e-a24e-4c24ae6ce93a",
+    "slug": "hot-sejong-53be49a1",
+    "sourceRef": "jusoga-building-3611010600102180004000001-53be49a1",
+    "name": "신가네매운떡볶이 세종한솔동점",
+    "address": "세종특별자치시 누리로 106 송원프라자 105호",
+    "coordinates": {
+      "lat": 36.479975637028,
+      "lon": 127.25261211063
+    },
+    "menus": [
+      {
+        "id": "jusoga-building-3611010600102180004000001-53be49a1:menu:1",
+        "name": "떡볶이 (매운맛)",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/3611010600102180004000001/%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C-%EB%88%84%EB%A6%AC%EB%A1%9C-106-%ED%95%9C%EC%86%94%EB%8F%99",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T04:38:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "주소가 건물주소 자료",
+        "attribution": "위치: 주소가 개별 건물주소 자료. 지점·주소·메뉴: 공개 매장정보 및 연결된 방문기 또는 브랜드 공식 메뉴.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 건물 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치; 입구·층·호 위치 미확인. 메뉴와 매운맛 또는 매운맛 선택은 개별 지점정보·방문기 또는 공식 메뉴에서 확인했습니다. 현재 영업 여부와 해당 메뉴의 현재 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스를 확인한 자료가 아니며 최소한의 개별 공개 사실 이용에 한정한 검토입니다. 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "3fae8f2e-204b-5b72-915f-c45a1c5ade26",
+    "slug": "hot-sejong-e87239da",
+    "sourceRef": "jusoga-building-3611010800103410095000001-e87239da",
+    "name": "청년다방 세종새롬점",
+    "address": "세종특별자치시 새롬중앙로 41 무지개타워 107호",
+    "coordinates": {
+      "lat": 36.484603399491,
+      "lon": 127.25126722279
+    },
+    "menus": [
+      {
+        "id": "jusoga-building-3611010800103410095000001-e87239da:menu:1",
+        "name": "통큰오짱떡볶이",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/3611010800103410095000001/%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C-%EC%83%88%EB%A1%AC%EC%A4%91%EC%95%99%EB%A1%9C-41-%EC%83%88%EB%A1%AC%EB%8F%99",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T04:38:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "주소가 건물주소 자료",
+        "attribution": "위치: 주소가 개별 건물주소 자료. 지점·주소·메뉴: 공개 매장정보 및 연결된 방문기 또는 브랜드 공식 메뉴.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 건물 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치; 입구·층·호 위치 미확인. 메뉴와 매운맛 또는 매운맛 선택은 개별 지점정보·방문기 또는 공식 메뉴에서 확인했습니다. 현재 영업 여부와 해당 메뉴의 현재 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스를 확인한 자료가 아니며 최소한의 개별 공개 사실 이용에 한정한 검토입니다. 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "eda7f4f5-d0bb-5d0a-b921-6eeaae166ff5",
+    "slug": "hot-sejong-373608d4",
+    "sourceRef": "jusoga-building-3611011100106680000000001-373608d4",
+    "name": "청년다방 세종종촌점",
+    "address": "세종특별자치시 달빛로 43 금강빌딩 108~109호",
+    "coordinates": {
+      "lat": 36.50280925823,
+      "lon": 127.25011627819
+    },
+    "menus": [
+      {
+        "id": "jusoga-building-3611011100106680000000001-373608d4:menu:1",
+        "name": "스파이시돈가스",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/3611011100106680000000001/%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C-%EB%8B%AC%EB%B9%9B%EB%A1%9C-43-%EC%A2%85%EC%B4%8C%EB%8F%99",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T04:38:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "주소가 건물주소 자료",
+        "attribution": "위치: 주소가 개별 건물주소 자료. 지점·주소·메뉴: 공개 매장정보 및 연결된 방문기 또는 브랜드 공식 메뉴.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 건물 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치; 입구·층·호 위치 미확인. 메뉴와 매운맛 또는 매운맛 선택은 개별 지점정보·방문기 또는 공식 메뉴에서 확인했습니다. 현재 영업 여부와 해당 메뉴의 현재 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스를 확인한 자료가 아니며 최소한의 개별 공개 사실 이용에 한정한 검토입니다. 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "76198901-07bd-5e16-87bb-964b43fc7b37",
+    "slug": "hot-sejong-005626dd",
+    "sourceRef": "jusoga-building-3611010700103610034000001-005626dd",
+    "name": "깡우동 세종나성점",
+    "address": "세종특별자치시 나성로 125-10 조이타워 112, 113호",
+    "coordinates": {
+      "lat": 36.490069385863,
+      "lon": 127.25832411194
+    },
+    "menus": [
+      {
+        "id": "jusoga-building-3611010700103610034000001-005626dd:menu:1",
+        "name": "우동 (매운맛)",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/3611010700103610034000001/%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C-%EB%82%98%EC%84%B1%EB%A1%9C-125-10-%EB%82%98%EC%84%B1%EB%8F%99",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T04:38:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "주소가 건물주소 자료",
+        "attribution": "위치: 주소가 개별 건물주소 자료. 지점·주소·메뉴: 공개 매장정보 및 연결된 방문기 또는 브랜드 공식 메뉴.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 건물 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치; 입구·층·호 위치 미확인. 메뉴와 매운맛 또는 매운맛 선택은 개별 지점정보·방문기 또는 공식 메뉴에서 확인했습니다. 현재 영업 여부와 해당 메뉴의 현재 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스를 확인한 자료가 아니며 최소한의 개별 공개 사실 이용에 한정한 검토입니다. 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "10e368c1-65b2-51da-a159-ad4a5bd9b979",
+    "slug": "hot-sejong-6d923b24",
+    "sourceRef": "jusoga-building-3611010300107000074000001-6d923b24",
+    "name": "깡우동 세종보람점",
+    "address": "세종특별자치시 호려울로 9 네이버타워 1층 113호",
+    "coordinates": {
+      "lat": 36.476979161775,
+      "lon": 127.28829942385
+    },
+    "menus": [
+      {
+        "id": "jusoga-building-3611010300107000074000001-6d923b24:menu:1",
+        "name": "우동 (매운맛)",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/3611010300107000074000001/%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C-%ED%98%B8%EB%A0%A4%EC%9A%B8%EB%A1%9C-9-%EB%B3%B4%EB%9E%8C%EB%8F%99",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T04:38:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "주소가 건물주소 자료",
+        "attribution": "위치: 주소가 개별 건물주소 자료. 지점·주소·메뉴: 공개 매장정보 및 연결된 방문기 또는 브랜드 공식 메뉴.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 건물 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치; 입구·층·호 위치 미확인. 메뉴와 매운맛 또는 매운맛 선택은 개별 지점정보·방문기 또는 공식 메뉴에서 확인했습니다. 현재 영업 여부와 해당 메뉴의 현재 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스를 확인한 자료가 아니며 최소한의 개별 공개 사실 이용에 한정한 검토입니다. 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "3ab36282-9233-55be-b0f2-50f9ea10cc02",
+    "slug": "hot-sejong-4d5bc19d",
+    "sourceRef": "jusoga-building-3611011300102600002000001-4d5bc19d",
+    "name": "두끼 세종아름점",
+    "address": "세종특별자치시 아름서1길 13-12 세종제이디빌딩 2층 204호, 205호",
+    "coordinates": {
+      "lat": 36.511743978924,
+      "lon": 127.24308959058
+    },
+    "menus": [
+      {
+        "id": "jusoga-building-3611011300102600002000001-4d5bc19d:menu:1",
+        "name": "즉석떡볶이 (동대문소스 선택)",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/3611011300102600002000001/%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C-%EC%95%84%EB%A6%84%EC%84%9C1%EA%B8%B8-13-12-%EC%95%84%EB%A6%84%EB%8F%99",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T04:38:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "주소가 건물주소 자료",
+        "attribution": "위치: 주소가 개별 건물주소 자료. 지점·주소·메뉴: 공개 매장정보 및 연결된 방문기 또는 브랜드 공식 메뉴.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 건물 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치; 입구·층·호 위치 미확인. 메뉴와 매운맛 또는 매운맛 선택은 개별 지점정보·방문기 또는 공식 메뉴에서 확인했습니다. 직접 섞는 소스의 비율에 따라 맵기가 달라지며, 동대문소스의 현재 비치 여부는 확인되지 않았습니다. 현재 영업 여부와 해당 메뉴의 현재 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스를 확인한 자료가 아니며 최소한의 개별 공개 사실 이용에 한정한 검토입니다. 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "4c628f88-1083-5fb5-ab10-330c792fda8a",
+    "slug": "hot-sejong-2d9be41f",
+    "sourceRef": "jusoga-building-3611010800103410105000001-2d9be41f",
+    "name": "두끼 세종새롬점",
+    "address": "세종특별자치시 새롬중앙로 33 새뜸프라자 2층",
+    "coordinates": {
+      "lat": 36.484099331255,
+      "lon": 127.2519422565
+    },
+    "menus": [
+      {
+        "id": "jusoga-building-3611010800103410105000001-2d9be41f:menu:1",
+        "name": "즉석떡볶이 (동대문소스 선택)",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/3611010800103410105000001/%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C-%EC%83%88%EB%A1%AC%EC%A4%91%EC%95%99%EB%A1%9C-33-%EC%83%88%EB%A1%AC%EB%8F%99",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T04:38:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "주소가 건물주소 자료",
+        "attribution": "위치: 주소가 개별 건물주소 자료. 지점·주소·메뉴: 공개 매장정보 및 연결된 방문기 또는 브랜드 공식 메뉴.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 건물 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치; 입구·층·호 위치 미확인. 메뉴와 매운맛 또는 매운맛 선택은 개별 지점정보·방문기 또는 공식 메뉴에서 확인했습니다. 직접 섞는 소스의 비율에 따라 맵기가 달라지며, 동대문소스의 현재 비치 여부는 확인되지 않았습니다. 현재 영업 여부와 해당 메뉴의 현재 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스를 확인한 자료가 아니며 최소한의 개별 공개 사실 이용에 한정한 검토입니다. 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "620ce542-054d-5028-8fe4-93628408f868",
+    "slug": "hot-sejong-ad089fd0",
+    "sourceRef": "jusoga-building-3611010300106280007000002-ad089fd0",
+    "name": "두끼 세종보람점",
+    "address": "세종특별자치시 남세종로 454 강남제일타워 203호",
+    "coordinates": {
+      "lat": 36.477156104572,
+      "lon": 127.28969478764
+    },
+    "menus": [
+      {
+        "id": "jusoga-building-3611010300106280007000002-ad089fd0:menu:1",
+        "name": "즉석떡볶이 (동대문소스 선택)",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/3611010300106280007000002/%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C-%EB%82%A8%EC%84%B8%EC%A2%85%EB%A1%9C-454-%EB%B3%B4%EB%9E%8C%EB%8F%99",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T04:38:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "주소가 건물주소 자료",
+        "attribution": "위치: 주소가 개별 건물주소 자료. 지점·주소·메뉴: 공개 매장정보 및 연결된 방문기 또는 브랜드 공식 메뉴.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 건물 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치; 입구·층·호 위치 미확인. 메뉴와 매운맛 또는 매운맛 선택은 개별 지점정보·방문기 또는 공식 메뉴에서 확인했습니다. 직접 섞는 소스의 비율에 따라 맵기가 달라지며, 동대문소스의 현재 비치 여부는 확인되지 않았습니다. 지점의 소스 이용 근거는 공개 방문기 색인에서 확인했으며 연결된 원문은 직접 열지 않았습니다. 현재 영업 여부와 해당 메뉴의 현재 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스를 확인한 자료가 아니며 최소한의 개별 공개 사실 이용에 한정한 검토입니다. 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "fb96adf4-0c8c-5046-8a49-a7cb8836b828",
+    "slug": "hot-sejong-ea44f73e",
+    "sourceRef": "jusoga-building-3611010800200210000000001-ea44f73e",
+    "name": "버무리떡볶이 세종새롬점",
+    "address": "세종특별자치시 새롬중앙로 51 에스월드빌딩 1층 108호",
+    "coordinates": {
+      "lat": 36.485473967776,
+      "lon": 127.25064963985
+    },
+    "menus": [
+      {
+        "id": "jusoga-building-3611010800200210000000001-ea44f73e:menu:1",
+        "name": "매운떡볶이",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/3611010800200210000000001/%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C-%EC%83%88%EB%A1%AC%EC%A4%91%EC%95%99%EB%A1%9C-51-%EC%83%88%EB%A1%AC%EB%8F%99",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T04:38:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "주소가 건물주소 자료",
+        "attribution": "위치: 주소가 개별 건물주소 자료. 지점·주소·메뉴: 공개 매장정보 및 연결된 방문기 또는 브랜드 공식 메뉴.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 건물 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치; 입구·층·호 위치 미확인. 메뉴와 매운맛 또는 매운맛 선택은 개별 지점정보·방문기 또는 공식 메뉴에서 확인했습니다. 매운떡볶이 메뉴 근거의 게시일은 확인되지 않았습니다. 현재 영업 여부와 해당 메뉴의 현재 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스를 확인한 자료가 아니며 최소한의 개별 공개 사실 이용에 한정한 검토입니다. 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "48c68940-900c-5386-809c-910fad8da3ba",
+    "slug": "hot-sejong-a0a50922",
+    "sourceRef": "jusoga-building-3611010300106290002000001-a0a50922",
+    "name": "버무리떡볶이 세종보람점",
+    "address": "세종특별자치시 호려울로 45 금남프라자 102호",
+    "coordinates": {
+      "lat": 36.478319497956,
+      "lon": 127.28990297115
+    },
+    "menus": [
+      {
+        "id": "jusoga-building-3611010300106290002000001-a0a50922:menu:1",
+        "name": "매운떡볶이",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/3611010300106290002000001/%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C-%ED%98%B8%EB%A0%A4%EC%9A%B8%EB%A1%9C-45-%EB%B3%B4%EB%9E%8C%EB%8F%99",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T04:38:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "주소가 건물주소 자료",
+        "attribution": "위치: 주소가 개별 건물주소 자료. 지점·주소·메뉴: 공개 매장정보 및 연결된 방문기 또는 브랜드 공식 메뉴.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 건물 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치; 입구·층·호 위치 미확인. 메뉴와 매운맛 또는 매운맛 선택은 개별 지점정보·방문기 또는 공식 메뉴에서 확인했습니다. 현재 영업 여부와 해당 메뉴의 현재 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스를 확인한 자료가 아니며 최소한의 개별 공개 사실 이용에 한정한 검토입니다. 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "495bf8fc-5285-5d45-b286-5159a1cb19f6",
+    "slug": "hot-sejong-3d64b867",
+    "sourceRef": "jusoga-building-3611010200100090169000001-3d64b867",
+    "name": "버무리떡볶이 세종소담점",
+    "address": "세종특별자치시 소담1로 16 지엘플렉스2",
+    "coordinates": {
+      "lat": 36.484602291928,
+      "lon": 127.30133335445
+    },
+    "menus": [
+      {
+        "id": "jusoga-building-3611010200100090169000001-3d64b867:menu:1",
+        "name": "떡볶이 (매운맛)",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/3611010200100090169000001/%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C-%EC%86%8C%EB%8B%B41%EB%A1%9C-16-%EC%86%8C%EB%8B%B4%EB%8F%99",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T04:38:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "주소가 건물주소 자료",
+        "attribution": "위치: 주소가 개별 건물주소 자료. 지점·주소·메뉴: 공개 매장정보 및 연결된 방문기 또는 브랜드 공식 메뉴.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 건물 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치; 입구·층·호 위치 미확인. 메뉴와 매운맛 또는 매운맛 선택은 개별 지점정보·방문기 또는 공식 메뉴에서 확인했습니다. 과거 방문기에는 매운맛 메뉴의 일시 품절 기록이 있습니다. 현재 영업 여부와 해당 메뉴의 현재 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스를 확인한 자료가 아니며 최소한의 개별 공개 사실 이용에 한정한 검토입니다. 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "39c59673-2407-5914-8570-e6bf679e89e9",
+    "slug": "hot-sejong-8d02ba58",
+    "sourceRef": "jusoga-building-3611010700103610077000001-8d02ba58",
+    "name": "우리할매떡볶이 나성점",
+    "address": "세종특별자치시 한누리대로 292 행복의아침 104호",
+    "coordinates": {
+      "lat": 36.490295521362,
+      "lon": 127.25689497344
+    },
+    "menus": [
+      {
+        "id": "jusoga-building-3611010700103610077000001-8d02ba58:menu:1",
+        "name": "매운국물닭발",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/3611010700103610077000001/%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C-%ED%95%9C%EB%88%84%EB%A6%AC%EB%8C%80%EB%A1%9C-292-%EB%82%98%EC%84%B1%EB%8F%99",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T04:38:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "주소가 건물주소 자료",
+        "attribution": "위치: 주소가 개별 건물주소 자료. 지점·주소·메뉴: 공개 매장정보 및 연결된 방문기 또는 브랜드 공식 메뉴.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 건물 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치; 입구·층·호 위치 미확인. 메뉴와 매운맛 또는 매운맛 선택은 개별 지점정보·방문기 또는 공식 메뉴에서 확인했습니다. 현재 영업 여부와 해당 메뉴의 현재 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스를 확인한 자료가 아니며 최소한의 개별 공개 사실 이용에 한정한 검토입니다. 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "219a75df-aa4c-5d5c-86f4-79f83288c12b",
+    "slug": "hot-sejong-d7e37def",
+    "sourceRef": "jusoga-building-4473025028102630003037802-d7e37def",
+    "name": "신전떡볶이 조치원점",
+    "address": "세종특별자치시 조치원읍 행복3길 18 1층",
+    "coordinates": {
+      "lat": 36.60405338314,
+      "lon": 127.29192365926
+    },
+    "menus": [
+      {
+        "id": "jusoga-building-4473025028102630003037802-d7e37def:menu:1",
+        "name": "신전떡볶이 (매운맛)",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/4473025028102630003037802/%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C-%EC%A1%B0%EC%B9%98%EC%9B%90%EC%9D%8D-%ED%96%89%EB%B3%B53%EA%B8%B8-18",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T04:38:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "주소가 건물주소 자료",
+        "attribution": "위치: 주소가 개별 건물주소 자료. 지점·주소·메뉴: 공개 매장정보 및 연결된 방문기 또는 브랜드 공식 메뉴.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 건물 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치; 입구·층·호 위치 미확인. 메뉴와 매운맛 또는 매운맛 선택은 개별 지점정보·방문기 또는 공식 메뉴에서 확인했습니다. 현재 영업 여부와 해당 메뉴의 현재 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스를 확인한 자료가 아니며 최소한의 개별 공개 사실 이용에 한정한 검토입니다. 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "25efd423-376f-5f8c-8448-2e3cc1b2aada",
+    "slug": "hot-sejong-ea99973d",
+    "sourceRef": "jusoga-building-4473025024100250012038249-ea99973d",
+    "name": "동대문엽기떡볶이 조치원점",
+    "address": "세종특별자치시 조치원읍 조치원1길 26",
+    "coordinates": {
+      "lat": 36.602287677079,
+      "lon": 127.2973162261
+    },
+    "menus": [
+      {
+        "id": "jusoga-building-4473025024100250012038249-ea99973d:menu:1",
+        "name": "엽기떡볶이",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/4473025024100250012038249/%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C-%EC%A1%B0%EC%B9%98%EC%9B%90%EC%9D%8D-%EC%A1%B0%EC%B9%98%EC%9B%901%EA%B8%B8-26",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T04:38:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "주소가 건물주소 자료",
+        "attribution": "위치: 주소가 개별 건물주소 자료. 지점·주소·메뉴: 공개 매장정보 및 연결된 방문기 또는 브랜드 공식 메뉴.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 건물 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치; 입구·층·호 위치 미확인. 메뉴와 매운맛 또는 매운맛 선택은 개별 지점정보·방문기 또는 공식 메뉴에서 확인했습니다. 현재 영업 여부와 해당 메뉴의 현재 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스를 확인한 자료가 아니며 최소한의 개별 공개 사실 이용에 한정한 검토입니다. 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "4881820e-bcea-5e4b-8d4c-45d891e9e6ee",
+    "slug": "hot-sejong-c9eba9d9",
+    "sourceRef": "jusoga-building-3611010300106280002000002-c9eba9d9",
+    "name": "동대문엽기떡볶이 세종보람점",
+    "address": "세종특별자치시 한누리대로 2143 금강시티타워 115호",
+    "coordinates": {
+      "lat": 36.478146466676,
+      "lon": 127.28842217913
+    },
+    "menus": [
+      {
+        "id": "jusoga-building-3611010300106280002000002-c9eba9d9:menu:1",
+        "name": "엽기떡볶이",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/3611010300106280002000002/%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C-%ED%95%9C%EB%88%84%EB%A6%AC%EB%8C%80%EB%A1%9C-2143-%EB%B3%B4%EB%9E%8C%EB%8F%99",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T04:38:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "주소가 건물주소 자료",
+        "attribution": "위치: 주소가 개별 건물주소 자료. 지점·주소·메뉴: 공개 매장정보 및 연결된 방문기 또는 브랜드 공식 메뉴.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 건물 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치; 입구·층·호 위치 미확인. 메뉴와 매운맛 또는 매운맛 선택은 개별 지점정보·방문기 또는 공식 메뉴에서 확인했습니다. 현재 영업 여부와 해당 메뉴의 현재 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스를 확인한 자료가 아니며 최소한의 개별 공개 사실 이용에 한정한 검토입니다. 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "81b3fbd7-a06b-5752-9fe0-864baf7b06c3",
+    "slug": "hot-sejong-055063d2",
+    "sourceRef": "jusoga-building-3611010800100740004000001-055063d2",
+    "name": "응급실국물떡볶이 세종새롬점",
+    "address": "세종특별자치시 한누리대로 249 에스제이타워 1층 101호",
+    "coordinates": {
+      "lat": 36.486543030004,
+      "lon": 127.25758430062
+    },
+    "menus": [
+      {
+        "id": "jusoga-building-3611010800100740004000001-055063d2:menu:1",
+        "name": "응급실국물떡볶이",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/3611010800100740004000001/%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C-%ED%95%9C%EB%88%84%EB%A6%AC%EB%8C%80%EB%A1%9C-249-%EB%82%98%EC%84%B1%EB%8F%99",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T04:38:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "주소가 건물주소 자료",
+        "attribution": "위치: 주소가 개별 건물주소 자료. 지점·주소·메뉴: 공개 매장정보 및 연결된 방문기 또는 브랜드 공식 메뉴.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 건물 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치; 입구·층·호 위치 미확인. 메뉴와 매운맛 또는 매운맛 선택은 개별 지점정보·방문기 또는 공식 메뉴에서 확인했습니다. 현재 영업 여부와 해당 메뉴의 현재 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스를 확인한 자료가 아니며 최소한의 개별 공개 사실 이용에 한정한 검토입니다. 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "0c0aad85-dced-5514-a72f-3155823da17b",
+    "slug": "hot-sejong-868e541f",
+    "sourceRef": "jusoga-building-3611010800103410105000001-868e541f",
+    "name": "동대문엽기떡볶이 세종새롬점",
+    "address": "세종특별자치시 새롬중앙로 33 1층 110호",
+    "coordinates": {
+      "lat": 36.484099331255,
+      "lon": 127.2519422565
+    },
+    "menus": [
+      {
+        "id": "jusoga-building-3611010800103410105000001-868e541f:menu:1",
+        "name": "엽기떡볶이",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/3611010800103410105000001/%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C-%EC%83%88%EB%A1%AC%EC%A4%91%EC%95%99%EB%A1%9C-33-%EC%83%88%EB%A1%AC%EB%8F%99",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T04:38:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "주소가 건물주소 자료",
+        "attribution": "위치: 주소가 개별 건물주소 자료. 지점·주소·메뉴: 공개 매장정보 및 연결된 방문기 또는 브랜드 공식 메뉴.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 건물 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치; 입구·층·호 위치 미확인. 메뉴와 매운맛 또는 매운맛 선택은 개별 지점정보·방문기 또는 공식 메뉴에서 확인했습니다. 현재 영업 여부와 해당 메뉴의 현재 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스를 확인한 자료가 아니며 최소한의 개별 공개 사실 이용에 한정한 검토입니다. 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "034076e9-602a-5dbb-8d47-7ed5ef0e7b5d",
+    "slug": "hot-sejong-16e75cfb",
+    "sourceRef": "jusoga-building-3611011100101510092000001-16e75cfb",
+    "name": "동대문엽기떡볶이 세종종촌점",
+    "address": "세종특별자치시 도움3로 105-8 1층 101, 102호",
+    "coordinates": {
+      "lat": 36.504432831794,
+      "lon": 127.24923434088
+    },
+    "menus": [
+      {
+        "id": "jusoga-building-3611011100101510092000001-16e75cfb:menu:1",
+        "name": "엽기떡볶이",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/3611011100101510092000001/%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C-%EB%8F%84%EC%9B%803%EB%A1%9C-105-8-%EC%A2%85%EC%B4%8C%EB%8F%99",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T04:38:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "주소가 건물주소 자료",
+        "attribution": "위치: 주소가 개별 건물주소 자료. 지점·주소·메뉴: 공개 매장정보 및 연결된 방문기 또는 브랜드 공식 메뉴.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 건물 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치; 입구·층·호 위치 미확인. 메뉴와 매운맛 또는 매운맛 선택은 개별 지점정보·방문기 또는 공식 메뉴에서 확인했습니다. 현재 영업 여부와 해당 메뉴의 현재 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스를 확인한 자료가 아니며 최소한의 개별 공개 사실 이용에 한정한 검토입니다. 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "dd8de7a9-692c-53f6-ae35-296a436c52db",
+    "slug": "hot-sejong-5edda6be",
+    "sourceRef": "jusoga-building-3611035021102020011000002-5edda6be",
+    "name": "착한낙지 세종점",
+    "address": "세종특별자치시 장군면 장척로 390 1층",
+    "coordinates": {
+      "lat": 36.495985014193,
+      "lon": 127.20443016295
+    },
+    "menus": [
+      {
+        "id": "jusoga-building-3611035021102020011000002-5edda6be:menu:1",
+        "name": "낙지볶음",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/3611035021102020011000002/%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C-%EC%9E%A5%EA%B5%B0%EB%A9%B4-%EC%9E%A5%EC%B2%99%EB%A1%9C-390",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T04:38:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "주소가 건물주소 자료",
+        "attribution": "위치: 주소가 개별 건물주소 자료. 지점·주소·메뉴: 공개 매장정보 및 연결된 방문기 또는 브랜드 공식 메뉴.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 건물 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치; 입구·층·호 위치 미확인. 메뉴와 매운맛 또는 매운맛 선택은 개별 지점정보·방문기 또는 공식 메뉴에서 확인했습니다. 현재 영업 여부와 해당 메뉴의 현재 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스를 확인한 자료가 아니며 최소한의 개별 공개 사실 이용에 한정한 검토입니다. 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  }
+]

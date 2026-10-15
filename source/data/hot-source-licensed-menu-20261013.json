@@ -1,0 +1,898 @@
+[
+  {
+    "id": "12c7552a-7d6b-5592-b94f-cac558dd0e74",
+    "slug": "hot-seoul-ma010120220804911951",
+    "name": "6일 닭강정",
+    "address": "서울특별시 종로구 지봉로 96",
+    "lat": 37.5784749704554,
+    "lon": 127.015577448737,
+    "source_ref": "data-go-kr-15083033-MA010120220804911951",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T13:07:57.065367+00:00",
+      "sourceRecordId": "MA010120220804911951",
+      "nativeBusinessName": "6일닭강정",
+      "nativeBranchName": null,
+      "district": "종로구",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T13:07:57.065367+00:00",
+          "nativeRecordId": "MA010120220804911951"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T13:07:57.065367+00:00",
+          "nativeRecordId": "MA010120220804911951"
+        }
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only",
+        "reviewedAt": "2026-10-13T13:07:57.065367+00:00"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA010120220804911951:menu:1",
+          "name": "글루텐프리 치킨",
+          "provenance": {
+            "kind": "licensed-public-dataset-menu",
+            "sourceUrl": "https://data.seoul.go.kr/dataList/OA-21054/S/1/datasetView.do",
+            "sourceRecordIds": {
+              "dataset": "OA-21054",
+              "post_sn": "51800"
+            },
+            "sourceScope": "specific_restaurant_licensed_public_dataset_record",
+            "branchMenuApplicability": "source_record_specific_restaurant_not_current_sale",
+            "preparationNotice": "공개 매운맛 선택 가능. 현재 영업·메뉴 판매 미확인. 고객 맵기 평가 없음.",
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-13T13:07:57.065367+00:00",
+            "licenseName": "공공누리 제1유형 (출처표시)",
+            "explicitOpenLicense": true,
+            "reuseBasis": "kogl-type-1-licensed-dataset-fact",
+            "attribution": "서울관광재단·서울 열린데이터광장, 서울시 관광 음식(OA-21054), 2026-10-13 조회",
+            "originalName": "글루텐프리 치킨",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      },
+      "aliasBindings": [],
+      "independentReview": {
+        "packetFile": "outputs/hot-licensed7-appendix-20261013/licensed7-appendix.json",
+        "packetSha256": "814b9755f7d7df409382432a535ea6a60ebdaad26353f4b9cb99645b79cf1e00",
+        "qaFile": "outputs/seoul-ordinary7-independent-qa-20261013/audit.json",
+        "qaSha256": "8d820ef6ba9c7ab4bbcc0b4c9eb177d63b04015584147d34a00f50ef813fd897",
+        "coordinateSource": {
+          "file": "outputs/seoul-spicy-research-20261013/raw/sbiz-seoul-202606.csv",
+          "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+          "date": "2026-06-30",
+          "license": "이용허락범위 제한 없음",
+          "crs": "WGS84",
+          "nativeID": "MA010120220804911951",
+          "dataRowNumber": 140392
+        },
+        "menuSource": {
+          "url": "https://data.seoul.go.kr/dataList/OA-21054/S/1/datasetView.do",
+          "file": "outputs/hot-blog-leads-20261013/seoul-highheat/oa21054-korean-full.json",
+          "sha256": "0fb80407d6ef2dd0e1848bf75cc49ef8b19bd122b546e3365100d3a5a698caba",
+          "license": "KOGL1 attribution",
+          "catalogueUpdated": "2026-10-13",
+          "attribution": "서울관광재단·서울 열린데이터광장, 서울시 관광 음식(OA-21054), 2026-10-13 조회",
+          "linkedDetailPageRequired": false,
+          "rightsScope": "Only licensed downloaded row fields; no reliance on blocked linked web pages or their prose/photos"
+        },
+        "identityMatch": {
+          "method": "same road/building plus compatible normalized store name; source floors compared where both available",
+          "nameRelation": "exact normalized native name plus explicit native branch if applicable",
+          "tourismAddress": "03108 서울 종로구 지봉로 96 1층 ",
+          "nativeFloor": "1",
+          "noAliasRowsMerged": true
+        },
+        "deduplication": {
+          "file": "outputs/reviewed-spicy-dedup-20261013/dedup-index.jsonl",
+          "count": 2396,
+          "sha256": "47d4a07417940c84c986ff5d7b71dbdedb331f13dcee89270b804782651dd45a",
+          "nativeIDMatches": [],
+          "sameRoadMatches": []
+        },
+        "fieldRights": {
+          "identityCoordinates": "SBIZ unrestricted government data",
+          "oneMenuName": "OA21054 KOGL Type1 attribution",
+          "photos": false,
+          "proseCopy": false
+        },
+        "doesNotEstablish": [
+          "current_operation",
+          "current_menu_sale",
+          "numeric_heat",
+          "consumer_rating",
+          "ownership"
+        ],
+        "scope": "Only licensed dataset menu/option facts and unrestricted SBIZ identity/coordinates; no linked web-page prose, images, NAVER content or whole native rows."
+      }
+    }
+  },
+  {
+    "id": "1c1d297d-5051-5900-8503-f9218da99693",
+    "slug": "hot-seoul-ma010120220803854101",
+    "name": "너비집",
+    "address": "서울특별시 중구 명동9길 37-8",
+    "lat": 37.5655275827364,
+    "lon": 126.983768753807,
+    "source_ref": "data-go-kr-15083033-MA010120220803854101",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T13:07:57.065367+00:00",
+      "sourceRecordId": "MA010120220803854101",
+      "nativeBusinessName": "너비집",
+      "nativeBranchName": null,
+      "district": "중구",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T13:07:57.065367+00:00",
+          "nativeRecordId": "MA010120220803854101"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T13:07:57.065367+00:00",
+          "nativeRecordId": "MA010120220803854101"
+        }
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only",
+        "reviewedAt": "2026-10-13T13:07:57.065367+00:00"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA010120220803854101:menu:1",
+          "name": "매운갈비찜",
+          "provenance": {
+            "kind": "licensed-public-dataset-menu",
+            "sourceUrl": "https://data.seoul.go.kr/dataList/OA-21054/S/1/datasetView.do",
+            "sourceRecordIds": {
+              "dataset": "OA-21054",
+              "post_sn": "3426"
+            },
+            "sourceScope": "specific_restaurant_licensed_public_dataset_record",
+            "branchMenuApplicability": "source_record_specific_restaurant_not_current_sale",
+            "preparationNotice": "공개 출처에 매운 메뉴로 표기. 현재 영업·메뉴 판매 미확인. 고객 맵기 평가 없음.",
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-13T13:07:57.065367+00:00",
+            "licenseName": "공공누리 제1유형 (출처표시)",
+            "explicitOpenLicense": true,
+            "reuseBasis": "kogl-type-1-licensed-dataset-fact",
+            "attribution": "서울관광재단·서울 열린데이터광장, 서울시 관광 음식(OA-21054), 2026-10-13 조회",
+            "originalName": "매운갈비찜",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      },
+      "aliasBindings": [],
+      "independentReview": {
+        "packetFile": "outputs/hot-licensed7-appendix-20261013/licensed7-appendix.json",
+        "packetSha256": "814b9755f7d7df409382432a535ea6a60ebdaad26353f4b9cb99645b79cf1e00",
+        "qaFile": "outputs/seoul-ordinary7-independent-qa-20261013/audit.json",
+        "qaSha256": "8d820ef6ba9c7ab4bbcc0b4c9eb177d63b04015584147d34a00f50ef813fd897",
+        "coordinateSource": {
+          "file": "outputs/seoul-spicy-research-20261013/raw/sbiz-seoul-202606.csv",
+          "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+          "date": "2026-06-30",
+          "license": "이용허락범위 제한 없음",
+          "crs": "WGS84",
+          "nativeID": "MA010120220803854101",
+          "dataRowNumber": 319565
+        },
+        "menuSource": {
+          "url": "https://data.seoul.go.kr/dataList/OA-21054/S/1/datasetView.do",
+          "file": "outputs/hot-blog-leads-20261013/seoul-highheat/oa21054-korean-full.json",
+          "sha256": "0fb80407d6ef2dd0e1848bf75cc49ef8b19bd122b546e3365100d3a5a698caba",
+          "license": "KOGL1 attribution",
+          "catalogueUpdated": "2026-10-13",
+          "attribution": "서울관광재단·서울 열린데이터광장, 서울시 관광 음식(OA-21054), 2026-10-13 조회",
+          "linkedDetailPageRequired": false,
+          "rightsScope": "Only licensed downloaded row fields; no reliance on blocked linked web pages or their prose/photos"
+        },
+        "identityMatch": {
+          "method": "same road/building plus compatible normalized store name; source floors compared where both available",
+          "nameRelation": "exact normalized native name plus explicit native branch if applicable",
+          "tourismAddress": "04534 서울 중구 명동9길 37-8 (을지로2가) ",
+          "nativeFloor": null,
+          "noAliasRowsMerged": true
+        },
+        "deduplication": {
+          "file": "outputs/reviewed-spicy-dedup-20261013/dedup-index.jsonl",
+          "count": 2396,
+          "sha256": "47d4a07417940c84c986ff5d7b71dbdedb331f13dcee89270b804782651dd45a",
+          "nativeIDMatches": [],
+          "sameRoadMatches": []
+        },
+        "fieldRights": {
+          "identityCoordinates": "SBIZ unrestricted government data",
+          "oneMenuName": "OA21054 KOGL Type1 attribution",
+          "photos": false,
+          "proseCopy": false
+        },
+        "doesNotEstablish": [
+          "current_operation",
+          "current_menu_sale",
+          "numeric_heat",
+          "consumer_rating",
+          "ownership"
+        ],
+        "scope": "Only licensed dataset menu/option facts and unrestricted SBIZ identity/coordinates; no linked web-page prose, images, NAVER content or whole native rows."
+      }
+    }
+  },
+  {
+    "id": "554b0fd8-481a-56b5-a21b-1500a672f4b8",
+    "slug": "hot-seoul-ma0101202307a0010618",
+    "name": "강남교자",
+    "address": "서울특별시 서초구 강남대로69길 11",
+    "lat": 37.5014740442193,
+    "lon": 127.02426950965,
+    "source_ref": "data-go-kr-15083033-MA0101202307A0010618",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T13:07:57.065367+00:00",
+      "sourceRecordId": "MA0101202307A0010618",
+      "nativeBusinessName": "강남교자칼국수",
+      "nativeBranchName": null,
+      "district": "서초구",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T13:07:57.065367+00:00",
+          "nativeRecordId": "MA0101202307A0010618"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T13:07:57.065367+00:00",
+          "nativeRecordId": "MA0101202307A0010618"
+        }
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only",
+        "reviewedAt": "2026-10-13T13:07:57.065367+00:00"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA0101202307A0010618:menu:1",
+          "name": "얼큰칼국수",
+          "provenance": {
+            "kind": "licensed-public-dataset-menu",
+            "sourceUrl": "https://data.seoul.go.kr/dataList/OA-21054/S/1/datasetView.do",
+            "sourceRecordIds": {
+              "dataset": "OA-21054",
+              "post_sn": "4447"
+            },
+            "sourceScope": "specific_restaurant_licensed_public_dataset_record",
+            "branchMenuApplicability": "source_record_specific_restaurant_not_current_sale",
+            "preparationNotice": "공개 출처에 얼큰 메뉴로 표기. 현재 영업·메뉴 판매 미확인. 고객 맵기 평가 없음.",
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-13T13:07:57.065367+00:00",
+            "licenseName": "공공누리 제1유형 (출처표시)",
+            "explicitOpenLicense": true,
+            "reuseBasis": "kogl-type-1-licensed-dataset-fact",
+            "attribution": "서울관광재단·서울 열린데이터광장, 서울시 관광 음식(OA-21054), 2026-10-13 조회",
+            "originalName": "얼큰칼국수",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      },
+      "aliasBindings": [],
+      "independentReview": {
+        "packetFile": "outputs/hot-licensed7-appendix-20261013/licensed7-appendix.json",
+        "packetSha256": "814b9755f7d7df409382432a535ea6a60ebdaad26353f4b9cb99645b79cf1e00",
+        "qaFile": "outputs/seoul-ordinary7-independent-qa-20261013/audit.json",
+        "qaSha256": "8d820ef6ba9c7ab4bbcc0b4c9eb177d63b04015584147d34a00f50ef813fd897",
+        "coordinateSource": {
+          "file": "outputs/seoul-spicy-research-20261013/raw/sbiz-seoul-202606.csv",
+          "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+          "date": "2026-06-30",
+          "license": "이용허락범위 제한 없음",
+          "crs": "WGS84",
+          "nativeID": "MA0101202307A0010618",
+          "dataRowNumber": 378999
+        },
+        "menuSource": {
+          "url": "https://data.seoul.go.kr/dataList/OA-21054/S/1/datasetView.do",
+          "file": "outputs/hot-blog-leads-20261013/seoul-highheat/oa21054-korean-full.json",
+          "sha256": "0fb80407d6ef2dd0e1848bf75cc49ef8b19bd122b546e3365100d3a5a698caba",
+          "license": "KOGL1 attribution",
+          "catalogueUpdated": "2026-10-13",
+          "attribution": "서울관광재단·서울 열린데이터광장, 서울시 관광 음식(OA-21054), 2026-10-13 조회",
+          "linkedDetailPageRequired": false,
+          "rightsScope": "Only licensed downloaded row fields; no reliance on blocked linked web pages or their prose/photos"
+        },
+        "identityMatch": {
+          "method": "same road/building plus compatible normalized store name; source floors compared where both available",
+          "nameRelation": "강남교자 ↔ 강남교자칼국수; added generic food suffix; exact road and2층",
+          "tourismAddress": "06612 서울 서초구 강남대로69길 11 (서초동, 삼미빌딩) 2층",
+          "nativeFloor": "2",
+          "noAliasRowsMerged": true
+        },
+        "deduplication": {
+          "file": "outputs/reviewed-spicy-dedup-20261013/dedup-index.jsonl",
+          "count": 2396,
+          "sha256": "47d4a07417940c84c986ff5d7b71dbdedb331f13dcee89270b804782651dd45a",
+          "nativeIDMatches": [],
+          "sameRoadMatches": []
+        },
+        "fieldRights": {
+          "identityCoordinates": "SBIZ unrestricted government data",
+          "oneMenuName": "OA21054 KOGL Type1 attribution",
+          "photos": false,
+          "proseCopy": false
+        },
+        "doesNotEstablish": [
+          "current_operation",
+          "current_menu_sale",
+          "numeric_heat",
+          "consumer_rating",
+          "ownership"
+        ],
+        "scope": "Only licensed dataset menu/option facts and unrestricted SBIZ identity/coordinates; no linked web-page prose, images, NAVER content or whole native rows."
+      }
+    }
+  },
+  {
+    "id": "af888c01-e188-5e2b-92de-3f03536b3839",
+    "slug": "hot-seoul-ma010120220812910399",
+    "name": "더 키친 아시아 홍대점",
+    "address": "서울특별시 마포구 와우산로23길 35-6",
+    "lat": 37.5545747031172,
+    "lon": 126.923314632131,
+    "source_ref": "data-go-kr-15083033-MA010120220812910399",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T13:07:57.065367+00:00",
+      "sourceRecordId": "MA010120220812910399",
+      "nativeBusinessName": "더키친아시아",
+      "nativeBranchName": null,
+      "district": "마포구",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T13:07:57.065367+00:00",
+          "nativeRecordId": "MA010120220812910399"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T13:07:57.065367+00:00",
+          "nativeRecordId": "MA010120220812910399"
+        }
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only",
+        "reviewedAt": "2026-10-13T13:07:57.065367+00:00"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA010120220812910399:menu:1",
+          "name": "치킨 티카 마살라 커리",
+          "provenance": {
+            "kind": "licensed-public-dataset-menu",
+            "sourceUrl": "https://data.seoul.go.kr/dataList/OA-21054/S/1/datasetView.do",
+            "sourceRecordIds": {
+              "dataset": "OA-21054",
+              "post_sn": "48317"
+            },
+            "sourceScope": "specific_restaurant_licensed_public_dataset_record",
+            "branchMenuApplicability": "source_record_specific_restaurant_not_current_sale",
+            "preparationNotice": "공개 매운맛 메뉴. 현재 영업·메뉴 판매 미확인. 고객 맵기 평가 없음.",
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-13T13:07:57.065367+00:00",
+            "licenseName": "공공누리 제1유형 (출처표시)",
+            "explicitOpenLicense": true,
+            "reuseBasis": "kogl-type-1-licensed-dataset-fact",
+            "attribution": "서울관광재단·서울 열린데이터광장, 서울시 관광 음식(OA-21054), 2026-10-13 조회",
+            "originalName": "치킨 티카 마살라 커리",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      },
+      "aliasBindings": [],
+      "independentReview": {
+        "packetFile": "outputs/hot-licensed7-appendix-20261013/licensed7-appendix.json",
+        "packetSha256": "814b9755f7d7df409382432a535ea6a60ebdaad26353f4b9cb99645b79cf1e00",
+        "qaFile": "outputs/seoul-ordinary7-independent-qa-20261013/audit.json",
+        "qaSha256": "8d820ef6ba9c7ab4bbcc0b4c9eb177d63b04015584147d34a00f50ef813fd897",
+        "coordinateSource": {
+          "file": "outputs/seoul-spicy-research-20261013/raw/sbiz-seoul-202606.csv",
+          "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+          "date": "2026-06-30",
+          "license": "이용허락범위 제한 없음",
+          "crs": "WGS84",
+          "nativeID": "MA010120220812910399",
+          "dataRowNumber": 241355
+        },
+        "menuSource": {
+          "url": "https://data.seoul.go.kr/dataList/OA-21054/S/1/datasetView.do",
+          "file": "outputs/hot-blog-leads-20261013/seoul-highheat/oa21054-korean-full.json",
+          "sha256": "0fb80407d6ef2dd0e1848bf75cc49ef8b19bd122b546e3365100d3a5a698caba",
+          "license": "KOGL1 attribution",
+          "catalogueUpdated": "2026-10-13",
+          "attribution": "서울관광재단·서울 열린데이터광장, 서울시 관광 음식(OA-21054), 2026-10-13 조회",
+          "linkedDetailPageRequired": false,
+          "rightsScope": "Only licensed downloaded row fields; no reliance on blocked linked web pages or their prose/photos"
+        },
+        "identityMatch": {
+          "method": "same road/building plus compatible normalized store name; source floors compared where both available",
+          "nameRelation": "tourism named 홍대점; SBIZ 더키친아시아 at exact same road; native branch blank retained",
+          "tourismAddress": "04055 서울 마포구 와우산로23길 35-6 (서교동) ",
+          "nativeFloor": "1",
+          "noAliasRowsMerged": true
+        },
+        "deduplication": {
+          "file": "outputs/reviewed-spicy-dedup-20261013/dedup-index.jsonl",
+          "count": 2396,
+          "sha256": "47d4a07417940c84c986ff5d7b71dbdedb331f13dcee89270b804782651dd45a",
+          "nativeIDMatches": [],
+          "sameRoadMatches": []
+        },
+        "fieldRights": {
+          "identityCoordinates": "SBIZ unrestricted government data",
+          "oneMenuName": "OA21054 KOGL Type1 attribution",
+          "photos": false,
+          "proseCopy": false
+        },
+        "doesNotEstablish": [
+          "current_operation",
+          "current_menu_sale",
+          "numeric_heat",
+          "consumer_rating",
+          "ownership"
+        ],
+        "scope": "Only licensed dataset menu/option facts and unrestricted SBIZ identity/coordinates; no linked web-page prose, images, NAVER content or whole native rows."
+      }
+    }
+  },
+  {
+    "id": "c6d77bc5-d7ee-5c8a-9ead-9fdab59a1cda",
+    "slug": "hot-seoul-ma010120220804053220",
+    "name": "설매네",
+    "address": "서울특별시 강남구 압구정로30길 23",
+    "lat": 37.5258900641479,
+    "lon": 127.02949264976,
+    "source_ref": "data-go-kr-15083033-MA010120220804053220",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T13:07:57.065367+00:00",
+      "sourceRecordId": "MA010120220804053220",
+      "nativeBusinessName": "설매네",
+      "nativeBranchName": null,
+      "district": "강남구",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T13:07:57.065367+00:00",
+          "nativeRecordId": "MA010120220804053220"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T13:07:57.065367+00:00",
+          "nativeRecordId": "MA010120220804053220"
+        }
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only",
+        "reviewedAt": "2026-10-13T13:07:57.065367+00:00"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA010120220804053220:menu:1",
+          "name": "매운갈비찜",
+          "provenance": {
+            "kind": "licensed-public-dataset-menu",
+            "sourceUrl": "https://data.seoul.go.kr/dataList/OA-21054/S/1/datasetView.do",
+            "sourceRecordIds": {
+              "dataset": "OA-21054",
+              "post_sn": "7906"
+            },
+            "sourceScope": "specific_restaurant_licensed_public_dataset_record",
+            "branchMenuApplicability": "source_record_specific_restaurant_not_current_sale",
+            "preparationNotice": "공개 출처에 매운 메뉴로 표기. 현재 영업·메뉴 판매 미확인. 고객 맵기 평가 없음.",
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-13T13:07:57.065367+00:00",
+            "licenseName": "공공누리 제1유형 (출처표시)",
+            "explicitOpenLicense": true,
+            "reuseBasis": "kogl-type-1-licensed-dataset-fact",
+            "attribution": "서울관광재단·서울 열린데이터광장, 서울시 관광 음식(OA-21054), 2026-10-13 조회",
+            "originalName": "매운갈비찜",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      },
+      "aliasBindings": [],
+      "independentReview": {
+        "packetFile": "outputs/hot-licensed7-appendix-20261013/licensed7-appendix.json",
+        "packetSha256": "814b9755f7d7df409382432a535ea6a60ebdaad26353f4b9cb99645b79cf1e00",
+        "qaFile": "outputs/seoul-ordinary7-independent-qa-20261013/audit.json",
+        "qaSha256": "8d820ef6ba9c7ab4bbcc0b4c9eb177d63b04015584147d34a00f50ef813fd897",
+        "coordinateSource": {
+          "file": "outputs/seoul-spicy-research-20261013/raw/sbiz-seoul-202606.csv",
+          "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+          "date": "2026-06-30",
+          "license": "이용허락범위 제한 없음",
+          "crs": "WGS84",
+          "nativeID": "MA010120220804053220",
+          "dataRowNumber": 231387
+        },
+        "menuSource": {
+          "url": "https://data.seoul.go.kr/dataList/OA-21054/S/1/datasetView.do",
+          "file": "outputs/hot-blog-leads-20261013/seoul-highheat/oa21054-korean-full.json",
+          "sha256": "0fb80407d6ef2dd0e1848bf75cc49ef8b19bd122b546e3365100d3a5a698caba",
+          "license": "KOGL1 attribution",
+          "catalogueUpdated": "2026-10-13",
+          "attribution": "서울관광재단·서울 열린데이터광장, 서울시 관광 음식(OA-21054), 2026-10-13 조회",
+          "linkedDetailPageRequired": false,
+          "rightsScope": "Only licensed downloaded row fields; no reliance on blocked linked web pages or their prose/photos"
+        },
+        "identityMatch": {
+          "method": "same road/building plus compatible normalized store name; source floors compared where both available",
+          "nameRelation": "exact normalized native name plus explicit native branch if applicable",
+          "tourismAddress": "06022 서울 강남구 압구정로30길 23 ",
+          "nativeFloor": null,
+          "noAliasRowsMerged": true
+        },
+        "deduplication": {
+          "file": "outputs/reviewed-spicy-dedup-20261013/dedup-index.jsonl",
+          "count": 2396,
+          "sha256": "47d4a07417940c84c986ff5d7b71dbdedb331f13dcee89270b804782651dd45a",
+          "nativeIDMatches": [],
+          "sameRoadMatches": []
+        },
+        "fieldRights": {
+          "identityCoordinates": "SBIZ unrestricted government data",
+          "oneMenuName": "OA21054 KOGL Type1 attribution",
+          "photos": false,
+          "proseCopy": false
+        },
+        "doesNotEstablish": [
+          "current_operation",
+          "current_menu_sale",
+          "numeric_heat",
+          "consumer_rating",
+          "ownership"
+        ],
+        "scope": "Only licensed dataset menu/option facts and unrestricted SBIZ identity/coordinates; no linked web-page prose, images, NAVER content or whole native rows."
+      }
+    }
+  },
+  {
+    "id": "1dcaac58-c1bf-5890-bd03-43ddf9a33eb7",
+    "slug": "hot-seoul-ma0101202409a0027503",
+    "name": "완차이",
+    "address": "서울특별시 서대문구 명물길 50-7",
+    "lat": 37.558719616983,
+    "lon": 126.939370383352,
+    "source_ref": "data-go-kr-15083033-MA0101202409A0027503",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T13:07:57.065367+00:00",
+      "sourceRecordId": "MA0101202409A0027503",
+      "nativeBusinessName": "완차이",
+      "nativeBranchName": null,
+      "district": "서대문구",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T13:07:57.065367+00:00",
+          "nativeRecordId": "MA0101202409A0027503"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T13:07:57.065367+00:00",
+          "nativeRecordId": "MA0101202409A0027503"
+        }
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only",
+        "reviewedAt": "2026-10-13T13:07:57.065367+00:00"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA0101202409A0027503:menu:1",
+          "name": "매운홍합",
+          "provenance": {
+            "kind": "licensed-public-dataset-menu",
+            "sourceUrl": "https://data.seoul.go.kr/dataList/OA-21054/S/1/datasetView.do",
+            "sourceRecordIds": {
+              "dataset": "OA-21054",
+              "post_sn": "12577"
+            },
+            "sourceScope": "specific_restaurant_licensed_public_dataset_record",
+            "branchMenuApplicability": "source_record_specific_restaurant_not_current_sale",
+            "preparationNotice": "공개 출처에 매운 메뉴로 표기. 현재 영업·메뉴 판매 미확인. 고객 맵기 평가 없음.",
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-13T13:07:57.065367+00:00",
+            "licenseName": "공공누리 제1유형 (출처표시)",
+            "explicitOpenLicense": true,
+            "reuseBasis": "kogl-type-1-licensed-dataset-fact",
+            "attribution": "서울관광재단·서울 열린데이터광장, 서울시 관광 음식(OA-21054), 2026-10-13 조회",
+            "originalName": "매운홍합",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      },
+      "aliasBindings": [],
+      "independentReview": {
+        "packetFile": "outputs/hot-licensed7-appendix-20261013/licensed7-appendix.json",
+        "packetSha256": "814b9755f7d7df409382432a535ea6a60ebdaad26353f4b9cb99645b79cf1e00",
+        "qaFile": "outputs/seoul-ordinary7-independent-qa-20261013/audit.json",
+        "qaSha256": "8d820ef6ba9c7ab4bbcc0b4c9eb177d63b04015584147d34a00f50ef813fd897",
+        "coordinateSource": {
+          "file": "outputs/seoul-spicy-research-20261013/raw/sbiz-seoul-202606.csv",
+          "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+          "date": "2026-06-30",
+          "license": "이용허락범위 제한 없음",
+          "crs": "WGS84",
+          "nativeID": "MA0101202409A0027503",
+          "dataRowNumber": 427502
+        },
+        "menuSource": {
+          "url": "https://data.seoul.go.kr/dataList/OA-21054/S/1/datasetView.do",
+          "file": "outputs/hot-blog-leads-20261013/seoul-highheat/oa21054-korean-full.json",
+          "sha256": "0fb80407d6ef2dd0e1848bf75cc49ef8b19bd122b546e3365100d3a5a698caba",
+          "license": "KOGL1 attribution",
+          "catalogueUpdated": "2026-10-13",
+          "attribution": "서울관광재단·서울 열린데이터광장, 서울시 관광 음식(OA-21054), 2026-10-13 조회",
+          "linkedDetailPageRequired": false,
+          "rightsScope": "Only licensed downloaded row fields; no reliance on blocked linked web pages or their prose/photos"
+        },
+        "identityMatch": {
+          "method": "same road/building plus compatible normalized store name; source floors compared where both available",
+          "nameRelation": "exact normalized native name plus explicit native branch if applicable",
+          "tourismAddress": "03777 서울특별시 서대문구 명물길 50-7 (창천동) ",
+          "nativeFloor": "2",
+          "noAliasRowsMerged": true
+        },
+        "deduplication": {
+          "file": "outputs/reviewed-spicy-dedup-20261013/dedup-index.jsonl",
+          "count": 2396,
+          "sha256": "47d4a07417940c84c986ff5d7b71dbdedb331f13dcee89270b804782651dd45a",
+          "nativeIDMatches": [],
+          "sameRoadMatches": []
+        },
+        "fieldRights": {
+          "identityCoordinates": "SBIZ unrestricted government data",
+          "oneMenuName": "OA21054 KOGL Type1 attribution",
+          "photos": false,
+          "proseCopy": false
+        },
+        "doesNotEstablish": [
+          "current_operation",
+          "current_menu_sale",
+          "numeric_heat",
+          "consumer_rating",
+          "ownership"
+        ],
+        "scope": "Only licensed dataset menu/option facts and unrestricted SBIZ identity/coordinates; no linked web-page prose, images, NAVER content or whole native rows."
+      }
+    }
+  },
+  {
+    "id": "25d5dbc9-a88f-5df0-8ba9-cec62fd0badd",
+    "slug": "hot-seoul-ma0101202406a0535380",
+    "name": "육전국밥 대학로점",
+    "address": "서울특별시 종로구 동숭길 117",
+    "lat": 37.5831611146472,
+    "lon": 127.003475709683,
+    "source_ref": "data-go-kr-15083033-MA0101202406A0535380",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T13:07:57.065367+00:00",
+      "sourceRecordId": "MA0101202406A0535380",
+      "nativeBusinessName": "육전국밥",
+      "nativeBranchName": "대학로점",
+      "district": "종로구",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T13:07:57.065367+00:00",
+          "nativeRecordId": "MA0101202406A0535380"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T13:07:57.065367+00:00",
+          "nativeRecordId": "MA0101202406A0535380"
+        }
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only",
+        "reviewedAt": "2026-10-13T13:07:57.065367+00:00"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA0101202406A0535380:menu:1",
+          "name": "육전비빔막국수",
+          "provenance": {
+            "kind": "licensed-public-dataset-menu",
+            "sourceUrl": "https://data.seoul.go.kr/dataList/OA-21054/S/1/datasetView.do",
+            "sourceRecordIds": {
+              "dataset": "OA-21054",
+              "post_sn": "48124"
+            },
+            "sourceScope": "specific_restaurant_licensed_public_dataset_record",
+            "branchMenuApplicability": "source_record_specific_restaurant_not_current_sale",
+            "preparationNotice": "공개 출처 영문 메뉴에 Spicy 명시. 현재 영업·메뉴 판매 미확인. 고객 맵기 평가 없음.",
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-13T13:07:57.065367+00:00",
+            "licenseName": "공공누리 제1유형 (출처표시)",
+            "explicitOpenLicense": true,
+            "reuseBasis": "kogl-type-1-licensed-dataset-fact",
+            "attribution": "서울관광재단·서울 열린데이터광장, 서울시 관광 음식(OA-21054), 2026-10-13 조회",
+            "originalName": "육전비빔막국수",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      },
+      "aliasBindings": [],
+      "independentReview": {
+        "packetFile": "outputs/hot-licensed7-appendix-20261013/licensed7-appendix.json",
+        "packetSha256": "814b9755f7d7df409382432a535ea6a60ebdaad26353f4b9cb99645b79cf1e00",
+        "qaFile": "outputs/seoul-ordinary7-independent-qa-20261013/audit.json",
+        "qaSha256": "8d820ef6ba9c7ab4bbcc0b4c9eb177d63b04015584147d34a00f50ef813fd897",
+        "coordinateSource": {
+          "file": "outputs/seoul-spicy-research-20261013/raw/sbiz-seoul-202606.csv",
+          "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+          "date": "2026-06-30",
+          "license": "이용허락범위 제한 없음",
+          "crs": "WGS84",
+          "nativeID": "MA0101202406A0535380",
+          "dataRowNumber": 419200
+        },
+        "menuSource": {
+          "url": "https://data.seoul.go.kr/dataList/OA-21054/S/1/datasetView.do",
+          "file": "outputs/hot-blog-leads-20261013/seoul-highheat/oa21054-korean-full.json",
+          "sha256": "0fb80407d6ef2dd0e1848bf75cc49ef8b19bd122b546e3365100d3a5a698caba",
+          "license": "KOGL1 attribution",
+          "catalogueUpdated": "2026-10-13",
+          "attribution": "서울관광재단·서울 열린데이터광장, 서울시 관광 음식(OA-21054), 2026-10-13 조회",
+          "linkedDetailPageRequired": false,
+          "rightsScope": "Only licensed downloaded row fields; no reliance on blocked linked web pages or their prose/photos"
+        },
+        "identityMatch": {
+          "method": "same road/building plus compatible normalized store name; source floors compared where both available",
+          "nameRelation": "exact normalized native name plus explicit native branch if applicable",
+          "tourismAddress": "03086 서울 종로구 동숭길 117 (동숭동, 한석빌딩) 3층",
+          "nativeFloor": "3",
+          "noAliasRowsMerged": true
+        },
+        "deduplication": {
+          "file": "outputs/reviewed-spicy-dedup-20261013/dedup-index.jsonl",
+          "count": 2396,
+          "sha256": "47d4a07417940c84c986ff5d7b71dbdedb331f13dcee89270b804782651dd45a",
+          "nativeIDMatches": [],
+          "sameRoadMatches": []
+        },
+        "fieldRights": {
+          "identityCoordinates": "SBIZ unrestricted government data",
+          "oneMenuName": "OA21054 KOGL Type1 attribution",
+          "photos": false,
+          "proseCopy": false
+        },
+        "doesNotEstablish": [
+          "current_operation",
+          "current_menu_sale",
+          "numeric_heat",
+          "consumer_rating",
+          "ownership"
+        ],
+        "scope": "Only licensed dataset menu/option facts and unrestricted SBIZ identity/coordinates; no linked web-page prose, images, NAVER content or whole native rows."
+      }
+    }
+  }
+]

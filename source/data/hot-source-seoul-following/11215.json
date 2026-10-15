@@ -1,0 +1,4130 @@
+[
+  {
+    "id": "a3aea8e7-8075-5f23-9f9b-d4f8fead17c8",
+    "slug": "hot-seoul-ma010120220813748598",
+    "name": "청년다방 아차산역점",
+    "address": "서울특별시 광진구 천호대로 671",
+    "lat": 37.5513393163319,
+    "lon": 127.090545024543,
+    "source_ref": "data-go-kr-15083033-MA010120220813748598",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+      "nativeBusinessName": "청년다방",
+      "nativeBranchName": "아차산역점",
+      "displayNameBasis": "Exact licensed SBIZ native business and branch strings; current franchise affiliation and operation unverified",
+      "sourceRecordId": "MA010120220813748598",
+      "district": "광진구",
+      "districtCode": "11215",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+          "nativeRecordId": "MA010120220813748598"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+          "nativeRecordId": "MA010120220813748598"
+        }
+      },
+      "registrationLocator": null,
+      "identityLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA010120220813748598",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 20680,
+        "rowNumberDefinition": "1-based data row excluding CSV header",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "rawFile": "outputs/seoul-spicy-research-20261013/raw/sbiz-seoul-202606.csv",
+        "rawRecord": {
+          "상가업소번호": "MA010120220813748598",
+          "상호명": "청년다방",
+          "지점명": "아차산역점",
+          "상권업종대분류코드": "I2",
+          "상권업종대분류명": "음식",
+          "상권업종중분류코드": "I210",
+          "상권업종중분류명": "기타 간이",
+          "상권업종소분류코드": "I21007",
+          "상권업종소분류명": "김밥/만두/분식",
+          "표준산업분류코드": "I56194",
+          "표준산업분류명": "김밥 및 기타 간이 음식점업",
+          "시도코드": "11",
+          "시도명": "서울특별시",
+          "시군구코드": "11215",
+          "시군구명": "광진구",
+          "행정동코드": "11215860",
+          "행정동명": "구의2동",
+          "법정동코드": "1121510300",
+          "법정동명": "구의동",
+          "지번코드": "1121510300106650000",
+          "대지구분코드": "1",
+          "대지구분명": "대지",
+          "지번본번지": "665",
+          "지번부번지": "",
+          "지번주소": "서울특별시 광진구 구의동 665",
+          "도로명코드": "112152000008",
+          "도로명": "서울특별시 광진구 천호대로",
+          "건물본번지": "671",
+          "건물부번지": "",
+          "건물관리번호": "1121510300100540001000001",
+          "건물명": "파크타운",
+          "도로명주소": "서울특별시 광진구 천호대로 671",
+          "구우편번호": "143202",
+          "신우편번호": "04954",
+          "동정보": "",
+          "층정보": "",
+          "호정보": "",
+          "경도": "127.090545024543",
+          "위도": "37.5513393163319"
+        },
+        "licenseName": "이용허락범위 제한 없음",
+        "licenseEvidenceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+      },
+      "coordinateLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA010120220813748598",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 20680,
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+        "rawLongitude": "127.090545024543",
+        "rawLatitude": "37.5513393163319",
+        "coordinateSystem": {
+          "name": "WGS84",
+          "epsg": 4326,
+          "axisOrderInSource": [
+            "경도",
+            "위도"
+          ],
+          "units": "decimal_degrees",
+          "transformation": "none; source numeric strings preserved alongside parsed numbers",
+          "evidenceType": "same-provider same-dataset API coordinate specification; the CSV itself does not encode an EPSG label",
+          "guideUrl": "https://www.data.go.kr/data/15012005/openapi.do",
+          "guideDownloadUrl": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000003706124&fileDetailSn=3",
+          "guideSha256": "4ed2112e2a90e49e88243fa7963ae7d19628aed247b6492bcbae6a947534970e",
+          "guideVersion": "260805",
+          "guideExtract": "raw/sbiz-api-guide-extracted.txt",
+          "evidence": "상가업소 lon/lat response fields are described as WGS84 coordinates in the provider guide. The longitude description repeats 위도, a provider wording typo; the lon/lat field labels and sample values distinguish axes."
+        },
+        "accuracy": "building_level; no survey/entrance accuracy claimed",
+        "matchMethod": "same original licensed SBIZ row; district text/code, original native identity, coordinate plausibility and duplicate premises screening; not current operation verification",
+        "matchedName": "청년다방",
+        "matchedBranchName": "아차산역점",
+        "matchedAddress": "서울특별시 광진구 천호대로 671",
+        "buildingManagementNumber": "1121510300100540001000001",
+        "licenseName": "이용허락범위 제한 없음",
+        "rights": {
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false
+        }
+      },
+      "aliasBindings": [],
+      "deduplication": {
+        "key": "청년다방|서울특별시 광진구 천호대로 671",
+        "sourceIds": [
+          "MA010120220813748598"
+        ],
+        "sourceRows": [
+          20680
+        ],
+        "allSourceRecords": [
+          {
+            "상가업소번호": "MA010120220813748598",
+            "상호명": "청년다방",
+            "지점명": "아차산역점",
+            "상권업종대분류코드": "I2",
+            "상권업종대분류명": "음식",
+            "상권업종중분류코드": "I210",
+            "상권업종중분류명": "기타 간이",
+            "상권업종소분류코드": "I21007",
+            "상권업종소분류명": "김밥/만두/분식",
+            "표준산업분류코드": "I56194",
+            "표준산업분류명": "김밥 및 기타 간이 음식점업",
+            "시도코드": "11",
+            "시도명": "서울특별시",
+            "시군구코드": "11215",
+            "시군구명": "광진구",
+            "행정동코드": "11215860",
+            "행정동명": "구의2동",
+            "법정동코드": "1121510300",
+            "법정동명": "구의동",
+            "지번코드": "1121510300106650000",
+            "대지구분코드": "1",
+            "대지구분명": "대지",
+            "지번본번지": "665",
+            "지번부번지": "",
+            "지번주소": "서울특별시 광진구 구의동 665",
+            "도로명코드": "112152000008",
+            "도로명": "서울특별시 광진구 천호대로",
+            "건물본번지": "671",
+            "건물부번지": "",
+            "건물관리번호": "1121510300100540001000001",
+            "건물명": "파크타운",
+            "도로명주소": "서울특별시 광진구 천호대로 671",
+            "구우편번호": "143202",
+            "신우편번호": "04954",
+            "동정보": "",
+            "층정보": "",
+            "호정보": "",
+            "경도": "127.090545024543",
+            "위도": "37.5513393163319"
+          }
+        ],
+        "method": "same brand and exact address; if multirow, identical building/floor/wing/unit/coordinates; original aliases preserved",
+        "provisional": false,
+        "missingUnitCaveat": null
+      },
+      "duplicateSourceRows": null,
+      "sourcePremises": {
+        "건물관리번호": "1121510300100540001000001",
+        "건물명": "파크타운",
+        "동정보": null,
+        "층정보": null,
+        "호정보": null
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only"
+      },
+      "fieldRights": {
+        "nameAddress": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "coordinates": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "brand-menu-evidence.json#youngdabang",
+          "residualUncertainty": [
+            "No website open licence or general legal guarantee is claimed.",
+            "Branch availability and current operation remain unverified."
+          ],
+          "legalReviewFile": "brand-menu-evidence.json",
+          "reviewedAt": "2026-10-13T02:42:18.238025+00:00"
+        },
+        "prosePhotosLogosMenusBulk": {
+          "cleared": false,
+          "include": false
+        }
+      },
+      "requiredPublicNotices": [
+        "브랜드 공통 메뉴 · 지점 판매 여부 미확인",
+        "공공 상가정보 기준 위치이며 현재 영업 여부는 확인되지 않았습니다.",
+        "매운 정도·고객 평가·가격은 확인되지 않았습니다."
+      ],
+      "branchSpecificMenuConfirmed": false,
+      "branchMenuApplicability": null,
+      "factualUseReview": {
+        "batchId": "seoul-seven-brand-following423-candidates",
+        "frozenFileSha256": "406cfcc7d6bc73f07f446b633ee7adde9eff7a06a68ce6739dbec8b382474cf8",
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "brand-menu-evidence.json#youngdabang",
+          "residualUncertainty": [
+            "No website open licence or general legal guarantee is claimed.",
+            "Branch availability and current operation remain unverified."
+          ],
+          "legalReviewFile": "brand-menu-evidence.json",
+          "reviewedAt": "2026-10-13T02:42:18.238025+00:00"
+        },
+        "releaseDecision": "draft_pending_seoul_wide_exception_review_and_independent_qa"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA010120220813748598:menu:1",
+          "name": "크림차돌떡볶이",
+          "provenance": {
+            "kind": "official-brand-menu",
+            "sourceScope": "brand_common",
+            "branchMenuApplicability": null,
+            "brandName": "청년다방",
+            "sourceUrl": "https://youngdabang.com/board/index.php?board=notice_01&idx=88&type=view",
+            "sourceRecordIds": {},
+            "sourceAsOf": "2025-11-06",
+            "checkedAt": "2026-10-12T23:51:41.729766+00:00",
+            "licenseName": null,
+            "explicitOpenLicense": false,
+            "reuseBasis": "limited-individual-fact-review",
+            "originalName": "크림차돌떡볶이",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      }
+    }
+  },
+  {
+    "id": "834479ff-ce48-5ae2-84d1-713ff142c82c",
+    "slug": "hot-seoul-ma010120220814312719",
+    "name": "홍콩반점0410플러스 아차산역점",
+    "address": "서울특별시 광진구 자양로43길 48",
+    "lat": 37.5527089792107,
+    "lon": 127.090354293928,
+    "source_ref": "data-go-kr-15083033-MA010120220814312719",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+      "nativeBusinessName": "홍콩반점0410플러스",
+      "nativeBranchName": "아차산역점",
+      "displayNameBasis": "Exact licensed SBIZ native business and branch strings; current franchise affiliation and operation unverified",
+      "sourceRecordId": "MA010120220814312719",
+      "district": "광진구",
+      "districtCode": "11215",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+          "nativeRecordId": "MA010120220814312719"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+          "nativeRecordId": "MA010120220814312719"
+        }
+      },
+      "registrationLocator": null,
+      "identityLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA010120220814312719",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 94078,
+        "rowNumberDefinition": "1-based data row excluding CSV header",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "rawFile": "outputs/seoul-spicy-research-20261013/raw/sbiz-seoul-202606.csv",
+        "rawRecord": {
+          "상가업소번호": "MA010120220814312719",
+          "상호명": "홍콩반점0410플러스",
+          "지점명": "아차산역점",
+          "상권업종대분류코드": "I2",
+          "상권업종대분류명": "음식",
+          "상권업종중분류코드": "I202",
+          "상권업종중분류명": "중식",
+          "상권업종소분류코드": "I20201",
+          "상권업종소분류명": "중국집",
+          "표준산업분류코드": "I56121",
+          "표준산업분류명": "중식 음식점업",
+          "시도코드": "11",
+          "시도명": "서울특별시",
+          "시군구코드": "11215",
+          "시군구명": "광진구",
+          "행정동코드": "11215770",
+          "행정동명": "중곡4동",
+          "법정동코드": "1121510100",
+          "법정동명": "중곡동",
+          "지번코드": "1121510100101140030",
+          "대지구분코드": "1",
+          "대지구분명": "대지",
+          "지번본번지": "114",
+          "지번부번지": "30",
+          "지번주소": "서울특별시 광진구 중곡동 114-30",
+          "도로명코드": "112154112450",
+          "도로명": "서울특별시 광진구 자양로43길",
+          "건물본번지": "48",
+          "건물부번지": "",
+          "건물관리번호": "1121510100101140030001953",
+          "건물명": "태광빌딩",
+          "도로명주소": "서울특별시 광진구 자양로43길 48",
+          "구우편번호": "143889",
+          "신우편번호": "04953",
+          "동정보": "",
+          "층정보": "1",
+          "호정보": "",
+          "경도": "127.090354293928",
+          "위도": "37.5527089792107"
+        },
+        "licenseName": "이용허락범위 제한 없음",
+        "licenseEvidenceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+      },
+      "coordinateLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA010120220814312719",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 94078,
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+        "rawLongitude": "127.090354293928",
+        "rawLatitude": "37.5527089792107",
+        "coordinateSystem": {
+          "name": "WGS84",
+          "epsg": 4326,
+          "axisOrderInSource": [
+            "경도",
+            "위도"
+          ],
+          "units": "decimal_degrees",
+          "transformation": "none; source numeric strings preserved alongside parsed numbers",
+          "evidenceType": "same-provider same-dataset API coordinate specification; the CSV itself does not encode an EPSG label",
+          "guideUrl": "https://www.data.go.kr/data/15012005/openapi.do",
+          "guideDownloadUrl": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000003706124&fileDetailSn=3",
+          "guideSha256": "4ed2112e2a90e49e88243fa7963ae7d19628aed247b6492bcbae6a947534970e",
+          "guideVersion": "260805",
+          "guideExtract": "raw/sbiz-api-guide-extracted.txt",
+          "evidence": "상가업소 lon/lat response fields are described as WGS84 coordinates in the provider guide. The longitude description repeats 위도, a provider wording typo; the lon/lat field labels and sample values distinguish axes."
+        },
+        "accuracy": "building_level; no survey/entrance accuracy claimed",
+        "matchMethod": "same original licensed SBIZ row; district text/code, original native identity, coordinate plausibility and duplicate premises screening; not current operation verification",
+        "matchedName": "홍콩반점0410플러스",
+        "matchedBranchName": "아차산역점",
+        "matchedAddress": "서울특별시 광진구 자양로43길 48",
+        "buildingManagementNumber": "1121510100101140030001953",
+        "licenseName": "이용허락범위 제한 없음",
+        "rights": {
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false
+        }
+      },
+      "aliasBindings": [],
+      "deduplication": {
+        "key": "홍콩반점|서울특별시 광진구 자양로43길 48",
+        "sourceIds": [
+          "MA010120220814312719"
+        ],
+        "sourceRows": [
+          94078
+        ],
+        "allSourceRecords": [
+          {
+            "상가업소번호": "MA010120220814312719",
+            "상호명": "홍콩반점0410플러스",
+            "지점명": "아차산역점",
+            "상권업종대분류코드": "I2",
+            "상권업종대분류명": "음식",
+            "상권업종중분류코드": "I202",
+            "상권업종중분류명": "중식",
+            "상권업종소분류코드": "I20201",
+            "상권업종소분류명": "중국집",
+            "표준산업분류코드": "I56121",
+            "표준산업분류명": "중식 음식점업",
+            "시도코드": "11",
+            "시도명": "서울특별시",
+            "시군구코드": "11215",
+            "시군구명": "광진구",
+            "행정동코드": "11215770",
+            "행정동명": "중곡4동",
+            "법정동코드": "1121510100",
+            "법정동명": "중곡동",
+            "지번코드": "1121510100101140030",
+            "대지구분코드": "1",
+            "대지구분명": "대지",
+            "지번본번지": "114",
+            "지번부번지": "30",
+            "지번주소": "서울특별시 광진구 중곡동 114-30",
+            "도로명코드": "112154112450",
+            "도로명": "서울특별시 광진구 자양로43길",
+            "건물본번지": "48",
+            "건물부번지": "",
+            "건물관리번호": "1121510100101140030001953",
+            "건물명": "태광빌딩",
+            "도로명주소": "서울특별시 광진구 자양로43길 48",
+            "구우편번호": "143889",
+            "신우편번호": "04953",
+            "동정보": "",
+            "층정보": "1",
+            "호정보": "",
+            "경도": "127.090354293928",
+            "위도": "37.5527089792107"
+          }
+        ],
+        "method": "same brand and exact address; if multirow, identical building/floor/wing/unit/coordinates; original aliases preserved",
+        "provisional": false,
+        "missingUnitCaveat": null
+      },
+      "duplicateSourceRows": null,
+      "sourcePremises": {
+        "건물관리번호": "1121510100101140030001953",
+        "건물명": "태광빌딩",
+        "동정보": null,
+        "층정보": "1",
+        "호정보": null
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only"
+      },
+      "fieldRights": {
+        "nameAddress": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "coordinates": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "brand-menu-evidence.json#hongkongbanjeom",
+          "residualUncertainty": [
+            "No website open licence or general legal guarantee is claimed.",
+            "Branch availability and current operation remain unverified."
+          ],
+          "legalReviewFile": "brand-menu-evidence.json",
+          "reviewedAt": "2026-10-13T02:42:18.238025+00:00"
+        },
+        "prosePhotosLogosMenusBulk": {
+          "cleared": false,
+          "include": false
+        }
+      },
+      "requiredPublicNotices": [
+        "브랜드 공통 메뉴 · 지점 판매 여부 미확인",
+        "공공 상가정보 기준 위치이며 현재 영업 여부는 확인되지 않았습니다.",
+        "매운 정도·고객 평가·가격은 확인되지 않았습니다."
+      ],
+      "branchSpecificMenuConfirmed": false,
+      "branchMenuApplicability": null,
+      "factualUseReview": {
+        "batchId": "seoul-seven-brand-following423-candidates",
+        "frozenFileSha256": "406cfcc7d6bc73f07f446b633ee7adde9eff7a06a68ce6739dbec8b382474cf8",
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "brand-menu-evidence.json#hongkongbanjeom",
+          "residualUncertainty": [
+            "No website open licence or general legal guarantee is claimed.",
+            "Branch availability and current operation remain unverified."
+          ],
+          "legalReviewFile": "brand-menu-evidence.json",
+          "reviewedAt": "2026-10-13T02:42:18.238025+00:00"
+        },
+        "releaseDecision": "draft_pending_seoul_wide_exception_review_and_independent_qa"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA010120220814312719:menu:1",
+          "name": "고추짬뽕",
+          "provenance": {
+            "kind": "official-brand-menu",
+            "sourceScope": "brand_common",
+            "branchMenuApplicability": null,
+            "brandName": "홍콩반점",
+            "sourceUrl": "https://www.theborn.co.kr/theborn_brand/%ED%99%8D%EC%BD%A9%EB%B0%98%EC%A0%902/",
+            "sourceRecordIds": {},
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-13T02:42:18.238025+00:00",
+            "licenseName": null,
+            "explicitOpenLicense": false,
+            "reuseBasis": "limited-individual-fact-review",
+            "originalName": "고추짬뽕",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      }
+    }
+  },
+  {
+    "id": "59f9ef3a-32e4-525a-866a-ed2e0bbd3d66",
+    "slug": "hot-seoul-ma010120220804380516",
+    "name": "삼첩분식 건대점",
+    "address": "서울특별시 광진구 자양로23길 38",
+    "lat": 37.542100567789,
+    "lon": 127.083065742867,
+    "source_ref": "data-go-kr-15083033-MA010120220804380516",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+      "nativeBusinessName": "삼첩분식",
+      "nativeBranchName": "건대점",
+      "displayNameBasis": "Exact licensed SBIZ native business and branch strings; current franchise affiliation and operation unverified",
+      "sourceRecordId": "MA010120220804380516",
+      "district": "광진구",
+      "districtCode": "11215",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+          "nativeRecordId": "MA010120220804380516"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+          "nativeRecordId": "MA010120220804380516"
+        }
+      },
+      "registrationLocator": null,
+      "identityLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA010120220804380516",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 168111,
+        "rowNumberDefinition": "1-based data row excluding CSV header",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "rawFile": "outputs/seoul-spicy-research-20261013/raw/sbiz-seoul-202606.csv",
+        "rawRecord": {
+          "상가업소번호": "MA010120220804380516",
+          "상호명": "삼첩분식",
+          "지점명": "건대점",
+          "상권업종대분류코드": "I2",
+          "상권업종대분류명": "음식",
+          "상권업종중분류코드": "I210",
+          "상권업종중분류명": "기타 간이",
+          "상권업종소분류코드": "I21007",
+          "상권업종소분류명": "김밥/만두/분식",
+          "표준산업분류코드": "I56194",
+          "표준산업분류명": "김밥 및 기타 간이 음식점업",
+          "시도코드": "11",
+          "시도명": "서울특별시",
+          "시군구코드": "11215",
+          "시군구명": "광진구",
+          "행정동코드": "11215850",
+          "행정동명": "구의1동",
+          "법정동코드": "1121510300",
+          "법정동명": "구의동",
+          "지번코드": "1121510300102540045",
+          "대지구분코드": "1",
+          "대지구분명": "대지",
+          "지번본번지": "254",
+          "지번부번지": "45",
+          "지번주소": "서울특별시 광진구 구의동 254-45",
+          "도로명코드": "112154112427",
+          "도로명": "서울특별시 광진구 자양로23길",
+          "건물본번지": "38",
+          "건물부번지": "",
+          "건물관리번호": "1121510300102540045009690",
+          "건물명": "",
+          "도로명주소": "서울특별시 광진구 자양로23길 38",
+          "구우편번호": "143827",
+          "신우편번호": "05024",
+          "동정보": "",
+          "층정보": "1",
+          "호정보": "",
+          "경도": "127.083065742867",
+          "위도": "37.542100567789"
+        },
+        "licenseName": "이용허락범위 제한 없음",
+        "licenseEvidenceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+      },
+      "coordinateLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA010120220804380516",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 168111,
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+        "rawLongitude": "127.083065742867",
+        "rawLatitude": "37.542100567789",
+        "coordinateSystem": {
+          "name": "WGS84",
+          "epsg": 4326,
+          "axisOrderInSource": [
+            "경도",
+            "위도"
+          ],
+          "units": "decimal_degrees",
+          "transformation": "none; source numeric strings preserved alongside parsed numbers",
+          "evidenceType": "same-provider same-dataset API coordinate specification; the CSV itself does not encode an EPSG label",
+          "guideUrl": "https://www.data.go.kr/data/15012005/openapi.do",
+          "guideDownloadUrl": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000003706124&fileDetailSn=3",
+          "guideSha256": "4ed2112e2a90e49e88243fa7963ae7d19628aed247b6492bcbae6a947534970e",
+          "guideVersion": "260805",
+          "guideExtract": "raw/sbiz-api-guide-extracted.txt",
+          "evidence": "상가업소 lon/lat response fields are described as WGS84 coordinates in the provider guide. The longitude description repeats 위도, a provider wording typo; the lon/lat field labels and sample values distinguish axes."
+        },
+        "accuracy": "building_level; no survey/entrance accuracy claimed",
+        "matchMethod": "same original licensed SBIZ row; district text/code, original native identity, coordinate plausibility and duplicate premises screening; not current operation verification",
+        "matchedName": "삼첩분식",
+        "matchedBranchName": "건대점",
+        "matchedAddress": "서울특별시 광진구 자양로23길 38",
+        "buildingManagementNumber": "1121510300102540045009690",
+        "licenseName": "이용허락범위 제한 없음",
+        "rights": {
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false
+        }
+      },
+      "aliasBindings": [],
+      "deduplication": {
+        "key": "삼첩분식|서울특별시 광진구 자양로23길 38",
+        "sourceIds": [
+          "MA010120220804380516"
+        ],
+        "sourceRows": [
+          168111
+        ],
+        "allSourceRecords": [
+          {
+            "상가업소번호": "MA010120220804380516",
+            "상호명": "삼첩분식",
+            "지점명": "건대점",
+            "상권업종대분류코드": "I2",
+            "상권업종대분류명": "음식",
+            "상권업종중분류코드": "I210",
+            "상권업종중분류명": "기타 간이",
+            "상권업종소분류코드": "I21007",
+            "상권업종소분류명": "김밥/만두/분식",
+            "표준산업분류코드": "I56194",
+            "표준산업분류명": "김밥 및 기타 간이 음식점업",
+            "시도코드": "11",
+            "시도명": "서울특별시",
+            "시군구코드": "11215",
+            "시군구명": "광진구",
+            "행정동코드": "11215850",
+            "행정동명": "구의1동",
+            "법정동코드": "1121510300",
+            "법정동명": "구의동",
+            "지번코드": "1121510300102540045",
+            "대지구분코드": "1",
+            "대지구분명": "대지",
+            "지번본번지": "254",
+            "지번부번지": "45",
+            "지번주소": "서울특별시 광진구 구의동 254-45",
+            "도로명코드": "112154112427",
+            "도로명": "서울특별시 광진구 자양로23길",
+            "건물본번지": "38",
+            "건물부번지": "",
+            "건물관리번호": "1121510300102540045009690",
+            "건물명": "",
+            "도로명주소": "서울특별시 광진구 자양로23길 38",
+            "구우편번호": "143827",
+            "신우편번호": "05024",
+            "동정보": "",
+            "층정보": "1",
+            "호정보": "",
+            "경도": "127.083065742867",
+            "위도": "37.542100567789"
+          }
+        ],
+        "method": "same brand and exact address; if multirow, identical building/floor/wing/unit/coordinates; original aliases preserved",
+        "provisional": false,
+        "missingUnitCaveat": null
+      },
+      "duplicateSourceRows": null,
+      "sourcePremises": {
+        "건물관리번호": "1121510300102540045009690",
+        "건물명": null,
+        "동정보": null,
+        "층정보": "1",
+        "호정보": null
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only"
+      },
+      "fieldRights": {
+        "nameAddress": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "coordinates": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "brand-menu-evidence.json#samcheop",
+          "residualUncertainty": [
+            "No website open licence or general legal guarantee is claimed.",
+            "Branch availability and current operation remain unverified."
+          ],
+          "legalReviewFile": "brand-menu-evidence.json",
+          "reviewedAt": "2026-10-13T02:42:18.238025+00:00"
+        },
+        "prosePhotosLogosMenusBulk": {
+          "cleared": false,
+          "include": false
+        }
+      },
+      "requiredPublicNotices": [
+        "브랜드 공통 메뉴 · 지점 판매 여부 미확인",
+        "공공 상가정보 기준 위치이며 현재 영업 여부는 확인되지 않았습니다.",
+        "매운 정도·고객 평가·가격은 확인되지 않았습니다."
+      ],
+      "branchSpecificMenuConfirmed": false,
+      "branchMenuApplicability": null,
+      "factualUseReview": {
+        "batchId": "seoul-seven-brand-following423-candidates",
+        "frozenFileSha256": "406cfcc7d6bc73f07f446b633ee7adde9eff7a06a68ce6739dbec8b382474cf8",
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "brand-menu-evidence.json#samcheop",
+          "residualUncertainty": [
+            "No website open licence or general legal guarantee is claimed.",
+            "Branch availability and current operation remain unverified."
+          ],
+          "legalReviewFile": "brand-menu-evidence.json",
+          "reviewedAt": "2026-10-13T02:42:18.238025+00:00"
+        },
+        "releaseDecision": "draft_pending_seoul_wide_exception_review_and_independent_qa"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA010120220804380516:menu:1",
+          "name": "매콤튀김어묵",
+          "provenance": {
+            "kind": "official-brand-menu",
+            "sourceScope": "brand_common",
+            "branchMenuApplicability": null,
+            "brandName": "삼첩분식",
+            "sourceUrl": "https://samcheop.com/bbs/content.php?co_id=menu&tab=2",
+            "sourceRecordIds": {},
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-12T23:51:41.729766+00:00",
+            "licenseName": null,
+            "explicitOpenLicense": false,
+            "reuseBasis": "limited-individual-fact-review",
+            "originalName": "매콤튀김어묵",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      }
+    }
+  },
+  {
+    "id": "909dc46a-e57d-5388-9f91-f8427f23155a",
+    "slug": "hot-seoul-ma010120220813102946",
+    "name": "어린이대공원역점홍콩반점&빽다방",
+    "address": "서울특별시 광진구 광나루로 381-1",
+    "lat": 37.5480992801369,
+    "lon": 127.072321988041,
+    "source_ref": "data-go-kr-15083033-MA010120220813102946",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+      "nativeBusinessName": "어린이대공원역점홍콩반점&빽다방",
+      "nativeBranchName": null,
+      "displayNameBasis": "Exact licensed SBIZ native business and branch strings; current franchise affiliation and operation unverified",
+      "sourceRecordId": "MA010120220813102946",
+      "district": "광진구",
+      "districtCode": "11215",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+          "nativeRecordId": "MA010120220813102946"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+          "nativeRecordId": "MA010120220813102946"
+        }
+      },
+      "registrationLocator": null,
+      "identityLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA010120220813102946",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 211849,
+        "rowNumberDefinition": "1-based data row excluding CSV header",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "rawFile": "outputs/seoul-spicy-research-20261013/raw/sbiz-seoul-202606.csv",
+        "rawRecord": {
+          "상가업소번호": "MA010120220813102946",
+          "상호명": "어린이대공원역점홍콩반점&빽다방",
+          "지점명": "",
+          "상권업종대분류코드": "I2",
+          "상권업종대분류명": "음식",
+          "상권업종중분류코드": "I212",
+          "상권업종중분류명": "비알코올 ",
+          "상권업종소분류코드": "I21201",
+          "상권업종소분류명": "카페",
+          "표준산업분류코드": "I56121",
+          "표준산업분류명": "중식 음식점업",
+          "시도코드": "11",
+          "시도명": "서울특별시",
+          "시군구코드": "11215",
+          "시군구명": "광진구",
+          "행정동코드": "11215730",
+          "행정동명": "군자동",
+          "법정동코드": "1121510900",
+          "법정동명": "군자동",
+          "지번코드": "1121510900103610025",
+          "대지구분코드": "1",
+          "대지구분명": "대지",
+          "지번본번지": "361",
+          "지번부번지": "25",
+          "지번주소": "서울특별시 광진구 군자동 361-25",
+          "도로명코드": "112153005024",
+          "도로명": "서울특별시 광진구 광나루로",
+          "건물본번지": "381",
+          "건물부번지": "1",
+          "건물관리번호": "1121510900103610025026046",
+          "건물명": "",
+          "도로명주소": "서울특별시 광진구 광나루로 381-1",
+          "구우편번호": "143840",
+          "신우편번호": "05005",
+          "동정보": "",
+          "층정보": "1",
+          "호정보": "",
+          "경도": "127.072321988041",
+          "위도": "37.5480992801369"
+        },
+        "licenseName": "이용허락범위 제한 없음",
+        "licenseEvidenceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+      },
+      "coordinateLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA010120220813102946",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 211849,
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+        "rawLongitude": "127.072321988041",
+        "rawLatitude": "37.5480992801369",
+        "coordinateSystem": {
+          "name": "WGS84",
+          "epsg": 4326,
+          "axisOrderInSource": [
+            "경도",
+            "위도"
+          ],
+          "units": "decimal_degrees",
+          "transformation": "none; source numeric strings preserved alongside parsed numbers",
+          "evidenceType": "same-provider same-dataset API coordinate specification; the CSV itself does not encode an EPSG label",
+          "guideUrl": "https://www.data.go.kr/data/15012005/openapi.do",
+          "guideDownloadUrl": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000003706124&fileDetailSn=3",
+          "guideSha256": "4ed2112e2a90e49e88243fa7963ae7d19628aed247b6492bcbae6a947534970e",
+          "guideVersion": "260805",
+          "guideExtract": "raw/sbiz-api-guide-extracted.txt",
+          "evidence": "상가업소 lon/lat response fields are described as WGS84 coordinates in the provider guide. The longitude description repeats 위도, a provider wording typo; the lon/lat field labels and sample values distinguish axes."
+        },
+        "accuracy": "building_level; no survey/entrance accuracy claimed",
+        "matchMethod": "same original licensed SBIZ row; district text/code, original native identity, coordinate plausibility and duplicate premises screening; not current operation verification",
+        "matchedName": "어린이대공원역점홍콩반점&빽다방",
+        "matchedBranchName": null,
+        "matchedAddress": "서울특별시 광진구 광나루로 381-1",
+        "buildingManagementNumber": "1121510900103610025026046",
+        "licenseName": "이용허락범위 제한 없음",
+        "rights": {
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false
+        }
+      },
+      "aliasBindings": [],
+      "deduplication": {
+        "key": "홍콩반점|서울특별시 광진구 광나루로 381-1",
+        "sourceIds": [
+          "MA010120220813102946"
+        ],
+        "sourceRows": [
+          211849
+        ],
+        "allSourceRecords": [
+          {
+            "상가업소번호": "MA010120220813102946",
+            "상호명": "어린이대공원역점홍콩반점&빽다방",
+            "지점명": "",
+            "상권업종대분류코드": "I2",
+            "상권업종대분류명": "음식",
+            "상권업종중분류코드": "I212",
+            "상권업종중분류명": "비알코올 ",
+            "상권업종소분류코드": "I21201",
+            "상권업종소분류명": "카페",
+            "표준산업분류코드": "I56121",
+            "표준산업분류명": "중식 음식점업",
+            "시도코드": "11",
+            "시도명": "서울특별시",
+            "시군구코드": "11215",
+            "시군구명": "광진구",
+            "행정동코드": "11215730",
+            "행정동명": "군자동",
+            "법정동코드": "1121510900",
+            "법정동명": "군자동",
+            "지번코드": "1121510900103610025",
+            "대지구분코드": "1",
+            "대지구분명": "대지",
+            "지번본번지": "361",
+            "지번부번지": "25",
+            "지번주소": "서울특별시 광진구 군자동 361-25",
+            "도로명코드": "112153005024",
+            "도로명": "서울특별시 광진구 광나루로",
+            "건물본번지": "381",
+            "건물부번지": "1",
+            "건물관리번호": "1121510900103610025026046",
+            "건물명": "",
+            "도로명주소": "서울특별시 광진구 광나루로 381-1",
+            "구우편번호": "143840",
+            "신우편번호": "05005",
+            "동정보": "",
+            "층정보": "1",
+            "호정보": "",
+            "경도": "127.072321988041",
+            "위도": "37.5480992801369"
+          }
+        ],
+        "method": "same brand and exact address; if multirow, identical building/floor/wing/unit/coordinates; original aliases preserved",
+        "provisional": false,
+        "missingUnitCaveat": null
+      },
+      "duplicateSourceRows": null,
+      "sourcePremises": {
+        "건물관리번호": "1121510900103610025026046",
+        "건물명": null,
+        "동정보": null,
+        "층정보": "1",
+        "호정보": null
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only"
+      },
+      "fieldRights": {
+        "nameAddress": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "coordinates": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "brand-menu-evidence.json#hongkongbanjeom",
+          "residualUncertainty": [
+            "No website open licence or general legal guarantee is claimed.",
+            "Branch availability and current operation remain unverified."
+          ],
+          "legalReviewFile": "brand-menu-evidence.json",
+          "reviewedAt": "2026-10-13T02:42:18.238025+00:00"
+        },
+        "prosePhotosLogosMenusBulk": {
+          "cleared": false,
+          "include": false
+        }
+      },
+      "requiredPublicNotices": [
+        "브랜드 공통 메뉴 · 지점 판매 여부 미확인",
+        "공공 상가정보 기준 위치이며 현재 영업 여부는 확인되지 않았습니다.",
+        "매운 정도·고객 평가·가격은 확인되지 않았습니다."
+      ],
+      "branchSpecificMenuConfirmed": false,
+      "branchMenuApplicability": null,
+      "factualUseReview": {
+        "batchId": "seoul-seven-brand-following423-candidates",
+        "frozenFileSha256": "406cfcc7d6bc73f07f446b633ee7adde9eff7a06a68ce6739dbec8b382474cf8",
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "brand-menu-evidence.json#hongkongbanjeom",
+          "residualUncertainty": [
+            "No website open licence or general legal guarantee is claimed.",
+            "Branch availability and current operation remain unverified."
+          ],
+          "legalReviewFile": "brand-menu-evidence.json",
+          "reviewedAt": "2026-10-13T02:42:18.238025+00:00"
+        },
+        "releaseDecision": "draft_pending_seoul_wide_exception_review_and_independent_qa"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA010120220813102946:menu:1",
+          "name": "고추짬뽕",
+          "provenance": {
+            "kind": "official-brand-menu",
+            "sourceScope": "brand_common",
+            "branchMenuApplicability": null,
+            "brandName": "홍콩반점",
+            "sourceUrl": "https://www.theborn.co.kr/theborn_brand/%ED%99%8D%EC%BD%A9%EB%B0%98%EC%A0%902/",
+            "sourceRecordIds": {},
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-13T02:42:18.238025+00:00",
+            "licenseName": null,
+            "explicitOpenLicense": false,
+            "reuseBasis": "limited-individual-fact-review",
+            "originalName": "고추짬뽕",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      }
+    }
+  },
+  {
+    "id": "c60084e0-85cc-5fea-82fb-dab415ed4e0e",
+    "slug": "hot-seoul-ma010120220808708402",
+    "name": "청년다방",
+    "address": "서울특별시 광진구 동일로20길 64",
+    "lat": 37.5403718037341,
+    "lon": 127.067075653198,
+    "source_ref": "data-go-kr-15083033-MA010120220808708402",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+      "nativeBusinessName": "청년다방",
+      "nativeBranchName": null,
+      "displayNameBasis": "Exact licensed SBIZ native business and branch strings; current franchise affiliation and operation unverified",
+      "sourceRecordId": "MA010120220808708402",
+      "district": "광진구",
+      "districtCode": "11215",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+          "nativeRecordId": "MA010120220808708402"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+          "nativeRecordId": "MA010120220808708402"
+        }
+      },
+      "registrationLocator": null,
+      "identityLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA010120220808708402",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 239012,
+        "rowNumberDefinition": "1-based data row excluding CSV header",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "rawFile": "outputs/seoul-spicy-research-20261013/raw/sbiz-seoul-202606.csv",
+        "rawRecord": {
+          "상가업소번호": "MA010120220808708402",
+          "상호명": "청년다방",
+          "지점명": "",
+          "상권업종대분류코드": "I2",
+          "상권업종대분류명": "음식",
+          "상권업종중분류코드": "I210",
+          "상권업종중분류명": "기타 간이",
+          "상권업종소분류코드": "I21007",
+          "상권업종소분류명": "김밥/만두/분식",
+          "표준산업분류코드": "I56194",
+          "표준산업분류명": "김밥 및 기타 간이 음식점업",
+          "시도코드": "11",
+          "시도명": "서울특별시",
+          "시군구코드": "11215",
+          "시군구명": "광진구",
+          "행정동코드": "11215847",
+          "행정동명": "자양4동",
+          "법정동코드": "1121510500",
+          "법정동명": "자양동",
+          "지번코드": "1121510500100090003",
+          "대지구분코드": "1",
+          "대지구분명": "대지",
+          "지번본번지": "9",
+          "지번부번지": "3",
+          "지번주소": "서울특별시 광진구 자양동 9-3",
+          "도로명코드": "112154112196",
+          "도로명": "서울특별시 광진구 동일로20길",
+          "건물본번지": "64",
+          "건물부번지": "",
+          "건물관리번호": "1121510500100090003015024",
+          "건물명": "",
+          "도로명주소": "서울특별시 광진구 동일로20길 64",
+          "구우편번호": "143841",
+          "신우편번호": "05072",
+          "동정보": "",
+          "층정보": "1",
+          "호정보": "",
+          "경도": "127.067075653198",
+          "위도": "37.5403718037341"
+        },
+        "licenseName": "이용허락범위 제한 없음",
+        "licenseEvidenceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+      },
+      "coordinateLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA010120220808708402",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 239012,
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+        "rawLongitude": "127.067075653198",
+        "rawLatitude": "37.5403718037341",
+        "coordinateSystem": {
+          "name": "WGS84",
+          "epsg": 4326,
+          "axisOrderInSource": [
+            "경도",
+            "위도"
+          ],
+          "units": "decimal_degrees",
+          "transformation": "none; source numeric strings preserved alongside parsed numbers",
+          "evidenceType": "same-provider same-dataset API coordinate specification; the CSV itself does not encode an EPSG label",
+          "guideUrl": "https://www.data.go.kr/data/15012005/openapi.do",
+          "guideDownloadUrl": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000003706124&fileDetailSn=3",
+          "guideSha256": "4ed2112e2a90e49e88243fa7963ae7d19628aed247b6492bcbae6a947534970e",
+          "guideVersion": "260805",
+          "guideExtract": "raw/sbiz-api-guide-extracted.txt",
+          "evidence": "상가업소 lon/lat response fields are described as WGS84 coordinates in the provider guide. The longitude description repeats 위도, a provider wording typo; the lon/lat field labels and sample values distinguish axes."
+        },
+        "accuracy": "building_level; no survey/entrance accuracy claimed",
+        "matchMethod": "same original licensed SBIZ row; district text/code, original native identity, coordinate plausibility and duplicate premises screening; not current operation verification",
+        "matchedName": "청년다방",
+        "matchedBranchName": null,
+        "matchedAddress": "서울특별시 광진구 동일로20길 64",
+        "buildingManagementNumber": "1121510500100090003015024",
+        "licenseName": "이용허락범위 제한 없음",
+        "rights": {
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false
+        }
+      },
+      "aliasBindings": [],
+      "deduplication": {
+        "key": "청년다방|서울특별시 광진구 동일로20길 64",
+        "sourceIds": [
+          "MA010120220808708402"
+        ],
+        "sourceRows": [
+          239012
+        ],
+        "allSourceRecords": [
+          {
+            "상가업소번호": "MA010120220808708402",
+            "상호명": "청년다방",
+            "지점명": "",
+            "상권업종대분류코드": "I2",
+            "상권업종대분류명": "음식",
+            "상권업종중분류코드": "I210",
+            "상권업종중분류명": "기타 간이",
+            "상권업종소분류코드": "I21007",
+            "상권업종소분류명": "김밥/만두/분식",
+            "표준산업분류코드": "I56194",
+            "표준산업분류명": "김밥 및 기타 간이 음식점업",
+            "시도코드": "11",
+            "시도명": "서울특별시",
+            "시군구코드": "11215",
+            "시군구명": "광진구",
+            "행정동코드": "11215847",
+            "행정동명": "자양4동",
+            "법정동코드": "1121510500",
+            "법정동명": "자양동",
+            "지번코드": "1121510500100090003",
+            "대지구분코드": "1",
+            "대지구분명": "대지",
+            "지번본번지": "9",
+            "지번부번지": "3",
+            "지번주소": "서울특별시 광진구 자양동 9-3",
+            "도로명코드": "112154112196",
+            "도로명": "서울특별시 광진구 동일로20길",
+            "건물본번지": "64",
+            "건물부번지": "",
+            "건물관리번호": "1121510500100090003015024",
+            "건물명": "",
+            "도로명주소": "서울특별시 광진구 동일로20길 64",
+            "구우편번호": "143841",
+            "신우편번호": "05072",
+            "동정보": "",
+            "층정보": "1",
+            "호정보": "",
+            "경도": "127.067075653198",
+            "위도": "37.5403718037341"
+          }
+        ],
+        "method": "same brand and exact address; if multirow, identical building/floor/wing/unit/coordinates; original aliases preserved",
+        "provisional": false,
+        "missingUnitCaveat": null
+      },
+      "duplicateSourceRows": null,
+      "sourcePremises": {
+        "건물관리번호": "1121510500100090003015024",
+        "건물명": null,
+        "동정보": null,
+        "층정보": "1",
+        "호정보": null
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only"
+      },
+      "fieldRights": {
+        "nameAddress": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "coordinates": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "brand-menu-evidence.json#youngdabang",
+          "residualUncertainty": [
+            "No website open licence or general legal guarantee is claimed.",
+            "Branch availability and current operation remain unverified."
+          ],
+          "legalReviewFile": "brand-menu-evidence.json",
+          "reviewedAt": "2026-10-13T02:42:18.238025+00:00"
+        },
+        "prosePhotosLogosMenusBulk": {
+          "cleared": false,
+          "include": false
+        }
+      },
+      "requiredPublicNotices": [
+        "브랜드 공통 메뉴 · 지점 판매 여부 미확인",
+        "공공 상가정보 기준 위치이며 현재 영업 여부는 확인되지 않았습니다.",
+        "매운 정도·고객 평가·가격은 확인되지 않았습니다."
+      ],
+      "branchSpecificMenuConfirmed": false,
+      "branchMenuApplicability": null,
+      "factualUseReview": {
+        "batchId": "seoul-seven-brand-following423-candidates",
+        "frozenFileSha256": "406cfcc7d6bc73f07f446b633ee7adde9eff7a06a68ce6739dbec8b382474cf8",
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "brand-menu-evidence.json#youngdabang",
+          "residualUncertainty": [
+            "No website open licence or general legal guarantee is claimed.",
+            "Branch availability and current operation remain unverified."
+          ],
+          "legalReviewFile": "brand-menu-evidence.json",
+          "reviewedAt": "2026-10-13T02:42:18.238025+00:00"
+        },
+        "releaseDecision": "draft_pending_seoul_wide_exception_review_and_independent_qa"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA010120220808708402:menu:1",
+          "name": "크림차돌떡볶이",
+          "provenance": {
+            "kind": "official-brand-menu",
+            "sourceScope": "brand_common",
+            "branchMenuApplicability": null,
+            "brandName": "청년다방",
+            "sourceUrl": "https://youngdabang.com/board/index.php?board=notice_01&idx=88&type=view",
+            "sourceRecordIds": {},
+            "sourceAsOf": "2025-11-06",
+            "checkedAt": "2026-10-12T23:51:41.729766+00:00",
+            "licenseName": null,
+            "explicitOpenLicense": false,
+            "reuseBasis": "limited-individual-fact-review",
+            "originalName": "크림차돌떡볶이",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      }
+    }
+  },
+  {
+    "id": "801fc23f-5943-5e11-a103-e2957569d9ab",
+    "slug": "hot-seoul-ma010120220814052152",
+    "name": "청년다방 강변점",
+    "address": "서울특별시 광진구 구의강변로 88-1",
+    "lat": 37.5382630471631,
+    "lon": 127.094093352105,
+    "source_ref": "data-go-kr-15083033-MA010120220814052152",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+      "nativeBusinessName": "청년다방",
+      "nativeBranchName": "강변점",
+      "displayNameBasis": "Exact licensed SBIZ native business and branch strings; current franchise affiliation and operation unverified",
+      "sourceRecordId": "MA010120220814052152",
+      "district": "광진구",
+      "districtCode": "11215",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+          "nativeRecordId": "MA010120220814052152"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+          "nativeRecordId": "MA010120220814052152"
+        }
+      },
+      "registrationLocator": null,
+      "identityLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA010120220814052152",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 261811,
+        "rowNumberDefinition": "1-based data row excluding CSV header",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "rawFile": "outputs/seoul-spicy-research-20261013/raw/sbiz-seoul-202606.csv",
+        "rawRecord": {
+          "상가업소번호": "MA010120220814052152",
+          "상호명": "청년다방",
+          "지점명": "강변점",
+          "상권업종대분류코드": "I2",
+          "상권업종대분류명": "음식",
+          "상권업종중분류코드": "I210",
+          "상권업종중분류명": "기타 간이",
+          "상권업종소분류코드": "I21007",
+          "상권업종소분류명": "김밥/만두/분식",
+          "표준산업분류코드": "I56194",
+          "표준산업분류명": "김밥 및 기타 간이 음식점업",
+          "시도코드": "11",
+          "시도명": "서울특별시",
+          "시군구코드": "11215",
+          "시군구명": "광진구",
+          "행정동코드": "11215870",
+          "행정동명": "구의3동",
+          "법정동코드": "1121510300",
+          "법정동명": "구의동",
+          "지번코드": "1121510300102140013",
+          "대지구분코드": "1",
+          "대지구분명": "대지",
+          "지번본번지": "214",
+          "지번부번지": "13",
+          "지번주소": "서울특별시 광진구 구의동 214-13",
+          "도로명코드": "112153104003",
+          "도로명": "서울특별시 광진구 구의강변로",
+          "건물본번지": "88",
+          "건물부번지": "1",
+          "건물관리번호": "1121510300102140013000001",
+          "건물명": "혜강빌딩",
+          "도로명주소": "서울특별시 광진구 구의강변로 88-1",
+          "구우편번호": "143822",
+          "신우편번호": "05117",
+          "동정보": "",
+          "층정보": "1",
+          "호정보": "",
+          "경도": "127.094093352105",
+          "위도": "37.5382630471631"
+        },
+        "licenseName": "이용허락범위 제한 없음",
+        "licenseEvidenceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+      },
+      "coordinateLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA010120220814052152",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 261811,
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+        "rawLongitude": "127.094093352105",
+        "rawLatitude": "37.5382630471631",
+        "coordinateSystem": {
+          "name": "WGS84",
+          "epsg": 4326,
+          "axisOrderInSource": [
+            "경도",
+            "위도"
+          ],
+          "units": "decimal_degrees",
+          "transformation": "none; source numeric strings preserved alongside parsed numbers",
+          "evidenceType": "same-provider same-dataset API coordinate specification; the CSV itself does not encode an EPSG label",
+          "guideUrl": "https://www.data.go.kr/data/15012005/openapi.do",
+          "guideDownloadUrl": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000003706124&fileDetailSn=3",
+          "guideSha256": "4ed2112e2a90e49e88243fa7963ae7d19628aed247b6492bcbae6a947534970e",
+          "guideVersion": "260805",
+          "guideExtract": "raw/sbiz-api-guide-extracted.txt",
+          "evidence": "상가업소 lon/lat response fields are described as WGS84 coordinates in the provider guide. The longitude description repeats 위도, a provider wording typo; the lon/lat field labels and sample values distinguish axes."
+        },
+        "accuracy": "building_level; no survey/entrance accuracy claimed",
+        "matchMethod": "same original licensed SBIZ row; district text/code, original native identity, coordinate plausibility and duplicate premises screening; not current operation verification",
+        "matchedName": "청년다방",
+        "matchedBranchName": "강변점",
+        "matchedAddress": "서울특별시 광진구 구의강변로 88-1",
+        "buildingManagementNumber": "1121510300102140013000001",
+        "licenseName": "이용허락범위 제한 없음",
+        "rights": {
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false
+        }
+      },
+      "aliasBindings": [],
+      "deduplication": {
+        "key": "청년다방|서울특별시 광진구 구의강변로 88-1",
+        "sourceIds": [
+          "MA010120220814052152"
+        ],
+        "sourceRows": [
+          261811
+        ],
+        "allSourceRecords": [
+          {
+            "상가업소번호": "MA010120220814052152",
+            "상호명": "청년다방",
+            "지점명": "강변점",
+            "상권업종대분류코드": "I2",
+            "상권업종대분류명": "음식",
+            "상권업종중분류코드": "I210",
+            "상권업종중분류명": "기타 간이",
+            "상권업종소분류코드": "I21007",
+            "상권업종소분류명": "김밥/만두/분식",
+            "표준산업분류코드": "I56194",
+            "표준산업분류명": "김밥 및 기타 간이 음식점업",
+            "시도코드": "11",
+            "시도명": "서울특별시",
+            "시군구코드": "11215",
+            "시군구명": "광진구",
+            "행정동코드": "11215870",
+            "행정동명": "구의3동",
+            "법정동코드": "1121510300",
+            "법정동명": "구의동",
+            "지번코드": "1121510300102140013",
+            "대지구분코드": "1",
+            "대지구분명": "대지",
+            "지번본번지": "214",
+            "지번부번지": "13",
+            "지번주소": "서울특별시 광진구 구의동 214-13",
+            "도로명코드": "112153104003",
+            "도로명": "서울특별시 광진구 구의강변로",
+            "건물본번지": "88",
+            "건물부번지": "1",
+            "건물관리번호": "1121510300102140013000001",
+            "건물명": "혜강빌딩",
+            "도로명주소": "서울특별시 광진구 구의강변로 88-1",
+            "구우편번호": "143822",
+            "신우편번호": "05117",
+            "동정보": "",
+            "층정보": "1",
+            "호정보": "",
+            "경도": "127.094093352105",
+            "위도": "37.5382630471631"
+          }
+        ],
+        "method": "same brand and exact address; if multirow, identical building/floor/wing/unit/coordinates; original aliases preserved",
+        "provisional": false,
+        "missingUnitCaveat": null
+      },
+      "duplicateSourceRows": null,
+      "sourcePremises": {
+        "건물관리번호": "1121510300102140013000001",
+        "건물명": "혜강빌딩",
+        "동정보": null,
+        "층정보": "1",
+        "호정보": null
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only"
+      },
+      "fieldRights": {
+        "nameAddress": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "coordinates": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "brand-menu-evidence.json#youngdabang",
+          "residualUncertainty": [
+            "No website open licence or general legal guarantee is claimed.",
+            "Branch availability and current operation remain unverified."
+          ],
+          "legalReviewFile": "brand-menu-evidence.json",
+          "reviewedAt": "2026-10-13T02:42:18.238025+00:00"
+        },
+        "prosePhotosLogosMenusBulk": {
+          "cleared": false,
+          "include": false
+        }
+      },
+      "requiredPublicNotices": [
+        "브랜드 공통 메뉴 · 지점 판매 여부 미확인",
+        "공공 상가정보 기준 위치이며 현재 영업 여부는 확인되지 않았습니다.",
+        "매운 정도·고객 평가·가격은 확인되지 않았습니다."
+      ],
+      "branchSpecificMenuConfirmed": false,
+      "branchMenuApplicability": null,
+      "factualUseReview": {
+        "batchId": "seoul-seven-brand-following423-candidates",
+        "frozenFileSha256": "406cfcc7d6bc73f07f446b633ee7adde9eff7a06a68ce6739dbec8b382474cf8",
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "brand-menu-evidence.json#youngdabang",
+          "residualUncertainty": [
+            "No website open licence or general legal guarantee is claimed.",
+            "Branch availability and current operation remain unverified."
+          ],
+          "legalReviewFile": "brand-menu-evidence.json",
+          "reviewedAt": "2026-10-13T02:42:18.238025+00:00"
+        },
+        "releaseDecision": "draft_pending_seoul_wide_exception_review_and_independent_qa"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA010120220814052152:menu:1",
+          "name": "크림차돌떡볶이",
+          "provenance": {
+            "kind": "official-brand-menu",
+            "sourceScope": "brand_common",
+            "branchMenuApplicability": null,
+            "brandName": "청년다방",
+            "sourceUrl": "https://youngdabang.com/board/index.php?board=notice_01&idx=88&type=view",
+            "sourceRecordIds": {},
+            "sourceAsOf": "2025-11-06",
+            "checkedAt": "2026-10-12T23:51:41.729766+00:00",
+            "licenseName": null,
+            "explicitOpenLicense": false,
+            "reuseBasis": "limited-individual-fact-review",
+            "originalName": "크림차돌떡볶이",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      }
+    }
+  },
+  {
+    "id": "9aa20a2a-ac17-55d9-89c3-d79d821e2230",
+    "slug": "hot-seoul-ma010120220813183209",
+    "name": "두마리찜닭두찜광진 중곡점",
+    "address": "서울특별시 광진구 능동로 400",
+    "lat": 37.5650570071337,
+    "lon": 127.084449480564,
+    "source_ref": "data-go-kr-15083033-MA010120220813183209",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+      "nativeBusinessName": "두마리찜닭두찜광진",
+      "nativeBranchName": "중곡점",
+      "displayNameBasis": "Exact licensed SBIZ native business and branch strings; current franchise affiliation and operation unverified",
+      "sourceRecordId": "MA010120220813183209",
+      "district": "광진구",
+      "districtCode": "11215",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+          "nativeRecordId": "MA010120220813183209"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+          "nativeRecordId": "MA010120220813183209"
+        }
+      },
+      "registrationLocator": null,
+      "identityLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA010120220813183209",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 277955,
+        "rowNumberDefinition": "1-based data row excluding CSV header",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "rawFile": "outputs/seoul-spicy-research-20261013/raw/sbiz-seoul-202606.csv",
+        "rawRecord": {
+          "상가업소번호": "MA010120220813183209",
+          "상호명": "두마리찜닭두찜광진",
+          "지점명": "중곡점",
+          "상권업종대분류코드": "I2",
+          "상권업종대분류명": "음식",
+          "상권업종중분류코드": "I201",
+          "상권업종중분류명": "한식",
+          "상권업종소분류코드": "I20110",
+          "상권업종소분류명": "닭/오리고기 구이/찜",
+          "표준산업분류코드": "I56113",
+          "표준산업분류명": "한식 육류 요리 전문점",
+          "시도코드": "11",
+          "시도명": "서울특별시",
+          "시군구코드": "11215",
+          "시군구명": "광진구",
+          "행정동코드": "11215760",
+          "행정동명": "중곡3동",
+          "법정동코드": "1121510100",
+          "법정동명": "중곡동",
+          "지번코드": "1121510100100300080",
+          "대지구분코드": "1",
+          "대지구분명": "대지",
+          "지번본번지": "30",
+          "지번부번지": "80",
+          "지번주소": "서울특별시 광진구 중곡동 30-80",
+          "도로명코드": "112153104007",
+          "도로명": "서울특별시 광진구 능동로",
+          "건물본번지": "400",
+          "건물부번지": "",
+          "건물관리번호": "1121510100100300080000001",
+          "건물명": "보건복지행정타운",
+          "도로명주소": "서울특별시 광진구 능동로 400",
+          "구우편번호": "143884",
+          "신우편번호": "04933",
+          "동정보": "",
+          "층정보": "1",
+          "호정보": "",
+          "경도": "127.084449480564",
+          "위도": "37.5650570071337"
+        },
+        "licenseName": "이용허락범위 제한 없음",
+        "licenseEvidenceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+      },
+      "coordinateLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA010120220813183209",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 277955,
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+        "rawLongitude": "127.084449480564",
+        "rawLatitude": "37.5650570071337",
+        "coordinateSystem": {
+          "name": "WGS84",
+          "epsg": 4326,
+          "axisOrderInSource": [
+            "경도",
+            "위도"
+          ],
+          "units": "decimal_degrees",
+          "transformation": "none; source numeric strings preserved alongside parsed numbers",
+          "evidenceType": "same-provider same-dataset API coordinate specification; the CSV itself does not encode an EPSG label",
+          "guideUrl": "https://www.data.go.kr/data/15012005/openapi.do",
+          "guideDownloadUrl": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000003706124&fileDetailSn=3",
+          "guideSha256": "4ed2112e2a90e49e88243fa7963ae7d19628aed247b6492bcbae6a947534970e",
+          "guideVersion": "260805",
+          "guideExtract": "raw/sbiz-api-guide-extracted.txt",
+          "evidence": "상가업소 lon/lat response fields are described as WGS84 coordinates in the provider guide. The longitude description repeats 위도, a provider wording typo; the lon/lat field labels and sample values distinguish axes."
+        },
+        "accuracy": "building_level; no survey/entrance accuracy claimed",
+        "matchMethod": "same original licensed SBIZ row; district text/code, original native identity, coordinate plausibility and duplicate premises screening; not current operation verification",
+        "matchedName": "두마리찜닭두찜광진",
+        "matchedBranchName": "중곡점",
+        "matchedAddress": "서울특별시 광진구 능동로 400",
+        "buildingManagementNumber": "1121510100100300080000001",
+        "licenseName": "이용허락범위 제한 없음",
+        "rights": {
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false
+        }
+      },
+      "aliasBindings": [],
+      "deduplication": {
+        "key": "두찜|서울특별시 광진구 능동로 400",
+        "sourceIds": [
+          "MA010120220813183209"
+        ],
+        "sourceRows": [
+          277955
+        ],
+        "allSourceRecords": [
+          {
+            "상가업소번호": "MA010120220813183209",
+            "상호명": "두마리찜닭두찜광진",
+            "지점명": "중곡점",
+            "상권업종대분류코드": "I2",
+            "상권업종대분류명": "음식",
+            "상권업종중분류코드": "I201",
+            "상권업종중분류명": "한식",
+            "상권업종소분류코드": "I20110",
+            "상권업종소분류명": "닭/오리고기 구이/찜",
+            "표준산업분류코드": "I56113",
+            "표준산업분류명": "한식 육류 요리 전문점",
+            "시도코드": "11",
+            "시도명": "서울특별시",
+            "시군구코드": "11215",
+            "시군구명": "광진구",
+            "행정동코드": "11215760",
+            "행정동명": "중곡3동",
+            "법정동코드": "1121510100",
+            "법정동명": "중곡동",
+            "지번코드": "1121510100100300080",
+            "대지구분코드": "1",
+            "대지구분명": "대지",
+            "지번본번지": "30",
+            "지번부번지": "80",
+            "지번주소": "서울특별시 광진구 중곡동 30-80",
+            "도로명코드": "112153104007",
+            "도로명": "서울특별시 광진구 능동로",
+            "건물본번지": "400",
+            "건물부번지": "",
+            "건물관리번호": "1121510100100300080000001",
+            "건물명": "보건복지행정타운",
+            "도로명주소": "서울특별시 광진구 능동로 400",
+            "구우편번호": "143884",
+            "신우편번호": "04933",
+            "동정보": "",
+            "층정보": "1",
+            "호정보": "",
+            "경도": "127.084449480564",
+            "위도": "37.5650570071337"
+          }
+        ],
+        "method": "same brand and exact address; if multirow, identical building/floor/wing/unit/coordinates; original aliases preserved",
+        "provisional": false,
+        "missingUnitCaveat": null
+      },
+      "duplicateSourceRows": null,
+      "sourcePremises": {
+        "건물관리번호": "1121510100100300080000001",
+        "건물명": "보건복지행정타운",
+        "동정보": null,
+        "층정보": "1",
+        "호정보": null
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only"
+      },
+      "fieldRights": {
+        "nameAddress": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "coordinates": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "twozzim-menu-evidence.json#twozzim",
+          "residualUncertainty": [
+            "No website open licence or general legal guarantee is claimed.",
+            "Separate site-use terms were not located; privacy text refers to terms whose contents remain unresolved.",
+            "Branch availability and current operation remain unverified."
+          ],
+          "legalReviewFile": "twozzim-menu-evidence.json",
+          "reviewedAt": "2026-10-13T04:48:08.910056+00:00"
+        },
+        "prosePhotosLogosMenusBulk": {
+          "cleared": false,
+          "include": false
+        }
+      },
+      "requiredPublicNotices": [
+        "브랜드 공통 메뉴 · 지점 판매 여부 미확인",
+        "공공 상가정보 기준 위치이며 현재 영업 여부는 확인되지 않았습니다.",
+        "매운 정도·고객 평가·가격은 확인되지 않았습니다."
+      ],
+      "branchSpecificMenuConfirmed": false,
+      "branchMenuApplicability": null,
+      "factualUseReview": {
+        "batchId": "seoul-seven-brand-following423-candidates",
+        "frozenFileSha256": "406cfcc7d6bc73f07f446b633ee7adde9eff7a06a68ce6739dbec8b382474cf8",
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "twozzim-menu-evidence.json#twozzim",
+          "residualUncertainty": [
+            "No website open licence or general legal guarantee is claimed.",
+            "Separate site-use terms were not located; privacy text refers to terms whose contents remain unresolved.",
+            "Branch availability and current operation remain unverified."
+          ],
+          "legalReviewFile": "twozzim-menu-evidence.json",
+          "reviewedAt": "2026-10-13T04:48:08.910056+00:00"
+        },
+        "releaseDecision": "draft_pending_seoul_wide_exception_review_and_independent_qa"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA010120220813183209:menu:1",
+          "name": "빨간찜닭",
+          "provenance": {
+            "kind": "official-brand-menu",
+            "sourceScope": "brand_common",
+            "branchMenuApplicability": null,
+            "brandName": "두찜",
+            "sourceUrl": "https://twozzim.com/bbs/content.php?co_id=menu",
+            "sourceRecordIds": {},
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-13T04:48:08.910056+00:00",
+            "licenseName": null,
+            "explicitOpenLicense": false,
+            "reuseBasis": "limited-individual-fact-review",
+            "originalName": "빨간찜닭",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      }
+    }
+  },
+  {
+    "id": "d276f6c1-a5d8-5b96-bdf5-775d836093d8",
+    "slug": "hot-seoul-ma010120220803766906",
+    "name": "홍콩반점 구의역점",
+    "address": "서울특별시 광진구 아차산로51길 11",
+    "lat": 37.5375580578945,
+    "lon": 127.085131280807,
+    "source_ref": "data-go-kr-15083033-MA010120220803766906",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+      "nativeBusinessName": "홍콩반점",
+      "nativeBranchName": "구의역점",
+      "displayNameBasis": "Exact licensed SBIZ native business and branch strings; current franchise affiliation and operation unverified",
+      "sourceRecordId": "MA010120220803766906",
+      "district": "광진구",
+      "districtCode": "11215",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+          "nativeRecordId": "MA010120220803766906"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+          "nativeRecordId": "MA010120220803766906"
+        }
+      },
+      "registrationLocator": null,
+      "identityLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA010120220803766906",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 324950,
+        "rowNumberDefinition": "1-based data row excluding CSV header",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "rawFile": "outputs/seoul-spicy-research-20261013/raw/sbiz-seoul-202606.csv",
+        "rawRecord": {
+          "상가업소번호": "MA010120220803766906",
+          "상호명": "홍콩반점",
+          "지점명": "구의역점",
+          "상권업종대분류코드": "I2",
+          "상권업종대분류명": "음식",
+          "상권업종중분류코드": "I202",
+          "상권업종중분류명": "중식",
+          "상권업종소분류코드": "I20201",
+          "상권업종소분류명": "중국집",
+          "표준산업분류코드": "I56121",
+          "표준산업분류명": "중식 음식점업",
+          "시도코드": "11",
+          "시도명": "서울특별시",
+          "시군구코드": "11215",
+          "시군구명": "광진구",
+          "행정동코드": "11215850",
+          "행정동명": "구의1동",
+          "법정동코드": "1121510300",
+          "법정동명": "구의동",
+          "지번코드": "1121510300102460059",
+          "대지구분코드": "1",
+          "대지구분명": "대지",
+          "지번본번지": "246",
+          "지번부번지": "59",
+          "지번주소": "서울특별시 광진구 구의동 246-59",
+          "도로명코드": "112154112338",
+          "도로명": "서울특별시 광진구 아차산로51길",
+          "건물본번지": "11",
+          "건물부번지": "",
+          "건물관리번호": "1121510300102460059009305",
+          "건물명": "",
+          "도로명주소": "서울특별시 광진구 아차산로51길 11",
+          "구우편번호": "143825",
+          "신우편번호": "05044",
+          "동정보": "",
+          "층정보": "",
+          "호정보": "",
+          "경도": "127.085131280807",
+          "위도": "37.5375580578945"
+        },
+        "licenseName": "이용허락범위 제한 없음",
+        "licenseEvidenceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+      },
+      "coordinateLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA010120220803766906",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 324950,
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+        "rawLongitude": "127.085131280807",
+        "rawLatitude": "37.5375580578945",
+        "coordinateSystem": {
+          "name": "WGS84",
+          "epsg": 4326,
+          "axisOrderInSource": [
+            "경도",
+            "위도"
+          ],
+          "units": "decimal_degrees",
+          "transformation": "none; source numeric strings preserved alongside parsed numbers",
+          "evidenceType": "same-provider same-dataset API coordinate specification; the CSV itself does not encode an EPSG label",
+          "guideUrl": "https://www.data.go.kr/data/15012005/openapi.do",
+          "guideDownloadUrl": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000003706124&fileDetailSn=3",
+          "guideSha256": "4ed2112e2a90e49e88243fa7963ae7d19628aed247b6492bcbae6a947534970e",
+          "guideVersion": "260805",
+          "guideExtract": "raw/sbiz-api-guide-extracted.txt",
+          "evidence": "상가업소 lon/lat response fields are described as WGS84 coordinates in the provider guide. The longitude description repeats 위도, a provider wording typo; the lon/lat field labels and sample values distinguish axes."
+        },
+        "accuracy": "building_level; no survey/entrance accuracy claimed",
+        "matchMethod": "same original licensed SBIZ row; district text/code, original native identity, coordinate plausibility and duplicate premises screening; not current operation verification",
+        "matchedName": "홍콩반점",
+        "matchedBranchName": "구의역점",
+        "matchedAddress": "서울특별시 광진구 아차산로51길 11",
+        "buildingManagementNumber": "1121510300102460059009305",
+        "licenseName": "이용허락범위 제한 없음",
+        "rights": {
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false
+        }
+      },
+      "aliasBindings": [
+        {
+          "sourceRef": "data-go-kr-15083033-MA0101202210A0037823",
+          "id": "902149d0-f1f9-54e0-a587-a796e4259866",
+          "menuId": "data-go-kr-15083033-MA0101202210A0037823:menu:1"
+        }
+      ],
+      "deduplication": {
+        "key": "홍콩반점|서울특별시 광진구 아차산로51길 11",
+        "sourceIds": [
+          "MA010120220803766906",
+          "MA0101202210A0037823"
+        ],
+        "sourceRows": [
+          324950,
+          339792
+        ],
+        "allSourceRecords": [
+          {
+            "상가업소번호": "MA010120220803766906",
+            "상호명": "홍콩반점",
+            "지점명": "구의역점",
+            "상권업종대분류코드": "I2",
+            "상권업종대분류명": "음식",
+            "상권업종중분류코드": "I202",
+            "상권업종중분류명": "중식",
+            "상권업종소분류코드": "I20201",
+            "상권업종소분류명": "중국집",
+            "표준산업분류코드": "I56121",
+            "표준산업분류명": "중식 음식점업",
+            "시도코드": "11",
+            "시도명": "서울특별시",
+            "시군구코드": "11215",
+            "시군구명": "광진구",
+            "행정동코드": "11215850",
+            "행정동명": "구의1동",
+            "법정동코드": "1121510300",
+            "법정동명": "구의동",
+            "지번코드": "1121510300102460059",
+            "대지구분코드": "1",
+            "대지구분명": "대지",
+            "지번본번지": "246",
+            "지번부번지": "59",
+            "지번주소": "서울특별시 광진구 구의동 246-59",
+            "도로명코드": "112154112338",
+            "도로명": "서울특별시 광진구 아차산로51길",
+            "건물본번지": "11",
+            "건물부번지": "",
+            "건물관리번호": "1121510300102460059009305",
+            "건물명": "",
+            "도로명주소": "서울특별시 광진구 아차산로51길 11",
+            "구우편번호": "143825",
+            "신우편번호": "05044",
+            "동정보": "",
+            "층정보": "",
+            "호정보": "",
+            "경도": "127.085131280807",
+            "위도": "37.5375580578945"
+          },
+          {
+            "상가업소번호": "MA0101202210A0037823",
+            "상호명": "홍콩반점0410",
+            "지점명": "구의역점",
+            "상권업종대분류코드": "I2",
+            "상권업종대분류명": "음식",
+            "상권업종중분류코드": "I202",
+            "상권업종중분류명": "중식",
+            "상권업종소분류코드": "I20201",
+            "상권업종소분류명": "중국집",
+            "표준산업분류코드": "I56121",
+            "표준산업분류명": "중식 음식점업",
+            "시도코드": "11",
+            "시도명": "서울특별시",
+            "시군구코드": "11215",
+            "시군구명": "광진구",
+            "행정동코드": "11215850",
+            "행정동명": "구의1동",
+            "법정동코드": "1121510300",
+            "법정동명": "구의동",
+            "지번코드": "1121510300102460059",
+            "대지구분코드": "1",
+            "대지구분명": "대지",
+            "지번본번지": "246",
+            "지번부번지": "59",
+            "지번주소": "서울특별시 광진구 구의동 246-59",
+            "도로명코드": "112154112338",
+            "도로명": "서울특별시 광진구 아차산로51길",
+            "건물본번지": "11",
+            "건물부번지": "",
+            "건물관리번호": "1121510300102460059009305",
+            "건물명": "",
+            "도로명주소": "서울특별시 광진구 아차산로51길 11",
+            "구우편번호": "143825",
+            "신우편번호": "05044",
+            "동정보": "",
+            "층정보": "",
+            "호정보": "",
+            "경도": "127.085131280807",
+            "위도": "37.5375580578945"
+          }
+        ],
+        "method": "same brand and exact address; if multirow, identical building/floor/wing/unit/coordinates; original aliases preserved",
+        "provisional": true,
+        "missingUnitCaveat": "Absent unit/wing data cannot prove identical tenancy; duplicate merge remains provisional."
+      },
+      "duplicateSourceRows": {
+        "sourceIds": [
+          "MA010120220803766906",
+          "MA0101202210A0037823"
+        ],
+        "sourceRows": [
+          {
+            "dataRowNumber": 324950,
+            "rawRecord": {
+              "상가업소번호": "MA010120220803766906",
+              "상호명": "홍콩반점",
+              "지점명": "구의역점",
+              "상권업종대분류코드": "I2",
+              "상권업종대분류명": "음식",
+              "상권업종중분류코드": "I202",
+              "상권업종중분류명": "중식",
+              "상권업종소분류코드": "I20201",
+              "상권업종소분류명": "중국집",
+              "표준산업분류코드": "I56121",
+              "표준산업분류명": "중식 음식점업",
+              "시도코드": "11",
+              "시도명": "서울특별시",
+              "시군구코드": "11215",
+              "시군구명": "광진구",
+              "행정동코드": "11215850",
+              "행정동명": "구의1동",
+              "법정동코드": "1121510300",
+              "법정동명": "구의동",
+              "지번코드": "1121510300102460059",
+              "대지구분코드": "1",
+              "대지구분명": "대지",
+              "지번본번지": "246",
+              "지번부번지": "59",
+              "지번주소": "서울특별시 광진구 구의동 246-59",
+              "도로명코드": "112154112338",
+              "도로명": "서울특별시 광진구 아차산로51길",
+              "건물본번지": "11",
+              "건물부번지": "",
+              "건물관리번호": "1121510300102460059009305",
+              "건물명": "",
+              "도로명주소": "서울특별시 광진구 아차산로51길 11",
+              "구우편번호": "143825",
+              "신우편번호": "05044",
+              "동정보": "",
+              "층정보": "",
+              "호정보": "",
+              "경도": "127.085131280807",
+              "위도": "37.5375580578945"
+            }
+          },
+          {
+            "dataRowNumber": 339792,
+            "rawRecord": {
+              "상가업소번호": "MA0101202210A0037823",
+              "상호명": "홍콩반점0410",
+              "지점명": "구의역점",
+              "상권업종대분류코드": "I2",
+              "상권업종대분류명": "음식",
+              "상권업종중분류코드": "I202",
+              "상권업종중분류명": "중식",
+              "상권업종소분류코드": "I20201",
+              "상권업종소분류명": "중국집",
+              "표준산업분류코드": "I56121",
+              "표준산업분류명": "중식 음식점업",
+              "시도코드": "11",
+              "시도명": "서울특별시",
+              "시군구코드": "11215",
+              "시군구명": "광진구",
+              "행정동코드": "11215850",
+              "행정동명": "구의1동",
+              "법정동코드": "1121510300",
+              "법정동명": "구의동",
+              "지번코드": "1121510300102460059",
+              "대지구분코드": "1",
+              "대지구분명": "대지",
+              "지번본번지": "246",
+              "지번부번지": "59",
+              "지번주소": "서울특별시 광진구 구의동 246-59",
+              "도로명코드": "112154112338",
+              "도로명": "서울특별시 광진구 아차산로51길",
+              "건물본번지": "11",
+              "건물부번지": "",
+              "건물관리번호": "1121510300102460059009305",
+              "건물명": "",
+              "도로명주소": "서울특별시 광진구 아차산로51길 11",
+              "구우편번호": "143825",
+              "신우편번호": "05044",
+              "동정보": "",
+              "층정보": "",
+              "호정보": "",
+              "경도": "127.085131280807",
+              "위도": "37.5375580578945"
+            }
+          }
+        ],
+        "assessment": "same brand and exact address; if multirow, identical building/floor/wing/unit/coordinates; original aliases preserved",
+        "provisional": true,
+        "missingUnitCaveat": "Absent unit/wing data cannot prove identical tenancy; duplicate merge remains provisional."
+      },
+      "sourcePremises": {
+        "건물관리번호": "1121510300102460059009305",
+        "건물명": null,
+        "동정보": null,
+        "층정보": null,
+        "호정보": null
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only"
+      },
+      "fieldRights": {
+        "nameAddress": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "coordinates": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "brand-menu-evidence.json#hongkongbanjeom",
+          "residualUncertainty": [
+            "No website open licence or general legal guarantee is claimed.",
+            "Branch availability and current operation remain unverified."
+          ],
+          "legalReviewFile": "brand-menu-evidence.json",
+          "reviewedAt": "2026-10-13T02:42:18.238025+00:00"
+        },
+        "prosePhotosLogosMenusBulk": {
+          "cleared": false,
+          "include": false
+        }
+      },
+      "requiredPublicNotices": [
+        "브랜드 공통 메뉴 · 지점 판매 여부 미확인",
+        "공공 상가정보 기준 위치이며 현재 영업 여부는 확인되지 않았습니다.",
+        "매운 정도·고객 평가·가격은 확인되지 않았습니다."
+      ],
+      "branchSpecificMenuConfirmed": false,
+      "branchMenuApplicability": null,
+      "factualUseReview": {
+        "batchId": "seoul-seven-brand-following423-candidates",
+        "frozenFileSha256": "406cfcc7d6bc73f07f446b633ee7adde9eff7a06a68ce6739dbec8b382474cf8",
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "brand-menu-evidence.json#hongkongbanjeom",
+          "residualUncertainty": [
+            "No website open licence or general legal guarantee is claimed.",
+            "Branch availability and current operation remain unverified."
+          ],
+          "legalReviewFile": "brand-menu-evidence.json",
+          "reviewedAt": "2026-10-13T02:42:18.238025+00:00"
+        },
+        "releaseDecision": "draft_pending_seoul_wide_exception_review_and_independent_qa"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA010120220803766906:menu:1",
+          "name": "고추짬뽕",
+          "provenance": {
+            "kind": "official-brand-menu",
+            "sourceScope": "brand_common",
+            "branchMenuApplicability": null,
+            "brandName": "홍콩반점",
+            "sourceUrl": "https://www.theborn.co.kr/theborn_brand/%ED%99%8D%EC%BD%A9%EB%B0%98%EC%A0%902/",
+            "sourceRecordIds": {},
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-13T02:42:18.238025+00:00",
+            "licenseName": null,
+            "explicitOpenLicense": false,
+            "reuseBasis": "limited-individual-fact-review",
+            "originalName": "고추짬뽕",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      }
+    }
+  },
+  {
+    "id": "57fe7b66-e796-5433-bd7a-53ba613be284",
+    "slug": "hot-seoul-ma0101202406a0444750",
+    "name": "두찜 건대점",
+    "address": "서울특별시 광진구 동일로20길 89",
+    "lat": 37.5400736817851,
+    "lon": 127.068455817329,
+    "source_ref": "data-go-kr-15083033-MA0101202406A0444750",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+      "nativeBusinessName": "두찜",
+      "nativeBranchName": "건대점",
+      "displayNameBasis": "Exact licensed SBIZ native business and branch strings; current franchise affiliation and operation unverified",
+      "sourceRecordId": "MA0101202406A0444750",
+      "district": "광진구",
+      "districtCode": "11215",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+          "nativeRecordId": "MA0101202406A0444750"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+          "nativeRecordId": "MA0101202406A0444750"
+        }
+      },
+      "registrationLocator": null,
+      "identityLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA0101202406A0444750",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 421404,
+        "rowNumberDefinition": "1-based data row excluding CSV header",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "rawFile": "outputs/seoul-spicy-research-20261013/raw/sbiz-seoul-202606.csv",
+        "rawRecord": {
+          "상가업소번호": "MA0101202406A0444750",
+          "상호명": "두찜",
+          "지점명": "건대점",
+          "상권업종대분류코드": "I2",
+          "상권업종대분류명": "음식",
+          "상권업종중분류코드": "I201",
+          "상권업종중분류명": "한식",
+          "상권업종소분류코드": "I20101",
+          "상권업종소분류명": "백반/한정식",
+          "표준산업분류코드": "I56111",
+          "표준산업분류명": "한식 일반 음식점업",
+          "시도코드": "11",
+          "시도명": "서울특별시",
+          "시군구코드": "11215",
+          "시군구명": "광진구",
+          "행정동코드": "11215847",
+          "행정동명": "자양4동",
+          "법정동코드": "1121510500",
+          "법정동명": "자양동",
+          "지번코드": "1121510500100070013",
+          "대지구분코드": "1",
+          "대지구분명": "대지",
+          "지번본번지": "7",
+          "지번부번지": "13",
+          "지번주소": "서울특별시 광진구 자양동 7-13",
+          "도로명코드": "112154112196",
+          "도로명": "서울특별시 광진구 동일로20길",
+          "건물본번지": "89",
+          "건물부번지": "",
+          "건물관리번호": "1121510500100070013027072",
+          "건물명": "",
+          "도로명주소": "서울특별시 광진구 동일로20길 89",
+          "구우편번호": "143841",
+          "신우편번호": "05073",
+          "동정보": "",
+          "층정보": "2",
+          "호정보": "",
+          "경도": "127.068455817329",
+          "위도": "37.5400736817851"
+        },
+        "licenseName": "이용허락범위 제한 없음",
+        "licenseEvidenceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+      },
+      "coordinateLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA0101202406A0444750",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 421404,
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+        "rawLongitude": "127.068455817329",
+        "rawLatitude": "37.5400736817851",
+        "coordinateSystem": {
+          "name": "WGS84",
+          "epsg": 4326,
+          "axisOrderInSource": [
+            "경도",
+            "위도"
+          ],
+          "units": "decimal_degrees",
+          "transformation": "none; source numeric strings preserved alongside parsed numbers",
+          "evidenceType": "same-provider same-dataset API coordinate specification; the CSV itself does not encode an EPSG label",
+          "guideUrl": "https://www.data.go.kr/data/15012005/openapi.do",
+          "guideDownloadUrl": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000003706124&fileDetailSn=3",
+          "guideSha256": "4ed2112e2a90e49e88243fa7963ae7d19628aed247b6492bcbae6a947534970e",
+          "guideVersion": "260805",
+          "guideExtract": "raw/sbiz-api-guide-extracted.txt",
+          "evidence": "상가업소 lon/lat response fields are described as WGS84 coordinates in the provider guide. The longitude description repeats 위도, a provider wording typo; the lon/lat field labels and sample values distinguish axes."
+        },
+        "accuracy": "building_level; no survey/entrance accuracy claimed",
+        "matchMethod": "same original licensed SBIZ row; district text/code, original native identity, coordinate plausibility and duplicate premises screening; not current operation verification",
+        "matchedName": "두찜",
+        "matchedBranchName": "건대점",
+        "matchedAddress": "서울특별시 광진구 동일로20길 89",
+        "buildingManagementNumber": "1121510500100070013027072",
+        "licenseName": "이용허락범위 제한 없음",
+        "rights": {
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false
+        }
+      },
+      "aliasBindings": [],
+      "deduplication": {
+        "key": "두찜|서울특별시 광진구 동일로20길 89",
+        "sourceIds": [
+          "MA0101202406A0444750"
+        ],
+        "sourceRows": [
+          421404
+        ],
+        "allSourceRecords": [
+          {
+            "상가업소번호": "MA0101202406A0444750",
+            "상호명": "두찜",
+            "지점명": "건대점",
+            "상권업종대분류코드": "I2",
+            "상권업종대분류명": "음식",
+            "상권업종중분류코드": "I201",
+            "상권업종중분류명": "한식",
+            "상권업종소분류코드": "I20101",
+            "상권업종소분류명": "백반/한정식",
+            "표준산업분류코드": "I56111",
+            "표준산업분류명": "한식 일반 음식점업",
+            "시도코드": "11",
+            "시도명": "서울특별시",
+            "시군구코드": "11215",
+            "시군구명": "광진구",
+            "행정동코드": "11215847",
+            "행정동명": "자양4동",
+            "법정동코드": "1121510500",
+            "법정동명": "자양동",
+            "지번코드": "1121510500100070013",
+            "대지구분코드": "1",
+            "대지구분명": "대지",
+            "지번본번지": "7",
+            "지번부번지": "13",
+            "지번주소": "서울특별시 광진구 자양동 7-13",
+            "도로명코드": "112154112196",
+            "도로명": "서울특별시 광진구 동일로20길",
+            "건물본번지": "89",
+            "건물부번지": "",
+            "건물관리번호": "1121510500100070013027072",
+            "건물명": "",
+            "도로명주소": "서울특별시 광진구 동일로20길 89",
+            "구우편번호": "143841",
+            "신우편번호": "05073",
+            "동정보": "",
+            "층정보": "2",
+            "호정보": "",
+            "경도": "127.068455817329",
+            "위도": "37.5400736817851"
+          }
+        ],
+        "method": "same brand and exact address; if multirow, identical building/floor/wing/unit/coordinates; original aliases preserved",
+        "provisional": false,
+        "missingUnitCaveat": null
+      },
+      "duplicateSourceRows": null,
+      "sourcePremises": {
+        "건물관리번호": "1121510500100070013027072",
+        "건물명": null,
+        "동정보": null,
+        "층정보": "2",
+        "호정보": null
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only"
+      },
+      "fieldRights": {
+        "nameAddress": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "coordinates": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "twozzim-menu-evidence.json#twozzim",
+          "residualUncertainty": [
+            "No website open licence or general legal guarantee is claimed.",
+            "Separate site-use terms were not located; privacy text refers to terms whose contents remain unresolved.",
+            "Branch availability and current operation remain unverified."
+          ],
+          "legalReviewFile": "twozzim-menu-evidence.json",
+          "reviewedAt": "2026-10-13T04:48:08.910056+00:00"
+        },
+        "prosePhotosLogosMenusBulk": {
+          "cleared": false,
+          "include": false
+        }
+      },
+      "requiredPublicNotices": [
+        "브랜드 공통 메뉴 · 지점 판매 여부 미확인",
+        "공공 상가정보 기준 위치이며 현재 영업 여부는 확인되지 않았습니다.",
+        "매운 정도·고객 평가·가격은 확인되지 않았습니다."
+      ],
+      "branchSpecificMenuConfirmed": false,
+      "branchMenuApplicability": null,
+      "factualUseReview": {
+        "batchId": "seoul-seven-brand-following423-candidates",
+        "frozenFileSha256": "406cfcc7d6bc73f07f446b633ee7adde9eff7a06a68ce6739dbec8b382474cf8",
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "twozzim-menu-evidence.json#twozzim",
+          "residualUncertainty": [
+            "No website open licence or general legal guarantee is claimed.",
+            "Separate site-use terms were not located; privacy text refers to terms whose contents remain unresolved.",
+            "Branch availability and current operation remain unverified."
+          ],
+          "legalReviewFile": "twozzim-menu-evidence.json",
+          "reviewedAt": "2026-10-13T04:48:08.910056+00:00"
+        },
+        "releaseDecision": "draft_pending_seoul_wide_exception_review_and_independent_qa"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA0101202406A0444750:menu:1",
+          "name": "빨간찜닭",
+          "provenance": {
+            "kind": "official-brand-menu",
+            "sourceScope": "brand_common",
+            "branchMenuApplicability": null,
+            "brandName": "두찜",
+            "sourceUrl": "https://twozzim.com/bbs/content.php?co_id=menu",
+            "sourceRecordIds": {},
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-13T04:48:08.910056+00:00",
+            "licenseName": null,
+            "explicitOpenLicense": false,
+            "reuseBasis": "limited-individual-fact-review",
+            "originalName": "빨간찜닭",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      }
+    }
+  },
+  {
+    "id": "01bd3184-998b-5120-817d-9d8f41e37a97",
+    "slug": "hot-seoul-ma0101202509a0040976",
+    "name": "두찜 아차산역점",
+    "address": "서울특별시 광진구 자양로 242",
+    "lat": 37.547943768781,
+    "lon": 127.088945333273,
+    "source_ref": "data-go-kr-15083033-MA0101202509A0040976",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+      "nativeBusinessName": "두찜",
+      "nativeBranchName": "아차산역점",
+      "displayNameBasis": "Exact licensed SBIZ native business and branch strings; current franchise affiliation and operation unverified",
+      "sourceRecordId": "MA0101202509A0040976",
+      "district": "광진구",
+      "districtCode": "11215",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+          "nativeRecordId": "MA0101202509A0040976"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+          "nativeRecordId": "MA0101202509A0040976"
+        }
+      },
+      "registrationLocator": null,
+      "identityLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA0101202509A0040976",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 520453,
+        "rowNumberDefinition": "1-based data row excluding CSV header",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "rawFile": "outputs/seoul-spicy-research-20261013/raw/sbiz-seoul-202606.csv",
+        "rawRecord": {
+          "상가업소번호": "MA0101202509A0040976",
+          "상호명": "두찜",
+          "지점명": "아차산역점",
+          "상권업종대분류코드": "I2",
+          "상권업종대분류명": "음식",
+          "상권업종중분류코드": "I201",
+          "상권업종중분류명": "한식",
+          "상권업종소분류코드": "I20107",
+          "상권업종소분류명": "돼지고기 구이/찜",
+          "표준산업분류코드": "I56113",
+          "표준산업분류명": "한식 육류 요리 전문점",
+          "시도코드": "11",
+          "시도명": "서울특별시",
+          "시군구코드": "11215",
+          "시군구명": "광진구",
+          "행정동코드": "11215860",
+          "행정동명": "구의2동",
+          "법정동코드": "1121510300",
+          "법정동명": "구의동",
+          "지번코드": "1121510300100700006",
+          "대지구분코드": "1",
+          "대지구분명": "대지",
+          "지번본번지": "70",
+          "지번부번지": "6",
+          "지번주소": "서울특별시 광진구 구의동 70-6",
+          "도로명코드": "112153104010",
+          "도로명": "서울특별시 광진구 자양로",
+          "건물본번지": "242",
+          "건물부번지": "",
+          "건물관리번호": "1121510300100700006007646",
+          "건물명": "",
+          "도로명주소": "서울특별시 광진구 자양로 242",
+          "구우편번호": "143819",
+          "신우편번호": "04975",
+          "동정보": "",
+          "층정보": "1",
+          "호정보": "",
+          "경도": "127.088945333273",
+          "위도": "37.547943768781"
+        },
+        "licenseName": "이용허락범위 제한 없음",
+        "licenseEvidenceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+      },
+      "coordinateLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA0101202509A0040976",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 520453,
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+        "rawLongitude": "127.088945333273",
+        "rawLatitude": "37.547943768781",
+        "coordinateSystem": {
+          "name": "WGS84",
+          "epsg": 4326,
+          "axisOrderInSource": [
+            "경도",
+            "위도"
+          ],
+          "units": "decimal_degrees",
+          "transformation": "none; source numeric strings preserved alongside parsed numbers",
+          "evidenceType": "same-provider same-dataset API coordinate specification; the CSV itself does not encode an EPSG label",
+          "guideUrl": "https://www.data.go.kr/data/15012005/openapi.do",
+          "guideDownloadUrl": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000003706124&fileDetailSn=3",
+          "guideSha256": "4ed2112e2a90e49e88243fa7963ae7d19628aed247b6492bcbae6a947534970e",
+          "guideVersion": "260805",
+          "guideExtract": "raw/sbiz-api-guide-extracted.txt",
+          "evidence": "상가업소 lon/lat response fields are described as WGS84 coordinates in the provider guide. The longitude description repeats 위도, a provider wording typo; the lon/lat field labels and sample values distinguish axes."
+        },
+        "accuracy": "building_level; no survey/entrance accuracy claimed",
+        "matchMethod": "same original licensed SBIZ row; district text/code, original native identity, coordinate plausibility and duplicate premises screening; not current operation verification",
+        "matchedName": "두찜",
+        "matchedBranchName": "아차산역점",
+        "matchedAddress": "서울특별시 광진구 자양로 242",
+        "buildingManagementNumber": "1121510300100700006007646",
+        "licenseName": "이용허락범위 제한 없음",
+        "rights": {
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false
+        }
+      },
+      "aliasBindings": [],
+      "deduplication": {
+        "key": "두찜|서울특별시 광진구 자양로 242",
+        "sourceIds": [
+          "MA0101202509A0040976"
+        ],
+        "sourceRows": [
+          520453
+        ],
+        "allSourceRecords": [
+          {
+            "상가업소번호": "MA0101202509A0040976",
+            "상호명": "두찜",
+            "지점명": "아차산역점",
+            "상권업종대분류코드": "I2",
+            "상권업종대분류명": "음식",
+            "상권업종중분류코드": "I201",
+            "상권업종중분류명": "한식",
+            "상권업종소분류코드": "I20107",
+            "상권업종소분류명": "돼지고기 구이/찜",
+            "표준산업분류코드": "I56113",
+            "표준산업분류명": "한식 육류 요리 전문점",
+            "시도코드": "11",
+            "시도명": "서울특별시",
+            "시군구코드": "11215",
+            "시군구명": "광진구",
+            "행정동코드": "11215860",
+            "행정동명": "구의2동",
+            "법정동코드": "1121510300",
+            "법정동명": "구의동",
+            "지번코드": "1121510300100700006",
+            "대지구분코드": "1",
+            "대지구분명": "대지",
+            "지번본번지": "70",
+            "지번부번지": "6",
+            "지번주소": "서울특별시 광진구 구의동 70-6",
+            "도로명코드": "112153104010",
+            "도로명": "서울특별시 광진구 자양로",
+            "건물본번지": "242",
+            "건물부번지": "",
+            "건물관리번호": "1121510300100700006007646",
+            "건물명": "",
+            "도로명주소": "서울특별시 광진구 자양로 242",
+            "구우편번호": "143819",
+            "신우편번호": "04975",
+            "동정보": "",
+            "층정보": "1",
+            "호정보": "",
+            "경도": "127.088945333273",
+            "위도": "37.547943768781"
+          }
+        ],
+        "method": "same brand and exact address; if multirow, identical building/floor/wing/unit/coordinates; original aliases preserved",
+        "provisional": false,
+        "missingUnitCaveat": null
+      },
+      "duplicateSourceRows": null,
+      "sourcePremises": {
+        "건물관리번호": "1121510300100700006007646",
+        "건물명": null,
+        "동정보": null,
+        "층정보": "1",
+        "호정보": null
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only"
+      },
+      "fieldRights": {
+        "nameAddress": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "coordinates": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "twozzim-menu-evidence.json#twozzim",
+          "residualUncertainty": [
+            "No website open licence or general legal guarantee is claimed.",
+            "Separate site-use terms were not located; privacy text refers to terms whose contents remain unresolved.",
+            "Branch availability and current operation remain unverified."
+          ],
+          "legalReviewFile": "twozzim-menu-evidence.json",
+          "reviewedAt": "2026-10-13T04:48:08.910056+00:00"
+        },
+        "prosePhotosLogosMenusBulk": {
+          "cleared": false,
+          "include": false
+        }
+      },
+      "requiredPublicNotices": [
+        "브랜드 공통 메뉴 · 지점 판매 여부 미확인",
+        "공공 상가정보 기준 위치이며 현재 영업 여부는 확인되지 않았습니다.",
+        "매운 정도·고객 평가·가격은 확인되지 않았습니다."
+      ],
+      "branchSpecificMenuConfirmed": false,
+      "branchMenuApplicability": null,
+      "factualUseReview": {
+        "batchId": "seoul-seven-brand-following423-candidates",
+        "frozenFileSha256": "406cfcc7d6bc73f07f446b633ee7adde9eff7a06a68ce6739dbec8b382474cf8",
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "twozzim-menu-evidence.json#twozzim",
+          "residualUncertainty": [
+            "No website open licence or general legal guarantee is claimed.",
+            "Separate site-use terms were not located; privacy text refers to terms whose contents remain unresolved.",
+            "Branch availability and current operation remain unverified."
+          ],
+          "legalReviewFile": "twozzim-menu-evidence.json",
+          "reviewedAt": "2026-10-13T04:48:08.910056+00:00"
+        },
+        "releaseDecision": "draft_pending_seoul_wide_exception_review_and_independent_qa"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA0101202509A0040976:menu:1",
+          "name": "빨간찜닭",
+          "provenance": {
+            "kind": "official-brand-menu",
+            "sourceScope": "brand_common",
+            "branchMenuApplicability": null,
+            "brandName": "두찜",
+            "sourceUrl": "https://twozzim.com/bbs/content.php?co_id=menu",
+            "sourceRecordIds": {},
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-13T04:48:08.910056+00:00",
+            "licenseName": null,
+            "explicitOpenLicense": false,
+            "reuseBasis": "limited-individual-fact-review",
+            "originalName": "빨간찜닭",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      }
+    }
+  },
+  {
+    "id": "63f378ff-e5d3-5e16-be14-910eb4acb9f7",
+    "slug": "hot-seoul-ma0101202603a0038790",
+    "name": "두찜광진 구의점",
+    "address": "서울특별시 광진구 구의로 35",
+    "lat": 37.5410415918759,
+    "lon": 127.089638672938,
+    "source_ref": "data-go-kr-15083033-MA0101202603A0038790",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+      "nativeBusinessName": "두찜광진",
+      "nativeBranchName": "구의점",
+      "displayNameBasis": "Exact licensed SBIZ native business and branch strings; current franchise affiliation and operation unverified",
+      "sourceRecordId": "MA0101202603A0038790",
+      "district": "광진구",
+      "districtCode": "11215",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+          "nativeRecordId": "MA0101202603A0038790"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+          "nativeRecordId": "MA0101202603A0038790"
+        }
+      },
+      "registrationLocator": null,
+      "identityLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA0101202603A0038790",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 539738,
+        "rowNumberDefinition": "1-based data row excluding CSV header",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "rawFile": "outputs/seoul-spicy-research-20261013/raw/sbiz-seoul-202606.csv",
+        "rawRecord": {
+          "상가업소번호": "MA0101202603A0038790",
+          "상호명": "두찜광진",
+          "지점명": "구의점",
+          "상권업종대분류코드": "I2",
+          "상권업종대분류명": "음식",
+          "상권업종중분류코드": "I201",
+          "상권업종중분류명": "한식",
+          "상권업종소분류코드": "I20101",
+          "상권업종소분류명": "백반/한정식",
+          "표준산업분류코드": "I56111",
+          "표준산업분류명": "한식 일반 음식점업",
+          "시도코드": "11",
+          "시도명": "서울특별시",
+          "시군구코드": "11215",
+          "시군구명": "광진구",
+          "행정동코드": "11215850",
+          "행정동명": "구의1동",
+          "법정동코드": "1121510300",
+          "법정동명": "구의동",
+          "지번코드": "1121510300102220015",
+          "대지구분코드": "1",
+          "대지구분명": "대지",
+          "지번본번지": "222",
+          "지번부번지": "15",
+          "지번주소": "서울특별시 광진구 구의동 222-15",
+          "도로명코드": "112153104004",
+          "도로명": "서울특별시 광진구 구의로",
+          "건물본번지": "35",
+          "건물부번지": "",
+          "건물관리번호": "1121510300102220015024363",
+          "건물명": "",
+          "도로명주소": "서울특별시 광진구 구의로 35",
+          "구우편번호": "143823",
+          "신우편번호": "05041",
+          "동정보": "",
+          "층정보": "1",
+          "호정보": "",
+          "경도": "127.089638672938",
+          "위도": "37.5410415918759"
+        },
+        "licenseName": "이용허락범위 제한 없음",
+        "licenseEvidenceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+      },
+      "coordinateLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA0101202603A0038790",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 539738,
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T04:54:51.028228+00:00",
+        "rawLongitude": "127.089638672938",
+        "rawLatitude": "37.5410415918759",
+        "coordinateSystem": {
+          "name": "WGS84",
+          "epsg": 4326,
+          "axisOrderInSource": [
+            "경도",
+            "위도"
+          ],
+          "units": "decimal_degrees",
+          "transformation": "none; source numeric strings preserved alongside parsed numbers",
+          "evidenceType": "same-provider same-dataset API coordinate specification; the CSV itself does not encode an EPSG label",
+          "guideUrl": "https://www.data.go.kr/data/15012005/openapi.do",
+          "guideDownloadUrl": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000003706124&fileDetailSn=3",
+          "guideSha256": "4ed2112e2a90e49e88243fa7963ae7d19628aed247b6492bcbae6a947534970e",
+          "guideVersion": "260805",
+          "guideExtract": "raw/sbiz-api-guide-extracted.txt",
+          "evidence": "상가업소 lon/lat response fields are described as WGS84 coordinates in the provider guide. The longitude description repeats 위도, a provider wording typo; the lon/lat field labels and sample values distinguish axes."
+        },
+        "accuracy": "building_level; no survey/entrance accuracy claimed",
+        "matchMethod": "same original licensed SBIZ row; district text/code, original native identity, coordinate plausibility and duplicate premises screening; not current operation verification",
+        "matchedName": "두찜광진",
+        "matchedBranchName": "구의점",
+        "matchedAddress": "서울특별시 광진구 구의로 35",
+        "buildingManagementNumber": "1121510300102220015024363",
+        "licenseName": "이용허락범위 제한 없음",
+        "rights": {
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false
+        }
+      },
+      "aliasBindings": [],
+      "deduplication": {
+        "key": "두찜|서울특별시 광진구 구의로 35",
+        "sourceIds": [
+          "MA0101202603A0038790"
+        ],
+        "sourceRows": [
+          539738
+        ],
+        "allSourceRecords": [
+          {
+            "상가업소번호": "MA0101202603A0038790",
+            "상호명": "두찜광진",
+            "지점명": "구의점",
+            "상권업종대분류코드": "I2",
+            "상권업종대분류명": "음식",
+            "상권업종중분류코드": "I201",
+            "상권업종중분류명": "한식",
+            "상권업종소분류코드": "I20101",
+            "상권업종소분류명": "백반/한정식",
+            "표준산업분류코드": "I56111",
+            "표준산업분류명": "한식 일반 음식점업",
+            "시도코드": "11",
+            "시도명": "서울특별시",
+            "시군구코드": "11215",
+            "시군구명": "광진구",
+            "행정동코드": "11215850",
+            "행정동명": "구의1동",
+            "법정동코드": "1121510300",
+            "법정동명": "구의동",
+            "지번코드": "1121510300102220015",
+            "대지구분코드": "1",
+            "대지구분명": "대지",
+            "지번본번지": "222",
+            "지번부번지": "15",
+            "지번주소": "서울특별시 광진구 구의동 222-15",
+            "도로명코드": "112153104004",
+            "도로명": "서울특별시 광진구 구의로",
+            "건물본번지": "35",
+            "건물부번지": "",
+            "건물관리번호": "1121510300102220015024363",
+            "건물명": "",
+            "도로명주소": "서울특별시 광진구 구의로 35",
+            "구우편번호": "143823",
+            "신우편번호": "05041",
+            "동정보": "",
+            "층정보": "1",
+            "호정보": "",
+            "경도": "127.089638672938",
+            "위도": "37.5410415918759"
+          }
+        ],
+        "method": "same brand and exact address; if multirow, identical building/floor/wing/unit/coordinates; original aliases preserved",
+        "provisional": false,
+        "missingUnitCaveat": null
+      },
+      "duplicateSourceRows": null,
+      "sourcePremises": {
+        "건물관리번호": "1121510300102220015024363",
+        "건물명": null,
+        "동정보": null,
+        "층정보": "1",
+        "호정보": null
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only"
+      },
+      "fieldRights": {
+        "nameAddress": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "coordinates": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "twozzim-menu-evidence.json#twozzim",
+          "residualUncertainty": [
+            "No website open licence or general legal guarantee is claimed.",
+            "Separate site-use terms were not located; privacy text refers to terms whose contents remain unresolved.",
+            "Branch availability and current operation remain unverified."
+          ],
+          "legalReviewFile": "twozzim-menu-evidence.json",
+          "reviewedAt": "2026-10-13T04:48:08.910056+00:00"
+        },
+        "prosePhotosLogosMenusBulk": {
+          "cleared": false,
+          "include": false
+        }
+      },
+      "requiredPublicNotices": [
+        "브랜드 공통 메뉴 · 지점 판매 여부 미확인",
+        "공공 상가정보 기준 위치이며 현재 영업 여부는 확인되지 않았습니다.",
+        "매운 정도·고객 평가·가격은 확인되지 않았습니다."
+      ],
+      "branchSpecificMenuConfirmed": false,
+      "branchMenuApplicability": null,
+      "factualUseReview": {
+        "batchId": "seoul-seven-brand-following423-candidates",
+        "frozenFileSha256": "406cfcc7d6bc73f07f446b633ee7adde9eff7a06a68ce6739dbec8b382474cf8",
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "twozzim-menu-evidence.json#twozzim",
+          "residualUncertainty": [
+            "No website open licence or general legal guarantee is claimed.",
+            "Separate site-use terms were not located; privacy text refers to terms whose contents remain unresolved.",
+            "Branch availability and current operation remain unverified."
+          ],
+          "legalReviewFile": "twozzim-menu-evidence.json",
+          "reviewedAt": "2026-10-13T04:48:08.910056+00:00"
+        },
+        "releaseDecision": "draft_pending_seoul_wide_exception_review_and_independent_qa"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA0101202603A0038790:menu:1",
+          "name": "빨간찜닭",
+          "provenance": {
+            "kind": "official-brand-menu",
+            "sourceScope": "brand_common",
+            "branchMenuApplicability": null,
+            "brandName": "두찜",
+            "sourceUrl": "https://twozzim.com/bbs/content.php?co_id=menu",
+            "sourceRecordIds": {},
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-13T04:48:08.910056+00:00",
+            "licenseName": null,
+            "explicitOpenLicense": false,
+            "reuseBasis": "limited-individual-fact-review",
+            "originalName": "빨간찜닭",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      }
+    }
+  },
+  {
+    "id": "b48f0750-e9d5-5f12-96f7-8dcb5c171428",
+    "slug": "hot-seoul-ma010120220812999933",
+    "name": "두끼 건대점",
+    "address": "서울특별시 광진구 아차산로 241",
+    "lat": 37.5405051720778,
+    "lon": 127.070142157977,
+    "source_ref": "data-go-kr-15083033-MA010120220812999933",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T05:12:56.833667+00:00",
+      "nativeBusinessName": "두끼",
+      "nativeBranchName": "건대점",
+      "displayNameBasis": "Exact licensed native business and branch strings joined with one space; no inferred shortening, owner-certified branch name or current affiliation",
+      "sourceRecordId": "MA010120220812999933",
+      "district": "광진구",
+      "districtCode": "11215",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T05:12:56.833667+00:00",
+          "nativeRecordId": "MA010120220812999933"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T05:12:56.833667+00:00",
+          "nativeRecordId": "MA010120220812999933"
+        }
+      },
+      "registrationLocator": null,
+      "identityLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA010120220812999933",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 251238,
+        "rowNumberDefinition": "1-based data row excluding CSV header",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T05:12:56.833667+00:00",
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "rawFile": "outputs/seoul-spicy-research-20261013/raw/sbiz-seoul-202606.csv",
+        "rawRecord": {
+          "상가업소번호": "MA010120220812999933",
+          "상호명": "두끼",
+          "지점명": "건대점",
+          "상권업종대분류코드": "I2",
+          "상권업종대분류명": "음식",
+          "상권업종중분류코드": "I210",
+          "상권업종중분류명": "기타 간이",
+          "상권업종소분류코드": "I21007",
+          "상권업종소분류명": "김밥/만두/분식",
+          "표준산업분류코드": "I56194",
+          "표준산업분류명": "김밥 및 기타 간이 음식점업",
+          "시도코드": "11",
+          "시도명": "서울특별시",
+          "시군구코드": "11215",
+          "시군구명": "광진구",
+          "행정동코드": "11215710",
+          "행정동명": "화양동",
+          "법정동코드": "1121510700",
+          "법정동명": "화양동",
+          "지번코드": "1121510700100060002",
+          "대지구분코드": "1",
+          "대지구분명": "대지",
+          "지번본번지": "6",
+          "지번부번지": "2",
+          "지번주소": "서울특별시 광진구 화양동 6-2",
+          "도로명코드": "112153000002",
+          "도로명": "서울특별시 광진구 아차산로",
+          "건물본번지": "241",
+          "건물부번지": "",
+          "건물관리번호": "1121510700100060002027402",
+          "건물명": "",
+          "도로명주소": "서울특별시 광진구 아차산로 241",
+          "구우편번호": "143914",
+          "신우편번호": "05017",
+          "동정보": "",
+          "층정보": "",
+          "호정보": "",
+          "경도": "127.070142157977",
+          "위도": "37.5405051720778"
+        },
+        "licenseName": "이용허락범위 제한 없음",
+        "licenseEvidenceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+      },
+      "coordinateLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA010120220812999933",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 251238,
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T05:12:56.833667+00:00",
+        "rawLongitude": "127.070142157977",
+        "rawLatitude": "37.5405051720778",
+        "coordinateSystem": {
+          "name": "WGS84",
+          "epsg": 4326,
+          "axisOrderInSource": [
+            "경도",
+            "위도"
+          ],
+          "units": "decimal_degrees",
+          "transformation": "none; source numeric strings preserved alongside parsed numbers",
+          "evidenceType": "same-provider same-dataset API coordinate specification; the CSV itself does not encode an EPSG label",
+          "guideUrl": "https://www.data.go.kr/data/15012005/openapi.do",
+          "guideDownloadUrl": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000003706124&fileDetailSn=3",
+          "guideSha256": "4ed2112e2a90e49e88243fa7963ae7d19628aed247b6492bcbae6a947534970e",
+          "guideVersion": "260805",
+          "guideExtract": "raw/sbiz-api-guide-extracted.txt",
+          "evidence": "상가업소 lon/lat response fields are described as WGS84 coordinates in the provider guide. The longitude description repeats 위도, a provider wording typo; the lon/lat field labels and sample values distinguish axes."
+        },
+        "accuracy": "building_level; no survey/entrance accuracy claimed",
+        "matchMethod": "same native licensed SBIZ source row supplies identity and location; geographic plausibility and district text/code agree, no fresh business operation confirmation",
+        "matchedName": "두끼",
+        "matchedBranchName": "건대점",
+        "matchedAddress": "서울특별시 광진구 아차산로 241",
+        "buildingManagementNumber": "1121510700100060002027402",
+        "licenseName": "이용허락범위 제한 없음",
+        "rights": {
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false
+        }
+      },
+      "aliasBindings": [],
+      "deduplication": {
+        "key": "두끼|서울특별시 광진구 아차산로 241",
+        "sourceIds": [
+          "MA010120220812999933"
+        ],
+        "sourceRows": [
+          251238
+        ],
+        "allSourceRecords": [
+          {
+            "상가업소번호": "MA010120220812999933",
+            "상호명": "두끼",
+            "지점명": "건대점",
+            "상권업종대분류코드": "I2",
+            "상권업종대분류명": "음식",
+            "상권업종중분류코드": "I210",
+            "상권업종중분류명": "기타 간이",
+            "상권업종소분류코드": "I21007",
+            "상권업종소분류명": "김밥/만두/분식",
+            "표준산업분류코드": "I56194",
+            "표준산업분류명": "김밥 및 기타 간이 음식점업",
+            "시도코드": "11",
+            "시도명": "서울특별시",
+            "시군구코드": "11215",
+            "시군구명": "광진구",
+            "행정동코드": "11215710",
+            "행정동명": "화양동",
+            "법정동코드": "1121510700",
+            "법정동명": "화양동",
+            "지번코드": "1121510700100060002",
+            "대지구분코드": "1",
+            "대지구분명": "대지",
+            "지번본번지": "6",
+            "지번부번지": "2",
+            "지번주소": "서울특별시 광진구 화양동 6-2",
+            "도로명코드": "112153000002",
+            "도로명": "서울특별시 광진구 아차산로",
+            "건물본번지": "241",
+            "건물부번지": "",
+            "건물관리번호": "1121510700100060002027402",
+            "건물명": "",
+            "도로명주소": "서울특별시 광진구 아차산로 241",
+            "구우편번호": "143914",
+            "신우편번호": "05017",
+            "동정보": "",
+            "층정보": "",
+            "호정보": "",
+            "경도": "127.070142157977",
+            "위도": "37.5405051720778"
+          }
+        ],
+        "method": "same brand and exact address plus identical building/floor/wing/unit/coordinates",
+        "provisional": false,
+        "missingUnitCaveat": null
+      },
+      "duplicateSourceRows": null,
+      "sourcePremises": {
+        "건물관리번호": "1121510700100060002027402",
+        "건물명": null,
+        "동정보": null,
+        "층정보": null,
+        "호정보": null
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only"
+      },
+      "fieldRights": {
+        "nameAddress": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "coordinates": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "dookki-menu-evidence.json#dookki",
+          "residualUncertainty": [
+            "No explicit website open licence or legal guarantee.",
+            "No all-user commercial restriction located in reviewed public pages; review is not exhaustive.",
+            "Branch affiliation, ingredients, menu sale and current operation unverified."
+          ],
+          "legalReviewFile": "dookki-menu-evidence.json",
+          "reviewedAt": "2026-10-13T05:07:17.883528+00:00"
+        },
+        "prosePhotosLogosMenusBulk": {
+          "cleared": false,
+          "include": false
+        }
+      },
+      "requiredPublicNotices": [
+        "브랜드 공통 메뉴 · 지점 판매 여부 미확인",
+        "직접 조리하며 소스 선택에 따라 맵기가 달라집니다. 지점별 재료는 확인되지 않았습니다.",
+        "공공 상가정보 기준 위치이며 현재 영업 여부는 확인되지 않았습니다.",
+        "매운 정도·고객 평가·가격은 확인되지 않았습니다."
+      ],
+      "branchSpecificMenuConfirmed": false,
+      "branchMenuApplicability": null,
+      "factualUseReview": {
+        "batchId": "seoul-dookki-next35-draft",
+        "frozenFileSha256": "e4ef9a5c468598f68c9f57aa7b3b11e286024abb6b9dd61851ce9b301b9b0ea0",
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "dookki-menu-evidence.json#dookki",
+          "residualUncertainty": [
+            "No explicit website open licence or legal guarantee.",
+            "No all-user commercial restriction located in reviewed public pages; review is not exhaustive.",
+            "Branch affiliation, ingredients, menu sale and current operation unverified."
+          ],
+          "legalReviewFile": "dookki-menu-evidence.json",
+          "reviewedAt": "2026-10-13T05:07:17.883528+00:00"
+        },
+        "releaseDecision": "draft_pending_independent_qa"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA010120220812999933:menu:1",
+          "name": "떡볶이",
+          "provenance": {
+            "kind": "official-brand-menu",
+            "sourceScope": "brand_common",
+            "branchMenuApplicability": null,
+            "brandName": "두끼",
+            "sourceUrl": "https://www.dookki.co.kr/menu/dookki",
+            "sourceRecordIds": {},
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-13T05:07:17.883528+00:00",
+            "licenseName": null,
+            "explicitOpenLicense": false,
+            "reuseBasis": "limited-individual-fact-review",
+            "originalName": "떡볶이",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null,
+            "preparationNotice": "직접 조리하며 소스 선택에 따라 맵기가 달라집니다. 지점별 재료는 확인되지 않았습니다."
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      }
+    }
+  },
+  {
+    "id": "28d47e35-2b4a-510e-88dd-82dbfa0abd3e",
+    "slug": "hot-seoul-ma0101202406a0403934",
+    "name": "두끼강변테크노마트점",
+    "address": "서울특별시 광진구 광나루로56길 85",
+    "lat": 37.5357209382758,
+    "lon": 127.095696795724,
+    "source_ref": "data-go-kr-15083033-MA0101202406A0403934",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T05:12:56.833667+00:00",
+      "nativeBusinessName": "두끼강변테크노마트점",
+      "nativeBranchName": null,
+      "displayNameBasis": "Exact licensed native business and branch strings joined with one space; no inferred shortening, owner-certified branch name or current affiliation",
+      "sourceRecordId": "MA0101202406A0403934",
+      "district": "광진구",
+      "districtCode": "11215",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T05:12:56.833667+00:00",
+          "nativeRecordId": "MA0101202406A0403934"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T05:12:56.833667+00:00",
+          "nativeRecordId": "MA0101202406A0403934"
+        }
+      },
+      "registrationLocator": null,
+      "identityLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA0101202406A0403934",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 404345,
+        "rowNumberDefinition": "1-based data row excluding CSV header",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T05:12:56.833667+00:00",
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "rawFile": "outputs/seoul-spicy-research-20261013/raw/sbiz-seoul-202606.csv",
+        "rawRecord": {
+          "상가업소번호": "MA0101202406A0403934",
+          "상호명": "두끼강변테크노마트점",
+          "지점명": "",
+          "상권업종대분류코드": "I2",
+          "상권업종대분류명": "음식",
+          "상권업종중분류코드": "I210",
+          "상권업종중분류명": "기타 간이",
+          "상권업종소분류코드": "I21007",
+          "상권업종소분류명": "김밥/만두/분식",
+          "표준산업분류코드": "I56194",
+          "표준산업분류명": "김밥 및 기타 간이 음식점업",
+          "시도코드": "11",
+          "시도명": "서울특별시",
+          "시군구코드": "11215",
+          "시군구명": "광진구",
+          "행정동코드": "11215870",
+          "행정동명": "구의3동",
+          "법정동코드": "1121510300",
+          "법정동명": "구의동",
+          "지번코드": "1121510300105460004",
+          "대지구분코드": "1",
+          "대지구분명": "대지",
+          "지번본번지": "546",
+          "지번부번지": "4",
+          "지번주소": "서울특별시 광진구 구의동 546-4",
+          "도로명코드": "112154112040",
+          "도로명": "서울특별시 광진구 광나루로56길",
+          "건물본번지": "85",
+          "건물부번지": "",
+          "건물관리번호": "1121510300105460004009814",
+          "건물명": "테크노-마트",
+          "도로명주소": "서울특별시 광진구 광나루로56길 85",
+          "구우편번호": "143721",
+          "신우편번호": "05116",
+          "동정보": "",
+          "층정보": "9",
+          "호정보": "",
+          "경도": "127.095696795724",
+          "위도": "37.5357209382758"
+        },
+        "licenseName": "이용허락범위 제한 없음",
+        "licenseEvidenceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+      },
+      "coordinateLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA0101202406A0403934",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 404345,
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T05:12:56.833667+00:00",
+        "rawLongitude": "127.095696795724",
+        "rawLatitude": "37.5357209382758",
+        "coordinateSystem": {
+          "name": "WGS84",
+          "epsg": 4326,
+          "axisOrderInSource": [
+            "경도",
+            "위도"
+          ],
+          "units": "decimal_degrees",
+          "transformation": "none; source numeric strings preserved alongside parsed numbers",
+          "evidenceType": "same-provider same-dataset API coordinate specification; the CSV itself does not encode an EPSG label",
+          "guideUrl": "https://www.data.go.kr/data/15012005/openapi.do",
+          "guideDownloadUrl": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000003706124&fileDetailSn=3",
+          "guideSha256": "4ed2112e2a90e49e88243fa7963ae7d19628aed247b6492bcbae6a947534970e",
+          "guideVersion": "260805",
+          "guideExtract": "raw/sbiz-api-guide-extracted.txt",
+          "evidence": "상가업소 lon/lat response fields are described as WGS84 coordinates in the provider guide. The longitude description repeats 위도, a provider wording typo; the lon/lat field labels and sample values distinguish axes."
+        },
+        "accuracy": "building_level; no survey/entrance accuracy claimed",
+        "matchMethod": "same native licensed SBIZ source row supplies identity and location; geographic plausibility and district text/code agree, no fresh business operation confirmation",
+        "matchedName": "두끼강변테크노마트점",
+        "matchedBranchName": null,
+        "matchedAddress": "서울특별시 광진구 광나루로56길 85",
+        "buildingManagementNumber": "1121510300105460004009814",
+        "licenseName": "이용허락범위 제한 없음",
+        "rights": {
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false
+        }
+      },
+      "aliasBindings": [],
+      "deduplication": {
+        "key": "두끼|서울특별시 광진구 광나루로56길 85",
+        "sourceIds": [
+          "MA0101202406A0403934"
+        ],
+        "sourceRows": [
+          404345
+        ],
+        "allSourceRecords": [
+          {
+            "상가업소번호": "MA0101202406A0403934",
+            "상호명": "두끼강변테크노마트점",
+            "지점명": "",
+            "상권업종대분류코드": "I2",
+            "상권업종대분류명": "음식",
+            "상권업종중분류코드": "I210",
+            "상권업종중분류명": "기타 간이",
+            "상권업종소분류코드": "I21007",
+            "상권업종소분류명": "김밥/만두/분식",
+            "표준산업분류코드": "I56194",
+            "표준산업분류명": "김밥 및 기타 간이 음식점업",
+            "시도코드": "11",
+            "시도명": "서울특별시",
+            "시군구코드": "11215",
+            "시군구명": "광진구",
+            "행정동코드": "11215870",
+            "행정동명": "구의3동",
+            "법정동코드": "1121510300",
+            "법정동명": "구의동",
+            "지번코드": "1121510300105460004",
+            "대지구분코드": "1",
+            "대지구분명": "대지",
+            "지번본번지": "546",
+            "지번부번지": "4",
+            "지번주소": "서울특별시 광진구 구의동 546-4",
+            "도로명코드": "112154112040",
+            "도로명": "서울특별시 광진구 광나루로56길",
+            "건물본번지": "85",
+            "건물부번지": "",
+            "건물관리번호": "1121510300105460004009814",
+            "건물명": "테크노-마트",
+            "도로명주소": "서울특별시 광진구 광나루로56길 85",
+            "구우편번호": "143721",
+            "신우편번호": "05116",
+            "동정보": "",
+            "층정보": "9",
+            "호정보": "",
+            "경도": "127.095696795724",
+            "위도": "37.5357209382758"
+          }
+        ],
+        "method": "same brand and exact address plus identical building/floor/wing/unit/coordinates",
+        "provisional": false,
+        "missingUnitCaveat": null
+      },
+      "duplicateSourceRows": null,
+      "sourcePremises": {
+        "건물관리번호": "1121510300105460004009814",
+        "건물명": "테크노-마트",
+        "동정보": null,
+        "층정보": "9",
+        "호정보": null
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only"
+      },
+      "fieldRights": {
+        "nameAddress": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "coordinates": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "dookki-menu-evidence.json#dookki",
+          "residualUncertainty": [
+            "No explicit website open licence or legal guarantee.",
+            "No all-user commercial restriction located in reviewed public pages; review is not exhaustive.",
+            "Branch affiliation, ingredients, menu sale and current operation unverified."
+          ],
+          "legalReviewFile": "dookki-menu-evidence.json",
+          "reviewedAt": "2026-10-13T05:07:17.883528+00:00"
+        },
+        "prosePhotosLogosMenusBulk": {
+          "cleared": false,
+          "include": false
+        }
+      },
+      "requiredPublicNotices": [
+        "브랜드 공통 메뉴 · 지점 판매 여부 미확인",
+        "직접 조리하며 소스 선택에 따라 맵기가 달라집니다. 지점별 재료는 확인되지 않았습니다.",
+        "공공 상가정보 기준 위치이며 현재 영업 여부는 확인되지 않았습니다.",
+        "매운 정도·고객 평가·가격은 확인되지 않았습니다."
+      ],
+      "branchSpecificMenuConfirmed": false,
+      "branchMenuApplicability": null,
+      "factualUseReview": {
+        "batchId": "seoul-dookki-next35-draft",
+        "frozenFileSha256": "e4ef9a5c468598f68c9f57aa7b3b11e286024abb6b9dd61851ce9b301b9b0ea0",
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "dookki-menu-evidence.json#dookki",
+          "residualUncertainty": [
+            "No explicit website open licence or legal guarantee.",
+            "No all-user commercial restriction located in reviewed public pages; review is not exhaustive.",
+            "Branch affiliation, ingredients, menu sale and current operation unverified."
+          ],
+          "legalReviewFile": "dookki-menu-evidence.json",
+          "reviewedAt": "2026-10-13T05:07:17.883528+00:00"
+        },
+        "releaseDecision": "draft_pending_independent_qa"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA0101202406A0403934:menu:1",
+          "name": "떡볶이",
+          "provenance": {
+            "kind": "official-brand-menu",
+            "sourceScope": "brand_common",
+            "branchMenuApplicability": null,
+            "brandName": "두끼",
+            "sourceUrl": "https://www.dookki.co.kr/menu/dookki",
+            "sourceRecordIds": {},
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-13T05:07:17.883528+00:00",
+            "licenseName": null,
+            "explicitOpenLicense": false,
+            "reuseBasis": "limited-individual-fact-review",
+            "originalName": "떡볶이",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null,
+            "preparationNotice": "직접 조리하며 소스 선택에 따라 맵기가 달라집니다. 지점별 재료는 확인되지 않았습니다."
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      }
+    }
+  }
+]

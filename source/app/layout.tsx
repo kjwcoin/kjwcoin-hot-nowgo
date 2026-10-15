@@ -1,4 +1,5 @@
 import { socialMetadata } from "@/lib/social-preview";
+import {sourcePreviewEnabled} from '@/lib/source-store-preview';
 import type { Metadata } from "next";
 import {headers} from 'next/headers';
 import {siteConfig,variantForHost} from '@/lib/site-config';
@@ -28,7 +29,7 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className="antialiased" data-theme={variantForHost((await headers()).get('host'))}><TemporaryFreeNotice/>{children}<UsageTracker enabled={variantForHost((await headers()).get('host'))==='hot'}/></body>
+      <body className="antialiased" data-theme={variantForHost((await headers()).get('host'))}><TemporaryFreeNotice/>{children}<UsageTracker enabled={!sourcePreviewEnabled()&&variantForHost((await headers()).get('host'))==='hot'}/></body>
     </html>
   );
 }

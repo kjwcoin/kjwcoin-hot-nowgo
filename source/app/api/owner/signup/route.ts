@@ -1,3 +1,4 @@
+import {isReadonlySourceStoreId} from '@/lib/readonly-source-listings';
 import {verifiedUser} from '@/lib/supabase';
 import {reply,validOrigin} from '@/lib/server';
 import {variantForHost,siteConfig} from '@/lib/site-config';
@@ -10,6 +11,7 @@ export async function POST(request:Request){try{
  const variant=variantForHost(new URL(request.url).hostname),theme=siteConfig(variant),form=await readOwnerForm(request),get=(key:string)=>String(form.get(key)||'').trim(),phone=get('phone').replace(/[-\s]/g,'');
  if(!/^01(?:0\d{8}|[16789]\d{7,8})$/.test(phone)||get('consent')!=='yes')return reply(request,{error:'휴대폰 번호와 필수 가입 동의를 확인해 주세요.'},400);
  let storeId=get('storeId');
+ if(isReadonlySourceStoreId(storeId))return reply(request,{error:'이 공공자료 소개 매장은 소유권 신청 연결을 준비 중이에요.',code:'source_registration_pending'},409);
  if(storeId&&get('resume')!=='yes'){
   const result=await auth.client.rpc('ng_map_register_contact',{p_phone:phone,p_planet:variant,p_store:storeId});if(result.error)throw result.error;return reply(request,{ok:true,...result.data});
  }

@@ -1,0 +1,620 @@
+[
+  {
+    "id": "f741831e-301d-55e3-9be8-8ccc0eeb3496",
+    "slug": "hot-seoul-ma0101202409a0189017",
+    "name": "두끼한티역점",
+    "address": "서울특별시 강남구 선릉로 314",
+    "lat": 37.497815844111,
+    "lon": 127.052392893647,
+    "source_ref": "data-go-kr-15083033-MA0101202409A0189017",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T05:12:56.833667+00:00",
+      "nativeBusinessName": "두끼한티역점",
+      "nativeBranchName": null,
+      "displayNameBasis": "Exact licensed native business and branch strings joined with one space; no inferred shortening, owner-certified branch name or current affiliation",
+      "sourceRecordId": "MA0101202409A0189017",
+      "district": "강남구",
+      "districtCode": "11680",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T05:12:56.833667+00:00",
+          "nativeRecordId": "MA0101202409A0189017"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T05:12:56.833667+00:00",
+          "nativeRecordId": "MA0101202409A0189017"
+        }
+      },
+      "registrationLocator": null,
+      "identityLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA0101202409A0189017",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 436387,
+        "rowNumberDefinition": "1-based data row excluding CSV header",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T05:12:56.833667+00:00",
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "rawFile": "outputs/seoul-spicy-research-20261013/raw/sbiz-seoul-202606.csv",
+        "rawRecord": {
+          "상가업소번호": "MA0101202409A0189017",
+          "상호명": "두끼한티역점",
+          "지점명": "",
+          "상권업종대분류코드": "I2",
+          "상권업종대분류명": "음식",
+          "상권업종중분류코드": "I201",
+          "상권업종중분류명": "한식",
+          "상권업종소분류코드": "I20101",
+          "상권업종소분류명": "백반/한정식",
+          "표준산업분류코드": "I56111",
+          "표준산업분류명": "한식 일반 음식점업",
+          "시도코드": "11",
+          "시도명": "서울특별시",
+          "시군구코드": "11680",
+          "시군구명": "강남구",
+          "행정동코드": "11680630",
+          "행정동명": "대치4동",
+          "법정동코드": "1168010600",
+          "법정동명": "대치동",
+          "지번코드": "1168010600109220024",
+          "대지구분코드": "1",
+          "대지구분명": "대지",
+          "지번본번지": "922",
+          "지번부번지": "24",
+          "지번주소": "서울특별시 강남구 대치동 922-24",
+          "도로명코드": "116803122006",
+          "도로명": "서울특별시 강남구 선릉로",
+          "건물본번지": "314",
+          "건물부번지": "",
+          "건물관리번호": "1168010600109220024014111",
+          "건물명": "",
+          "도로명주소": "서울특별시 강남구 선릉로 314",
+          "구우편번호": "135843",
+          "신우편번호": "06205",
+          "동정보": "",
+          "층정보": "1",
+          "호정보": "",
+          "경도": "127.052392893647",
+          "위도": "37.497815844111"
+        },
+        "licenseName": "이용허락범위 제한 없음",
+        "licenseEvidenceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+      },
+      "coordinateLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA0101202409A0189017",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 436387,
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T05:12:56.833667+00:00",
+        "rawLongitude": "127.052392893647",
+        "rawLatitude": "37.497815844111",
+        "coordinateSystem": {
+          "name": "WGS84",
+          "epsg": 4326,
+          "axisOrderInSource": [
+            "경도",
+            "위도"
+          ],
+          "units": "decimal_degrees",
+          "transformation": "none; source numeric strings preserved alongside parsed numbers",
+          "evidenceType": "same-provider same-dataset API coordinate specification; the CSV itself does not encode an EPSG label",
+          "guideUrl": "https://www.data.go.kr/data/15012005/openapi.do",
+          "guideDownloadUrl": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000003706124&fileDetailSn=3",
+          "guideSha256": "4ed2112e2a90e49e88243fa7963ae7d19628aed247b6492bcbae6a947534970e",
+          "guideVersion": "260805",
+          "guideExtract": "raw/sbiz-api-guide-extracted.txt",
+          "evidence": "상가업소 lon/lat response fields are described as WGS84 coordinates in the provider guide. The longitude description repeats 위도, a provider wording typo; the lon/lat field labels and sample values distinguish axes."
+        },
+        "accuracy": "building_level; no survey/entrance accuracy claimed",
+        "matchMethod": "same native licensed SBIZ source row supplies identity and location; geographic plausibility and district text/code agree, no fresh business operation confirmation",
+        "matchedName": "두끼한티역점",
+        "matchedBranchName": null,
+        "matchedAddress": "서울특별시 강남구 선릉로 314",
+        "buildingManagementNumber": "1168010600109220024014111",
+        "licenseName": "이용허락범위 제한 없음",
+        "rights": {
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false
+        }
+      },
+      "aliasBindings": [],
+      "deduplication": {
+        "key": "두끼|서울특별시 강남구 선릉로 314",
+        "sourceIds": [
+          "MA0101202409A0189017"
+        ],
+        "sourceRows": [
+          436387
+        ],
+        "allSourceRecords": [
+          {
+            "상가업소번호": "MA0101202409A0189017",
+            "상호명": "두끼한티역점",
+            "지점명": "",
+            "상권업종대분류코드": "I2",
+            "상권업종대분류명": "음식",
+            "상권업종중분류코드": "I201",
+            "상권업종중분류명": "한식",
+            "상권업종소분류코드": "I20101",
+            "상권업종소분류명": "백반/한정식",
+            "표준산업분류코드": "I56111",
+            "표준산업분류명": "한식 일반 음식점업",
+            "시도코드": "11",
+            "시도명": "서울특별시",
+            "시군구코드": "11680",
+            "시군구명": "강남구",
+            "행정동코드": "11680630",
+            "행정동명": "대치4동",
+            "법정동코드": "1168010600",
+            "법정동명": "대치동",
+            "지번코드": "1168010600109220024",
+            "대지구분코드": "1",
+            "대지구분명": "대지",
+            "지번본번지": "922",
+            "지번부번지": "24",
+            "지번주소": "서울특별시 강남구 대치동 922-24",
+            "도로명코드": "116803122006",
+            "도로명": "서울특별시 강남구 선릉로",
+            "건물본번지": "314",
+            "건물부번지": "",
+            "건물관리번호": "1168010600109220024014111",
+            "건물명": "",
+            "도로명주소": "서울특별시 강남구 선릉로 314",
+            "구우편번호": "135843",
+            "신우편번호": "06205",
+            "동정보": "",
+            "층정보": "1",
+            "호정보": "",
+            "경도": "127.052392893647",
+            "위도": "37.497815844111"
+          }
+        ],
+        "method": "same brand and exact address plus identical building/floor/wing/unit/coordinates",
+        "provisional": false,
+        "missingUnitCaveat": null
+      },
+      "duplicateSourceRows": null,
+      "sourcePremises": {
+        "건물관리번호": "1168010600109220024014111",
+        "건물명": null,
+        "동정보": null,
+        "층정보": "1",
+        "호정보": null
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only"
+      },
+      "fieldRights": {
+        "nameAddress": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "coordinates": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "dookki-menu-evidence.json#dookki",
+          "residualUncertainty": [
+            "No explicit website open licence or legal guarantee.",
+            "No all-user commercial restriction located in reviewed public pages; review is not exhaustive.",
+            "Branch affiliation, ingredients, menu sale and current operation unverified."
+          ],
+          "legalReviewFile": "dookki-menu-evidence.json",
+          "reviewedAt": "2026-10-13T05:07:17.883528+00:00"
+        },
+        "prosePhotosLogosMenusBulk": {
+          "cleared": false,
+          "include": false
+        }
+      },
+      "requiredPublicNotices": [
+        "브랜드 공통 메뉴 · 지점 판매 여부 미확인",
+        "직접 조리하며 소스 선택에 따라 맵기가 달라집니다. 지점별 재료는 확인되지 않았습니다.",
+        "공공 상가정보 기준 위치이며 현재 영업 여부는 확인되지 않았습니다.",
+        "매운 정도·고객 평가·가격은 확인되지 않았습니다."
+      ],
+      "branchSpecificMenuConfirmed": false,
+      "branchMenuApplicability": null,
+      "factualUseReview": {
+        "batchId": "seoul-dookki-next35-draft",
+        "frozenFileSha256": "e4ef9a5c468598f68c9f57aa7b3b11e286024abb6b9dd61851ce9b301b9b0ea0",
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "dookki-menu-evidence.json#dookki",
+          "residualUncertainty": [
+            "No explicit website open licence or legal guarantee.",
+            "No all-user commercial restriction located in reviewed public pages; review is not exhaustive.",
+            "Branch affiliation, ingredients, menu sale and current operation unverified."
+          ],
+          "legalReviewFile": "dookki-menu-evidence.json",
+          "reviewedAt": "2026-10-13T05:07:17.883528+00:00"
+        },
+        "releaseDecision": "draft_pending_independent_qa"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA0101202409A0189017:menu:1",
+          "name": "떡볶이",
+          "provenance": {
+            "kind": "official-brand-menu",
+            "sourceScope": "brand_common",
+            "branchMenuApplicability": null,
+            "brandName": "두끼",
+            "sourceUrl": "https://www.dookki.co.kr/menu/dookki",
+            "sourceRecordIds": {},
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-13T05:07:17.883528+00:00",
+            "licenseName": null,
+            "explicitOpenLicense": false,
+            "reuseBasis": "limited-individual-fact-review",
+            "originalName": "떡볶이",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null,
+            "preparationNotice": "직접 조리하며 소스 선택에 따라 맵기가 달라집니다. 지점별 재료는 확인되지 않았습니다."
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      }
+    }
+  },
+  {
+    "id": "42cbd99f-e676-5604-a26f-6f96e8ddf7b5",
+    "slug": "hot-seoul-ma0101202603a0047042",
+    "name": "두끼 강남역점",
+    "address": "서울특별시 강남구 강남대로98길 9",
+    "lat": 37.5007435600748,
+    "lon": 127.027334032266,
+    "source_ref": "data-go-kr-15083033-MA0101202603A0047042",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do",
+      "licenseName": "이용허락범위 제한 없음",
+      "sourceAsOf": "2026-06-30",
+      "checkedAt": "2026-10-13T05:12:56.833667+00:00",
+      "nativeBusinessName": "두끼",
+      "nativeBranchName": "강남역점",
+      "displayNameBasis": "Exact licensed native business and branch strings joined with one space; no inferred shortening, owner-certified branch name or current affiliation",
+      "sourceRecordId": "MA0101202603A0047042",
+      "district": "강남구",
+      "districtCode": "11680",
+      "fieldProvenance": {
+        "licenseScope": "identity-location-only",
+        "registration": null,
+        "identity": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T05:12:56.833667+00:00",
+          "nativeRecordId": "MA0101202603A0047042"
+        },
+        "coordinates": {
+          "url": "https://www.data.go.kr/data/15083033/fileData.do",
+          "asOf": "2026-06-30",
+          "checkedAt": "2026-10-13T05:12:56.833667+00:00",
+          "nativeRecordId": "MA0101202603A0047042"
+        }
+      },
+      "registrationLocator": null,
+      "identityLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA0101202603A0047042",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 545727,
+        "rowNumberDefinition": "1-based data row excluding CSV header",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T05:12:56.833667+00:00",
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "rawFile": "outputs/seoul-spicy-research-20261013/raw/sbiz-seoul-202606.csv",
+        "rawRecord": {
+          "상가업소번호": "MA0101202603A0047042",
+          "상호명": "두끼",
+          "지점명": "강남역점",
+          "상권업종대분류코드": "I2",
+          "상권업종대분류명": "음식",
+          "상권업종중분류코드": "I210",
+          "상권업종중분류명": "기타 간이",
+          "상권업종소분류코드": "I21007",
+          "상권업종소분류명": "김밥/만두/분식",
+          "표준산업분류코드": "I56194",
+          "표준산업분류명": "김밥 및 기타 간이 음식점업",
+          "시도코드": "11",
+          "시도명": "서울특별시",
+          "시군구코드": "11680",
+          "시군구명": "강남구",
+          "행정동코드": "11680640",
+          "행정동명": "역삼1동",
+          "법정동코드": "1168010100",
+          "법정동명": "역삼동",
+          "지번코드": "1168010100106190027",
+          "대지구분코드": "1",
+          "대지구분명": "대지",
+          "지번본번지": "619",
+          "지번부번지": "27",
+          "지번주소": "서울특별시 강남구 역삼동 619-27",
+          "도로명코드": "116804166039",
+          "도로명": "서울특별시 강남구 강남대로98길",
+          "건물본번지": "9",
+          "건물부번지": "",
+          "건물관리번호": "1168010100106190027023580",
+          "건물명": "",
+          "도로명주소": "서울특별시 강남구 강남대로98길 9",
+          "구우편번호": "135908",
+          "신우편번호": "06129",
+          "동정보": "",
+          "층정보": "3",
+          "호정보": "",
+          "경도": "127.027334032266",
+          "위도": "37.5007435600748"
+        },
+        "licenseName": "이용허락범위 제한 없음",
+        "licenseEvidenceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+      },
+      "coordinateLocator": {
+        "datasetId": "15083033",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "nativeRecordId": "MA0101202603A0047042",
+        "nativeRecordIdField": "상가업소번호",
+        "dataRowNumber": 545727,
+        "sha256": "08d3fd08b37840256cccd4f09bad6fc33133b647cbff05f22f26fc962cf84152",
+        "sourceAsOf": "2026-06-30",
+        "checkedAt": "2026-10-13T05:12:56.833667+00:00",
+        "rawLongitude": "127.027334032266",
+        "rawLatitude": "37.5007435600748",
+        "coordinateSystem": {
+          "name": "WGS84",
+          "epsg": 4326,
+          "axisOrderInSource": [
+            "경도",
+            "위도"
+          ],
+          "units": "decimal_degrees",
+          "transformation": "none; source numeric strings preserved alongside parsed numbers",
+          "evidenceType": "same-provider same-dataset API coordinate specification; the CSV itself does not encode an EPSG label",
+          "guideUrl": "https://www.data.go.kr/data/15012005/openapi.do",
+          "guideDownloadUrl": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000003706124&fileDetailSn=3",
+          "guideSha256": "4ed2112e2a90e49e88243fa7963ae7d19628aed247b6492bcbae6a947534970e",
+          "guideVersion": "260805",
+          "guideExtract": "raw/sbiz-api-guide-extracted.txt",
+          "evidence": "상가업소 lon/lat response fields are described as WGS84 coordinates in the provider guide. The longitude description repeats 위도, a provider wording typo; the lon/lat field labels and sample values distinguish axes."
+        },
+        "accuracy": "building_level; no survey/entrance accuracy claimed",
+        "matchMethod": "same native licensed SBIZ source row supplies identity and location; geographic plausibility and district text/code agree, no fresh business operation confirmation",
+        "matchedName": "두끼",
+        "matchedBranchName": "강남역점",
+        "matchedAddress": "서울특별시 강남구 강남대로98길 9",
+        "buildingManagementNumber": "1168010100106190027023580",
+        "licenseName": "이용허락범위 제한 없음",
+        "rights": {
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false
+        }
+      },
+      "aliasBindings": [],
+      "deduplication": {
+        "key": "두끼|서울특별시 강남구 강남대로98길 9",
+        "sourceIds": [
+          "MA0101202603A0047042"
+        ],
+        "sourceRows": [
+          545727
+        ],
+        "allSourceRecords": [
+          {
+            "상가업소번호": "MA0101202603A0047042",
+            "상호명": "두끼",
+            "지점명": "강남역점",
+            "상권업종대분류코드": "I2",
+            "상권업종대분류명": "음식",
+            "상권업종중분류코드": "I210",
+            "상권업종중분류명": "기타 간이",
+            "상권업종소분류코드": "I21007",
+            "상권업종소분류명": "김밥/만두/분식",
+            "표준산업분류코드": "I56194",
+            "표준산업분류명": "김밥 및 기타 간이 음식점업",
+            "시도코드": "11",
+            "시도명": "서울특별시",
+            "시군구코드": "11680",
+            "시군구명": "강남구",
+            "행정동코드": "11680640",
+            "행정동명": "역삼1동",
+            "법정동코드": "1168010100",
+            "법정동명": "역삼동",
+            "지번코드": "1168010100106190027",
+            "대지구분코드": "1",
+            "대지구분명": "대지",
+            "지번본번지": "619",
+            "지번부번지": "27",
+            "지번주소": "서울특별시 강남구 역삼동 619-27",
+            "도로명코드": "116804166039",
+            "도로명": "서울특별시 강남구 강남대로98길",
+            "건물본번지": "9",
+            "건물부번지": "",
+            "건물관리번호": "1168010100106190027023580",
+            "건물명": "",
+            "도로명주소": "서울특별시 강남구 강남대로98길 9",
+            "구우편번호": "135908",
+            "신우편번호": "06129",
+            "동정보": "",
+            "층정보": "3",
+            "호정보": "",
+            "경도": "127.027334032266",
+            "위도": "37.5007435600748"
+          }
+        ],
+        "method": "same brand and exact address plus identical building/floor/wing/unit/coordinates",
+        "provisional": false,
+        "missingUnitCaveat": null
+      },
+      "duplicateSourceRows": null,
+      "sourcePremises": {
+        "건물관리번호": "1168010100106190027023580",
+        "건물명": null,
+        "동정보": null,
+        "층정보": "3",
+        "호정보": null
+      },
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true,
+        "commercialUse": true,
+        "mediaCleared": false,
+        "scope": "identity-location-only"
+      },
+      "fieldRights": {
+        "nameAddress": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "coordinates": {
+          "basis": "explicit_unrestricted_government_csv_license",
+          "factsStorage": true,
+          "publicDisplay": true,
+          "commercialUse": true,
+          "mediaCleared": false,
+          "sourceUrl": "https://www.data.go.kr/data/15083033/fileData.do"
+        },
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "dookki-menu-evidence.json#dookki",
+          "residualUncertainty": [
+            "No explicit website open licence or legal guarantee.",
+            "No all-user commercial restriction located in reviewed public pages; review is not exhaustive.",
+            "Branch affiliation, ingredients, menu sale and current operation unverified."
+          ],
+          "legalReviewFile": "dookki-menu-evidence.json",
+          "reviewedAt": "2026-10-13T05:07:17.883528+00:00"
+        },
+        "prosePhotosLogosMenusBulk": {
+          "cleared": false,
+          "include": false
+        }
+      },
+      "requiredPublicNotices": [
+        "브랜드 공통 메뉴 · 지점 판매 여부 미확인",
+        "직접 조리하며 소스 선택에 따라 맵기가 달라집니다. 지점별 재료는 확인되지 않았습니다.",
+        "공공 상가정보 기준 위치이며 현재 영업 여부는 확인되지 않았습니다.",
+        "매운 정도·고객 평가·가격은 확인되지 않았습니다."
+      ],
+      "branchSpecificMenuConfirmed": false,
+      "branchMenuApplicability": null,
+      "factualUseReview": {
+        "batchId": "seoul-dookki-next35-draft",
+        "frozenFileSha256": "e4ef9a5c468598f68c9f57aa7b3b11e286024abb6b9dd61851ce9b301b9b0ea0",
+        "oneMenuFact": {
+          "basis": "limited_individual_brand_fact_review",
+          "explicitOpenLicense": false,
+          "assessment": "conditional minimal brand discovery card; no branch sale assertion",
+          "allowedFields": [
+            "one ordinary brand menu name",
+            "source URL",
+            "source date when available",
+            "checked date",
+            "own factual attribution"
+          ],
+          "termsReviewRef": "dookki-menu-evidence.json#dookki",
+          "residualUncertainty": [
+            "No explicit website open licence or legal guarantee.",
+            "No all-user commercial restriction located in reviewed public pages; review is not exhaustive.",
+            "Branch affiliation, ingredients, menu sale and current operation unverified."
+          ],
+          "legalReviewFile": "dookki-menu-evidence.json",
+          "reviewedAt": "2026-10-13T05:07:17.883528+00:00"
+        },
+        "releaseDecision": "draft_pending_independent_qa"
+      },
+      "menus": [
+        {
+          "id": "data-go-kr-15083033-MA0101202603A0047042:menu:1",
+          "name": "떡볶이",
+          "provenance": {
+            "kind": "official-brand-menu",
+            "sourceScope": "brand_common",
+            "branchMenuApplicability": null,
+            "brandName": "두끼",
+            "sourceUrl": "https://www.dookki.co.kr/menu/dookki",
+            "sourceRecordIds": {},
+            "sourceAsOf": null,
+            "checkedAt": "2026-10-13T05:07:17.883528+00:00",
+            "licenseName": null,
+            "explicitOpenLicense": false,
+            "reuseBasis": "limited-individual-fact-review",
+            "originalName": "떡볶이",
+            "nameRepresentation": "original",
+            "currentAvailability": null,
+            "priceAsOf": null,
+            "preparationNotice": "직접 조리하며 소스 선택에 따라 맵기가 달라집니다. 지점별 재료는 확인되지 않았습니다."
+          }
+        }
+      ],
+      "reporting": {
+        "state": "pending"
+      }
+    }
+  }
+]

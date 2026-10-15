@@ -1,0 +1,15 @@
+.account{display:flex;gap:14px;align-items:center;margin:14px 0;padding:14px 0;border-top:1px solid #e7ded8;border-bottom:1px solid #e7ded8}
+.character{flex:0 0 104px;margin:0;text-align:center}
+.avatar{display:block;width:96px;aspect-ratio:1;margin:0 auto;background-size:500% 300%;background-repeat:no-repeat}
+.character figcaption{margin-top:4px;overflow-wrap:anywhere;font-size:12px;font-weight:700;line-height:1.5}
+.copy{min-width:0}
+.copy h3{margin:0;font-size:14px;line-height:1.5}
+.copy p{margin:6px 0;color:#615650;font-size:12px;line-height:1.6}
+.values{display:flex;flex-wrap:wrap;gap:6px 16px;margin:8px 0}
+.values div{display:flex;gap:6px;font-size:12px;line-height:1.5}
+.values dt{font-weight:700}
+.values dd{margin:0;color:#615650}
+.link{display:inline-flex;align-items:center;min-height:44px;color:var(--brand-ink,#bd3828);font-size:13px;font-weight:700;text-decoration:underline}
+@media(max-width:420px){.account{gap:10px;align-items:flex-start}.character{flex-basis:80px}.avatar{width:80px}.values{display:block}.values div+div{margin-top:4px}}
+
+.progress{height:8px;width:100%;min-width:140px;overflow:hidden;border-radius:8px;background:#f1e4df}.progress span{display:block;height:100%;background:var(--brand-ink,#bd3828);border-radius:inherit}.copy{flex:1}

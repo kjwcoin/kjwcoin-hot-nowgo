@@ -1,0 +1,338 @@
+[
+  {
+    "id": "502162af-c000-521b-aa35-3f342604aea3",
+    "slug": "hot-sejong-dain-agujjim",
+    "name": "다인아구찜",
+    "address": "세종특별자치시 조치원읍 허만석로 39",
+    "lat": 36.5855200279222,
+    "lon": 127.29554065393,
+    "source_ref": "purpleo-fmr-28641",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://fmr.purpleo.co.kr/view/28641",
+      "sourceRecordId": "5690000-101-1994-00008",
+      "licenseName": null,
+      "sourceAsOf": "2022-02-10",
+      "checkedAt": "2026-10-14T04:16:00Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "purpleo-fmr-28641:menu:1",
+          "name": "아구찜 (매운맛 선택)",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "퍼플오 전국 모범음식점 개별 자료",
+        "attribution": "위치: https://fmr.purpleo.co.kr/view/28641. 메뉴·주소: 독립 개별 매장정보와 방문기 링크.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "출처 확인일 2026-10-14. 아구찜 매운맛 선택은 공개 방문후기 색인에서 확인했습니다. 2026년 방문 시점은 후기 문맥과 별도 색인으로 보완했으며 원문 날짜 직접 확인은 아닙니다. 모범음식점 지정취소 기록은 현재 폐업 확정으로 해석하지 않았습니다. 좌표 자료 갱신일은 2022-02-10입니다. 현재 영업 여부와 해당 메뉴의 현재 제공 여부는 확인되지 않았습니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스를 확인한 자료가 아니며 최소한의 개별 공개 사실 이용에 한정한 검토입니다. 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "48460eae-f221-5f14-b44a-874b79eba7d4",
+    "slug": "hot-sejong-sseuchwan",
+    "name": "쓰촨 세종점",
+    "address": "세종특별자치시 바른7길 45, 1, 2층",
+    "lat": 36.5217927,
+    "lon": 127.248916,
+    "source_ref": "purpleo-fmr-28711",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://fmr.purpleo.co.kr/view/28711",
+      "sourceRecordId": "5690000-101-2015-00206",
+      "licenseName": null,
+      "sourceAsOf": "2020-02-13",
+      "checkedAt": "2026-10-14T04:16:00Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "purpleo-fmr-28711:menu:1",
+          "name": "청양고추짬뽕",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "퍼플오 전국 모범음식점 개별 자료",
+        "attribution": "위치: https://fmr.purpleo.co.kr/view/28711. 메뉴·주소: 독립 개별 매장정보와 방문기 링크.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "출처 확인일 2026-10-14. 청양고추짬뽕 메뉴는 2024-03-05 방문기 메뉴목록과 개별 매장정보에서 확인했습니다. 작성자가 해당 메뉴를 직접 먹었다는 뜻은 아닙니다. 좌표 자료 갱신일은 2020-02-13입니다. 현재 영업 여부와 해당 메뉴의 현재 제공 여부는 확인되지 않았습니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스를 확인한 자료가 아니며 최소한의 개별 공개 사실 이용에 한정한 검토입니다. 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "b7c51e41-4d70-5bb9-97bf-f091991f21e3",
+    "slug": "hot-sejong-chodamgol",
+    "name": "세종낙지 초담골",
+    "address": "세종특별자치시 조치원읍 뒤골길 1",
+    "lat": 36.58377222261,
+    "lon": 127.2936975725,
+    "source_ref": "purpleo-fmr-28685",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://fmr.purpleo.co.kr/view/28685",
+      "sourceRecordId": "5690000-101-2007-00030",
+      "licenseName": null,
+      "sourceAsOf": "2020-12-09",
+      "checkedAt": "2026-10-14T04:16:00Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "purpleo-fmr-28685:menu:1",
+          "name": "낙지볶음 (매운맛 선택)",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "퍼플오 전국 모범음식점 개별 자료",
+        "attribution": "위치: https://fmr.purpleo.co.kr/view/28685. 메뉴·주소: 독립 개별 매장정보와 방문기 링크.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "출처 확인일 2026-10-14. 낙지볶음의 순한맛·보통맛·매운맛 선택은 2023-02-28 방문기에 확인됩니다. 현재 동일 선택지 제공을 보장하지 않습니다. 좌표 자료 갱신일은 2020-12-09입니다. 현재 영업 여부와 해당 메뉴의 현재 제공 여부는 확인되지 않았습니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스를 확인한 자료가 아니며 최소한의 개별 공개 사실 이용에 한정한 검토입니다. 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "d37e41c7-9cd0-52ee-af4b-c9ac30377e50",
+    "slug": "hot-sejong-hwanguje-maeuntang",
+    "name": "황우제매운탕",
+    "address": "세종특별자치시 연동면 태산로 101-12",
+    "lat": 36.5255843544515,
+    "lon": 127.352550927446,
+    "source_ref": "purpleo-fmr-28691",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://fmr.purpleo.co.kr/view/28691",
+      "sourceRecordId": "5690000-101-2010-00038",
+      "licenseName": null,
+      "sourceAsOf": "2020-02-13",
+      "checkedAt": "2026-10-14T04:16:00Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "purpleo-fmr-28691:menu:1",
+          "name": "메기매운탕",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "퍼플오 전국 모범음식점 개별 자료",
+        "attribution": "위치: https://fmr.purpleo.co.kr/view/28691. 메뉴·주소: 독립 개별 매장정보와 방문기 링크.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "출처 확인일 2026-10-14. 메기매운탕의 칼칼한 맛은 2025-04-15 개인 방문 후기의 표현을 참고했습니다. 최대 매운맛·단계 또는 수치 맵기를 확인한 것은 아닙니다. 좌표 자료 갱신일은 2020-02-13입니다. 현재 영업 여부와 해당 메뉴의 현재 제공 여부는 확인되지 않았습니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스를 확인한 자료가 아니며 최소한의 개별 공개 사실 이용에 한정한 검토입니다. 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "65043d9d-2407-530a-8715-add22e5d2eae",
+    "slug": "hot-sejong-hongnalgae",
+    "name": "홍날개 본점",
+    "address": "세종특별자치시 나성로 125-10 1층 110호",
+    "lat": 36.490069385863,
+    "lon": 127.25832411194,
+    "source_ref": "jusoga-building-3611010700103610034000001-06ed015f",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://jusoga.com/b/3611010700103610034000001/%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C-%EB%82%98%EC%84%B1%EB%A1%9C-125-10-%EB%82%98%EC%84%B1%EB%8F%99",
+      "sourceRecordId": "3611010700103610034000001",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T04:18:00Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "jusoga-building-3611010700103610034000001-06ed015f:menu:1",
+          "name": "불날개",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "주소가 건물주소 자료",
+        "attribution": "위치: 주소가 개별 건물주소 자료. 지점·주소·메뉴: 공개 매장정보 및 연결된 방문기 또는 브랜드 공식 메뉴.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 건물 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "출처 확인일 2026-10-14. 건물 주소 기준 위치; 입구·층·호 위치 미확인. 불날개의 매운맛은 2023-10-13 개인 방문기와 개별 매장정보로 확인했습니다. 현재 영업 여부와 해당 메뉴의 현재 제공 여부는 확인되지 않았습니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스를 확인한 자료가 아니며 최소한의 개별 공개 사실 이용에 한정한 검토입니다. 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "f75fcab2-705c-5a1f-a778-ecedd883da94",
+    "slug": "hot-sejong-sinkkumi",
+    "name": "신꾸미",
+    "address": "세종특별자치시 나성북로 9 1층",
+    "lat": 36.48952954735,
+    "lon": 127.25780664431,
+    "source_ref": "jusoga-building-3611010700103610039000001-25e7abe7",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://jusoga.com/b/3611010700103610039000001/%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C-%EB%82%98%EC%84%B1%EB%B6%81%EB%A1%9C-9-%EB%82%98%EC%84%B1%EB%8F%99",
+      "sourceRecordId": "3611010700103610039000001",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T04:18:00Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "jusoga-building-3611010700103610039000001-25e7abe7:menu:1",
+          "name": "삼겹꾸미",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "주소가 건물주소 자료",
+        "attribution": "위치: 주소가 개별 건물주소 자료. 지점·주소·메뉴: 공개 매장정보 및 연결된 방문기 또는 브랜드 공식 메뉴.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 건물 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "출처 확인일 2026-10-14. 건물 주소 기준 위치; 입구·층·호 위치 미확인. 삼겹꾸미의 매운맛은 2026-06-25 개인 방문기 검색본문과 개별 매장정보로 확인했습니다. 원문 직접 열기에서는 오류가 발생했습니다. 현재 영업 여부와 해당 메뉴의 현재 제공 여부는 확인되지 않았습니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스를 확인한 자료가 아니며 최소한의 개별 공개 사실 이용에 한정한 검토입니다. 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "15b0604c-b2df-50af-940a-cf5162e305dd",
+    "slug": "hot-sejong-sinjeon-areum",
+    "name": "신전떡볶이 아름점",
+    "address": "세종특별자치시 보듬3로 95 해피라움3차 101호",
+    "lat": 36.511529699016,
+    "lon": 127.2489427182,
+    "source_ref": "jusoga-building-3611011300100980000000001-3bd84b56",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://jusoga.com/b/3611011300100980000000001/%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C-%EB%B3%B4%EB%93%AC3%EB%A1%9C-95-%EC%95%84%EB%A6%84%EB%8F%99",
+      "sourceRecordId": "3611011300100980000000001",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T04:18:00Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "jusoga-building-3611011300100980000000001-3bd84b56:menu:1",
+          "name": "신전떡볶이 (매운맛)",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "주소가 건물주소 자료",
+        "attribution": "위치: 주소가 개별 건물주소 자료. 지점·주소·메뉴: 공개 매장정보 및 연결된 방문기 또는 브랜드 공식 메뉴.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 건물 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "출처 확인일 2026-10-14. 건물 주소 기준 위치; 입구·층·호 위치 미확인. 매운맛 선택은 신전 공식 메뉴, 지점명·주소와 떡볶이 메뉴는 개별 지점정보에서 확인했습니다. 현재 영업 여부와 해당 메뉴의 현재 제공 여부는 확인되지 않았습니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스를 확인한 자료가 아니며 최소한의 개별 공개 사실 이용에 한정한 검토입니다. 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "ab8d2eeb-8d99-571d-8fd0-5767a1b98d96",
+    "slug": "hot-sejong-sinjeon-saerom",
+    "name": "신전떡볶이 새롬점",
+    "address": "세종특별자치시 새롬중앙로 47 세움빌딩 1층",
+    "lat": 36.48509121396,
+    "lon": 127.25086727704,
+    "source_ref": "jusoga-building-3611010800103410092000001-d0225e4c",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://jusoga.com/b/3611010800103410092000001/%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C-%EC%83%88%EB%A1%AC%EC%A4%91%EC%95%99%EB%A1%9C-47-%EC%83%88%EB%A1%AC%EB%8F%99",
+      "sourceRecordId": "3611010800103410092000001",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T04:18:00Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "jusoga-building-3611010800103410092000001-d0225e4c:menu:1",
+          "name": "신전떡볶이 (매운맛)",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "주소가 건물주소 자료",
+        "attribution": "위치: 주소가 개별 건물주소 자료. 지점·주소·메뉴: 공개 매장정보 및 연결된 방문기 또는 브랜드 공식 메뉴.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 건물 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "출처 확인일 2026-10-14. 건물 주소 기준 위치; 입구·층·호 위치 미확인. 매운맛 선택은 신전 공식 메뉴, 지점명·주소와 떡볶이 메뉴는 개별 지점정보에서 확인했습니다. 현재 영업 여부와 해당 메뉴의 현재 제공 여부는 확인되지 않았습니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스를 확인한 자료가 아니며 최소한의 개별 공개 사실 이용에 한정한 검토입니다. 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  }
+]

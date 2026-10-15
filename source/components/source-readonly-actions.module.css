@@ -1,0 +1,11 @@
+.notice{margin:10px 0 0;font-size:12px;line-height:1.6;color:#756e63}
+.report{margin:14px 0;padding-top:14px;border-top:1px solid var(--flavor-line,#e9e5dc);font-size:12px;line-height:1.6}
+.report h3{margin:0 0 8px;font-size:14px;font-weight:700}
+.report p,.owner p{margin:8px 0;font-size:12px;line-height:1.6}
+.report small,.owner small{display:block;margin-top:8px;font-size:11px;line-height:1.6;color:#756e63}
+.owner{margin:14px 0;padding:12px;border:1px dashed #d8b9ad;border-radius:10px;background:#fffaf5}
+.button{display:flex;align-items:center;justify-content:center;width:100%;min-height:44px;padding:10px 12px;border:1px solid var(--brand-ink,#bd3828);border-radius:8px;background:#fffefa;color:var(--brand-ink,#bd3828);font-size:12px;font-weight:700;line-height:1.5;cursor:pointer}
+.textButton{display:inline-flex;align-items:center;min-height:44px;padding:8px 0;border:0;background:transparent;color:var(--brand-ink,#bd3828);font-size:12px;font-weight:700;line-height:1.6;text-align:left;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.explanation{margin-top:10px;padding:10px 12px;border:1px solid #e7d7d0;border-radius:8px;background:#fffaf7}
+.explanation p{margin:0;font-size:12px;line-height:1.6}
+.button:focus-visible,.textButton:focus-visible{outline:2px solid var(--brand-ink,#bd3828);outline-offset:3px}

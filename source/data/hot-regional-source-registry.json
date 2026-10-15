@@ -1,0 +1,272 @@
+[
+  {
+    "id": "f6a80ab1-ee20-5ab2-a4da-a5a4cd430da9",
+    "slug": "hot-gwangju-kokkiri-main",
+    "sourceRef": "aks-gwangju-kokkiri-factpoint-54329",
+    "name": "코끼리아구찜 본점",
+    "address": "광주광역시 서구 금화로73번길 2-1",
+    "coordinates": {
+      "lat": 35.13257,
+      "lon": 126.8569
+    },
+    "menus": [
+      {
+        "id": "aks-gwangju-kokkiri-factpoint-54329:menu:1",
+        "name": "섞어찜",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://dh.aks.ac.kr/~gwangju/wiki/index.php/코끼리아구찜",
+      "licenseName": "CC BY-SA 4.0",
+      "asOf": null,
+      "checkedAt": "2026-10-14T00:49:36Z",
+      "disclosure": {
+        "kind": "attributed-wiki-facts",
+        "publisher": "광주문화예술인문스토리플랫폼",
+        "attribution": "코끼리아구찜 · Proofreaderhong·박종평 및 기여자 · 판 54329 (2025-09-27)",
+        "changes": "상호·주소·메뉴 등 일부 사실 항목만 발췌. 본점 표기는 별도 자료로 보완했으며 표의 좌표는 변경하지 않았습니다.",
+        "scopeNotice": "이 위키에서 사용한 자료에는 CC BY-SA 4.0 조건이 적용됩니다. 원자료의 보호되는 내용을 수정·배포할 때는 동일조건변경허락을 유지해야 합니다. 좌표의 최초 측정·제공자는 확인되지 않았습니다. 블로그의 글·사진은 가져오지 않았으며 현재 영업·판매 여부와 수치 맵기는 미확인입니다.",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "revisionUrl": "https://dh.aks.ac.kr/~gwangju/wiki/index.php?title=코끼리아구찜&oldid=54329",
+        "historyUrl": "https://dh.aks.ac.kr/~gwangju/wiki/index.php?title=코끼리아구찜&action=history"
+      }
+    }
+  },
+  {
+    "id": "b04a5089-1e56-54cb-98ac-40fb5c5bf750",
+    "slug": "hot-daejeon-cent-066",
+    "sourceRef": "purpleo-qbh-125717",
+    "name": "온유네닭매운탕",
+    "address": "대전광역시 서구 문정로170번길 50",
+    "coordinates": {
+      "lat": 36.3493679,
+      "lon": 127.3985766
+    },
+    "menus": [
+      {
+        "id": "purpleo-qbh-125717:menu:1",
+        "name": "닭매운탕",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://qbh.purpleo.kr/article/125717",
+      "licenseName": null,
+      "asOf": "2020",
+      "checkedAt": "2026-10-14T00:51:19.173658+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "퍼플오 공개 문화시설 자료",
+        "attribution": "온유네닭매운탕 · qbh:125717 · 자료 기준연도 2020",
+        "changes": "개별 공개 기록의 상호·주소·좌표와 별도 확인된 메뉴명만 정리했습니다. 가격·사진·평가·수치 맵기는 가져오지 않았습니다.",
+        "scopeNotice": "명시적 이용허락을 확인한 자료가 아닙니다. 최소한의 개별 사실 이용에 한정한 검토이며 원제공자의 라이선스를 승계한다고 주장하지 않습니다. 좌표는 2020년 기준의 2차 자료이고 원제공자 행은 대조하지 못했습니다. 최근 같은 주소의 자료로 보완했으나 현재 영업·메뉴 판매 여부를 보증하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "06e0018d-393d-529a-98c0-c389fdafe9c3",
+    "slug": "hot-busan-naesarang-jokbal",
+    "sourceRef": "purpleo-xnx-4796",
+    "name": "내사랑족발",
+    "address": "부산광역시 연제구 신촌로 34-1",
+    "coordinates": {
+      "lat": 35.1838436480273,
+      "lon": 129.075249079555
+    },
+    "menus": [
+      {
+        "id": "purpleo-xnx-4796:menu:1",
+        "name": "앞다리 불족발",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://xnx.purpleo.kr/article/4796",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T03:44:12.898402+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "퍼플오 전국 족발·보쌈 개별 자료",
+        "attribution": "위치: xnx:4796. 주소·메뉴: 다이닝코드 개별 매장 정보. 매운맛 참고: 부산남자 맛동민, 2022-10-09 개인 방문 후기.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "강한 매운맛 평가는 2022-10-09 개인 방문 후기 기준이며 현재 강도 또는 단계 확인이 아니다. 현재 영업 여부와 불족발 제공 여부는 확인되지 않았다. 주소와 메뉴는 공개 개별 사실 자료로 교차 확인했다. 좌표 자료의 원 조사일과 원 제공 좌표 생성 방식은 확인되지 않았다. 2026-10-10은 사이트 갱신일이다. 명시적 오픈 라이선스를 확인한 자료가 아닙니다. 최소한의 개별 공개 사실 이용에 한정한 검토이며 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "a7b376a2-894d-550e-9491-dc9a7327448c",
+    "slug": "hot-busan-jjokjjok-seomyeon",
+    "sourceRef": "purpleo-smi-36199",
+    "name": "부산쪽쪽갈비 서면",
+    "address": "부산 부산진구 중앙대로691번가길 32 1층",
+    "coordinates": {
+      "lat": 35.1557020679121,
+      "lon": 129.055605924178
+    },
+    "menus": [
+      {
+        "id": "purpleo-smi-36199:menu:1",
+        "name": "쪽갈비 양념 바베큐(매운맛)",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://smi.purpleo.kr/article/36199",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T03:44:12.898402+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "퍼플오 개별 음식점 자료",
+        "attribution": "위치: smi:36199, 주소가 건물주소 대조. 메뉴: HUMHAM(2020-03-07)·ME:LOG(2026-03-20) 방문 기록. 서면 표기는 지점 구분을 위해 보완했습니다.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "2020년 방문 기록의 매운맛 경험과 2026년 메뉴·주소 자료를 함께 확인했습니다. 현재 영업·메뉴 판매와 수치 맵기는 미확인입니다. 좌표는 개별 공개자료이며 원제공자 행을 직접 대조하지 못했습니다. 2020년 후기는 서면 롯데 뒤 같은 이름 매장으로 확인되며 당시 도로명주소는 기재되지 않았습니다. 명시적 오픈 라이선스를 확인한 자료가 아닙니다. 최소한의 개별 공개 사실 이용에 한정한 검토이며 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "8b8da4a6-3932-564f-b8e0-977d4fabf770",
+    "slug": "hot-busan-oduri-goejeong",
+    "sourceRef": "jusoga-building-2638010100103820008029687-f47620bd",
+    "name": "오두리할매 셋째딸 연탄쭈꾸미 괴정점",
+    "address": "부산광역시 사하구 사리로8번길 2, 1층",
+    "coordinates": {
+      "lat": 35.100582821872,
+      "lon": 128.99979567549
+    },
+    "menus": [
+      {
+        "id": "jusoga-building-2638010100103820008029687-f47620bd:menu:1",
+        "name": "쭈꾸미 양념구이 (매운맛)",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/2638010100103820008029687/부산광역시-사하구-사리로8번길-2괴정동",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T03:44:12.898402+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "주소가 건물주소 자료",
+        "attribution": "위치: 주소가 사리로8번길 2 건물주소 자료. 메뉴·주소: 아니모(Tistory, 2026-08-19 게시), 다이닝코드 개별 매장 정보. 과거 선택지: 내가 관심있는 모든 것(Tistory, 2021-02-05).",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "매운맛은 공개 메뉴의 선택지이며 수치 맵기나 직접 측정값이 아닙니다. 2021년 작성자는 보통맛을 먹었고 가장 매운맛 평가는 전해 들은 내용입니다. 2026-08-19는 글 게시일이며 실제 방문일은 별도로 확인되지 않았습니다. 좌표는 같은 도로명·지번의 건물 위치이며 출입구와 원 제공자·조사일은 확인되지 않았습니다. 현재 영업·메뉴 판매 여부는 보장하지 않습니다. 명시적 오픈 라이선스를 확인한 자료가 아닙니다. 최소한의 개별 공개 사실 이용에 한정한 검토이며 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "7b51b57f-0146-5fd0-ae75-eec528cdff8f",
+    "slug": "hot-busan-yunsangok-sasang",
+    "sourceRef": "jusoga-building-2653010400105350003006339-fe86e570",
+    "name": "윤상옥신쭈꾸미 사상직영본점",
+    "address": "부산광역시 사상구 광장로81번길 37, LA게임랜드 1층",
+    "coordinates": {
+      "lat": 35.164078551423,
+      "lon": 128.98453555861
+    },
+    "menus": [
+      {
+        "id": "jusoga-building-2653010400105350003006339-fe86e570:menu:1",
+        "name": "신쭈꾸미(매운맛)",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/2653010400105350003006339/부산광역시-사상구-광장로81번길-37괘법동",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T03:44:12.898402+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "주소가 건물주소 자료",
+        "attribution": "위치: 주소가 광장로81번길 37 건물주소 자료. 메뉴·주소: 다이닝코드 개별 매장 정보와 연결된 방문후기 요약. 지점명·주소: 링크투플레이스 개별 매장 정보.",
+        "changes": "매장명·주소·개별 메뉴명과 자료에 표시된 위치만 정리했습니다. 원문 글·사진·가격·고객평가·수치 맵기를 가져오지 않았습니다.",
+        "scopeNotice": "공개 매장 정보에 연결된 별개 방문후기 요약 두 건에서 보통맛·매운맛을 확인했습니다. 원문과 작성연도는 확인되지 않았습니다. 실제 강한 매운맛이나 수치 맵기는 확인되지 않았습니다. 좌표는 같은 주소의 건물 위치이며 원 제공자·조사일과 출입구는 확인되지 않았습니다. 현재 영업·메뉴 판매 여부는 보장하지 않습니다. 명시적 오픈 라이선스를 확인한 자료가 아닙니다. 최소한의 개별 공개 사실 이용에 한정한 검토이며 원제공자의 이용허락을 승계한다고 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  }
+]

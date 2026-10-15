@@ -1,0 +1,1037 @@
+[
+  {
+    "id": "c1735499-83ec-5b8c-8731-4a9843c79313",
+    "slug": "hot-busan-archive-61e66947",
+    "sourceRef": "archive-busan-2338d72a80d461e66947",
+    "name": "돌집",
+    "address": "부산광역시 영도구 남항로 26-7",
+    "coordinates": {
+      "lat": 35.088951907519,
+      "lon": 129.03928290928
+    },
+    "menus": [
+      {
+        "id": "archive-busan-2338d72a80d461e66947:menu:1",
+        "name": "마라순두부",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/2620010600102490009018999/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C-%EC%98%81%EB%8F%84%EA%B5%AC-%EB%82%A8%ED%95%AD%EB%A1%9C-26-7%EB%82%A8%ED%95%AD%EB%8F%992%EA%B0%80",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T05:05:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "기존 음식점 자료 및 주소가 건물주소 자료",
+        "attribution": "메뉴·상호: 기존 음식점 자료. 위치: 주소가 개별 건물주소 자료.",
+        "changes": "상호·주소·메뉴명과 건물 위치만 정리했으며 원문 글·사진·가격·평점·수치 맵기를 복제하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치이며 입구·층·호 위치는 확인되지 않았습니다. 메뉴는 기존 출처에 기재된 정보입니다. 현재 영업 여부와 메뉴 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스의 승계를 주장하지 않으며 개별 공개 사실만 정리했습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "a7395567-a57c-5e63-85e5-66577dfdbbd8",
+    "slug": "hot-busan-archive-45272702",
+    "sourceRef": "archive-busan-ddd19c33372745272702",
+    "name": "올리버다이너",
+    "address": "부산광역시 영도구 와치로27번길 19 1층",
+    "coordinates": {
+      "lat": 35.089762824354,
+      "lon": 129.05928720362
+    },
+    "menus": [
+      {
+        "id": "archive-busan-ddd19c33372745272702:menu:1",
+        "name": "감베로니 피칸테",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/2620012000104590020017732/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C-%EC%98%81%EB%8F%84%EA%B5%AC-%EC%99%80%EC%B9%98%EB%A1%9C27%EB%B2%88%EA%B8%B8-19%EC%B2%AD%ED%95%99%EB%8F%99",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T05:05:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "기존 음식점 자료 및 주소가 건물주소 자료",
+        "attribution": "메뉴·상호: 기존 음식점 자료. 위치: 주소가 개별 건물주소 자료.",
+        "changes": "상호·주소·메뉴명과 건물 위치만 정리했으며 원문 글·사진·가격·평점·수치 맵기를 복제하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치이며 입구·층·호 위치는 확인되지 않았습니다. 메뉴는 기존 출처에 기재된 정보입니다. 현재 영업 여부와 메뉴 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스의 승계를 주장하지 않으며 개별 공개 사실만 정리했습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "31e9668a-78f8-5b1c-b79b-c1a37c95364b",
+    "slug": "hot-busan-archive-d5643852",
+    "sourceRef": "archive-busan-342df7c0db7bd5643852",
+    "name": "중앙모밀",
+    "address": "부산광역시 중구 중앙대로49번길 9-1",
+    "coordinates": {
+      "lat": 35.101911008992,
+      "lon": 129.03532036459
+    },
+    "menus": [
+      {
+        "id": "archive-busan-342df7c0db7bd5643852:menu:1",
+        "name": "얼큰우동",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/2611010500100270002008046/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C-%EC%A4%91%EA%B5%AC-%EC%A4%91%EC%95%99%EB%8C%80%EB%A1%9C49%EB%B2%88%EA%B8%B8-9-1%EC%A4%91%EC%95%99%EB%8F%992%EA%B0%80",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T05:05:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "기존 음식점 자료 및 주소가 건물주소 자료",
+        "attribution": "메뉴·상호: 기존 음식점 자료. 위치: 주소가 개별 건물주소 자료.",
+        "changes": "상호·주소·메뉴명과 건물 위치만 정리했으며 원문 글·사진·가격·평점·수치 맵기를 복제하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치이며 입구·층·호 위치는 확인되지 않았습니다. 메뉴는 기존 출처에 기재된 정보입니다. 현재 영업 여부와 메뉴 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스의 승계를 주장하지 않으며 개별 공개 사실만 정리했습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "5f04ed60-f277-5ca4-8621-4f96e90777f2",
+    "slug": "hot-busan-archive-e71f5fa6",
+    "sourceRef": "archive-busan-095ffc06e11ae71f5fa6",
+    "name": "쿤타샌드위치",
+    "address": "부산광역시 영도구 태종로 430 한라청학아파트 상가동 102호",
+    "coordinates": {
+      "lat": 35.089541218608,
+      "lon": 129.06774879483
+    },
+    "menus": [
+      {
+        "id": "archive-busan-095ffc06e11ae71f5fa6:menu:1",
+        "name": "매운맛샌드위치",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/2620012000100620060006168/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C-%EC%98%81%EB%8F%84%EA%B5%AC-%ED%83%9C%EC%A2%85%EB%A1%9C-430-%EC%B2%AD%ED%95%99%EB%8F%99",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T05:05:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "기존 음식점 자료 및 주소가 건물주소 자료",
+        "attribution": "메뉴·상호: 기존 음식점 자료. 위치: 주소가 개별 건물주소 자료.",
+        "changes": "상호·주소·메뉴명과 건물 위치만 정리했으며 원문 글·사진·가격·평점·수치 맵기를 복제하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치이며 입구·층·호 위치는 확인되지 않았습니다. 메뉴는 기존 출처에 기재된 정보입니다. 현재 영업 여부와 메뉴 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스의 승계를 주장하지 않으며 개별 공개 사실만 정리했습니다. 주소는 동일 매장 근거에 따라 도로명주소로 정정했습니다. 이 위치는 아파트 건물군 기준이며 상가동·매장 입구의 정확한 위치는 확인되지 않았습니다. 건물 단지 기준 위치; 상가동·매장 입구 위치 미확인.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "2f0a92ec-64a6-588a-a547-38f9cba85d2c",
+    "slug": "hot-busan-archive-759664fa",
+    "sourceRef": "archive-busan-ee8778a865f3759664fa",
+    "name": "해로",
+    "address": "부산광역시 영도구 남항새싹4길 1 1층",
+    "coordinates": {
+      "lat": 35.082933135355,
+      "lon": 129.04144268139
+    },
+    "menus": [
+      {
+        "id": "archive-busan-ee8778a865f3759664fa:menu:1",
+        "name": "매운 소고기쌀면",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/2620011100101590003002081/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C-%EC%98%81%EB%8F%84%EA%B5%AC-%EB%82%A8%ED%95%AD%EC%83%88%EC%8B%B94%EA%B8%B8-1%EC%98%81%EC%84%A0%EB%8F%994%EA%B0%80",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T05:05:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "기존 음식점 자료 및 주소가 건물주소 자료",
+        "attribution": "메뉴·상호: 기존 음식점 자료. 위치: 주소가 개별 건물주소 자료.",
+        "changes": "상호·주소·메뉴명과 건물 위치만 정리했으며 원문 글·사진·가격·평점·수치 맵기를 복제하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치이며 입구·층·호 위치는 확인되지 않았습니다. 메뉴는 기존 출처에 기재된 정보입니다. 현재 영업 여부와 메뉴 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스의 승계를 주장하지 않으며 개별 공개 사실만 정리했습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "a6b116b3-16b5-5638-b28a-26551d990762",
+    "slug": "hot-busan-archive-22ce34fa",
+    "sourceRef": "archive-busan-0b5da8dac84c22ce34fa",
+    "name": "늘솜",
+    "address": "부산광역시 사하구 회화나무길 93",
+    "coordinates": {
+      "lat": 35.101173088044,
+      "lon": 128.99331931627
+    },
+    "menus": [
+      {
+        "id": "archive-busan-0b5da8dac84c22ce34fa:menu:1",
+        "name": "땡초돈까스",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/2638010100110250016016811/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C-%EC%82%AC%ED%95%98%EA%B5%AC-%ED%9A%8C%ED%99%94%EB%82%98%EB%AC%B4%EA%B8%B8-93%EA%B4%B4%EC%A0%95%EB%8F%99",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T05:05:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "기존 음식점 자료 및 주소가 건물주소 자료",
+        "attribution": "메뉴·상호: 기존 음식점 자료. 위치: 주소가 개별 건물주소 자료.",
+        "changes": "상호·주소·메뉴명과 건물 위치만 정리했으며 원문 글·사진·가격·평점·수치 맵기를 복제하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치이며 입구·층·호 위치는 확인되지 않았습니다. 메뉴는 기존 출처에 기재된 정보입니다. 현재 영업 여부와 메뉴 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스의 승계를 주장하지 않으며 개별 공개 사실만 정리했습니다. 주소는 동일 매장 근거에 따라 도로명주소로 정정했습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "a18a08a5-b7c1-54d5-9b95-462455acf02b",
+    "slug": "hot-busan-archive-52d9dd04",
+    "sourceRef": "archive-busan-48120eb8588552d9dd04",
+    "name": "다대포 할매집",
+    "address": "부산광역시 사하구 몰운대1길 55",
+    "coordinates": {
+      "lat": 35.045248123974,
+      "lon": 128.96920631003
+    },
+    "menus": [
+      {
+        "id": "archive-busan-48120eb8588552d9dd04:menu:1",
+        "name": "땡초전",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/2638010600104680006005581/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C-%EC%82%AC%ED%95%98%EA%B5%AC-%EB%AA%B0%EC%9A%B4%EB%8C%801%EA%B8%B8-55%EB%8B%A4%EB%8C%80%EB%8F%99",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T05:05:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "기존 음식점 자료 및 주소가 건물주소 자료",
+        "attribution": "메뉴·상호: 기존 음식점 자료. 위치: 주소가 개별 건물주소 자료.",
+        "changes": "상호·주소·메뉴명과 건물 위치만 정리했으며 원문 글·사진·가격·평점·수치 맵기를 복제하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치이며 입구·층·호 위치는 확인되지 않았습니다. 메뉴는 기존 출처에 기재된 정보입니다. 현재 영업 여부와 메뉴 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스의 승계를 주장하지 않으며 개별 공개 사실만 정리했습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "ebdeae22-f973-524f-a16b-76dd4c407fd2",
+    "slug": "hot-busan-archive-aa514bd1",
+    "sourceRef": "archive-busan-631fa074103baa514bd1",
+    "name": "라마마",
+    "address": "부산광역시 사하구 낙동대로 515",
+    "coordinates": {
+      "lat": 35.110162524046,
+      "lon": 128.9656392632
+    },
+    "menus": [
+      {
+        "id": "archive-busan-631fa074103baa514bd1:menu:1",
+        "name": "마라탕",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/2638010300105050007011006/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C-%EC%82%AC%ED%95%98%EA%B5%AC-%EB%82%99%EB%8F%99%EB%8C%80%EB%A1%9C-515%ED%95%98%EB%8B%A8%EB%8F%99",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T05:05:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "기존 음식점 자료 및 주소가 건물주소 자료",
+        "attribution": "메뉴·상호: 기존 음식점 자료. 위치: 주소가 개별 건물주소 자료.",
+        "changes": "상호·주소·메뉴명과 건물 위치만 정리했으며 원문 글·사진·가격·평점·수치 맵기를 복제하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치이며 입구·층·호 위치는 확인되지 않았습니다. 메뉴는 기존 출처에 기재된 정보입니다. 현재 영업 여부와 메뉴 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스의 승계를 주장하지 않으며 개별 공개 사실만 정리했습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "acb235d0-5171-55c3-92b2-0a04b7118b58",
+    "slug": "hot-busan-archive-0897aa35",
+    "sourceRef": "archive-busan-102d0460f9c50897aa35",
+    "name": "물마",
+    "address": "부산광역시 서구 대영로45번길 62",
+    "coordinates": {
+      "lat": 35.112154560101,
+      "lon": 129.01511610944
+    },
+    "menus": [
+      {
+        "id": "archive-busan-102d0460f9c50897aa35:menu:1",
+        "name": "얼큰이삼계탕",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/2614010600104110000000001/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C-%EC%84%9C%EA%B5%AC-%EB%8C%80%EC%98%81%EB%A1%9C45%EB%B2%88%EA%B8%B8-62%EC%84%9C%EB%8C%80%EC%8B%A0%EB%8F%993%EA%B0%80",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T05:05:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "기존 음식점 자료 및 주소가 건물주소 자료",
+        "attribution": "메뉴·상호: 기존 음식점 자료. 위치: 주소가 개별 건물주소 자료.",
+        "changes": "상호·주소·메뉴명과 건물 위치만 정리했으며 원문 글·사진·가격·평점·수치 맵기를 복제하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치이며 입구·층·호 위치는 확인되지 않았습니다. 메뉴는 기존 출처에 기재된 정보입니다. 현재 영업 여부와 메뉴 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스의 승계를 주장하지 않으며 개별 공개 사실만 정리했습니다. 과거 자료에 기재된 메뉴; 현재 제공 여부 미확인.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "26fab0fe-4874-5e7e-9a1e-da57024f83dc",
+    "slug": "hot-busan-archive-e5f7aad0",
+    "sourceRef": "archive-busan-442faaef5df2e5f7aad0",
+    "name": "식당토성동 본점",
+    "address": "부산광역시 서구 구덕로124번길 27",
+    "coordinates": {
+      "lat": 35.097915423632,
+      "lon": 129.02256427985
+    },
+    "menus": [
+      {
+        "id": "archive-busan-442faaef5df2e5f7aad0:menu:1",
+        "name": "매콤목삼덮밥",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/2614011800100170005012010/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C-%EC%84%9C%EA%B5%AC-%EA%B5%AC%EB%8D%95%EB%A1%9C124%EB%B2%88%EA%B8%B8-27%ED%86%A0%EC%84%B1%EB%8F%995%EA%B0%80",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T05:05:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "기존 음식점 자료 및 주소가 건물주소 자료",
+        "attribution": "메뉴·상호: 기존 음식점 자료. 위치: 주소가 개별 건물주소 자료.",
+        "changes": "상호·주소·메뉴명과 건물 위치만 정리했으며 원문 글·사진·가격·평점·수치 맵기를 복제하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치이며 입구·층·호 위치는 확인되지 않았습니다. 메뉴는 기존 출처에 기재된 정보입니다. 현재 영업 여부와 메뉴 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스의 승계를 주장하지 않으며 개별 공개 사실만 정리했습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "cca88cbd-fedf-55e4-ba4e-50156186cc09",
+    "slug": "hot-busan-archive-001ba09c",
+    "sourceRef": "archive-busan-1391c2316594001ba09c",
+    "name": "은화수식당 동아대점",
+    "address": "부산광역시 사하구 낙동대로536번길 21 1층",
+    "coordinates": {
+      "lat": 35.112311655341,
+      "lon": 128.96609197936
+    },
+    "menus": [
+      {
+        "id": "archive-busan-1391c2316594001ba09c:menu:1",
+        "name": "매콤이 돈가스",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/2638010300104940006009860/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C-%EC%82%AC%ED%95%98%EA%B5%AC-%EB%82%99%EB%8F%99%EB%8C%80%EB%A1%9C536%EB%B2%88%EA%B8%B8-21%ED%95%98%EB%8B%A8%EB%8F%99",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T05:05:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "기존 음식점 자료 및 주소가 건물주소 자료",
+        "attribution": "메뉴·상호: 기존 음식점 자료. 위치: 주소가 개별 건물주소 자료.",
+        "changes": "상호·주소·메뉴명과 건물 위치만 정리했으며 원문 글·사진·가격·평점·수치 맵기를 복제하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치이며 입구·층·호 위치는 확인되지 않았습니다. 메뉴는 기존 출처에 기재된 정보입니다. 현재 영업 여부와 메뉴 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스의 승계를 주장하지 않으며 개별 공개 사실만 정리했습니다. 주소는 동일 매장 근거에 따라 도로명주소로 정정했습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "949e81c5-7101-537f-8ec4-02ababdebe18",
+    "slug": "hot-busan-archive-67db9421",
+    "sourceRef": "archive-busan-c4a7ca0fe2df67db9421",
+    "name": "화화돼지왕갈비 괴정점",
+    "address": "부산광역시 사하구 낙동대로 168-1",
+    "coordinates": {
+      "lat": 35.102244204677,
+      "lon": 128.99770821118
+    },
+    "menus": [
+      {
+        "id": "archive-busan-c4a7ca0fe2df67db9421:menu:1",
+        "name": "매콤돼지구이",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/2638010100102550038002646/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C-%EC%82%AC%ED%95%98%EA%B5%AC-%EB%82%99%EB%8F%99%EB%8C%80%EB%A1%9C-168-1%EA%B4%B4%EC%A0%95%EB%8F%99",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T05:05:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "기존 음식점 자료 및 주소가 건물주소 자료",
+        "attribution": "메뉴·상호: 기존 음식점 자료. 위치: 주소가 개별 건물주소 자료.",
+        "changes": "상호·주소·메뉴명과 건물 위치만 정리했으며 원문 글·사진·가격·평점·수치 맵기를 복제하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치이며 입구·층·호 위치는 확인되지 않았습니다. 메뉴는 기존 출처에 기재된 정보입니다. 현재 영업 여부와 메뉴 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스의 승계를 주장하지 않으며 개별 공개 사실만 정리했습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "61321a3a-1c2f-5b5d-a19d-5ab880b2d6e8",
+    "slug": "hot-busan-archive-770374fb",
+    "sourceRef": "archive-busan-659c4ea97559770374fb",
+    "name": "나베야 돈까스 본점",
+    "address": "부산광역시 동구 고관로 133-1 1층",
+    "coordinates": {
+      "lat": 35.130283543086,
+      "lon": 129.04798541212
+    },
+    "menus": [
+      {
+        "id": "archive-busan-659c4ea97559770374fb:menu:1",
+        "name": "매운돈까스나베",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/2617010200102320007015123/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C-%EB%8F%99%EA%B5%AC-%EA%B3%A0%EA%B4%80%EB%A1%9C-133-1%EC%88%98%EC%A0%95%EB%8F%99",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T05:05:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "기존 음식점 자료 및 주소가 건물주소 자료",
+        "attribution": "메뉴·상호: 기존 음식점 자료. 위치: 주소가 개별 건물주소 자료.",
+        "changes": "상호·주소·메뉴명과 건물 위치만 정리했으며 원문 글·사진·가격·평점·수치 맵기를 복제하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치이며 입구·층·호 위치는 확인되지 않았습니다. 메뉴는 기존 출처에 기재된 정보입니다. 현재 영업 여부와 메뉴 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스의 승계를 주장하지 않으며 개별 공개 사실만 정리했습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "aff0a83f-097c-5de4-9ea2-c2ea42f3d85d",
+    "slug": "hot-busan-archive-51512a88",
+    "sourceRef": "archive-busan-afd160fde8e751512a88",
+    "name": "영진어묵",
+    "address": "부산광역시 동구 중앙대로231번길 26",
+    "coordinates": {
+      "lat": 35.118313410844,
+      "lon": 129.03975882688
+    },
+    "menus": [
+      {
+        "id": "archive-busan-afd160fde8e751512a88:menu:1",
+        "name": "매운모듬세트",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/2617010100102240001017317/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C-%EB%8F%99%EA%B5%AC-%EC%A4%91%EC%95%99%EB%8C%80%EB%A1%9C231%EB%B2%88%EA%B8%B8-26%EC%B4%88%EB%9F%89%EB%8F%99",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T05:05:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "기존 음식점 자료 및 주소가 건물주소 자료",
+        "attribution": "메뉴·상호: 기존 음식점 자료. 위치: 주소가 개별 건물주소 자료.",
+        "changes": "상호·주소·메뉴명과 건물 위치만 정리했으며 원문 글·사진·가격·평점·수치 맵기를 복제하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치이며 입구·층·호 위치는 확인되지 않았습니다. 메뉴는 기존 출처에 기재된 정보입니다. 현재 영업 여부와 메뉴 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스의 승계를 주장하지 않으며 개별 공개 사실만 정리했습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "8c5e6acf-be5a-5e0d-a809-565c29ae67ea",
+    "slug": "hot-busan-archive-ca021061",
+    "sourceRef": "archive-busan-a12bf26bd287ca021061",
+    "name": "원조부산밀면",
+    "address": "부산광역시 동구 중앙대로231번길 7",
+    "coordinates": {
+      "lat": 35.117890321647,
+      "lon": 129.04056355081
+    },
+    "menus": [
+      {
+        "id": "archive-busan-a12bf26bd287ca021061:menu:1",
+        "name": "매운밀면",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/2617010100103490001003286/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C-%EB%8F%99%EA%B5%AC-%EC%A4%91%EC%95%99%EB%8C%80%EB%A1%9C231%EB%B2%88%EA%B8%B8-7%EC%B4%88%EB%9F%89%EB%8F%99",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T05:05:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "기존 음식점 자료 및 주소가 건물주소 자료",
+        "attribution": "메뉴·상호: 기존 음식점 자료. 위치: 주소가 개별 건물주소 자료.",
+        "changes": "상호·주소·메뉴명과 건물 위치만 정리했으며 원문 글·사진·가격·평점·수치 맵기를 복제하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치이며 입구·층·호 위치는 확인되지 않았습니다. 메뉴는 기존 출처에 기재된 정보입니다. 현재 영업 여부와 메뉴 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스의 승계를 주장하지 않으며 개별 공개 사실만 정리했습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "c6da5024-1d45-51aa-a7cf-417e3b5c42c2",
+    "slug": "hot-busan-archive-0a072c8e",
+    "sourceRef": "archive-busan-6b07f8ab91890a072c8e",
+    "name": "원조왕새우매운돼지 본점",
+    "address": "부산광역시 동구 중앙대로371번길 8",
+    "coordinates": {
+      "lat": 35.12888326212,
+      "lon": 129.04811771293
+    },
+    "menus": [
+      {
+        "id": "archive-busan-6b07f8ab91890a072c8e:menu:1",
+        "name": "매운소갈비찜",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/2617010200100010117005224/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C-%EB%8F%99%EA%B5%AC-%EC%A4%91%EC%95%99%EB%8C%80%EB%A1%9C371%EB%B2%88%EA%B8%B8-8%EC%88%98%EC%A0%95%EB%8F%99",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T05:05:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "기존 음식점 자료 및 주소가 건물주소 자료",
+        "attribution": "메뉴·상호: 기존 음식점 자료. 위치: 주소가 개별 건물주소 자료.",
+        "changes": "상호·주소·메뉴명과 건물 위치만 정리했으며 원문 글·사진·가격·평점·수치 맵기를 복제하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치이며 입구·층·호 위치는 확인되지 않았습니다. 메뉴는 기존 출처에 기재된 정보입니다. 현재 영업 여부와 메뉴 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스의 승계를 주장하지 않으며 개별 공개 사실만 정리했습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "be688108-c525-5007-8c33-9e5192937519",
+    "slug": "hot-busan-archive-d425afc1",
+    "sourceRef": "archive-busan-3b261218b29ad425afc1",
+    "name": "유연돼지갈비",
+    "address": "부산광역시 동구 범일로102번길 16-5",
+    "coordinates": {
+      "lat": 35.138762670554,
+      "lon": 129.06129396648
+    },
+    "menus": [
+      {
+        "id": "archive-busan-3b261218b29ad425afc1:menu:1",
+        "name": "매운고추장돼지갈비",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/2617010400108300267011935/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C-%EB%8F%99%EA%B5%AC-%EB%B2%94%EC%9D%BC%EB%A1%9C102%EB%B2%88%EA%B8%B8-16-5%EB%B2%94%EC%9D%BC%EB%8F%99",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T05:05:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "기존 음식점 자료 및 주소가 건물주소 자료",
+        "attribution": "메뉴·상호: 기존 음식점 자료. 위치: 주소가 개별 건물주소 자료.",
+        "changes": "상호·주소·메뉴명과 건물 위치만 정리했으며 원문 글·사진·가격·평점·수치 맵기를 복제하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치이며 입구·층·호 위치는 확인되지 않았습니다. 메뉴는 기존 출처에 기재된 정보입니다. 현재 영업 여부와 메뉴 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스의 승계를 주장하지 않으며 개별 공개 사실만 정리했습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "7b67b47e-95b9-5041-a7a4-ca9310897374",
+    "slug": "hot-busan-archive-c41ecf65",
+    "sourceRef": "archive-busan-eacb2b7a8059c41ecf65",
+    "name": "하이디라오 부산역점",
+    "address": "부산광역시 동구 중앙대로 175",
+    "coordinates": {
+      "lat": 35.113234870955,
+      "lon": 129.03850663954
+    },
+    "menus": [
+      {
+        "id": "archive-busan-eacb2b7a8059c41ecf65:menu:1",
+        "name": "청유마라훠궈(오리지널)",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/2617010100112100005010982/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C-%EB%8F%99%EA%B5%AC-%EC%A4%91%EC%95%99%EB%8C%80%EB%A1%9C-175%EC%B4%88%EB%9F%89%EB%8F%99",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T05:05:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "기존 음식점 자료 및 주소가 건물주소 자료",
+        "attribution": "메뉴·상호: 기존 음식점 자료. 위치: 주소가 개별 건물주소 자료.",
+        "changes": "상호·주소·메뉴명과 건물 위치만 정리했으며 원문 글·사진·가격·평점·수치 맵기를 복제하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치이며 입구·층·호 위치는 확인되지 않았습니다. 메뉴는 기존 출처에 기재된 정보입니다. 현재 영업 여부와 메뉴 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스의 승계를 주장하지 않으며 개별 공개 사실만 정리했습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "bbc6790a-3c3f-5d98-af5a-dec8e0ece693",
+    "slug": "hot-busan-archive-27891df3",
+    "sourceRef": "archive-busan-42e6c629b23327891df3",
+    "name": "진성원",
+    "address": "부산광역시 사하구 낙동대로 440-1",
+    "coordinates": {
+      "lat": 35.104974375464,
+      "lon": 128.97047851537
+    },
+    "menus": [
+      {
+        "id": "archive-busan-42e6c629b23327891df3:menu:1",
+        "name": "매운갈비찜",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/2638010200103040031034749/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C-%EC%82%AC%ED%95%98%EA%B5%AC-%EB%82%99%EB%8F%99%EB%8C%80%EB%A1%9C-440-1%EB%8B%B9%EB%A6%AC%EB%8F%99",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T05:05:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "기존 음식점 자료 및 주소가 건물주소 자료",
+        "attribution": "메뉴·상호: 기존 음식점 자료. 위치: 주소가 개별 건물주소 자료.",
+        "changes": "상호·주소·메뉴명과 건물 위치만 정리했으며 원문 글·사진·가격·평점·수치 맵기를 복제하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치이며 입구·층·호 위치는 확인되지 않았습니다. 메뉴는 기존 출처에 기재된 정보입니다. 현재 영업 여부와 메뉴 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스의 승계를 주장하지 않으며 개별 공개 사실만 정리했습니다. 과거 자료에 기재된 메뉴; 현재 제공 여부 미확인.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "a170d150-28da-5c11-8726-213bd589f931",
+    "slug": "hot-busan-archive-9ae192fb",
+    "sourceRef": "archive-busan-3ad00a927d459ae192fb",
+    "name": "가온밀면 본점",
+    "address": "부산광역시 부산진구 새싹로 249-1",
+    "coordinates": {
+      "lat": 35.178365833324,
+      "lon": 129.04782534002
+    },
+    "menus": [
+      {
+        "id": "archive-busan-3ad00a927d459ae192fb:menu:1",
+        "name": "땡초듬뿍밀면",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/2623010700102730044019074/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C-%EB%B6%80%EC%82%B0%EC%A7%84%EA%B5%AC-%EC%83%88%EC%8B%B9%EB%A1%9C-249-1%EC%B4%88%EC%9D%8D%EB%8F%99",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T05:21:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "기존 음식점 자료 및 주소가 건물주소 자료",
+        "attribution": "메뉴·상호: 기존 음식점 자료. 위치: 주소가 개별 건물주소 자료.",
+        "changes": "상호·주소·메뉴명과 건물 위치만 정리했으며 원문 글·사진·가격·평점·수치 맵기를 복제하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치이며 입구·층·호 위치는 확인되지 않았습니다. 메뉴는 기존 출처에 기재된 정보입니다. 현재 영업 여부와 메뉴 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스의 승계를 주장하지 않으며 개별 공개 사실만 정리했습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "9907a476-c4d8-5176-bc4b-058853cade0e",
+    "slug": "hot-busan-archive-81f250d6",
+    "sourceRef": "archive-busan-c151dff9a09c81f250d6",
+    "name": "라멘야 본점",
+    "address": "부산광역시 부산진구 중앙대로680번가길 78 2층",
+    "coordinates": {
+      "lat": 35.156883247541,
+      "lon": 129.06109566513
+    },
+    "menus": [
+      {
+        "id": "archive-busan-c151dff9a09c81f250d6:menu:1",
+        "name": "매운돈코츠라멘",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/2623010300101680402023157/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C-%EB%B6%80%EC%82%B0%EC%A7%84%EA%B5%AC-%EC%A4%91%EC%95%99%EB%8C%80%EB%A1%9C680%EB%B2%88%EA%B0%80%EA%B8%B8-78%EB%B6%80%EC%A0%84%EB%8F%99",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T05:21:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "기존 음식점 자료 및 주소가 건물주소 자료",
+        "attribution": "메뉴·상호: 기존 음식점 자료. 위치: 주소가 개별 건물주소 자료.",
+        "changes": "상호·주소·메뉴명과 건물 위치만 정리했으며 원문 글·사진·가격·평점·수치 맵기를 복제하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치이며 입구·층·호 위치는 확인되지 않았습니다. 메뉴는 기존 출처에 기재된 정보입니다. 현재 영업 여부와 메뉴 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스의 승계를 주장하지 않으며 개별 공개 사실만 정리했습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "c94e33a7-a9a9-5eff-b35e-0b6cc9551181",
+    "slug": "hot-busan-archive-1f2d6d23",
+    "sourceRef": "archive-busan-c897e8bcfefa1f2d6d23",
+    "name": "박가연잎족발",
+    "address": "부산광역시 사상구 가야대로284번길 7-7",
+    "coordinates": {
+      "lat": 35.149772165236,
+      "lon": 129.00430521989
+    },
+    "menus": [
+      {
+        "id": "archive-busan-c897e8bcfefa1f2d6d23:menu:1",
+        "name": "불족발",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/2653010600105070012016133/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C-%EC%82%AC%EC%83%81%EA%B5%AC-%EA%B0%80%EC%95%BC%EB%8C%80%EB%A1%9C284%EB%B2%88%EA%B8%B8-7-7%EC%A3%BC%EB%A1%80%EB%8F%99",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T05:21:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "기존 음식점 자료 및 주소가 건물주소 자료",
+        "attribution": "메뉴·상호: 기존 음식점 자료. 위치: 주소가 개별 건물주소 자료.",
+        "changes": "상호·주소·메뉴명과 건물 위치만 정리했으며 원문 글·사진·가격·평점·수치 맵기를 복제하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치이며 입구·층·호 위치는 확인되지 않았습니다. 메뉴는 기존 출처에 기재된 정보입니다. 현재 영업 여부와 메뉴 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스의 승계를 주장하지 않으며 개별 공개 사실만 정리했습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "f5e0923c-fa91-54c8-a94a-ca07d75a4cc0",
+    "slug": "hot-busan-archive-1e17fb6b",
+    "sourceRef": "archive-busan-7f030f51f6cc1e17fb6b",
+    "name": "진송추어탕 부산사상점",
+    "address": "부산광역시 사상구 새벽로 217",
+    "coordinates": {
+      "lat": 35.160492924848,
+      "lon": 128.98401585277
+    },
+    "menus": [
+      {
+        "id": "archive-busan-7f030f51f6cc1e17fb6b:menu:1",
+        "name": "얼큰이추어탕",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://jusoga.com/b/2653010400105600026025839/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C-%EC%82%AC%EC%83%81%EA%B5%AC-%EC%83%88%EB%B2%BD%EB%A1%9C-217%EA%B4%98%EB%B2%95%EB%8F%99",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T05:21:00Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "기존 음식점 자료 및 주소가 건물주소 자료",
+        "attribution": "메뉴·상호: 기존 음식점 자료. 위치: 주소가 개별 건물주소 자료.",
+        "changes": "상호·주소·메뉴명과 건물 위치만 정리했으며 원문 글·사진·가격·평점·수치 맵기를 복제하지 않았습니다.",
+        "scopeNotice": "자료 확인일: 2026-10-14. 건물 주소 기준 위치이며 입구·층·호 위치는 확인되지 않았습니다. 메뉴는 기존 출처에 기재된 정보입니다. 현재 영업 여부와 메뉴 제공 여부는 확인되지 않았습니다. 확인일은 원자료 갱신일이 아닙니다. 좌표 원 조사일과 생성 방식은 확인되지 않았습니다. 명시적 오픈 라이선스의 승계를 주장하지 않으며 개별 공개 사실만 정리했습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  }
+]

@@ -1,0 +1,137 @@
+[
+  {
+    "id": "f536fe7b-3f93-57e4-99bd-c73d0eb616b8",
+    "slug": "hot-official-samcheop-63",
+    "sourceRef": "official-samcheop-63",
+    "name": "삼첩분식 대구 상인점",
+    "address": "대구광역시 달서구 상화북로 83",
+    "coordinates": {
+      "lat": 35.8117320822345,
+      "lon": 128.535345726788
+    },
+    "menus": [
+      {
+        "id": "official-samcheop-63:menu:1",
+        "name": "매콤튀김어묵",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://dokdokplace.kr/stores/i2/i210/i21007/daegu/dalseo-gu/%EC%83%81%EC%9D%B82%EB%8F%99/",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T16:16:36.492903+00:00",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "삼첩분식 공식 안내 및 똑똑장소찾기 공공자료 재표시",
+        "attribution": "상호·주소·메뉴: 삼첩분식 공식 매장·메뉴 안내. 위치: 똑똑장소찾기의 소상공인시장진흥공단 상가정보 기반 공개 행.",
+        "changes": "매장명·주소·메뉴명·위치 등 개별 사실만 정리. 사진·후기·가격·평점·수치 맵기를 전재하지 않았습니다.",
+        "scopeNotice": "본사 공통 메뉴이며 해당 지점의 현재 판매 및 영업 여부는 미확인입니다. 공식 지점 행의 기록일은2025-09-10이며 확인일은2026-10-14입니다. 위치는 주소에 대응하는 사이트 제공 값으로 원본 CSV 행과 대조하지 않았습니다. 최초 좌표 생성 방법·조사일·정확도 및 입구·층·호 위치는 미확인입니다. 지도 표시 코드가 특정 지도업체의 좌표 생성 사실을 증명하지 않습니다. 명시적 오픈 라이선스나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "d20940c0-3187-5c3c-bfe1-a46dc41b7da6",
+    "slug": "hot-recent-golmokanchae-20261014",
+    "sourceRef": "recent-golmokanchae-20261014",
+    "name": "골목안채",
+    "address": "경기 남양주시 다산중앙로82번안길 131-32",
+    "coordinates": {
+      "lat": 37.6134884927303,
+      "lon": 127.166290122841
+    },
+    "menus": [
+      {
+        "id": "recent-golmokanchae-20261014:menu:1",
+        "name": "낙지볶음",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://dokdokplace.kr/stores/i2/i201/i20101/gyeonggi-do/namyangju-si/%EB%8B%A4%EC%82%B01%EB%8F%99/",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T16:33:30Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "공공자료 재표시 및 독립 블로그 확인",
+        "attribution": "상호·주소·위치: 똑똑장소찾기의 소상공인시장진흥공단 상가정보 재표시. 메뉴·게시일: https://noobdailycook15.tistory.com/11 (2026-06-25).",
+        "changes": "개별 사실만 정리. 후기 문장·사진·가격·평점·수치 맵기를 전재하지 않음.",
+        "scopeNotice": "블로그 게시일은 2026-06-25이며 방문일 확정값이 아닙니다. 작성자가 포장 음식을 먹은 기록이며 직접 매장 방문으로 단정하지 않습니다. 현재 영업·판매 여부 미확인. 위치는 해당 상호·주소에 묶인 재표시 자료 값입니다. 원본 CSV 행·버전 대조, 최초 좌표 생성 방법·시점·정확도와 출입구 위치는 미확인입니다. 사이트 갱신일은 좌표 조사일이 아닙니다. 후기 문장·사진·가격·평점·수치 맵기를 전재하지 않았으며 원문 이용허락이나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "c8073df4-5fe1-5fea-859e-a04333b88623",
+    "slug": "hot-recent-sansi-20261014",
+    "sourceRef": "recent-sansi-20261014",
+    "name": "카페 산시",
+    "address": "충남 아산시 신정호길 102",
+    "coordinates": {
+      "lat": 36.7735422020196,
+      "lon": 126.973945658841
+    },
+    "menus": [
+      {
+        "id": "recent-sansi-20261014:menu:1",
+        "name": "스파이시 불고기 화덕피자",
+        "price": null,
+        "heat": null,
+        "image": null,
+        "sourceTaste": null
+      }
+    ],
+    "reportingState": "pending",
+    "indexable": true,
+    "registrationState": "source-only",
+    "ownership": "unclaimed",
+    "ownerClaimVerified": false,
+    "pinStatus": "gray",
+    "operatingStatus": null,
+    "currentMenuAvailability": null,
+    "source": {
+      "url": "https://dokdokplace.kr/stores/i2/i210/i21001/chungcheongnam-do/asan-si/%EC%98%A8%EC%96%914%EB%8F%99/",
+      "licenseName": null,
+      "asOf": null,
+      "checkedAt": "2026-10-14T16:33:30Z",
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "공공자료 재표시 및 독립 블로그 확인",
+        "attribution": "상호·주소·위치: 똑똑장소찾기의 소상공인시장진흥공단 상가정보 재표시. 메뉴·게시일: https://hyuntori83.tistory.com/1233 (2026-02-27).",
+        "changes": "개별 사실만 정리. 후기 문장·사진·가격·평점·수치 맵기를 전재하지 않음.",
+        "scopeNotice": "블로그 게시일은 2026-02-27이며 방문일 확정값이 아닙니다. 블로그의 저작자표시-비영리-변경금지 조건은 원문 표현에 적용됩니다. 개별 메뉴명 사실만 기록했습니다. 현재 영업·판매 여부 미확인. 위치는 해당 상호·주소에 묶인 재표시 자료 값입니다. 원본 CSV 행·버전 대조, 최초 좌표 생성 방법·시점·정확도와 출입구 위치는 미확인입니다. 사이트 갱신일은 좌표 조사일이 아닙니다. 후기 문장·사진·가격·평점·수치 맵기를 전재하지 않았으며 원문 이용허락이나 공식 제휴를 주장하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  }
+]

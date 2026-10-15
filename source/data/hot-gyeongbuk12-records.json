@@ -1,0 +1,506 @@
+[
+  {
+    "id": "d02aa460-815c-54aa-b073-6bad632f14c2",
+    "slug": "hot-gyeongbuk-gyeongju-first-001",
+    "name": "청온채",
+    "address": "경상북도 경주시 포석로1079번길 8-5",
+    "lat": 35.8376214327,
+    "lon": 129.2087964685,
+    "source_ref": "gyeongbuk-gyeongju-first-001",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.ktourmap.com/spotDetails.jsp?contentId=2902918",
+      "sourceRecordId": "gyeongbuk-gyeongju-first-001",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T09:38:29Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "gyeongbuk-gyeongju-first-001:menu:1",
+          "name": "누룽지 매운 소갈비찜",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "ktourmap 개별 관광정보 자료",
+        "attribution": "상호·주소·메뉴·위치: ktourmap 개별 관광정보.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일:2026-10-14. 주소에 대응하는 음식점 자료점이며 정확한 출입구·층·호 위치는 미확인입니다. 현재 영업 및 메뉴 제공 여부는 미확인입니다. 확인일은 원자료 갱신일이 아니며 좌표 조사일·생성 방식은 미확인입니다. 개별 공개 사실의 제한적 이용이며 명시적 오픈 라이선스나 원제공자 이용허락의 승계를 주장하지 않습니다. 판매 목록의 누룽지 매운 소갈비찜 근거이며 해당 메뉴 직접 시식 기록은 미확인입니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "0d2930c8-47cf-5ae3-9a11-2d096bac50c8",
+    "slug": "hot-gyeongbuk-pohang-first-001",
+    "name": "오대양물회식당",
+    "address": "경상북도 포항시 북구 대신로 28-1",
+    "lat": 36.0466635654823,
+    "lon": 129.368097640101,
+    "source_ref": "gyeongbuk-pohang-first-001",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.ktourmap.com/spotDetails.jsp?contentId=578967",
+      "sourceRecordId": "gyeongbuk-pohang-first-001",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T09:38:29Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "gyeongbuk-pohang-first-001:menu:1",
+          "name": "매운탕",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "ktourmap 개별 관광정보 자료",
+        "attribution": "상호·주소·메뉴·위치: ktourmap 개별 관광정보.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일:2026-10-14. 주소에 대응하는 음식점 자료점이며 정확한 출입구·층·호 위치는 미확인입니다. 현재 영업 및 메뉴 제공 여부는 미확인입니다. 확인일은 원자료 갱신일이 아니며 좌표 조사일·생성 방식은 미확인입니다. 개별 공개 사실의 제한적 이용이며 명시적 오픈 라이선스나 원제공자 이용허락의 승계를 주장하지 않습니다. 2021년 방문기에서는 물회와 함께 매운탕이 제공되었습니다. 현재 무료 제공이나 단독 주문 가능 여부는 미확인입니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "1d515d33-9d6e-53ad-86c5-c4d5c6300df5",
+    "slug": "hot-gyeongbuk-andong-first-001",
+    "name": "효자통닭",
+    "address": "경상북도 안동시 당북길 54",
+    "lat": 36.5660778,
+    "lon": 128.7189014,
+    "source_ref": "gyeongbuk-andong-first-001",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://findby.co.kr/details/36670-471704721240-st-652bf2264e0223ae18099e45",
+      "sourceRecordId": "gyeongbuk-andong-first-001",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T09:39:36Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "gyeongbuk-andong-first-001:menu:1",
+          "name": "쪼림닭",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "Findby 개별 주소 자료",
+        "attribution": "상호·메뉴: 개인 공개 방문기 및 한국관광공사 관광정보. 주소·건물 위치: Findby 개별 주소 자료.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일:2026-10-14. 주소에 대응하는 음식점 자료점이며 정확한 출입구·층·호 위치는 미확인입니다. 현재 영업 및 메뉴 제공 여부는 미확인입니다. 확인일은 원자료 갱신일이 아니며 좌표 조사일·생성 방식은 미확인입니다. 개별 공개 사실의 제한적 이용이며 명시적 오픈 라이선스나 원제공자 이용허락의 승계를 주장하지 않습니다. 좌표는 효자통닭이 입주한 당북길54 건물 자료점입니다. 기사·방문기 문장과 사진은 사용하지 않았습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "1ccb03a2-f2b5-5877-9ca3-9388fb6d585d",
+    "slug": "hot-gyeongbuk-gimcheon-first-001",
+    "name": "명희네집",
+    "address": "경상북도 김천시 아랫장터5길 15",
+    "lat": 36.1211468203,
+    "lon": 128.128741403,
+    "source_ref": "gyeongbuk-gimcheon-first-001",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://ktourmap.com/spotDetails.jsp?contentId=2832140",
+      "sourceRecordId": "gyeongbuk-gimcheon-first-001",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T09:40:28Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "gyeongbuk-gimcheon-first-001:menu:1",
+          "name": "해장짬뽕",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "ktourmap 개별 관광정보 자료",
+        "attribution": "상호·메뉴·주소·위치: ktourmap 관광정보. 메뉴 보강:2024-03-15 공개 방문기.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일:2026-10-14. 주소에 대응하는 음식점 자료점이며 정확한 출입구·층·호 위치는 미확인입니다. 현재 영업 및 메뉴 제공 여부는 미확인입니다. 확인일은 원자료 갱신일이 아니며 좌표 조사일·생성 방식은 미확인입니다. 개별 공개 사실의 제한적 이용이며 명시적 오픈 라이선스나 원제공자 이용허락의 승계를 주장하지 않습니다. 방문 근거는2024년 자료이며 수치 맵기는 확인하지 않았습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "ddabd9c4-ee5d-5040-9c7b-4ce72f8a8426",
+    "slug": "hot-gyeongbuk-gumi-first-001",
+    "name": "원짬뽕",
+    "address": "경상북도 구미시 형곡로 147 1층",
+    "lat": 36.1081634837599,
+    "lon": 128.332697985059,
+    "source_ref": "gyeongbuk-gumi-first-001",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://mzc.purpleo.kr/article/12504",
+      "sourceRecordId": "gyeongbuk-gumi-first-001",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T09:42:18Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "gyeongbuk-gumi-first-001:menu:1",
+          "name": "불고추짬뽕",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "개별 공공 상가정보 표시 자료",
+        "attribution": "상호·주소·메뉴: 신세임당 공개 방문기(2023-12-11). 위치: 개별 공공 상가정보 표시 자료.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일:2026-10-14. 주소에 대응하는 음식점 자료점이며 정확한 출입구·층·호 위치는 미확인입니다. 현재 영업 및 메뉴 제공 여부는 미확인입니다. 확인일은 원자료 갱신일이 아니며 좌표 조사일·생성 방식은 미확인입니다. 개별 공개 사실의 제한적 이용이며 명시적 오픈 라이선스나 원제공자 이용허락의 승계를 주장하지 않습니다. 메뉴 근거는2023년 판매 목록이며 작성자가 불고추짬뽕을 직접 시식한 것은 아닙니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "e820bdb2-1f8e-54a0-8121-537305a438a3",
+    "slug": "hot-gyeongbuk-yeongju-first-001",
+    "name": "나드리",
+    "address": "경상북도 영주시 중앙로 89 2층",
+    "lat": 36.8234147509,
+    "lon": 128.62486621,
+    "source_ref": "gyeongbuk-yeongju-first-001",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.ktourmap.com/spotDetails.jsp?contentId=2605878",
+      "sourceRecordId": "gyeongbuk-yeongju-first-001",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T09:42:11Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "gyeongbuk-yeongju-first-001:menu:1",
+          "name": "쫄면",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "ktourmap 개별 관광정보 자료",
+        "attribution": "상호·주소·메뉴:2025-08-03 공개 방문기. 위치: ktourmap 관광정보.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일:2026-10-14. 주소에 대응하는 음식점 자료점이며 정확한 출입구·층·호 위치는 미확인입니다. 현재 영업 및 메뉴 제공 여부는 미확인입니다. 확인일은 원자료 갱신일이 아니며 좌표 조사일·생성 방식은 미확인입니다. 개별 공개 사실의 제한적 이용이며 명시적 오픈 라이선스나 원제공자 이용허락의 승계를 주장하지 않습니다. 중앙로89 2층의 나드리이며 다른 지점과 구분합니다. 좌표는2층 출입구 측량점이 아닙니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "17038d9f-386f-5a9c-bda6-1eae86d9d36d",
+    "slug": "hot-gyeongbuk-sangju-first-001",
+    "name": "고려분식",
+    "address": "경상북도 상주시 중앙시장길 29",
+    "lat": 36.4145917598,
+    "lon": 128.1617247358,
+    "source_ref": "gyeongbuk-sangju-first-001",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.ktourmap.com/spotDetails.jsp?contentId=2831647",
+      "sourceRecordId": "gyeongbuk-sangju-first-001",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T09:43:40Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "gyeongbuk-sangju-first-001:menu:1",
+          "name": "땡초김밥",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "ktourmap 개별 관광정보 자료",
+        "attribution": "상호·주소·메뉴: 혜리로그 공개 방문기(2026-08-06). 위치: ktourmap 관광자료.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일:2026-10-14. 주소에 대응하는 음식점 자료점이며 정확한 출입구·층·호 위치는 미확인입니다. 현재 영업 및 메뉴 제공 여부는 미확인입니다. 확인일은 원자료 갱신일이 아니며 좌표 조사일·생성 방식은 미확인입니다. 개별 공개 사실의 제한적 이용이며 명시적 오픈 라이선스나 원제공자 이용허락의 승계를 주장하지 않습니다. 메뉴 방문 근거는2026년 자료이며 수치 맵기는 확인하지 않았습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "262a123f-f205-50fd-85ac-30c364d89990",
+    "slug": "hot-gyeongbuk-mungyeong-first-001",
+    "name": "새재할매집",
+    "address": "경상북도 문경시 문경읍 새재로 922",
+    "lat": 36.7608369434,
+    "lon": 128.0770049993,
+    "source_ref": "gyeongbuk-mungyeong-first-001",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.ktourmap.com/spotDetails.jsp?contentId=1965448",
+      "sourceRecordId": "gyeongbuk-mungyeong-first-001",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T09:43:25Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "gyeongbuk-mungyeong-first-001:menu:1",
+          "name": "고추장양념 석쇠구이",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "ktourmap 개별 관광정보 자료",
+        "attribution": "상호·주소·메뉴: 히치하이커sm88 공개 방문기(2024-04-22) 및 관광정보. 위치: ktourmap 관광자료.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일:2026-10-14. 주소에 대응하는 음식점 자료점이며 정확한 출입구·층·호 위치는 미확인입니다. 현재 영업 및 메뉴 제공 여부는 미확인입니다. 확인일은 원자료 갱신일이 아니며 좌표 조사일·생성 방식은 미확인입니다. 개별 공개 사실의 제한적 이용이며 명시적 오픈 라이선스나 원제공자 이용허락의 승계를 주장하지 않습니다. 메뉴 방문 근거는2024년 자료입니다. 원재료의 약돌돼지 여부는 출처가 달라 확인하지 않았습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "d058b697-95cb-5ce9-b78a-ff89983b36a7",
+    "slug": "hot-gyeongbuk-gyeongsan-first-001",
+    "name": "신불날개 하양점",
+    "address": "경상북도 경산시 하양읍 하양역길 13",
+    "lat": 35.91045258066387,
+    "lon": 128.81685257665012,
+    "source_ref": "gyeongbuk-gyeongsan-first-001",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://polle.com/place/5unD0H/%EC%8B%A0%EB%B6%88%EB%82%A0%EA%B0%9C",
+      "sourceRecordId": "gyeongbuk-gyeongsan-first-001",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T09:45:25Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "gyeongbuk-gyeongsan-first-001:menu:1",
+          "name": "뼈없는불닭발",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "폴레 개별 장소정보",
+        "attribution": "상호·주소·메뉴·위치: 폴레 장소정보. 메뉴 보강: 고니랜드 공개 방문기(2020-07-10).",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일:2026-10-14. 주소에 대응하는 음식점 자료점이며 정확한 출입구·층·호 위치는 미확인입니다. 현재 영업 및 메뉴 제공 여부는 미확인입니다. 확인일은 원자료 갱신일이 아니며 좌표 조사일·생성 방식은 미확인입니다. 개별 공개 사실의 제한적 이용이며 명시적 오픈 라이선스나 원제공자 이용허락의 승계를 주장하지 않습니다. 하양역길13 하양점이며 다른 지점과 구분합니다. 방문 메뉴 근거는2020년 자료입니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "150ec3ab-5dbd-5f68-97de-ee318d564854",
+    "slug": "hot-gyeongbuk-yeongcheon-first-001",
+    "name": "신식반점",
+    "address": "경상북도 영천시 상록2길 21",
+    "lat": 35.97391082,
+    "lon": 128.9426509,
+    "source_ref": "gyeongbuk-yeongcheon-first-001",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://dining.ayo.pe.kr/restaurant/907d2377b4422dcb8d642d3b8ec32c2e",
+      "sourceRecordId": "gyeongbuk-yeongcheon-first-001",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T09:46:26Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "gyeongbuk-yeongcheon-first-001:menu:1",
+          "name": "신식짬뽕",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "개별 공공 인허가정보 표시 자료",
+        "attribution": "상호·주소·메뉴: 하늘 열차 공개 방문기(2021-06-30). 위치: 공개 인허가정보 개별 표시 자료.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일:2026-10-14. 주소에 대응하는 음식점 자료점이며 정확한 출입구·층·호 위치는 미확인입니다. 현재 영업 및 메뉴 제공 여부는 미확인입니다. 확인일은 원자료 갱신일이 아니며 좌표 조사일·생성 방식은 미확인입니다. 개별 공개 사실의 제한적 이용이며 명시적 오픈 라이선스나 원제공자 이용허락의 승계를 주장하지 않습니다. 방문 근거는2021년 자료이며 신식짬뽕과 불짬뽕을 구분했습니다. 수치 맵기는 확인하지 않았습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "18276557-45e8-5ada-8ffd-f00e8a62ee2d",
+    "slug": "hot-gyeongbuk-cheongsong-first-001",
+    "name": "팔팔식당",
+    "address": "경상북도 청송군 진보면 경동로 5157",
+    "lat": 36.5062881518,
+    "lon": 129.1201953942,
+    "source_ref": "gyeongbuk-cheongsong-first-001",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.ktourmap.com/spotDetails.jsp?contentId=2832936",
+      "sourceRecordId": "gyeongbuk-cheongsong-first-001",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T09:49:12Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "gyeongbuk-cheongsong-first-001:menu:1",
+          "name": "닭불고기",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "ktourmap 개별 관광정보 자료",
+        "attribution": "상호·주소·메뉴: 팔팔식당 매장 홈페이지. 위치: ktourmap 관광자료.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일:2026-10-14. 주소에 대응하는 음식점 자료점이며 정확한 출입구·층·호 위치는 미확인입니다. 현재 영업 및 메뉴 제공 여부는 미확인입니다. 확인일은 원자료 갱신일이 아니며 좌표 조사일·생성 방식은 미확인입니다. 개별 공개 사실의 제한적 이용이며 명시적 오픈 라이선스나 원제공자 이용허락의 승계를 주장하지 않습니다. 약수나 음식의 건강 효능은 확인하지 않았습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "32e15118-78fc-5c72-8a58-2ed1e53f8a41",
+    "slug": "hot-gyeongbuk-yecheon-first-001",
+    "name": "용궁순대",
+    "address": "경상북도 예천군 용궁면 용궁로 158",
+    "lat": 36.6074758911,
+    "lon": 128.2824897633,
+    "source_ref": "gyeongbuk-yecheon-first-001",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://www.ktourmap.com/spotDetails.jsp?contentId=1245789",
+      "sourceRecordId": "gyeongbuk-yecheon-first-001",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T09:49:34Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "gyeongbuk-yecheon-first-001:menu:1",
+          "name": "오징어불고기",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "ktourmap 개별 관광정보 자료",
+        "attribution": "상호·주소·메뉴·위치: ktourmap 관광자료.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일:2026-10-14. 주소에 대응하는 음식점 자료점이며 정확한 출입구·층·호 위치는 미확인입니다. 현재 영업 및 메뉴 제공 여부는 미확인입니다. 확인일은 원자료 갱신일이 아니며 좌표 조사일·생성 방식은 미확인입니다. 개별 공개 사실의 제한적 이용이며 명시적 오픈 라이선스나 원제공자 이용허락의 승계를 주장하지 않습니다. 오징어불고기의 매콤함은 업소 대표 발언을 전한2026년 기사 근거이며 독립 시식 평가는 아닙니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  }
+]

@@ -1,0 +1,128 @@
+[
+  {
+    "id": "ed691129-634d-5535-b6b3-ce00709379b5",
+    "slug": "hot-gurye-appa-gimbap",
+    "name": "구례아빠김밥",
+    "address": "전라남도 구례군 구례읍 봉남길 3",
+    "lat": 35.2077391510457,
+    "lon": 127.464905622213,
+    "source_ref": "jeonnam-local-gurye-appa-gimbap",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://ykm.purpleo.kr/article/40309",
+      "sourceRecordId": "jeonnam-local-gurye-appa-gimbap",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T09:00:00Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "jeonnam-local-gurye-appa-gimbap:menu:1",
+          "name": "매운어묵김밥",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "ykm.purpleo 개별 상가정보 자료",
+        "attribution": "상호·주소·메뉴: E2E2 공개 방문기(2025-04-17). 위치: ykm.purpleo 개별 상가정보 자료.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일:2026-10-14. 주소에 대응하는 음식점 자료점이며 정확한 출입구·층·호 위치는 미확인입니다. 현재 영업 및 메뉴 제공 여부는 미확인입니다. 확인일은 원자료 갱신일이 아니며 좌표 조사일·생성 방식은 미확인입니다. 개별 공개 사실의 제한적 이용이며 명시적 오픈 라이선스나 원제공자 이용허락의 승계를 주장하지 않습니다. 지역명은 서비스의 전라남도 분류를 사용합니다. 위치 출처는 공단 상가정보라고 표시하지만 원 정부 데이터 응답은 별도 대조하지 않았습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "71522029-3506-5fa0-9cfe-c6dc6571af49",
+    "slug": "hot-wando-daebakjip",
+    "name": "대박집",
+    "address": "전라남도 완도군 완도읍 개포로62번길 9-10",
+    "lat": 34.3172534,
+    "lon": 126.7456877,
+    "source_ref": "jeonnam-local-wando-daebakjip",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://findby.co.kr/details/59119-468904700016-st-652c0b58f27008be2c52f85f",
+      "sourceRecordId": "jeonnam-local-wando-daebakjip",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T09:00:00Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "jeonnam-local-wando-daebakjip:menu:1",
+          "name": "생선매운탕",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "Findby 개별 건물주소 자료",
+        "attribution": "상호·주소·메뉴: 완도군 맛집 지정 현황(2021-04). 위치: Findby 개별 건물주소 자료.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일:2026-10-14. 주소에 대응하는 음식점 자료점이며 정확한 출입구·층·호 위치는 미확인입니다. 현재 영업 및 메뉴 제공 여부는 미확인입니다. 확인일은 원자료 갱신일이 아니며 좌표 조사일·생성 방식은 미확인입니다. 개별 공개 사실의 제한적 이용이며 명시적 오픈 라이선스나 원제공자 이용허락의 승계를 주장하지 않습니다. 메뉴·주소·좌표는 공개 검색 색인에서 확인했습니다. 원문은 각각 연결 오류·404로 직접 열람하지 못했습니다. 메뉴는2021년 지정 자료이며 현재 제공 여부는 미확인입니다. 지역명은 서비스의 전라남도 분류를 사용합니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  },
+  {
+    "id": "dbc798a2-5f00-5239-8317-bee27c432358",
+    "slug": "hot-muan-hongchuncheon-namak",
+    "name": "홍춘천 치즈닭갈비 목포 남악점",
+    "address": "전라남도 무안군 삼향읍 남악4로 79",
+    "lat": 34.8126704732892,
+    "lon": 126.465475041614,
+    "source_ref": "jeonnam-local-muan-hongchuncheon-namak",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://xju.purpleo.kr/article/18228",
+      "sourceRecordId": "jeonnam-local-muan-hongchuncheon-namak",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-14T09:00:00Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "jeonnam-local-muan-hongchuncheon-namak:menu:1",
+          "name": "치즈닭갈비 매운맛",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "xju.purpleo 개별 상가정보 자료",
+        "attribution": "상호·주소·메뉴: E2E2 공개 방문기(2023-08-28). 위치: 같은 건물의 xju.purpleo 상가정보 자료.",
+        "changes": "개별 매장명·주소·메뉴명·위치만 정리했습니다. 원문 후기·사진·가격·평점·수치 맵기는 전재하지 않았습니다.",
+        "scopeNotice": "자료 확인일:2026-10-14. 주소에 대응하는 음식점 자료점이며 정확한 출입구·층·호 위치는 미확인입니다. 현재 영업 및 메뉴 제공 여부는 미확인입니다. 확인일은 원자료 갱신일이 아니며 좌표 조사일·생성 방식은 미확인입니다. 개별 공개 사실의 제한적 이용이며 명시적 오픈 라이선스나 원제공자 이용허락의 승계를 주장하지 않습니다. 남악4로79 상업건물 내 다른 입점업체 등촌샤브칼국수의 주소 자료점을 사용한 건물 단위 위치입니다. 해당 닭갈비점 출입구·층·호 좌표는 아닙니다. 메뉴 방문 근거는2023년 자료입니다. 상호에 목포가 포함되지만 주소는 무안군입니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  }
+]

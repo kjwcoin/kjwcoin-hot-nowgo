@@ -1,0 +1,117 @@
+.root {
+  margin-top: 16px;
+  padding: 16px;
+  border: 1px solid #ded9d0;
+  border-radius: 16px;
+  background: #fffdf7;
+  color: #28241e;
+}
+
+.root :global(.preview-photo-report__actions) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.root button {
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid #cecabf;
+  border-radius: 12px;
+  background: #fff;
+  color: #28241e;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.root :global(.preview-photo-report__trigger),
+.root :global(.preview-photo-report__submit) {
+  border-color: #28241e;
+  background: #28241e;
+  color: #fff;
+}
+
+.root button:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+.root button:focus-visible,
+.root input:focus-visible,
+.root select:focus-visible {
+  outline: 3px solid #876132;
+  outline-offset: 3px;
+}
+
+.root :global(.preview-photo-report__note),
+.root small {
+  display: block;
+  margin: 8px 0 0;
+  color: #665c4e;
+  font-size: 12px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.root :global(.preview-photo-report__form) {
+  display: grid;
+  gap: 16px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #ded9d0;
+}
+
+.root :global(.preview-photo-report__field) {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+.root label {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.root input,
+.root select {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 10px;
+  border: 1px solid #b8b1a4;
+  border-radius: 10px;
+  background: #fff;
+  color: #28241e;
+  font: inherit;
+  font-size: 16px;
+}
+
+.root input[type='file'] {
+  font-size: 13px;
+}
+
+.root input[aria-invalid='true'],
+.root select[aria-invalid='true'] {
+  border-color: #9d281d;
+}
+
+.root :global(.preview-photo-report__error),
+.root :global(.preview-photo-report__status) {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.root :global(.preview-photo-report__error) {
+  color: #9d281d;
+}
+
+.root :global(.preview-photo-report__status) {
+  margin-top: 12px;
+}

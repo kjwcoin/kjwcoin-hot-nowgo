@@ -1,4 +1,5 @@
 'use client';
+import {menuHeatAttribution} from '@/lib/menu-heat-attribution';
 
 import {useCallback,useEffect,useImperativeHandle,useRef,useState,type Ref} from 'react';
 import {ArrowUpRight,LocateFixed,MapPin} from 'lucide-react';
@@ -8,23 +9,31 @@ import {resolveDemoLand,type DemoLocationState} from '@/lib/resolve-demo-land';
 import {requestCurrentLocation,locationStatusText,type LocationState} from '@/lib/request-current-location';
 import {appGeolocation} from '@/lib/app-geolocation';
 import {money,type Menu} from '@/lib/menus';
+import {hasVerifiedOwner,storePinMenu} from '@/lib/menu-store-groups';
+import {mapStoreGroups,sourceIsPrimaryPin} from '@/lib/map-sourced-stores';
+import {type PublicSourcedStore} from '@/lib/sourced-store';
+import {sourcedStoreMarker,bindSourceMarkerSelection,appendPreviewMarkerHeat} from '@/lib/source-map-marker';
+import type {PreviewMenuHeat} from '@/lib/preview-menu-heat';
+import {createViewportCounter,readViewportBounds,type ViewportCountState} from '@/lib/viewport-count-client';
+import {storeOverlapContent} from '@/lib/map-store-overlap';
+import {positionedStoreGroups,clusterStorePoints,storeClusterButton,clusterZoomLevel,createStoreOverlayReconciler} from '@/lib/map-store-clusters';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 declare global { interface Window { kakao?:any } }
 
 let kakaoSdkPromise:Promise<any>|null=null;
+const EMPTY_SOURCES:PublicSourcedStore[]=[];
 
 function loadKakaoSdk(key:string){
  if(kakaoSdkPromise)return kakaoSdkPromise;
  kakaoSdkPromise=new Promise((resolve,reject)=>{
-  let script:HTMLScriptElement|undefined;
+  const script=document.createElement('script');
   const timer=setTimeout(()=>{script?.remove();reject(new Error('Kakao Map SDK timed out'))},10000);
   const ready=()=>{
    if(!window.kakao?.maps?.load){clearTimeout(timer);reject(new Error('Kakao Map SDK is unavailable'));return}
    window.kakao.maps.load(()=>{clearTimeout(timer);resolve(window.kakao)});
   };
   if(window.kakao?.maps?.load){ready();return}
-  script=document.createElement('script');
   script.src=`https://dapi.kakao.com/v2/maps/sdk.js?appkey=${encodeURIComponent(key)}&autoload=false&libraries=services`;
   script.async=true;
   script.onload=ready;
@@ -38,7 +47,11 @@ type MapVariant='hot'|'rich'|'sweet';
 export type KakaoMapHandle={requestLocation:()=>void};
 type Props={
  menus:Menu[];
+ sourcedStores?:PublicSourcedStore[];
+ sourceIdentityStores?:PublicSourcedStore[];
  onSelect:(menu:Menu)=>void;
+ onSourceSelect?:(store:PublicSourcedStore)=>void;
+ selectedSourceId?:string;
  onPoint?:(point:{address:string;lat:number;lng:number})=>void;
  onLocation?:(point:GeoPoint)=>void;
  onLocationState?:(state:LocationState)=>void;
@@ -53,24 +66,37 @@ type Props={
  variant?:MapVariant;
  appLocationBridge?:boolean;
  onMapState?:(state:'loading'|'ready'|'setup'|'error')=>void;
+ viewportCountQuery?:string;
+ sourcePreview?:boolean;
+ previewSourceHeat?:PreviewMenuHeat;
+ initialCenter?:GeoPoint;
 };
 
-export default function KakaoMap({menus,onSelect,onPoint,onLocation,onLocationState,locationControl,onDemoPositions,addressSearch,coordinateSearch,onAddressFound,onAddressError,fullScreen=false,selectedId,variant='hot',appLocationBridge=false,onMapState}:Props){
+export default function KakaoMap({menus,sourcedStores=EMPTY_SOURCES,sourceIdentityStores=sourcedStores,onSelect,onSourceSelect,selectedSourceId,onPoint,onLocation,onLocationState,locationControl,onDemoPositions,addressSearch,coordinateSearch,onAddressFound,onAddressError,fullScreen=false,selectedId,variant='hot',appLocationBridge=false,onMapState,viewportCountQuery,sourcePreview=false,previewSourceHeat,initialCenter}:Props){
+ const initialLat=initialCenter?.lat??37.5665,initialLng=initialCenter?.lng??126.978;
+ const sourceSelectionEnabled=typeof onSourceSelect==='function';
+ const clusteringEnabled=variant==='hot'&&!sourcePreview;
  const rootRef=useRef<HTMLDivElement>(null);
  const canvasRef=useRef<HTMLDivElement>(null);
  const mapRef=useRef<any>(null);
  const kakaoRef=useRef<any>(null);
  const overlaysRef=useRef<any[]>([]);
+ const overlayInputsRef=useRef({menus,sourcedStores,sourceIdentityStores,selectedId,selectedSourceId,sourceSelectionEnabled,variant,appLocationBridge,sourcePreview,previewSourceHeat});
+ const refreshOverlaysRef=useRef<(()=>void)|null>(null);
+ const selectionTargetRef=useRef<{map:any;key:string}|null>(null);
  const userMarkerRef=useRef<any>(null);
  const addressMarkerRef=useRef<any>(null);
  const userPointRef=useRef<GeoPoint|null>(null);
- const callbacksRef=useRef({onSelect,onPoint,onLocation,onLocationState,onDemoPositions:appLocationBridge?undefined:onDemoPositions,onAddressFound,onAddressError,onMapState});
- callbacksRef.current={onSelect,onPoint,onLocation,onLocationState,onDemoPositions:appLocationBridge?undefined:onDemoPositions,onAddressFound,onAddressError,onMapState};
+ const callbacksRef=useRef({onSelect,onSourceSelect,onPoint,onLocation,onLocationState,onDemoPositions:appLocationBridge?undefined:onDemoPositions,onAddressFound,onAddressError,onMapState});
+ useEffect(()=>{callbacksRef.current={onSelect,onSourceSelect,onPoint,onLocation,onLocationState,onDemoPositions:appLocationBridge?undefined:onDemoPositions,onAddressFound,onAddressError,onMapState}},[onSelect,onSourceSelect,onPoint,onLocation,onLocationState,onDemoPositions,appLocationBridge,onAddressFound,onAddressError,onMapState]);
  const landRequestRef=useRef(0);
  const locationRequestRef=useRef(0);
  const locationBusyRef=useRef(false);
  const [mapState,setMapState]=useState<'loading'|'ready'|'setup'|'error'>('loading');
+ const [mapRevision,setMapRevision]=useState(0);
  const [tileFailed,setTileFailed]=useState(false);
+ const [viewportCount,setViewportCount]=useState<ViewportCountState>({status:'loading'});
+ const [hasUserPoint,setHasUserPoint]=useState(false);
  const [mapAttempt,setMapAttempt]=useState(0);
  const [locationState,setLocationState]=useState<LocationState>('idle');
  useEffect(()=>{callbacksRef.current.onLocationState?.(locationState)},[locationState]);
@@ -88,6 +114,7 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,onLocationSt
  const showNearby=useCallback((point:GeoPoint)=>{
    const map=mapRef.current,k=kakaoRef.current;
    userPointRef.current=point;
+   setHasUserPoint(true);
    setLocationState('located');
    callbacksRef.current.onLocation?.(point);
    if(!map||!k){callbacksRef.current.onDemoPositions?.(point,[],'error');return}
@@ -144,8 +171,9 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,onLocationSt
     if(timeout)clearTimeout(timeout);
     kakaoRef.current=k;
     // Neutral inland placeholder only while waiting for the visitor's own GPS fix.
-    const map=new k.maps.Map(canvasRef.current,{center:new k.maps.LatLng(37.5665,126.978),level:NEIGHBORHOOD_LEVEL});
+    const map=new k.maps.Map(canvasRef.current,{center:new k.maps.LatLng(initialLat,initialLng),level:NEIGHBORHOOD_LEVEL});
     mapRef.current=map;
+    setMapRevision(revision=>revision+1);
     map.addControl(new k.maps.ZoomControl(),k.maps.ControlPosition.RIGHT);
     if(callbacksRef.current.onPoint)k.maps.event.addListener(map,'click',(event:any)=>{
      const lat=event.latLng.getLat(),lng=event.latLng.getLng();
@@ -170,20 +198,47 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,onLocationSt
   },{rootMargin:'200px'});
   if(rootRef.current)observer.observe(rootRef.current);
   return()=>{cancelled=true;controller.abort();clearTimeout(configTimeout);if(timeout)clearTimeout(timeout);observer.disconnect();landRequestRef.current++;locationRequestRef.current++;locationBusyRef.current=false;overlaysRef.current.forEach(overlay=>overlay.setMap(null));userMarkerRef.current?.setMap(null);addressMarkerRef.current?.setMap(null);mapRef.current=null};
- },[fullScreen,mapAttempt,requestLocation,showNearby]);
+ },[fullScreen,mapAttempt,requestLocation,showNearby,initialLat,initialLng]);
+
+ useEffect(()=>{
+  overlayInputsRef.current={menus,sourcedStores,sourceIdentityStores,selectedId,selectedSourceId,sourceSelectionEnabled,variant,appLocationBridge,sourcePreview,previewSourceHeat};
+  refreshOverlaysRef.current?.();
+ },[menus,sourcedStores,sourceIdentityStores,selectedId,selectedSourceId,sourceSelectionEnabled,variant,appLocationBridge,sourcePreview,previewSourceHeat]);
 
  useEffect(()=>{
   if(mapState!=='ready'||!mapRef.current||!kakaoRef.current)return;
-  const k=kakaoRef.current;
+  const k=kakaoRef.current,map=mapRef.current;
   overlaysRef.current.forEach(overlay=>overlay.setMap(null));
-  const groups=new Map<string,Menu[]>();
-  menus.filter(menu=>(!appLocationBridge||menu.isDemo===false)&&menu.lat!==null&&menu.lng!==null).forEach(menu=>groups.set(menu.placeId,[...(groups.get(menu.placeId)||[]),menu]));
-  overlaysRef.current=[...groups.values()].map(group=>{
-   const menu=group[0],button=document.createElement('button');
+  let points:ReturnType<typeof positionedStoreGroups>=[];
+  const pointByKey=new Map<string,(typeof points)[number]>();
+  const contentByKey=new Map<string,HTMLElement>();
+  let keyboardMembers:Set<string>|null=null;
+  let keyboardOrigin:HTMLElement|null=null;
+  let expandedKey:string|null=null;
+  let expandedViewport:string|null=null;
+  const viewportSignature=():string|null=>{
+   try{
+    const level=map.getLevel(),bounds=readViewportBounds(map.getBounds()),canvas=canvasRef.current;
+    if(!Number.isFinite(level)||!bounds||!canvas||!Number.isFinite(canvas.clientWidth)||!Number.isFinite(canvas.clientHeight)||canvas.clientWidth<=0||canvas.clientHeight<=0)return null;
+    return JSON.stringify([level,bounds.south,bounds.north,bounds.west,bounds.east,canvas.clientWidth,canvas.clientHeight]);
+   }catch{return null}
+  };
+  const createPin=(point:(typeof points)[number])=>{
+   const {selectedId,selectedSourceId,sourceSelectionEnabled,variant,sourcePreview,previewSourceHeat}=overlayInputsRef.current;
+   const group=point.group;
+   if(sourceIsPrimaryPin(group)&&group.source?.coordinates){
+    const store=group.source,link=sourcedStoreMarker(store);
+    if(sourcePreview){link.href='/p/'+encodeURIComponent(store.slug)+'?preview=source';link.removeAttribute('target')}
+    bindSourceMarkerSelection(link,store,sourceSelectionEnabled?()=>{const current=pointByKey.get(point.key)?.group.source;if(current)callbacksRef.current.onSourceSelect?.(current)}:undefined,selectedSourceId===store.id);
+    if(sourcePreview)appendPreviewMarkerHeat(link,store,previewSourceHeat);
+    return link;
+   }
+   if(!group.catalog)return null;
+   const menu=storePinMenu(group.catalog,selectedId),button=document.createElement('button');
    button.type='button';
-   button.className='map-anchor map-anchor--food'+(!menu.isDemo&&!menu.ownerRegistered?' map-anchor--reported':'')+(menu.id===selectedId?' selected':'');
-   button.setAttribute('aria-label',`${menu.isDemo?'가매장 ':menu.ownerRegistered?'점주 가입매장 ':'제보자 등록매장 · 영업현황 확인불가 '}${menu.shop}, ${menu.name}, ${money(menu.price)}. 메뉴 상세 보기`);
-   button.title=`${menu.shop} · ${menu.name}`;
+   button.className='map-anchor map-anchor--food'+(!menu.isDemo&&!hasVerifiedOwner(menu)?' map-anchor--reported':'')+(menu.id===selectedId?' selected':'');
+   button.setAttribute('aria-label',`${menu.isDemo?'가매장 ':hasVerifiedOwner(menu)?'소유권 확인 매장 ':'제보자 등록매장 · 영업현황 확인불가 '}${menu.shop}, ${menu.name}, ${money(menu.price)}. 소비자 제보 최소 ${group.catalog.reportCount}건. ${variant==='hot'?menuHeatAttribution(menu)+'. ':''}메뉴 상세 보기`);
+   button.title=`${menu.shop} · ${menu.name}${variant==='hot'?' · '+menuHeatAttribution(menu):''}`;
    const pin=document.createElement('span');
    pin.className='map-anchor-pin';
    pin.setAttribute('aria-hidden','true');
@@ -192,19 +247,125 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,onLocationSt
    const price=document.createElement('span');
    price.className='map-anchor-price';
    price.textContent=money(menu.price);
+   if(variant==='hot'){const note=document.createElement('small');note.className='map-anchor-heat-kind';note.textContent=menu.isDemo?'예시 맵기':menu.verifiedOwner?'점주 안내 맵기':'개별 제보 맵기';price.append(note)}
    button.append(pin,price);
-   button.onclick=()=>callbacksRef.current.onSelect(menu);
-   return new k.maps.CustomOverlay({map:mapRef.current,position:new k.maps.LatLng(menu.lat,menu.lng),content:button,yAnchor:1.2});
+   button.onclick=()=>{const current=pointByKey.get(point.key)?.group.catalog;if(current)callbacksRef.current.onSelect(storePinMenu(current,overlayInputsRef.current.selectedId))};
+   return button;
+  };
+  const layer=createStoreOverlayReconciler(display=>{
+   if(display.kind==='cluster'){
+    const position=new k.maps.LatLng(display.lat,display.lng);
+    const button=storeClusterButton(display.count,keyboard=>{keyboardMembers=keyboard?new Set(display.members.map(point=>point.key)):null;keyboardOrigin=keyboard?button:null;map.setCenter(position);map.setLevel(clusterZoomLevel(map.getLevel()))});
+    contentByKey.set(display.key,button);
+    return new k.maps.CustomOverlay({map,position,content:button,xAnchor:.5,yAnchor:.5,clickable:true,zIndex:1});
+   }
+   if(display.kind==='overlap'){
+    const expanded=expandedKey===display.key,position=new k.maps.LatLng(display.lat,display.lng);
+    const content=storeOverlapContent({members:display.members,expanded,createPin,
+     viewport:(()=>{try{const p=map.getProjection().containerPointFromCoords(position),canvas=canvasRef.current;return canvas&&canvas.clientWidth?{width:canvas.clientWidth,height:canvas.clientHeight,x:p.x,y:p.y}:undefined}catch{return undefined}})(),
+     anchorDelta:point=>{try{const projection=map.getProjection(),origin=projection.containerPointFromCoords(position),target=projection.containerPointFromCoords(new k.maps.LatLng(point.lat,point.lng));return{x:target.x-origin.x,y:target.y-origin.y}}catch{return{x:0,y:0}}},
+     onToggle:keyboard=>{if(disposed||!display.members.every(point=>pointByKey.has(point.key)))return;expandedKey=expanded?null:display.key;expandedViewport=expanded?null:viewportSignature();draw();if(keyboard)contentByKey.get(display.key)?.querySelector<HTMLElement>(expanded?'button':'.map-overlap-item a, .map-overlap-item button')?.focus({preventScroll:true})},
+    });
+    contentByKey.set(display.key,content);
+    return new k.maps.CustomOverlay({map,position,content,xAnchor:.5,yAnchor:.5,clickable:true,zIndex:expanded?20:2});
+   }
+   const content=createPin(display.point);if(!content)return null;
+   contentByKey.set(display.key,content);
+   return new k.maps.CustomOverlay({map,position:new k.maps.LatLng(display.point.lat,display.point.lng),content,yAnchor:1.2});
+  },display=>{
+   // Keep real DOM focus on equivalent feed refreshes. Any changed pin data,
+   // ownership, selection, or preview state must replace its old representation.
+   const {selectedId,selectedSourceId,sourceSelectionEnabled,variant,sourcePreview,previewSourceHeat}=overlayInputsRef.current;
+   if(display.kind!=='store')return JSON.stringify([display.lat,display.lng,display.count,display.kind==='overlap'&&expandedKey===display.key,display.kind==='overlap'?[display.members,selectedId,selectedSourceId,sourceSelectionEnabled,variant,sourcePreview,previewSourceHeat]:undefined]);
+   return JSON.stringify([display.point,selectedId,selectedSourceId,sourceSelectionEnabled,variant,sourcePreview,previewSourceHeat]);
   });
-  mapRef.current.relayout();
-  return()=>overlaysRef.current.forEach(overlay=>overlay.setMap(null));
- },[mapState,menus,selectedId,variant,appLocationBridge]);
+  let frame=0,disposed=false;
+  const draw=()=>{
+   frame=0;if(disposed||mapRef.current!==map)return;
+   let displays:ReturnType<typeof clusterStorePoints>=points.map(point=>({kind:'store',key:'store:'+point.key,point}));
+   let displayedBounds:ReturnType<typeof readViewportBounds>=null;
+   if(clusteringEnabled){
+    try{
+     const level=map.getLevel(),bounds=readViewportBounds(map.getBounds()),projection=map.getProjection();
+     displayedBounds=bounds;
+     if(Number.isFinite(level)&&bounds&&typeof projection?.containerPointFromCoords==='function')displays=clusterStorePoints(points,{
+      level,bounds,project:point=>projection.containerPointFromCoords(new k.maps.LatLng(point.lat,point.lng)),
+     });
+    }catch{/* Keep existing individual pins if a transient SDK projection/bounds read fails. */}
+   }
+   if(expandedKey&&!displays.some(display=>display.kind==='overlap'&&display.key===expandedKey)){expandedKey=null;expandedViewport=null}
+   const focusedKey=[...contentByKey].find(([,content])=>(content===document.activeElement||content.contains?.(document.activeElement)))?.[0];
+   const keyboardFocus=keyboardMembers&&document.activeElement===keyboardOrigin;
+   overlaysRef.current=layer.update(displays);
+   const active=new Set(displays.map(display=>display.key));for(const key of contentByKey.keys())if(!active.has(key))contentByKey.delete(key);
+   if(keyboardMembers){
+    const members=keyboardMembers;keyboardMembers=null;keyboardOrigin=null;
+    const target=displays.find(display=>display.kind==='store'?members.has(display.point.key):display.members.some(point=>members.has(point.key)));
+    const content=target?contentByKey.get(target.key):canvasRef.current;
+    if(keyboardFocus)(content?.querySelector?.<HTMLElement>('.map-store-overlap-toggle')??content)?.focus({preventScroll:true});
+   }
+   if(focusedKey&&document.activeElement===document.body){
+    // Only replace focus lost by this draw; never take it from another control.
+    const target=contentByKey.get(focusedKey);
+    (target?.querySelector?.<HTMLElement>('button')??target??canvasRef.current)?.focus({preventScroll:true});
+   }
+  };
+  const closeOverlap=()=>{if(expandedKey){expandedKey=null;expandedViewport=null;draw()}};
+  const outside=(event:Event)=>{if(expandedKey&&!contentByKey.get(expandedKey)?.contains(event.target as Node))closeOverlap()};
+  const escape=(event:KeyboardEvent)=>{if(event.key==='Escape'&&expandedKey){event.preventDefault();closeOverlap()}};
+  const refresh=()=>{if(!disposed&&!frame)frame=requestAnimationFrame(draw)};
+  const update=()=>{
+   if(disposed||mapRef.current!==map)return;
+   const {menus,sourcedStores,sourceIdentityStores,selectedId,appLocationBridge}=overlayInputsRef.current;
+   const groups=mapStoreGroups(menus.filter(menu=>(!appLocationBridge||menu.isDemo===false)&&isKoreanCoordinate(menu.lat,menu.lng)),sourcedStores,sourceIdentityStores).filter(group=>group.catalog||group.source?.coordinates);
+   points=positionedStoreGroups(groups,selectedId);pointByKey.clear();for(const point of points)pointByKey.set(point.key,point);
+   cancelAnimationFrame(frame);draw();
+  };
+  const dispose=()=>{disposed=true;layer.dispose();contentByKey.clear();pointByKey.clear();overlaysRef.current=[];if(refreshOverlaysRef.current===update)refreshOverlaysRef.current=null};
+  refreshOverlaysRef.current=update;map.relayout();update();
+  if(!clusteringEnabled)return dispose;
+  const moved=()=>{
+   // SDK relayout/refresh notifications can repeat without movement. Only an
+   // actual viewport change dismisses petals; unreadable state remains fail-closed.
+   if(expandedKey){const current=viewportSignature();if(current===null||expandedViewport===null||current!==expandedViewport)closeOverlap()}
+   refresh();
+  };
+  document.addEventListener?.('pointerdown',outside);document.addEventListener?.('keydown',escape);
+  k.maps.event.addListener(map,'idle',refresh);
+  k.maps.event.addListener(map,'bounds_changed',moved);
+  k.maps.event.addListener(map,'zoom_changed',moved);
+  const resize=new ResizeObserver(moved);if(rootRef.current)resize.observe(rootRef.current);
+  return()=>{disposed=true;cancelAnimationFrame(frame);resize.disconnect();k.maps.event.removeListener(map,'idle',refresh);k.maps.event.removeListener(map,'bounds_changed',moved);k.maps.event.removeListener(map,'zoom_changed',moved);document.removeEventListener?.('pointerdown',outside);document.removeEventListener?.('keydown',escape);dispose()};
+ },[mapState,clusteringEnabled,mapRevision]);
+
+ useEffect(()=>{
+  if(viewportCountQuery===undefined||mapState!=='ready'||!mapRef.current||!kakaoRef.current)return;
+  const map=mapRef.current,k=kakaoRef.current;
+  const counter=createViewportCounter({getBounds:()=>map.getBounds(),query:viewportCountQuery,onState:setViewportCount});
+  const refresh=counter.refresh;
+  k.maps.event.addListener(map,'bounds_changed',refresh);
+  k.maps.event.addListener(map,'idle',refresh);
+  const resize=new ResizeObserver(refresh);if(rootRef.current)resize.observe(rootRef.current);
+  window.addEventListener('nowgo:catalog-refresh',refresh);window.addEventListener('nowgo-activity-change',refresh);
+  refresh();
+  return()=>{counter.dispose();resize.disconnect();k.maps.event.removeListener(map,'bounds_changed',refresh);k.maps.event.removeListener(map,'idle',refresh);window.removeEventListener('nowgo:catalog-refresh',refresh);window.removeEventListener('nowgo-activity-change',refresh)};
+ },[mapState,viewportCountQuery,menus,sourcedStores]);
 
  useEffect(()=>{
   if(mapState!=='ready'||!mapRef.current||!kakaoRef.current)return;
+  const source=sourceIdentityStores.find(store=>store.id===selectedSourceId);
   const menu=menus.find(item=>item.id===selectedId);
-  if(menu&&menu.lat!==null&&menu.lng!==null){mapRef.current.setLevel(4);mapRef.current.panTo(new kakaoRef.current.maps.LatLng(menu.lat,menu.lng))}
- },[mapState,menus,selectedId]);
+  const target=source?.coordinates?{key:'source:'+source.id,lat:source.coordinates.lat,lng:source.coordinates.lon}:
+   menu&&menu.lat!==null&&menu.lng!==null?{key:'menu:'+menu.id,lat:menu.lat,lng:menu.lng}:null;
+  if(!target){selectionTargetRef.current=null;return}
+  const map=mapRef.current,key=JSON.stringify([target.key,target.lat,target.lng]);
+  // Feed/menu polling is not a new selection: avoid synthetic map movement
+  // collapsing an open overlap when the selected identity and anchor are unchanged.
+  const previous=selectionTargetRef.current;
+  if(previous&&previous.map===map&&previous.key===key)return;
+  selectionTargetRef.current={map,key};
+  map.setLevel(4);map.panTo(new kakaoRef.current.maps.LatLng(target.lat,target.lng));
+ },[mapState,mapRevision,menus,selectedId,sourceIdentityStores,selectedSourceId]);
 
  useEffect(()=>{
   if(mapState!=='ready'||!mapRef.current||!kakaoRef.current)return;
@@ -273,11 +434,17 @@ export default function KakaoMap({menus,onSelect,onPoint,onLocation,onLocationSt
  const locationFailed=!['idle','locating','retrying','located'].includes(locationState);
  const statusText=locationStatusText[locationState];
  return <div className={fullScreen?'map-panel map-fullscreen':'map-panel'} ref={rootRef}>
-  <div key={mapAttempt} className="map-canvas" ref={canvasRef} aria-label={`카카오 대한민국 ${label} 메뉴 지도`}/>
-  {mapState!=='ready'&&<div className="map-unavailable"><MapPin size={30} strokeWidth={1.3}/><span className="eyebrow">KAKAO MAP · {variant.toUpperCase()} NOWGO</span><h3>{mapState==='loading'?'지도를 불러오는 중':mapState==='setup'?'지도 연결을 준비하고 있어요':'잠시 지도를 불러올 수 없어요'}</h3><p>지도 연결을 확인한 뒤 다시 시도해 주세요.</p>{mapState!=='loading'&&<button type="button" className="text-link" onClick={retryMap}>지도 다시 불러오기</button>}{!appLocationBridge&&<a className="text-link" href="https://www.nowgo.space/" target="_blank" rel="noreferrer">나우고에서 운영 매장 확인 <ArrowUpRight size={18}/></a>}</div>}
+  <div key={mapAttempt} className="map-canvas" ref={canvasRef} tabIndex={-1} aria-label={`카카오 대한민국 ${label} 메뉴 지도`}/>
+  {mapState!=='ready'&&<div className="map-unavailable"><MapPin size={30} strokeWidth={1.3}/><span className="eyebrow">KAKAO MAP · {variant.toUpperCase()} NOWGO</span><h3>{mapState==='loading'?'지도를 불러오는 중':mapState==='setup'?'지도 연결을 준비하고 있어요':'잠시 지도를 불러올 수 없어요'}</h3><p>지도 연결을 확인한 뒤 다시 시도해 주세요.</p>{mapState!=='loading'&&<button type="button" className="text-link" onClick={retryMap}>지도 다시 불러오기</button>}{!sourcePreview&&!appLocationBridge&&<a className="text-link" href="https://www.nowgo.space/" target="_blank" rel="noreferrer">나우고에서 운영 매장 확인 <ArrowUpRight size={18}/></a>}</div>}
+  {mapState==='ready'&&variant!=='hot'&&viewportCountQuery!==undefined&&<div className="map-visible-store-count" role="status" aria-live="polite" aria-atomic="true">
+    <strong>{viewportCount.status==='loading'?'화면 안 매장 집계 중':viewportCount.status==='error'?'매장 수를 확인하지 못했어요':`현재 화면 ${viewportCount.complete?'매장':'확인된 매장 최소'} ${viewportCount.count.toLocaleString('ko-KR')}곳`}</strong>
+    <small>{viewportCount.status==='ready'?'화면 전체 별도 집계 · 핀·목록은 불러온 자료 기준':'지도 이동 후 다시 확인해요'}</small>
+   {clusteringEnabled&&<small>원 안 숫자: 불러온 매장 수 · 확대하면 개별 핀</small>}
+   {viewportCount.status==='error'&&<button type="button" style={{pointerEvents:'auto',fontWeight:700,textDecoration:'underline'}} onClick={()=>window.dispatchEvent(new Event('nowgo:catalog-refresh'))}>매장 수 다시 확인</button>}
+  </div>}
   {mapState==='ready'&&onLocation&&<button type="button" className="map-location-button" aria-label="내 위치로 이동" onClick={requestLocation} disabled={locationBusy}><LocateFixed size={16}/>{locationBusy?'위치 확인 중':'내 위치'}</button>}
   {mapState==='ready'&&tileFailed&&<div role="alert" style={{position:'absolute',bottom:60,right:16,zIndex:5,maxWidth:300,padding:14,borderRadius:10,background:'#fff',color:'#20211e',boxShadow:'0 3px 18px #0002',fontSize:14}}>지도 배경을 불러오지 못했어요.<button type="button" className="text-link" onClick={retryMap}>지도 다시 불러오기</button></div>}
-  {mapState==='ready'&&locationFailed&&<div role="status" style={{position:'absolute',top:72,right:16,zIndex:5,maxWidth:300,padding:14,borderRadius:10,background:'#fff',color:'#20211e',boxShadow:'0 3px 18px #0002',fontSize:14}}>{statusText}{userPointRef.current&&<p>이전에 확인한 위치를 표시하고 있어요.</p>}<button type="button" className="text-link" onClick={requestLocation}>위치 다시 확인</button></div>}
-  <div className="map-caption"><span>카카오 지도</span><span>{mapState==='ready'?statusText:'지도 연결 확인 중'}</span></div>
+  {mapState==='ready'&&locationFailed&&<div role="status" style={{position:'absolute',top:72,right:16,zIndex:5,maxWidth:300,padding:14,borderRadius:10,background:'#fff',color:'#20211e',boxShadow:'0 3px 18px #0002',fontSize:14}}>{statusText}{hasUserPoint&&<p>이전에 확인한 위치를 표시하고 있어요.</p>}<button type="button" className="text-link" onClick={requestLocation}>위치 다시 확인</button></div>}
+  <div className="map-caption"><span>카카오 지도{clusteringEnabled&&viewportCountQuery===undefined&&mapState==='ready'?' · 원 안 숫자는 불러온 매장 수':''}</span><span>{mapState==='ready'?statusText:'지도 연결 확인 중'}</span></div>
  </div>;
 }
