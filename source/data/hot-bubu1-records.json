@@ -1,0 +1,44 @@
+[
+  {
+    "id": "01f234a8-0bac-51c5-995d-d586c635f194",
+    "slug": "hot-individual-jeonnam-gurye-bubu",
+    "name": "부부식당",
+    "address": "전라남도 구례군 구례읍 구례2길 30",
+    "lat": 35.20889239680518,
+    "lon": 127.46361849474033,
+    "source_ref": "individual-jeonnam-gurye-bubu",
+    "source_metadata": {
+      "planet": "hot",
+      "sourceUrl": "https://jiok2.tistory.com/entry/구례-화엄사에-오래-머문-아침-부부식당-다슬기-수제비까지",
+      "sourceRecordId": "individual-jeonnam-gurye-bubu",
+      "licenseName": null,
+      "sourceAsOf": null,
+      "checkedAt": "2026-10-15T04:34:00Z",
+      "rights": {
+        "factsStorage": true,
+        "publicDisplay": true
+      },
+      "reporting": {
+        "state": "pending"
+      },
+      "menus": [
+        {
+          "id": "individual-jeonnam-gurye-bubu:menu:1",
+          "name": "다슬기수제비",
+          "priceKrw": null,
+          "heatLevel": null
+        }
+      ],
+      "disclosure": {
+        "kind": "individual-public-facts",
+        "publisher": "견습생L의 작은상점 · 가늘고 길고 얕게 · 중앙일보 · 빵글이네 미니멀라이프",
+        "attribution": "메뉴·방문일·주소: 견습생L의 작은상점 https://jiok2.tistory.com/entry/구례-화엄사에-오래-머문-아침-부부식당-다슬기-수제비까지 위치: 가늘고 길고 얕게 https://nininew.tistory.com/entry/구례-맛집-구례-대표-음식점-구례-다슬기-수제비-맛집-구례-부부식당 이전 주소 연결: 빵글이네 미니멀라이프 https://yu-e.tistory.com/13 가족 운영의 과거 기록: 중앙일보 https://www.joongang.co.kr/article/21993036",
+        "changes": "상호·주소·메뉴명·위치 한 건과 날짜가 확인된 방문 사실만 정리했습니다. 후기 문장·사진·가격·평점·지도 이미지는 전재하지 않았습니다.",
+        "scopeNotice": "2026-09-06 직접 방문 후 2026-09-11 게시된 기록에서 다슬기수제비 기본맛과 덜 맵게 요청한 주문이 확인됩니다. 인쇄된 정식 맵기 단계나 수치 맵기를 뜻하지 않습니다. 2017년 기사에 가족 운영이 소개되지만 현재 법적 소유주·사업자 형태·분점 유무는 확인하지 않았습니다. 현재 영업·현재 판매 여부는 확인하지 않았습니다. 위치는 2025년 방문기 HTML의 상호·지번주소가 붙은 개별 표식을 문서화된 좌표계로 환산한 값이며 지도 중심점이 아닙니다. 2019년 이전 기록과 2026년 방문기의 도로명주소를 대조했습니다. 실측 입구 위치와 정확도는 확인되지 않았습니다. 원문·사진·지도·데이터베이스 전체의 상업적 재사용 허가를 뜻하지 않습니다.",
+        "licenseUrl": null,
+        "revisionUrl": null,
+        "historyUrl": null
+      }
+    }
+  }
+]
