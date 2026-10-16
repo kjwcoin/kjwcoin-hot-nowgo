@@ -19,21 +19,21 @@
 - Each menu has its own rating group. Integer submissions 1..8 only.
 - Authenticated users may insert/update **their own** one latest rating per menu.
 - Community median: odd sample => middle value; even => arithmetic mean (may be x.5), count unique raters, n<3 provisional.
-- Owner-declared level (1..8) is stored separately from visitor median. Merchant must not edit or delete visitor ratings.
-- Test same-user upsert, cross-user denial, nonexistent menu denial, and all boundary values.
+- Owner-declared **HOT** level is **1..7** (SWEET/RICH remain 1..5), stored separately from the community **1..8** median. Merchant must not edit or delete visitor ratings.
+- Test same-user upsert, cross-user denial, nonexistent menu denial, and all boundary values. The developer DB currently has a `hot_menu_spice_ratings_level_check` of 1..7, so user 8 cannot persist until a separately reviewed migration is applied; code-level tests do not clear this gate.
 
 ## 4. Owner 8,000 KRW / month feature gate
 - The 8,000 KRW/month amount is a requested product spec, **not** proof that payment processing is enabled.
 - Only verified merchant owner can modify their store's status, menus, new menu and declared heat level.
 - Entitlement must be checked **server-side** from payment provider's verified webhook/subscription state; do not trust a client toggle or URL query.
 - Design for billing lifecycle: trial/active/past_due/cancelled, replay-safe webhook idempotency, expiry, refund/cancellation, VAT policy, and audit logs.
-- Check RLS for every write and ensure existing merchant data is preserved. No production billing or test charges without a separate validated integration.
+- Check RLS for every write and ensure existing merchant data is preserved. The developer DB lacks `ng_map_menu_details` and required owner RPCs (`ng_map_can_publish`, `ng_map_save_menu`, `ng_map_set_menu_taste`); owner E2E is blocked until these are established in a safely isolated development environment. No production billing or test charges without a separate validated integration.
 
 ## 5. Release gates
 1. Code review + successful GitHub Actions tests on PR head (currently **not verified**).
 2. Resolve PR branch conflicts with main without force pushes.
 3. Development DB tests using disposable identities and full rollback; verify RLS and menu ID integrity.
-4. Real logged-in E2E: menu rating, grey pin visibility, verified-owner gating, menu edits and entitlement.
+4. Real logged-in E2E: visitor 8-level DB write and menu median, grey pin visibility, verified-owner gating, owner 7-level menu edits and entitlement.
 5. Legal/source rights review; evidence sampling and retention policy.
 6. Separate user request for production deployment.
 
