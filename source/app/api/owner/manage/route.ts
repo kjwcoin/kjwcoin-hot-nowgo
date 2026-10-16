@@ -10,10 +10,9 @@ export async function GET(request:Request){try{
  if(storeId&&!/^[0-9a-f-]{36}$/i.test(storeId))return reply(request,{error:'매장을 확인해 주세요.'},400);
  const link=url.searchParams.get('link');if(link&&!/^[0-9a-f-]{36}$/i.test(link))return reply(request,{error:'관리 주소를 확인해 주세요.'},400);
  const planet=variantForHost(url.hostname),args={p_planet:planet,p_store:storeId||null,p_link:link||null};
- let result=await auth.client.rpc('ng_map_dashboard_access',args);if(result.error)throw result.error;
- if(result.data?.storeId&&result.data.access?.code==='map_subscription_required'){
-  try{const check=new URL('https://nowgo-prod.vercel.app/api/owner/subscription');check.searchParams.set('product','space_map');check.searchParams.set('planet',planet);await fetch(check,{headers:{Authorization:request.headers.get('authorization')!},cache:'no-store',redirect:'error',signal:AbortSignal.timeout(5000)});const refreshed=await auth.client.rpc('ng_map_dashboard_access',args);if(!refreshed.error)result=refreshed}catch{}
- }
+ // Never contact production billing from the map dashboard.
+ // Entitlement must be read from the same environment's verified ledger.
+ const result=await auth.client.rpc('ng_map_dashboard_access',args);if(result.error)throw result.error;
  return reply(request,result.data);
 }catch(error){return ownerError(request,error)}}
 export async function POST(request:Request){try{
@@ -34,10 +33,15 @@ export async function POST(request:Request){try{
  const raw=await request.text();if(raw.length>4096)return reply(request,{error:'입력한 내용을 확인해 주세요.'},413);
  const body=JSON.parse(raw) as Record<string,unknown>,storeId=body.storeId;
  if(typeof storeId!=='string'||!/^[0-9a-f-]{36}$/i.test(storeId))return reply(request,{error:'매장을 확인해 주세요.'},400);
+ // Re-check paid owner permission on every write, not just dashboard entry.
+ // DB RPCs must independently enforce authenticated ownership and menu/store scope.
+ const permitted=await auth.client.rpc('ng_map_can_publish',{p_store:storeId,p_planet:variant});
+ if(permitted.error)throw permitted.error;
+ if(permitted.data!==true)return reply(request,{error:'이 매장의 소유권과 월 8,000원 구독 권한을 확인해 주세요.',code:'map_subscription_required'},402);
  let result;
  if(body.action==='status'&&typeof body.value==='string')result=await auth.client.rpc('ng_map_set_status',{p_store:storeId,p_planet:variant,p_value:body.value});
  else if(body.action==='soldout'&&typeof body.menuId==='string'&&typeof body.soldout==='boolean')result=await auth.client.rpc('ng_map_set_menu_soldout',{p_store:storeId,p_planet:variant,p_menu:body.menuId,p_soldout:body.soldout});
- else if(body.action==='taste'&&typeof body.menuId==='string'&&validOwnerTaste(variant,body.level)&&typeof body.flavor==='string'&&typeof body.category==='string')result=await auth.client.rpc('ng_map_set_menu_taste',{p_store:storeId,p_planet:variant,p_menu:body.menuId,p_level:body.level,p_flavor:body.flavor,p_category:body.category});
+ else if(body.action==='taste'&&typeof body.menuId==='string'&&validOwnerTaste(variant,body.level)&&typeof body.flavor==='string'&&theme.flavors.slice(1).some(f=>f===body.flavor)&&typeof body.category==='string'&&theme.categories.some(c=>c===body.category))result=await auth.client.rpc('ng_map_set_menu_taste',{p_store:storeId,p_planet:variant,p_menu:body.menuId,p_level:body.level,p_flavor:body.flavor,p_category:body.category});
  else return reply(request,{error:'지원하지 않는 관리 기능입니다.'},400);
  if(result.error)throw result.error;return reply(request,{ok:true,message:'저장했습니다. 지도에 반영됩니다.'});
 }catch(error){return ownerError(request,error)}}

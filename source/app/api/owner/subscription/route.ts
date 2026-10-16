@@ -6,6 +6,8 @@ export const dynamic='force-dynamic';
 async function proxy(request:Request){try{
  if(request.method==='POST'&&(!request.headers.get('origin')||!validOrigin(request)))return reply(request,{error:'요청 출처를 확인해 주세요.'},403);
  if(!await verifiedUser(request))return reply(request,{error:'점주 계정으로 로그인해 주세요.'},401);
+ // Never route preview/local requests to real production billing.
+ if(process.env.VERCEL_ENV!=='production')return reply(request,{error:'개발·미리보기 환경에서는 실제 결제 연결이 차단됩니다.',code:'BILLING_DISABLED_NON_PRODUCTION'},503);
  const url=new URL('https://nowgo-prod.vercel.app/api/owner/subscription');url.searchParams.set('product','space_map');const planet=variantForHost(new URL(request.url).hostname);url.searchParams.set('planet',planet);
  let body:string|undefined;
  if(request.method==='POST'){
