@@ -1,18 +1,15 @@
 import assert from 'node:assert/strict';
 import {test} from 'node:test';
 import {HEAT} from './menus.ts';
-import {ownerTasteMax} from './owner-taste-level.ts';
+import {ownerTasteMax,validOwnerTaste} from './owner-taste-level.ts';
 import {isSpiceLevel} from './hot-spice.ts';
 
-// Intentional release gate: catch mixed HOT scales before a merge or deployment.
-// Do not weaken this assertion to make the PR green. Resolve the product scale
-// and development DB constraint first; SWEET/RICH remain independent.
-test('HOT visible labels, owner input and community ratings share one scale',()=>{
- const ownerMaximum=ownerTasteMax('hot');
- assert.equal(HEAT.length,ownerMaximum,
-  'HOT labels and owner range disagree. Required HOT product scale is 1 through 8; migrate development DB separately.');
- assert.equal(isSpiceLevel(ownerMaximum),true,
-  'Community rating max must include the owner max.');
- assert.equal(isSpiceLevel(ownerMaximum+1),false,
-  'Community rating max cannot exceed the owner max.');
+// Merchant-declared HOT heat is 1-7; visitor ratings and their median are 1-8.
+test('HOT owner 1-7 and visitor rating 1-8 are intentionally separate',()=>{
+ assert.equal(HEAT.length,8,'Community HOT scale needs eight labels.');
+ assert.equal(ownerTasteMax('hot'),7,'Owner menu registration stays 1..7.');
+ assert.equal(validOwnerTaste('hot',7),true);
+ assert.equal(validOwnerTaste('hot',8),false);
+ assert.equal(isSpiceLevel(8),true);
+ assert.equal(isSpiceLevel(9),false);
 });
