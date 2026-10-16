@@ -21,7 +21,7 @@ function load({ready=true,sourceFeed=async()=>({stores:[],complete:true}),pages=
  const exports={},calls=[];
  const dependencies={'./menu-search.ts':menuSearch,
   './store-identity.ts':storeIdentityModule,'./map-sourced-stores.ts':{sourcedStoreMatches},'./sourced-store-feed.ts':{readSourcedStoreFeed:sourceFeed},'./korean-region.ts':{isKoreanCoordinate},
-  './site-config':{siteConfig(variant){return {tables:{menus:'ng_map_'+variant+'_menu_catalog'},flavors:variant==='sweet'?menus.SWEET_FLAVORS:variant==='rich'?menus.RICH_FLAVORS:menus.FLAVORS,categories:variant==='sweet'?menus.SWEET_MENU_CATEGORIES:variant==='rich'?menus.RICH_MENU_CATEGORIES:menus.MENU_CATEGORIES}}},
+  './site-config':{siteConfig(variant){return {tables:{menus:'ng_map_'+variant+'_menu_catalog'},heat:variant==='sweet'?menus.SWEET_HEAT:variant==='rich'?menus.RICH_HEAT:menus.HEAT,flavors:variant==='sweet'?menus.SWEET_FLAVORS:variant==='rich'?menus.RICH_FLAVORS:menus.FLAVORS,categories:variant==='sweet'?menus.SWEET_MENU_CATEGORIES:variant==='rich'?menus.RICH_MENU_CATEGORIES:menus.MENU_CATEGORIES}}},
   './supabase':{publicConfig:()=>({ready}),publicDb(...args){assert.equal(args.length,0,'No user token or elevated credential is needed');return {from(table){const operations=[['from',table]];const builder={};for(const name of ['select','gte','lte','or','eq','gt','order','limit','abortSignal'])builder[name]=(...args)=>{operations.push([name,...args]);return builder};builder.then=(resolve,reject)=>{calls.push(operations);return Promise.resolve().then(()=>pages(operations,calls.length)).then(resolve,reject)};return builder}}}},
  };
  vm.runInNewContext(ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText,{exports,URLSearchParams,AbortController,setTimeout,clearTimeout,require(name){assert.ok(name in dependencies,'Unexpected dependency: '+name);return dependencies[name]}});
@@ -32,10 +32,12 @@ test('bounds and active filters are bounded, normalized, and variant-aware',()=>
  const api=load(),input=api.parseViewportCountParams(params('q=서울%20닭발!&heat=3&flavor=칼칼한&category=닭발&budget=15000'));
  assert.deepEqual(plain(input),{bounds,query:'서울 닭발',heat:3,flavor:'칼칼한',category:'닭발',budget:15000});
  assert.equal(api.parseViewportCountParams(params('flavor=전체&category=전체&heat=0&budget=0')).flavor,'');
+ assert.equal(api.parseViewportCountParams(params('heat=7'),'hot').heat,7);
+ assert.throws(()=>api.parseViewportCountParams(params('heat=6'),'rich'),api.InvalidViewportCountQuery);
  assert.equal(api.parseViewportCountParams(params('category=케이크&flavor=프루티한'),'sweet').category,'케이크');
  assert.throws(()=>api.parseViewportCountParams(params('category=케이크'),'hot'),api.InvalidViewportCountQuery);
  for(const q of ['south=&north=38&west=126&east=128','south=NaN&north=38&west=126&east=128','south=-91&north=38&west=126&east=128','south=38&north=37&west=126&east=128','south=37&north=38&west=128&east=126','south=37&north=38&west=126&east=181','south=37&north=37&west=126&east=128'])assert.throws(()=>api.parseViewportCountParams(new URLSearchParams(q)),api.InvalidViewportCountQuery);
- for(const extra of ['south=36','q=a&q=b','heat=6','heat=-1','heat=1.5','heat=1e0','budget=99','budget=1000001','flavor=unknown','category=unknown','q='+'가'.repeat(121)])assert.throws(()=>api.parseViewportCountParams(params(extra)),api.InvalidViewportCountQuery,extra);
+ for(const extra of ['south=36','q=a&q=b','heat=8','heat=-1','heat=1.5','heat=1e0','budget=99','budget=1000001','flavor=unknown','category=unknown','q='+'가'.repeat(121)])assert.throws(()=>api.parseViewportCountParams(params(extra)),api.InvalidViewportCountQuery,extra);
 });
 
 test('text filter strips PostgREST syntax exactly like communityMenus',()=>{

@@ -24,7 +24,7 @@ function catalog(rows=[row]){
    from(table){calls.push(['from',table]);let conditions=[];const builder={select(value){calls.push(['select',value]);return this},or(value){calls.push(['or',value]);conditions.push(r=>predicate(value,r));return this},eq(key,value){calls.push(['eq',key,value]);conditions.push(r=>r[key]===value);return this},lte(key,value){calls.push(['lte',key,value]);conditions.push(r=>r[key]<=value);return this},gte(key,value){calls.push(['gte',key,value]);conditions.push(r=>r[key]>=value);return this},order(key,value){calls.push(['order',key,value]);return this},range(start,end){calls.push(['range',start,end]);return Promise.resolve({data:rows.filter(r=>conditions.every(test=>test(r))).slice(start,end+1),error:null})}};return builder},
    async rpc(name,args){calls.push(['rpc',name,args]);return {data:[],error:null}},
   })},
-  './site-config':{siteConfig:()=>({tables:{menus:'ng_map_hot_menu_catalog'}})},
+  './site-config':{siteConfig:variant=>({tables:{menus:'ng_map_'+variant+'_menu_catalog'},heat:variant==='hot'?['1','2','3','4','5','6','7']:['1','2','3','4','5']})},
   './nearby-demo':{MAP_RADIUS_KM:15,distanceKm:()=>0},
  };
  vm.runInNewContext(ts.transpileModule(fs.readFileSync(new URL('../lib/menu-catalog.ts',import.meta.url),'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText,{exports,process:{env:{}},require:name=>{assert.ok(name in dependencies,name);return dependencies[name]}});
@@ -79,6 +79,14 @@ test('catalog search retains price/heat/flavor/category, bounds, page range and 
  assert.deepEqual(Array.from(calls.find(c=>c[0]==='range')),['range',100,200]);
  assert.ok(calls.some(c=>c[0]==='rpc'&&c[1]==='ng_map_store_report_counts'));
  const ordinary=catalog();await ordinary.communityMenus({query:'돈가스'});assert.ok(ordinary.calls.some(c=>c[0]==='rpc'&&c[1]==='ng_map_matched_report_owners'));
+});
+
+test('HOT accepts 6/7 filters while the other planets remain capped at 5',async()=>{
+ const hot=catalog();await hot.communityMenus({heat:7,maxHeat:6},'hot');
+ assert.ok(hot.calls.some(c=>c[0]==='eq'&&c[1]==='heat'&&c[2]===7));
+ assert.ok(hot.calls.some(c=>c[0]==='lte'&&c[1]==='heat'&&c[2]===6));
+ const rich=catalog();await rich.communityMenus({heat:6,maxHeat:7},'rich');
+ assert.ok(!rich.calls.some(c=>['eq','lte'].includes(c[0])&&c[1]==='heat'));
 });
 
 test('oversized search causes zero database calls, while blank query preserves ordinary catalog browsing',async()=>{
