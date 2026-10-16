@@ -53,7 +53,7 @@ export function parseViewportCountParams(params:URLSearchParams,variant:SiteVari
   const value=one(name)||'';if(!value||value==='전체')return '';
   if(value.length>40||!choices.includes(value))invalid();return value;
  };
- return {bounds,query,heat:integer('heat',1,5),budget:integer('budget',100,1000000),flavor:choice('flavor',theme.flavors),category:choice('category',theme.categories)};
+ return {bounds,query,heat:integer('heat',1,theme.heat.length),budget:integer('budget',100,1000000),flavor:choice('flavor',theme.flavors),category:choice('category',theme.categories)};
 }
 
 function catalogBounds(bounds:ViewportBounds):ViewportBounds|null{
