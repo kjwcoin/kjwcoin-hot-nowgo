@@ -10,7 +10,7 @@ import {createMenuHeatLoader} from '../lib/menu-heat-client.ts';
 import {menuHeatAttribution} from '../lib/menu-heat-attribution.ts';
 import {sourceStore} from './fixtures/sourced-stores.mjs';
 const source=sourceStore(),storeId=source.id,menuIds=[source.menus[0].id,source.sourceRef+':menu:2'];
-const ready=(h=2.5,n=2)=>({state:'ready',coverage:'canonical_selected_reports_only',scale:5,summaries:menuIds.map((menuId,index)=>({storeId,menuId,medianHeat:index?4:h,sampleCount:index?3:n}))});
+const ready=(h=2.5,n=2)=>({state:'ready',coverage:'canonical_selected_reports_only',scale:7,summaries:menuIds.map((menuId,index)=>({storeId,menuId,medianHeat:index?4:h,sampleCount:index?3:n}))});
 const query=()=>{const p=new URLSearchParams({storeId});menuIds.forEach(id=>p.append('menuId',id));return p};
 const tick=()=>new Promise(resolve=>setImmediate(resolve));
 
@@ -28,20 +28,20 @@ test('canonical parser preserves fractional median and per-dish sample counts wi
  assert.deepEqual(heat.parsePublicMenuHeat(ready(),storeId,menuIds),ready().summaries);
  const output=heat.parsePublicMenuHeat({...ready(),privateReports:[{phone:'private'}],summaries:ready().summaries.map(r=>({...r,ownerRequestCount:1000,userId:'private'}))},storeId,menuIds);
  assert.equal(output[0].medianHeat,2.5);assert.equal(output[0].sampleCount,2);assert.equal(output[1].medianHeat,4);assert.equal(output[0].ownerRequestCount,undefined);assert.equal(output[0].userId,undefined);
- assert.deepEqual(heat.medianPepperFills(2.5),[1,1,.5,0,0]);assert.deepEqual(heat.medianPepperFills(5),[1,1,1,1,1]);
- for(const value of [null,0,5.5,2.25,NaN,Infinity])assert.throws(()=>heat.medianPepperFills(value));
+ assert.deepEqual(heat.medianPepperFills(2.5),[1,1,.5,0,0,0,0]);assert.deepEqual(heat.medianPepperFills(7),[1,1,1,1,1,1,1]);
+ for(const value of [null,0,7.5,2.25,NaN,Infinity])assert.throws(()=>heat.medianPepperFills(value));
 });
 test('only explicitly complete canonical responses can display a confirmed zero count',()=>{
  const zero=ready(null,0);assert.equal(heat.parsePublicMenuHeat(zero,storeId,menuIds)[0].medianHeat,null);
- assert.equal(heat.parsePublicMenuHeat({state:'pending',scale:5,summaries:[]},storeId,menuIds),null);
- for(const data of [{...ready(),coverage:'all_reports'},{...ready(),scale:10},{...ready(),summaries:[]},{...ready(),summaries:[ready().summaries[0],ready().summaries[0]]},{state:'pending',scale:5,summaries:ready().summaries},{...ready(),summaries:ready().summaries.map(r=>({...r,storeId:'other'}))}])assert.throws(()=>heat.parsePublicMenuHeat(data,storeId,menuIds));
- for(const [medianHeat,sampleCount] of [[0,1],[2.25,2],[6,3],[null,3],[2,0],[2,-1],[2,1.5],[2,Infinity],[2,'2']])assert.throws(()=>heat.parsePublicMenuHeat(ready(medianHeat,sampleCount),storeId,menuIds));
+ assert.equal(heat.parsePublicMenuHeat({state:'pending',scale:7,summaries:[]},storeId,menuIds),null);
+ for(const data of [{...ready(),coverage:'all_reports'},{...ready(),scale:10},{...ready(),summaries:[]},{...ready(),summaries:[ready().summaries[0],ready().summaries[0]]},{state:'pending',scale:7,summaries:ready().summaries},{...ready(),summaries:ready().summaries.map(r=>({...r,storeId:'other'}))}])assert.throws(()=>heat.parsePublicMenuHeat(data,storeId,menuIds));
+ for(const [medianHeat,sampleCount] of [[0,1],[2.25,2],[8,3],[null,3],[2,0],[2,-1],[2,1.5],[2,Infinity],[2,'2']])assert.throws(()=>heat.parsePublicMenuHeat(ready(medianHeat,sampleCount),storeId,menuIds));
 });
 test('source heat metadata stays unknown and legacy declarations explicitly remain unaggregated',()=>{
  assert.equal(source.menus[0].heat,null);
- assert.equal(menuHeatAttribution({heat:3,isDemo:false,verifiedOwner:false}),'개별 제보 맵기 3/5 · 메뉴별 중앙값 미집계');
- assert.equal(menuHeatAttribution({heat:4,isDemo:false,verifiedOwner:true}),'점주 안내 맵기 4/5 · 메뉴별 중앙값 미집계');
- assert.match(menuHeatAttribution({heat:2,isDemo:true}),/예시 맵기 2\/5 · 소비자 중앙값 아님/);
+ assert.equal(menuHeatAttribution({heat:3,isDemo:false,verifiedOwner:false}),'개별 제보 맵기 3/7 · 메뉴별 중앙값 미집계');
+ assert.equal(menuHeatAttribution({heat:4,isDemo:false,verifiedOwner:true}),'점주 안내 맵기 4/7 · 메뉴별 중앙값 미집계');
+ assert.match(menuHeatAttribution({heat:2,isDemo:true}),/예시 맵기 2\/7 · 소비자 중앙값 아님/);
  assert.equal(menuHeatAttribution({heat:0,isDemo:false}),'맵기 미확인 · 메뉴별 중앙값 미집계');
  for(const component of ['map-explorer','app-map','hot-app','kakao-map'])assert.match(fs.readFileSync(new URL('../components/'+component+'.tsx',import.meta.url),'utf8'),/menuHeatAttribution/);
  assert.doesNotMatch(fs.readFileSync(new URL('../components/consumer-menu-heat.tsx',import.meta.url),'utf8'),/menuStoreGroups|\.price|menus\.reduce|reportCount/);
@@ -62,7 +62,7 @@ test('public server proxy has fixed origin, five-second timeout, no credentials/
  const api=server(async()=>Response.json(ready()));const result=await api.readPublicMenuHeat({storeId,menuIds});assert.equal(result.state,'ready');assert.equal(result.summaries[0].medianHeat,2.5);
  const [url,options]=api.calls[0];assert.equal(new URL(url).origin,'https://www.nowgo.space');assert.equal(new URL(url).pathname,'/api/nowgo/hot/menu-heat');assert.equal(options.headers,undefined);assert.equal(options.credentials,undefined);assert.equal(options.redirect,'error');assert.equal(options.cache,'no-store');assert.deepEqual(api.timeouts,[5000]);
  for(const [response,status] of [[new Response('',{status:429}),429],[new Response('',{status:503}),503],[new Response('<html>'),503],[Response.json({...ready(),coverage:'legacy_names'}),503]])await assert.rejects(server(async()=>response).readPublicMenuHeat({storeId,menuIds}),error=>error.status===status);
- assert.equal((await server(async()=>Response.json({state:'pending',scale:5,summaries:[]})).readPublicMenuHeat({storeId,menuIds})).state,'pending');
+ assert.equal((await server(async()=>Response.json({state:'pending',scale:7,summaries:[]})).readPublicMenuHeat({storeId,menuIds})).state,'pending');
 });
 test('GET heat proxy rejects invalid/cross-variant queries before fetching and preserves 429/no-store',async()=>{
  const routeSource=fs.readFileSync(new URL('../app/api/menu-heat/route.ts',import.meta.url),'utf8');
@@ -83,6 +83,6 @@ test('GET median route returns pending without calling proxy in actual phase one
  vm.runInNewContext(ts.transpileModule(routeSource,{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText,{exports,URL,Response,require:name=>dependencies[name]});
  for(const menuId of [menuIds[0],'00000000-0000-4000-8000-000000000002']){
   const response=await exports.GET(new Request('https://hot.nowgo.space/api/menu-heat?'+new URLSearchParams({storeId,menuId})));
-  assert.equal(response.status,200);assert.equal(response.headers.get('Cache-Control'),'no-store');assert.deepEqual(await response.json(),{state:'pending',scale:5,summaries:[]});assert.equal(calls,0);
+  assert.equal(response.status,200);assert.equal(response.headers.get('Cache-Control'),'no-store');assert.deepEqual(await response.json(),{state:'pending',scale:7,summaries:[]});assert.equal(calls,0);
  }
 });

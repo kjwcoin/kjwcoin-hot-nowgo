@@ -13,4 +13,4 @@ export function sourceReportingState(metadata: unknown): HotReportingState {
   if (!reporting || typeof reporting !== 'object' || Array.isArray(reporting)) return 'pending';
   return (reporting as Record<string, unknown>).state === 'enabled' ? 'enabled' : 'pending';
 }
-export function pendingMenuHeat() { return { state: 'pending' as const, scale: 5 as const, summaries: [] as [] }; }
+export function pendingMenuHeat() { return { state: 'pending' as const, scale: 7 as const, summaries: [] as [] }; }

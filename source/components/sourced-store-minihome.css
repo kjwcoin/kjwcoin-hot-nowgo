@@ -41,7 +41,7 @@
 .source-preview-heat-form select{width:100%;min-height:40px;border:1px solid var(--flavor-line,#ded8ce);border-radius:6px;background:var(--card,#fffefa);color:inherit;font-size:12px}
 .source-preview-heat-form fieldset{margin:14px 0;border:0;padding:0;min-width:0}
 .source-preview-heat-form legend{margin-bottom:7px;font-size:11px;font-weight:700}
-.source-preview-heat-levels{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+.source-preview-heat-levels{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
 .source-preview-heat-levels label{display:flex;align-items:center;justify-content:center;gap:4px;min-height:40px;border:1px solid var(--flavor-line,#ded8ce);border-radius:6px;cursor:pointer}
 .source-preview-heat-levels label:has(input:checked){border-color:var(--brand-ink,#bd3828);background:var(--flavor-soft,#fff3ec);color:var(--brand-deep,#9b3024);font-weight:700}
 .source-preview-heat-levels input,.source-preview-eaten input{appearance:auto;accent-color:var(--brand-ink,#bd3828);width:14px;height:14px;min-height:0;padding:0;flex:none;margin:0}

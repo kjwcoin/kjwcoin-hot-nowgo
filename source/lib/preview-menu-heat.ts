@@ -4,10 +4,10 @@ import type {PublicSourcedStore} from './sourced-store.ts';
 export type PreviewHeatVotes=Readonly<Record<string,number>>;
 export type PreviewMenuHeat={scope:'preview-local';storeId:string;menuId:string;menuName:string;medianHeat:number|null;sampleCount:number;myHeat:number|null};
 const keyFor=(storeId:string,menuId:string)=>JSON.stringify([storeId,menuId]);
-function eligibleHeat(value:number){return Number.isInteger(value)&&value>=1&&value<=5}
+function eligibleHeat(value:number){return Number.isInteger(value)&&value>=1&&value<=7}
 function canonicalMenu(store:PublicSourcedStore,menuId:string){const menu=store.menus.find(menu=>menu.id===menuId);if(!menu)throw Error('unknown_preview_menu');return menu}
 
-/** Same median definition as percentile_cont(0.5); only 1–5 integer inputs qualify. */
+/** Same median definition as percentile_cont(0.5); only 1–7 integer inputs qualify. */
 export function previewHeatMedian(values:readonly number[]):number|null{
  if(values.some(value=>!eligibleHeat(value)))throw Error('invalid_preview_heat');
  if(!values.length)return null;

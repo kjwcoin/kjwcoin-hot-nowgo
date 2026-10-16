@@ -308,8 +308,8 @@ test('SDK/DOM mock: removed or failed feeds drop focused nodes, focus the canvas
 test('SDK/DOM mock: changed preview heat refreshes a same-ID pin without carrying the old annotation',()=>{
  const store=sourceStore(1),h=harness({sources:[store],sourcePreview:true,sourceSelectionEnabled:false}),initial=h.singles()[0];initial.focus();
  const preview={scope:'preview-local',storeId:store.id,menuId:store.menus[0].id,menuName:store.menus[0].name,medianHeat:2,myHeat:2,sampleCount:1};
- h.update({previewSourceHeat:preview});const first=h.singles()[0];assert.notStrictEqual(first,initial);assert.match(first.getAttribute('aria-label'),/중앙값 2\/5/);assert.strictEqual(h.dom.activeElement,first);
- h.update({previewSourceHeat:{...preview,medianHeat:5,myHeat:5}});assert.match(h.singles()[0].getAttribute('aria-label'),/중앙값 5\/5/);assert.doesNotMatch(h.singles()[0].getAttribute('aria-label'),/중앙값 2\/5/);h.unmount();
+ h.update({previewSourceHeat:preview});const first=h.singles()[0];assert.notStrictEqual(first,initial);assert.match(first.getAttribute('aria-label'),/중앙값 2\/7/);assert.strictEqual(h.dom.activeElement,first);
+ h.update({previewSourceHeat:{...preview,medianHeat:7,myHeat:7}});assert.match(h.singles()[0].getAttribute('aria-label'),/중앙값 7\/7/);assert.doesNotMatch(h.singles()[0].getAttribute('aria-label'),/중앙값 2\/7/);h.unmount();
 });
 
 test('SDK/DOM mock: unmount after fresh data clears the layer ref, cancels pending work, and never restores focus',()=>{

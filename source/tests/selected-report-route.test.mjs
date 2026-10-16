@@ -22,7 +22,7 @@ function harness({reportingEnabled=true,initial=null,targetError=null,variant='h
   '@/lib/server':{reply:(_req,body,status=200)=>({body,status}),validOrigin:()=>true,failure:(_req,error)=>({body:{error:error.message},status:503}),config:()=>({})},
   '@/lib/menu-catalog':{communityMenus:()=>{},menuById:()=>{}},
   '@/lib/supabase':{publicDb:()=>{throw Error('Unexpected direct store read')},verifiedUser:async()=>({user:{id:'test-user'},client})},
-  '@/lib/korean-region':korean,'@/lib/site-config':{variantForHost:()=>variant,siteConfig:()=>({tables:{reports:'reports'},menus:[],flavors:['전체','칼칼한'],categories:['닭발'],bucket:'private',publish:'publish_report'})},
+  '@/lib/korean-region':korean,'@/lib/site-config':{variantForHost:()=>variant,siteConfig:()=>({tables:{reports:'reports'},menus:[],heat:Array.from({length:variant==='hot'?7:5},(_,index)=>String(index+1)),flavors:['전체','칼칼한'],categories:['닭발'],bucket:'private',publish:'publish_report'})},
   '@/lib/report-publication':publication,'@/lib/selected-report-target':contract,
   '@/lib/selected-report-target-server':{readSelectedReportTarget:async selection=>{calls.push(['target',selection]);if(targetError)throw targetError;return contract.parseSelectedReportTarget({target:resolveTarget(selection)},selection)}},
   sharp:()=>{calls.push(['sharp']);return {autoOrient(){return this},resize(){return this},webp(){return this},async toBuffer(){return Buffer.from('photo')}}},'next/server':{after:()=>{calls.push(['after'])}},
@@ -50,9 +50,13 @@ test('owned target UUID cannot also be the request UUID',async()=>{
  const valid=await h.submit({selectedMenuId:ownerMenu});assert.equal(valid.status,201);assert.equal(h.row.menu_id,ownerMenu);
 });
 test('mandatory actual fields remain required for canonical selected reports',async()=>{
- for(const extra of [{phone:''},{photo:null},{price:'0'},{price:'99'},{heat:''},{heat:'0'},{heat:'6'},{rights:''},{accuracy:''},{observedAt:'2999-01-01'}]){
+ for(const extra of [{phone:''},{photo:null},{price:'0'},{price:'99'},{heat:''},{heat:'0'},{heat:'8'},{rights:''},{accuracy:''},{observedAt:'2999-01-01'}]){
   const h=harness(),result=await h.submit(extra);assert.equal(result.status,400,JSON.stringify(extra));assert.equal(h.calls.some(c=>c[0]==='insert'),false);
  }
+});
+test('HOT accepts seven heat levels while other flavors keep their five-level scale',async()=>{
+ const hot=harness(),hotResult=await hot.submit({heat:'7'});assert.equal(hotResult.status,201);assert.equal(hot.row.heat,7);
+ const rich=harness({variant:'rich'}),richResult=await rich.submit({selectionMode:'',selectedMenuId:'',storeId:'',heat:'6'});assert.equal(richResult.status,400);assert.equal(rich.calls.some(c=>c[0]==='insert'),false);
 });
 test('same immutable submission is idempotent but changed selected fields/targets receive 409',async()=>{
  const h=harness();assert.equal((await h.submit()).status,201);assert.equal((await h.submit()).status,201);assert.equal(h.calls.filter(c=>c[0]==='insert').length,1);assert.equal(h.calls.filter(c=>c[0]==='upload').length,1);
