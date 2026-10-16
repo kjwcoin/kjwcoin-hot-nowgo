@@ -41,6 +41,6 @@ test('HOT status fallback uses unconfirmed wording, while SWEET/RICH and unrelat
   const tree=h.render(()=>Status({menuId:'real',isDemo:false,ownerRegistered:true,variant}));
   if(variant==='hot'){assert.doesNotMatch(textOf(tree),/준비\s*중/);assert.match(textOf(tree),/연결 미확인/)}else assert.match(textOf(tree),/연결 준비 중/);
  }
- assert.match(menuHeatAttribution({heat:3,isDemo:false,verifiedOwner:false}),/개별 제보 맵기 3\/5 · 메뉴별 중앙값 미집계/);
+ assert.match(menuHeatAttribution({heat:3,isDemo:false,verifiedOwner:false}),/개별 제보 맵기 3\/7 · 메뉴별 중앙값 미집계/);
  assert.match(fs.readFileSync(new URL('../lib/hot-reporting-phase.ts',import.meta.url),'utf8'),/평가 등록과 집계는 준비 중/);
 });

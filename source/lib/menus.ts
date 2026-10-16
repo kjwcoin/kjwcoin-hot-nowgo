@@ -1,4 +1,4 @@
-export const HEAT=['순한맛','약간 매운맛','보통 매운맛','매운맛','아주 매운맛'];
+export const HEAT=['순한맛','약간 매운맛','보통 매운맛','매운맛','아주 매운맛','눈물 나는 매운맛','극강의 매운맛'];
 export const FLAVORS=['전체','얼큰한','칼칼한','달콤매콤한','알싸한'];
 export type Menu={id:string,placeId:string,name:string,shop:string,price:number,heat:number,flavor:string,category:string,image:string,lat:number|null,lng:number|null,area:string,description:string,isDemo:boolean,soldout?:boolean,rating?:number,reviewCount?:number,reportCount?:number,reportCountScope?:string,reportCountIsMinimum?:boolean,reportedAt?:string,verifiedOwner?:boolean,ownerRegistered?:boolean,ownerClaimVerified?:boolean,ownerStoreId?:string|null,nowgoSlug?:string|null};
 export const MENU_CATEGORIES=['분식','국물·면','고기·볶음','닭발','족발','해산물','기타'];

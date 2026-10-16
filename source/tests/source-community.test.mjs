@@ -5,7 +5,8 @@ import {growth,EXP_THRESHOLDS,RANKS} from '../lib/activity/model.ts';
 test('taste reports reject out-of-range heat, unknown flavor and absent firsthand consent',()=>{
  const valid={menu:'  테스트   메뉴  ',heat:3,flavor:'얼큰한',note:'맛 기록',consent:true};
  assert.equal(sourceTasteInput(valid).menu,'테스트 메뉴');
- for(const bad of [{...valid,heat:0},{...valid,heat:6},{...valid,flavor:'없는 결'},{...valid,consent:false},{...valid,menu:''},{...valid,note:'a'.repeat(501)}])assert.throws(()=>sourceTasteInput(bad));
+ assert.equal(sourceTasteInput({...valid,heat:7}).heat,7);
+ for(const bad of [{...valid,heat:0},{...valid,heat:8},{...valid,flavor:'없는 결'},{...valid,consent:false},{...valid,menu:''},{...valid,note:'a'.repeat(501)}])assert.throws(()=>sourceTasteInput(bad));
 });
 test('growth becomes progressively harder and a first report never grants castle rank',()=>{
  assert.equal(growth(50).level,2);assert.equal(growth(60).rank.name,'탐험가');

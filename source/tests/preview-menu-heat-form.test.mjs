@@ -33,7 +33,7 @@ test('form contains exact canonical menu options and requires heat plus eaten-he
  const state=setup({menuId:store.menus[1].id});let tree=state.render();opener(tree).props.onClick();tree=state.render();
  assert.equal(select(tree).props.value,store.menus[1].id);
  assert.deepEqual(elements(tree).filter(node=>node.type==='option').map(node=>[node.props.value,textOf(node)]),store.menus.map(menu=>[menu.id,menu.name]));
- assert.deepEqual(elements(tree).filter(node=>node.props?.type==='radio').map(node=>node.props.value),[1,2,3,4,5]);
+ assert.deepEqual(elements(tree).filter(node=>node.props?.type==='radio').map(node=>node.props.value),[1,2,3,4,5,6,7]);
  assert.equal(elements(tree).filter(node=>node.props?.type==='radio'&&node.props.checked).length,0);
  assert.equal(submit(tree).props.disabled,true);form(tree).props.onSubmit({preventDefault(){}});assert.deepEqual(state.calls,[]);
  radio(tree,4).props.onChange();tree=state.render();assert.equal(submit(tree).props.disabled,true);
@@ -46,8 +46,8 @@ test('submit sends the selected canonical menu once per opening; repeat editing 
  select(tree).props.onChange({target:{value:store.menus[1].id}});tree=state.render();radio(tree,5).props.onChange();checkbox(tree).props.onChange({target:{checked:true}});tree=state.render();
  const callback=form(tree).props.onSubmit;callback({preventDefault(){}});callback({preventDefault(){}});
  assert.deepEqual(state.calls,[[store.menus[1].id,5]]);tree=state.render();assert.equal(form(tree),undefined);
- state.props.menuId=store.menus[1].id;state.props.summary={medianHeat:5,sampleCount:1,myHeat:5};tree=state.render();assert.match(textOf(tree),/미리보기 중앙값 5\/5/);assert.match(textOf(tree),/지도 아이콘 미리보기/);assert.match(textOf(tree),/내 입력 1건/);assert.doesNotMatch(textOf(tree),/참여 고객|등록 완료/);
- opener(tree).props.onClick();tree=state.render();assert.equal(radio(tree,5).props.checked,true);assert.equal(checkbox(tree).props.checked,false);
+ state.props.menuId=store.menus[1].id;state.props.summary={medianHeat:7,sampleCount:1,myHeat:7};tree=state.render();assert.match(textOf(tree),/미리보기 중앙값 7\/7/);assert.match(textOf(tree),/지도 아이콘 미리보기/);assert.match(textOf(tree),/내 입력 1건/);assert.doesNotMatch(textOf(tree),/참여 고객|등록 완료/);
+ opener(tree).props.onClick();tree=state.render();assert.equal(radio(tree,7).props.checked,true);assert.equal(checkbox(tree).props.checked,false);
  radio(tree,2).props.onChange();checkbox(tree).props.onChange({target:{checked:true}});tree=state.render();form(tree).props.onSubmit({preventDefault(){}});
  assert.deepEqual(state.calls,[[store.menus[1].id,5],[store.menus[1].id,2]]);
 });

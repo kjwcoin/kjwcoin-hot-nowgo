@@ -14,6 +14,6 @@ export async function readPublicMenuHeat(query:MenuHeatQuery,signal?:AbortSignal
   if(response.status===429)throw new MenuHeatUnavailable(429);
   if(!response.ok||!response.headers.get('content-type')?.includes('application/json'))throw new MenuHeatUnavailable();
   const summaries=parsePublicMenuHeat(await response.json(),query.storeId,query.menuIds);
-  return summaries===null?{state:'pending' as const,scale:5 as const,summaries:[]}:{state:'ready' as const,coverage:'canonical_selected_reports_only' as const,scale:5 as const,summaries};
+  return summaries===null?{state:'pending' as const,scale:7 as const,summaries:[]}:{state:'ready' as const,coverage:'canonical_selected_reports_only' as const,scale:7 as const,summaries};
  }catch(error){if(error instanceof MenuHeatUnavailable)throw error;throw new MenuHeatUnavailable()}
 }

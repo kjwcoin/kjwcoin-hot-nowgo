@@ -12,7 +12,7 @@ type Props={
  onPreviewHeat?:(menuId:string,heat:number)=>void;
  onPreviewHeatReset?:()=>void;
 };
-const levels=[1,2,3,4,5] as const;
+const levels=[1,2,3,4,5,6,7] as const;
 
 /** Review-only interaction. The parent owns one ephemeral latest vote per menu. */
 export default function PreviewMenuHeat({storeId,menus,menuId,summary,onPreviewHeat,onPreviewHeatReset}:Props){
@@ -25,7 +25,7 @@ export default function PreviewMenuHeat({storeId,menus,menuId,summary,onPreviewH
  const submitted=useRef(false);
  const formId=`source-heat-preview-${storeId}`;
  const validMenu=menus.some(menu=>menu.id===draftMenuId);
- const validHeat=heat!==null&&Number.isInteger(heat)&&heat>=1&&heat<=5;
+ const validHeat=heat!==null&&Number.isInteger(heat)&&heat>=1&&heat<=7;
  const canSubmit=Boolean(onPreviewHeat&&validMenu&&validHeat&&eatenHere);
  const hasSummary=summary?.medianHeat!==null&&summary?.medianHeat!==undefined&&summary.sampleCount>0;
  function close(){submitted.current=true;setOpen(false);setHeat(null);setEatenHere(false);trigger.current?.focus()}
@@ -37,7 +37,7 @@ export default function PreviewMenuHeat({storeId,menus,menuId,summary,onPreviewH
   {hasSummary?<div className="source-preview-heat-summary" aria-live="polite">
    <strong>{currentMenu?.name}</strong>
    <small>지도 아이콘 미리보기</small>
-   <span className="consumer-heat-value"><MedianPeppers heat={summary!.medianHeat!}/><b>미리보기 중앙값 {summary!.medianHeat}/5</b></span>
+   <span className="consumer-heat-value"><MedianPeppers heat={summary!.medianHeat!}/><b>미리보기 중앙값 {summary!.medianHeat}/7</b></span>
    <small>이 화면의 내 입력 {summary!.sampleCount}건 · 실제 고객 집계가 아니에요.</small>
   </div>:<p>아직 이 화면에 반영한 맵기가 없어요.</p>}
   <p className="source-preview-heat-note">이 화면에서만 시험해 볼 수 있어요. 메뉴마다 내 최신 입력 1개만 반영하며, 새로고침·초기화하면 지워져요.</p>
@@ -52,7 +52,7 @@ export default function PreviewMenuHeat({storeId,menus,menuId,summary,onPreviewH
    <select id={`${formId}-menu`} name="menuId" value={draftMenuId} autoFocus onChange={event=>{setDraftMenuId(event.target.value);setHeat(null);setEatenHere(false)}}>
     {menus.map(menu=><option key={menu.id} value={menu.id}>{menu.name}</option>)}
    </select>
-   <fieldset><legend>이 메뉴를 먹고 느낀 맵기 · 1–5단계</legend><div className="source-preview-heat-levels">
+   <fieldset><legend>이 메뉴를 먹고 느낀 맵기 · 1–7단계</legend><div className="source-preview-heat-levels">
     {levels.map(level=><label key={level}><input type="radio" name={`${formId}-heat`} value={level} checked={heat===level} onChange={()=>setHeat(level)}/><span>{level}</span></label>)}
    </div></fieldset>
    <label className="source-preview-eaten"><input type="checkbox" checked={eatenHere} onChange={event=>setEatenHere(event.target.checked)}/><span>이 매장에서 선택한 메뉴를 먹고 느낀 맵기예요.</span></label>
