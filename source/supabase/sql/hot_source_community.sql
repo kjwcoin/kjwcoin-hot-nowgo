@@ -9,7 +9,7 @@ create table if not exists hot_source_community.taste_reports (
  store_id uuid not null references hot_source_community.stores(id),
  user_id uuid not null references auth.users(id) on delete cascade,
  menu_key text not null, menu_name text not null check(char_length(menu_name) between 1 and 100),
- heat smallint not null check(heat between 1 and 5),
+ heat smallint not null check(heat between 1 and 7),
  flavor text not null check(flavor in ('얼큰한','칼칼한','달콤매콤한','알싸한')),
  note text not null default '' check(char_length(note)<=500),
  consent_version text not null default 'hot-source-taste-v1',
@@ -59,7 +59,7 @@ begin
   insert into hot_source_community.owner_requests(store_id,user_id) values(p_store,v_user) on conflict do nothing;
  elsif p_action='taste' then
   v_menu:=regexp_replace(btrim(p_menu),'\s+',' ','g');v_key:=lower(v_menu);
-  if v_menu is null or char_length(v_menu) not between 1 and 100 or p_heat is null or p_heat not between 1 and 5 or p_flavor is null or p_flavor not in ('얼큰한','칼칼한','달콤매콤한','알싸한') or p_note is null or char_length(p_note)>500 or p_consent is distinct from true then raise exception 'invalid_taste_report'; end if;
+  if v_menu is null or char_length(v_menu) not between 1 and 100 or p_heat is null or p_heat not between 1 and 7 or p_flavor is null or p_flavor not in ('얼큰한','칼칼한','달콤매콤한','알싸한') or p_note is null or char_length(p_note)>500 or p_consent is distinct from true then raise exception 'invalid_taste_report'; end if;
   if (select count(*) from hot_source_community.taste_reports where user_id=v_user and updated_at>now()-interval '24 hours')>=100 then raise exception 'request_rate_limited'; end if;
   insert into hot_source_community.taste_reports(store_id,user_id,menu_key,menu_name,heat,flavor,note)
   values(p_store,v_user,v_key,v_menu,p_heat,p_flavor,btrim(p_note))
