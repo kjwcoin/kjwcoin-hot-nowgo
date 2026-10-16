@@ -1,0 +1,20 @@
+import ts from 'typescript';
+import test from 'node:test';
+import fs from 'node:fs';import vm from 'node:vm';import assert from 'node:assert/strict';
+const load=(source,deps={})=>{const exports={};vm.runInNewContext(ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText,{exports,require:n=>deps[n]});return exports;};
+const menus=load(fs.readFileSync(new URL('../lib/menus.ts',import.meta.url),'utf8'));
+const config=load(fs.readFileSync(new URL('../lib/site-config.ts',import.meta.url),'utf8'),{'./menus':menus});
+test('production theme bounds remain HOT7 SWEET5 RICH5',()=>{assert.deepEqual(['hot','sweet','rich'].map(p=>config.siteConfig(p).heat.length),[7,5,5])});
+const source=fs.readFileSync(new URL('../app/api/owner/signup/route.ts',import.meta.url),'utf8');
+const code=ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;
+for(const variant of ['hot','sweet','rich'])for(const level of [0,1,5,6,7,8,6.5])test(`${variant} signup level ${level}`,async()=>{
+ const values={phone:'01012345678',consent:'yes',storeId:'',shop:'합성 테스트 매장',address:'서울특별시 중구 테스트로 10',lat:'37.5',lng:'127',menu:'합성 메뉴',price:'8000',level:String(level),flavor:config.siteConfig(variant).flavors[1],category:config.siteConfig(variant).categories[0]};
+ const calls=[];const auth={user:{id:'synthetic-owner'},client:{rpc:async(name,args)=>{calls.push({name,args});return {data:{},error:null}},storage:{from:()=>({upload:async()=>({error:null}),remove:async()=>({error:null})})}}};
+ const deps={'@/lib/readonly-source-listings':{isReadonlySourceStoreId:()=>false},'@/lib/supabase':{verifiedUser:async()=>auth},'@/lib/server':{reply:(req,body,status=200)=>({body,status}),validOrigin:()=>true},'@/lib/site-config':config,'@/lib/owner-signup-bridge':{ownerSignupRequest:async(req,user,path)=>path.includes('business-verification')?{status:'approved',storeId:'00000000-0000-4000-8000-000000000001'}:{menuId:'synthetic-menu'}},'@/lib/map-owner-api':{readOwnerForm:async()=>({get:k=>values[k]??null}),prepareOwnerPhoto:async()=>new Uint8Array([1]),ownerError:(req,e)=>{throw e}},'@/lib/korean-region':{isKoreanAddress:()=>true,isKoreanCoordinate:()=>true}};
+ const exports={};vm.runInNewContext(code,{exports,require:n=>{assert.ok(n in deps,n);return deps[n]},URL,FormData,File,Uint8Array,crypto});
+ const result=await exports.POST(new Request('https://'+variant+'.nowgo.space/api/owner/signup',{method:'POST',headers:{origin:'https://'+variant+'.nowgo.space'}}));
+ const max=variant==='hot'?7:5;const valid=Number.isInteger(level)&&level>=1&&level<=max;
+ assert.equal(result.status,valid?200:400,`${variant} ${level}`);
+ assert.equal(calls.some(c=>c.name==='ng_map_adopt_signup_menu'),valid);
+ if(valid)assert.equal(calls.find(c=>c.name==='ng_map_adopt_signup_menu').args.p_level,level);
+});
