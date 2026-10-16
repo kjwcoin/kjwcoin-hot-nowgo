@@ -10,6 +10,8 @@ on:
       - 'source/lib/hot-spice.test.ts'
       - 'source/lib/owner-taste-level.ts'
       - 'source/lib/owner-taste-level.test.ts'
+      - 'source/lib/owner-publish-permission.ts'
+      - 'source/lib/owner-publish-permission.test.ts'
       - 'source/lib/hot-stage-consistency.test.ts'
       - 'source/lib/menus.ts'
       - 'source/lib/naver-spicy-menu.ts'
@@ -33,4 +35,4 @@ jobs:
           node-version: '22.13.1'
       - name: Run 1-7 spice median and licensed-menu evidence unit tests
         working-directory: source
-        run: node --experimental-strip-types --test lib/hot-spice.test.ts lib/naver-spicy-menu.test.ts lib/owner-taste-level.test.ts lib/hot-stage-consistency.test.ts
+        run: node --experimental-strip-types --test lib/hot-spice.test.ts lib/naver-spicy-menu.test.ts lib/owner-taste-level.test.ts lib/owner-publish-permission.test.ts lib/hot-stage-consistency.test.ts

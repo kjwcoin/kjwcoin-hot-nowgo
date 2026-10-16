@@ -3,6 +3,7 @@ import {reply,validOrigin} from '@/lib/server';
 import {siteConfig,variantForHost} from '@/lib/site-config';
 import {readOwnerForm,prepareOwnerPhoto,ownerError} from '@/lib/map-owner-api';
 import {validOwnerTaste} from '@/lib/owner-taste-level';
+import {isExplicitOwnerGrant} from '@/lib/owner-publish-permission';
 export const dynamic='force-dynamic';
 export async function GET(request:Request){try{
  const auth=await verifiedUser(request);if(!auth)return reply(request,{error:'점주 계정으로 로그인해 주세요.'},401);
@@ -23,7 +24,7 @@ export async function POST(request:Request){try{
   const form=await readOwnerForm(request),storeId=String(form.get('storeId')||''),name=String(form.get('name')||'').trim(),price=Number(form.get('price')),level=Number(form.get('level')),flavor=String(form.get('flavor')||''),category=String(form.get('category')||'');
   if(!/^[0-9a-f-]{36}$/i.test(storeId)||name.length<1||name.length>100||!Number.isInteger(price)||price<100||price>1000000||!validOwnerTaste(variant,level)||!theme.flavors.slice(1).some(f=>f===flavor)||!theme.categories.some(c=>c===category))return reply(request,{error:'메뉴 이름·가격·맛 단계와 결을 확인해 주세요.'},400);
   const permitted=await auth.client.rpc('ng_map_can_publish',{p_store:storeId,p_planet:variant});
-  if(permitted.error)throw permitted.error;if(!permitted.data)return reply(request,{error:'이 지도의 구독과 매장 권한 확인이 필요합니다.',code:'map_subscription_required'},402);
+  if(permitted.error)throw permitted.error;if(!isExplicitOwnerGrant(permitted.data))return reply(request,{error:'이 지도의 구독과 매장 권한 확인이 필요합니다.',code:'map_subscription_required'},402);
   const bytes=await prepareOwnerPhoto(form.get('photo')),path=auth.user.id+'/'+storeId+'/'+variant+'/'+crypto.randomUUID()+'.webp';
   const upload=await auth.client.storage.from('ng-map-menu-photos').upload(path,bytes,{contentType:'image/webp',upsert:false});if(upload.error)throw upload.error;
   const result=await auth.client.rpc('ng_map_save_menu',{p_store:storeId,p_planet:variant,p_menu:null,p_name:name,p_price:price,p_level:level,p_flavor:flavor,p_category:category,p_photo:path});
@@ -37,7 +38,7 @@ export async function POST(request:Request){try{
  // DB RPCs must independently enforce authenticated ownership and menu/store scope.
  const permitted=await auth.client.rpc('ng_map_can_publish',{p_store:storeId,p_planet:variant});
  if(permitted.error)throw permitted.error;
- if(permitted.data!==true)return reply(request,{error:'이 매장의 소유권과 월 8,000원 구독 권한을 확인해 주세요.',code:'map_subscription_required'},402);
+ if(!isExplicitOwnerGrant(permitted.data))return reply(request,{error:'이 매장의 소유권과 월 8,000원 구독 권한을 확인해 주세요.',code:'map_subscription_required'},402);
  let result;
  if(body.action==='status'&&typeof body.value==='string')result=await auth.client.rpc('ng_map_set_status',{p_store:storeId,p_planet:variant,p_value:body.value});
  else if(body.action==='soldout'&&typeof body.menuId==='string'&&typeof body.soldout==='boolean')result=await auth.client.rpc('ng_map_set_menu_soldout',{p_store:storeId,p_planet:variant,p_menu:body.menuId,p_soldout:body.soldout});
