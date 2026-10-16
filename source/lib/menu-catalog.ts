@@ -28,8 +28,9 @@ export async function communityMenus(filters:MenuSearch={},variant:SiteVariant='
  const searchFilter=catalogMenuSearchFilter(filters.query||'');
  if(searchFilter)request=request.or(searchFilter);
  const heat=filters.heat??0,maxHeat=filters.maxHeat??0,budget=filters.budget??0;
- if(Number.isInteger(heat)&&heat>=1&&heat<=5)request=request.eq('heat',heat);
- if(Number.isInteger(maxHeat)&&maxHeat>=1&&maxHeat<=5)request=request.lte('heat',maxHeat);
+ const heatScale=siteConfig(variant).heat.length;
+ if(Number.isInteger(heat)&&heat>=1&&heat<=heatScale)request=request.eq('heat',heat);
+ if(Number.isInteger(maxHeat)&&maxHeat>=1&&maxHeat<=heatScale)request=request.lte('heat',maxHeat);
  if(filters.flavor&&filters.flavor!=='전체')request=request.eq('flavor',filters.flavor);
  if(filters.category&&filters.category!=='전체')request=request.eq('category',filters.category);
  if(Number.isInteger(budget)&&budget>=100&&budget<=1000000)request=request.lte('price',budget);
