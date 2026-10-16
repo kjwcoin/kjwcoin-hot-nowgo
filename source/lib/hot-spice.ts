@@ -4,7 +4,7 @@
  * Independent of owner-declared heat levels: community results are computed
  * exclusively from verified, latest-per-member ratings.
  */
-export type SpiceLevel = 1 | 2 | 3 | 4 | 5 | 6 | 7;
+export type SpiceLevel = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
 export type MenuSpiceRating = {
   menuId: string;
@@ -21,13 +21,13 @@ export type MenuSpiceSummary = {
 };
 
 export function isSpiceLevel(value: unknown): value is SpiceLevel {
-  return typeof value === "number" && Number.isInteger(value) && value >= 1 && value <= 7;
+  return typeof value === "number" && Number.isInteger(value) && value >= 1 && value <= 8;
 }
 
-/** Median of an array of 1–7 heat levels. Throws for invalid input. */
+/** Median of an array of 1–8 heat levels. Throws for invalid input. */
 export function spiceMedian(levels: readonly number[]): number | null {
   if (levels.some((level) => !isSpiceLevel(level))) {
-    throw new RangeError("Spice ratings must be integers from 1 to 7.");
+    throw new RangeError("Spice ratings must be integers from 1 to 8.");
   }
   if (levels.length === 0) return null;
   const sorted = [...levels].sort((a, b) => a - b);
