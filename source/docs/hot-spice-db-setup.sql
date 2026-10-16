@@ -1,9 +1,9 @@
--- HOT 8-stage spice rating schema; applied only in Nowgo-dev.
+-- HOT 7-stage spice rating reference schema; do not apply without migration review.
 -- Do NOT alter legacy 1-5 taste observations.
 create table if not exists public.hot_menu_spice_ratings (
   menu_id uuid not null,
   user_id uuid not null references auth.users(id) on delete cascade,
-  level smallint not null check (level between 1 and 8),
+  level smallint not null check (level between 1 and 7),
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),
   primary key (menu_id,user_id)

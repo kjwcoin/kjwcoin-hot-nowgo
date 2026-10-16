@@ -31,6 +31,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22.13.1'
-      - name: Run 1-8 spice median and licensed-menu evidence unit tests
+      - name: Run 1-7 spice median and licensed-menu evidence unit tests
         working-directory: source
         run: node --experimental-strip-types --test lib/hot-spice.test.ts lib/naver-spicy-menu.test.ts lib/owner-taste-level.test.ts lib/hot-stage-consistency.test.ts

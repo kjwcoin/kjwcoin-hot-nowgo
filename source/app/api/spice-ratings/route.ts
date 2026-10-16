@@ -31,12 +31,16 @@ export async function POST(req:Request){
   if(!data||typeof data!=='object'||Array.isArray(data))return error(req,'평가 정보를 확인해 주세요.',400);
   const {menuId,level}=data as {menuId?:unknown;level?:unknown};
   if(typeof menuId!=='string'||!uuid.test(menuId)||!isSpiceLevel(level))
-   return error(req,'메뉴와 매운맛 1~8단계를 확인해 주세요.',400);
+   return error(req,'메뉴와 매운맛 1~7단계를 확인해 주세요.',400);
   if(!await menuById(menuId,'hot'))return error(req,'HOT 메뉴를 찾을 수 없습니다.',404);
   const {error:dbError}=await auth.client.from('hot_menu_spice_ratings')
     .upsert({menu_id:menuId,user_id:auth.user.id,level,updated_at:new Date().toISOString()},
             {onConflict:'menu_id,user_id'});
   if(dbError)throw dbError;
+  const {data:saved,error:verifyError}=await auth.client.from('hot_menu_spice_ratings')
+    .select('level').eq('menu_id',menuId).eq('user_id',auth.user.id).single();
+  if(verifyError)throw verifyError;
+  if(saved?.level!==level)return error(req,'평가 저장 확인에 실패했습니다.',503);
   return reply(req,{saved:true,menuId,level},200);
  }catch(e){return failure(req,e)}
 }

@@ -87,7 +87,7 @@ export async function POST(req:Request,{params}:Ctx){
    customerStore=data;
    shop=data.name;address=data.address;
   }
-  if(!/^[a-f0-9-]{36}$/.test(id)||!['customer','owner'].includes(role)||shop.length<2||shop.length>100||menu.length<2||menu.length>100||theme.menus.some(x=>x.shop===shop)||!isKoreanAddress(address)||!Number.isInteger(price)||price<100||price>1000000||!Number.isInteger(heat)||heat<1||heat>5||!theme.flavors.slice(1).some(x=>x===flavor)||note.length>1000||!/^\d{4}-\d{2}-\d{2}$/.test(observed)||!Number.isFinite(Date.parse(observed))||observed>koreanToday()||new Date(observed).toISOString().slice(0,10)!==observed||get('rights')!=='yes'||get('accuracy')!=='yes'||!theme.categories.some(x=>x===category))return reject(req,'대한민국 내 실제 가게 주소와 메뉴·가격·확인 날짜·사진 공개 동의를 확인해 주세요.',400);
+  if(!/^[a-f0-9-]{36}$/.test(id)||!['customer','owner'].includes(role)||shop.length<2||shop.length>100||menu.length<2||menu.length>100||theme.menus.some(x=>x.shop===shop)||!isKoreanAddress(address)||!Number.isInteger(price)||price<100||price>1000000||!Number.isInteger(heat)||heat<1||heat>theme.heat.length||!theme.flavors.slice(1).some(x=>x===flavor)||note.length>1000||!/^\d{4}-\d{2}-\d{2}$/.test(observed)||!Number.isFinite(Date.parse(observed))||observed>koreanToday()||new Date(observed).toISOString().slice(0,10)!==observed||get('rights')!=='yes'||get('accuracy')!=='yes'||!theme.categories.some(x=>x===category))return reject(req,'대한민국 내 실제 가게 주소와 메뉴·가격·확인 날짜·사진 공개 동의를 확인해 주세요.',400);
   const photo=form.get('photo');
   if(!(photo instanceof File)||photo.size===0)return reject(req,'JPG·PNG·WebP 사진을 첨부해 주세요.',400);
   const bytes=new Uint8Array(await photo.arrayBuffer());
