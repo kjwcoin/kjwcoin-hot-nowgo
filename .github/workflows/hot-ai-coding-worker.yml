@@ -82,6 +82,12 @@ jobs:
         shell: bash
         run: |
           git diff --check
+          untracked="$(git ls-files --others --exclude-standard)"
+          if [ -n "$untracked" ]; then
+            echo "Rejecting unexpected untracked AI output:"
+            printf '%s\n' "$untracked"
+            exit 1
+          fi
           changed="$(git diff --name-only)"
           if [ -z "$changed" ]; then
             echo "AI produced no code change. This run is CI-only, not a completed code improvement." >> "$GITHUB_STEP_SUMMARY"
