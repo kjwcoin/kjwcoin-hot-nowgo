@@ -1,0 +1,126 @@
+name: HOT AI coding worker (safe candidate only)
+on:
+  push:
+    branches:
+      - feature/hot-spice-median-v1
+    paths:
+      - '.github/workflows/hot-ai-coding-worker.yml'
+      - 'source/lib/hot-spice.ts'
+      - 'source/lib/hot-spice.test.ts'
+      - 'source/lib/owner-publish-permission.ts'
+      - 'source/lib/owner-save-readback.ts'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: read
+  pull-requests: read
+  copilot-requests: write
+
+concurrency:
+  group: hot-ai-coding-worker
+  cancel-in-progress: false
+
+jobs:
+  ai-code-and-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Enforce KST daytime work window
+        id: window
+        shell: bash
+        run: |
+          h="$(TZ=Asia/Seoul date +%H)"
+          m="$(TZ=Asia/Seoul date +%M)"
+          if [ "$h" -lt 9 ] || [ "$h" -gt 21 ] || { [ "$h" -eq 21 ] && [ "$m" -ge 40 ]; }; then
+            echo "allowed=false" >> "$GITHUB_OUTPUT"
+            echo "KST outside safe window; work not started." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "allowed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Checkout development code without write credentials
+        if: steps.window.outputs.allowed == 'true'
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Use Node.js 22
+        if: steps.window.outputs.allowed == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.13.1'
+
+      - name: Verify baseline 7-stage and permission tests
+        if: steps.window.outputs.allowed == 'true'
+        working-directory: source
+        run: |
+          node --experimental-strip-types --test \
+            lib/hot-spice.test.ts \
+            lib/hot-stage-consistency.test.ts \
+            lib/owner-taste-level.test.ts \
+            lib/owner-publish-permission.test.ts \
+            lib/owner-save-readback.test.ts \
+            lib/naver-spicy-menu.test.ts
+
+      - name: Install GitHub Copilot coding CLI
+        if: steps.window.outputs.allowed == 'true'
+        run: npm install -g @github/copilot
+
+      - name: AI proposes a small safe code improvement
+        if: steps.window.outputs.allowed == 'true'
+        env:
+          COPILOT_GITHUB_TOKEN: ${{ secrets.COPILOT_PAT || github.token }}
+        run: |
+          copilot -p "You are a restricted NOWGO HOT coding worker in a development-only checkout. Identify and fix at most ONE demonstrable bug in the pure helper code only, and use a no-op if none exists. You MAY edit only source/lib/hot-spice.ts, source/lib/owner-save-readback.ts, or source/lib/owner-publish-permission.ts. Do not edit tests, docs, app routes, UI, workflows, database, secrets, manifests, or any other files. The FINAL product rule is seven HOT stages for merchant AND visitor, and stage 7 is 극강의 매운맛. Keep owner-declared taste separate from visitor per-menu median, and keep flavor separate from stage. Do not relax authorization, payment, provenance, or subscription checks. Do not access network other than Copilot service. Do not create data, call APIs, publish pins, take payments, merge, deploy, or change databases. Do not run commands; only inspect helpers and make a single safe code edit if a clear bug is found. Report the file and rationale concisely." \
+            -s --no-ask-user \
+            --allow-tool='read,write(source/lib/hot-spice.ts),write(source/lib/owner-save-readback.ts),write(source/lib/owner-publish-permission.ts)' \
+            --deny-tool='shell,url'
+
+      - name: Ensure AI stayed within three pure helpers
+        if: steps.window.outputs.allowed == 'true'
+        shell: bash
+        run: |
+          git diff --check
+          changed="$(git diff --name-only)"
+          if [ -z "$changed" ]; then
+            echo "AI produced no code change. This run is CI-only, not a completed code improvement." >> "$GITHUB_STEP_SUMMARY"
+          else
+            while IFS= read -r path; do
+              case "$path" in
+                source/lib/hot-spice.ts|source/lib/owner-save-readback.ts|source/lib/owner-publish-permission.ts) ;;
+                *) echo "Rejecting unauthorized AI modification: $path"; exit 1 ;;
+              esac
+            done <<< "$changed"
+            num="$(git diff --numstat | awk '{ s += $1 + $2 } END { print s+0 }')"
+            if [ "$num" -gt 80 ]; then
+              echo "Rejecting overlarge AI change: $num changed lines"; exit 1
+            fi
+          fi
+
+      - name: Validate 7-stage rules and permissions after AI edit
+        if: steps.window.outputs.allowed == 'true'
+        working-directory: source
+        run: |
+          node --experimental-strip-types --test \
+            lib/hot-spice.test.ts \
+            lib/hot-stage-consistency.test.ts \
+            lib/owner-taste-level.test.ts \
+            lib/owner-publish-permission.test.ts \
+            lib/owner-save-readback.test.ts \
+            lib/naver-spicy-menu.test.ts
+
+      - name: Save review-only AI patch
+        if: steps.window.outputs.allowed == 'true'
+        shell: bash
+        run: |
+          git diff -- source/lib/hot-spice.ts source/lib/owner-save-readback.ts source/lib/owner-publish-permission.ts > hot-ai-review-only.patch
+          echo "Patch is a proposal, never merged or deployed by this workflow." >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload review-only AI patch
+        if: steps.window.outputs.allowed == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: hot-ai-proposed-patch
+          path: hot-ai-review-only.patch
+          retention-days: 7
