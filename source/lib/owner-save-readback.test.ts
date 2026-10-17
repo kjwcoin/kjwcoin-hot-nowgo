@@ -1,0 +1,40 @@
+import assert from 'node:assert/strict';
+import {test} from 'node:test';
+import {ownerSaveReadbackMatches} from './owner-save-readback.ts';
+
+const storeId='12345678-1234-4234-8234-123456789abc';
+const menuId='23456789-1234-4234-8234-123456789abc';
+const menu={id:menuId,name:'극강 메뉴',price:8900,level:7,flavor:'칼칼한',
+  category:'국물·면',photoPath:'owner/store/hot/photo.webp',soldout:false};
+const snapshot={storeId,access:{enabled:true},state:{status:{value:'open'},menus:[menu]}};
+
+test('status readback rejects missing or unauthorized store',()=>{
+  assert.equal(ownerSaveReadbackMatches(snapshot,storeId,{action:'status',value:'open'}),true);
+  assert.equal(ownerSaveReadbackMatches(snapshot,storeId,{action:'status',value:'temporary_closed'}),false);
+  assert.equal(ownerSaveReadbackMatches({...snapshot,storeId:'other'},storeId,{action:'status',value:'open'}),false);
+  assert.equal(ownerSaveReadbackMatches({...snapshot,access:{enabled:false}},storeId,{action:'status',value:'open'}),false);
+  assert.equal(ownerSaveReadbackMatches({storeId,access:{enabled:true}},storeId,{action:'status',value:'open'}),false);
+});
+
+test('soldout readback checks exact menu and boolean',()=>{
+  assert.equal(ownerSaveReadbackMatches(snapshot,storeId,{action:'soldout',menuId,soldout:false}),true);
+  assert.equal(ownerSaveReadbackMatches(snapshot,storeId,{action:'soldout',menuId,soldout:true}),false);
+  assert.equal(ownerSaveReadbackMatches(snapshot,storeId,{action:'soldout',menuId:'wrong',soldout:false}),false);
+});
+
+test('owner 7-level taste readback stays separate from visitor ratings',()=>{
+  assert.equal(ownerSaveReadbackMatches(snapshot,storeId,{action:'taste',menuId,level:7,flavor:'칼칼한',category:'국물·면'}),true);
+  assert.equal(ownerSaveReadbackMatches(snapshot,storeId,{action:'taste',menuId,level:6,flavor:'칼칼한',category:'국물·면'}),false);
+  assert.equal(ownerSaveReadbackMatches(snapshot,storeId,{action:'taste',menuId,level:7,flavor:'얼큰한',category:'국물·면'}),false);
+  assert.equal(ownerSaveReadbackMatches(snapshot,storeId,{action:'taste',menuId,level:7,flavor:'칼칼한',category:'기타'}),false);
+});
+
+test('new menu readback requires matching photo and every owner-controlled field',()=>{
+  const expected={action:'register' as const,menuId,name:menu.name,price:menu.price,
+    level:menu.level,flavor:menu.flavor,category:menu.category,photoPath:menu.photoPath};
+  assert.equal(ownerSaveReadbackMatches(snapshot,storeId,expected),true);
+  assert.equal(ownerSaveReadbackMatches(snapshot,storeId,{...expected,price:9000}),false);
+  assert.equal(ownerSaveReadbackMatches(snapshot,storeId,{...expected,photoPath:'bad.webp'}),false);
+  assert.equal(ownerSaveReadbackMatches({...snapshot,state:{status:{value:'open'},menus:[]}},storeId,expected),false);
+  assert.equal(ownerSaveReadbackMatches(null,storeId,expected),false);
+});
