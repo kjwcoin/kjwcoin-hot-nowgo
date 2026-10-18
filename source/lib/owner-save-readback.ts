@@ -19,7 +19,8 @@ export function ownerSaveReadbackMatches(snapshot: unknown, storeId: string,
   if (expected.action === 'status') return row(state.status)?.value === expected.value;
   if (!Array.isArray(state.menus)) return false;
   // Duplicate menu IDs are ambiguous: never acknowledge an owner write.
-  const matches = state.menus.map(row).filter(item => item?.id === expected.menuId);
+  const matches = state.menus.map(row).filter((item): item is Row =>
+    item !== null && item.id === expected.menuId);
   if (matches.length !== 1) return false;
   const menu = matches[0];
   if (expected.action === 'soldout') return menu.soldout === expected.soldout;
