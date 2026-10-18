@@ -64,3 +64,15 @@ test('duplicate menu IDs cannot mask a conflicting persisted value',()=>{
         flavor:menu.flavor,category:menu.category,photoPath:menu.photoPath}),false);
   }
 });
+
+test('non-HOT readback denies 6 or 7 even when expected and saved values match',()=>{
+  for (const planet of ['sweet','rich'] as const) {
+    const expected={action:'taste' as const,menuId,level:7,flavor:menu.flavor,category:menu.category};
+    assert.equal(ownerSaveReadbackMatches(snapshot,storeId,expected,planet),false);
+    const five={...snapshot,state:{...snapshot.state,menus:[{...menu,level:5}]}};
+    assert.equal(ownerSaveReadbackMatches(five,storeId,{...expected,level:5},planet),true);
+    assert.equal(ownerSaveReadbackMatches(five,storeId,{...expected,level:7},planet),false);
+    const six={...snapshot,state:{...snapshot.state,menus:[{...menu,level:6}]}};
+    assert.equal(ownerSaveReadbackMatches(six,storeId,{...expected,level:6},planet),false);
+  }
+});
