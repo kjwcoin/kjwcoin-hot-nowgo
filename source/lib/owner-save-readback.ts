@@ -12,7 +12,7 @@ export type OwnerWriteExpectation =
 
 export function ownerSaveReadbackMatches(snapshot: unknown, storeId: string,
   expected: OwnerWriteExpectation): boolean {
-  const root = row(snapshot);
+  // Readback must not acknowledge legacy HOT stage 8, even if the stored value matches.\n  if ((expected.action === 'taste' || expected.action === 'register') &&\n      (!Number.isInteger(expected.level) || expected.level < 1 || expected.level > 7)) return false;\n  const root = row(snapshot);
   if (!root || root.storeId !== storeId || row(root.access)?.enabled !== true) return false;
   const state = row(root.state);
   if (!state) return false;
@@ -24,7 +24,7 @@ export function ownerSaveReadbackMatches(snapshot: unknown, storeId: string,
   if (matches.length !== 1) return false;
   const menu = matches[0];
   if (expected.action === 'soldout') return menu.soldout === expected.soldout;
-  if (expected.action === 'taste') return menu.level === expected.level &&
+  if ((expected.action === 'taste' || expected.action === 'register') &&\n      (!Number.isInteger(menu.level) || Number(menu.level) < 1 || Number(menu.level) > 7)) return false;\n  if (expected.action === 'taste') return menu.level === expected.level &&
     menu.flavor === expected.flavor && menu.category === expected.category;
   return menu.name === expected.name && menu.price === expected.price &&
     menu.level === expected.level && menu.flavor === expected.flavor &&
