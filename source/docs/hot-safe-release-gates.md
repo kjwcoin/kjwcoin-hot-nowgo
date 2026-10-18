@@ -15,12 +15,12 @@
 - `owner_verified`: existing verified-owner color and live status only if the merchant's authorization and recent status update are valid.
 - Deduplicate candidates by a stable independently assigned ID and proximity/name review, not by NAVER place ID alone. Do not import without provenance.
 
-## 3. Menu-specific 1–8 heat levels
-- Each menu has its own rating group. Integer submissions 1..8 only.
+## 3. Menu-specific 1–7 HOT heat levels
+- Each menu has its own rating group. HOT integer submissions must be 1..7 only (stage 7: '극강의 매운맛').
 - Authenticated users may insert/update **their own** one latest rating per menu.
 - Community median: odd sample => middle value; even => arithmetic mean (may be x.5), count unique raters, n<3 provisional.
-- Owner-declared **HOT** level is **1..7** (SWEET/RICH remain 1..5), stored separately from the community **1..8** median. Merchant must not edit or delete visitor ratings.
-- Test same-user upsert, cross-user denial, nonexistent menu denial, and all boundary values. The developer DB currently has a `hot_menu_spice_ratings_level_check` of 1..7, so user 8 cannot persist until a separately reviewed migration is applied; code-level tests do not clear this gate.
+- Owner-declared **HOT** level is **1..7** (SWEET/RICH remain 1..5), stored separately from the community **1..7** per-menu median; flavor remains separate. Merchant must not edit or delete visitor ratings.
+- Test same-user upsert, cross-user denial, nonexistent menu denial, and all boundary values (including 8 being rejected at UI, API, and DB). The developer DB rating check is already 1..7, but menu-reference integrity and authenticated write/read-back remain unverified.
 
 ## 4. Owner 8,000 KRW / month feature gate
 - The 8,000 KRW/month amount is a requested product spec, **not** proof that payment processing is enabled.
@@ -33,7 +33,7 @@
 1. Code review + successful GitHub Actions tests on PR head (currently **not verified**).
 2. Resolve PR branch conflicts with main without force pushes.
 3. Development DB tests using disposable identities and full rollback; verify RLS and menu ID integrity.
-4. Real logged-in E2E: visitor 8-level DB write and menu median, grey pin visibility, verified-owner gating, owner 7-level menu edits and entitlement.
+4. Real logged-in E2E: visitor 1..7 DB write/read-back (8 rejected) and menu median, grey pin visibility, verified-owner gating, owner 1..7 menu edits and verified entitlement.
 5. Legal/source rights review; evidence sampling and retention policy.
 6. Separate user request for production deployment.
 
