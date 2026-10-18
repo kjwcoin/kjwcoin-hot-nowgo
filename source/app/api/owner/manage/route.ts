@@ -34,7 +34,7 @@ export async function POST(request:Request){try{
   const check=await auth.client.rpc('ng_map_dashboard_access',{p_planet:variant,p_store:storeId,p_link:null});
   if(check.error)throw check.error;
   const expected:OwnerWriteExpectation={action:'register',menuId:result.data,name,price,level,flavor,category,photoPath:path};
-  if(!ownerSaveReadbackMatches(check.data,storeId,expected))return reply(request,{error:'등록 메뉴의 저장값을 다시 조회해 확인하지 못했습니다.',code:'SAVE_UNVERIFIED'},503);
+  if(!ownerSaveReadbackMatches(check.data,storeId,expected,variant))return reply(request,{error:'등록 메뉴의 저장값을 다시 조회해 확인하지 못했습니다.',code:'SAVE_UNVERIFIED'},503);
   return reply(request,{ok:true,menuId:result.data,message:'메뉴 등록과 저장값 재조회를 확인했습니다.'});
  }
  const raw=await request.text();if(raw.length>4096)return reply(request,{error:'입력한 내용을 확인해 주세요.'},413);
@@ -63,6 +63,6 @@ export async function POST(request:Request){try{
  if(result.error)throw result.error;
  const check=await auth.client.rpc('ng_map_dashboard_access',{p_planet:variant,p_store:storeId,p_link:null});
  if(check.error)throw check.error;
- if(!ownerSaveReadbackMatches(check.data,storeId,expected))return reply(request,{error:'저장값을 다시 조회해 확인하지 못했습니다.',code:'SAVE_UNVERIFIED'},503);
+ if(!ownerSaveReadbackMatches(check.data,storeId,expected,variant))return reply(request,{error:'저장값을 다시 조회해 확인하지 못했습니다.',code:'SAVE_UNVERIFIED'},503);
  return reply(request,{ok:true,message:'저장과 재조회를 확인했습니다.'});
 }catch(error){return ownerError(request,error)}}
