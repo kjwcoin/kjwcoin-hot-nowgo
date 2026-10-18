@@ -54,7 +54,8 @@ jobs:
             lib/hot-stage-consistency.test.ts \
             lib/naver-spicy-menu.test.ts \
             lib/owner-publish-permission.test.ts \
-            lib/owner-save-readback.test.ts
+            lib/owner-save-readback.test.ts \
+            lib/customer-save-readback.test.ts
 
       - name: Read linked GitHub issues and PR
         if: ${{ always() && steps.gate.outputs.allowed == 'true' }}
