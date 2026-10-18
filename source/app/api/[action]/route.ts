@@ -7,6 +7,7 @@ import sharp from 'sharp';
 import {after} from 'next/server';
 import {isExplicitOwnerGrant,requiresHotOwnerSubscription} from '@/lib/owner-publish-permission';
 import {mayWriteToProduction} from '@/lib/production-write-guard';
+import {customerSavedStateMatches} from '@/lib/customer-save-readback';
 import {publishReport,retrySavedReport,koreanToday} from '@/lib/report-publication';
 
 type Ctx={params:Promise<{action:string}>};
@@ -44,9 +45,14 @@ export async function POST(req:Request,{params}:Ctx){
   const {user,client}=auth;
   if(action==='state'){
    const p=await req.json() as {menuId:string;saved:boolean};
-   if(typeof p.saved!=='boolean'||!await menuById(p.menuId,variant))return reject(req,'메뉴를 다시 선택해 주세요.',400);
+   if(typeof p.menuId!=='string'||typeof p.saved!=='boolean'||!await menuById(p.menuId,variant))return reject(req,'메뉴를 다시 선택해 주세요.',400);
    const q=p.saved?client.from(theme.tables.saves).upsert({user_id:user.id,menu_id:p.menuId},{onConflict:'user_id,menu_id'}):client.from(theme.tables.saves).delete().eq('user_id',user.id).eq('menu_id',p.menuId);
    const {error}=await q;if(error)throw error;
+   // RLS can silently reject a write. Never claim saved until a fresh owned row matches.
+   const {data:stored,error:readError}=await client.from(theme.tables.saves)
+     .select('menu_id').eq('user_id',user.id).eq('menu_id',p.menuId).maybeSingle();
+   if(readError)throw readError;
+   if(!customerSavedStateMatches(stored,p.menuId,p.saved))return reject(req,'저장값을 다시 확인하지 못했습니다.',503);
    return reply(req,{saved:p.saved});
   }
   if(action==='report-retry'){
