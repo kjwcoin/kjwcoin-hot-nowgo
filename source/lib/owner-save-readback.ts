@@ -1,3 +1,5 @@
+import {validOwnerTaste,type Planet} from './owner-taste-level';
+
 /** Check owner writes against a fresh, store-scoped dashboard read. */
 type Row = Record<string, unknown>;
 const row = (value: unknown): Row | null =>
@@ -11,10 +13,10 @@ export type OwnerWriteExpectation =
   | {action:'register'; menuId:string; name:string; price:number; level:number; flavor:string; category:string; photoPath:string};
 
 export function ownerSaveReadbackMatches(snapshot: unknown, storeId: string,
-  expected: OwnerWriteExpectation): boolean {
-  // Readback must not acknowledge legacy HOT stage 8, even if the stored value matches.
+  expected: OwnerWriteExpectation, planet: Planet = 'hot'): boolean {
+  // Readback rejects out-of-range persisted and expected heat by planet: HOT 1..7, SWEET/RICH 1..5.
   if ((expected.action === 'taste' || expected.action === 'register') &&
-      (!Number.isInteger(expected.level) || expected.level < 1 || expected.level > 7)) return false;
+      !validOwnerTaste(planet, expected.level)) return false;
   const root = row(snapshot);
   if (!root || root.storeId !== storeId || row(root.access)?.enabled !== true) return false;
   const state = row(root.state);
@@ -28,7 +30,7 @@ export function ownerSaveReadbackMatches(snapshot: unknown, storeId: string,
   const menu = matches[0];
   if (expected.action === 'soldout') return menu.soldout === expected.soldout;
   if ((expected.action === 'taste' || expected.action === 'register') &&
-      (!Number.isInteger(menu.level) || Number(menu.level) < 1 || Number(menu.level) > 7)) return false;
+      !validOwnerTaste(planet, menu.level)) return false;
   if (expected.action === 'taste') return menu.level === expected.level &&
     menu.flavor === expected.flavor && menu.category === expected.category;
   return menu.name === expected.name && menu.price === expected.price &&
