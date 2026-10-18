@@ -2,6 +2,7 @@ import {publicDb,publicConfig} from './supabase';
 import {type Menu} from './menus';
 import {siteConfig,type SiteVariant} from './site-config';
 import {ownerTasteMax} from './owner-taste-level';
+import {isMissingReadOnlyRpc} from './optional-readonly-rpc';
 import {distanceKm,MAP_RADIUS_KM} from './nearby-demo';
 
 const fields='id,place_id,menu,shop,price,heat,flavor,category,lat,lng,address,observed_at,verified_owner,nowgo_slug,owner_store_id,soldout,map_menu_photo,photo_path';
@@ -12,7 +13,9 @@ async function linkedMenus(rows:MenuRow[],variant:SiteVariant):Promise<Menu[]>{
  const reported=rows.filter(row=>row.place_id.startsWith('reported-'));
  if(!reported.length)return rows.map(convert);
  const {data,error}=await publicDb().rpc('ng_map_matched_report_owners',{p_planet:variant,p_menus:reported.map(row=>row.id)});
- if(error)throw error;
+ // Preserve basic public menus when optional owner-match enrichment is unavailable.
+ // Missing RPC is not an authorization grant: do not mark an unverified match.
+ if(error){if(isMissingReadOnlyRpc(error))return rows.map(convert);throw error}
  type OwnerMatch={menu_id:string;store_id:string;slug:string};
  const matches=new Map<string,OwnerMatch>(((data||[]) as OwnerMatch[]).map(row=>[row.menu_id,row]));
  return rows.map(row=>{const match=matches.get(row.id);return match?{...convert(row),ownerRegistered:true,ownerStoreId:match.store_id,nowgoSlug:match.slug,description:'소비자가 제보한 메뉴이며 상호명·주소가 일치하는 점주의 매장과 연결됐어요. 현재 영업현황은 점주가 알려줘요.'}:convert(row)});
@@ -44,11 +47,12 @@ export async function communityMenus(filters:MenuSearch={},variant:SiteVariant='
  if(error)throw error;
  const rows=((data||[]) as MenuRow[]).filter(row=>!point||row.lat!==null&&row.lng!==null&&distanceKm(point,{lat:row.lat,lng:row.lng})<=radius);
  const {data:counts,error:countError}=await publicDb().rpc('ng_map_store_report_counts',{p_planet:variant});
- if(countError)throw countError;
+ if(countError&&!isMissingReadOnlyRpc(countError))throw countError;
+ const countsAvailable=!countError;
  const totals=new Map((counts||[]).map((row:{shop_key:string;address_key:string;report_count:number})=>[row.shop_key+'\0'+row.address_key,Number(row.report_count)]));
  const visible=rows.slice(0,size).filter(row=>!['나우고','나우고 카페'].includes(row.shop.trim()));
  const linked=await linkedMenus(visible,variant);
- return {menus:linked.map(menu=>({...menu,reportCount:totals.get(menu.shop.trim().toLocaleLowerCase()+'\0'+menu.area.replace(/\s/g,'').toLocaleLowerCase())??0})),hasMore:rows.length>size};
+ return {menus:linked.map(menu=>({...menu,...(countsAvailable?{reportCount:totals.get(menu.shop.trim().toLocaleLowerCase()+'\0'+menu.area.replace(/\s/g,'').toLocaleLowerCase())??0}:{})})),hasMore:rows.length>size};
 }
 
 export async function menuById(id:string,variant:SiteVariant='hot'):Promise<Menu|null>{
