@@ -1,4 +1,4 @@
-import {validOwnerTaste,type Planet} from './owner-taste-level';
+import {validOwnerTaste,type Planet} from './owner-taste-level.ts';
 
 /** Check owner writes against a fresh, store-scoped dashboard read. */
 type Row = Record<string, unknown>;
