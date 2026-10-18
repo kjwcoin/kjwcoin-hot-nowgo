@@ -5,6 +5,8 @@ import {isKoreanAddress,isKoreanCoordinate,isKoreanRegion} from '@/lib/korean-re
 import {siteConfig,variantForHost} from '@/lib/site-config';
 import sharp from 'sharp';
 import {after} from 'next/server';
+import {isExplicitOwnerGrant,requiresHotOwnerSubscription} from '@/lib/owner-publish-permission';
+import {mayWriteToProduction} from '@/lib/production-write-guard';
 import {publishReport,retrySavedReport,koreanToday} from '@/lib/report-publication';
 
 type Ctx={params:Promise<{action:string}>};
@@ -50,11 +52,19 @@ export async function POST(req:Request,{params}:Ctx){
   if(action==='report-retry'){
    const {id}=await req.json() as {id:string};
    if(typeof id!=='string'||!/^[a-f0-9-]{36}$/.test(id))return reject(req,'제보 번호를 확인해 주세요.',400);
-   const find=async()=>{const {data,error}=await client.from(theme.tables.reports).select('id,status').eq('id',id).eq('user_id',user.id).maybeSingle();if(error)throw error;return data};
+   const find=async()=>{const {data,error}=await client.from(theme.tables.reports).select('id,status,role,nowgo_store_id').eq('id',id).eq('user_id',user.id).maybeSingle();if(error)throw error;return data};
+   const current=await find();
+   if(!current)return reject(req,'저장된 제보를 찾을 수 없습니다.',404);
+   if(requiresHotOwnerSubscription(variant,current.role)){
+    if(!current.nowgo_store_id)return reject(req,'매장 소유권을 확인해 주세요.',403);
+    const permission=await client.rpc('ng_map_can_publish',{p_store:current.nowgo_store_id,p_planet:variant});
+    if(permission.error)throw permission.error;
+    if(!isExplicitOwnerGrant(permission.data))return reject(req,'이 매장의 검증된 월 8,000원 구독이 필요합니다.',402);
+   }
    try{
     const receipt=await retrySavedReport({find,publish:async()=>{const {data,error}=await client.rpc(theme.publish,{report_id:id});return {status:data,error}}});
     const authorization=req.headers.get('authorization')||'';
-    after(async()=>{try{await fetch('https://nowgo.space/api/taste-photo-review',{method:'POST',redirect:'error',headers:{'Content-Type':'application/json',authorization},body:JSON.stringify({kind:variant,reportId:id}),signal:AbortSignal.timeout(25000)})}catch{console.warn('Photo review remains queued')}});
+    if(mayWriteToProduction(process.env.VERCEL_ENV))after(async()=>{try{await fetch('https://nowgo.space/api/taste-photo-review',{method:'POST',redirect:'error',headers:{'Content-Type':'application/json',authorization},body:JSON.stringify({kind:variant,reportId:id}),signal:AbortSignal.timeout(25000)})}catch{console.warn('Photo review remains queued')}});
     return reply(req,receipt);
    }catch(e){const message=(e as {message?:string}).message||'';
     if(message.includes('membership consent required'))return reject(req,'필수 이용 동의를 확인한 뒤 다시 제출해 주세요.',400);
@@ -77,6 +87,12 @@ export async function POST(req:Request,{params}:Ctx){
    const {data:owned,error:storeError}=await client.rpc('hot_owned_stores');if(storeError)throw storeError;
    ownerStore=(owned||[]).find((s:{store_id:string})=>s.store_id===storeId);
    if(!ownerStore)return reject(req,'NOWGO에서 매장 관리 권한을 확인한 뒤 공식 점주로 제보해 주세요.',403);
+   // A store link alone is not a paid HOT management grant; verify at each owner write.
+   if(requiresHotOwnerSubscription(variant,role)){
+    const permission=await client.rpc('ng_map_can_publish',{p_store:storeId,p_planet:variant});
+    if(permission.error)throw permission.error;
+    if(!isExplicitOwnerGrant(permission.data))return reject(req,'이 매장의 검증된 월 8,000원 구독이 필요합니다.',402);
+   }
    shop=ownerStore.name;address=ownerStore.address;
   }
   if(role==='customer'&&storeId){
@@ -120,7 +136,7 @@ export async function POST(req:Request,{params}:Ctx){
   });
   // The durable DB queue exists before this best-effort dispatch. AI failure cannot undo a report.
   const authorization=req.headers.get('authorization')||'';
-  after(async()=>{try{await fetch('https://nowgo.space/api/taste-photo-review',{
+  if(mayWriteToProduction(process.env.VERCEL_ENV))after(async()=>{try{await fetch('https://nowgo.space/api/taste-photo-review',{
    method:'POST',redirect:'error',headers:{'Content-Type':'application/json',authorization},
    body:JSON.stringify({kind:variant,reportId:id}),signal:AbortSignal.timeout(25000),
   })}catch{console.warn('Photo review remains queued')}});
