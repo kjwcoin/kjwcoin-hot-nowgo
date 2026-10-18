@@ -47,8 +47,9 @@ export function summarizeMenuSpiceRatings(
 ): MenuSpiceSummary {
   const latestByUser = new Map<string, MenuSpiceRating>();
   for (const rating of ratings) {
-    if (rating.menuId !== menuId || rating.valid === false) continue;
-    if (!rating.userId || !isSpiceLevel(rating.level)) continue;
+    if (rating.menuId !== menuId || (rating.valid !== undefined && rating.valid !== true)) continue;
+    // Reject malformed runtime records rather than treating them as distinct voters.
+    if (typeof rating.userId !== "string" || !rating.userId.trim() || rating.userId !== rating.userId.trim() || !isSpiceLevel(rating.level)) continue;
     const time = Date.parse(rating.updatedAt);
     if (!Number.isFinite(time)) continue;
     const previous = latestByUser.get(rating.userId);

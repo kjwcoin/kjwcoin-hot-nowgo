@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { isSpiceLevel, spiceMedian, summarizeMenuSpiceRatings } from "./hot-spice.ts";
+import { isSpiceLevel, spiceMedian, summarizeMenuSpiceRatings, type MenuSpiceRating } from "./hot-spice.ts";
 
 test("spice levels only allow 1 through 7 integers", () => {
   assert.equal(isSpiceLevel(1), true);
@@ -43,4 +43,31 @@ test("latest valid rating per user and per menu", () => {
     count: 0,
     provisional: false,
   });
+});
+
+test("invalid validity flags and user identities cannot influence a menu median", () => {
+  const updatedAt = "2026-10-17T00:00:00Z";
+  const records = [
+    { menuId: "a", userId: "u1", level: 7, updatedAt, valid: true },
+    { menuId: "a", userId: "u2", level: 1, updatedAt, valid: "false" },
+    { menuId: "a", userId: "u3", level: 1, updatedAt, valid: null },
+    { menuId: "a", userId: "  ", level: 1, updatedAt },
+    { menuId: "a", userId: 42, level: 1, updatedAt },
+    { menuId: "a", userId: " u4 ", level: 1, updatedAt },
+  ] as unknown as MenuSpiceRating[];
+  assert.deepEqual(summarizeMenuSpiceRatings("a", records), {
+    median: 7,
+    count: 1,
+    provisional: true,
+  });
+});
+
+test("exactly three valid distinct ratings yield a non-provisional median", () => {
+  const updatedAt = "2026-10-17T00:00:00Z";
+  assert.deepEqual(summarizeMenuSpiceRatings("a", [
+    { menuId: "a", userId: "u1", level: 1, updatedAt },
+    { menuId: "a", userId: "u2", level: 3, updatedAt, valid: true },
+    { menuId: "a", userId: "u3", level: 7, updatedAt },
+    { menuId: "a", userId: "u3", level: 5, updatedAt: "2026-10-16T00:00:00Z" },
+  ]), { median: 3, count: 3, provisional: false });
 });
