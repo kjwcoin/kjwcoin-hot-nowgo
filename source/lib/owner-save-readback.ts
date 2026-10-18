@@ -18,8 +18,10 @@ export function ownerSaveReadbackMatches(snapshot: unknown, storeId: string,
   if (!state) return false;
   if (expected.action === 'status') return row(state.status)?.value === expected.value;
   if (!Array.isArray(state.menus)) return false;
-  const menu = state.menus.map(row).find(item => item?.id === expected.menuId);
-  if (!menu) return false;
+  // Duplicate menu IDs are ambiguous: never acknowledge an owner write.
+  const matches = state.menus.map(row).filter(item => item?.id === expected.menuId);
+  if (matches.length !== 1) return false;
+  const menu = matches[0];
   if (expected.action === 'soldout') return menu.soldout === expected.soldout;
   if (expected.action === 'taste') return menu.level === expected.level &&
     menu.flavor === expected.flavor && menu.category === expected.category;
