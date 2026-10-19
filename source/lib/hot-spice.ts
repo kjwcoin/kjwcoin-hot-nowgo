@@ -45,7 +45,11 @@ export function summarizeMenuSpiceRatings(
   menuId: string,
   ratings: readonly MenuSpiceRating[],
 ): MenuSpiceSummary {
-  const latestByUser = new Map<string, MenuSpiceRating>();
+  const latestByUser = new Map<string, {
+    rating: MenuSpiceRating;
+    time: number;
+    ambiguous: boolean;
+  }>();
   for (const rating of ratings) {
     if (rating.menuId !== menuId || (rating.valid !== undefined && rating.valid !== true)) continue;
     // Reject malformed runtime records rather than treating them as distinct voters.
@@ -53,11 +57,17 @@ export function summarizeMenuSpiceRatings(
     const time = Date.parse(rating.updatedAt);
     if (!Number.isFinite(time)) continue;
     const previous = latestByUser.get(rating.userId);
-    if (!previous || time > Date.parse(previous.updatedAt)) {
-      latestByUser.set(rating.userId, rating);
+    if (!previous || time > previous.time) {
+      latestByUser.set(rating.userId, { rating, time, ambiguous: false });
+    } else if (time === previous.time && rating.level !== previous.rating.level) {
+      // Conflicting rows at the same latest instant have no trustworthy winner.
+      // Exclude that user until a strictly newer rating resolves the conflict.
+      previous.ambiguous = true;
     }
   }
-  const values = [...latestByUser.values()].map((rating) => rating.level);
+  const values = [...latestByUser.values()]
+    .filter(({ ambiguous }) => !ambiguous)
+    .map(({ rating }) => rating.level);
   return {
     median: spiceMedian(values),
     count: values.length,

@@ -71,3 +71,27 @@ test("exactly three valid distinct ratings yield a non-provisional median", () =
     { menuId: "a", userId: "u3", level: 5, updatedAt: "2026-10-16T00:00:00Z" },
   ]), { median: 3, count: 3, provisional: false });
 });
+
+test("same-user conflicts at an identical latest instant fail closed regardless of input order", () => {
+  const conflict: MenuSpiceRating[] = [
+    { menuId: "a", userId: "u1", level: 1, updatedAt: "2026-10-19T00:00:00Z" },
+    { menuId: "a", userId: "u1", level: 7, updatedAt: "2026-10-19T00:00:00Z" },
+    { menuId: "a", userId: "u2", level: 5, updatedAt: "2026-10-19T00:00:00Z" },
+  ];
+  const expected = { median: 5, count: 1, provisional: true };
+  assert.deepEqual(summarizeMenuSpiceRatings("a", conflict), expected);
+  assert.deepEqual(summarizeMenuSpiceRatings("a", [...conflict].reverse()), expected);
+});
+
+test("a strictly newer rating resolves an earlier same-time conflict", () => {
+  const records: MenuSpiceRating[] = [
+    { menuId: "a", userId: "u1", level: 1, updatedAt: "2026-10-18T00:00:00Z" },
+    { menuId: "a", userId: "u1", level: 7, updatedAt: "2026-10-18T00:00:00Z" },
+    { menuId: "a", userId: "u1", level: 6, updatedAt: "2026-10-19T00:00:00Z" },
+  ];
+  assert.deepEqual(summarizeMenuSpiceRatings("a", records), {
+    median: 6,
+    count: 1,
+    provisional: true,
+  });
+});
