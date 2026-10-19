@@ -56,7 +56,8 @@ jobs:
             lib/owner-publish-permission.test.ts \
             lib/owner-save-readback.test.ts \
             lib/customer-save-readback.test.ts \
-            lib/optional-readonly-rpc.test.ts
+            lib/optional-readonly-rpc.test.ts \
+            lib/hot-pr49-merge-contract.test.ts
 
       - name: Read linked GitHub issues and PR
         if: ${{ always() && steps.gate.outputs.allowed == 'true' }}
