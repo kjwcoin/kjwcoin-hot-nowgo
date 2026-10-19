@@ -46,8 +46,19 @@ test('owner and visitor HOT inputs remain 1..7 with separate flavor and rating o
   assert.match(sql,/'level',6,'flavor','칼칼한'/);
   assert.match(sql,/hot_menu_spice_upsert\(menu_id,7::smallint\)/i);
   assert.match(sql,/hot_menu_spice_upsert\(menu_id,2::smallint\)/i);
-  assert.match(sql,/visitor rating ownership isolation failed/i);
   assert.match(sql,/rating accepted for a non-catalog menu/i);
+});
+
+test('authenticated role executes visitor RPC and RLS reveals only the caller row',()=>{
+  assert.match(sql,/set_config\('role','authenticated',true\)/i);
+  assert.match(
+    sql,
+    /set_config\('role','authenticated',true\)[\s\S]*hot_menu_spice_upsert\(menu_id,2::smallint\)/i
+  );
+  assert.match(sql,/authenticated visitor B read leaked another rating/i);
+  assert.match(sql,/authenticated visitor A read leaked another rating/i);
+  assert.match(sql,/authenticated visitor direct update accepted/i);
+  assert.match(sql,/set_config\('role','none',true\)/i);
 });
 
 test('candidate reads and direct visitor table writes remain denied',()=>{
@@ -56,3 +67,4 @@ test('candidate reads and direct visitor table writes remain denied',()=>{
   assert.match(sql,/hot_menu_spice_ratings','update'/i);
   assert.match(sql,/hot_menu_spice_ratings','delete'/i);
 });
+

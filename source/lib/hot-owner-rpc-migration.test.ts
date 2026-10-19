@@ -24,6 +24,17 @@ test('candidate access and visitor direct writes fail closed',()=>{
   assert.match(sql,/not exists\(select 1 from public\.ng_map_hot_menu_catalog m where m\.id=p_menu_id\)/i);
 });
 
+test('visitor ratings expose only the authenticated users own row',()=>{
+  assert.match(sql,/alter table public\.hot_menu_spice_ratings enable row level security/i);
+  assert.match(sql,/drop policy if exists hot_member_insert_own_rating/i);
+  assert.match(sql,/drop policy if exists hot_member_update_own_rating/i);
+  assert.match(
+    sql,
+    /create policy hot_member_read_own_rating[\s\S]*for select to authenticated[\s\S]*auth\.uid\(\)\)=user_id/i
+  );
+  assert.match(sql,/grant select on table public\.hot_menu_spice_ratings to authenticated/i);
+});
+
 test('all six owner RPCs exist and privileged entry points are explicitly restricted',()=>{
   for(const name of [
     'ng_map_can_publish','ng_map_dashboard_access','ng_map_save_menu',
@@ -45,3 +56,4 @@ test('owner flavor and visitor median remain separate',()=>{
   assert.match(sql,/public\.ng_map_owner_audit_log/);
   assert.match(sql,/create or replace view public\.ng_hot_combined_menus[\s\S]*with \(security_invoker=true\)/i);
 });
+

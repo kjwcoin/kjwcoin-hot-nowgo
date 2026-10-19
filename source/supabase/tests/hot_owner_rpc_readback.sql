@@ -15,6 +15,8 @@ declare
   dashboard jsonb;
   saved jsonb;
   audit_rows integer;
+  visible_rows integer;
+  visible_owner_only boolean;
   photo_path text;
 begin
   insert into auth.users(id,aud,role,is_anonymous)
@@ -201,18 +203,40 @@ begin
     jsonb_build_object('sub',owner_b,'role','authenticated')::text,
     true
   );
+
+  -- Exercise the RPC and table read as the same restricted role used by an
+  -- authenticated Supabase request. Claims alone do not test grants or RLS.
+  perform set_config('role','authenticated',true);
   perform public.hot_menu_spice_upsert(menu_id,2::smallint);
-  if not exists(
-      select 1 from public.hot_menu_spice_ratings r
-      where r.menu_id=menu_id and r.user_id=owner_a and r.level=7
-    )
-    or not exists(
-      select 1 from public.hot_menu_spice_ratings r
-      where r.menu_id=menu_id and r.user_id=owner_b and r.level=2
-    )
-  then
-    raise exception 'visitor rating ownership isolation failed';
+
+  select count(*),bool_and(r.user_id=owner_b)
+  into visible_rows,visible_owner_only
+  from public.hot_menu_spice_ratings r
+  where r.menu_id=menu_id;
+  if visible_rows<>1 or visible_owner_only is distinct from true then
+    raise exception 'authenticated visitor B read leaked another rating';
   end if;
+
+  begin
+    update public.hot_menu_spice_ratings r set level=3 where r.menu_id=menu_id;
+    raise exception 'authenticated visitor direct update accepted';
+  exception when insufficient_privilege then null;
+  end;
+
+  perform set_config('request.jwt.claim.sub',owner_a::text,true);
+  perform set_config(
+    'request.jwt.claims',
+    jsonb_build_object('sub',owner_a,'role','authenticated')::text,
+    true
+  );
+  select count(*),bool_and(r.user_id=owner_a)
+  into visible_rows,visible_owner_only
+  from public.hot_menu_spice_ratings r
+  where r.menu_id=menu_id;
+  if visible_rows<>1 or visible_owner_only is distinct from true then
+    raise exception 'authenticated visitor A read leaked another rating';
+  end if;
+  perform set_config('role','none',true);
 
   begin
     perform public.hot_menu_spice_upsert(menu_id,8::smallint);
@@ -238,8 +262,9 @@ begin
     raise exception 'visitor direct rating writes remain enabled';
   end if;
 
-  raise notice 'HOT owner/user authorization, stage 1..7, ownership, subscription, save/readback and isolation checks passed';
+  raise notice 'HOT owner/user authorization, authenticated RLS, stage 1..7, ownership, subscription, save/readback and isolation checks passed';
 end
 $hot_test$;
 
 rollback;
+

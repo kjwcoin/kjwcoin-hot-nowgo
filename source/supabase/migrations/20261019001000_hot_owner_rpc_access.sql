@@ -297,6 +297,17 @@ end;
 $$;
 revoke all on function public.hot_menu_spice_upsert(uuid,smallint) from public;
 grant execute on function public.hot_menu_spice_upsert(uuid,smallint) to authenticated;
+
+-- Keep visitor rows private even when this migration is applied over an older
+-- schema whose policies granted direct writes or were removed independently.
+alter table public.hot_menu_spice_ratings enable row level security;
+drop policy if exists hot_member_read_own_rating on public.hot_menu_spice_ratings;
+drop policy if exists hot_member_insert_own_rating on public.hot_menu_spice_ratings;
+drop policy if exists hot_member_update_own_rating on public.hot_menu_spice_ratings;
+create policy hot_member_read_own_rating on public.hot_menu_spice_ratings
+for select to authenticated using ((select auth.uid())=user_id);
+
 revoke insert,update,delete on table public.hot_menu_spice_ratings from authenticated;
 grant select on table public.hot_menu_spice_ratings to authenticated;
+
 
