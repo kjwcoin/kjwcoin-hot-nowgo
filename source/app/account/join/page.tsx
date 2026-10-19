@@ -37,6 +37,7 @@ export default function Join(){
   <label className="consent"><input type="checkbox" checked={marketing} onChange={e=>setMarketing(e.target.checked)}/><span>[선택] 이벤트 소식을 이메일로 받겠습니다. 동의하지 않아도 모든 기능을 이용할 수 있습니다.</span></label>
   <button className="submit-button" onClick={finish} disabled={busy}>{busy?'연결하는 중':accountType==='owner'?'점주 가입정보 입력하기 ↗':'유저로 시작하기 ↗'}</button></>:<><h2>{accountType==='owner'?'점주':'유저'} 계정으로 로그인</h2><p>카카오 또는 구글 계정을 선택해 주세요.</p><OAuthButtons flavor={variant} returnTo={returnTo} accountType={accountType}/></>}
   {error&&<p className="customer-error" role="alert">{error}</p>}<Link className="account-type-back" href={'/account/join?returnTo='+encodeURIComponent(returnTo)}>← 유저·점주 다시 선택</Link></section>}
+  {returnTo.startsWith('/p/')&&<Link className="account-type-back" href={returnTo}>취소하고 매장으로 돌아가기</Link>}
   <p className="small-note">공식 점주 표시는 NOWGO 매장 관리 권한 확인을 받은 회원에게만 적용됩니다.</p>
  </main></>
 }
