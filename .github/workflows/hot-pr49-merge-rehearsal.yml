@@ -1,0 +1,58 @@
+name: HOT PR49 read-only merge rehearsal
+on:
+  push:
+    branches:
+      - 'feature/hot-spice-median-v1'
+    paths:
+      - '.github/workflows/hot-pr49-merge-rehearsal.yml'
+      - 'source/**'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  report-unmerged-paths:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: KST permission gate
+        id: gate
+        shell: bash
+        run: |
+          hour="$(TZ=Asia/Seoul date +%H)"
+          if [ "$hour" -lt 9 ] || [ "$hour" -gt 21 ]; then
+            echo "allowed=false" >> "$GITHUB_OUTPUT"
+            echo "Outside 09:00-21:59 KST; no repository checkout, fetch or merge rehearsal." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "allowed=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Checkout development branch read-only
+        if: steps.gate.outputs.allowed == 'true'
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Dry-run merge main into disposable runner checkout only
+        if: steps.gate.outputs.allowed == 'true'
+        shell: bash
+        run: |
+          set -eu
+          echo "Source HEAD: $(git rev-parse HEAD)" >> "$GITHUB_STEP_SUMMARY"
+          echo "Main HEAD: $(git rev-parse origin/main)" >> "$GITHUB_STEP_SUMMARY"
+          echo "Merge base: $(git merge-base HEAD origin/main)" >> "$GITHUB_STEP_SUMMARY"
+          if git -c merge.conflictstyle=diff3 merge --no-commit --no-ff origin/main >/tmp/hot-merge-rehearsal.log 2>&1; then
+            echo "Result: clean local merge rehearsal; NO commit or push performed." >> "$GITHUB_STEP_SUMMARY"
+            echo "CLEAN_MERGE_REHEARSAL"
+          else
+            echo "Result: Git conflicts (runner only, no write back):" >> "$GITHUB_STEP_SUMMARY"
+            echo '~~~' >> "$GITHUB_STEP_SUMMARY"
+            git diff --name-only --diff-filter=U | tee /tmp/hot-merge-conflicts.txt
+            cat /tmp/hot-merge-conflicts.txt >> "$GITHUB_STEP_SUMMARY"
+            echo '~~~' >> "$GITHUB_STEP_SUMMARY"
+            echo "MERGE_CONFLICT_COUNT=$(wc -l </tmp/hot-merge-conflicts.txt)"
+          fi
+          git merge --abort
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "Unexpected local residue after abort" >&2
+            exit 1
+          fi
+          echo "Dry-run finished: no PR merge, no push, no deployment, no database changes." >> "$GITHUB_STEP_SUMMARY"
