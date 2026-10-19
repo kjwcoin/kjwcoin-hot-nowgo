@@ -6,8 +6,8 @@ test('normalizes Hangul and disallows injected PostgREST operators',()=>{
  assert.equal(normalizedMenuQuery('  홍대!! 떡볶이  '),'홍대 떡볶이');
  const f=catalogMenuSearchFilter('홍대!! 떡볶이')||'';
  assert.match(f,/and\(or\(/);
- assert.ok(f.includes('홍대'));
- assert.ok(f.includes('떡볶이'));
+ assert.ok(f.includes('홍[^[:alnum:]]*대'));
+ assert.ok(f.includes('떡[^[:alnum:]]*볶[^[:alnum:]]*이'));
  assert.doesNotMatch(f,/!!|;|%2C/);
 });
 test('search tokens are unique and bounded',()=>{
