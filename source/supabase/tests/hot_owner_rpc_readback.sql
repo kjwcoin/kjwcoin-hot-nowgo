@@ -174,6 +174,22 @@ begin
     set verified_at=now(),paid_until=now()+interval '1 month'
     where owner_id=owner_a;
 
+  -- A recently verified but already expired subscription must never publish.
+  update public.ng_map_subscription_access
+    set paid_until=now()-interval '1 second'
+    where owner_id=owner_a;
+  set local role authenticated;
+  if current_user <> 'authenticated' or auth.uid() is distinct from owner_a then
+    raise exception 'authenticated owner_a context missing on expiry check';
+  end if;
+  if public.ng_map_can_publish(shop,'hot') then
+    raise exception 'expired subscription authorized';
+  end if;
+  reset role;
+  update public.ng_map_subscription_access
+    set paid_until=now()+interval '1 month'
+    where owner_id=owner_a;
+
   -- A paid foreign owner must still be denied: this isolates store ownership
   -- from subscription denial in the authorization check below.
   insert into public.ng_map_subscription_access(
@@ -198,6 +214,28 @@ begin
   if public.ng_map_can_publish(shop,'hot') then
     raise exception 'subscribed foreign owner authorized for store';
   end if;
+  begin
+    perform public.ng_map_dashboard_access('hot',shop,null);
+    raise exception 'subscribed foreign owner dashboard accepted';
+  exception when insufficient_privilege then null;
+  end;
+  begin
+    perform public.ng_map_set_status(shop,'hot','open');
+    raise exception 'subscribed foreign owner status write accepted';
+  exception when insufficient_privilege then null;
+  end;
+  begin
+    perform public.ng_map_set_menu_taste(
+      shop,'hot',v_menu_id,1::smallint,'얼큰한','국물'
+    );
+    raise exception 'subscribed foreign owner taste write accepted';
+  exception when insufficient_privilege then null;
+  end;
+  begin
+    perform public.ng_map_set_menu_soldout(shop,'hot',v_menu_id,false);
+    raise exception 'subscribed foreign owner soldout write accepted';
+  exception when insufficient_privilege then null;
+  end;
   begin
     perform public.ng_map_save_menu(
       shop,'hot',null::uuid,'타인 매장 차단',12000,1::smallint,
@@ -318,6 +356,12 @@ begin
   end if;
   if has_table_privilege('anon','public.hot_unverified_spicy_menu_candidates','select') then
     raise exception 'anonymous candidate read privilege remains';
+  end if;
+  if has_function_privilege('anon','public.hot_menu_spice_upsert(uuid,smallint)','execute')
+    or has_function_privilege('anon','public.ng_map_can_publish(uuid,text)','execute')
+    or has_function_privilege('anon','public.ng_map_save_menu(uuid,text,uuid,text,integer,smallint,text,text,text)','execute')
+  then
+    raise exception 'anonymous owner/visitor mutation RPC privilege remains';
   end if;
   if has_table_privilege('authenticated','public.hot_menu_spice_ratings','insert')
     or has_table_privilege('authenticated','public.hot_menu_spice_ratings','update')
