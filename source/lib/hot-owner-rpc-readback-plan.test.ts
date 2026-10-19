@@ -110,3 +110,25 @@ test('own RPC edit preserves the other rating and privileged inspection verifies
   assert.match(final,/rollback;/);
   assert.doesNotMatch(sql,/r\.menu_id=menu_id/);
 });
+
+test('paid foreign owner is denied dashboard and every owner mutation before own-user rating',()=>{
+  const start=sql.indexOf("raise exception 'subscribed foreign owner authorized for store'");
+  const end=sql.indexOf("perform set_config('request.jwt.claim.sub',owner_a::text,true)",start);
+  assert.ok(start>0 && end>start);
+  const foreign=sql.slice(start,end);
+  assert.match(foreign,/ng_map_dashboard_access\('hot',shop,null\)/);
+  assert.match(foreign,/ng_map_set_status\(shop,'hot','open'\)/);
+  assert.match(foreign,/ng_map_set_menu_taste\(/);
+  assert.match(foreign,/ng_map_set_menu_soldout\(/);
+  assert.match(foreign,/ng_map_save_menu\(/);
+  assert.equal((foreign.match(/exception when insufficient_privilege then null;/g)||[]).length,5);
+  assert.doesNotMatch(foreign,/reset role/);
+});
+
+test('fresh but expired HOT subscription and anonymous RPC grants are explicitly denied',()=>{
+  assert.match(sql,/raise exception 'expired subscription authorized'/);
+  assert.match(sql,/paid_until=now\(\)-interval '1 second'/);
+  assert.match(sql,/has_function_privilege\('anon','public\.hot_menu_spice_upsert\(uuid,smallint\)','execute'\)/);
+  assert.match(sql,/has_function_privilege\('anon','public\.ng_map_can_publish\(uuid,text\)','execute'\)/);
+  assert.match(sql,/has_function_privilege\('anon','public\.ng_map_save_menu\(uuid,text,uuid,text,integer,smallint,text,text,text\)','execute'\)/);
+});
