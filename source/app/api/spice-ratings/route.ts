@@ -33,9 +33,11 @@ export async function POST(req:Request){
   if(typeof menuId!=='string'||!uuid.test(menuId)||!isSpiceLevel(level))
    return error(req,'메뉴와 매운맛 1~7단계를 확인해 주세요.',400);
   if(!await menuById(menuId,'hot'))return error(req,'HOT 메뉴를 찾을 수 없습니다.',404);
-  const {error:dbError}=await auth.client.from('hot_menu_spice_ratings')
-    .upsert({menu_id:menuId,user_id:auth.user.id,level,updated_at:new Date().toISOString()},
-            {onConflict:'menu_id,user_id'});
+  // The RPC re-verifies the authenticated caller, 1..7 range and canonical HOT menu.
+  // Direct INSERT/UPDATE privileges are revoked by the reviewed development migration.
+  const {error:dbError}=await auth.client.rpc('hot_menu_spice_upsert',{
+    p_menu_id:menuId,p_level:level
+  });
   if(dbError)throw dbError;
   const {data:saved,error:verifyError}=await auth.client.from('hot_menu_spice_ratings')
     .select('level').eq('menu_id',menuId).eq('user_id',auth.user.id).single();
