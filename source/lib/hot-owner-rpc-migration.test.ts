@@ -42,4 +42,5 @@ test('owner flavor and visitor median remain separate',()=>{
   assert.match(sql,/p_flavor not in \('얼큰한','칼칼한','달콤매콤한','알싸한'\)/);
   assert.doesNotMatch(sql,/update\s+public\.hot_menu_spice_ratings[\s\S]{0,300}taste_level/i);
   assert.match(sql,/public\.ng_map_owner_audit_log/);
+  assert.match(sql,/create or replace view public\.ng_hot_combined_menus[\s\S]*with \(security_invoker=true\)/i);
 });
