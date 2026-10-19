@@ -76,3 +76,53 @@ test('non-HOT readback denies 6 or 7 even when expected and saved values match',
     assert.equal(ownerSaveReadbackMatches(six,storeId,{...expected,level:6},planet),false);
   }
 });
+
+test('every owner action rejects foreign stores and non-boolean access grants',()=>{
+  const actions=[
+    {action:'status' as const,value:'open'},
+    {action:'soldout' as const,menuId,soldout:false},
+    {action:'taste' as const,menuId,level:7,flavor:menu.flavor,category:menu.category},
+    {action:'register' as const,menuId,...menu}
+  ];
+  for(const expected of actions){
+    assert.equal(ownerSaveReadbackMatches(snapshot,storeId,expected),true);
+    assert.equal(ownerSaveReadbackMatches({...snapshot,storeId:'foreign'},storeId,expected),false);
+    for(const access of [null,undefined,{},[],{enabled:false},{enabled:'true'},{enabled:1}]){
+      assert.equal(ownerSaveReadbackMatches({...snapshot,access},storeId,expected),false);
+    }
+    for(const state of [null,undefined,{},[]]){
+      assert.equal(ownerSaveReadbackMatches({...snapshot,state},storeId,expected),false);
+    }
+  }
+});
+
+test('registration acknowledgement rejects each mismatched persisted field',()=>{
+  const expected={action:'register' as const,menuId,...menu};
+  for(const [field,value] of Object.entries({
+    id:'foreign-menu',name:'other',price:1,level:6,flavor:'얼큰한',
+    category:'other',photoPath:'foreign/photo.webp'
+  })){
+    const changed={...snapshot,state:{...snapshot.state,menus:[{...menu,[field]:value}]}};
+    assert.equal(ownerSaveReadbackMatches(changed,storeId,expected),false,field);
+  }
+});
+
+test('persisted malformed levels and soldout values never acknowledge writes',()=>{
+  const taste={action:'taste' as const,menuId,level:7,flavor:menu.flavor,category:menu.category};
+  for(const level of [null,undefined,'7',0,8,1.5,NaN,Infinity]){
+    const changed={...snapshot,state:{...snapshot.state,menus:[{...menu,level}]}};
+    assert.equal(ownerSaveReadbackMatches(changed,storeId,taste),false);
+  }
+  for(const soldout of [null,undefined,'false',0]){
+    const changed={...snapshot,state:{...snapshot.state,menus:[{...menu,soldout}]}};
+    assert.equal(ownerSaveReadbackMatches(changed,storeId,
+      {action:'soldout',menuId,soldout:false}),false);
+  }
+});
+
+test('matching visitor median cannot replace the persisted owner heat',()=>{
+  const changed={...snapshot,state:{...snapshot.state,
+    menus:[{...menu,level:2,median:7,median_level:7}]}};
+  assert.equal(ownerSaveReadbackMatches(changed,storeId,
+    {action:'taste',menuId,level:7,flavor:menu.flavor,category:menu.category}),false);
+});
