@@ -150,6 +150,16 @@ begin
     set verified_at=now(),paid_until=now()+interval '1 month'
     where owner_id=owner_a;
 
+  -- A paid foreign owner must still be denied: this isolates store ownership
+  -- from subscription denial in the authorization check below.
+  insert into public.ng_map_subscription_access(
+    owner_id,subscription_id,product_code,price_code,amount_krw,status,paid_until,verified_at
+  ) values(
+    owner_b,(random()*1000000000000)::bigint,
+    'NOWGO_HOT_MONTHLY','KRW_8000_MONTHLY_V1',8000,'ACTIVE',
+    now()+interval '1 month',now()
+  );
+
   perform set_config('request.jwt.claim.sub',owner_b::text,true);
   perform set_config(
     'request.jwt.claims',
@@ -157,14 +167,14 @@ begin
     true
   );
   if public.ng_map_can_publish(shop,'hot') then
-    raise exception 'foreign owner authorized for store';
+    raise exception 'subscribed foreign owner authorized for store';
   end if;
   begin
     perform public.ng_map_save_menu(
       shop,'hot',null::uuid,'타인 매장 차단',12000,1::smallint,
       '알싸한','테스트',owner_b::text||'/'||shop::text||'/hot/'||gen_random_uuid()::text||'.webp'
     );
-    raise exception 'foreign owner write accepted';
+    raise exception 'subscribed foreign owner write accepted';
   exception when insufficient_privilege then null;
   end;
 
