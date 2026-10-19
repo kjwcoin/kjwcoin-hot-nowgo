@@ -1,7 +1,7 @@
-/** Eligibility screen for independently licensed menu evidence.
- * This pure decision cannot verify a real contract or owner claim.
- * Import endpoints MUST check a trusted server-side rights grant before writing.
- * NAVER Search responses are categorically excluded from permanent catalog imports.
+/** Reuses PR49's menu-specific evidence check, with explicit source/rights gates.
+ * This pure decision cannot grant a license or verify an owner claim. A trusted
+ * reviewer must establish provenance and rights before using it for any import.
+ * NAVER search responses must never be passed into a permanent catalogue import.
  */
 export type PlaceMenuEvidence={
  placeUrl:string;
