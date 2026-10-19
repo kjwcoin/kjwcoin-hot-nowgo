@@ -11,12 +11,10 @@ declare
   owner_b uuid := gen_random_uuid();
   shop uuid := gen_random_uuid();
   verification uuid := gen_random_uuid();
-  menu_id uuid;
+  v_menu_id uuid;
   dashboard jsonb;
   saved jsonb;
   audit_rows integer;
-  visible_rows integer;
-  visible_owner_only boolean;
   photo_path text;
 begin
   insert into auth.users(id,aud,role,is_anonymous)
@@ -52,6 +50,11 @@ begin
     true
   );
 
+  set local role authenticated;
+  if current_user <> 'authenticated' or auth.uid() is distinct from owner_a then
+    raise exception 'authenticated owner_a context missing';
+  end if;
+
   if public.ng_map_can_publish(shop,'hot') then
     raise exception 'owner published before a verified subscription';
   end if;
@@ -65,6 +68,7 @@ begin
   exception when insufficient_privilege then null;
   end;
 
+  reset role;
   insert into public.ng_map_subscription_access(
     owner_id,subscription_id,product_code,price_code,amount_krw,status,paid_until,verified_at
   ) values(
@@ -73,12 +77,17 @@ begin
     now()+interval '1 month',now()
   );
 
+  set local role authenticated;
+  if current_user <> 'authenticated' or auth.uid() is distinct from owner_a then
+    raise exception 'authenticated owner_a context missing';
+  end if;
+
   if not public.ng_map_can_publish(shop,'hot') then
     raise exception 'verified owner subscription was not authorized';
   end if;
 
   photo_path := owner_a::text||'/'||shop::text||'/hot/'||gen_random_uuid()::text||'.webp';
-  menu_id := public.ng_map_save_menu(
+  v_menu_id := public.ng_map_save_menu(
     shop,'hot',null::uuid,'극강 메뉴',18000,7::smallint,
     '얼큰한','매운요리',photo_path
   );
@@ -88,7 +97,7 @@ begin
     or not (
       dashboard->'state'->'menus' @>
       jsonb_build_array(jsonb_build_object(
-        'id',menu_id,'name','극강 메뉴','level',7,'flavor','얼큰한','soldout',false
+        'id',v_menu_id,'name','극강 메뉴','level',7,'flavor','얼큰한','soldout',false
       ))
     )
   then
@@ -97,22 +106,22 @@ begin
 
   begin
     perform public.ng_map_set_menu_taste(
-      shop,'hot',menu_id,8::smallint,'얼큰한','매운요리'
+      shop,'hot',v_menu_id,8::smallint,'얼큰한','매운요리'
     );
     raise exception 'retired HOT stage 8 accepted';
   exception when sqlstate '22023' then null;
   end;
 
   perform public.ng_map_set_menu_taste(
-    shop,'hot',menu_id,6::smallint,'칼칼한','국물'
+    shop,'hot',v_menu_id,6::smallint,'칼칼한','국물'
   );
-  perform public.ng_map_set_menu_soldout(shop,'hot',menu_id,true);
+  perform public.ng_map_set_menu_soldout(shop,'hot',v_menu_id,true);
 
   dashboard := public.ng_map_dashboard_access('hot',shop,null);
   if not (
     dashboard->'state'->'menus' @>
     jsonb_build_array(jsonb_build_object(
-      'id',menu_id,'level',6,'flavor','칼칼한','category','국물','soldout',true
+      'id',v_menu_id,'level',6,'flavor','칼칼한','category','국물','soldout',true
     ))
   )
   then
@@ -120,16 +129,23 @@ begin
   end if;
 
   perform public.ng_map_set_status(shop,'hot','open');
+  reset role;
   update public.owner_overrides
     set set_at=now()-interval '1 second',
         expires_at=least(expires_at,now()+interval '24 hours'-interval '1 second')
     where store_id=shop and active;
+
+  set local role authenticated;
+  if current_user <> 'authenticated' or auth.uid() is distinct from owner_a then
+    raise exception 'authenticated owner_a context missing';
+  end if;
 
   dashboard := public.ng_map_dashboard_access('hot',shop,null);
   if dashboard->'state'->'status'->>'value' is distinct from 'open' then
     raise exception 'owner status readback failed';
   end if;
 
+  reset role;
   select count(*) into audit_rows
   from public.ng_map_owner_audit_log
   where actor_id=owner_a and store_id=shop;
@@ -140,14 +156,20 @@ begin
   update public.ng_map_subscription_access
     set verified_at=now()-interval '24 hours'-interval '1 second'
     where owner_id=owner_a;
+  set local role authenticated;
+  if current_user <> 'authenticated' or auth.uid() is distinct from owner_a then
+    raise exception 'authenticated owner_a context missing';
+  end if;
+
   if public.ng_map_can_publish(shop,'hot') then
     raise exception 'stale subscription verification accepted';
   end if;
   begin
-    perform public.ng_map_set_menu_soldout(shop,'hot',menu_id,false);
+    perform public.ng_map_set_menu_soldout(shop,'hot',v_menu_id,false);
     raise exception 'stale subscription write accepted';
   exception when insufficient_privilege then null;
   end;
+  reset role;
   update public.ng_map_subscription_access
     set verified_at=now(),paid_until=now()+interval '1 month'
     where owner_id=owner_a;
@@ -168,6 +190,11 @@ begin
     jsonb_build_object('sub',owner_b,'role','authenticated')::text,
     true
   );
+  set local role authenticated;
+  if current_user <> 'authenticated' or auth.uid() is distinct from owner_b then
+    raise exception 'authenticated owner_b context missing';
+  end if;
+
   if public.ng_map_can_publish(shop,'hot') then
     raise exception 'subscribed foreign owner authorized for store';
   end if;
@@ -186,12 +213,17 @@ begin
     jsonb_build_object('sub',owner_a,'role','authenticated')::text,
     true
   );
-  saved := public.hot_menu_spice_upsert(menu_id,7::smallint);
+  set local role authenticated;
+  if current_user <> 'authenticated' or auth.uid() is distinct from owner_a then
+    raise exception 'authenticated owner_a context missing';
+  end if;
+
+  saved := public.hot_menu_spice_upsert(v_menu_id,7::smallint);
   if saved->>'saved' is distinct from 'true'
     or saved->>'level' is distinct from '7'
     or not exists(
       select 1 from public.hot_menu_spice_ratings r
-      where r.menu_id=menu_id and r.user_id=owner_a and r.level=7
+      where r.menu_id=v_menu_id and r.user_id=owner_a and r.level=7
     )
   then
     raise exception 'visitor rating save/readback failed';
@@ -203,25 +235,42 @@ begin
     jsonb_build_object('sub',owner_b,'role','authenticated')::text,
     true
   );
-
-  -- Exercise the RPC and table read as the same restricted role used by an
-  -- authenticated Supabase request. Claims alone do not test grants or RLS.
-  perform set_config('role','authenticated',true);
-  perform public.hot_menu_spice_upsert(menu_id,2::smallint);
-
-  select count(*),bool_and(r.user_id=owner_b)
-  into visible_rows,visible_owner_only
-  from public.hot_menu_spice_ratings r
-  where r.menu_id=menu_id;
-  if visible_rows<>1 or visible_owner_only is distinct from true then
-    raise exception 'authenticated visitor B read leaked another rating';
+  set local role authenticated;
+  if current_user <> 'authenticated' or auth.uid() is distinct from owner_b then
+    raise exception 'authenticated owner_b context missing';
   end if;
 
+  -- Both users must have rows before testing visibility; an empty table must not pass.
+  perform public.hot_menu_spice_upsert(v_menu_id,2::smallint);
+  if (select count(*) from public.hot_menu_spice_ratings r where r.menu_id=v_menu_id) <> 1
+    or not exists(
+      select 1 from public.hot_menu_spice_ratings r
+      where r.menu_id=v_menu_id and r.user_id=owner_b and r.level=2
+    )
+    or exists(
+      select 1 from public.hot_menu_spice_ratings r
+      where r.menu_id=v_menu_id and r.user_id=owner_a
+    )
+  then
+    raise exception 'owner_b RLS own-row read or foreign-row denial failed';
+  end if;
+
+  -- Direct UPDATE is revoked, even for owners; permitted edits use the actor-bound RPC.
   begin
-    update public.hot_menu_spice_ratings r set level=3 where r.menu_id=menu_id;
-    raise exception 'authenticated visitor direct update accepted';
+    update public.hot_menu_spice_ratings r set level=1
+      where r.menu_id=v_menu_id and r.user_id=owner_a;
+    raise exception 'foreign direct rating update accepted';
   exception when insufficient_privilege then null;
   end;
+  saved := public.hot_menu_spice_upsert(v_menu_id,3::smallint);
+  if saved->>'saved' is distinct from 'true' or saved->>'level' is distinct from '3'
+    or not exists(
+      select 1 from public.hot_menu_spice_ratings r
+      where r.menu_id=v_menu_id and r.user_id=owner_b and r.level=3
+    )
+  then
+    raise exception 'own rating RPC update/readback failed';
+  end if;
 
   perform set_config('request.jwt.claim.sub',owner_a::text,true);
   perform set_config(
@@ -229,17 +278,32 @@ begin
     jsonb_build_object('sub',owner_a,'role','authenticated')::text,
     true
   );
-  select count(*),bool_and(r.user_id=owner_a)
-  into visible_rows,visible_owner_only
-  from public.hot_menu_spice_ratings r
-  where r.menu_id=menu_id;
-  if visible_rows<>1 or visible_owner_only is distinct from true then
-    raise exception 'authenticated visitor A read leaked another rating';
+  set local role authenticated;
+  if current_user <> 'authenticated' or auth.uid() is distinct from owner_a then
+    raise exception 'authenticated owner_a context missing';
   end if;
-  perform set_config('role','none',true);
+
+  if (select count(*) from public.hot_menu_spice_ratings r where r.menu_id=v_menu_id) <> 1
+    or not exists(
+      select 1 from public.hot_menu_spice_ratings r
+      where r.menu_id=v_menu_id and r.user_id=owner_a and r.level=7
+    )
+    or exists(
+      select 1 from public.hot_menu_spice_ratings r
+      where r.menu_id=v_menu_id and r.user_id=owner_b
+    )
+  then
+    raise exception 'owner_a RLS own-row read or foreign-row denial failed';
+  end if;
+  begin
+    update public.hot_menu_spice_ratings r set level=1
+      where r.menu_id=v_menu_id and r.user_id=owner_b;
+    raise exception 'owner foreign direct rating update accepted';
+  exception when insufficient_privilege then null;
+  end;
 
   begin
-    perform public.hot_menu_spice_upsert(menu_id,8::smallint);
+    perform public.hot_menu_spice_upsert(v_menu_id,8::smallint);
     raise exception 'visitor stage 8 accepted';
   exception when sqlstate '22023' then null;
   end;
@@ -262,9 +326,23 @@ begin
     raise exception 'visitor direct rating writes remain enabled';
   end if;
 
-  raise notice 'HOT owner/user authorization, authenticated RLS, stage 1..7, ownership, subscription, save/readback and isolation checks passed';
+  -- Privileged fixture inspection is separate from the authenticated RLS assertions.
+  reset role;
+  if (select count(*) from public.hot_menu_spice_ratings r where r.menu_id=v_menu_id) <> 2
+    or not exists(
+      select 1 from public.hot_menu_spice_ratings r
+      where r.menu_id=v_menu_id and r.user_id=owner_a and r.level=7
+    )
+    or not exists(
+      select 1 from public.hot_menu_spice_ratings r
+      where r.menu_id=v_menu_id and r.user_id=owner_b and r.level=3
+    )
+  then
+    raise exception 'visitor rating ownership isolation failed';
+  end if;
+
+  raise notice 'HOT owner/user authorization, stage 1..7, ownership, subscription, save/readback and isolation checks passed';
 end
 $hot_test$;
 
 rollback;
-

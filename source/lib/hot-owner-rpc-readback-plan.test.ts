@@ -44,21 +44,10 @@ test('owner and visitor HOT inputs remain 1..7 with separate flavor and rating o
   assert.match(sql,/visitor stage 8 accepted/i);
   assert.match(sql,/'level',7,'flavor','얼큰한'/);
   assert.match(sql,/'level',6,'flavor','칼칼한'/);
-  assert.match(sql,/hot_menu_spice_upsert\(menu_id,7::smallint\)/i);
-  assert.match(sql,/hot_menu_spice_upsert\(menu_id,2::smallint\)/i);
+  assert.match(sql,/hot_menu_spice_upsert\(v_menu_id,7::smallint\)/i);
+  assert.match(sql,/hot_menu_spice_upsert\(v_menu_id,2::smallint\)/i);
+  assert.match(sql,/visitor rating ownership isolation failed/i);
   assert.match(sql,/rating accepted for a non-catalog menu/i);
-});
-
-test('authenticated role executes visitor RPC and RLS reveals only the caller row',()=>{
-  assert.match(sql,/set_config\('role','authenticated',true\)/i);
-  assert.match(
-    sql,
-    /set_config\('role','authenticated',true\)[\s\S]*hot_menu_spice_upsert\(menu_id,2::smallint\)/i
-  );
-  assert.match(sql,/authenticated visitor B read leaked another rating/i);
-  assert.match(sql,/authenticated visitor A read leaked another rating/i);
-  assert.match(sql,/authenticated visitor direct update accepted/i);
-  assert.match(sql,/set_config\('role','none',true\)/i);
 });
 
 test('candidate reads and direct visitor table writes remain denied',()=>{
@@ -68,3 +57,56 @@ test('candidate reads and direct visitor table writes remain denied',()=>{
   assert.match(sql,/hot_menu_spice_ratings','delete'/i);
 });
 
+test('RPC checks run as authenticated, with explicit JWT actor assertions',()=>{
+  const statements=sql.replace(/--[^\n]*/g,'').split(';');
+  let authenticated=false;
+  let rpcChecks=0;
+  for(const statement of statements){
+    if(/set local role authenticated/i.test(statement)) authenticated=true;
+    if(/reset role/i.test(statement)) authenticated=false;
+    if(/public\.(?:ng_map_(?:can_publish|save_menu|set_menu_taste|set_menu_soldout|set_status|dashboard_access)|hot_menu_spice_upsert)\s*\(/i.test(statement)){
+      assert.ok(authenticated,'RPC executed in privileged fixture context: '+statement);
+      rpcChecks++;
+    }
+  }
+  assert.ok(rpcChecks>=15);
+  for(const actor of ['owner_a','owner_b']){
+    assert.ok(sql.includes("current_user <> 'authenticated' or auth.uid() is distinct from "+actor));
+    assert.ok(sql.includes("set_config('request.jwt.claim.sub',"+actor+"::text,true)"));
+    assert.ok(sql.includes("jsonb_build_object('sub',"+actor+",'role','authenticated')"));
+  }
+  assert.doesNotMatch(sql,/security definer|grant\s+(?:all|update)|disable row level security/i);
+});
+
+test('both authenticated users see exactly their own row and cannot directly update the other',()=>{
+  for(const [actor,other,level] of [['owner_b','owner_a',2],['owner_a','owner_b',7]]){
+    const marker="raise exception '"+actor+" RLS own-row read or foreign-row denial failed'";
+    const end=sql.indexOf(marker);
+    assert.ok(end>0);
+    const start=sql.lastIndexOf('set local role authenticated;',end);
+    const context=sql.slice(start,end);
+    assert.doesNotMatch(context,/reset role/i);
+    assert.ok(context.includes('auth.uid() is distinct from '+actor));
+    assert.match(context,/select count\(\*\) from public\.hot_menu_spice_ratings r where r\.menu_id=v_menu_id\) <> 1/);
+    assert.ok(context.includes('r.user_id='+actor+' and r.level='+level));
+    assert.ok(context.includes('or exists('));
+    assert.ok(context.includes('r.user_id='+other+'\n'));
+    const denial=sql.slice(end,sql.indexOf('exception when insufficient_privilege then null;',end));
+    assert.match(denial,/update public\.hot_menu_spice_ratings r set level=1/);
+    assert.ok(denial.includes('r.user_id='+other+';'));
+    assert.match(denial,/raise exception '[^']*foreign direct rating update accepted'/);
+    assert.doesNotMatch(denial,/reset role/i);
+  }
+});
+
+test('own RPC edit preserves the other rating and privileged inspection verifies both fixtures',()=>{
+  assert.match(sql,/saved := public\.hot_menu_spice_upsert\(v_menu_id,3::smallint\)/);
+  assert.match(sql,/own rating RPC update\/readback failed/);
+  const final=sql.slice(sql.lastIndexOf('reset role;'));
+  assert.match(final,/r\.menu_id=v_menu_id\) <> 2/);
+  assert.match(final,/r\.user_id=owner_a and r\.level=7/);
+  assert.match(final,/r\.user_id=owner_b and r\.level=3/);
+  assert.match(final,/visitor rating ownership isolation failed/);
+  assert.match(final,/rollback;/);
+  assert.doesNotMatch(sql,/r\.menu_id=menu_id/);
+});
