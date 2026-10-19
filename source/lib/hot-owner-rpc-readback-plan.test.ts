@@ -20,7 +20,7 @@ test('owner path verifies identity, claim, KRW 8,000 entitlement and stale denia
   assert.match(sql,/'NOWGO_HOT_MONTHLY','KRW_8000_MONTHLY_V1',8000,'ACTIVE'/);
   assert.match(sql,/verified_at=now\(\)-interval '24 hours'-interval '1 second'/i);
   assert.match(sql,/stale subscription write accepted/i);
-  assert.match(sql,/owner_b,[\\s\\S]*'NOWGO_HOT_MONTHLY','KRW_8000_MONTHLY_V1',8000,'ACTIVE'/i);
+  assert.match(sql,/owner_b,[\s\S]*'NOWGO_HOT_MONTHLY','KRW_8000_MONTHLY_V1',8000,'ACTIVE'/i);
   assert.match(sql,/subscribed foreign owner authorized for store/i);
   assert.match(sql,/subscribed foreign owner write accepted/i);
 });
