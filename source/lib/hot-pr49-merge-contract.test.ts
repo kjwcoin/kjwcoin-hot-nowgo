@@ -33,3 +33,13 @@ test('PR #49 inherits main NAVER shutdown and makes zero provider API calls',()=
  assert.match(route,/\},410\)/);
  assert.doesNotMatch(route,/(?:naverHubSearch|fetch\(|verifiedUser|NAVER_CLIENT_ID)/);
 });
+
+test('PR #49 preserves main NAVER provider adapter fail-closed contract',()=>{
+ const hub=source('./naver-hub.ts');
+ assert.match(hub,/throw new NaverSearchUnavailable\('disabled'\)/);
+ assert.doesNotMatch(hub,/(?:process\.env\.NAVER_|\bfetch\(|https:\/\/naverapihub)/);
+ const evidence=source('./naver-spicy-menu.ts');
+ assert.match(evidence,/provenance==='naver_search'/);
+ assert.match(evidence,/prohibited_api_import/);
+ assert.match(evidence,/permissionScope\?\.persistFacts/);
+});
