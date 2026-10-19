@@ -22,6 +22,8 @@ on:
       - 'source/app/api/[action]/route.ts'
       - 'source/app/api/owner/manage/route.ts'
       - 'source/lib/hot-stage-consistency.test.ts'
+      - 'source/lib/hot-owner-rpc-migration.test.ts'
+      - 'source/supabase/migrations/20261019001000_hot_owner_rpc_access.sql'
       - 'source/lib/menus.ts'
       - 'source/lib/naver-spicy-menu.ts'
       - 'source/lib/naver-spicy-menu.test.ts'
@@ -44,4 +46,4 @@ jobs:
           node-version: '22.13.1'
       - name: Run 1-7 spice median and licensed-menu evidence unit tests
         working-directory: source
-        run: node --experimental-strip-types --test lib/hot-spice.test.ts lib/naver-spicy-menu.test.ts lib/owner-taste-level.test.ts lib/owner-publish-permission.test.ts lib/owner-save-readback.test.ts lib/customer-save-readback.test.ts lib/optional-readonly-rpc.test.ts lib/hot-stage-consistency.test.ts
+        run: node --experimental-strip-types --test lib/hot-spice.test.ts lib/naver-spicy-menu.test.ts lib/owner-taste-level.test.ts lib/owner-publish-permission.test.ts lib/owner-save-readback.test.ts lib/customer-save-readback.test.ts lib/optional-readonly-rpc.test.ts lib/hot-stage-consistency.test.ts lib/hot-owner-rpc-migration.test.ts
