@@ -39,6 +39,23 @@ function compile(path){
  return exports;
 }
 const directory=compile('../components/hot-search-directory.tsx');
+
+test('nationwide directory hides aggregate summary while retaining cards and previous/next links',async()=>{
+ const original=stores.slice();
+ try{
+  stores.splice(0,stores.length,...Array.from({length:SEARCH_PAGE_SIZE+1},(_,i)=>sourceStore(100+i,{indexable:true})));
+  for(const page of ['1','2']){
+   const body=renderToStaticMarkup(await directory.default({page}));
+   assert.ok(!body.includes('공개 매장'));
+   assert.ok(!body.includes(' / 2페이지'));
+   assert.ok(body.includes('hot-search-cards'));
+   assert.ok(body.includes('hot-search-regions'));
+   assert.ok(body.includes('href="/"'));
+   assert.ok(body.includes(page==='1'?'rel="next"':'rel="prev"'));
+   assert.ok(!body.includes(page==='1'?'rel="prev"':'rel="next"'));
+  }
+ }finally{stores.splice(0,stores.length,...original);}
+});
 dependencies['@/components/hot-search-directory']={...directory,__esModule:true};
 const route=compile('../app/nearby/[region]/page.tsx');
 const props=(region,page)=>({params:Promise.resolve({region}),searchParams:Promise.resolve(page===undefined?{}:{page})});
