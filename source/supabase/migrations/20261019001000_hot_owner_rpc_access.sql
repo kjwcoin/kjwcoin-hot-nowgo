@@ -109,6 +109,7 @@ as $$
         and a.product_code='NOWGO_HOT_MONTHLY'
         and a.price_code='KRW_8000_MONTHLY_V1'
         and a.amount_krw=8000 and a.status='ACTIVE' and a.paid_until>now()
+        and a.verified_at between now()-interval '24 hours' and now()
     );
 $$;
 revoke all on function public.ng_map_can_publish(uuid,text) from public;

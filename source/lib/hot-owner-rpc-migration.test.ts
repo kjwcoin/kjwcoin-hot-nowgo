@@ -36,6 +36,7 @@ test('all six owner RPCs exist and privileged entry points are explicitly restri
   assert.match(sql,/join public\.ng_store_claims c[\s\S]*c\.status='approved'/i);
   assert.match(sql,/join public\.ng_business_verifications b[\s\S]*b\.status='verified'/i);
   assert.match(sql,/a\.status='ACTIVE' and a\.paid_until>now\(\)/i);
+  assert.match(sql,/a\.verified_at\s+between\s+now\(\)-interval '24 hours'\s+and\s+now\(\)/i);
 });
 
 test('owner flavor and visitor median remain separate',()=>{
