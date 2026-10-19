@@ -66,7 +66,8 @@ revoke all on table public.ng_map_owner_audit_log from anon, authenticated;
 
 -- Owner-created HOT menus join the public canonical catalog without replacing
 -- owner-declared heat by visitor median data.
-create or replace view public.ng_hot_combined_menus as
+create or replace view public.ng_hot_combined_menus
+with (security_invoker=true) as
 select p.id,p.place_id,p.menu,p.shop,p.address,p.price,p.heat,p.flavor,p.category,
        p.observed_at,p.lat,p.lng,p.photo_path,p.created_at,p.nowgo_slug,
        p.verified_owner,null::uuid as owner_store_id
