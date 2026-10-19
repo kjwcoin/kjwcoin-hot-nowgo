@@ -39,18 +39,26 @@ jobs:
           echo "Source HEAD: $(git rev-parse HEAD)" >> "$GITHUB_STEP_SUMMARY"
           echo "Main HEAD: $(git rev-parse origin/main)" >> "$GITHUB_STEP_SUMMARY"
           echo "Merge base: $(git merge-base HEAD origin/main)" >> "$GITHUB_STEP_SUMMARY"
-          if git -c merge.conflictstyle=diff3 merge --no-commit --no-ff origin/main >/tmp/hot-merge-rehearsal.log 2>&1; then
+          if git -c user.name=HOT-merge-rehearsal -c user.email=none@example.invalid -c merge.conflictstyle=diff3 merge --no-commit --no-ff origin/main >/tmp/hot-merge-rehearsal.log 2>&1; then
             echo "Result: clean local merge rehearsal; NO commit or push performed." >> "$GITHUB_STEP_SUMMARY"
             echo "CLEAN_MERGE_REHEARSAL"
           else
-            echo "Result: Git conflicts (runner only, no write back):" >> "$GITHUB_STEP_SUMMARY"
+            echo "Result: unsuccessful rehearsal (runner only, no write back):" >> "$GITHUB_STEP_SUMMARY"
+            sed -n '1,70p' /tmp/hot-merge-rehearsal.log | tee /tmp/hot-merge-head.log
+            echo '~~~' >> "$GITHUB_STEP_SUMMARY"
+            cat /tmp/hot-merge-head.log >> "$GITHUB_STEP_SUMMARY"
+            echo '~~~' >> "$GITHUB_STEP_SUMMARY"
             echo '~~~' >> "$GITHUB_STEP_SUMMARY"
             git diff --name-only --diff-filter=U | tee /tmp/hot-merge-conflicts.txt
             cat /tmp/hot-merge-conflicts.txt >> "$GITHUB_STEP_SUMMARY"
             echo '~~~' >> "$GITHUB_STEP_SUMMARY"
             echo "MERGE_CONFLICT_COUNT=$(wc -l </tmp/hot-merge-conflicts.txt)"
           fi
-          git merge --abort
+          if [ -f "$(git rev-parse --git-path MERGE_HEAD)" ]; then
+            git merge --abort
+          else
+            git reset --hard HEAD
+          fi
           if [ -n "$(git status --porcelain)" ]; then
             echo "Unexpected local residue after abort" >&2
             exit 1
