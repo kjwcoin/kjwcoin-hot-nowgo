@@ -27,6 +27,10 @@ on:
       - 'source/supabase/migrations/20261019001000_hot_owner_rpc_access.sql'
       - 'source/supabase/tests/hot_owner_rpc_readback.sql'
       - 'source/lib/menus.ts'
+      - 'source/lib/hot-pr49-merge-contract.test.ts'
+      - 'source/app/account/join/page.tsx'
+      - 'source/app/account/callback/page.tsx'
+      - 'source/app/api/naver-search/route.ts'
       - 'source/lib/naver-spicy-menu.ts'
       - 'source/lib/naver-spicy-menu.test.ts'
       - 'source/components/hot-spice-rating.tsx'
@@ -48,4 +52,4 @@ jobs:
           node-version: '22.13.1'
       - name: Run 1-7 spice median and licensed-menu evidence unit tests
         working-directory: source
-        run: node --experimental-strip-types --test lib/hot-spice.test.ts lib/naver-spicy-menu.test.ts lib/owner-taste-level.test.ts lib/owner-publish-permission.test.ts lib/owner-save-readback.test.ts lib/customer-save-readback.test.ts lib/optional-readonly-rpc.test.ts lib/hot-stage-consistency.test.ts lib/hot-owner-rpc-migration.test.ts lib/hot-owner-rpc-readback-plan.test.ts
+        run: node --experimental-strip-types --test lib/hot-spice.test.ts lib/naver-spicy-menu.test.ts lib/owner-taste-level.test.ts lib/owner-publish-permission.test.ts lib/owner-save-readback.test.ts lib/customer-save-readback.test.ts lib/optional-readonly-rpc.test.ts lib/hot-stage-consistency.test.ts lib/hot-owner-rpc-migration.test.ts lib/hot-owner-rpc-readback-plan.test.ts lib/hot-pr49-merge-contract.test.ts
