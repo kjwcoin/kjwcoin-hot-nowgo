@@ -36,6 +36,7 @@ jobs:
         shell: bash
         run: |
           set -eu
+          result=0
           echo "Source HEAD: $(git rev-parse HEAD)" >> "$GITHUB_STEP_SUMMARY"
           echo "Main HEAD: $(git rev-parse origin/main)" >> "$GITHUB_STEP_SUMMARY"
           echo "Merge base: $(git merge-base HEAD origin/main)" >> "$GITHUB_STEP_SUMMARY"
@@ -53,6 +54,7 @@ jobs:
             cat /tmp/hot-merge-conflicts.txt >> "$GITHUB_STEP_SUMMARY"
             echo '~~~' >> "$GITHUB_STEP_SUMMARY"
             echo "MERGE_CONFLICT_COUNT=$(wc -l </tmp/hot-merge-conflicts.txt)"
+            result=1
           fi
           if [ -f "$(git rev-parse --git-path MERGE_HEAD)" ]; then
             git merge --abort
@@ -64,3 +66,4 @@ jobs:
             exit 1
           fi
           echo "Dry-run finished: no PR merge, no push, no deployment, no database changes." >> "$GITHUB_STEP_SUMMARY"
+          exit "$result"
