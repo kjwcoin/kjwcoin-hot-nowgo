@@ -307,7 +307,9 @@ drop policy if exists hot_member_update_own_rating on public.hot_menu_spice_rati
 create policy hot_member_read_own_rating on public.hot_menu_spice_ratings
 for select to authenticated using ((select auth.uid())=user_id);
 
+revoke all on table public.hot_menu_spice_ratings from anon;
 revoke insert,update,delete on table public.hot_menu_spice_ratings from authenticated;
 grant select on table public.hot_menu_spice_ratings to authenticated;
+
 
 

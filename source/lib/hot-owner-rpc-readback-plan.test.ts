@@ -59,17 +59,21 @@ test('candidate reads and direct visitor table writes remain denied',()=>{
 
 test('RPC checks run as authenticated, with explicit JWT actor assertions',()=>{
   const statements=sql.replace(/--[^\n]*/g,'').split(';');
-  let authenticated=false;
+  let role='privileged';
   let rpcChecks=0;
+  let anonymousDenials=0;
   for(const statement of statements){
-    if(/set local role authenticated/i.test(statement)) authenticated=true;
-    if(/reset role/i.test(statement)) authenticated=false;
+    if(/set local role authenticated/i.test(statement)) role='authenticated';
+    if(/set local role anon/i.test(statement)) role='anon';
+    if(/reset role/i.test(statement)) role='privileged';
     if(/public\.(?:ng_map_(?:can_publish|save_menu|set_menu_taste|set_menu_soldout|set_status|dashboard_access)|hot_menu_spice_upsert)\s*\(/i.test(statement)){
-      assert.ok(authenticated,'RPC executed in privileged fixture context: '+statement);
-      rpcChecks++;
+      if(role==='authenticated') rpcChecks++;
+      else if(role==='anon' && /hot_menu_spice_upsert/i.test(statement)) anonymousDenials++;
+      else assert.fail('RPC executed in privileged fixture context: '+statement);
     }
   }
   assert.ok(rpcChecks>=15);
+  assert.equal(anonymousDenials,1);
   for(const actor of ['owner_a','owner_b']){
     assert.ok(sql.includes("current_user <> 'authenticated' or auth.uid() is distinct from "+actor));
     assert.ok(sql.includes("set_config('request.jwt.claim.sub',"+actor+"::text,true)"));
@@ -131,4 +135,9 @@ test('fresh but expired HOT subscription and anonymous RPC grants are explicitly
   assert.match(sql,/has_function_privilege\('anon','public\.hot_menu_spice_upsert\(uuid,smallint\)','execute'\)/);
   assert.match(sql,/has_function_privilege\('anon','public\.ng_map_can_publish\(uuid,text\)','execute'\)/);
   assert.match(sql,/has_function_privilege\('anon','public\.ng_map_save_menu\(uuid,text,uuid,text,integer,smallint,text,text,text\)','execute'\)/);
+  assert.match(sql,/set local role anon/i);
+  assert.match(sql,/raise exception 'anonymous visitor rating RPC accepted'/i);
+  assert.match(sql,/raise exception 'anonymous visitor rating read accepted'/i);
+  assert.match(sql,/current_user <> 'anon' or auth\.uid\(\) is not null/i);
 });
+

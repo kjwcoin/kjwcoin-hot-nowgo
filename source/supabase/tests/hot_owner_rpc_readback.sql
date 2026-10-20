@@ -370,6 +370,30 @@ begin
     raise exception 'visitor direct rating writes remain enabled';
   end if;
 
+  -- Exercise denials under the database role used by logged-out API requests.
+  reset role;
+  perform set_config('request.jwt.claim.sub','',true);
+  perform set_config(
+    'request.jwt.claims',
+    jsonb_build_object('role','anon')::text,
+    true
+  );
+  set local role anon;
+  if current_user <> 'anon' or auth.uid() is not null then
+    raise exception 'anonymous database context missing';
+  end if;
+  begin
+    perform public.hot_menu_spice_upsert(v_menu_id,1::smallint);
+    raise exception 'anonymous visitor rating RPC accepted';
+  exception when insufficient_privilege then null;
+  end;
+  begin
+    perform 1 from public.hot_menu_spice_ratings r
+      where r.menu_id=v_menu_id limit 1;
+    raise exception 'anonymous visitor rating read accepted';
+  exception when insufficient_privilege then null;
+  end;
+
   -- Privileged fixture inspection is separate from the authenticated RLS assertions.
   reset role;
   if (select count(*) from public.hot_menu_spice_ratings r where r.menu_id=v_menu_id) <> 2
@@ -390,3 +414,4 @@ end
 $hot_test$;
 
 rollback;
+

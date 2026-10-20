@@ -19,6 +19,7 @@ test('HOT owner migration keeps the approved 1..7 and KRW 8,000 contract',()=>{
 test('candidate access and visitor direct writes fail closed',()=>{
   assert.match(sql,/revoke all on table public\.hot_unverified_spicy_menu_candidates from anon, authenticated/i);
   assert.match(sql,/drop policy if exists hot_unverified_candidates_public_read/i);
+  assert.match(sql,/revoke all on table public\.hot_menu_spice_ratings from anon/i);
   assert.match(sql,/revoke insert,update,delete on table public\.hot_menu_spice_ratings from authenticated/i);
   assert.match(sql,/create or replace function public\.hot_menu_spice_upsert/i);
   assert.match(sql,/not exists\(select 1 from public\.ng_map_hot_menu_catalog m where m\.id=p_menu_id\)/i);
@@ -33,6 +34,7 @@ test('visitor ratings expose only the authenticated users own row',()=>{
     /create policy hot_member_read_own_rating[\s\S]*for select to authenticated[\s\S]*auth\.uid\(\)\)=user_id/i
   );
   assert.match(sql,/grant select on table public\.hot_menu_spice_ratings to authenticated/i);
+  assert.doesNotMatch(sql,/grant[^;]*on table public\.hot_menu_spice_ratings to anon/i);
 });
 
 test('all six owner RPCs exist and privileged entry points are explicitly restricted',()=>{
@@ -56,4 +58,5 @@ test('owner flavor and visitor median remain separate',()=>{
   assert.match(sql,/public\.ng_map_owner_audit_log/);
   assert.match(sql,/create or replace view public\.ng_hot_combined_menus[\s\S]*with \(security_invoker=true\)/i);
 });
+
 
