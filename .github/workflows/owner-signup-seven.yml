@@ -19,7 +19,7 @@ jobs:
           node-version: '24'
       - run: npm install --global pnpm@11.25.0
       - run: pnpm install --frozen-lockfile
-      - name: Verify owner writes, authorization, save readback and health
-        run: node --test --test-isolation=none tests/owner-signup-seven.test.mjs tests/owner-management-readiness.test.mjs tests/hot-health.test.mjs lib/owner-save-readback.test.ts lib/owner-taste-level.test.ts lib/owner-publish-permission.test.ts
+      - name: Verify owner writes, authorization, save readback, health and member ratings
+        run: node --test --test-isolation=none tests/owner-signup-seven.test.mjs tests/owner-management-readiness.test.mjs tests/hot-health.test.mjs tests/hot-spice-readiness.test.mjs tests/hot-spice-request-state.test.mjs lib/owner-save-readback.test.ts lib/owner-taste-level.test.ts lib/owner-publish-permission.test.ts
       - run: pnpm exec tsc --noEmit --incremental false
       - run: pnpm run build
