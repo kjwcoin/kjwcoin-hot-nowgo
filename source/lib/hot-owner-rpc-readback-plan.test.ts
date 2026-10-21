@@ -5,7 +5,7 @@ import {test} from 'node:test';
 const sql=readFileSync(
   new URL('../supabase/tests/hot_owner_rpc_readback.sql',import.meta.url),
   'utf8'
-);
+).replace(/\r\n/g,'\n');
 
 test('integration plan is development-only and always rolls fixtures back',()=>{
   assert.match(sql,/development-only integration check/i);
@@ -103,11 +103,11 @@ test('both authenticated users see exactly their own row and cannot directly upd
   }
 });
 
-test('own RPC edit preserves the other rating and privileged inspection verifies both fixtures',()=>{
+test('own RPC edit preserves the other rating and privileged inspection verifies all fixtures',()=>{
   assert.match(sql,/saved := public\.hot_menu_spice_upsert\(v_menu_id,3::smallint\)/);
   assert.match(sql,/own rating RPC update\/readback failed/);
   const final=sql.slice(sql.lastIndexOf('reset role;'));
-  assert.match(final,/r\.menu_id=v_menu_id\) <> 2/);
+  assert.match(final,/r\.menu_id=v_menu_id\) <> 3/);
   assert.match(final,/r\.user_id=owner_a and r\.level=7/);
   assert.match(final,/r\.user_id=owner_b and r\.level=3/);
   assert.match(final,/visitor rating ownership isolation failed/);
