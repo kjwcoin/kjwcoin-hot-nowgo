@@ -1,5 +1,12 @@
 import sharp from 'sharp';
 import {reply} from './server';
+export async function readOwnerJson(request:Request){
+ const reader=request.body?.getReader();if(!reader)throw Error('invalid_request');
+ const chunks:Uint8Array[]=[];let size=0;
+ try{for(;;){const {done,value}=await reader.read();if(done)break;size+=value.byteLength;if(size>4096){await reader.cancel();throw Error('request_too_large')}chunks.push(value)}}finally{reader.releaseLock()}
+ const bytes=new Uint8Array(size);let offset=0;for(const chunk of chunks){bytes.set(chunk,offset);offset+=chunk.length}
+ try{const json:unknown=JSON.parse(new TextDecoder().decode(bytes));if(!json||typeof json!=='object'||Array.isArray(json))throw Error();return json as Record<string,unknown>}catch{throw Error('invalid_request')}
+}
 export async function readOwnerForm(request:Request){
  const reader=request.body?.getReader();if(!reader)throw Error('invalid_form');
  const chunks:Uint8Array[]=[];let size=0;
@@ -16,5 +23,7 @@ export async function prepareOwnerPhoto(photo:FormDataEntryValue|null){
 export function ownerError(request:Request,error:unknown){
  const code=error&&typeof error==='object'&&'message'in error?String(error.message):'unavailable';
  const messages:Record<string,string>={photo_required:'메뉴 사진을 반드시 첨부해 주세요.',photo_too_large:'사진은 5MB 이하로 올려 주세요.',invalid_photo:'JPG·PNG·WebP 사진 파일을 확인해 주세요.',duplicate_menu:'같은 이름의 메뉴가 이미 있습니다.',map_subscription_required:'이 지도의 구독과 매장 권한 확인이 필요합니다.',invalid_taste:'선택한 지도의 맛·단계·결을 확인해 주세요.',invalid_menu:'메뉴 정보를 확인해 주세요.',menu_photo_required:'사진을 포함해 메뉴를 먼저 등록해 주세요.',owned_store_required:'내 매장만 관리할 수 있습니다.'};
- return reply(request,{error:messages[code]||'저장에 연결하지 못했습니다. 입력한 내용은 유지됩니다.',code},code==='map_subscription_required'?402:code==='owned_store_required'?403:messages[code]?400:503);
+ if(code==='request_too_large')return reply(request,{error:'입력한 내용을 확인해 주세요.',code},413);
+ if(code==='invalid_request')return reply(request,{error:'요청 내용을 확인해 주세요.',code},400);
+ return reply(request,{error:messages[code]||'저장에 연결하지 못했습니다. 입력한 내용은 유지됩니다.',code:messages[code]?code:'owner_write_unavailable'},code==='map_subscription_required'?402:code==='owned_store_required'?403:messages[code]?400:503);
 }
