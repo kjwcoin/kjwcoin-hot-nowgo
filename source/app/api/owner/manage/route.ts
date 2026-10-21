@@ -35,9 +35,8 @@ export async function POST(request:Request){try{
   if(result.error){await auth.client.storage.from('ng-map-menu-photos').remove([path]);throw result.error;}
   // A failed readback must not remove the photo: the committed menu may still reference it.
   const check=await auth.client.rpc('ng_map_dashboard_access',{p_planet:variant,p_store:storeId,p_link:null});
-  if(check.error)throw check.error;
   const expected:OwnerWriteExpectation={action:'register',menuId:result.data,name,price,level,flavor,category,photoPath:path};
-  if(!ownerSaveReadbackMatches(check.data,storeId,expected,variant))return reply(request,{error:'등록 요청 후 저장값을 확인하지 못했습니다. 다시 등록하기 전에 메뉴 목록을 새로고침해 주세요.',code:'SAVE_UNVERIFIED',menuId:result.data},503);
+  if(check.error||!ownerSaveReadbackMatches(check.data,storeId,expected,variant))return reply(request,{error:'등록 요청 후 저장값을 확인하지 못했습니다. 다시 등록하기 전에 메뉴 목록을 새로고침해 주세요.',code:'SAVE_UNVERIFIED',menuId:result.data},503);
   return reply(request,{ok:true,menuId:result.data,message:'메뉴 등록과 저장값 재조회를 확인했습니다.'});
  }
  const body=await readOwnerJson(request);
@@ -62,7 +61,6 @@ export async function POST(request:Request){try{
  }else return reply(request,{error:'지원하지 않는 관리 기능입니다.'},400);
  if(result.error)throw result.error;
  const check=await auth.client.rpc('ng_map_dashboard_access',{p_planet:variant,p_store:storeId,p_link:null});
- if(check.error)throw check.error;
- if(!ownerSaveReadbackMatches(check.data,storeId,expected,variant))return reply(request,{error:'저장 요청 후 저장값을 확인하지 못했습니다. 새로고침해 상태를 확인해 주세요.',code:'SAVE_UNVERIFIED'},503);
+ if(check.error||!ownerSaveReadbackMatches(check.data,storeId,expected,variant))return reply(request,{error:'저장 요청 후 저장값을 확인하지 못했습니다. 새로고침해 상태를 확인해 주세요.',code:'SAVE_UNVERIFIED'},503);
  return reply(request,{ok:true,message:'저장과 재조회를 확인했습니다.'});
 }catch(error){return ownerError(request,error)}}

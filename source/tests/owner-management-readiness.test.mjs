@@ -80,6 +80,18 @@ test('readback failure never removes a photo already referenced by a committed m
  const h=harness({readback:s=>({...s,state:{...s.state,menus:[]}})});const result=await h.add(7);
  assert.equal(result.status,503);assert.equal(result.body.code,'SAVE_UNVERIFIED');assert.equal(result.body.menuId,MENU);assert.equal(h.uploads.length,1);assert.equal(h.removed.length,0);
 });
+test('readback RPC error after committed registration requires refresh and retains the saved photo',async()=>{
+ const h=harness({readbackError:{message:'private_readback_error'}});const result=await h.add(7);
+ assert.equal(result.status,503);assert.equal(result.body.code,'SAVE_UNVERIFIED');assert.equal(result.body.menuId,MENU);
+ assert.match(result.body.error,/다시 등록하기 전에/);assert.equal(h.uploads.length,1);assert.equal(h.removed.length,0);
+ assert.ok(!JSON.stringify(result.body).includes('private_readback_error'));
+});
+test('readback RPC error after a committed status write is reported as unverified, not failed to save',async()=>{
+ const h=harness({readbackError:{message:'private_readback_error'}});
+ const result=await h.post({storeId:STORE,action:'status',value:'open'});
+ assert.equal(h.state.state.status.value,'open');assert.equal(result.status,503);assert.equal(result.body.code,'SAVE_UNVERIFIED');
+ assert.match(result.body.error,/새로고침/);assert.ok(!JSON.stringify(result.body).includes('private_readback_error'));
+});
 test('rejected database writes attempt safe cleanup and expose no database message',async()=>{
  const h=harness({writeError:{message:'private_database_connection_detail'}});const result=await h.add(7);
  assert.equal(result.status,503);assert.equal(result.body.code,'owner_write_unavailable');assert.equal(h.removed.length,1);assert.ok(!JSON.stringify(result.body).includes('private_database'));
