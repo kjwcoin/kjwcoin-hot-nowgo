@@ -48,6 +48,40 @@ create index if not exists ng_map_owner_menus_store_planet_idx
 alter table public.ng_map_owner_menus enable row level security;
 revoke all on table public.ng_map_owner_menus from anon, authenticated;
 
+-- Public menus expose only approved first-party stores. Keep the ownership
+-- lookup private: clients must not receive access to business verification rows.
+create schema if not exists nowgo_private;
+revoke all on schema nowgo_private from public;
+grant usage on schema nowgo_private to anon, authenticated;
+create or replace function nowgo_private.hot_store_visible(p_store uuid)
+returns boolean language sql stable security definer set search_path='' as $$
+  select exists (
+    select 1 from public.stores s
+    join public.owners o on o.id=s.owner_id and o.status='active'
+    join public.ng_store_claims c on c.store_id=s.id and c.user_id=o.id and c.status='approved'
+    join public.ng_business_verifications b
+      on b.id=c.business_verification_id and b.user_id=o.id and b.status='verified'
+    where s.id=p_store and s.archived_at is null and s.trust_disabled_at is null
+      and s.owner_penalty_points<30 and s.publication_state not in ('CLOSED','REMOVED')
+  );
+$$;
+revoke all on function nowgo_private.hot_store_visible(uuid) from public,anon,authenticated;
+grant execute on function nowgo_private.hot_store_visible(uuid) to anon, authenticated;
+drop policy if exists hot_approved_owner_menu_read on public.ng_map_owner_menus;
+create policy hot_approved_owner_menu_read on public.ng_map_owner_menus
+for select to anon, authenticated
+using (planet='hot' and active and nowgo_private.hot_store_visible(store_id));
+grant select on public.ng_map_owner_menus to anon, authenticated;
+
+-- A deliberately narrow public projection avoids granting clients access to
+-- the stores table's private operational or ownership columns.
+create or replace view nowgo_private.hot_public_stores
+with (security_barrier=true) as
+select s.id,s.name,s.address,s.lat,s.lon,s.slug
+from public.stores s where nowgo_private.hot_store_visible(s.id);
+revoke all on nowgo_private.hot_public_stores from public;
+grant select on nowgo_private.hot_public_stores to anon,authenticated;
+
 create table if not exists public.ng_map_owner_audit_log (
   id bigint generated always as identity primary key,
   request_id uuid not null default gen_random_uuid(),
@@ -83,16 +117,28 @@ select m.id,'nowgo-'||s.id::text,m.name,s.name,s.address,m.price,m.taste_level,
        m.flavor,m.category,m.updated_at::date,s.lat,s.lon,m.photo_path,m.created_at,
        s.slug,true,s.id
 from public.ng_map_owner_menus m
-join public.stores s on s.id=m.store_id
-where m.planet='hot' and m.active and s.archived_at is null
-  and s.trust_disabled_at is null and s.owner_penalty_points<30;
+join nowgo_private.hot_public_stores s on s.id=m.store_id
+where m.planet='hot' and m.active;
+
+-- Preserve the existing catalog shape while returning the persisted sold-out
+-- value and storage-photo flag for newly created owner menus.
+create or replace view public.ng_map_hot_menu_catalog
+with (security_invoker=true) as
+select b.id,b.place_id,b.menu,b.shop,b.address,b.price,b.heat,b.flavor,b.category,
+       b.observed_at,b.lat,b.lng,b.photo_path,b.created_at,b.nowgo_slug,
+       b.verified_owner,b.owner_store_id,coalesce(m.soldout,false) as soldout,
+       (m.id is not null) as map_menu_photo
+from public.ng_hot_combined_menus b
+left join public.ng_map_owner_menus m on m.id=b.id and m.store_id=b.owner_store_id;
+revoke all on public.ng_hot_combined_menus,public.ng_map_hot_menu_catalog from anon,authenticated;
+grant select on public.ng_hot_combined_menus,public.ng_map_hot_menu_catalog to anon,authenticated;
 
 create or replace function public.ng_map_can_publish(p_store uuid, p_planet text)
 returns boolean
 language sql stable security definer
 set search_path=''
 as $$
-  select p_planet='hot'
+  select coalesce(p_planet='hot',false)
     and (select auth.uid()) is not null
     and exists (
       select 1
@@ -112,7 +158,7 @@ as $$
         and a.verified_at between now()-interval '24 hours' and now()
     );
 $$;
-revoke all on function public.ng_map_can_publish(uuid,text) from public;
+revoke all on function public.ng_map_can_publish(uuid,text) from public,anon,authenticated;
 grant execute on function public.ng_map_can_publish(uuid,text) to authenticated;
 
 create or replace function public.ng_map_dashboard_access(
@@ -131,7 +177,7 @@ begin
   if actor is null or not exists (
     select 1 from auth.users u where u.id=actor and not coalesce(u.is_anonymous,false)
   ) then raise exception 'AUTH_REQUIRED' using errcode='42501'; end if;
-  if p_planet<>'hot' or p_link is not null then
+  if p_planet is distinct from 'hot' or p_link is not null then
     return jsonb_build_object('storeId',target,'access',jsonb_build_object('enabled',false,'code','INVALID_SCOPE'),'state',jsonb_build_object('status',null,'menus',menus));
   end if;
   if target is null then
@@ -160,7 +206,7 @@ begin
   );
 end;
 $$;
-revoke all on function public.ng_map_dashboard_access(text,uuid,uuid) from public;
+revoke all on function public.ng_map_dashboard_access(text,uuid,uuid) from public,anon,authenticated;
 grant execute on function public.ng_map_dashboard_access(text,uuid,uuid) to authenticated;
 
 create or replace function public.ng_map_save_menu(
@@ -172,14 +218,14 @@ set search_path=''
 as $$
 declare actor uuid := (select auth.uid()); saved uuid; before_row jsonb;
 begin
-  if not public.ng_map_can_publish(p_store,p_planet) then
+  if public.ng_map_can_publish(p_store,p_planet) is not true then
     raise exception 'SUBSCRIPTION_REQUIRED' using errcode='42501'; end if;
   if p_planet<>'hot' or p_level not between 1 and 7
     or length(btrim(p_name)) not between 1 and 100
     or p_price not between 100 and 1000000
     or p_flavor not in ('얼큰한','칼칼한','달콤매콤한','알싸한')
     or length(btrim(p_category)) not between 1 and 80
-    or p_photo !~* ('^'||actor::text||'/'||p_store::text||'/hot/[0-9a-f-]{36}\\.webp$')
+    or p_photo !~* ('^'||actor::text||'/'||p_store::text||'/hot/[0-9a-f-]{36}[.]webp$')
   then raise exception 'INVALID_INPUT' using errcode='22023'; end if;
   if p_menu is null then
     insert into public.ng_map_owner_menus(store_id,planet,name,price,taste_level,flavor,category,photo_path)
@@ -199,7 +245,7 @@ begin
   return saved;
 end;
 $$;
-revoke all on function public.ng_map_save_menu(uuid,text,uuid,text,integer,smallint,text,text,text) from public;
+revoke all on function public.ng_map_save_menu(uuid,text,uuid,text,integer,smallint,text,text,text) from public,anon,authenticated;
 grant execute on function public.ng_map_save_menu(uuid,text,uuid,text,integer,smallint,text,text,text) to authenticated;
 
 create or replace function public.ng_map_set_menu_taste(
@@ -210,7 +256,7 @@ set search_path=''
 as $$
 declare actor uuid := (select auth.uid()); before_row jsonb; after_row jsonb;
 begin
-  if not public.ng_map_can_publish(p_store,p_planet) then raise exception 'SUBSCRIPTION_REQUIRED' using errcode='42501'; end if;
+  if public.ng_map_can_publish(p_store,p_planet) is not true then raise exception 'SUBSCRIPTION_REQUIRED' using errcode='42501'; end if;
   if p_planet<>'hot' or p_level not between 1 and 7
     or p_flavor not in ('얼큰한','칼칼한','달콤매콤한','알싸한')
     or length(btrim(p_category)) not between 1 and 80
@@ -227,7 +273,7 @@ begin
   return true;
 end;
 $$;
-revoke all on function public.ng_map_set_menu_taste(uuid,text,uuid,smallint,text,text) from public;
+revoke all on function public.ng_map_set_menu_taste(uuid,text,uuid,smallint,text,text) from public,anon,authenticated;
 grant execute on function public.ng_map_set_menu_taste(uuid,text,uuid,smallint,text,text) to authenticated;
 
 create or replace function public.ng_map_set_menu_soldout(
@@ -238,7 +284,7 @@ set search_path=''
 as $$
 declare actor uuid := (select auth.uid()); before_row jsonb; after_row jsonb;
 begin
-  if not public.ng_map_can_publish(p_store,p_planet) then raise exception 'SUBSCRIPTION_REQUIRED' using errcode='42501'; end if;
+  if public.ng_map_can_publish(p_store,p_planet) is not true then raise exception 'SUBSCRIPTION_REQUIRED' using errcode='42501'; end if;
   if p_planet<>'hot' or p_soldout is null then raise exception 'INVALID_INPUT' using errcode='22023'; end if;
   select to_jsonb(m) into before_row from public.ng_map_owner_menus m
     where m.id=p_menu and m.store_id=p_store and m.planet='hot' and m.active for update;
@@ -251,7 +297,7 @@ begin
   return p_soldout;
 end;
 $$;
-revoke all on function public.ng_map_set_menu_soldout(uuid,text,uuid,boolean) from public;
+revoke all on function public.ng_map_set_menu_soldout(uuid,text,uuid,boolean) from public,anon,authenticated;
 grant execute on function public.ng_map_set_menu_soldout(uuid,text,uuid,boolean) to authenticated;
 
 create or replace function public.ng_map_set_status(p_store uuid,p_planet text,p_value text)
@@ -261,7 +307,7 @@ set search_path=''
 as $$
 declare actor uuid := (select auth.uid()); result jsonb; req uuid := gen_random_uuid();
 begin
-  if not public.ng_map_can_publish(p_store,p_planet) then raise exception 'SUBSCRIPTION_REQUIRED' using errcode='42501'; end if;
+  if public.ng_map_can_publish(p_store,p_planet) is not true then raise exception 'SUBSCRIPTION_REQUIRED' using errcode='42501'; end if;
   if p_planet<>'hot' or p_value not in ('open','closed_for_day','ingredients_soldout','temporary_closed','break_time','permanently_closed')
   then raise exception 'INVALID_STATUS' using errcode='22023'; end if;
   result := public.replace_owner_status_v2(p_store,actor,'open_status'::public.report_kind,
@@ -272,7 +318,7 @@ begin
   return result;
 end;
 $$;
-revoke all on function public.ng_map_set_status(uuid,text,text) from public;
+revoke all on function public.ng_map_set_status(uuid,text,text) from public,anon,authenticated;
 grant execute on function public.ng_map_set_status(uuid,text,text) to authenticated;
 
 -- Visitor writes go through an RPC so the database verifies the canonical HOT menu.
@@ -295,7 +341,7 @@ begin
   return jsonb_build_object('menuId',p_menu_id,'level',saved,'saved',true);
 end;
 $$;
-revoke all on function public.hot_menu_spice_upsert(uuid,smallint) from public;
+revoke all on function public.hot_menu_spice_upsert(uuid,smallint) from public,anon,authenticated;
 grant execute on function public.hot_menu_spice_upsert(uuid,smallint) to authenticated;
 
 -- Keep visitor rows private even when this migration is applied over an older

@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - 'feature/hot-spice-median-v1'
+      - 'fix/hot-november-release-validation'
   pull_request:
     paths:
       - 'source/lib/hot-spice.ts'
@@ -46,12 +47,25 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
+      - name: Enforce KST work window
+        id: window
+        run: |
+          hour="$(TZ=Asia/Seoul date +%H)"
+          if [ "$hour" -lt 9 ] || [ "$hour" -gt 21 ]; then
+            echo "allowed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "allowed=true" >> "$GITHUB_OUTPUT"
+          fi
       - uses: actions/checkout@v4
+        if: steps.window.outputs.allowed == 'true'
         with:
           persist-credentials: false
       - uses: actions/setup-node@v4
+        if: steps.window.outputs.allowed == 'true'
         with:
           node-version: '22.13.1'
-      - name: Run 1-7 spice median, owner authorization and licensed-menu evidence tests
+      - name: Run 1-7 spice median and licensed-menu evidence unit tests
+        if: steps.window.outputs.allowed == 'true'
         working-directory: source
-        run: node --experimental-strip-types --test lib/hot-spice.test.ts lib/naver-spicy-menu.test.ts lib/owner-taste-level.test.ts lib/owner-publish-permission.test.ts lib/owner-save-readback.test.ts lib/customer-save-readback.test.ts lib/optional-readonly-rpc.test.ts lib/hot-stage-consistency.test.ts lib/hot-owner-rpc-migration.test.ts lib/hot-owner-rpc-readback-plan.test.ts lib/hot-pr49-merge-contract.test.ts lib/menu-search.test.ts
+        run: node --experimental-strip-types --test lib/*.test.ts
+

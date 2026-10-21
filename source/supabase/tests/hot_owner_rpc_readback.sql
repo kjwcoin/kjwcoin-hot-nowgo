@@ -15,12 +15,15 @@ declare
   dashboard jsonb;
   saved jsonb;
   audit_rows integer;
-  photo_path text;
+  v_photo_path text;
+  visitor uuid := gen_random_uuid();
+  visible_rows integer;
 begin
   insert into auth.users(id,aud,role,is_anonymous)
   values
     (owner_a,'authenticated','authenticated',false),
-    (owner_b,'authenticated','authenticated',false);
+    (owner_b,'authenticated','authenticated',false),
+    (visitor,'authenticated','authenticated',false);
 
   insert into public.owners(id,status,created_at)
   values
@@ -58,6 +61,16 @@ begin
   if public.ng_map_can_publish(shop,'hot') then
     raise exception 'owner published before a verified subscription';
   end if;
+  if public.ng_map_can_publish(shop,null) is distinct from false then
+    raise exception 'null planet authorization did not fail closed';
+  end if;
+  begin
+    perform public.ng_map_save_menu(
+      shop,null,null::uuid,'NULL scope bypass',12000,7::smallint,
+      '얼큰한','테스트',owner_a::text||'/'||shop::text||'/hot/'||gen_random_uuid()::text||'.webp'
+    );
+    raise exception 'null planet bypassed subscription';
+  exception when insufficient_privilege then null; end;
 
   begin
     perform public.ng_map_save_menu(
@@ -86,10 +99,10 @@ begin
     raise exception 'verified owner subscription was not authorized';
   end if;
 
-  photo_path := owner_a::text||'/'||shop::text||'/hot/'||gen_random_uuid()::text||'.webp';
+  v_photo_path := owner_a::text||'/'||shop::text||'/hot/'||gen_random_uuid()::text||'.webp';
   v_menu_id := public.ng_map_save_menu(
     shop,'hot',null::uuid,'극강 메뉴',18000,7::smallint,
-    '얼큰한','매운요리',photo_path
+    '얼큰한','매운요리',v_photo_path
   );
 
   dashboard := public.ng_map_dashboard_access('hot',shop,null);
@@ -393,10 +406,41 @@ begin
     raise exception 'anonymous visitor rating read accepted';
   exception when insufficient_privilege then null;
   end;
+  reset role;
+  -- An ordinary visitor has no owner row or paid entitlement, and still rates.
+  perform set_config('request.jwt.claim.sub',visitor::text,true);
+  perform set_config('request.jwt.claims',jsonb_build_object('sub',visitor,'role','authenticated')::text,true);
+  set local role authenticated;
+  perform public.hot_menu_spice_upsert(v_menu_id,1::smallint);
+  perform public.hot_menu_spice_upsert(v_menu_id,4::smallint);
+  select count(*) into visible_rows from public.hot_menu_spice_ratings r
+    where r.menu_id=v_menu_id and r.user_id=visitor and r.level=4;
+  if visible_rows<>1 then raise exception 'free visitor own-rating upsert failed'; end if;
+  reset role;
+
+  -- Public catalog must read successfully under the actual anonymous role,
+  -- reflect owner heat separately from ratings, and preserve sold-out/photo data.
+  perform set_config('request.jwt.claim.sub','',true);
+  perform set_config('request.jwt.claims','{"role":"anon"}',true);
+  set local role anon;
+  select count(*) into visible_rows from public.ng_map_hot_menu_catalog m
+    where m.id=v_menu_id and m.heat=6 and m.flavor='칼칼한'
+      and m.soldout and m.map_menu_photo and m.photo_path=v_photo_path;
+  if visible_rows<>1 then raise exception 'anonymous catalog save/readback failed'; end if;
+
+  reset role;
+
+  update public.ng_store_claims set status='pending' where store_id=shop;
+  set local role anon;
+  if exists(select 1 from public.ng_map_hot_menu_catalog m where m.id=v_menu_id) then
+    raise exception 'unverified owner menu exposed publicly';
+  end if;
+  reset role;
+
 
   -- Privileged fixture inspection is separate from the authenticated RLS assertions.
   reset role;
-  if (select count(*) from public.hot_menu_spice_ratings r where r.menu_id=v_menu_id) <> 2
+  if (select count(*) from public.hot_menu_spice_ratings r where r.menu_id=v_menu_id) <> 3
     or not exists(
       select 1 from public.hot_menu_spice_ratings r
       where r.menu_id=v_menu_id and r.user_id=owner_a and r.level=7

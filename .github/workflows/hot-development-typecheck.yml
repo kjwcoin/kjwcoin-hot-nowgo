@@ -3,12 +3,16 @@ on:
   push:
     branches:
       - 'feature/hot-spice-median-v1'
+      - 'fix/hot-november-release-validation'
     paths:
       - 'source/lib/**'
       - 'source/app/**'
       - 'source/components/**'
       - 'source/tsconfig.json'
       - 'source/pnpm-lock.yaml'
+      - 'source/package.json'
+      - 'source/tests/**'
+      - 'source/supabase/**'
       - '.github/workflows/hot-development-typecheck.yml'
   pull_request:
     paths:
@@ -16,6 +20,10 @@ on:
       - 'source/app/**'
       - 'source/components/**'
       - 'source/tsconfig.json'
+      - 'source/pnpm-lock.yaml'
+      - 'source/package.json'
+      - 'source/tests/**'
+      - 'source/supabase/**'
       - '.github/workflows/hot-development-typecheck.yml'
 permissions:
   contents: read
@@ -53,3 +61,7 @@ jobs:
         if: steps.window.outputs.allowed == 'true'
         working-directory: source
         run: pnpm exec tsc --noEmit --incremental false
+      - name: Run helper and application regression suites
+        if: steps.window.outputs.allowed == 'true'
+        working-directory: source
+        run: node --experimental-strip-types --test lib/*.test.ts tests/*.test.mjs

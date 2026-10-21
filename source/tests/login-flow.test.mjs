@@ -3,17 +3,20 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
 import ts from 'typescript';
+import {createHash} from 'node:crypto';
 
 function load(path, dependencies) {
  const source=fs.readFileSync(new URL(path,import.meta.url),'utf8');
  const output=ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.CommonJS,jsx:ts.JsxEmit.React}}).outputText;
  const exports={};
- vm.runInNewContext(output,{exports,require(name){if(!(name in dependencies))throw new Error('Unexpected import: '+name);return dependencies[name]},URL,URLSearchParams,queueMicrotask,React:{createElement(){return null}},...dependencies.globals},{filename:path});
+ Object.assign(dependencies,{'node:crypto':{createHash},'@/lib/menu-catalog':{menuByPlaceId(){throw new Error('unexpected menu lookup')}}});
+ if(dependencies['@/lib/integration-policy'])Object.assign(dependencies['@/lib/integration-policy'],{APP_RETURN_COOKIE:'nowgo-app-return',readAppReturnCookie(){return null}});
+ vm.runInNewContext(output,{exports,document:{cookie:''},require(name){if(!(name in dependencies))throw new Error('Unexpected import: '+name);return dependencies[name]},URL,URLSearchParams,queueMicrotask,React:{createElement(){return null}},...dependencies.globals},{filename:path});
  return exports;
 }
 async function flush(){for(let i=0;i<20;i++)await Promise.resolve()}
 for(const host of ['hot.nowgo.space','sweet.nowgo.space','rich.nowgo.space']){
- test(host+' callback sends an existing owner directly to its own root map',async()=>{
+ test(host+' callback sends an existing owner directly to its store management',async()=>{
   const redirects=[],calls=[],removed=[];
   const db={auth:{async exchangeCodeForSession(){return {error:null}},async getSession(){return {data:{session:{access_token:'token'}},error:null}}}};
   const globals={location:{host,search:'?code=oauth-code',replace(path){redirects.push(path)}},sessionStorage:{getItem(){return JSON.stringify({accountType:'owner',returnTo:'/suggestion#report'})},removeItem(key){removed.push(key)}}};
@@ -25,7 +28,7 @@ for(const host of ['hot.nowgo.space','sweet.nowgo.space','rich.nowgo.space']){
    '@/lib/site-config':{variantForHost(host){return host.split('.')[0]}},globals,
   });
   module.default();await flush();
-  assert.deepEqual(redirects,['/']);assert.deepEqual(calls,['/api/customer/login-target']);
+  assert.deepEqual(redirects,['/owner']);assert.deepEqual(calls,['/api/customer/login-target']);
   assert.equal(removed.length,1);
  });
 }
