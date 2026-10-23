@@ -9,7 +9,7 @@ import {publicConfig} from '@/lib/auth-config';
 import {readReferralCookie,clearReferralCookie} from '@/lib/partner-attribution';
 
 async function recordPartnerConversion(request:Request,hotStoreId:string){
- const sourceStoreId=readReferralCookie(request);if(!sourceStoreId)return;
+ const referral=readReferralCookie(request),sourceStoreId=referral?.target==='owner'?referral.storeRef:null;if(!sourceStoreId)return;
  if(!/^[0-9a-f-]{36}$/i.test(hotStoreId))throw Error('partner_conversion_store_invalid');
  const config=publicConfig(),serviceKey=process.env.SUPABASE_SERVICE_ROLE_KEY;
  if(!config.ready||!serviceKey)throw Error('partner_conversion_storage_unavailable');
@@ -19,7 +19,7 @@ async function recordPartnerConversion(request:Request,hotStoreId:string){
 }
 function successReply(request:Request,data:unknown){
  const response=reply(request,data);
- if(readReferralCookie(request))response.headers.append('Set-Cookie',clearReferralCookie());
+ const referral=readReferralCookie(request);if(referral?.target==='owner')response.headers.append('Set-Cookie',clearReferralCookie());
  return response;
 }
 export async function POST(request:Request){try{
