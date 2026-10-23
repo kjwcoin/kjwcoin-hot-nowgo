@@ -72,15 +72,14 @@ export async function GET(request: Request) {
     const records = rows.slice(0, limit).flatMap((row) => {
       const storeId = row.place_id?.trim();
       if (!storeId) return [];
-      const signup = new URL(JOIN_URL);
-      signup.searchParams.set('source_store_id', storeId);
-      const ownerSignup = signedReferralUrl(storeId);
+      const memberSignup = signedReferralUrl(storeId, 'user');
+      const ownerSignup = signedReferralUrl(storeId, 'owner');
       return [{
         store_id: storeId,
         store_name: row.shop,
         menu_name: row.menu,
         spicy_level: row.heat,
-        member_signup_url: signup.toString(),
+        member_signup_url: memberSignup,
         owner_signup_url: ownerSignup,
       }];
     });
