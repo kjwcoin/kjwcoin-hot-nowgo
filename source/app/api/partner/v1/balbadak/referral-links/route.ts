@@ -11,6 +11,6 @@ export async function POST(request:Request){
  const storeId=(value as Record<string,unknown>).source_store_id;
  if(typeof storeId!=='string'||!storeId.trim()||storeId.trim().length>120||!/^[A-Za-z0-9_-]+$/.test(storeId.trim()))return json({error:'source_store_id 형식이 올바르지 않습니다.'},400);
  const sourceStoreId=storeId.trim();
- try{return json({source_store_id:sourceStoreId,member_signup_url:signedReferralUrl(sourceStoreId,'user'),owner_signup_url:signedReferralUrl(sourceStoreId,'owner'),expires_in_seconds:30*24*60*60})
+ try{return json({source_store_id:sourceStoreId,member_signup_url:signedReferralUrl(sourceStoreId,'user'),owner_signup_url:signedReferralUrl(sourceStoreId,'owner'),expires_in_seconds:30*24*60*60})}
  catch{return json({error:'제휴 링크를 만들 수 없습니다.'},503)}
 }
