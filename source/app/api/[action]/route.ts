@@ -1,6 +1,9 @@
 import {reply,validOrigin,failure,config} from '@/lib/server';
 import {communityMenus,menuById} from '@/lib/menu-catalog';
 import {publicDb,verifiedUser} from '@/lib/supabase';
+import {createClient} from '@supabase/supabase-js';
+import {publicConfig} from '@/lib/auth-config';
+import {readReferralCookie} from '@/lib/partner-attribution';
 import {isKoreanAddress,isKoreanCoordinate,isKoreanRegion} from '@/lib/korean-region';
 import {siteConfig,variantForHost} from '@/lib/site-config';
 import sharp from 'sharp';
@@ -10,6 +13,17 @@ import {publishReport,retrySavedReport,koreanToday} from '@/lib/report-publicati
 type Ctx={params:Promise<{action:string}>};
 const reject=(req:Request,error:string,status:number)=>reply(req,{error},status);
 const sha=async(s:string)=>Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s)))).map(x=>x.toString(16).padStart(2,'0')).join('');
+async function recordPartnerMemberReport(req:Request,userId:string,reportId:string,hotStoreId:string|null){
+ const referral=readReferralCookie(req);if(!referral||referral.target!=='user')return 'not_applicable';
+ const config=publicConfig(),key=process.env.SUPABASE_SERVICE_ROLE_KEY;
+ if(!config.ready||!key)throw Error('partner_member_attribution_storage_unavailable');
+ const db=createClient(config.url,key,{auth:{persistSession:false,autoRefreshToken:false}});
+ const {error}=await db.from('hot_partner_member_reports').upsert({
+  source:'balbadak',referral_store_id:referral.storeRef,user_id:userId,report_id:reportId,
+  hot_store_id:hotStoreId&&/^[a-f0-9-]{36}$/i.test(hotStoreId)?hotStoreId:null,
+ },{onConflict:'source,report_id',ignoreDuplicates:true});
+ if(error)throw error;return 'recorded';
+}
 
 export async function GET(req:Request,{params}:Ctx){
  const {action}=await params;
@@ -118,13 +132,16 @@ export async function POST(req:Request,{params}:Ctx){
    upload:async()=>{const {error}=await client.storage.from(theme.bucket).upload(path,uploadBytes,{contentType:mime,upsert:false});return error},
    publish:async()=>{const {data,error}=await client.rpc(theme.publish,{report_id:id});return {status:data,error}},
   });
+  let partnerAttribution='not_applicable';
+  try{partnerAttribution=await recordPartnerMemberReport(req,user.id,id,ownerStore||customerStore?storeId:null)}
+  catch(error){partnerAttribution='pending';console.warn('HOT Balbadak member report attribution pending',error)}
   // The durable DB queue exists before this best-effort dispatch. AI failure cannot undo a report.
   const authorization=req.headers.get('authorization')||'';
   after(async()=>{try{await fetch('https://nowgo.space/api/taste-photo-review',{
    method:'POST',redirect:'error',headers:{'Content-Type':'application/json',authorization},
    body:JSON.stringify({kind:variant,reportId:id}),signal:AbortSignal.timeout(25000),
   })}catch{console.warn('Photo review remains queued')}});
-  return reply(req,{...receipt,photoReview:'queued'},201);
+  return reply(req,{...receipt,photoReview:'queued',partnerAttribution},201);
  }catch(e){return failure(req,e)}
 }
 
