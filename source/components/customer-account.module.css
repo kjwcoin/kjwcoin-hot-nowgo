@@ -44,3 +44,8 @@
   }
   .mobileRegular:hover { background: var(--accent); color: var(--accent-foreground); }
 }
+
+.consumerEntry {display:flex; align-items:center; gap:4px; flex-wrap:wrap;}
+.consumerEntry a {display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 8px; font-size:13px; font-weight:600; color:inherit; white-space:nowrap; text-decoration:none;}
+.consumerEntry a:hover {text-decoration:underline;}
+@media(max-width:700px){.consumerEntry {gap:0}.consumerEntry a {font-size:12px;padding:0 5px}}
