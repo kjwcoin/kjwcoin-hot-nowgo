@@ -16,6 +16,13 @@ export function returnPath(raw:unknown){
  if(path==='/'&&u.searchParams.has('menu'))return '/suggestion'+u.search+u.hash;
  return path+u.search+u.hash;}catch{return '/'}
 }
+/** Owner web navigation only. The dashboard API still verifies every store and link. */
+export function ownerReturnPath(raw: unknown): string | null {
+ if(typeof raw!=='string'||raw!==raw.trim())return null;
+ if(/^\/owner(?:\/dashboard(?:\/[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12})?|\/subscribe)?$/.test(raw))return raw;
+ if(/^\/owner\/signup(?:\?sourceStore=[A-Za-z0-9_-]{1,120})?$/.test(raw))return raw;
+ return null;
+}
 export type OfficialStatus={linked:boolean;open:string;menu:string;crowding:string;seating:string;checkedAt:string|null;source:string;fresh:boolean;url:string|null;validUntil:string|null};
 export function resolveOfficialStatus(raw:unknown,placeId:string,menuId:string,now=Date.now()):OfficialStatus {
  const unknown:OfficialStatus={linked:false,open:'확인 필요',menu:'확인 필요',crowding:'확인 필요',seating:'확인 필요',checkedAt:null,source:'NOWGO 매장 연결 준비 중',fresh:false,url:null,validUntil:null};

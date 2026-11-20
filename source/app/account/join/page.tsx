@@ -4,19 +4,18 @@ import Link from 'next/link';
 import FlavorHeader from '@/components/flavor-header';
 import {browserDb} from '@/lib/supabase-browser';
 import {api} from '@/lib/client';
-import {returnPath} from '@/lib/integration-policy';
+import {ownerReturnPath,returnPath} from '@/lib/integration-policy';
 import {siteConfig,variantForHost} from '@/lib/site-config';
 
 import OAuthButtons from '@/components/oauth-buttons';
 
 export default function Join(){
  const variant=useSyncExternalStore(()=>()=>{},()=>variantForHost(location.host),()=> 'hot' as const),theme=siteConfig(variant);
- const search=useSyncExternalStore(()=>()=>{},()=>location.search,()=>''),params=new URLSearchParams(search),returnTo=returnPath(params.get('returnTo')),accountType=params.get('type')==='owner'?'owner':params.get('type')==='user'?'user':null;
+ const search=useSyncExternalStore(()=>()=>{},()=>location.search,()=>''),params=new URLSearchParams(search),accountType=params.get('type')==='owner'?'owner':params.get('type')==='user'?'user':null,rawReturn=params.get('returnTo'),returnTo=(accountType==='owner'?ownerReturnPath(rawReturn):null)??returnPath(rawReturn),chooser=accountType==='owner'&&params.get('finish')!=='1'&&!returnTo.startsWith('/app/');
  const [signedIn,setSignedIn]=useState(false),[authChecked,setAuthChecked]=useState(false),[essential,setEssential]=useState(false),[marketing,setMarketing]=useState(false),[busy,setBusy]=useState(false),[error,setError]=useState('');
  useEffect(()=>{queueMicrotask(()=>{try{void browserDb().auth.getUser().then(async({data})=>{
  if(data?.user&&!data.user.is_anonymous){
-  const membership=await api<{existingOwner:boolean}>('/api/customer/login-target');
-  if(membership.existingOwner&&accountType==='owner'&&!returnTo.startsWith('/app/')){location.replace(returnTo);return}
+  if(accountType!=='owner')await api<{existingOwner:boolean}>('/api/customer/login-target');
  }
  setSignedIn(!!data?.user&&!data.user.is_anonymous);setAuthChecked(true)
 }).catch(()=>setAuthChecked(true))}catch{setAuthChecked(true)}})},[]);
@@ -28,12 +27,12 @@ export default function Join(){
    await api('/api/customer/consents',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({essential:true,marketingEmail:marketing,version:theme.consent})});
    if(!returnTo.startsWith('/app/')){const {error:profileError}=await browserDb().auth.updateUser({data:{nowgo_account_type:accountType}});if(profileError)throw profileError;}
    window.dispatchEvent(new Event('hot-customer-change'));
-   location.assign(returnTo.startsWith('/app/')?returnTo:accountType==='owner'?(returnTo.startsWith('/owner')?returnTo:'/owner/signup'):(returnTo.startsWith('/app/')?'/':returnTo));
+   location.assign(returnTo.startsWith('/app/')?returnTo:accountType==='owner'?(returnTo.startsWith('/owner/signup')?returnTo:'/owner/signup'):(returnTo.startsWith('/app/')?'/':returnTo));
   }catch(e){setBusy(false);setError((e as Error).message)}
  }
  return <><FlavorHeader/><main className="terms-page join-page"><div className="eyebrow">{theme.name} · NOWGO ACCOUNT</div><h1>{accountType?`${accountType==='owner'?'점주':'유저'}로 시작하기`:'통합회원가입/로그인'}</h1><p>{accountType?`${theme.name}에서 사용할 ${accountType==='owner'?'점주':'유저'} 계정을 카카오 또는 구글로 연결해 주세요.`:'유저 또는 점주를 먼저 선택해 주세요.'}</p>
   {accountType==='user'&&<p>NOWGO SPACE에서 사용하던 카카오·Google 계정으로 HOT·RICH·SWEET을 이용할 수 있어요. 점주 가입과 매장 관리 권한은 별도입니다.</p>}
-  {!accountType?<section className="account-type-grid" aria-label="가입 유형 선택"><Link className="account-type-card" href={'/account/join?type=user&returnTo='+encodeURIComponent(returnTo)}><strong>유저</strong><span>취향에 맞는 메뉴를 찾고 내 단골집의 영업현황을 확인해요.</span><em>유저로 시작하기 →</em></Link><Link className="account-type-card" href="/owner/signup"><strong>점주</strong><span>내 매장을 등록하고 영업현황과 단골을 관리해요.</span><em>점주로 시작하기 →</em></Link></section>:<section className="join-card">{!authChecked?<p role="status">계정을 확인하고 있어요.</p>:signedIn?<><h2>{theme.name} 이용 동의 안내</h2><p>{theme.name}은 회원 ID, 선택한 가입 유형, 저장·제보 이력을 제보 운영 및 문의에 사용합니다. 공식 점주 권한은 매장 소유권 확인 후 별도로 적용됩니다.</p>
+  {!accountType?<section className="account-type-grid" aria-label="가입 유형 선택"><Link className="account-type-card" href={'/account/join?type=user&returnTo='+encodeURIComponent(returnTo)}><strong>유저</strong><span>취향에 맞는 메뉴를 찾고 내 단골집의 영업현황을 확인해요.</span><em>유저로 시작하기 →</em></Link><Link className="account-type-card" href="/account/join?type=owner&amp;returnTo=%2Fowner%2Fdashboard"><strong>점주</strong><span>내 매장을 등록하고 영업현황과 단골을 관리해요.</span><em>점주로 시작하기 →</em></Link></section>:<section className="join-card">{!authChecked&&!chooser?<p role="status">계정을 확인하고 있어요.</p>:signedIn&&!chooser?<><h2>{theme.name} 이용 동의 안내</h2><p>{theme.name}은 회원 ID, 선택한 가입 유형, 저장·제보 이력을 제보 운영 및 문의에 사용합니다. 공식 점주 권한은 매장 소유권 확인 후 별도로 적용됩니다.</p>
   <label className="consent"><input type="checkbox" checked={essential} onChange={e=>setEssential(e.target.checked)}/><span>[필수] <a href="/terms" target="_blank" rel="noreferrer">{theme.name} 이용·개인정보 안내</a> 및 <a href="https://www.nowgo.space/legal/privacy" target="_blank" rel="noreferrer">NOWGO 개인정보 처리방침</a>을 확인하고 가입에 동의합니다.</span></label>
   <label className="consent"><input type="checkbox" checked={marketing} onChange={e=>setMarketing(e.target.checked)}/><span>[선택] 이벤트 소식을 이메일로 받겠습니다. 동의하지 않아도 모든 기능을 이용할 수 있습니다.</span></label>
   <button className="submit-button" onClick={finish} disabled={busy}>{busy?'연결하는 중':accountType==='owner'?'점주 가입정보 입력하기 ↗':'유저로 시작하기 ↗'}</button></>:<><h2>{accountType==='owner'?'점주':'유저'} 계정으로 로그인</h2><p>카카오 또는 구글 계정을 선택해 주세요.</p><OAuthButtons flavor={variant} returnTo={returnTo} accountType={accountType}/></>}

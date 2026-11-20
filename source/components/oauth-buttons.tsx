@@ -3,7 +3,7 @@
 import {useCallback,useEffect,useRef,useState} from 'react';
 import {browserDb} from '@/lib/supabase-browser';
 import {APP_RETURN_COOKIE,appLoginReturn} from '@/lib/integration-policy';
-import {returnPath} from '@/lib/integration-policy';
+import {ownerReturnPath,returnPath} from '@/lib/integration-policy';
 
 export default function OAuthButtons({flavor, returnTo = '/', accountType = 'user',initialProvider,includeApple=false,compactLabels=false}: {flavor: string; returnTo?: string; accountType?: 'user' | 'owner';initialProvider?:'google'|'kakao'|'apple';includeApple?:boolean;compactLabels?:boolean}) {
   const [pending, setPending] = useState<'kakao' | 'google' | 'apple' | null>(null);
@@ -17,7 +17,7 @@ export default function OAuthButtons({flavor, returnTo = '/', accountType = 'use
       window.dispatchEvent(new Event('nowgo-report-save-draft'));
       try{localStorage.removeItem('nowgo-explicit-logout')}catch{}
       const appReturn=appLoginReturn(returnTo);document.cookie=APP_RETURN_COOKIE+'='+(appReturn?encodeURIComponent(appReturn):'')+'; Path=/; Max-Age='+(appReturn?'600':'0')+'; Secure; SameSite=Lax';
-      sessionStorage.setItem(`${flavor}-pending-consent`, JSON.stringify({essential: false, returnTo: returnPath(returnTo), accountType}));
+      sessionStorage.setItem(`${flavor}-pending-consent`, JSON.stringify({essential: false, returnTo: (accountType==='owner'?ownerReturnPath(returnTo):null)??returnPath(returnTo), accountType}));
       if (location.hostname === 'nowgo.space' || location.hostname.endsWith('.nowgo.space')) {
         document.cookie = 'nowgo-flavor-oauth-return=' + encodeURIComponent(location.origin) + '; Path=/; Domain=.nowgo.space; Max-Age=600; Secure; SameSite=Lax';
       }
@@ -25,7 +25,8 @@ export default function OAuthButtons({flavor, returnTo = '/', accountType = 'use
         provider,
         options: {
           redirectTo: location.origin + '/account/callback',
-          queryParams: provider === 'google' ? {prompt: 'select_account'} : undefined,
+          queryParams: provider === 'google' ? {prompt: 'select_account'} :
+            provider === 'kakao' && accountType === 'owner' && !returnPath(returnTo).startsWith('/app/') ? {prompt: 'login'} : undefined,
         },
       });
       if (error) throw error;
